@@ -1,0 +1,19 @@
+site_name: Summer Internship
+site_description: Work instructions and self-check quiz for the internship program
+
+nav:
+  - Home: index.md
+  - Work Instructions: work-instructions/index.md
+  - Quizzes:
+      - Work Instructions Quiz: quiz/index.md
+      - Question Bank: quiz/data/work-instructions.md
+  - Reference Documents: reference-documents/index.md
+
+markdown_extensions:
+  - attr_list
+
+extra_css:
+  - assets/css/quiz.css
+
+extra_javascript:
+  - assets/js/quiz.js
