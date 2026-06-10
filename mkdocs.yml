@@ -1,6 +1,15 @@
 site_name: Summer Internship
 site_description: Work instructions and self-check quiz for the internship program
 
+theme:
+  name: material
+  palette:
+    scheme: default
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+
 nav:
   - Home: index.md
   - Work Instructions: work-instructions/index.md
@@ -11,6 +20,8 @@ nav:
 
 markdown_extensions:
   - attr_list
+  - md_in_html
+  - grid
 
 extra_css:
   - assets/css/quiz.css
