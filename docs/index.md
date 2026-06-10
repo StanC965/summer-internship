@@ -18,7 +18,7 @@
 
     Weekly tasks are your main driving factor, explaining things and proposing hands-on exercises
 
-- :chart_with_upwards_trend: **[Progress](work-instructions/progress.md)**
+- :chart_with_upwards_trend: **[Progress](quiz/results.md)**
 
     See your status as you progress over the material
 

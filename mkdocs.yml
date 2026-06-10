@@ -12,9 +12,15 @@ theme:
 
 nav:
   - Home: index.md
+  - Guide:
+      - Getting Started: guide/getting-started.md
+      - Setup IAR: guide/setup-iar.md
+      - Logic Analyzer: guide/logic-analyzer.md
+      - Coding Rules: guide/coding-rules.md
   - Work Instructions: work-instructions/index.md
   - Quizzes:
       - Work Instructions Quiz: quiz/index.md
+      - Results: quiz/results.md
       - Question Bank: quiz/data/work-instructions.md
   - Reference Documents: reference-documents/index.md
 
