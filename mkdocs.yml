@@ -7,6 +7,7 @@ theme:
   palette:
     scheme: default
   features:
+    - content.code.copy
     - navigation.tabs
     - navigation.sections
     - navigation.top
