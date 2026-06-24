@@ -1,5 +1,6 @@
 site_name: Summer Internship
 site_description: Work instructions and self-check quiz for the internship program
+site_url: https://stanc965.github.io/summer-internship/
 
 theme:
   name: material
@@ -14,10 +15,19 @@ nav:
   - Home: index.md
   - Guide:
       - Getting Started: guide/getting-started.md
+      - Setup GCC + VS Code: guide/setup-gcc-vscode.md
       - Setup IAR: guide/setup-iar.md
       - Logic Analyzer: guide/logic-analyzer.md
       - Coding Rules: guide/coding-rules.md
-  - Work Instructions: work-instructions/index.md
+  - Work Instructions:
+      - Overview: work-instructions/index.md
+      - "Week 1 · Part 1": work-instructions/week1-part1.md
+      - "Week 1 · Part 2": work-instructions/week1-part2.md
+      - "Week 2 · Part 1": work-instructions/week2-part1.md
+      - "Week 2 · Part 2": work-instructions/week2-part2.md
+      - "Week 3 · Part 1": work-instructions/week3-part1.md
+      - "Week 3 · Part 2": work-instructions/week3-part2.md
+      - "Week 3 · Part 3": work-instructions/week3-part3.md
   - Quizzes:
       - Work Instructions Quiz: quiz/index.md
       - Results: quiz/results.md
@@ -27,6 +37,10 @@ nav:
 markdown_extensions:
   - attr_list
   - md_in_html
+  - admonition
+  - pymdownx.details
+  - tables
+  - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
