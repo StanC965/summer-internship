@@ -17,6 +17,7 @@ nav:
   - Guide:
       - Getting Started: guide/getting-started.md
       - Setup IAR: guide/setup-iar.md
+      - New Project Tutorial with IAR: guide/new-project-iar.md
       - Logic Analyzer: guide/logic-analyzer.md
       - Git Workflow & Progress Tracking: guide/github-workflow-progress.md
       - Coding Rules: guide/coding-rules.md
@@ -29,10 +30,12 @@ nav:
       - "Week 3 · Part 1": work-instructions/week3-part1.md
       - "Week 3 · Part 2": work-instructions/week3-part2.md
       - "Week 3 · Part 3": work-instructions/week3-part3.md
+  - Progress:
   - Quizzes:
       - Work Instructions Quiz: quiz/index.md
       - Results: quiz/results.md
       - Question Bank: quiz/data/work-instructions.md
+  - Results:
   - Reference Documents: reference-documents/index.md
 
 markdown_extensions:
@@ -43,8 +46,8 @@ markdown_extensions:
   - tables
   - pymdownx.superfences
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: material.extensions.emoji.twemoji
+      emoji_generator: material.extensions.emoji.to_svg
 
 extra_css:
   - assets/css/quiz.css

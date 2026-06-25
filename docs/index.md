@@ -6,29 +6,29 @@
 
     Basic setup of tools, environment and create first project
 
-- :hammer: **[IAR Tutorial](guide/setup-iar.md)**
+- :hammer: **[New Project Tutorial with IAR](guide/new-project-iar.md)**
 
-    Learn environment basic functionalities
-
-- :microscope: **[Logic Analyzer Guide](guide/logic-analyzer.md)**
-
-    Work with the Logic Analyzer tool as with an oscilloscope
+    Step-by-step guide to create a new IAR AVR project
 
 - :memo: **[Work Instructions](work-instructions/index.md)**
 
     Weekly tasks are your main driving factor, explaining things and proposing hands-on exercises
 
-- :chart_with_upwards_trend: **[Track Progress](quiz/results.md)**
+- :chart_with_upwards_trend: **[Track Work Progress](work-instructions/progress.md)**
 
     See your status as you progress over the material
 
-- :clipboard: **[Quizzes](quiz/index.md)**
+- :clipboard: **[Quizzes Low Stake](quiz/index.md)**
 
     Test your knowledge with low stake quizzes
 
 - :bar_chart: **[Quizzes Results](quiz/results.md)**
 
     Check your quiz results and track your score evolution
+
+- :microscope: **[Logic Analyzer How To](guide/logic-analyzer.md)**
+
+    Work with the Logic Analyzer tool as with an oscilloscope
 
 - :books: **[Reference Documents](reference-documents/index.md)**
 
