@@ -1,4 +1,4 @@
-# Week 2 Â· Goal 4
+# Week 2 · Goal 4
 
 > **GOAL: Tack your app with TIMERS**
 
@@ -13,11 +13,11 @@ On short what you will do this week:
 
 ## Objective 1: Getting to know TC0 timer
 
-- **411** â€” **CORE** â€”  Go at the top menu bar: `Atmel-ICE -> Fuse Handler -> Low Fuse` -> check the box: *Divide clock by 8 internally*, check the box: *Clock output on PORTB1*. Select from the drop-down list the Internal RC oscillator 8MHz as shown (the New Value for Low Fuse is `0x22`) -> Program Fuses -> Close.
+- **411** — **CORE** —  Go at the top menu bar: `Atmel-ICE -> Fuse Handler -> Low Fuse` -> check the box: *Divide clock by 8 internally*, check the box: *Clock output on PORTB1*. Select from the drop-down list the Internal RC oscillator 8MHz as shown (the New Value for Low Fuse is `0x22`) -> Program Fuses -> Close.
 
     What you have set here is the source for system clock signal. The heartbeat of the system. Internal RC oscillator @ 8MHz frequency, but divided by 8, so resulting in 1MHz system clock frequency which will be distributed to all peripherals including CPU. Lowering the system clock frequency is a great way to reduce power consumption in embedded systems. TC0 is an 8bit timer/counter which also receives clock signal from this source. This TC0 we will study further.
 
-- **412** â€” **CORE** â€”  TC0 is on chapter 17 in datasheet. REMEMBER â€” every time you need to work with a peripheral module:
+- **412** — **CORE** —  TC0 is on chapter 17 in datasheet. REMEMBER — every time you need to work with a peripheral module:
 
     1. you will encounter a lot of information noise, so prepare your mind to filter
     2. you will not understand all the information at once, therefore be patient reading 2x, 3x times
@@ -31,16 +31,16 @@ On short what you will do this week:
     !!! note "Note"
         In TC0 case the final result will depend on the Operating Mode you choose (in Normal mode final result is interrupt request to CPU at overflow, in CTC mode the final result will be an interrupt request to CPU when matching occurs, in PWM mode the final result will be a digital signal output to physical microcontroller's pin). The following exercises will guide you through.
 
-??? info "Additional materials â€” FOR YOUR INFO"
-    - [Introduction to AVR Timers Â» maxEmbedded](https://maxembedded.com/2011/06/introduction-to-avr-timers/)
+??? info "Additional materials — FOR YOUR INFO"
+    - [Introduction to AVR Timers » maxEmbedded](https://maxembedded.com/2011/06/introduction-to-avr-timers/)
     - [AVR Timer programming - Tutorials (exploreembedded.com)](https://exploreembedded.com/wiki/AVR_Timer_programming)
     - [AVR130: Setup and Use of AVR Timers (microchip.com)](https://ww1.microchip.com/downloads/en/Appnotes/Atmel-2505-Setup-and-Use-of-AVR-Timers_ApplicationNote_AVR130.pdf)
 
 ---
 
-## Objective 2: Start simple â€” NORMAL MODE of operation for TC0
+## Objective 2: Start simple — NORMAL MODE of operation for TC0
 
-- **421** â€” **CORE** â€”  Your big task now is to make TC0 work in NORMAL MODE (from `0x00` to `0xFF`) obtaining an interrupt at overflow. After reading the TC0 datasheet information (registers & functionalities) you should have these questions.
+- **421** — **CORE** —  Your big task now is to make TC0 work in NORMAL MODE (from `0x00` to `0xFF`) obtaining an interrupt at overflow. After reading the TC0 datasheet information (registers & functionalities) you should have these questions.
 
     !!! note "Good start decisions"
         | Register | Questions | Good start decisions |
@@ -56,8 +56,8 @@ On short what you will do this week:
         | OCR0B | Should I use output compare B? | No. We are in NORMAL MODE, not any compare mode. |
         | TIFR0 | Should I process these Interrupt Flags? | No. We are relying on interrupt request served by the CPU and NOT relying on polling the Interrupt Flag to check when overflow occurs. |
 
-- **422** â€” **CORE** â€”  Introduce the corresponding interrupt service routine, breakpoint and hit!!!
-- **423** â€” **CORE** â€”  Do the math calculations for minimum and maximum of real time you can natively measure with NORMAL MODE until overflow, all prescalers considered. It is a combination of:
+- **422** — **CORE** —  Introduce the corresponding interrupt service routine, breakpoint and hit!!!
+- **423** — **CORE** —  Do the math calculations for minimum and maximum of real time you can natively measure with NORMAL MODE until overflow, all prescalers considered. It is a combination of:
     - HOW FAST timer can count: system clock frequency (1MHz) with prescaler (1, 8, ..., 1024) results in the counting frequency
     - HOW MUCH timer can count: TC0 maximum value for overflow (`0xFF`)
 
@@ -65,21 +65,21 @@ On short what you will do this week:
 
     How can you extend the maximum real time measured in NORMAL MODE? *(<<< your answer here)*
 
-- **424** â€” **OPTIONAL** â€” What can you say about the jitter (deviation in time) introduced when extending the maximum real time measured in NORMAL MODE? *(<<< your answer here)*
-- **425** â€” **CORE** â€”  Time your LED0 on and off at 1 second interval (exercise 216 revisited! but this time without software delays!) managed by TC0 Timer working in NORMAL MODE of operation with the help of interrupt service routine.
-- **426** â€” **STRETCH** â€”  What min, max frequency would have the signal on LED0 toggled from within ISR in case of min, max prescalers? FREQ MIN => ____  FREQ MAX => ____
-- **427** â€” **STRETCH** â€”  Use button SW0 to cycle through the possible frequencies (5 prescalers = 5 different frequencies). Use LED0 for your demonstration.
-- **428** â€” **STRETCH** â€”  Build a 5 seconds countdown timer using the 5 LEDs you have on all the boards: the countdown shall start when SW0 is pressed. The initial system state is that all LEDs are on, then for each substracted second one LED goes off.
-- **429** â€” **STRETCH** â€”  Re-design your BMW Control Panel Application with the introduction of timer feature. You can e.g. introduce a timer managed delay or a reading of the button from ISR.
+- **424** — **OPTIONAL** — What can you say about the jitter (deviation in time) introduced when extending the maximum real time measured in NORMAL MODE? *(<<< your answer here)*
+- **425** — **CORE** —  Time your LED0 on and off at 1 second interval (exercise 216 revisited! but this time without software delays!) managed by TC0 Timer working in NORMAL MODE of operation with the help of interrupt service routine.
+- **426** — **STRETCH** —  What min, max frequency would have the signal on LED0 toggled from within ISR in case of min, max prescalers? FREQ MIN => ____  FREQ MAX => ____
+- **427** — **STRETCH** —  Use button SW0 to cycle through the possible frequencies (5 prescalers = 5 different frequencies). Use LED0 for your demonstration.
+- **428** — **STRETCH** —  Build a 5 seconds countdown timer using the 5 LEDs you have on all the boards: the countdown shall start when SW0 is pressed. The initial system state is that all LEDs are on, then for each substracted second one LED goes off.
+- **429** — **STRETCH** —  Re-design your BMW Control Panel Application with the introduction of timer feature. You can e.g. introduce a timer managed delay or a reading of the button from ISR.
 
 ---
 
 ## Objective 3: CTC MODE of operation for TC0
 
-- **431** â€” **CORE** â€”  On short: CTC MODE is an enhancement of NORMAL MODE which gives you the possibility to have an interrupt request before overflow happens. The interrupt request is generated when TCNT0 register value matches OCR0A register value. Additionally, the pin labeled OC0A can be used to toggle its level when matching occurs. Re-make the process described at NORMAL MODE for setting the registers for TC0 to work on CTC MODE obtaining an interrupt at OCR0A = 127.
-- **432** â€” **CORE** â€”  What pin is OC0A? *(<<< your answer here)*. Which LED is connected to it? *(<<< your answer here)*. Using the Waveform Generator toggle the OC0A pin on match with OCR0A=127. Within the same program, but from inside ISR code, toggle another pin which has LED connected. What do you observe with respect to the two LEDs blinking behavior? *(<<< your answer here)*. If they are out-of-synch, make them to be turned on/off synchronously (both on, both off). How much real time (use ms/miliseconds) can be measured with OCR0A = 127? *(<<< your answer here)*. What other real timings you can measure having the same OCR0A = 127? *(<<< your answer here)*
-- **433** â€” **CORE** â€”  Build code to output a waveform (you are free to choose on which pin) with a period of 100ms. Is this observable with the human eye? *(<<< your observation here)*
-- **434** â€” **CORE** â€”  Do the math calculations for minimum and maximum of real time you can natively measure with CTC MODE, all prescalers considered. It is a combination of:
+- **431** — **CORE** —  On short: CTC MODE is an enhancement of NORMAL MODE which gives you the possibility to have an interrupt request before overflow happens. The interrupt request is generated when TCNT0 register value matches OCR0A register value. Additionally, the pin labeled OC0A can be used to toggle its level when matching occurs. Re-make the process described at NORMAL MODE for setting the registers for TC0 to work on CTC MODE obtaining an interrupt at OCR0A = 127.
+- **432** — **CORE** —  What pin is OC0A? *(<<< your answer here)*. Which LED is connected to it? *(<<< your answer here)*. Using the Waveform Generator toggle the OC0A pin on match with OCR0A=127. Within the same program, but from inside ISR code, toggle another pin which has LED connected. What do you observe with respect to the two LEDs blinking behavior? *(<<< your answer here)*. If they are out-of-synch, make them to be turned on/off synchronously (both on, both off). How much real time (use ms/miliseconds) can be measured with OCR0A = 127? *(<<< your answer here)*. What other real timings you can measure having the same OCR0A = 127? *(<<< your answer here)*
+- **433** — **CORE** —  Build code to output a waveform (you are free to choose on which pin) with a period of 100ms. Is this observable with the human eye? *(<<< your observation here)*
+- **434** — **CORE** —  Do the math calculations for minimum and maximum of real time you can natively measure with CTC MODE, all prescalers considered. It is a combination of:
     - HOW FAST timer can count: system clock frequency (1MHz) with prescaler (1, 8, ..., 1024) results in the counting frequency
     - HOW MUCH timer can count: TC0 minimum (`0x00`) and maximum value for overflow (`0xFF`)
 
@@ -87,20 +87,20 @@ On short what you will do this week:
 
     How can you extend the maximum real time measured in CTC MODE? *(<<< your answer here)*
 
-- **435** â€” **STRETCH** â€”  Considering that at min, max above (exercise 434) you toggle an LED, what min, max frequency will that signal have? FREQ MIN => ____  FREQ MAX => ____
-- **436** â€” **CORE** â€”  Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 400ms periodic signal, with 50% of the period on HIGH (1 logic) and 50% of the period on LOW (0 logic). Apply it to an LED.
-- **437** â€” **STRETCH** â€”  Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 1000ms periodic signal, with 70% of the period on HIGH (1 logic) and 30% of the period on LOW (0 logic). Apply it to an LED.
-- **438** â€” **STRETCH** â€”  Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 1200ms periodic signal, with the first 200ms on HIGH (1 logic), then 300ms on LOW (0 logic), then 500ms on HIGH again, and finally 200ms on LOW again. Apply it to an LED.
-- **439** â€” **OPTIONAL** â€” For each signal above (exercise 436, 437, 438) change the code implementation by updating the value TOP from the ISR code. Which type of implementation is better?
+- **435** — **STRETCH** —  Considering that at min, max above (exercise 434) you toggle an LED, what min, max frequency will that signal have? FREQ MIN => ____  FREQ MAX => ____
+- **436** — **CORE** —  Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 400ms periodic signal, with 50% of the period on HIGH (1 logic) and 50% of the period on LOW (0 logic). Apply it to an LED.
+- **437** — **STRETCH** —  Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 1000ms periodic signal, with 70% of the period on HIGH (1 logic) and 30% of the period on LOW (0 logic). Apply it to an LED.
+- **438** — **STRETCH** —  Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 1200ms periodic signal, with the first 200ms on HIGH (1 logic), then 300ms on LOW (0 logic), then 500ms on HIGH again, and finally 200ms on LOW again. Apply it to an LED.
+- **439** — **OPTIONAL** — For each signal above (exercise 436, 437, 438) change the code implementation by updating the value TOP from the ISR code. Which type of implementation is better?
 
-??? info "Additional materials â€” FOR YOUR INFO"
+??? info "Additional materials — FOR YOUR INFO"
     - [Learning AVR-C Episode 6: Timers - YouTube](https://www.youtube.com/watch?v=cAui6116XKc)
 
 ---
 
 ## Objective 4: Integration challenge
 
-- **441** â€” **CORE** â€”  You are a member of the software development team for application Car Crash Management. The requirement (1) for today is to integrate in your program the module called `CarCrashDetection` (You can find it in the folder Reference Documents). This module was developed by our colleagues in [Pune, India](https://www.google.ro/maps/place/MARQUARDT+INDIA+PVT.+LTD./@18.587949,73.674906,482m), where Marquardt has a subsidiary. The module offers an interface `unsigned char GetCarCrashDetectionStatus(void)` which returns 1 in case of detection of a frontal impact with another car and returns 0 in all other cases. The requirement (2) for today is that after the correct integration of module `CarCrashDetection`, you should command the explosion of the airbag caps for the driver and the passenger. The time window to do this is [ 650Âµs â€“ 800Âµs ]. So, no later than 800Âµs, but also no earlier than 650Âµs!!! Measurements are started from the moment when your program is notified that has been detected a frontal accident with another car. (For our safety, the airbag caps explosion will be simulated by lighting up an LED :))
+- **441** — **CORE** —  You are a member of the software development team for application Car Crash Management. The requirement (1) for today is to integrate in your program the module called `CarCrashDetection` (You can find it in the folder Reference Documents). This module was developed by our colleagues in [Pune, India](https://www.google.ro/maps/place/MARQUARDT+INDIA+PVT.+LTD./@18.587949,73.674906,482m), where Marquardt has a subsidiary. The module offers an interface `unsigned char GetCarCrashDetectionStatus(void)` which returns 1 in case of detection of a frontal impact with another car and returns 0 in all other cases. The requirement (2) for today is that after the correct integration of module `CarCrashDetection`, you should command the explosion of the airbag caps for the driver and the passenger. The time window to do this is [ 650µs – 800µs ]. So, no later than 800µs, but also no earlier than 650µs!!! Measurements are started from the moment when your program is notified that has been detected a frontal accident with another car. (For our safety, the airbag caps explosion will be simulated by lighting up an LED :))
 
     !!! note "Note"
         The measurements should be done with a Logic Analyzer you have. In 101 meetings we will look over the signals.
@@ -109,9 +109,9 @@ On short what you will do this week:
 
 ## Objective 5: Advancing TC1
 
-- **451** â€” **CORE** â€”  [Level Up Your Arduino Code: Timer Interrupts - YouTube](https://www.youtube.com/watch?v=2kr5A350H7E)
-- **452** â€” **OPTIONAL** â€” On timer TC1, 16 bits counter, implement and document the minimum and the maximum real time you can obtain using this timer. The same for minimum and maximum signal frequencies when applied to a toggling LED. What is the advantage of using a timer on 16 bits instead of a timer on 8 bits?
-- **453** â€” **OPTIONAL** â€” Turn on LEDs on the OLED1 with the help of TC1 as follows:
+- **451** — **CORE** —  [Level Up Your Arduino Code: Timer Interrupts - YouTube](https://www.youtube.com/watch?v=2kr5A350H7E)
+- **452** — **OPTIONAL** — On timer TC1, 16 bits counter, implement and document the minimum and the maximum real time you can obtain using this timer. The same for minimum and maximum signal frequencies when applied to a toggling LED. What is the advantage of using a timer on 16 bits instead of a timer on 8 bits?
+- **453** — **OPTIONAL** — Turn on LEDs on the OLED1 with the help of TC1 as follows:
 
     | Press duration of SW0 button | LED on |
     | ---------------------------- | ------ |
@@ -119,4 +119,4 @@ On short what you will do this week:
     | 1 second < 5 seconds | LED2 |
     | > 5 seconds | LED3 |
 
-- **454** â€” **OPTIONAL** â€” With the Unit of Input Capture count how many times the external button is pushed. On the 4th push light up LED1, on the 5th push light up LED2, on the 6th push light up LED3.
+- **454** — **OPTIONAL** — With the Unit of Input Capture count how many times the external button is pushed. On the 4th push light up LED1, on the 5th push light up LED2, on the 6th push light up LED3.
