@@ -2,10 +2,8 @@
 
 ## Exercise number scheme
 
-Exercises use the `xyz` scheme: `xyz` means Goal *x*, Objective *y*, Exercise *z*
-(e.g. `123` = Goal 1, Objective 2, Exercise 3). Items marked **OPTIONAL** cover different
-individual study paces. The *Additional materials* (videos, articles, datasheets) are kept inline as collapsible **FOR YOUR INFO** boxes next to the
-objective they belong to.
+Exercises use the `xyz` scheme: means Goal *x*, Objective *y*, Exercise *z* (e.g. `123` = Goal 1, Objective 2, Exercise 3).  
+Items marked **OPTIONAL** cover different individual study paces. The *Additional materials* (videos, articles, datasheets) are inline as collapsible **FOR YOUR INFO** boxes.
 
 ## Weeks
 

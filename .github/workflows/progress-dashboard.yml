@@ -5,7 +5,9 @@ on:
     types: [opened, reopened, synchronize, closed, labeled, unlabeled]
   workflow_dispatch:
   schedule:
-    - cron: "0 18 * * 5"
+    # July only (summer time in Romania, UTC+3): 12:00 and 16:00 local
+    - cron: "0 9 * 7 *"
+    - cron: "0 13 * 7 *"
 
 permissions:
   contents: read
