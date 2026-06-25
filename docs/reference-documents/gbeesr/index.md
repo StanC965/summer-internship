@@ -1,0 +1,21 @@
+# Great Books Every Engineer Should Read
+
+1. [Abraham Silberschatz - Operating System Concepts 10th edition](./Abraham%20Silberschatz%20-%20Operating%20System%20Concepts%2010th%20edition%201278.pdf)
+2. [Andrew S. Tanenbaum - Computer Networks (Global Edition)](./Andrew%20S.%20Tanenbaum%20-%20Computer-Networks-Global-Edition%20946.pdf)
+3. [Andrew S. Tanenbaum - Modern Operating Systems](./Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems%201137.pdf)
+4. [Andrew S. Tanenbaum - Structured Computer Organization](./Andrew%20S.%20Tanenbaum%20-%20Structured%20Computer%20Organization%20801.pdf)
+5. [Bruce Powel Douglass - Design Patterns for Embedded Systems in C](./Bruce%20Powel%20Douglass%20-%20Design-patterns-for-embedded-systems-in-C%20471.pdf)
+6. [Byte Craft - First Steps with Embedded Systems](./Byte%20Craft%20-%20First%20Steps%20with%20Embedded%20Systems%20228.pdf)
+7. [Deshpande - C and Data Structures](./Deshpande%20-%20C_and_Data_Structures%20174.pdf)
+8. [Irv Englander - The Architecture of Computer Hardware](./Irv%20Englander%20-%20The%20Architecture%20of%20Computer%20Hardware%20699.pdf)
+9. [Kernighan and Ritchie - The C Programming Language](./Kernighan%20%26%20Ritchie%20-%20The%20C%20Programming%20Language%20238.pdf)
+10. [Michael Barr - Programming Embedded Systems](./Michael%20Barr%20-%20Programming%20Embedded%20Systems%20288.PDF)
+11. [Michael Pont - Programming Embedded System I](./Michael%20Pont%20-%20Programming%20Embedded%20System%20I%20284.pdf)
+12. [Michael Pont - Programming Embedded System II](./Michael%20Pont%20-%20Programming%20Embedded%20System%20II%20349.pdf)
+13. [Miro Samek - Practical UML Statecharts in C](./Miro%20Samek%20-%20Practical%20UML%20Statecharts%20in%20C%20721.pdf)
+14. [Paul Chisholm - C Programming, Just the FAQs](./Paul%20Chisholm%20-%20C%20programming%20just%20the%20FAQs%20461.pdf)
+15. [Peter Van der Linden - Expert C Programming](./Peter%20Van%20der%20Linden%20-%20Expert_C_Programming%20290.pdf)
+16. [Ross Wiliams - Painless Guide to CRC Error Detection Algorithms](./Ross%20Wiliams%20-%20Painless%20Guide%20to%20CRC%20error%20detection%20algorithms%2015.pdf)
+17. [Steve Heath - Embedded Systems Design](./Steve%20Heath%20-%20Embedded_Systems_Design%20451.pdf)
+18. [William Press - Numerical Recipes in C](./William%20Press%20-%20Numerical%20Recipes%20in%20C%20949.pdf)
+
