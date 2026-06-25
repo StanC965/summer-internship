@@ -26,11 +26,8 @@ Use this area for manuals, cheat sheets, and supporting material.
 	- [mod.c](mod.c)
 	- [mod.h](mod.h)
 
-- Pulse View Installer (.exe)
-	- [pulseview-0.4.2-64bit-static-release-installer.exe](pulseview-0.4.2-64bit-static-release-installer.exe)
-
 - Registers Comparison Excel File
 	- [Registers_Compare_324_328.xlsx](Registers_Compare_324_328.xlsx)
 
 - Additional Reading
-	- [Great Books Every Engineer Should Read](Great%20Books%20Every%20Engineer%20Should%20Read/)
+	- [Great Books Every Engineer Should Read](Great%20Books%20Every%20Engineer%20Should%20Read/index.md)
