@@ -30,4 +30,4 @@ Use this area for manuals, cheat sheets, and supporting material.
 	- [Registers_Compare_324_328.xlsx](Registers_Compare_324_328.xlsx)
 
 - Additional Reading
-	- [Great Books Every Engineer Should Read](Great%20Books%20Every%20Engineer%20Should%20Read/index.md)
+	- [Great Books Every Engineer Should Read](gbeesr/index.md)
