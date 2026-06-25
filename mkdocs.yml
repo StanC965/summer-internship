@@ -16,9 +16,9 @@ nav:
   - Home: index.md
   - Guide:
       - Getting Started: guide/getting-started.md
-      - Setup IAR: guide/setup-iar.md
+      - Setup IAR Embedded Workbench Tool: guide/setup-iar.md
       - New Project Tutorial with IAR: guide/new-project-iar.md
-      - Logic Analyzer: guide/logic-analyzer.md
+      - Logic Analyzer How To: guide/logic-analyzer.md
       - Git Workflow & Progress Tracking: guide/github-workflow-progress.md
       - Coding Rules: guide/coding-rules.md
   - Work Instructions:
@@ -45,7 +45,9 @@ markdown_extensions:
   - pymdownx.details
   - tables
   - pymdownx.superfences
-  - pymdownx.emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
 
 extra_css:
   - assets/css/quiz.css
