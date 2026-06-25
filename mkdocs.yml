@@ -23,13 +23,13 @@ nav:
       - Coding Rules: guide/coding-rules.md
   - Work Instructions:
       - Overview: work-instructions/index.md
-      - "Week 1 · Part 1": work-instructions/week1-part1.md
-      - "Week 1 · Part 2": work-instructions/week1-part2.md
-      - "Week 2 · Part 1": work-instructions/week2-part1.md
-      - "Week 2 · Part 2": work-instructions/week2-part2.md
-      - "Week 3 · Part 1": work-instructions/week3-part1.md
-      - "Week 3 · Part 2": work-instructions/week3-part2.md
-      - "Week 3 · Part 3": work-instructions/week3-part3.md
+      - "Week 1 · Goal 1": work-instructions/week1-goal1.md
+      - "Week 1 · Goal 2": work-instructions/week1-goal2.md
+      - "Week 2 · Goal 3": work-instructions/week2-goal1.md
+      - "Week 2 · Goal 4": work-instructions/week2-goal2.md
+      - "Week 3 · Goal 5": work-instructions/week3-goal1.md
+      - "Week 3 · Goal 6": work-instructions/week3-goal2.md
+      - "Week 3 · Goal 7": work-instructions/week3-goal3.md
   - Progress: work-instructions/progress.md
   - Quizzes:
       - Work Instructions Quiz: quiz/index.md

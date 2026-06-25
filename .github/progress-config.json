@@ -2,13 +2,13 @@
   "studentBranchPrefix": "student/",
   "dashboardIssueTitle": "Work Progress Dashboard",
   "exercises": [
-    "w1p1",
-    "w1p2",
-    "w2p1",
-    "w2p2",
-    "w3p1",
-    "w3p2",
-    "w3p3"
+    "w1g1",
+    "w1g2",
+    "w2g1",
+    "w2g2",
+    "w3g1",
+    "w3g2",
+    "w3g3"
   ],
   "students": [
     "alice",

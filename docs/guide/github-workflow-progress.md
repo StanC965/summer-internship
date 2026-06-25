@@ -48,17 +48,17 @@ Students do all work on their own branch.
 Recommended branch layout:
 
 - Permanent student branch: `student/alice`
-- Short-lived work branch: `alice/w2p1-uart-init`
-- PR direction: `alice/w2p1-uart-init` -> `student/alice`
+- Short-lived work branch: `alice/w2g1-uart-init`
+- PR direction: `alice/w2g1-uart-init` -> `student/alice`
 
 This means students never open normal progress PRs toward `main`.
 `main` stays only for your controlled content and final integration.
 
-## 4) Best granularity: week-part, not every tiny objective
+## 4) Best granularity: week-goal, not every tiny objective
 
 Recommended tracking unit:
 
-- One PR per work-instructions part: `w1p1`, `w1p2`, `w2p1`, `w2p2`, `w3p1`, `w3p2`, `w3p3`
+- One PR per work-instructions goal: `w1g1`, `w1g2`, `w2g1`, `w2g2`, `w3g1`, `w3g2`, `w3g3`
 
 Why this is better than objective-level tracking:
 
@@ -67,15 +67,15 @@ Why this is better than objective-level tracking:
 - It is easier for students to understand.
 - It is still fine-grained enough for meaningful percentages.
 
-Use objective-level branches only when one part is too large. In that case, students may create several temporary branches, but only one accepted PR should count for the tracked part label.
+Use objective-level branches only when one goal is too large. In that case, students may create several temporary branches, but only one accepted PR should count for the tracked goal label.
 
-## 5) One PR per tracked part (instead of commit message parsing)
+## 5) One PR per tracked goal (instead of commit message parsing)
 
 Avoid commit-message conventions as your primary tracking source.
 Use PR labels as structured data:
 
 - `student:<name>` (example: `student:alice`)
-- `exercise:<id>` (example: `exercise:w2p1`)
+- `exercise:<id>` (example: `exercise:w2g1`)
 
 Tracked exercise IDs are configured in:
 
@@ -83,7 +83,7 @@ Tracked exercise IDs are configured in:
 
 Default IDs:
 
-- `w1p1`, `w1p2`, `w2p1`, `w2p2`, `w3p1`, `w3p2`, `w3p3`
+- `w1g1`, `w1g2`, `w2g1`, `w2g2`, `w3g1`, `w3g2`, `w3g3`
 
 Use the PR template in:
 
@@ -120,7 +120,7 @@ This gives each student a clear status and gives you one centralized overview.
 Student:
 
 1. Keep own permanent branch `student/<name>`.
-2. Create a short-lived branch for a tracked part.
+2. Create a short-lived branch for a tracked goal.
 3. Open PR from the short-lived branch into `student/<name>`.
 4. Add both required labels.
 5. Check dashboard issue for own percentage and missing exercises.
@@ -138,7 +138,7 @@ Mentor:
 3. Create labels in GitHub UI:
 
 - `student:alice`, `student:bob`, ...
-- `exercise:w1p1`, `exercise:w1p2`, `exercise:w2p1`, `exercise:w2p2`, `exercise:w3p1`, `exercise:w3p2`, `exercise:w3p3`
+- `exercise:w1g1`, `exercise:w1g2`, `exercise:w2g1`, `exercise:w2g2`, `exercise:w3g1`, `exercise:w3g2`, `exercise:w3g3`
 
 1. Run workflow once with manual dispatch (`workflow_dispatch`) to generate the dashboard issue.
 2. Share this process with students before week 1.
