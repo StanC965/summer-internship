@@ -16,9 +16,9 @@ nav:
   - Home: index.md
   - Guide:
       - Getting Started: guide/getting-started.md
-      - Setup GCC + VS Code: guide/setup-gcc-vscode.md
       - Setup IAR: guide/setup-iar.md
       - Logic Analyzer: guide/logic-analyzer.md
+      - Git Workflow & Progress Tracking: guide/github-workflow-progress.md
       - Coding Rules: guide/coding-rules.md
   - Work Instructions:
       - Overview: work-instructions/index.md

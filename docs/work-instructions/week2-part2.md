@@ -1,6 +1,6 @@
 # Week 2 · Part 2
 
-> **GOAL FOR THIS WEEK 4: Tack your app with TIMERS**
+> **GOAL: Tack your app with TIMERS**
 
 By the end of this week you should be able to control the TC0 peripheral to measure time.
 
@@ -120,7 +120,3 @@ On short what you will do this week:
     | > 5 seconds | LED3 |
 
 - **454** — **OPTIONAL** — With the Unit of Input Capture count how many times the external button is pushed. On the 4th push light up LED1, on the 5th push light up LED2, on the 6th push light up LED3.
-
----
-
-!!! success "END OF WEEK 4"

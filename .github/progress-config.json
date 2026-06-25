@@ -1,0 +1,18 @@
+{
+  "studentBranchPrefix": "student/",
+  "dashboardIssueTitle": "Work Progress Dashboard",
+  "exercises": [
+    "w1p1",
+    "w1p2",
+    "w2p1",
+    "w2p2",
+    "w3p1",
+    "w3p2",
+    "w3p3"
+  ],
+  "students": [
+    "alice",
+    "bob",
+    "charlie"
+  ]
+}

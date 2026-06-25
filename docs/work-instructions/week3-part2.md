@@ -1,6 +1,6 @@
 # Week 3 · Part 2
 
-> **GOAL FOR THIS WEEK 6: Fine tunning with PWM and State Machines**
+> **GOAL: Fine tunning with PWM and State Machines**
 
 By the end of this week you should be able to understand and implement PULSE WIDTH MODULATION + STATE MACHINES.
 
@@ -45,7 +45,7 @@ On short what you will do this week:
 - **631** — Build the next behavior for the LED identified as supporting PWM. The sequence described will be repetitive with pause (= PWM duty cycle 0%) of 3s. Be very attentive as the graphic below shows not the duty-cycle of a PWM signal, but the variation (!!!) of the PWM duty-cycle across time. The duty-cycle resolution you choose for ramping up PWM from 0% to 100% is up-to-you.
 - **632** — Build the next behavior for the LED identified as supporting PWM. Be attentive to the indications of the scale!
 - **633** — **OPTIONAL** — Build an application varying the PWM signal applied to an LED based on sinus function, `f(x) = sin(x)`. Note that it is impractical to look over full and continous range of `f(x)` values, therefore you should consider only few discrete points (time, dc%).
-- **634** — **OPTIONAL** — The Heart Beat illumination pattern is encountered in RENAULT products made by Marquardt. In Reference Documents folder you will find the `HeartBeat_illumination_pattern.xlsx` file which presents you the variation of the PWM signal. Build an application based on the Heart Beat illumination pattern.
+- **634** — **OPTIONAL** — The Heart Beat illumination pattern was developed by Marquardt. In Reference Documents folder you will find the `HeartBeat_illumination_pattern.xlsx` file which presents you the variation of the PWM signal. Build an application based on the Heart Beat illumination pattern.
 
 ---
 
@@ -161,7 +161,3 @@ On short what you will do this week:
     - identify key-elements
     - draw State Machine diagram
     - implement State Machine
-
----
-
-!!! success "END OF WEEK 6"

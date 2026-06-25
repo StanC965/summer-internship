@@ -1,14 +1,10 @@
 # Work Instructions
 
-This section stores the weekly internship instructions in Markdown, translated from the
-`Summer MODEL 2024 - 3 weeks.xlsx` workbook (sheets `W1-part1` … `W3-part3`).
-
 ## Exercise numbering
 
 Exercises use the `xyz` schematic: `xyz` means Goal *x*, Objective *y*, Exercise *z*
 (e.g. `123` = Goal 1, Objective 2, Exercise 3). Items marked **OPTIONAL** cover different
-individual study paces. The *Additional materials* (videos, articles, datasheets — column L
-onward in the workbook) are kept inline as collapsible **FOR YOUR INFO** boxes next to the
+individual study paces. The *Additional materials* (videos, articles, datasheets) are kept inline as collapsible **FOR YOUR INFO** boxes next to the
 objective they belong to.
 
 ## Weeks

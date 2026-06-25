@@ -1,6 +1,6 @@
 # Week 1 · Part 1
 
-> **GOAL FOR THIS WEEK 1: set up the stage for software embedded development**
+> **GOAL: set up the stage for software embedded development**
 
 By the end of this week you should be able to recognize and control your system and tools very effectively and efficiently.
 
@@ -10,9 +10,6 @@ On short what you will do this week:
 
 - get to know your dev boards, IDE and backend compiler.
 - refresh your knowledge on C programming language, microcontrollers and basic electronics
-
-!!! note "Exercise numbering"
-    Exercises use the `xyz` schematic explained in the Agenda: `xyz` means Goal *x*, Objective *y*, Exercise *z* (e.g. `123` = Goal 1, Objective 2, Exercise 3). Items marked **OPTIONAL** cover different individual study paces.
 
 ---
 
@@ -294,7 +291,3 @@ On short what you will do this week:
     - [How To Become An Embedded Software Engineer? - YouTube](https://www.youtube.com/watch?v=HFmGk4oufj8)
     - [Embedded Systems Engineering VS Embedded Software Engineering - YouTube](https://www.youtube.com/watch?v=7ahkBz3BSRs)
     - [Should You Become An Embedded Systems Engineer? 5 Skills Required & Career Advantages - YouTube](https://www.youtube.com/watch?v=xf1GyrtkaE8)
-
----
-
-!!! success "END OF WEEK 1"

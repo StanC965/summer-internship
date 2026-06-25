@@ -18,13 +18,17 @@
 
     Weekly tasks are your main driving factor, explaining things and proposing hands-on exercises
 
-- :chart_with_upwards_trend: **[Progress](quiz/results.md)**
+- :chart_with_upwards_trend: **[Track Progress](quiz/results.md)**
 
     See your status as you progress over the material
 
 - :clipboard: **[Quizzes](quiz/index.md)**
 
-    Test your knowledge with low stake quizzes and [check your results](quiz/results.md)
+    Test your knowledge with low stake quizzes
+
+- :bar_chart: **[Quizzes Results](quiz/results.md)**
+
+    Check your quiz results and track your score evolution
 
 - :books: **[Reference Documents](reference-documents/index.md)**
 

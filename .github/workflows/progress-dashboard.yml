@@ -1,0 +1,149 @@
+name: Work Progress Dashboard
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed, labeled, unlabeled]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * 5"
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: write
+
+jobs:
+  build-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update dashboard issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = '.github/progress-config.json';
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            if (!fs.existsSync(path)) {
+              core.setFailed(`Missing config file at ${path}`);
+              return;
+            }
+
+            const cfg = JSON.parse(fs.readFileSync(path, 'utf8'));
+            const exercises = cfg.exercises || [];
+            const students = cfg.students || [];
+            const studentBranchPrefix = cfg.studentBranchPrefix || 'student/';
+            const dashboardIssueTitle = cfg.dashboardIssueTitle || 'Work Progress Dashboard';
+
+            if (!exercises.length || !students.length) {
+              core.setFailed('Config must include non-empty exercises and students arrays.');
+              return;
+            }
+
+            const pulls = await github.paginate(github.rest.pulls.list, {
+              owner,
+              repo,
+              state: 'closed',
+              per_page: 100
+            });
+
+            const normalized = pulls
+              .filter(pr => !!pr.merged_at)
+              .filter(pr => String(pr.base?.ref || '').startsWith(studentBranchPrefix))
+              .map(pr => {
+              const labels = (pr.labels || []).map(l => String(l.name || '').toLowerCase());
+              return {
+                number: pr.number,
+                title: pr.title,
+                merged_at: pr.merged_at,
+                baseRef: pr.base?.ref || '',
+                labels
+              };
+            });
+
+            const rows = students.map(name => {
+              const studentLabel = `student:${name.toLowerCase()}`;
+              const completed = new Set();
+
+              for (const pr of normalized) {
+                if (!pr.labels.includes(studentLabel)) {
+                  continue;
+                }
+
+                for (const ex of exercises) {
+                  const exLabel = `exercise:${String(ex).toLowerCase()}`;
+                  if (pr.labels.includes(exLabel)) {
+                    completed.add(String(ex).toLowerCase());
+                  }
+                }
+              }
+
+              const done = completed.size;
+              const total = exercises.length;
+              const percent = Math.round((done / total) * 100);
+              const missing = exercises.filter(ex => !completed.has(String(ex).toLowerCase()));
+
+              return {
+                student: name,
+                done,
+                total,
+                percent,
+                missing: missing.join(', ') || '-'
+              };
+            });
+
+            const totalDone = rows.reduce((acc, r) => acc + r.done, 0);
+            const totalPossible = rows.reduce((acc, r) => acc + r.total, 0);
+            const cohortPercent = totalPossible ? Math.round((totalDone / totalPossible) * 100) : 0;
+
+            const lines = [];
+            lines.push('# Work Progress Dashboard');
+            lines.push('');
+            lines.push(`Student branch prefix: ${studentBranchPrefix}`);
+            lines.push(`Exercises tracked: ${exercises.join(', ')}`);
+            lines.push(`Cohort completion: ${cohortPercent}%`);
+            lines.push('');
+            lines.push('| Student | Completed | % | Missing |');
+            lines.push('|---|---:|---:|---|');
+
+            for (const r of rows) {
+              lines.push(`| ${r.student} | ${r.done}/${r.total} | ${r.percent}% | ${r.missing} |`);
+            }
+
+            lines.push('');
+            lines.push('_Generated automatically from merged PRs into student branches, using labels student:<name> + exercise:<id>._');
+            lines.push(`_Updated: ${new Date().toISOString()}_`);
+
+            const body = lines.join('\n');
+
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'open',
+              per_page: 100
+            });
+
+            const existing = issues.find(i => i.title === dashboardIssueTitle && !i.pull_request);
+
+            if (existing) {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: existing.number,
+                title: dashboardIssueTitle,
+                body
+              });
+              core.info(`Updated dashboard issue #${existing.number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner,
+                repo,
+                title: dashboardIssueTitle,
+                body
+              });
+              core.info(`Created dashboard issue #${created.data.number}`);
+            }

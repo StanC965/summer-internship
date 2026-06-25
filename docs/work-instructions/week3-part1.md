@@ -1,6 +1,6 @@
 # Week 3 · Part 1
 
-> **GOAL FOR THIS WEEK 5: Build a task scheduler**
+> **GOAL: Build a task scheduler**
 
 By the end of this week you should be able to understand and implement processor time scheduling.
 
@@ -85,7 +85,3 @@ On short what you will do this week:
 - **541** — Go to BMW Control Panel Application and refactor the code as follows:
     - introduce the task scheduler for handling of buttons and LEDs behavior
     - use debounce algorithm for a stable state of buttons
-
----
-
-!!! success "END OF WEEK 5"

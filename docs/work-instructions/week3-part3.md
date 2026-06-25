@@ -1,6 +1,6 @@
 # Week 3 · Part 3
 
-> **GOAL FOR THIS WEEK 2 - part 2: UART Serial Communication**
+> **GOAL: UART Serial Communication**
 
 By the end of this week you should be able to design and implement a serial communication.
 
@@ -56,7 +56,3 @@ On short what you will do this week:
     - the buttons states are interpreted by virtual MCU1 and appropriate LEDs states are build and stored by virtual MCU1 but not executed
     - virtual MCU1 will send over UART protocol (by TX physical pin) the appropriate data/commands for LEDs light on/off behavior
     - virtual MCU2 (the slave) will receive these data (by RX physical pin) and execute/implement the LEDs behavior as requested by virtual MCU1 (the master)
-
----
-
-!!! success "END OF WEEK 7 AND OF INTERNSHIP ! CONGRATS !"

@@ -1,6 +1,6 @@
 # Week 1 · Part 2
 
-> **GOAL FOR THIS WEEK 2: Design a good software program for controlling LEDs and buttons**
+> **GOAL: Design a good software program for controlling LEDs and buttons**
 
 By the end of this week you should be able to control basic elements of every embedded system: LEDs and buttons.
 
@@ -165,7 +165,3 @@ On short what you will do this week:
 
 - **262** — Code to launch the SOS signaling at the press of the SW0 button. The complete SOS sequence runs indefinitely with a 1 second break between the smaller sequences (see graph).
 - **263** — Make the SOS message begin when the SW0 button is pressed for the first time. At the second press of the SW0 button, the SOS message must stop. At the next press, SOS starts, and so on. Depending on your "resolution" to poll the state of the SW0 button (e.g. after each point, or after each letter) you might need to hold down pressed SW0 for a longer period of time or less, so that it can be read correctly.
-
----
-
-!!! success "END OF WEEK 2"

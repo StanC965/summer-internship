@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "AVR: CMake Configure Blink",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S",
+        "${workspaceFolder}/src/atmega324pb-blink",
+        "-B",
+        "${workspaceFolder}/src/atmega324pb-blink/build",
+        "-G",
+        "Ninja",
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/src/atmega324pb-blink/cmake/avr-gcc-toolchain.cmake"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "AVR: Build Blink",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/src/atmega324pb-blink/build",
+        "--target",
+        "artifacts"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": "AVR: CMake Configure Blink",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "AVR: Flash Blink (mEDBG)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/src/atmega324pb-blink/build",
+        "--target",
+        "flash"
+      ],
+      "dependsOn": "AVR: Build Blink",
+      "problemMatcher": []
+    }
+  ]
+}

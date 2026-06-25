@@ -1,6 +1,6 @@
 # Week 2 · Part 1
 
-> **GOAL FOR THIS WEEK 3: Interrupts and Analog-to-Digital conversions**
+> **GOAL: Interrupts and Analog-to-Digital conversions**
 
 By the end of this week you should be able to handle the interrupts and an AD conversion.
 
@@ -205,7 +205,3 @@ On short what you will do this week:
 - **365** — **OPTIONAL** — Imagine that your software driver module will be used by your colleagues into their projects. At the time you write the code you do not know what resolution they will need, 8bit or 10bit. It will depend on their particular application. Therefore your job is to implement a solution offering them the possibility to choose between 8bit or 10bit resolution. Make use of conditional compilation.
 - **366** — **OPTIONAL** — Measure the code size for the newly added ADC driver module so that your colleagues are informed. Include a table with the functions available and the two options on resolution (8bit, 10bit).
 - **367** — **OPTIONAL** — Prescale the ADC clock down to [ 50KHz - 200KHz ]. Slower the clock better the accuracy of conversion. Do you observe any difference to ADC results?
-
----
-
-!!! success "END OF WEEK 3"
