@@ -33,6 +33,7 @@ nav:
   - Progress: work-instructions/progress.md
   - Quizzes:
       - Work Instructions Quiz: quiz/index.md
+      - Week 1 Review (PDF): quiz/week1-review.md
       - Results: quiz/results.md
       - Question Bank: quiz/data/work-instructions.md
   - Results: quiz/results.md
