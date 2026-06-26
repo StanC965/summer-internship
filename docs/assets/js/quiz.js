@@ -355,6 +355,19 @@
 
     const sourceUrl = quizApp.dataset.quizSource;
 
+    if (!sourceUrl) {
+      const inlineSource = document.getElementById('quiz-source') || document;
+      const quizData = parseQuizTable(inlineSource);
+
+      if (!quizData.length) {
+        quizApp.textContent = 'Quiz data was not found.';
+        return;
+      }
+
+      buildQuiz(quizApp, quizData);
+      return;
+    }
+
     fetch(sourceUrl)
       .then((response) => response.text())
       .then((markdown) => {
