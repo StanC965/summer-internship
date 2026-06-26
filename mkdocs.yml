@@ -31,7 +31,8 @@ nav:
       - "Week 3 · Goal 6": work-instructions/week3-goal2.md
       - "Week 3 · Goal 7": work-instructions/week3-goal3.md
   - Progress: work-instructions/progress.md
-  - Quizzes:
+  - Quizzes: 
+      - Overview: quiz/index.md
       - Quiz 1: quiz/q1.md
       - Quiz 2: quiz/q2.md
       - Quiz 3: quiz/q3.md

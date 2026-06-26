@@ -12,7 +12,7 @@
 
 - :memo: **[Work Instructions](work-instructions/index.md)**
 
-    Weekly tasks are your main driving factor, explaining things and proposing hands-on exercises
+    Weekly tasks are your main driving factor, organized around Goals-Objectives-Exercises triad
 
 - :chart_with_upwards_trend: **[Track Work Progress](work-instructions/progress.md)**
 

@@ -210,11 +210,21 @@
 
     function checkAnswers() {
       let score = 0;
+      let gradableCount = 0;
 
       quizData.forEach((item) => {
         const question = form.querySelector(`[data-index="${item.index}"]`);
         const selected = form.querySelector(`input[name="q${item.index}"]:checked`);
         const feedback = question.querySelector('.feedback');
+        const hasAnswerKey = item.optionKeys.includes(item.correct);
+
+        if (!hasAnswerKey) {
+          question.classList.remove('correct', 'wrong');
+          feedback.textContent = 'No answer key provided for this question.';
+          return;
+        }
+
+        gradableCount += 1;
 
         if (selected && selected.value === item.correct) {
           score += 1;
@@ -229,10 +239,14 @@
         feedback.textContent = `Wrong. Correct answer: ${item.correct}. ${item.options[item.correct]}`;
       });
 
-      const total = quizData.length;
-      const percent = Math.round((score / total) * 100);
+      const total = gradableCount;
+      const percent = total > 0 ? Math.round((score / total) * 100) : 0;
       const attemptsBefore = getAttemptsForQuiz(quizId).length;
-      scoreBox.textContent = `Score: ${score}/${total} (${percent}%)`;
+      if (total > 0) {
+        scoreBox.textContent = `Score: ${score}/${total} (${percent}%)`;
+      } else {
+        scoreBox.textContent = 'Practice mode: this quiz has no answer keys configured yet.';
+      }
 
       const attempt = {
         quizId,

@@ -2,9 +2,7 @@
 
 ## Exercise number scheme
 
-Exercises use the `xyz` scheme: means Goal *x*, Objective *y*, Exercise *z* (e.g. `123` = Goal 1, Objective 2, Exercise 3).
-
-Every exercise is labeled with one of three difficulty tiers:
+Exercises use the `xyz` scheme: means Goal *x*, Objective *y*, Exercise *z* (e.g. `123` = Goal 1, Objective 2, Exercise 3). Every exercise is labeled with one of three difficulty tiers:
 
 | Label | Meaning | How to use it |
 | ----- | ------- | ------------- |
