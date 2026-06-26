@@ -71,7 +71,7 @@ var WordcutDict = {
     var defaultDict = path.normalize(__dirname + "/..") + "/data/tdict-*.txt";
     this.dict=[]
     var dictPathIsDefined = dictPathFile !== undefined
-    var dictPath = (withDefault || !dictPathIsDefined) ? [defaultDict]: [];
+    var dictPath = (withDefault || !dictPathIsDefined)  [defaultDict]: [];
     var dictPathFile = dictPathFile || defaultDict
 
     if(dictPathIsDefined){
@@ -326,9 +326,9 @@ var PathInfoBuilder = {
         , _info = path[p];            
       
       var info = {p: p, 
-                  mw: _info.mw + (acceptor.mw === undefined ? 0 : acceptor.mw),
+                  mw: _info.mw + (acceptor.mw === undefined  0 : acceptor.mw),
                   w: acceptor.w + _info.w,
-                  unk: (acceptor.unk ? acceptor.unk : 0) + _info.unk, 
+                  unk: (acceptor.unk  acceptor.unk : 0) + _info.unk, 
                   type: acceptor.type};
 
       if (acceptor.type == "PART") {
@@ -589,7 +589,7 @@ var WordcutCore = {
       , ranges = this.pathToRanges(path);
     return this
       .rangesToText(text, ranges,
-                    (delimiter === undefined ? "|" : delimiter));
+                    (delimiter === undefined  "|" : delimiter));
   },
 
   cutIntoRanges: function(text, noText) {
@@ -716,7 +716,7 @@ function replacer(key, value) {
 
 function truncate(s, n) {
   if (util.isString(s)) {
-    return s.length < n ? s : s.slice(0, n);
+    return s.length < n  s : s.slice(0, n);
   } else {
     return s;
   }
@@ -938,8 +938,8 @@ function _throws(shouldThrow, block, expected, message) {
     actual = e;
   }
 
-  message = (expected && expected.name ? ' (' + expected.name + ').' : '.') +
-            (message ? ' ' + message : '.');
+  message = (expected && expected.name  ' (' + expected.name + ').' : '.') +
+            (message  ' ' + message : '.');
 
   if (shouldThrow && !actual) {
     fail(actual, expected, 'Missing expected exception' + message);
@@ -997,7 +997,7 @@ function balanced(a, b, str) {
 
 function maybeMatch(reg, str) {
   var m = str.match(reg);
-  return m ? m[0] : null;
+  return m  m[0] : null;
 }
 
 balanced.range = range;
@@ -1027,7 +1027,7 @@ function range(a, b, str) {
         bi = str.indexOf(b, i + 1);
       }
 
-      i = ai < bi && ai >= 0 ? ai : bi;
+      i = ai < bi && ai >= 0  ai : bi;
     }
 
     if (begs.length) {
@@ -1052,7 +1052,7 @@ var escPeriod = '\0PERIOD'+Math.random()+'\0';
 
 function numeric(str) {
   return parseInt(str, 10) == str
-    ? parseInt(str, 10)
+     parseInt(str, 10)
     : str.charCodeAt(0);
 }
 
@@ -1144,8 +1144,8 @@ function expand(str, isTop) {
   var m = balanced('{', '}', str);
   if (!m || /\$$/.test(m.pre)) return [str];
 
-  var isNumericSequence = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(m.body);
-  var isAlphaSequence = /^[a-zA-Z]\.\.[a-zA-Z](?:\.\.-?\d+)?$/.test(m.body);
+  var isNumericSequence = /^-?\d+\.\.-?\d+(:\.\.-?\d+)?$/.test(m.body);
+  var isAlphaSequence = /^[a-zA-Z]\.\.[a-zA-Z](:\.\.-?\d+)?$/.test(m.body);
   var isSequence = isNumericSequence || isAlphaSequence;
   var isOptions = m.body.indexOf(',') >= 0;
   if (!isSequence && !isOptions) {
@@ -1167,7 +1167,7 @@ function expand(str, isTop) {
       n = expand(n[0], false).map(embrace);
       if (n.length === 1) {
         var post = m.post.length
-          ? expand(m.post, false)
+           expand(m.post, false)
           : [''];
         return post.map(function(p) {
           return m.pre + n[0] + p;
@@ -1182,7 +1182,7 @@ function expand(str, isTop) {
   // no need to expand pre, since it is guaranteed to be free of brace-sets
   var pre = m.pre;
   var post = m.post.length
-    ? expand(m.post, false)
+     expand(m.post, false)
     : [''];
 
   var N;
@@ -1192,7 +1192,7 @@ function expand(str, isTop) {
     var y = numeric(n[1]);
     var width = Math.max(n[0].length, n[1].length)
     var incr = n.length == 3
-      ? Math.abs(numeric(n[2]))
+       Math.abs(numeric(n[2]))
       : 1;
     var test = lte;
     var reverse = y < x;
@@ -1670,8 +1670,8 @@ function setopts (self, pattern, options) {
 
   // disable comments and negation unless the user explicitly
   // passes in false as the option.
-  options.nonegate = options.nonegate === false ? false : true
-  options.nocomment = options.nocomment === false ? false : true
+  options.nonegate = options.nonegate === false  false : true
+  options.nocomment = options.nocomment === false  false : true
   deprecationWarning(options)
 
   self.minimatch = new Minimatch(pattern, options)
@@ -1699,7 +1699,7 @@ function deprecationWarning(options) {
 
 function finish (self) {
   var nou = self.nounique
-  var all = nou ? [] : Object.create(null)
+  var all = nou  [] : Object.create(null)
 
   for (var i = 0, l = self.matches.length; i < l; i ++) {
     var matches = self.matches[i]
@@ -1728,7 +1728,7 @@ function finish (self) {
     all = Object.keys(all)
 
   if (!self.nosort)
-    all = all.sort(self.nocase ? alphasorti : alphasort)
+    all = all.sort(self.nocase  alphasorti : alphasort)
 
   // at *some* point we statted all of these
   if (self.mark) {
@@ -2417,7 +2417,7 @@ Glob.prototype._processGlobStar2 = function (prefix, read, abs, remain, index, i
   // test without the globstar, and with every child both below
   // and replacing the globstar.
   var remainWithoutGlobStar = remain.slice(1)
-  var gspref = prefix ? [ prefix ] : []
+  var gspref = prefix  [ prefix ] : []
   var noGlobStar = gspref.concat(remainWithoutGlobStar)
 
   // the noGlobStar pattern exits the inGlobStar state
@@ -2448,7 +2448,7 @@ Glob.prototype._processGlobStar2 = function (prefix, read, abs, remain, index, i
 
 Glob.prototype._processSimple = function (prefix, index, cb) {
   // XXX review this.  Shouldn't it be doing the mounting etc
-  // before doing stat?  kinda weird?
+  // before doing stat  kinda weird?
   var self = this
   this._stat(prefix, function (er, exists) {
     self._processSimple2(prefix, index, er, exists, cb)
@@ -2515,7 +2515,7 @@ Glob.prototype._stat = function (f, cb) {
     if (stat === false)
       return cb(null, stat)
     else {
-      var type = stat.isDirectory() ? 'DIR' : 'FILE'
+      var type = stat.isDirectory()  'DIR' : 'FILE'
       if (needDir && type === 'FILE')
         return cb()
       else
@@ -2556,7 +2556,7 @@ Glob.prototype._stat2 = function (f, abs, er, stat, cb) {
   if (abs.slice(-1) === '/' && !stat.isDirectory())
     return cb(null, false, stat)
 
-  var c = stat.isDirectory() ? 'DIR' : 'FILE'
+  var c = stat.isDirectory()  'DIR' : 'FILE'
   this.cache[abs] = this.cache[abs] || c
 
   if (needDir && c !== 'DIR')
@@ -2907,7 +2907,7 @@ GlobSync.prototype._processGlobStar = function (prefix, read, abs, remain, index
   // test without the globstar, and with every child both below
   // and replacing the globstar.
   var remainWithoutGlobStar = remain.slice(1)
-  var gspref = prefix ? [ prefix ] : []
+  var gspref = prefix  [ prefix ] : []
   var noGlobStar = gspref.concat(remainWithoutGlobStar)
 
   // the noGlobStar pattern exits the inGlobStar state
@@ -2936,7 +2936,7 @@ GlobSync.prototype._processGlobStar = function (prefix, read, abs, remain, index
 
 GlobSync.prototype._processSimple = function (prefix, index) {
   // XXX review this.  Shouldn't it be doing the mounting etc
-  // before doing stat?  kinda weird?
+  // before doing stat  kinda weird?
   var exists = this._stat(prefix)
 
   if (!this.matches[index])
@@ -3012,7 +3012,7 @@ GlobSync.prototype._stat = function (f) {
 
   this.statCache[abs] = stat
 
-  var c = stat.isDirectory() ? 'DIR' : 'FILE'
+  var c = stat.isDirectory()  'DIR' : 'FILE'
   this.cache[abs] = this.cache[abs] || c
 
   if (needDir && c !== 'DIR')
@@ -3126,11 +3126,11 @@ var GLOBSTAR = minimatch.GLOBSTAR = Minimatch.GLOBSTAR = {}
 var expand = require('brace-expansion')
 
 var plTypes = {
-  '!': { open: '(?:(?!(?:', close: '))[^/]*?)'},
-  '?': { open: '(?:', close: ')?' },
-  '+': { open: '(?:', close: ')+' },
-  '*': { open: '(?:', close: ')*' },
-  '@': { open: '(?:', close: ')' }
+  '!': { open: '(:(!(:', close: '))[^/]*)'},
+  '?': { open: '(:', close: ')?' },
+  '+': { open: '(:', close: ')+' },
+  '*': { open: '(:', close: ')*' },
+  '@': { open: '(:', close: ')' }
 }
 
 // any single thing other than /
@@ -3143,11 +3143,11 @@ var star = qmark + '*?'
 // ** when dots are allowed.  Anything goes, except .. and .
 // not (^ or / followed by one or two dots followed by $ or /),
 // followed by anything, any number of times.
-var twoStarDot = '(?:(?!(?:\\\/|^)(?:\\.{1,2})($|\\\/)).)*?'
+var twoStarDot = '(:(!(:\\\/|^)(:\\.{1,2})($|\\\/)).)*?'
 
 // not a ^ or / followed by a dot,
 // followed by anything, any number of times.
-var twoStarNoDot = '(?:(?!(?:\\\/|^)\\.).)*?'
+var twoStarNoDot = '(:(!(:\\\/|^)\\.).)*?'
 
 // characters that need to be escaped in RegExp.
 var reSpecials = charSet('().*{}+?[]^$\\!')
@@ -3356,7 +3356,7 @@ function braceExpand (pattern, options) {
   }
 
   pattern = typeof pattern === 'undefined'
-    ? this.pattern : pattern
+     this.pattern : pattern
 
   if (typeof pattern === 'undefined') {
     throw new TypeError('undefined pattern')
@@ -3398,7 +3398,7 @@ function parse (pattern, isSub) {
   var re = ''
   var hasMagic = !!options.nocase
   var escaping = false
-  // ? => one single character
+  //  => one single character
   var patternListStack = []
   var negativeLists = []
   var stateChar
@@ -3407,10 +3407,10 @@ function parse (pattern, isSub) {
   var classStart = -1
   // . and .. never match anything that doesn't start with .,
   // even when options.dot is set.
-  var patternStart = pattern.charAt(0) === '.' ? '' // anything
+  var patternStart = pattern.charAt(0) === '.'  '' // anything
   // not (start or / followed by . or .. followed by / or end)
-  : options.dot ? '(?!(?:^|\\\/)\\.{1,2}(?:$|\\\/))'
-  : '(?!\\.)'
+  : options.dot  '(!(:^|\\\/)\\.{1,2}(:$|\\\/))'
+  : '(!\\.)'
   var self = this
 
   function clearStateChar () {
@@ -3477,7 +3477,7 @@ function parse (pattern, isSub) {
         }
 
         // if we already have a stateChar, then it means
-        // that there was something like ** or +? in there.
+        // that there was something like ** or + in there.
         // Handle the stateChar, then proceed with this one.
         self.debug('call clearStateChar %j', stateChar)
         clearStateChar()
@@ -3506,8 +3506,8 @@ function parse (pattern, isSub) {
           open: plTypes[stateChar].open,
           close: plTypes[stateChar].close
         })
-        // negation is (?:(?!js)[^/]*)
-        re += stateChar === '!' ? '(?:(?!(?:' : '(?:'
+        // negation is (:(!js)[^/]*)
+        re += stateChar === '!'  '(:(!(:' : '(:'
         this.debug('plType %j %j', stateChar, re)
         stateChar = false
       continue
@@ -3521,8 +3521,8 @@ function parse (pattern, isSub) {
         clearStateChar()
         hasMagic = true
         var pl = patternListStack.pop()
-        // negation is (?:(?!js)[^/]*)
-        // The others are (?:<pattern>)<type>
+        // negation is (:(!js)[^/]*)
+        // The others are (:<pattern>)<type>
         re += pl.close
         if (pl.type === '!') {
           negativeLists.push(pl)
@@ -3637,7 +3637,7 @@ function parse (pattern, isSub) {
     var tail = re.slice(pl.reStart + pl.open.length)
     this.debug('setting tail', re, pl)
     // maybe some even number of \, then maybe 1 \, followed by a |
-    tail = tail.replace(/((?:\\{2}){0,64})(\\?)\|/g, function (_, $1, $2) {
+    tail = tail.replace(/((:\\{2}){0,64})(\\)\|/g, function (_, $1, $2) {
       if (!$2) {
         // the | isn't already escaped, so escape it.
         $2 = '\\'
@@ -3653,8 +3653,8 @@ function parse (pattern, isSub) {
     })
 
     this.debug('tail=%j\n   %s', tail, tail, pl, re)
-    var t = pl.type === '*' ? star
-      : pl.type === '?' ? qmark
+    var t = pl.type === '*'  star
+      : pl.type === '?'  qmark
       : '\\' + pl.type
 
     hasMagic = true
@@ -3698,7 +3698,7 @@ function parse (pattern, isSub) {
     var openParensBefore = nlBefore.split('(').length - 1
     var cleanAfter = nlAfter
     for (i = 0; i < openParensBefore; i++) {
-      cleanAfter = cleanAfter.replace(/\)[+*?]?/, '')
+      cleanAfter = cleanAfter.replace(/\)[+*?]/, '')
     }
     nlAfter = cleanAfter
 
@@ -3714,7 +3714,7 @@ function parse (pattern, isSub) {
   // it doesn't match against an empty path part.
   // Otherwise a/* will match a/, which it should not.
   if (re !== '' && hasMagic) {
-    re = '(?=.)' + re
+    re = '(=.)' + re
   }
 
   if (addPatternStart) {
@@ -3733,7 +3733,7 @@ function parse (pattern, isSub) {
     return globUnescape(pattern)
   }
 
-  var flags = options.nocase ? 'i' : ''
+  var flags = options.nocase  'i' : ''
   try {
     var regExp = new RegExp('^' + re + '$', flags)
   } catch (er) {
@@ -3772,25 +3772,25 @@ function makeRe () {
   }
   var options = this.options
 
-  var twoStar = options.noglobstar ? star
-    : options.dot ? twoStarDot
+  var twoStar = options.noglobstar  star
+    : options.dot  twoStarDot
     : twoStarNoDot
-  var flags = options.nocase ? 'i' : ''
+  var flags = options.nocase  'i' : ''
 
   var re = set.map(function (pattern) {
     return pattern.map(function (p) {
-      return (p === GLOBSTAR) ? twoStar
-      : (typeof p === 'string') ? regExpEscape(p)
+      return (p === GLOBSTAR)  twoStar
+      : (typeof p === 'string')  regExpEscape(p)
       : p._src
     }).join('\\\/')
   }).join('|')
 
   // must match entire pattern
   // ending in a * or ** will make it less strict.
-  re = '^(?:' + re + ')$'
+  re = '^(:' + re + ')$'
 
   // can match anything, as long as it's not this.
-  if (this.negate) re = '^(?!' + re + ').*$'
+  if (this.negate) re = '^(!' + re + ').*$'
 
   try {
     this.regexp = new RegExp(re, flags)
@@ -4002,7 +4002,7 @@ Minimatch.prototype.matchOne = function (file, pattern, partial) {
   // a pattern that ends in /, unless the pattern just
   // doesn't have any more for it. But, a/b/ should *not*
   // match "a/b/*", even though "" matches against the
-  // [^/]*? pattern, except in partial mode, where it might
+  // [^/]* pattern, except in partial mode, where it might
   // simply not be reached yet.
   // However, a/b/ should still satisfy a/*
 
@@ -4035,7 +4035,7 @@ function globUnescape (s) {
 }
 
 function regExpEscape (s) {
-  return s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+  return s.replace(/[-[\]{}()*+.,\\^$|#\s]/g, '\\$&')
 }
 
 },{"brace-expansion":11,"path":22}],21:[function(require,module,exports){
@@ -4138,7 +4138,7 @@ function normalizeArray(parts, allowAboveRoot) {
 // Split a filename into [root, dir, basename, ext], unix version
 // 'root' is just a slash, or nothing.
 var splitPathRe =
-    /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
+    /^(\/?|)([\s\S]*)((:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(:[\/]*)$/;
 var splitPath = function(filename) {
   return splitPathRe.exec(filename).slice(1);
 };
@@ -4150,7 +4150,7 @@ exports.resolve = function() {
       resolvedAbsolute = false;
 
   for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
-    var path = (i >= 0) ? arguments[i] : process.cwd();
+    var path = (i >= 0)  arguments[i] : process.cwd();
 
     // Skip empty and invalid entries
     if (typeof path !== 'string') {
@@ -4171,7 +4171,7 @@ exports.resolve = function() {
     return !!p;
   }), !resolvedAbsolute).join('/');
 
-  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+  return ((resolvedAbsolute  '/' : '') + resolvedPath) || '.';
 };
 
 // path.normalize(path)
@@ -4192,7 +4192,7 @@ exports.normalize = function(path) {
     path += '/';
   }
 
-  return (isAbsolute ? '/' : '') + path;
+  return (isAbsolute  '/' : '') + path;
 };
 
 // posix version
@@ -4302,7 +4302,7 @@ function filter (xs, f) {
 
 // String.prototype.substr - negative index don't work in IE8
 var substr = 'ab'.substr(-1) === 'b'
-    ? function (str, start, len) { return str.substr(start, len) }
+     function (str, start, len) { return str.substr(start, len) }
     : function (str, start, len) {
         if (start < 0) start = str.length + start;
         return str.substr(start, len);
@@ -4320,7 +4320,7 @@ function posix(path) {
 
 function win32(path) {
 	// https://github.com/nodejs/node/blob/b3fcc245fb25539909ef1d5eaa01dbf92e168633/lib/path.js#L56
-	var splitDeviceRe = /^([a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?([\\\/])?([\s\S]*?)$/;
+	var splitDeviceRe = /^([a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?([\\\/])?([\s\S]*)$/;
 	var result = splitDeviceRe.exec(path);
 	var device = result[1] || '';
 	var isUnc = Boolean(device && device.charAt(1) !== ':');
@@ -4329,7 +4329,7 @@ function win32(path) {
 	return Boolean(result[2] || isUnc);
 }
 
-module.exports = process.platform === 'win32' ? win32 : posix;
+module.exports = process.platform === 'win32'  win32 : posix;
 module.exports.posix = posix;
 module.exports.win32 = win32;
 
@@ -4585,7 +4585,7 @@ process.umask = function() { return 0; };
   // functions.
   var optimizeCb = function(func, context, argCount) {
     if (context === void 0) return func;
-    switch (argCount == null ? 3 : argCount) {
+    switch (argCount == null  3 : argCount) {
       case 1: return function(value) {
         return func.call(context, value);
       };
@@ -4647,7 +4647,7 @@ process.umask = function() { return 0; };
 
   var property = function(key) {
     return function(obj) {
-      return obj == null ? void 0 : obj[key];
+      return obj == null  void 0 : obj[key];
     };
   };
 
@@ -4691,7 +4691,7 @@ process.umask = function() { return 0; };
         length = (keys || obj).length,
         results = Array(length);
     for (var index = 0; index < length; index++) {
-      var currentKey = keys ? keys[index] : index;
+      var currentKey = keys  keys[index] : index;
       results[index] = iteratee(obj[currentKey], currentKey, obj);
     }
     return results;
@@ -4703,7 +4703,7 @@ process.umask = function() { return 0; };
     // in the main function will deoptimize the, see #1991.
     function iterator(obj, iteratee, memo, keys, index, length) {
       for (; index >= 0 && index < length; index += dir) {
-        var currentKey = keys ? keys[index] : index;
+        var currentKey = keys  keys[index] : index;
         memo = iteratee(memo, obj[currentKey], currentKey, obj);
       }
       return memo;
@@ -4713,10 +4713,10 @@ process.umask = function() { return 0; };
       iteratee = optimizeCb(iteratee, context, 4);
       var keys = !isArrayLike(obj) && _.keys(obj),
           length = (keys || obj).length,
-          index = dir > 0 ? 0 : length - 1;
+          index = dir > 0  0 : length - 1;
       // Determine the initial value if none is provided.
       if (arguments.length < 3) {
-        memo = obj[keys ? keys[index] : index];
+        memo = obj[keys  keys[index] : index];
         index += dir;
       }
       return iterator(obj, iteratee, memo, keys, index, length);
@@ -4764,7 +4764,7 @@ process.umask = function() { return 0; };
     var keys = !isArrayLike(obj) && _.keys(obj),
         length = (keys || obj).length;
     for (var index = 0; index < length; index++) {
-      var currentKey = keys ? keys[index] : index;
+      var currentKey = keys  keys[index] : index;
       if (!predicate(obj[currentKey], currentKey, obj)) return false;
     }
     return true;
@@ -4777,7 +4777,7 @@ process.umask = function() { return 0; };
     var keys = !isArrayLike(obj) && _.keys(obj),
         length = (keys || obj).length;
     for (var index = 0; index < length; index++) {
-      var currentKey = keys ? keys[index] : index;
+      var currentKey = keys  keys[index] : index;
       if (predicate(obj[currentKey], currentKey, obj)) return true;
     }
     return false;
@@ -4796,8 +4796,8 @@ process.umask = function() { return 0; };
     var args = slice.call(arguments, 2);
     var isFunc = _.isFunction(method);
     return _.map(obj, function(value) {
-      var func = isFunc ? method : value[method];
-      return func == null ? func : func.apply(value, args);
+      var func = isFunc  method : value[method];
+      return func == null  func : func.apply(value, args);
     });
   };
 
@@ -4823,7 +4823,7 @@ process.umask = function() { return 0; };
     var result = -Infinity, lastComputed = -Infinity,
         value, computed;
     if (iteratee == null && obj != null) {
-      obj = isArrayLike(obj) ? obj : _.values(obj);
+      obj = isArrayLike(obj)  obj : _.values(obj);
       for (var i = 0, length = obj.length; i < length; i++) {
         value = obj[i];
         if (value > result) {
@@ -4848,7 +4848,7 @@ process.umask = function() { return 0; };
     var result = Infinity, lastComputed = Infinity,
         value, computed;
     if (iteratee == null && obj != null) {
-      obj = isArrayLike(obj) ? obj : _.values(obj);
+      obj = isArrayLike(obj)  obj : _.values(obj);
       for (var i = 0, length = obj.length; i < length; i++) {
         value = obj[i];
         if (value < result) {
@@ -4871,7 +4871,7 @@ process.umask = function() { return 0; };
   // Shuffle a collection, using the modern version of the
   // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
   _.shuffle = function(obj) {
-    var set = isArrayLike(obj) ? obj : _.values(obj);
+    var set = isArrayLike(obj)  obj : _.values(obj);
     var length = set.length;
     var shuffled = Array(length);
     for (var index = 0, rand; index < length; index++) {
@@ -4956,7 +4956,7 @@ process.umask = function() { return 0; };
   // Return the number of elements in an object.
   _.size = function(obj) {
     if (obj == null) return 0;
-    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
+    return isArrayLike(obj)  obj.length : _.keys(obj).length;
   };
 
   // Split a collection into two arrays: one whose elements all satisfy the given
@@ -4965,7 +4965,7 @@ process.umask = function() { return 0; };
     predicate = cb(predicate, context);
     var pass = [], fail = [];
     _.each(obj, function(value, key, obj) {
-      (predicate(value, key, obj) ? pass : fail).push(value);
+      (predicate(value, key, obj)  pass : fail).push(value);
     });
     return [pass, fail];
   };
@@ -4986,7 +4986,7 @@ process.umask = function() { return 0; };
   // the arguments object. Passing **n** will return all the values in
   // the array, excluding the last N.
   _.initial = function(array, n, guard) {
-    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard  1 : n)));
   };
 
   // Get the last element of an array. Passing **n** will return the last N
@@ -5001,7 +5001,7 @@ process.umask = function() { return 0; };
   // Especially useful on the arguments object. Passing an **n** will return
   // the rest N values in the array.
   _.rest = _.tail = _.drop = function(array, n, guard) {
-    return slice.call(array, n == null || guard ? 1 : n);
+    return slice.call(array, n == null || guard  1 : n);
   };
 
   // Trim out all falsy values from an array.
@@ -5053,7 +5053,7 @@ process.umask = function() { return 0; };
     var seen = [];
     for (var i = 0, length = getLength(array); i < length; i++) {
       var value = array[i],
-          computed = iteratee ? iteratee(value, i, array) : value;
+          computed = iteratee  iteratee(value, i, array) : value;
       if (isSorted) {
         if (!i || seen !== computed) result.push(value);
         seen = computed;
@@ -5138,7 +5138,7 @@ process.umask = function() { return 0; };
     return function(array, predicate, context) {
       predicate = cb(predicate, context);
       var length = getLength(array);
-      var index = dir > 0 ? 0 : length - 1;
+      var index = dir > 0  0 : length - 1;
       for (; index >= 0 && index < length; index += dir) {
         if (predicate(array[index], index, array)) return index;
       }
@@ -5169,19 +5169,19 @@ process.umask = function() { return 0; };
       var i = 0, length = getLength(array);
       if (typeof idx == 'number') {
         if (dir > 0) {
-            i = idx >= 0 ? idx : Math.max(idx + length, i);
+            i = idx >= 0  idx : Math.max(idx + length, i);
         } else {
-            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
+            length = idx >= 0  Math.min(idx + 1, length) : idx + length + 1;
         }
       } else if (sortedIndex && idx && length) {
         idx = sortedIndex(array, item);
-        return array[idx] === item ? idx : -1;
+        return array[idx] === item  idx : -1;
       }
       if (item !== item) {
         idx = predicateFind(slice.call(array, i, length), _.isNaN);
-        return idx >= 0 ? idx + i : -1;
+        return idx >= 0  idx + i : -1;
       }
-      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
+      for (idx = dir > 0  i : length - 1; idx >= 0 && idx < length; idx += dir) {
         if (array[idx] === item) return idx;
       }
       return -1;
@@ -5250,7 +5250,7 @@ process.umask = function() { return 0; };
       var position = 0, length = boundArgs.length;
       var args = Array(length);
       for (var i = 0; i < length; i++) {
-        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
+        args[i] = boundArgs[i] === _  arguments[position++] : boundArgs[i];
       }
       while (position < arguments.length) args.push(arguments[position++]);
       return executeBound(func, bound, this, this, args);
@@ -5275,7 +5275,7 @@ process.umask = function() { return 0; };
   _.memoize = function(func, hasher) {
     var memoize = function(key) {
       var cache = memoize.cache;
-      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+      var address = '' + (hasher  hasher.apply(this, arguments) : key);
       if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
       return cache[address];
     };
@@ -5307,7 +5307,7 @@ process.umask = function() { return 0; };
     var previous = 0;
     if (!options) options = {};
     var later = function() {
-      previous = options.leading === false ? 0 : _.now();
+      previous = options.leading === false  0 : _.now();
       timeout = null;
       result = func.apply(context, args);
       if (!timeout) context = args = null;
@@ -5590,7 +5590,7 @@ process.umask = function() { return 0; };
   // Create a (shallow-cloned) duplicate of an object.
   _.clone = function(obj) {
     if (!_.isObject(obj)) return obj;
-    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+    return _.isArray(obj)  obj.slice() : _.extend({}, obj);
   };
 
   // Invokes interceptor with the obj, and then returns obj.
@@ -5640,7 +5640,7 @@ process.umask = function() { return 0; };
         // Object(NaN) is equivalent to NaN
         if (+a !== +a) return +b !== +b;
         // An `egal` comparison is performed for other numeric values.
-        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+        return +a === 0  1 / +a === 1 / b : +a === +b;
       case '[object Date]':
       case '[object Boolean]':
         // Coerce dates and booleans to numeric primitive values. Dates are compared by their
@@ -5765,7 +5765,7 @@ process.umask = function() { return 0; };
     return isFinite(obj) && !isNaN(parseFloat(obj));
   };
 
-  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+  // Is the given value `NaN` (NaN is the only number which does not equal itself).
   _.isNaN = function(obj) {
     return _.isNumber(obj) && obj !== +obj;
   };
@@ -5819,7 +5819,7 @@ process.umask = function() { return 0; };
 
   // Generates a function for a given object that returns a given property.
   _.propertyOf = function(obj) {
-    return obj == null ? function(){} : function(key) {
+    return obj == null  function(){} : function(key) {
       return obj[key];
     };
   };
@@ -5872,12 +5872,12 @@ process.umask = function() { return 0; };
       return map[match];
     };
     // Regexes for identifying a key that needs to be escaped
-    var source = '(?:' + _.keys(map).join('|') + ')';
+    var source = '(:' + _.keys(map).join('|') + ')';
     var testRegexp = RegExp(source);
     var replaceRegexp = RegExp(source, 'g');
     return function(string) {
-      string = string == null ? '' : '' + string;
-      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+      string = string == null  '' : '' + string;
+      return testRegexp.test(string)  string.replace(replaceRegexp, escaper) : string;
     };
   };
   _.escape = createEscaper(escapeMap);
@@ -5886,11 +5886,11 @@ process.umask = function() { return 0; };
   // If the value of the named `property` is a function then invoke it with the
   // `object` as context; otherwise, return it.
   _.result = function(object, property, fallback) {
-    var value = object == null ? void 0 : object[property];
+    var value = object == null  void 0 : object[property];
     if (value === void 0) {
       value = fallback;
     }
-    return _.isFunction(value) ? value.call(object) : value;
+    return _.isFunction(value)  value.call(object) : value;
   };
 
   // Generate a unique integer id (unique within the entire client session).
@@ -5898,15 +5898,15 @@ process.umask = function() { return 0; };
   var idCounter = 0;
   _.uniqueId = function(prefix) {
     var id = ++idCounter + '';
-    return prefix ? prefix + id : id;
+    return prefix  prefix + id : id;
   };
 
   // By default, Underscore uses ERB-style template delimiters, change the
   // following template settings to use alternative delimiters.
   _.templateSettings = {
-    evaluate    : /<%([\s\S]+?)%>/g,
-    interpolate : /<%=([\s\S]+?)%>/g,
-    escape      : /<%-([\s\S]+?)%>/g
+    evaluate    : /<%([\s\S]+)%>/g,
+    interpolate : /<%=([\s\S]+)%>/g,
+    escape      : /<%-([\s\S]+)%>/g
   };
 
   // When customizing `templateSettings`, if you don't want to define an
@@ -6006,7 +6006,7 @@ process.umask = function() { return 0; };
 
   // Helper function to continue chaining intermediate results.
   var result = function(instance, obj) {
-    return instance._chain ? _(obj).chain() : obj;
+    return instance._chain  _(obj).chain() : obj;
   };
 
   // Add your own custom functions to the Underscore object.
@@ -6332,7 +6332,7 @@ function formatValue(ctx, value, recurseTimes) {
   // Some type of object without properties can be shortcutted.
   if (keys.length === 0) {
     if (isFunction(value)) {
-      var name = value.name ? ': ' + value.name : '';
+      var name = value.name  ': ' + value.name : '';
       return ctx.stylize('[Function' + name + ']', 'special');
     }
     if (isRegExp(value)) {
@@ -6356,7 +6356,7 @@ function formatValue(ctx, value, recurseTimes) {
 
   // Make functions say that they are functions
   if (isFunction(value)) {
-    var n = value.name ? ': ' + value.name : '';
+    var n = value.name  ': ' + value.name : '';
     base = ' [Function' + n + ']';
   }
 
@@ -6517,7 +6517,7 @@ function reduceToSingleString(output, base, braces) {
 
   if (length > 60) {
     return braces[0] +
-           (base === '' ? '' : base + '\n ') +
+           (base === ''  '' : base + '\n ') +
            ' ' +
            output.join(',\n  ') +
            ' ' +
@@ -6614,7 +6614,7 @@ function objectToString(o) {
 
 
 function pad(n) {
-  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+  return n < 10  '0' + n.toString(10) : n.toString(10);
 }
 
 
@@ -6668,7 +6668,7 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this,require('_process'),typeof global !== "undefined"  global : typeof self !== "undefined"  self : typeof window !== "undefined"  window : {})
 },{"./support/isBuffer":27,"_process":24,"inherits":26}],29:[function(require,module,exports){
 // Returns a wrapper function that returns a wrapped callback
 // The wrapper function should do some stuff, and return a
