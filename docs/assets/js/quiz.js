@@ -1,4 +1,97 @@
 (function () {
+  const STORAGE_KEY = 'summerInternshipQuizAttempts';
+  const CLIENT_ID_KEY = 'summerInternshipQuizClientId';
+
+  function getClientId() {
+    try {
+      const existing = localStorage.getItem(CLIENT_ID_KEY);
+      if (existing) {
+        return existing;
+      }
+
+      const id = `client-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+      localStorage.setItem(CLIENT_ID_KEY, id);
+      return id;
+    } catch (error) {
+      return `client-${Date.now()}`;
+    }
+  }
+
+  function getQuizId(app) {
+    return app.dataset.quizId || window.location.pathname;
+  }
+
+  function getQuizTitle(app) {
+    return app.dataset.quizTitle || document.title || 'Quiz';
+  }
+
+  function loadAttempts() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveAttempt(attempt) {
+    const attempts = loadAttempts();
+    attempts.push(attempt);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts));
+  }
+
+  function getAttemptsForQuiz(quizId) {
+    return loadAttempts().filter((attempt) => attempt.quizId === quizId);
+  }
+
+  function sendFirstAttemptToEndpoint(app, payload) {
+    const endpoint = app.dataset.submitEndpoint;
+
+    if (!endpoint) {
+      return;
+    }
+
+    const body = JSON.stringify(payload);
+
+    try {
+      // sendBeacon is resilient during navigation and works well for fire-and-forget logging.
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], { type: 'application/json' });
+        navigator.sendBeacon(endpoint, blob);
+        return;
+      }
+    } catch (error) {
+      // Fall through to fetch.
+    }
+
+    // no-cors keeps this simple for static hosting and Google Apps Script web app endpoints.
+    fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'no-cors',
+      body,
+    }).catch(() => {
+      // Ignore network errors; local score storage remains the source of truth for the learner.
+    });
+  }
+
+  function renderQuizStats(statsBox, quizId) {
+    const attempts = getAttemptsForQuiz(quizId);
+
+    if (!attempts.length) {
+      statsBox.textContent = 'No attempts recorded yet.';
+      return;
+    }
+
+    const best = attempts.reduce((max, item) => Math.max(max, item.percent), 0);
+    const latest = attempts[attempts.length - 1];
+
+    statsBox.textContent = `Attempts: ${attempts.length}. Latest: ${latest.percent}%. Best: ${best}%`;
+  }
+
   function parseQuizTable(sourceElement) {
     const table = sourceElement.querySelector('table');
 
@@ -25,6 +118,9 @@
   }
 
   function buildQuiz(app, quizData) {
+    const quizId = getQuizId(app);
+    const quizTitle = getQuizTitle(app);
+
     app.innerHTML = '';
 
     const form = document.createElement('form');
@@ -83,8 +179,13 @@
     scoreBox.className = 'score-box';
     scoreBox.setAttribute('aria-live', 'polite');
 
+    const statsBox = document.createElement('div');
+    statsBox.className = 'stats-box';
+    statsBox.setAttribute('aria-live', 'polite');
+
     app.appendChild(form);
     app.appendChild(scoreBox);
+    app.appendChild(statsBox);
 
     function clearFeedback() {
       form.querySelectorAll('.question').forEach((question) => {
@@ -117,26 +218,142 @@
 
       const total = quizData.length;
       const percent = Math.round((score / total) * 100);
+      const attemptsBefore = getAttemptsForQuiz(quizId).length;
       scoreBox.textContent = `Score: ${score}/${total} (${percent}%)`;
+
+      const attempt = {
+        quizId,
+        quizTitle,
+        score,
+        total,
+        percent,
+        timestamp: new Date().toISOString(),
+      };
+
+      saveAttempt(attempt);
+
+      if (attemptsBefore === 0) {
+        sendFirstAttemptToEndpoint(app, {
+          event: 'first_attempt',
+          clientId: getClientId(),
+          page: window.location.href,
+          userAgent: navigator.userAgent,
+          ...attempt,
+        });
+      }
+
+      renderQuizStats(statsBox, quizId);
     }
 
     checkButton.addEventListener('click', checkAnswers);
     resetButton.addEventListener('click', () => {
       form.reset();
       clearFeedback();
+      renderQuizStats(statsBox, quizId);
     });
 
     clearFeedback();
+    renderQuizStats(statsBox, quizId);
   }
 
-  function init() {
-    const app = document.getElementById('quiz-app');
+  function formatDate(isoDate) {
+    const date = new Date(isoDate);
 
-    if (!app) {
+    if (Number.isNaN(date.getTime())) {
+      return isoDate;
+    }
+
+    return date.toLocaleString();
+  }
+
+  function renderResultsPage(app) {
+    const attempts = loadAttempts();
+    app.innerHTML = '';
+
+    if (!attempts.length) {
+      app.textContent = 'No quiz attempts found yet. Complete a quiz first.';
       return;
     }
 
-    const sourceUrl = app.dataset.quizSource;
+    const byQuiz = attempts.reduce((acc, attempt) => {
+      if (!acc[attempt.quizId]) {
+        acc[attempt.quizId] = [];
+      }
+      acc[attempt.quizId].push(attempt);
+      return acc;
+    }, {});
+
+    const cards = document.createElement('div');
+    cards.className = 'results-cards';
+
+    Object.keys(byQuiz).forEach((quizId) => {
+      const quizAttempts = byQuiz[quizId];
+      const latest = quizAttempts[quizAttempts.length - 1];
+      const best = quizAttempts.reduce((max, item) => Math.max(max, item.percent), 0);
+      const avg = Math.round(
+        quizAttempts.reduce((sum, item) => sum + item.percent, 0) / quizAttempts.length
+      );
+
+      const card = document.createElement('section');
+      card.className = 'result-card';
+
+      const heading = document.createElement('h2');
+      heading.textContent = latest.quizTitle || quizId;
+      card.appendChild(heading);
+
+      const summary = document.createElement('p');
+      summary.textContent = `Attempts: ${quizAttempts.length} | Latest: ${latest.percent}% | Best: ${best}% | Average: ${avg}%`;
+      card.appendChild(summary);
+
+      cards.appendChild(card);
+    });
+
+    const table = document.createElement('table');
+    table.className = 'attempts-table';
+
+    const header = document.createElement('thead');
+    header.innerHTML = '<tr><th>Date</th><th>Quiz</th><th>Score</th><th>Percent</th></tr>';
+    table.appendChild(header);
+
+    const body = document.createElement('tbody');
+    attempts
+      .slice()
+      .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+      .forEach((attempt) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${formatDate(attempt.timestamp)}</td><td>${attempt.quizTitle || attempt.quizId}</td><td>${attempt.score}/${attempt.total}</td><td>${attempt.percent}%</td>`;
+        body.appendChild(row);
+      });
+
+    table.appendChild(body);
+
+    const resetButton = document.createElement('button');
+    resetButton.type = 'button';
+    resetButton.id = 'reset-results';
+    resetButton.textContent = 'Clear all recorded quiz progress';
+    resetButton.addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      renderResultsPage(app);
+    });
+
+    app.appendChild(cards);
+    app.appendChild(table);
+    app.appendChild(resetButton);
+  }
+
+  function init() {
+    const quizApp = document.getElementById('quiz-app');
+    const resultsApp = document.getElementById('quiz-results-app');
+
+    if (resultsApp) {
+      renderResultsPage(resultsApp);
+    }
+
+    if (!quizApp) {
+      return;
+    }
+
+    const sourceUrl = quizApp.dataset.quizSource;
 
     fetch(sourceUrl)
       .then((response) => response.text())
@@ -147,14 +364,14 @@
         const quizData = parseQuizTable(sourceElement);
 
         if (!quizData.length) {
-          app.textContent = 'Quiz data was not found.';
+          quizApp.textContent = 'Quiz data was not found.';
           return;
         }
 
-        buildQuiz(app, quizData);
+        buildQuiz(quizApp, quizData);
       })
       .catch(() => {
-        app.textContent = 'Quiz data could not be loaded.';
+        quizApp.textContent = 'Quiz data could not be loaded.';
       });
   }
 

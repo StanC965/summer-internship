@@ -32,10 +32,13 @@ nav:
       - "Week 3 · Goal 7": work-instructions/week3-goal3.md
   - Progress: work-instructions/progress.md
   - Quizzes:
-      - Work Instructions Quiz: quiz/index.md
-      - Week 1 Review (PDF): quiz/week1-review.md
-      - Results: quiz/results.md
-      - Question Bank: quiz/data/work-instructions.md
+      - Quiz 1: quiz/q1.md
+      - Quiz 2: quiz/q2.md
+      - Quiz 3: quiz/q3.md
+      - Quiz 4: quiz/q4.md
+      - Quiz 5: quiz/q5.md
+      - Quiz 6: quiz/q6.md
+      - Quiz 7: quiz/q7.md
   - Results: quiz/results.md
   - Reference Documents: reference-documents/index.md
 
