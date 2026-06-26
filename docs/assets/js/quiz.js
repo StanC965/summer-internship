@@ -99,20 +99,33 @@
       return [];
     }
 
+    const headerCells = Array.from(table.querySelectorAll('thead th'));
+    const optionKeys = headerCells
+      .slice(1, -1)
+      .map((cell) => cell.textContent.trim().toUpperCase())
+      .filter((key) => key);
+
+    if (!optionKeys.length) {
+      return [];
+    }
+
     const rows = Array.from(table.querySelectorAll('tbody tr'));
 
     return rows.map((row, index) => {
       const cells = row.querySelectorAll('td');
+      const options = {};
+
+      optionKeys.forEach((key, optionIndex) => {
+        const cell = cells[optionIndex + 1];
+        options[key] = cell ? cell.textContent.trim() : '';
+      });
 
       return {
         index: index + 1,
         question: cells[0].textContent.trim(),
-        options: {
-          A: cells[1].textContent.trim(),
-          B: cells[2].textContent.trim(),
-          C: cells[3].textContent.trim(),
-        },
-        correct: cells[4].textContent.trim().toUpperCase(),
+        options,
+        optionKeys,
+        correct: cells[cells.length - 1].textContent.trim().toUpperCase(),
       };
     });
   }
@@ -136,7 +149,7 @@
       heading.textContent = `${item.index}. ${item.question}`;
       section.appendChild(heading);
 
-      ['A', 'B', 'C'].forEach((key) => {
+      item.optionKeys.forEach((key) => {
         const label = document.createElement('label');
         label.className = 'option';
 
