@@ -1,11 +1,21 @@
-# Quiz Results
+﻿# Quiz Results
 
-This page summarizes your quiz progress across all interactive quizzes.
+This page shows the published ranking based on Google Form submissions.
 
-- Correctness is measured as `score / total` and displayed as a percentage.
-- Progress is measured as attempt history per quiz: latest score, best score, and average score.
+Rankings are checked daily and then published on the main branch, so updates become visible on GitHub Pages.
 
-All data is stored in your browser (`localStorage`) so it works on GitHub Pages without a backend.
+## End of Internship Prize
 
-<!-- markdownlint-disable-next-line MD033 -->
-<div id="quiz-results-app"></div>
+At the end of the internship, the student on Rank 1 receives the **Leaderboard Prize**:
+
+- Internship Excellence Certificate (Top Quiz Performer)
+- 6 pack Coca-Cola refresher
+- Public recognition on this page and during the closing session
+
+In case of a tie, the winner is decided by the highest number of goals submitted, then by earliest completion date.
+
+| Rank | Name | Goals Submitted | Score / Notes | Last Update |
+| --- | --- | --- | --- | --- |
+| 1 | TBA | TBA | TBA | TBA |
+| 2 | TBA | TBA | TBA | TBA |
+| 3 | TBA | TBA | TBA | TBA |
