@@ -1,12 +1,12 @@
-#define MAX(i, limit) do 
-{ 
-    if (i < limit) 
-    { 
-        i++; 
-    } 
-} while(1)
-
+#define MAX(i, limit) do \
+{ \
+    i++;\
+} while(i < limit)
+//pentru a nu se bloca in while am mai pus acolo conditia
 void main(void)
 {
-    MAX(0,3);
+  //am definit i ul pentru ca altfel compara mereu 0 cu 3
+  
+    int i = 0;
+    MAX(i,3);
 }

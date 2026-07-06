@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>635689691</fileChecksum>
+    <fileChecksum>1887774704</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
             <file>$PROJ_DIR$\Debug\List\task4.i</file>
+            <file>$PROJ_DIR$\Debug\List\task5.i</file>
             <file>$PROJ_DIR$\Debug\Obj\task4.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
             <file>$PROJ_DIR$\main.c</file>
@@ -33,7 +34,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 2</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
         </file>
@@ -42,7 +43,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 7 5</file>
+                    <file> 8 6</file>
                 </tool>
             </outputs>
         </file>
@@ -51,13 +52,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 5</file>
+                    <file> 6</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 10 11 1 12</file>
+                    <file> 11 12 5 13</file>
                 </tool>
             </inputs>
         </file>
@@ -66,7 +67,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 13 6</file>
+                    <file> 14 7</file>
                 </tool>
             </outputs>
         </file>
@@ -75,7 +76,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0</file>
+                    <file> 0 2</file>
                 </tool>
             </outputs>
         </file>
@@ -84,7 +85,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 15 14</file>
+                    <file> 16 15</file>
                 </tool>
             </outputs>
         </file>
@@ -93,7 +94,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 17 19</file>
+                    <file> 18 20</file>
                 </tool>
             </outputs>
         </file>
@@ -102,7 +103,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4</file>
+                    <file> 1 5</file>
                 </tool>
             </outputs>
         </file>
