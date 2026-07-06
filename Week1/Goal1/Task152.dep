@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>2736481861</fileChecksum>
+    <fileChecksum>2159940060</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -29,11 +29,14 @@
             <file>$PROJ_DIR$\Debug\Obj\task3.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\task6.r90</file>
             <file>$PROJ_DIR$\Debug\List\task6.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task8.r90</file>
             <file>$PROJ_DIR$\Debug\List\task7.i</file>
             <file>$PROJ_DIR$\Debug\Obj\task7.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task8.i</file>
             <file>$PROJ_DIR$\task5.c</file>
             <file>$PROJ_DIR$\task5..c</file>
             <file>$PROJ_DIR$\task7.c</file>
+            <file>$PROJ_DIR$\task8.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\main.c</name>
@@ -64,7 +67,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 12 13 25 14</file>
+                    <file> 12 13 26 14</file>
                 </tool>
             </inputs>
         </file>
@@ -127,7 +130,16 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 24 25</file>
+                    <file> 25 26</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task8.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 27</file>
                 </tool>
             </outputs>
         </file>
