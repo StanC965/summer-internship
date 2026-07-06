@@ -2641,4 +2641,7 @@
     <file>
         <name>$PROJ_DIR$\task2.c</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task3.c</name>
+    </file>
 </project>

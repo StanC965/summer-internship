@@ -2111,5 +2111,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\task2.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task3.c</name>
     </file>
 </project>
