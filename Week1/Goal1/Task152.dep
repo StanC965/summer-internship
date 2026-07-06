@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>99510980</fileChecksum>
+    <fileChecksum>640507770</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
             <file>$PROJ_DIR$\main.c</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-n.r90</file>
             <file>$PROJ_DIR$\Debug\List\Task152.map</file>
             <file>$PROJ_DIR$\Debug\Obj\task1.r90</file>
             <file>$PROJ_DIR$\Debug\Exe\Task152.d90</file>
             <file>$PROJ_DIR$\task1.c</file>
-            <file>$TOOLKIT_DIR$\src\template\lnk3s.xcl</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task1.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task2.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task2.i</file>
+            <file>$PROJ_DIR$\task2.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\main.c</name>
@@ -28,7 +33,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 5 3</file>
+                    <file> 4 2</file>
                 </tool>
             </outputs>
         </file>
@@ -37,13 +42,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 3</file>
+                    <file> 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 7 4 2</file>
+                    <file> 6 7 10 8</file>
                 </tool>
             </inputs>
         </file>
@@ -52,7 +57,16 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4</file>
+                    <file> 9 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task2.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 11 10</file>
                 </tool>
             </outputs>
         </file>

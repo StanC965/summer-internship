@@ -2638,4 +2638,7 @@
     <file>
         <name>$PROJ_DIR$\task1.c</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task2.c</name>
+    </file>
 </project>
