@@ -2,5 +2,6 @@
 
 void main (void)
 {
-int 100 = 10;
+int MAX1 = 10;
+
 }
