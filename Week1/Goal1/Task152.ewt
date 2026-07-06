@@ -2653,4 +2653,7 @@
     <file>
         <name>$PROJ_DIR$\task6.c</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task7.c</name>
+    </file>
 </project>
