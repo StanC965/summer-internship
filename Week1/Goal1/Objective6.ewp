@@ -2117,5 +2117,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\task63.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task64.c</name>
     </file>
 </project>
