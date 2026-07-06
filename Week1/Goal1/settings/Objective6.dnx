@@ -15,22 +15,6 @@
         <Enabled>0</Enabled>
         <ShowSource>1</ShowSource>
     </Trace1>
-    <DebugChecksum>
-        <Checksum>3697896044</Checksum>
-    </DebugChecksum>
-    <Disassembly>
-        <InstrCount>0</InstrCount>
-        <MixedMode>1</MixedMode>
-    </Disassembly>
-    <DriverProfiling>
-        <Enabled>0</Enabled>
-        <Mode>1</Mode>
-        <Graph>0</Graph>
-        <Symbiont>0</Symbiont>
-    </DriverProfiling>
-    <CallStack>
-        <ShowArgs>0</ShowArgs>
-    </CallStack>
     <DataLog>
         <GraphEnabled>0</GraphEnabled>
         <LogEnabled>0</LogEnabled>
@@ -38,18 +22,27 @@
         <SumEnabled>0</SumEnabled>
         <ShowTimeSum>1</ShowTimeSum>
     </DataLog>
+    <DebugChecksum>
+        <Checksum>1646036366</Checksum>
+    </DebugChecksum>
+    <Disassembly>
+        <MixedMode>1</MixedMode>
+    </Disassembly>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
         <Category2>_ 2</Category2>
     </LogFile>
+    <Breakpoints2>
+        <Count>0</Count>
+    </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
     </TermIOLog>
-    <Breakpoints2>
-        <Count>0</Count>
-    </Breakpoints2>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>

@@ -1,0 +1,58 @@
+[
+  {
+    "ID": "c:@a",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "a",
+    "location": {
+      "column": "5",
+      "line": "1",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal1\\task61.c"
+    },
+    "name": "a",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@b",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "b",
+    "location": {
+      "column": "13",
+      "line": "1",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal1\\task61.c"
+    },
+    "name": "b",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@sum",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "sum",
+    "location": {
+      "column": "5",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal1\\task61.c"
+    },
+    "name": "sum",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@main",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void main(void)",
+    "location": {
+      "column": "6",
+      "line": "4",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal1\\task61.c"
+    },
+    "name": "main",
+    "origin": "project_file",
+    "scope": null
+  }
+]

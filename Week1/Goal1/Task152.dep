@@ -67,7 +67,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 12 13 26 14</file>
+                    <file> 12 13 24 14</file>
                 </tool>
             </inputs>
         </file>
@@ -139,7 +139,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 27</file>
+                    <file> 27 24</file>
                 </tool>
             </outputs>
         </file>
