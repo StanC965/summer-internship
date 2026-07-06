@@ -2638,4 +2638,10 @@
     <file>
         <name>$PROJ_DIR$\task61.c</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task62.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task63.c</name>
+    </file>
 </project>

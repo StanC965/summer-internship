@@ -24,18 +24,18 @@ rule PDBLINK
 
 
 #Build steps
-build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.xcl : COMPILER_XCL 
-  xclcommand = -source_file D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\task61.c -xcl_file D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.xcl -macro_file D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.tmp -icc_path D$:\Mircea\Marqurdt\logic\avr\bin\iccavr.exe
-  flags = D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\task61.c --cpu=m324pb -ms -o D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\Obj\ --preprocess D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.tmp
-  rspfile_name = D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.xcl.rsp
+build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\task63.c -xcl_file D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.xcl -macro_file D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.tmp -icc_path D$:\Mircea\Marqurdt\logic\avr\bin\iccavr.exe
+  flags = D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\task63.c --cpu=m324pb -ms -o D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\Obj\ --preprocess D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.tmp
+  rspfile_name = D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.xcl.rsp
 
-build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.pbi : INDEXER D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.xcl |  $
-D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\task61.c
-  flags = -out=D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.pbi -f D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.xcl
+build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.pbi : INDEXER D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.xcl |  $
+D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\task63.c
+  flags = -out=D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.pbi -f D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.xcl
 
 build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbw : MAKEBROWSE D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbd
   flags = D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbd -output D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbw
 
-build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbd : PDBLINK D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.pbi
-  flags = -M D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbd D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task61.pbi
+build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbd : PDBLINK D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.pbi
+  flags = -M D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\Objective6.pbd D$:\Mircea\Marqurdt\summer-internship\Week1\Goal1\Debug\BrowseInfo\task63.pbi
 
