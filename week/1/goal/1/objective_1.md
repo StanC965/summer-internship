@@ -12,6 +12,7 @@
 | **[113]** | `CORE` | [x] Completed
 | **[114]** | `CORE` | [x] Completed
 | **[115]** | `CORE` | [x] Completed
+| **[116]** | `CORE` | [x] Completed
 
 
 #### Task 111
@@ -51,6 +52,15 @@
 
 > **Answer/Explanation:**
 > 3.
+
+---
+
+#### Task 116
+> **Question/Prompt:**   How are the extension headers labeled?
+
+> **Answer/Explanation:**
+> EXT1, EXT3, EXT4.
+
 
 
 ## References & Resources
