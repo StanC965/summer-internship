@@ -588,15 +588,31 @@ int main( void )
   set_pin(&PORTC,6);
   set_direction(&DDRC,7,1);
   set_pin(&PORTC,7);
-  
+  int presed = 0;
+  int presed_confidence_level = 0;
+  int released_confidence_level = 0;
   while(1){
   
   
   if(!get_pin(&PINC,6)){
-      reset_pin(&PORTC,7);
+      presed_confidence_level++;
+      if(presed_confidence_level > 100){
+        if(presed == 0){
+          reset_pin(&PORTC,7);
+          presed = 1;
+        }
+        presed_confidence_level = 0;
+      }
+      
   }
   else{
-    set_pin(&PORTC,7);
+    released_confidence_level++;
+    if(released_confidence_level > 100){
+      set_pin(&PORTC,7);
+      presed = 0;
+      released_confidence_level = 0;
+    }
+    
   }
 }
 }
