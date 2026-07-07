@@ -10,6 +10,7 @@
 | **[121]** | `CORE` | [x] Completed |
 | **[122]** | `CORE` | [x] Completed |
 | **[123]** | `CORE` | [x] Completed |
+| **[124]** | `CORE` | [x] Completed |
 
 
 #### Task [121]
@@ -31,6 +32,15 @@
 > **Question/Prompt:**   Search and identify BUTTON 1, BUTTON 2 and BUTTON 3.
 
 > **Answer/Explanation:**
+
+---
+
+#### Task [124]
+> **Question/Prompt:**   Search and identify the extension header.
+
+> **Answer/Explanation:** 
+> The extension header is marked with EXT on the board.
+
 
 
 ## References & Resources
