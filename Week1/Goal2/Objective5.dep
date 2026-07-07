@@ -38,7 +38,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 10 9</file>
+                    <file> 10</file>
                 </tool>
             </outputs>
             <inputs>
@@ -62,7 +62,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 17</file>
+                    <file> 17 13</file>
                 </tool>
             </outputs>
             <inputs>
