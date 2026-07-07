@@ -1,2 +1,5 @@
 115 — CORE — How many extension headers there are on the board?
 Answer: 3
+
+116 — CORE — How are the extension headers labeled?
+Answer: EXT3
