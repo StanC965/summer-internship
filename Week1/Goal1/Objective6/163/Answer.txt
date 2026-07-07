@@ -1,0 +1,1 @@
+The SFR_B_N macro defines both the offset and the bit layout specified in the datasheet for the real TCCR2B register. This confirms that the software header matches the hardware specifications exactly, allowing individual hardware control bits to be modified reliably from C code.
