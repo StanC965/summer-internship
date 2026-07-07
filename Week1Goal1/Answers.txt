@@ -27,3 +27,6 @@ Answer: The board is powered with 5 V via the USB cable connected to a PC or lap
 
 121 — CORE — Search and identify OLED display.
 Answer: Big black rectangle upper mid of board
+
+122 — CORE — Search and identify LED1, LED2 and LED3 that you will program to lit.
+Answer: In the middle of the board 
