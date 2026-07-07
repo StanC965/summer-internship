@@ -3,8 +3,8 @@
 #else
 #define VAR 5
 #endif
-#define MAX 1;
 
+//Vom avea VAR 5 pentru ca MAX nu e 1
 void main(){
 int x =VAR;
 }
