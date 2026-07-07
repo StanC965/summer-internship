@@ -10,6 +10,7 @@
 | **[131]** | `CORE` | [x] Completed |
 | **[132]** | `CORE` | [x] Completed |
 | **[133]** | `CORE` | [x] Completed |
+| **[134]** | `CORE` | [x] Completed |
 
 
 #### Task [131]
@@ -29,6 +30,13 @@
 
 #### Task [133]
 > **Question/Prompt:**    Search and identify the lowpass filter.
+
+> **Answer/Explanation:**
+
+---
+
+#### Task [134]
+> **Question/Prompt:**    Search and identify the microSD card slot.
 
 > **Answer/Explanation:**
 
