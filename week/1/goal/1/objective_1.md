@@ -8,6 +8,7 @@
 | Task ID | Type | Status / Deliverable |
 | :--- | :--- | :--- |
 | **[111]** | `CORE` | [x] Completed|
+| **[112]** | `CORE` | [x] Completed
 
 
 #### Task 111
@@ -15,6 +16,12 @@
 
 > **Answer/Explanation:**
 > Looked at the board and also used the kit overview section of the ATMega324PB user guide for verification.
+
+#### Task 112
+> **Question/Prompt:**  Search and identify LED0, a LED that you will program to lit later.
+
+> **Answer/Explanation:**
+> LED0 corresponds to the PC7 pin on the board, also known as the USER LED.
 
 ## References & Resources
 * ATmega324PB Xplained Pro user guide
