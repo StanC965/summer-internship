@@ -16,6 +16,7 @@
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom328pb.inc</file>
             <file>$TOOLKIT_DIR$\inc\iom328pb.h</file>
         </outputs>
         <file>
@@ -23,7 +24,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 2 1</file>
+                    <file> 1 2</file>
                 </tool>
             </outputs>
         </file>
@@ -53,7 +54,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 6 9 3</file>
+                    <file> 12 9 11</file>
                 </tool>
             </inputs>
         </file>
