@@ -13,6 +13,7 @@
 | **[134]** | `CORE` | [x] Completed |
 | **[135]** | `CORE` | [x] Completed |
 | **[136]** | `CORE` | [x] Completed |
+| **[137]** | `CORE` | [x] Completed |
 
 
 #### Task [131]
@@ -59,6 +60,12 @@
 
 ---
 
+#### Task [137]
+> **Question/Prompt:**      Search and identify GND and VCC pin on the header.
+
+> **Answer/Explanation:**
+
+---
 
 ## References & Resources
 * I/O1 Xplained Pro user guide
