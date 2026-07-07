@@ -18,3 +18,6 @@ Answer: EXT1, EXT3, EXT4
 
 117 — CORE — Search and identify GND and VCC pins on the headers and on the power connector.
 Answer: On the power connector, GND is the upper pin and VCC is the lower pin. For the headers, just refer to the labels on the back side of the board.
+
+118 — CORE — Connect the USB cable to the main board and you should see the green LED lit.
+Answer: Working
