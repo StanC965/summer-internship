@@ -9,3 +9,8 @@ In mijlocul placii avem un "patrat" din care ies multe trace-uri pe PCB, deasupr
 112 — CORE — Search and identify LED0, a LED that you will program to lit later.
 ANSWER:
 Led-ul LED0 se afla in partea de sus sub cele 2 butoane 
+
+
+113 — CORE — Search and identify SW0, a switch that you will program later to be interpreted as pressed/not pressed.
+ANSWER:
+Se afla deasupra la LED0 
