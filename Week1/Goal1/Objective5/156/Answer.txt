@@ -1,0 +1,1 @@
+The code will cause a compilation error because the parameters of the macro are replaced by the constants used in the call and not by variables leading to 0++ which is invalid because constants can't be incremented.
