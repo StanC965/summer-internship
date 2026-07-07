@@ -50132,55 +50132,13 @@
     "scope": null
   },
   {
-    "ID": "c:@reg",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "reg",
-    "location": {
-      "column": "16",
-      "line": "5",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
-    },
-    "name": "reg",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@pin",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "pin",
-    "location": {
-      "column": "15",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
-    },
-    "name": "pin",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@dir",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "dir",
-    "location": {
-      "column": "7",
-      "line": "7",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
-    },
-    "name": "dir",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
     "ID": "c:@F@set_pin",
     "What": "Function",
     "defdec": "Dec",
     "display": "void set_pin(volatile unsigned char *, unsigned char)",
     "location": {
       "column": "13",
-      "line": "10",
+      "line": "8",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
     },
     "name": "set_pin",
@@ -50194,7 +50152,7 @@
     "display": "void reset_pin(volatile unsigned char *, unsigned char)",
     "location": {
       "column": "13",
-      "line": "12",
+      "line": "10",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
     },
     "name": "reset_pin",
@@ -50208,7 +50166,7 @@
     "display": "void set_direction(volatile unsigned char *, unsigned char, _Bool)",
     "location": {
       "column": "13",
-      "line": "14",
+      "line": "12",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
     },
     "name": "set_direction",
@@ -50222,10 +50180,94 @@
     "display": "void toggle_pin(volatile unsigned char *, unsigned char)",
     "location": {
       "column": "13",
-      "line": "16",
+      "line": "14",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
     },
     "name": "toggle_pin",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@23@macro@LED_C",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LED_C",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "LED_C",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@PowerOn_LED",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void PowerOn_LED(unsigned char)",
+    "location": {
+      "column": "6",
+      "line": "5",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "PowerOn_LED",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@PowerOff_LED",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void PowerOff_LED(unsigned char)",
+    "location": {
+      "column": "6",
+      "line": "36",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "PowerOff_LED",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.h@23@macro@LED_C",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LED_C",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+    },
+    "name": "LED_C",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@PowerOn_LED",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void PowerOn_LED(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+    },
+    "name": "PowerOn_LED",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@PowerOff_LED",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void PowerOff_LED(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+    },
+    "name": "PowerOff_LED",
     "origin": "system_include",
     "scope": null
   },
@@ -50236,7 +50278,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "4",
+      "line": "3",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
     },
     "name": "main",

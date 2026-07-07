@@ -1,11 +1,10 @@
 
-#include "gpio.h"
-
+#include "led.h"
 int main( void )
 {
-  PORTC = 0x00;
-  DDRC = 0x00;
-  set_direction(&DDRC,7,1);
+  set_direction(&DDRD,5,1);
+  PowerOn_LED(1);
+  PowerOff_LED(1);  
   while(1){
   }
 }

@@ -2642,6 +2642,12 @@
         <name>$PROJ_DIR$\gpio.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\led.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\led.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main.c</name>
     </file>
 </project>

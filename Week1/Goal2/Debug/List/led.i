@@ -1,6 +1,4 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
-
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -582,18 +580,68 @@ extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
 
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
-
-
-extern void PowerOn_LED(unsigned char led);
-
-extern void PowerOff_LED(unsigned char led);
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
-int main( void )
-{
-  set_direction(&DDRD,5,1);
-  PowerOn_LED(1);
-  PowerOff_LED(1);  
-  while(1){
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+void PowerOn_LED(unsigned char led){
+  if(led == 0){
+ 
+    reset_pin(&PORTC,7);
+    
+  }
+  else
+  if(led == 1){
+  
+    reset_pin(&PORTD,5);
+    
+  }
+  else
+  if(led == 2){
+   
+    reset_pin(&PORTD,4);
+    
+  }
+  else
+  if(led == 3){
+  
+    reset_pin(&PORTA,3);
+    
+  }
+  else{
+    
+    reset_pin(&PORTB,3);
+    
   }
 }
+
+void PowerOff_LED(unsigned char led){
+  if(led == 0){
+    
+    set_pin(&PORTC,7);
+    
+  }
+  else
+  if(led == 1){
+   
+    set_pin(&PORTD,5);
+    
+  }
+  else
+  if(led == 2){
+    
+    set_pin(&PORTD,4);
+    
+  }
+  else
+  if(led == 3){
+   
+    set_pin(&PORTA,3);
+    
+  }
+  else{
+    
+    set_pin(&PORTB,3);
+    
+  }
+}
+
