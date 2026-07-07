@@ -11,6 +11,7 @@
 | **[132]** | `CORE` | [x] Completed |
 | **[133]** | `CORE` | [x] Completed |
 | **[134]** | `CORE` | [x] Completed |
+| **[135]** | `CORE` | [x] Completed |
 
 
 #### Task [131]
@@ -41,6 +42,14 @@
 > **Answer/Explanation:**
 
 ---
+
+#### Task [135]
+> **Question/Prompt:**     Search and identify the LED on the board.
+
+> **Answer/Explanation:**
+
+---
+
 
 ## References & Resources
 * I/O1 Xplained Pro user guide
