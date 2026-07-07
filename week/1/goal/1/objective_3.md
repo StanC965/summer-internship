@@ -14,6 +14,7 @@
 | **[135]** | `CORE` | [x] Completed |
 | **[136]** | `CORE` | [x] Completed |
 | **[137]** | `CORE` | [x] Completed |
+| **[138]** | `CORE` | [x] Completed |
 
 
 #### Task [131]
@@ -62,6 +63,13 @@
 
 #### Task [137]
 > **Question/Prompt:**      Search and identify GND and VCC pin on the header.
+
+> **Answer/Explanation:**
+
+---
+
+#### Task [138]
+> **Question/Prompt:**      Now, follow this 3-steps procedure: (1) unplug the USB cable from PC/laptop!!! (2) connect IO1 board to EXT4 header from the main board and (3) finally reconnect the USB cable to the PC/laptop. You must ALWAYS follow this procedure when you want to connect something to the main board!
 
 > **Answer/Explanation:**
 
