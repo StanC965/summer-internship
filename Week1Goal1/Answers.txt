@@ -21,3 +21,6 @@ Answer: On the power connector, GND is the upper pin and VCC is the lower pin. F
 
 118 — CORE — Connect the USB cable to the main board and you should see the green LED lit.
 Answer: Working
+
+119 — OPTIONAL — Even though you don't have an external power supply connected to VCC and GND the board is still powered up (green LED lit) when pluging in the USB cable. How can you explain that?
+Answer: The board is powered with 5 V via the USB cable connected to a PC or laptop.
