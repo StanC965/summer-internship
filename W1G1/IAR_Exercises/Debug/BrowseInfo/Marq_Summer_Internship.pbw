@@ -1,15 +1,29 @@
 [
   {
-    "ID": "c:main.c@8@macro@MAX",
+    "ID": "c:main.c@12@macro@max",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "MAX",
+    "display": "max",
     "location": {
       "column": "9",
-      "line": "1",
+      "line": "3",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "MAX",
+    "name": "max",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@57@macro@average",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "average",
+    "location": {
+      "column": "9",
+      "line": "4",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "average",
     "origin": "project_file",
     "scope": null
   },
@@ -17,13 +31,41 @@
     "ID": "c:@F@main",
     "What": "Function",
     "defdec": "Def",
-    "display": "void main(void)",
+    "display": "int main(void)",
     "location": {
-      "column": "6",
-      "line": "9",
+      "column": "5",
+      "line": "6",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
     "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@109@F@main@rez",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "rez",
+    "location": {
+      "column": "7",
+      "line": "9",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "rez",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@130@F@main@medie",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "medie",
+    "location": {
+      "column": "7",
+      "line": "10",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "medie",
     "origin": "project_file",
     "scope": null
   }
