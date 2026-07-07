@@ -1,2 +1,5 @@
 111 — CORE — Search and identify ATMega324PB microcontroller on the board.
 Answer: In the middle of the board big square chip
+
+112 — CORE — Search and identify LED0, a LED that you will program to lit later.
+Answer: It is located at the top of the board under the 2 buttons
