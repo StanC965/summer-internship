@@ -1,0 +1,2 @@
+111 — CORE — Search and identify ATMega324PB microcontroller on the board.
+Answer: In the middle of the board big square chip
