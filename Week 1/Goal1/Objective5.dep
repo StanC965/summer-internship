@@ -6,6 +6,7 @@
         <name>Debug</name>
         <outputs>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$PROJ_DIR$\Debug\Exe\Objective5.d90</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
@@ -13,19 +14,21 @@
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\Objective5.d90</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 4</file>
+                    <file> 5</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 3 5 7 6</file>
+                    <file> 4 6 8 7</file>
                 </tool>
             </inputs>
         </file>
@@ -34,16 +37,22 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0 7</file>
+                    <file> 0 8</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1 10 9</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 1 4</file>
+                    <file> 2 5</file>
                 </tool>
             </outputs>
         </file>
