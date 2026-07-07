@@ -1,13 +1,10 @@
-//153 
-#if MAX == 1
-#define VAR 4
-#else
-#define VAR 5
-#endif
+#define MAX 10
 
-void main( void )
+void main (void)
 {
-    int test = VAR; 
+    int x=2;
+    #define MAX 55
+    x=MAX;
 }
 
-// MAX is treated as 0 because it is not defined => test = var = 5
+//warning because of the redefinition, x will be 55 
