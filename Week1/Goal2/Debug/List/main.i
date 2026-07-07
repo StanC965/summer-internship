@@ -588,6 +588,9 @@ extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
 extern void PowerOn_LED(unsigned char led);
 
 extern void PowerOff_LED(unsigned char led);
+
+extern void LED_Blink_slow(unsigned char led);
+extern void LED_Blink_fast(unsigned char led);
 #line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
 int main( void )
 {
@@ -595,5 +598,7 @@ int main( void )
   PowerOn_LED(1);
   PowerOff_LED(1);  
   while(1){
+    LED_Blink_slow(1);
+    LED_Blink_fast(1);
   }
 }

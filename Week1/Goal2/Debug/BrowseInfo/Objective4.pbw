@@ -50230,6 +50230,230 @@
     "scope": null
   },
   {
+    "ID": "c:@F@LED_Blink_slow",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void LED_Blink_slow(unsigned char)",
+    "location": {
+      "column": "6",
+      "line": "68",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "LED_Blink_slow",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@836@F@LED_Blink_slow@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "70",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@889@F@LED_Blink_slow@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "72",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@941@F@LED_Blink_slow@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "74",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@LED_Blink_fast",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void LED_Blink_fast(unsigned char)",
+    "location": {
+      "column": "6",
+      "line": "78",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "LED_Blink_fast",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1061@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "80",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1113@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "82",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1164@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "84",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1216@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "86",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1267@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "88",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1319@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "90",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1370@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "92",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1422@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "94",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1473@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "96",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1525@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "98",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:led.c@1576@F@LED_Blink_fast@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "11",
+      "line": "100",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:led.h@23@macro@LED_C",
     "What": "MacroDef",
     "defdec": "Def",
@@ -50268,6 +50492,34 @@
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
     },
     "name": "PowerOff_LED",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@LED_Blink_slow",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void LED_Blink_slow(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "10",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+    },
+    "name": "LED_Blink_slow",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@LED_Blink_fast",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void LED_Blink_fast(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "11",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+    },
+    "name": "LED_Blink_fast",
     "origin": "system_include",
     "scope": null
   },

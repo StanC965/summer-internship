@@ -6,5 +6,7 @@ int main( void )
   PowerOn_LED(1);
   PowerOff_LED(1);  
   while(1){
+    LED_Blink_slow(1);
+    LED_Blink_fast(1);
   }
 }

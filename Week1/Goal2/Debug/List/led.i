@@ -645,3 +645,40 @@ void PowerOff_LED(unsigned char led){
   }
 }
 
+
+void LED_Blink_slow(unsigned char led){
+  PowerOn_LED(led);
+  for(int i = 0;i<10000;i++);
+  PowerOff_LED(led);
+  for(int i = 0;i<10000;i++);
+  PowerOn_LED(led);
+  for(int i = 0;i<10000;i++);
+  PowerOff_LED(led);
+
+}
+void LED_Blink_fast(unsigned char led){
+  PowerOn_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOff_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOn_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOff_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOn_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOff_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOn_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOff_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOn_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOff_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOn_LED(led);
+  for(int i = 0;i<5000;i++);
+  PowerOff_LED(led);
+}
+
