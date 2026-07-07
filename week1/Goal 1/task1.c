@@ -1,6 +1,6 @@
-
-//suma a doua numere
+int a=1,b=257,sum =0; 
+//in watch am valoarea 258 iar in memorie am 02 01 in format Little endian 
+//cel mai semnificativ bit la adresa mai mare
 void main(void){
- int a=2,b=3;
- int sum = a+b;
+ sum = a+b;
 }
