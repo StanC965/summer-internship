@@ -1,7 +1,7 @@
 # Week: 1 - Goal : 1
 
 
-## Objective 1: Knowing your extension board (OLED1)
+## Objective 2: Knowing your extension board (OLED1)
 
 ### Task Checklist & Results
 
