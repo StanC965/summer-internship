@@ -41086,20 +41086,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR6",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_EEAR6",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_EEAR6",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_Bit7",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41758,20 +41744,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_Bit5",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_Bit5",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_Bit5",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy14",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41782,6 +41754,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARH_Dummy14",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_Bit5",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_Bit5",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_Bit5",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -41912,6 +41898,20 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR5",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_EEAR5",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_EEAR5",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_EEAR10",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41936,20 +41936,6 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEAR_Dummy14",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR5",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_EEAR5",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_EEAR5",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -42008,6 +41994,20 @@
             "name": "EEARL_Bit6",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR6",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_EEAR6",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_EEAR6",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           }
         ],
         "name": "",
@@ -42041,20 +42041,6 @@
           "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
         },
         "members": [
-          {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEDR_EEDR0",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEDR_EEDR0",
-            "location": {
-              "column": "2",
-              "line": "290",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEDR_EEDR0",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_290_2::_anonymous_iom324pb_h_290_2"
-          },
           {
             "ID": "c:iom324pb.h@Ua@FI@EEDR",
             "What": "FieldDecl",
@@ -42276,6 +42262,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEDR_Bit7",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_290_2::_anonymous_iom324pb_h_290_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEDR_EEDR0",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEDR_EEDR0",
+            "location": {
+              "column": "2",
+              "line": "290",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEDR_EEDR0",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_290_2::_anonymous_iom324pb_h_290_2"
           }
@@ -50048,16 +50048,16 @@
     "scope": null
   },
   {
-    "ID": "c:@F@set_direction",
+    "ID": "c:@F@toggle_pin",
     "What": "Function",
     "defdec": "Def",
-    "display": "void set_direction(volatile unsigned char *, unsigned char, _Bool)",
+    "display": "void toggle_pin(volatile unsigned char *, unsigned char)",
     "location": {
       "column": "6",
       "line": "4",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task233.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task234.c"
     },
-    "name": "set_direction",
+    "name": "toggle_pin",
     "origin": "project_file",
     "scope": null
   },
@@ -50068,8 +50068,8 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "12",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task233.c"
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task234.c"
     },
     "name": "main",
     "origin": "project_file",
