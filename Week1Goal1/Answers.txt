@@ -12,3 +12,6 @@ Answer: The external oscillator is on the left of the microcontroller, debugger 
 
 115 — CORE — How many extension headers there are on the board?
 Answer: 3
+
+116 — CORE — How are the extension headers labeled? ( <<< one example of label found )
+Answer: EXT1, EXT3, EXT4
