@@ -41912,20 +41912,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR5",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_EEAR5",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_EEAR5",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_EEAR10",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41950,6 +41936,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEAR_Dummy14",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR5",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_EEAR5",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_EEAR5",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -50048,30 +50048,16 @@
     "scope": null
   },
   {
-    "ID": "c:@F@set_pin",
+    "ID": "c:@F@set_direction",
     "What": "Function",
     "defdec": "Def",
-    "display": "void set_pin(volatile unsigned char *, unsigned char)",
+    "display": "void set_direction(volatile unsigned char *, unsigned char, _Bool)",
     "location": {
       "column": "6",
-      "line": "3",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task232.c"
+      "line": "4",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task233.c"
     },
-    "name": "set_pin",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@reset_pin",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void reset_pin(volatile unsigned char *, unsigned char)",
-    "location": {
-      "column": "6",
-      "line": "7",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task232.c"
-    },
-    "name": "reset_pin",
+    "name": "set_direction",
     "origin": "project_file",
     "scope": null
   },
@@ -50082,8 +50068,8 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "11",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task232.c"
+      "line": "12",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task233.c"
     },
     "name": "main",
     "origin": "project_file",
