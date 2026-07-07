@@ -34,6 +34,11 @@ void LINE(unsigned char led){
       
 }
 
+void SOS(unsigned char led){
+  POINT(led);
+  LINE(led);
+  POINT(led);
+} 
 
 
 

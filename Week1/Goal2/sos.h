@@ -6,4 +6,6 @@ extern void POINT(unsigned char led);
 
 extern void LINE(unsigned char led);
 
+extern void SOS(unsigned char led);
+
 #endif

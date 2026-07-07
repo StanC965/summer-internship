@@ -597,6 +597,8 @@ extern void POINT(unsigned char led);
 
 extern void LINE(unsigned char led);
 
+extern void SOS(unsigned char led);
+
 #line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
 
 
@@ -615,14 +617,18 @@ int main( void )
       if(confidence_pressed >200)
       {
         if(pressed == 0){
-          while(1){
-          POINT(0);
-          LINE(0);
-          POINT(0);
-          for(long i = 0 ;i<100000;i++);
           pressed = 1;
+          while(pressed){
+            if(!get_pin(&PINC,6)){
+                pressed = ! pressed;
+            }
+          SOS(0);
+          for(long i = 0 ;i<100000;i++);
+          
           }
+         
         }
+        confidence_pressed = 0;
       }
     }
     
