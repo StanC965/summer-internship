@@ -15,3 +15,6 @@ Answer: 3
 
 116 — CORE — How are the extension headers labeled? ( <<< one example of label found )
 Answer: EXT1, EXT3, EXT4
+
+117 — CORE — Search and identify GND and VCC pins on the headers and on the power connector.
+Answer: On the power connector, GND is the upper pin and VCC is the lower pin. For the headers, just refer to the labels on the back side of the board.
