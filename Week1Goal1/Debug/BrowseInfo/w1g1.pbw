@@ -1,12 +1,12 @@
 [
   {
-    "ID": "c:main.c@8@macro@MAX",
+    "ID": "c:main.c@15@macro@MAX",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MAX",
     "location": {
       "column": "9",
-      "line": "1",
+      "line": "2",
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
     "name": "MAX",
@@ -24,34 +24,6 @@
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
     "name": "main",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@43@F@main@x",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "x",
-    "location": {
-      "column": "9",
-      "line": "5",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "x",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@65@macro@MAX",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "MAX",
-    "location": {
-      "column": "13",
-      "line": "6",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "MAX",
     "origin": "project_file",
     "scope": null
   }

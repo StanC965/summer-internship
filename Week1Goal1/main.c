@@ -1,10 +1,8 @@
-#define MAX 10
-
+//154
+#define MAX 100
 void main (void)
 {
-    int x=2;
-    #define MAX 55
-    x=MAX;
+    int MAX = 10;
 }
 
-//warning because of the redefinition, x will be 55 
+// error : expected an identifier => macro has the same name with the variable
