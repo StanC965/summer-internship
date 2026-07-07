@@ -3,3 +3,6 @@ Answer: 3
 
 116 — CORE — How are the extension headers labeled?
 Answer: EXT3
+
+119 — OPTIONAL — Even though you don't have an external power supply connected to VCC and GND the board is still powered up (green LED lit) when pluging in the USB cable. How can you explain that?
+Answer: The board is powered directly through the USB cable. It automatically detects available sources and handles power routing according to a priority hierarchy.
