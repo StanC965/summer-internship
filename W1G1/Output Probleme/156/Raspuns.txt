@@ -1,0 +1,3 @@
+expression must be a modifiable value
+
+i este tot a constanta,la rulare se va inlocui cu ce s-a definit in main ,dar dupa nu mai poate fi schimbata
