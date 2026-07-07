@@ -41464,20 +41464,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit3",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEAR_Bit3",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEAR_Bit3",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR4",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41488,6 +41474,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARL_EEAR4",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit3",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEAR_Bit3",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEAR_Bit3",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -41800,20 +41800,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit2",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEAR_Bit2",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEAR_Bit2",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR5",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41824,6 +41810,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARL_EEAR5",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit2",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEAR_Bit2",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEAR_Bit2",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -50055,49 +50055,77 @@
     "location": {
       "column": "6",
       "line": "3",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task226.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task228.c"
     },
     "name": "main",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task226.c@241@F@main@i",
+    "ID": "c:task228.c@275@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "16",
-      "line": "13",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task226.c"
+      "line": "15",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task228.c"
     },
     "name": "i",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task226.c@369@F@main@i",
+    "ID": "c:task228.c@403@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "16",
-      "line": "17",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task226.c"
+      "line": "19",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task228.c"
     },
     "name": "i",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task226.c@451@F@main@i",
+    "ID": "c:task228.c@485@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "16",
-      "line": "20",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task226.c"
+      "line": "22",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task228.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:task228.c@606@F@main@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "16",
+      "line": "28",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task228.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:task228.c@682@F@main@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "16",
+      "line": "31",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task228.c"
     },
     "name": "i",
     "origin": "project_file",
