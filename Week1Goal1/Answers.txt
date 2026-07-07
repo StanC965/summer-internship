@@ -33,3 +33,6 @@ Answer: In the middle of the board
 
 123 — CORE — Search and identify BUTTON 1, BUTTON 2 and BUTTON 3.
 Answer: Bottom of the board
+
+124 — CORE — Search and identify the extension header.
+Answer: Top of the board big black female connector
