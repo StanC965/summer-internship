@@ -14,3 +14,11 @@ Led-ul LED0 se afla in partea de sus sub cele 2 butoane
 113 — CORE — Search and identify SW0, a switch that you will program later to be interpreted as pressed/not pressed.
 ANSWER:
 Se afla deasupra la LED0 
+
+
+114 — CORE — Search and identify other components like external oscillator and debugger chip/microcontroller.
+ANSWER:
+1.Oscilatorul extern se afla in stanga la microcontroller-ul de la exercitiul 111 ,are culoare argintie si scrie 16MHZ
+desi in datasheet zice ca ruleaza la 20 Mhz, producatorii l-au fortat sa poata functiona doar la 16 Mhz,prin limitarea hardware cu
+un oscilator de 16Mhz, s-a ales asta pentru voltage constraints(daca era 20 Mhz trebuia 4.5,5.5 volts) si pentru o comunicatie UART mai precisa.
+2. Debugger chip pare ca se afla pe spate, este al doilea cel mai mare circuit dupa microcontroller.
