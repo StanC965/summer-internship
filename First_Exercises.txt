@@ -37,3 +37,7 @@ label-ul lor este EXT1 ,EXT3,EXT4 .EXT2 este omis pentru ca microcontroller-ul a
 117 — CORE — Search and identify GND and VCC pins on the headers and on the power connector.
 ANSWER:
 GND e sus, VCC e jos la PWR connector,la headers pur si simplu citim de pe backside ce scrie
+
+
+118 — CORE — Connect the USB cable to the main board and you should see the green LED lit.
+Done ... functioneaza
