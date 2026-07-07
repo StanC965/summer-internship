@@ -1,12 +1,7 @@
-#define MAX(i, limit) do \
-{ \
-    if (i < limit) \
-    { \
-        i++; \
-    } \
-} while(1)
+#define max(a,b) (((a)>(b))? a:b); //paranteza pentru fiecare parametru pentru a respecta ordinea operatiilor
+#define average(a,b) (((a)+(b))/2.0);
 
-void main(void)
-{
-    MAX(0,3);
+void main(void){
+   int a=max(2,3); // a=3
+   double b=average(5,7); //b=6
 }
