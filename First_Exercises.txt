@@ -27,3 +27,8 @@ un oscilator de 16Mhz, s-a ales asta pentru voltage constraints(daca era 20 Mhz 
 115 — CORE — How many extension headers there are on the board? ( <<< just fill in the number )
 ANSWER:
 Sunt 3
+
+
+116 — CORE — How are the extension headers labeled? ( <<< one example of label found )
+ANSWER:
+label-ul lor este EXT1 ,EXT3,EXT4 .EXT2 este omis pentru ca microcontroller-ul are un numar limitat de pini
