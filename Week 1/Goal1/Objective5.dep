@@ -16,6 +16,7 @@
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\inc\iom328pb.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
