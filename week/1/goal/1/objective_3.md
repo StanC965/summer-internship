@@ -12,6 +12,7 @@
 | **[133]** | `CORE` | [x] Completed |
 | **[134]** | `CORE` | [x] Completed |
 | **[135]** | `CORE` | [x] Completed |
+| **[136]** | `CORE` | [x] Completed |
 
 
 #### Task [131]
@@ -47,6 +48,14 @@
 > **Question/Prompt:**     Search and identify the LED on the board.
 
 > **Answer/Explanation:**
+
+---
+
+#### Task [136]
+> **Question/Prompt:**      Search and identify the extension header.
+
+> **Answer/Explanation:**
+> The extension header is marked with EXT on the board.
 
 ---
 
