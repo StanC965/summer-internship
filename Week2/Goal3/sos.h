@@ -2,10 +2,10 @@
 #define SOS_H
 #include "led.h"
 
-extern void POINT(unsigned char led);
+extern void ledPoint(unsigned char led);
 
-extern void LINE(unsigned char led);
+extern void ledLine(unsigned char led);
 
-extern void SOS(unsigned char led);
+extern void ledSos(unsigned char led);
 
 #endif

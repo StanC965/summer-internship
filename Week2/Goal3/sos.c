@@ -2,7 +2,7 @@
 #define SOS_C
 #include "led.h"
 
-void POINT(unsigned char led){
+void ledPoint(unsigned char led){
     for(long i = 0;i<50000;i++);
     PowerOn_LED(led);
     for(long i = 0;i<50000;i++);
@@ -18,7 +18,7 @@ void POINT(unsigned char led){
       
 }
 
-void LINE(unsigned char led){
+void ledLine(unsigned char led){
     for(long i = 0;i<50000;i++);
     PowerOn_LED(led);
     for(long i = 0;i<100000;i++);
@@ -34,7 +34,7 @@ void LINE(unsigned char led){
       
 }
 
-void SOS(unsigned char led){
+void ledSos(unsigned char led){
   POINT(led);
   LINE(led);
   POINT(led);

@@ -2,7 +2,7 @@
 #define LED_C
 #include "gpio.h"
 #include "led.h"
-void PowerOn_LED(unsigned char led){
+void ledPowerOn(unsigned char led){
   if(led == 0){
  
     reset_pin(&PORTC,7);
@@ -33,7 +33,7 @@ void PowerOn_LED(unsigned char led){
   }
 }
 
-void PowerOff_LED(unsigned char led){
+void ledPowerOff(unsigned char led){
   if(led == 0){
     
     set_pin(&PORTC,7);
@@ -65,7 +65,7 @@ void PowerOff_LED(unsigned char led){
 }
 
 
-void LED_Blink_slow(unsigned char led){
+void ledBlinkSlow(unsigned char led){
   PowerOn_LED(led);
   for(int i = 0;i<10000;i++);
   PowerOff_LED(led);
@@ -75,7 +75,7 @@ void LED_Blink_slow(unsigned char led){
   PowerOff_LED(led);
 
 }
-void LED_Blink_fast(unsigned char led){
+void ledBlinkFast(unsigned char led){
   PowerOn_LED(led);
   for(int i = 0;i<5000;i++);
   PowerOff_LED(led);
