@@ -39,3 +39,6 @@ Answer: Top of the board big black female connector
 
 125 — CORE — Search and identify GND and VCC pin on the header.
 Answer: Pin 20 VCC Pin 2 GND
+
+126 — CORE — Now, follow this 3-steps procedure: (1) unplug the USB cable from PC/laptop!!! (2) connect OLED1 board to EXT1 header from the main board and (3) finally reconnect the USB cable to the PC/laptop. You must ALWAYS follow this procedure when you want to connect something to the main board!
+Answer: Done
