@@ -1,0 +1,6 @@
+Note:Desi stiu ca nu e nevoie fac asta ca sa ma obisnuiesc cu commit+branch-uri.
+
+
+111 — CORE — Search and identify ATMega324PB microcontroller on the board.
+ANSWER:
+In mijlocul placii avem un "patrat" din care ies multe trace-uri pe PCB, deasupra lui scrie ATmega324PB acesta e microcontroller-ul.
