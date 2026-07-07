@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>370810535</fileChecksum>
+    <fileChecksum>192807012</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\Debug\Exe\Objective5.d90</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
@@ -18,13 +19,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 3</file>
+                    <file> 4</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 2 4 6 5</file>
+                    <file> 3 5 7 6</file>
                 </tool>
             </inputs>
         </file>
@@ -33,7 +34,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 6</file>
+                    <file> 0 7</file>
                 </tool>
             </outputs>
         </file>
@@ -42,7 +43,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 0 3</file>
+                    <file> 1 4</file>
                 </tool>
             </outputs>
         </file>
