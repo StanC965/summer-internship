@@ -28,7 +28,7 @@
 ---
 
 #### Task [123]
-> **Question/Prompt:**   Search and identify LED1, LED2 and LED3 that you will program to lit.
+> **Question/Prompt:**   Search and identify BUTTON 1, BUTTON 2 and BUTTON 3.
 
 > **Answer/Explanation:**
 
