@@ -20,7 +20,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 8 0</file>
+                    <file> 8 0 1</file>
                 </tool>
             </outputs>
         </file>

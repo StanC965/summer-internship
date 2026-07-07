@@ -1,13 +1,47 @@
 
 
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-#define average(c, d) ((c+d)/2)
+int contor_apeluri(void)
+{
+    // O variabila statica locala este initializata o SINGURA data (la compilare).
+   
+    static int apeluri = 0; 
+    
+    apeluri++;
+    return apeluri;
+}
+
+//volatile ii interzice compilatorului sa faca optimizari precum stocarea variabile intr-un registru mai rapid
+//astfel de fiecare daca cand se citeste se va citi de la adresa de memorie propri-zisa pentru a se asigura ca nicio intrerupere nu a modificat valoarea.
+volatile int senzor_hardware = 0; 
+
+void simulare_intrerupere_hardware(void)
+{
+  //simulam un interrupt
+    senzor_hardware++;
+}
+
+
+
 
 int main(void)
 {
-  
-  int rez=max(2,3);
-  int medie=average(rez,6);
-  return 0;
-  
+    // 'static' aici limiteaza vizibilitatea lui 'x '  doar la acest fisier
+    static int x = 1; 
+    
+   
+    for(int i = 0; i < 3; i++)
+    {
+      
+        int nr_actual = contor_apeluri();
+       
+    }
+    
+
+    
+    
+    simulare_intrerupere_hardware(); 
+    
+
+    
+    return 0;
 }

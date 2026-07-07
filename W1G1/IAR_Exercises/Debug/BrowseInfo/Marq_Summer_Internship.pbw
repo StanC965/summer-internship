@@ -1,29 +1,57 @@
 [
   {
-    "ID": "c:main.c@12@macro@max",
-    "What": "MacroDef",
+    "ID": "c:@F@contor_apeluri",
+    "What": "Function",
     "defdec": "Def",
-    "display": "max",
+    "display": "int contor_apeluri(void)",
     "location": {
-      "column": "9",
+      "column": "5",
       "line": "3",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "max",
+    "name": "contor_apeluri",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@57@macro@average",
-    "What": "MacroDef",
+    "ID": "c:main.c@126@F@contor_apeluri@apeluri",
+    "What": "Variable",
     "defdec": "Def",
-    "display": "average",
+    "display": "apeluri",
     "location": {
-      "column": "9",
-      "line": "4",
+      "column": "16",
+      "line": "7",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "average",
+    "name": "apeluri",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@senzor_hardware",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "senzor_hardware",
+    "location": {
+      "column": "14",
+      "line": "15",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "senzor_hardware",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@simulare_intrerupere_hardware",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void simulare_intrerupere_hardware(void)",
+    "location": {
+      "column": "6",
+      "line": "17",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "simulare_intrerupere_hardware",
     "origin": "project_file",
     "scope": null
   },
@@ -34,7 +62,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "6",
+      "line": "26",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
     "name": "main",
@@ -42,30 +70,44 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@109@F@main@rez",
+    "ID": "c:main.c@711@F@main@x",
     "What": "Variable",
     "defdec": "Def",
-    "display": "rez",
+    "display": "x",
     "location": {
-      "column": "7",
-      "line": "9",
+      "column": "16",
+      "line": "29",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "rez",
+    "name": "x",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@130@F@main@medie",
+    "ID": "c:main.c@750@F@main@i",
     "What": "Variable",
     "defdec": "Def",
-    "display": "medie",
+    "display": "i",
     "location": {
-      "column": "7",
-      "line": "10",
+      "column": "13",
+      "line": "32",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "medie",
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@797@F@main@nr_actual",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "nr_actual",
+    "location": {
+      "column": "13",
+      "line": "35",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "nr_actual",
     "origin": "project_file",
     "scope": null
   }
