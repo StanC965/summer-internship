@@ -14,6 +14,7 @@
 | **[115]** | `CORE` | [x] Completed
 | **[116]** | `CORE` | [x] Completed
 | **[117]** | `CORE` | [x] Completed
+| **[118]** | `CORE` | [x] Completed
 
 
 #### Task 111
@@ -69,7 +70,12 @@
 
 > **Answer/Explanation:**
 
+---
 
+#### Task 118
+> **Question/Prompt:**   Connect the USB cable to the main board and you should see the green LED lit.
+
+> **Answer/Explanation:**
 
 ## References & Resources
 * ATmega324PB Xplained Pro user guide
