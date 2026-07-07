@@ -1,13 +1,8 @@
 <?xml version="1.0"?>
 <settings>
     <DebugChecksum>
-        <Checksum>2616036134</Checksum>
+        <Checksum>4228791838</Checksum>
     </DebugChecksum>
-    <LogFile>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
-        <Category2>_ 2</Category2>
-    </LogFile>
     <Disassembly>
         <MixedMode>1</MixedMode>
     </Disassembly>
@@ -22,6 +17,14 @@
         <LimitSize>0</LimitSize>
         <ByteLimit>50</ByteLimit>
     </Stack>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
+        <Category2>_ 2</Category2>
+    </LogFile>
     <Breakpoints2>
         <Count>0</Count>
     </Breakpoints2>
@@ -33,7 +36,4 @@
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
-    <CallStack>
-        <ShowArgs>0</ShowArgs>
-    </CallStack>
 </settings>
