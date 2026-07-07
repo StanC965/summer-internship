@@ -3,3 +3,6 @@ Answer: In the middle of the board big square chip
 
 112 — CORE — Search and identify LED0, a LED that you will program to lit later.
 Answer: It is located at the top of the board under the 2 buttons
+
+113 — CORE — Search and identify SW0, a switch that you will program later to be interpreted as pressed/not pressed.
+Answer: Top of the board
