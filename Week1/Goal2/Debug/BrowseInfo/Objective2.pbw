@@ -50055,49 +50055,35 @@
     "location": {
       "column": "6",
       "line": "3",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task224.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task225.c"
     },
     "name": "main",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task224.c@216@F@main@i",
+    "ID": "c:task225.c@219@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "16",
       "line": "12",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task224.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task225.c"
     },
     "name": "i",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task224.c@306@F@main@i",
+    "ID": "c:task225.c@322@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "16",
       "line": "16",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task224.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:task224.c@405@F@main@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "16",
-      "line": "19",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task224.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\task225.c"
     },
     "name": "i",
     "origin": "project_file",

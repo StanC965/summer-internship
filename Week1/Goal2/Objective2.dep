@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>675859759</fileChecksum>
+    <fileChecksum>463367325</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -24,6 +24,7 @@
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\task224.r90</file>
+            <file>$PROJ_DIR$\task225.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\task223.c</name>
@@ -90,6 +91,10 @@
         </file>
         <forcedrebuild>
             <name>$PROJ_DIR$\task223.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task224.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
