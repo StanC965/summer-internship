@@ -11,6 +11,7 @@
 | **[122]** | `CORE` | [x] Completed |
 | **[123]** | `CORE` | [x] Completed |
 | **[124]** | `CORE` | [x] Completed |
+| **[125]** | `CORE` | [x] Completed |
 
 
 #### Task [121]
@@ -41,6 +42,12 @@
 > **Answer/Explanation:** 
 > The extension header is marked with EXT on the board.
 
+---
+
+#### Task [125]
+> **Question/Prompt:**    Search and identify GND and VCC pin on the header.
+
+> **Answer/Explanation:** 
 
 
 ## References & Resources
