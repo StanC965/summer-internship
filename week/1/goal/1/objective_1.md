@@ -13,6 +13,7 @@
 | **[114]** | `CORE` | [x] Completed
 | **[115]** | `CORE` | [x] Completed
 | **[116]** | `CORE` | [x] Completed
+| **[117]** | `CORE` | [x] Completed
 
 
 #### Task 111
@@ -60,6 +61,13 @@
 
 > **Answer/Explanation:**
 > EXT1, EXT3, EXT4.
+
+---
+
+#### Task 117
+> **Question/Prompt:**   Search and identify GND and VCC pins on the headers and on the power connector.
+
+> **Answer/Explanation:**
 
 
 
