@@ -15,6 +15,7 @@
 | **[116]** | `CORE` | [x] Completed
 | **[117]** | `CORE` | [x] Completed
 | **[118]** | `CORE` | [x] Completed
+| **[119]** | `OPTIONAL` | [x] Completed
 
 
 #### Task 111
@@ -76,6 +77,14 @@
 > **Question/Prompt:**   Connect the USB cable to the main board and you should see the green LED lit.
 
 > **Answer/Explanation:**
+
+---
+
+#### Task 119
+> **Question/Prompt:**   Even though you don't have an external power supply connected to VCC and GND the board is still powered up (green LED lit) when pluging in the USB cable. How can you explain that? 
+
+> **Answer/Explanation:**
+> One feature of the board is that it has two possible power sources: external power and embedded debugger USB. Since it is not connected to external power, it uses voltage coming from the USB input.
 
 ## References & Resources
 * ATmega324PB Xplained Pro user guide
