@@ -704,7 +704,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>240</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -2120,5 +2120,8 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main5.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main6.c</name>
     </file>
 </project>
