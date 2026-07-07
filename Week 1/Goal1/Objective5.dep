@@ -34,7 +34,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0</file>
+                    <file> 0 7</file>
                 </tool>
             </outputs>
         </file>
