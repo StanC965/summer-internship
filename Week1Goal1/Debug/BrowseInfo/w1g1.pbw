@@ -1,29 +1,15 @@
 [
   {
-    "ID": "c:main.c@15@macro@MAX",
+    "ID": "c:main.c@8@macro@MAX",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MAX",
     "location": {
       "column": "9",
-      "line": "2",
+      "line": "1",
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
     "name": "MAX",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@main",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void main(void)",
-    "location": {
-      "column": "6",
-      "line": "3",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "main",
     "origin": "project_file",
     "scope": null
   }

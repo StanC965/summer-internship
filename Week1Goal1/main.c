@@ -1,8 +1,14 @@
-//154
-#define MAX 100
-void main (void)
+#define MAX(i, limit) do \
+{ \
+    if (i < limit) \
+    { \
+        i++; \          // 0 ++ 
+    } \
+} while(1)
+
+void main(void)
 {
-    int MAX = 10;
+    MAX(0,3);
 }
 
-// error : expected an identifier => macro has the same name with the variable
+// eroor : expression must be a modifiable lvalue 
