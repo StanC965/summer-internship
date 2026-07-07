@@ -582,6 +582,17 @@ extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
 
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+
+
+
+
+
+extern void PowerOn_LED(unsigned char led);
+
+extern void PowerOff_LED(unsigned char led);
+
+extern void LED_Blink_slow(unsigned char led);
+extern void LED_Blink_fast(unsigned char led);
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
 void PowerOn_LED(unsigned char led){
   if(led == 0){

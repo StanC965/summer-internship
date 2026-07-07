@@ -1,5 +1,5 @@
-#ifndef MOD_C
-#define MOD_C
+#ifndef GPIO_C
+#define GPIO_C
 #include "iom324pb.h"
 #include "gpio.h"
 

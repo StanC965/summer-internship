@@ -566,6 +566,74 @@
 
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
+#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+#pragma system_include
+
+
+
+#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iomacro.h"
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+#pragma system_include
+
+
+
+#line 21 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+
+#line 28 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+
+#line 106 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+
+
+
+
+ 
+#line 324 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
+
+
+
+
+extern void set_pin(volatile unsigned char* port,unsigned char pin);
+
+extern void reset_pin(volatile unsigned char* port,unsigned char pin);
+
+extern void set_direction(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
+
+extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
+
+
+
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.c"
 
 void set_pin(volatile unsigned char* port,unsigned char pin){

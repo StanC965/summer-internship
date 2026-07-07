@@ -592,6 +592,8 @@ extern void PowerOff_LED(unsigned char led);
 extern void LED_Blink_slow(unsigned char led);
 extern void LED_Blink_fast(unsigned char led);
 #line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
+
+
 int main( void )
 {
   set_direction(&DDRD,5,1);

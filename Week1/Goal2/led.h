@@ -1,5 +1,5 @@
-#ifndef LED_C
-#define LED_C
+#ifndef LED_H
+#define LED_H
 #include "gpio.h"
 
 
