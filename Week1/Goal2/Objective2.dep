@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>463367325</fileChecksum>
+    <fileChecksum>82290620</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
             <file>$PROJ_DIR$\task223.c</file>
+            <file>$PROJ_DIR$\Debug\List\task225.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task225.r90</file>
             <file>$PROJ_DIR$\task224.c</file>
             <file>$PROJ_DIR$\Debug\List\task224.i</file>
             <file>$PROJ_DIR$\Debug\Exe\Objective2.d90</file>
@@ -25,19 +27,20 @@
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\task224.r90</file>
             <file>$PROJ_DIR$\task225.c</file>
+            <file>$PROJ_DIR$\task226.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\task223.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4 6</file>
+                    <file> 6 8</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5 7 10</file>
+                    <file> 7 9 12</file>
                 </tool>
             </inputs>
         </file>
@@ -46,13 +49,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 2 18</file>
+                    <file> 4 20</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5 7 10</file>
+                    <file> 7 9 12</file>
                 </tool>
             </inputs>
         </file>
@@ -61,13 +64,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 14</file>
+                    <file> 16</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 8 9 18 11</file>
+                    <file> 10 11 2 13</file>
                 </tool>
             </inputs>
         </file>
@@ -76,7 +79,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 3 14</file>
+                    <file> 5 16</file>
                 </tool>
             </outputs>
         </file>
@@ -85,9 +88,24 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 16</file>
+                    <file> 18</file>
                 </tool>
             </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task225.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1 2</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 7 9 12</file>
+                </tool>
+            </inputs>
         </file>
         <forcedrebuild>
             <name>$PROJ_DIR$\task223.c</name>
@@ -95,6 +113,10 @@
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\task224.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task225.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
