@@ -1,7 +1,7 @@
 #include "iom324pb.h"
 
 void set_pin(volatile unsigned char* port,unsigned char pin){
-    *port = (1 << pin);
+    *port |= (1 << pin);
 }
 
 void main(void){
