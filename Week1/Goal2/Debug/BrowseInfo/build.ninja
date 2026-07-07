@@ -33,9 +33,9 @@ build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\main.pb
 D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\main.c
   flags = -out=D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\main.pbi -f D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\main.xcl
 
-build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective5.pbw : MAKEBROWSE D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective5.pbd
-  flags = D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective5.pbd -output D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective5.pbw
+build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective6.pbw : MAKEBROWSE D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective6.pbd
+  flags = D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective6.pbd -output D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective6.pbw
 
-build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective5.pbd : PDBLINK D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\main.pbi
-  flags = -M D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective5.pbd D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\main.pbi
+build D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective6.pbd : PDBLINK D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\main.pbi
+  flags = -M D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\Objective6.pbd D$:\Mircea\Marqurdt\summer-internship\Week1\Goal2\Debug\BrowseInfo\main.pbi
 

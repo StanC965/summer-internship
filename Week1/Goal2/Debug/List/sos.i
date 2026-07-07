@@ -1,4 +1,5 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\sos.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -580,11 +581,7 @@ extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char get_pin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
-
-
-
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
 
 
 extern void PowerOn_LED(unsigned char led);
@@ -593,103 +590,40 @@ extern void PowerOff_LED(unsigned char led);
 
 extern void LED_Blink_slow(unsigned char led);
 extern void LED_Blink_fast(unsigned char led);
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
-void PowerOn_LED(unsigned char led){
-  if(led == 0){
- 
-    reset_pin(&PORTC,7);
-    
-  }
-  else
-  if(led == 1){
-  
-    reset_pin(&PORTD,5);
-    
-  }
-  else
-  if(led == 2){
-   
-    reset_pin(&PORTD,4);
-    
-  }
-  else
-  if(led == 3){
-  
-    reset_pin(&PORTA,3);
-    
-  }
-  else{
-    
-    reset_pin(&PORTB,3);
-    
-  }
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\sos.c"
+
+void POINT(unsigned char led){
+    for(long i = 0;i<50000;i++);
+    PowerOn_LED(led);
+    for(long i = 0;i<50000;i++);
+    PowerOff_LED(led);
+    for(long i = 0;i<50000;i++);
+    PowerOn_LED(led);
+    for(long i = 0;i<50000;i++);
+    PowerOff_LED(led);
+    for(long i = 0;i<50000;i++);
+    PowerOn_LED(led);
+    for(long i = 0;i<50000;i++);
+    PowerOff_LED(led);
+      
 }
 
-void PowerOff_LED(unsigned char led){
-  if(led == 0){
-    
-    set_pin(&PORTC,7);
-    
-  }
-  else
-  if(led == 1){
-   
-    set_pin(&PORTD,5);
-    
-  }
-  else
-  if(led == 2){
-    
-    set_pin(&PORTD,4);
-    
-  }
-  else
-  if(led == 3){
-   
-    set_pin(&PORTA,3);
-    
-  }
-  else{
-    
-    set_pin(&PORTB,3);
-    
-  }
+void LINE(unsigned char led){
+    for(long i = 0;i<50000;i++);
+    PowerOn_LED(led);
+    for(long i = 0;i<100000;i++);
+    PowerOff_LED(led);
+    for(long i = 0;i<50000;i++);
+    PowerOn_LED(led);
+    for(long i = 0;i<100000;i++);
+    PowerOff_LED(led);
+    for(long i = 0;i<50000;i++);
+    PowerOn_LED(led);
+    for(long i = 0;i<100000;i++);
+    PowerOff_LED(led);
+      
 }
 
 
-void LED_Blink_slow(unsigned char led){
-  PowerOn_LED(led);
-  for(int i = 0;i<10000;i++);
-  PowerOff_LED(led);
-  for(int i = 0;i<10000;i++);
-  PowerOn_LED(led);
-  for(int i = 0;i<10000;i++);
-  PowerOff_LED(led);
 
-}
-void LED_Blink_fast(unsigned char led){
-  PowerOn_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
-  for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
-}
 
