@@ -10,10 +10,6 @@ C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\BrowseInfo\main.pbi.d
 C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\BrowseInfo\main.pbi
 -I
 C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises
--I
-C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc
--I
-C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc\dlib\c
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

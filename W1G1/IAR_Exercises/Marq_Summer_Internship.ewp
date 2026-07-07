@@ -272,7 +272,7 @@
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCPreprocComments</name>
@@ -284,7 +284,7 @@
                 </option>
                 <option>
                     <name>CCListCFile</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCListCMnemonics</name>
@@ -423,7 +423,7 @@
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCEepromSize</name>
@@ -775,7 +775,7 @@
                 </option>
                 <option>
                     <name>XclFile</name>
-                    <state>lnk0t.xcl</state>
+                    <state>$TOOLKIT_DIR$/src/template/cfgm324pb.xcl</state>
                 </option>
                 <option>
                     <name>XclFileSlave</name>
@@ -863,7 +863,7 @@
                 </option>
                 <option>
                     <name>xcProgramEntryLabel</name>
-                    <state></state>
+                    <state>__program_start</state>
                 </option>
                 <option>
                     <name>DebugInformation</name>
@@ -891,7 +891,7 @@
                 </option>
                 <option>
                     <name>ExtraOutputFile</name>
-                    <state></state>
+                    <state>Marq_Summer_Internship.a90</state>
                 </option>
                 <option>
                     <name>ExtraOutputFormat</name>

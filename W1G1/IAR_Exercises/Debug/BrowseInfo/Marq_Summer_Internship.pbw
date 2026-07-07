@@ -6,10 +6,52 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "2",
+      "line": "1",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
     "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@85@F@main@a",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "a",
+    "location": {
+      "column": "7",
+      "line": "4",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "a",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@99@F@main@b",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "b",
+    "location": {
+      "column": "7",
+      "line": "5",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "b",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@114@F@main@suma",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "suma",
+    "location": {
+      "column": "7",
+      "line": "6",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "suma",
     "origin": "project_file",
     "scope": null
   }
