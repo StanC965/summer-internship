@@ -36,3 +36,6 @@ Answer: Bottom of the board
 
 124 — CORE — Search and identify the extension header.
 Answer: Top of the board big black female connector
+
+125 — CORE — Search and identify GND and VCC pin on the header.
+Answer: Pin 20 VCC Pin 2 GND
