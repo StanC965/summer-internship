@@ -5,72 +5,39 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-            <file>$PROJ_DIR$\Debug\Exe\Objective6.d90</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-            <file>$PROJ_DIR$\Debug\List\task61.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\task61.r90</file>
-            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
-            <file>$PROJ_DIR$\task61.c</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\task64.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$PROJ_DIR$\Debug\Obj\task63.r90</file>
-            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$PROJ_DIR$\Debug\List\task63.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\task64.r90</file>
             <file>$PROJ_DIR$\Debug\List\task64.i</file>
+            <file>$PROJ_DIR$\Debug\List\Objective6.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\Debug\Exe\Objective6.d90</file>
             <file>$PROJ_DIR$\task62.c</file>
             <file>$PROJ_DIR$\task63.c</file>
-            <file>$PROJ_DIR$\Debug\List\Objective6.map</file>
+            <file>$PROJ_DIR$\Debug\List\task63.i</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\task64.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\task63.r90</file>
+            <file>$PROJ_DIR$\task61.c</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\task64.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task61.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task61.r90</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\Objective6.d90</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 19</file>
+                    <file> 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 5 0 15 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\task61.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 3 4</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 9</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\task64.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 16 15</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 12 11 13</file>
+                    <file> 10 4 17 5</file>
                 </tool>
             </inputs>
         </file>
@@ -79,7 +46,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 1 19</file>
+                    <file> 2 6</file>
                 </tool>
             </outputs>
         </file>
@@ -88,15 +55,48 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 14 10</file>
+                    <file> 9 14</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 12 11 13</file>
+                    <file> 16 12 0</file>
                 </tool>
             </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task64.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1 17</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 16 12 0</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task61.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 18 19</file>
+                </tool>
+            </outputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
@@ -107,15 +107,15 @@
             <tool>ICCAVR</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\task61.c</name>
-            <tool>C-STAT</tool>
-        </forcedrebuild>
-        <forcedrebuild>
             <name>$PROJ_DIR$\task62.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\task63.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task61.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
