@@ -12,6 +12,7 @@
 | **[123]** | `CORE` | [x] Completed |
 | **[124]** | `CORE` | [x] Completed |
 | **[125]** | `CORE` | [x] Completed |
+| **[126]** | `CORE` | [x] Completed |
 
 
 #### Task [121]
@@ -49,6 +50,12 @@
 
 > **Answer/Explanation:** 
 
+---
+
+#### Task [126]
+> **Question/Prompt:**     Now, follow this 3-steps procedure: (1) unplug the USB cable from PC/laptop!!! (2) connect OLED1 board to EXT1 header from the main board and (3) finally reconnect the USB cable to the PC/laptop. You must ALWAYS follow this procedure when you want to connect something to the main board!
+
+> **Answer/Explanation:** 
 
 ## References & Resources
 * OLED1 Xplained Pro user guide
