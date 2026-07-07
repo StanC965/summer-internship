@@ -22,3 +22,8 @@ ANSWER:
 desi in datasheet zice ca ruleaza la 20 Mhz, producatorii l-au fortat sa poata functiona doar la 16 Mhz,prin limitarea hardware cu
 un oscilator de 16Mhz, s-a ales asta pentru voltage constraints(daca era 20 Mhz trebuia 4.5,5.5 volts) si pentru o comunicatie UART mai precisa.
 2. Debugger chip pare ca se afla pe spate, este al doilea cel mai mare circuit dupa microcontroller.
+
+
+115 — CORE — How many extension headers there are on the board? ( <<< just fill in the number )
+ANSWER:
+Sunt 3
