@@ -28,13 +28,13 @@ Other important components on the board are the RESET button, USB connector, JTA
 
 \## 115
 
-The board has 4 extension headers.
+The board has 3 extension headers.
 
 
 
 \## 116
 
-The extension headers are labeled EXT1, EXT2, EXT3 and EXT4.
+The extension headers are labeled EXT1, EXT3 and EXT4.
 
 
 
