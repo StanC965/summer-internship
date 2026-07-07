@@ -6,3 +6,6 @@ Answer: It is located at the top of the board under the 2 buttons
 
 113 — CORE — Search and identify SW0, a switch that you will program later to be interpreted as pressed/not pressed.
 Answer: Top of the board
+
+114 — CORE — Search and identify other components like external oscillator and debugger chip/microcontroller.
+Answer: The external oscillator is on the left of the microcontroller, debugger chip on the back side of the board
