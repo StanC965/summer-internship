@@ -30,3 +30,6 @@ Answer: Big black rectangle upper mid of board
 
 122 — CORE — Search and identify LED1, LED2 and LED3 that you will program to lit.
 Answer: In the middle of the board 
+
+123 — CORE — Search and identify BUTTON 1, BUTTON 2 and BUTTON 3.
+Answer: Bottom of the board
