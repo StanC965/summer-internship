@@ -1,10 +1,13 @@
-
-Daca Max nu a fost definit inainte se initializeaza cu 0
-De aceea in cadrul if-ului se va merge pe a doua ramura deci VAR devine 5
-
-
+desi codul initial arata asa:
 int main( void )
 {
-  int test_var = 5;
+  // Definesc doua variabile si le adun (Suma a doua numere)
+  int a = 5;
+  int b = 10;
+  int suma = a + b;
+
   return 0;
 }
+
+
+preprocesorul elimina comentariile  si pastreaza doar instructiunile care trebuie linkeditate si compiled.

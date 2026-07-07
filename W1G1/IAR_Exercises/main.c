@@ -1,11 +1,7 @@
-#if MAX == 1
-#define VAR 4
-#else
-#define VAR 5
-#endif  
-
-int main( void )
+#define MAX 10
+void main (void)
 {
-  int test_var = VAR;
-  return 0;
+int x=2;
+#define MAX 55
+x=MAX;
 }

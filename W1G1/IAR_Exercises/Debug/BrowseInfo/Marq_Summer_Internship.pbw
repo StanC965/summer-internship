@@ -1,15 +1,15 @@
 [
   {
-    "ID": "c:main.c@44@macro@VAR",
+    "ID": "c:main.c@8@macro@MAX",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "VAR",
+    "display": "MAX",
     "location": {
       "column": "9",
-      "line": "4",
+      "line": "1",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "VAR",
+    "name": "MAX",
     "origin": "project_file",
     "scope": null
   },
@@ -17,10 +17,10 @@
     "ID": "c:@F@main",
     "What": "Function",
     "defdec": "Def",
-    "display": "int main(void)",
+    "display": "void main(void)",
     "location": {
-      "column": "5",
-      "line": "7",
+      "column": "6",
+      "line": "2",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
     "name": "main",
@@ -28,16 +28,30 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@86@F@main@test_var",
+    "ID": "c:main.c@37@F@main@x",
     "What": "Variable",
     "defdec": "Def",
-    "display": "test_var",
+    "display": "x",
     "location": {
-      "column": "7",
-      "line": "9",
+      "column": "5",
+      "line": "4",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "test_var",
+    "name": "x",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@55@macro@MAX",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "MAX",
+    "location": {
+      "column": "9",
+      "line": "5",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "MAX",
     "origin": "project_file",
     "scope": null
   }
