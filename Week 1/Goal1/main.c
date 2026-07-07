@@ -1,11 +1,7 @@
-struct student {
-    char nume[20];
-    unsigned char varsta;
-    unsigned char inaltime;
-};
-
-void main(void)
+int main( void )
 {
-    struct student s = {"Fracea Raluca", 20, 168};
-
+  //suma a doua numere
+  int a=1, b=257, sum=0;
+  sum=a+b;
+  return sum;
 }
