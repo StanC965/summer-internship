@@ -1,12 +1,26 @@
 [
   {
+    "ID": "c:main.c@44@macro@VAR",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "VAR",
+    "location": {
+      "column": "9",
+      "line": "4",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
+    },
+    "name": "VAR",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@main",
     "What": "Function",
     "defdec": "Def",
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "1",
+      "line": "7",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
     "name": "main",
@@ -14,44 +28,16 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@85@F@main@a",
+    "ID": "c:main.c@86@F@main@test_var",
     "What": "Variable",
     "defdec": "Def",
-    "display": "a",
+    "display": "test_var",
     "location": {
       "column": "7",
-      "line": "4",
+      "line": "9",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
     },
-    "name": "a",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@99@F@main@b",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "b",
-    "location": {
-      "column": "7",
-      "line": "5",
-      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
-    },
-    "name": "b",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@114@F@main@suma",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "suma",
-    "location": {
-      "column": "7",
-      "line": "6",
-      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
-    },
-    "name": "suma",
+    "name": "test_var",
     "origin": "project_file",
     "scope": null
   }

@@ -1,9 +1,11 @@
+#if MAX == 1
+#define VAR 4
+#else
+#define VAR 5
+#endif  
+
 int main( void )
 {
-  // Definesc doua variabile si le adun (Suma a doua numere)
-  int a = 5;
-  int b = 10;
-  int suma = a + b;
-
+  int test_var = VAR;
   return 0;
 }

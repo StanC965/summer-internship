@@ -13,13 +13,14 @@
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0 1</file>
+                    <file> 8 0 1</file>
                 </tool>
             </outputs>
         </file>
