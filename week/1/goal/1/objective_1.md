@@ -7,14 +7,14 @@
 
 | Task ID | Type | Status / Deliverable |
 | :--- | :--- | :--- |
-| **[000]** | `CORE` | [ ] Completed / [Result] |
+| **[111]** | `CORE` | [x] Completed|
 
 
-#### Task [ID]
-> **Question/Prompt:** [If the task asks a specific question, paste it here]
+#### Task 111
+> **Question/Prompt:** Search and identify ATMega324PB microcontroller on the board.
 
 > **Answer/Explanation:**
-> [Write your detailed answer, observations, or code snippets here]
+> Looked at the board and also used the kit overview section of the ATMega324PB user guide for verification.
 
 ## References & Resources
-* [Insert User Guide, datasheet name, or website links used for this week]
+* ATmega324PB Xplained Pro user guide
