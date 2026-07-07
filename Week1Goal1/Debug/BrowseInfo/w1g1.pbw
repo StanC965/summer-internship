@@ -1,12 +1,26 @@
 [
   {
+    "ID": "c:main.c@52@macro@VAR",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "VAR",
+    "location": {
+      "column": "9",
+      "line": "5",
+      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
+    },
+    "name": "VAR",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@main",
     "What": "Function",
     "defdec": "Def",
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "3",
+      "line": "8",
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
     "name": "main",
@@ -14,44 +28,16 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@134@F@main@a",
+    "ID": "c:main.c@95@F@main@test",
     "What": "Variable",
     "defdec": "Def",
-    "display": "a",
+    "display": "test",
     "location": {
       "column": "9",
-      "line": "5",
+      "line": "10",
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
-    "name": "a",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@134@F@main@b",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "b",
-    "location": {
-      "column": "16",
-      "line": "5",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "b",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@169@F@main@sum",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "sum",
-    "location": {
-      "column": "9",
-      "line": "6",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "sum",
+    "name": "test",
     "origin": "project_file",
     "scope": null
   }
