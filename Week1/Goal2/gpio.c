@@ -20,4 +20,8 @@ void toggle_pin(volatile unsigned char* reg, unsigned char pin){
     *reg ^= (1<< pin);
     
 }
+
+unsigned char get_pin(volatile unsigned char* reg, unsigned char pin){
+  return ((*reg & (1<<pin)) != 0);
+}
 #endif

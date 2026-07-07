@@ -631,7 +631,7 @@ extern void reset_pin(volatile unsigned char* port,unsigned char pin);
 extern void set_direction(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
 
 extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
-
+extern unsigned char get_pin(volatile unsigned char* reg, unsigned char pin);
 
 
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.c"
@@ -652,4 +652,8 @@ void set_direction(volatile unsigned char* ddr, unsigned char pin,_Bool dir){
 void toggle_pin(volatile unsigned char* reg, unsigned char pin){
     *reg ^= (1<< pin);
     
+}
+
+unsigned char get_pin(volatile unsigned char* reg, unsigned char pin){
+  return ((*reg & (1<<pin)) != 0);
 }

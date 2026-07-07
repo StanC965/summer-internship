@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>3440192831</fileChecksum>
+    <fileChecksum>4046761356</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -9,34 +9,29 @@
             <file>$PROJ_DIR$\gpio.h</file>
             <file>$PROJ_DIR$\led.c</file>
             <file>$PROJ_DIR$\led.h</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
-            <file>$PROJ_DIR$\Debug\List\Objective4.map</file>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$PROJ_DIR$\Debug\List\led.i</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
-            <file>$PROJ_DIR$\Debug\Exe\Objective4.d90</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\mainObj4.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 6 16</file>
+                    <file> 5 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 15 18 1</file>
+                    <file> 8 10 12 1</file>
                 </tool>
             </inputs>
         </file>
@@ -45,13 +40,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 14 5</file>
+                    <file> 9 4</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 1 11 15 18 3</file>
+                    <file> 1 8 10 12 3</file>
                 </tool>
             </inputs>
         </file>
@@ -60,51 +55,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 10 8</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 3 1 11 15 18</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\Objective4.d90</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 12</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 9 13 16 5 8 4</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 12 17</file>
+                    <file> 7</file>
                 </tool>
             </outputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>XLINK</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\gpio.c</name>
-            <tool>ICCAVR</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\main.c</name>
-            <tool>ICCAVR</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>[REBUILD_ALL]</name>

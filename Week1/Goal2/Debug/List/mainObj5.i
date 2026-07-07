@@ -1,6 +1,4 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
-
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\mainObj5.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -579,28 +577,27 @@ extern void reset_pin(volatile unsigned char* port,unsigned char pin);
 extern void set_direction(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
 
 extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
+extern unsigned char get_pin(volatile unsigned char* reg, unsigned char pin);
 
 
-
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
-
-
-extern void PowerOn_LED(unsigned char led);
-
-extern void PowerOff_LED(unsigned char led);
-
-extern void LED_Blink_slow(unsigned char led);
-extern void LED_Blink_fast(unsigned char led);
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\main.c"
-
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\mainObj5.c"
 
 int main( void )
 {
-  set_direction(&DDRD,5,1);
-  PowerOn_LED(1);
-  PowerOff_LED(1);  
+  set_direction(&DDRC,6,0);
+  set_pin(&PORTC,6);
+  set_direction(&DDRC,7,1);
+  set_pin(&PORTC,7);
+  unsigned char sw;
+  unsigned char sum=0;
   while(1){
-    LED_Blink_slow(1);
-    LED_Blink_fast(1);
+  sw = PINC;
+  
+  if(!(sw & (1<<6))){
+      reset_pin(&PORTC,7);
   }
+  else{
+    set_pin(&PORTC,7);
+  }
+}
 }

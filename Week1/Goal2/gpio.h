@@ -12,7 +12,7 @@ extern void reset_pin(volatile unsigned char* port,unsigned char pin);
 extern void set_direction(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
 
 extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
-
+extern unsigned char get_pin(volatile unsigned char* reg, unsigned char pin);
 
 
 #endif
