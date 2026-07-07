@@ -10,6 +10,7 @@
 | **[111]** | `CORE` | [x] Completed
 | **[112]** | `CORE` | [x] Completed
 | **[113]** | `CORE` | [x] Completed
+| **[114]** | `CORE` | [x] Completed
 
 
 #### Task 111
@@ -33,6 +34,14 @@
 
 > **Answer/Explanation:**
 > SW0 corresponds to PC6, which is also known as the USER BUTTON.
+
+---
+
+#### Task 114
+> **Question/Prompt:**   Search and identify other components like external oscillator and debugger chip/microcontroller.
+
+> **Answer/Explanation:**
+> The external oscillator is represented by the 16MHz crystal oscilaltor and the debugger chip is represented by the embedded debugger (EDBG).
 
 
 ## References & Resources
