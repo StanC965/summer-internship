@@ -11,6 +11,7 @@
 | **[112]** | `CORE` | [x] Completed
 | **[113]** | `CORE` | [x] Completed
 | **[114]** | `CORE` | [x] Completed
+| **[115]** | `CORE` | [x] Completed
 
 
 #### Task 111
@@ -42,6 +43,14 @@
 
 > **Answer/Explanation:**
 > The external oscillator is represented by the 16MHz crystal oscilaltor and the debugger chip is represented by the embedded debugger (EDBG).
+
+---
+
+#### Task 115
+> **Question/Prompt:**   How many extension headers there are on the board?
+
+> **Answer/Explanation:**
+> 3.
 
 
 ## References & Resources
