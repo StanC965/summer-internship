@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>1367031884</fileChecksum>
+    <fileChecksum>8104818</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -18,15 +18,23 @@
             <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\sos.h</file>
+            <file>$PROJ_DIR$\Debug\List\task316.i</file>
             <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</file>
             <file>$PROJ_DIR$\..\..\Week1\Goal2\led.h</file>
             <file>$PROJ_DIR$\..\..\Week1\Goal2\led.c</file>
             <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.h</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\sos.c</file>
+            <file>$PROJ_DIR$\sos.h</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\task316.c</file>
             <file>$PROJ_DIR$\gpio.h</file>
             <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\Debug\List\sos.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task316.r90</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\Objective1.d90</name>
@@ -39,7 +47,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 1 7 11 9 19 0</file>
+                    <file> 1 7 11 9 21 29 0</file>
                 </tool>
             </inputs>
         </file>
@@ -63,7 +71,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 2 6 8 16</file>
+                    <file> 2 6 8 18</file>
                 </tool>
             </inputs>
         </file>
@@ -78,7 +86,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 16 2 6 8 14</file>
+                    <file> 18 2 6 8 16</file>
                 </tool>
             </inputs>
         </file>
@@ -87,16 +95,50 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 3 19</file>
+                    <file> 3 22</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 2 6 8 21 20 18</file>
+                    <file> 2 6 8 27 26 20</file>
                 </tool>
             </inputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\sos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 21</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 27 26 2 6 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task316.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 14 29</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 13 16 18 2 6 8 20</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>XLINK</tool>

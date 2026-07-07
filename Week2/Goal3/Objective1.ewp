@@ -2117,5 +2117,17 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\sos.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\sos.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\..\Week1\Goal2\task316.c</name>
     </file>
 </project>
