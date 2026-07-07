@@ -272,7 +272,7 @@
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCPreprocComments</name>
@@ -2105,5 +2105,20 @@
     </configuration>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main1.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main2.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main3.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main4.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main5.c</name>
     </file>
 </project>

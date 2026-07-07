@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>794671287</fileChecksum>
+    <fileChecksum>241450220</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\..\..\..\..\..\..\Test\main.c</file>
+            <file>$PROJ_DIR$\main3.c</file>
+            <file>$PROJ_DIR$\Debug\List\main2.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2.r90</file>
             <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\main1.c</file>
+            <file>$PROJ_DIR$\main5.c</file>
+            <file>$PROJ_DIR$\main2.c</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$PROJ_DIR$\Debug\List\StravaC_Week1.map</file>
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-            <file>$PROJ_DIR$\Debug\Exe\StravaC_Week1.d90</file>
+            <file>$PROJ_DIR$\Debug\Obj\main3.r90</file>
+            <file>$PROJ_DIR$\Debug\List\main3.i</file>
+            <file>$PROJ_DIR$\main4.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1.r90</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\Debug\List\main4.i</file>
+            <file>$PROJ_DIR$\Debug\List\main1.i</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
         </outputs>
         <file>
-            <name>[ROOT_NODE]</name>
+            <name>$PROJ_DIR$\main3.c</name>
             <outputs>
                 <tool>
-                    <name>XLINK</name>
-                    <file> 9 4</file>
+                    <name>ICCAVR</name>
+                    <file> 11 10</file>
                 </tool>
             </outputs>
         </file>
@@ -31,30 +38,42 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 10</file>
+                    <file> 14 17</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5 3 2</file>
+                    <file> 9 8 7</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Debug\Exe\StravaC_Week1.d90</name>
+            <name>$PROJ_DIR$\main1.c</name>
             <outputs>
                 <tool>
-                    <name>XLINK</name>
-                    <file> 4</file>
+                    <name>ICCAVR</name>
+                    <file> 16 13</file>
                 </tool>
             </outputs>
-            <inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main2.c</name>
+            <outputs>
                 <tool>
-                    <name>XLINK</name>
-                    <file> 7 8 10 6</file>
+                    <name>ICCAVR</name>
+                    <file> 1 2</file>
                 </tool>
-            </inputs>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main4.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15</file>
+                </tool>
+            </outputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
