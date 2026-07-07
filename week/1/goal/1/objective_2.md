@@ -19,7 +19,7 @@
 > **Question/Prompt:**  Search and identify OLED display.
 
 > **Answer/Explanation:**
-> To comple this objective I used the OLED1 Xplained Pro user guide for verification.
+> To complete this objective I used the OLED1 Xplained Pro user guide for verification.
 
 ---
 
