@@ -26,33 +26,5 @@
     "name": "main",
     "origin": "project_file",
     "scope": null
-  },
-  {
-    "ID": "c:main.c@37@F@main@x",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "x",
-    "location": {
-      "column": "5",
-      "line": "4",
-      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
-    },
-    "name": "x",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@55@macro@MAX",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "MAX",
-    "location": {
-      "column": "9",
-      "line": "5",
-      "path": "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
-    },
-    "name": "MAX",
-    "origin": "project_file",
-    "scope": null
   }
 ]
