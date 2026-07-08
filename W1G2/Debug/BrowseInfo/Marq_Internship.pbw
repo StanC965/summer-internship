@@ -41674,20 +41674,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy14",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARH_Dummy14",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARH_Dummy14",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41698,20 +41684,6 @@
               "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARH",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy15",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARH_Dummy15",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARH_Dummy15",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -41730,6 +41702,20 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy14",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARH_Dummy14",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARH_Dummy14",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_Bit3",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41740,6 +41726,20 @@
               "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARL_Bit3",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy15",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARH_Dummy15",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARH_Dummy15",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -50076,13 +50076,41 @@
     "scope": null
   },
   {
+    "ID": "c:@sequenceOfThree",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "sequenceOfThree",
+    "location": {
+      "column": "15",
+      "line": "19",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "sequenceOfThree",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "15",
+      "line": "26",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@main",
     "What": "Function",
     "defdec": "Def",
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "19",
+      "line": "27",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",

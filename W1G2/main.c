@@ -16,6 +16,14 @@ void setup()
 
 _Bool state=0;
    
+unsigned char sequenceOfThree[4][2]=
+{
+  {0xff,0xff},
+{0xCF,0xff},
+{0xEF,0},
+{0xDF,0}
+};
+unsigned char i=0;
 void main(void)
 {
     setup();
@@ -25,18 +33,10 @@ void main(void)
     
         if (TCNT1 >= OCR1A)
         {
-            if(!state)
-            {
-              PORTD^=0b00110000;
-              PORTA^=0b00001000;
-              
-              
-            }
-            else{
-               PORTD^=0b00110000;
-              PORTA^=0b00001000;
-            }
-            state=!state;
+           PORTD=sequenceOfThree[i][0];
+           PORTA=sequenceOfThree[i++][1];
+            if(i>3)
+              i=0;
             
             TCNT1 = 0;            //reset timer
 
