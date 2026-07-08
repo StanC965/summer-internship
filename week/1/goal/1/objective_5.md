@@ -44,6 +44,14 @@
 #### Task [153]
 > **Question/Prompt:**    Now you must delete the code from the previous exercise in IAR EW (because the exercises are not linked together). For the code below, what value will have the VAR constant? (you can easily see this if you store the VAR into a variable and look at main.i preprocessed file)
 
+```
+#if MAX == 1
+#define VAR 4
+#else
+#define VAR 5
+#endif
+```
+
 > **Answer/Explanation:**
 > The value of the VAR constant is 5, because MAX is not defined anywhere in the source code. In this case the preprocessor evaluates it as 0.
 > Since ` 0 == 1` is false, the `#else` branch is triggered.
@@ -52,6 +60,16 @@
 
 #### Task [154]
 > **Question/Prompt:**    What this code will do?
+
+```
+#define MAX 10
+void main (void)
+{
+int x=2;
+#define MAX 55
+x=MAX;
+}
+```
 
 > **Answer/Explanation:**
 > This code defines a constanst MAX equal to 10, then redefines it to 55. The x variable is assigned 2, and after the constant redefinition it is assigned the value 55.
