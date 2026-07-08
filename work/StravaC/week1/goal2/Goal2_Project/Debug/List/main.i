@@ -615,6 +615,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 void delay_half_second(void)
@@ -627,33 +641,59 @@ void delay_half_second(void)
     }
 }
 
+void turn_all_leds_off(void)
+{
+    PORTD |= (1 << 5);
+    PORTD |= (1 << 4);
+    PORTA |= (1 << 3);
+    PORTC |= (1 << 7);
+}
+
 void main(void)
 {
     DDRA |= (1 << 3);
+    DDRC |= (1 << 7);
     DDRD |= (1 << 5);
     DDRD |= (1 << 4);
 
-    PORTA |= (1 << 3);
-    PORTD |= (1 << 5);
-    PORTD |= (1 << 4);
+    turn_all_leds_off();
 
     while (1)
     {
+        turn_all_leds_off();
+
         PORTD &= ~(1 << 5);
-        PORTD &= ~(1 << 4);
-        PORTA |= (1 << 3);
 
         delay_half_second();
 
-        PORTD |= (1 << 5);
+        turn_all_leds_off();
+
+        PORTD &= ~(1 << 5);
+        PORTD &= ~(1 << 4);
+
+        delay_half_second();
+
+        turn_all_leds_off();
+
         PORTD &= ~(1 << 4);
         PORTA &= ~(1 << 3);
 
         delay_half_second();
 
+        turn_all_leds_off();
+
         PORTD &= ~(1 << 5);
-        PORTD |= (1 << 4);
         PORTA &= ~(1 << 3);
+        PORTC &= ~(1 << 7);
+
+        delay_half_second();
+
+        turn_all_leds_off();
+
+        PORTD &= ~(1 << 5);
+        PORTD &= ~(1 << 4);
+        PORTA &= ~(1 << 3);
+        PORTC &= ~(1 << 7);
 
         delay_half_second();
     }

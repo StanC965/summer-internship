@@ -63,6 +63,14 @@ LED-ul de pe IO1 Xplained Pro are deja rezistor de limitare a curentului de 680 
 De aceea LED-urile functioneaza corect si in siguranta:
 noi nu conectam LED-ul direct la pinul microcontroller-ului,
 ci folosim circuitul deja proiectat pe placa.
+
+228:
+LED id    initial state    state 1    state 2    state 3    state 4    state 5
+1         OFF              ON         ON         OFF        ON         ON
+2         OFF              OFF        ON         ON         OFF        ON
+3         OFF              OFF        OFF        ON         ON         ON
+4         OFF              OFF        OFF        OFF        ON         ON
+5         OFF              OFF        OFF        OFF        OFF        OFF
 */
 
 void delay_half_second(void)
@@ -75,33 +83,59 @@ void delay_half_second(void)
     }
 }
 
+void turn_all_leds_off(void)
+{
+    PORTD |= (1 << 5);
+    PORTD |= (1 << 4);
+    PORTA |= (1 << 3);
+    PORTC |= (1 << 7);
+}
+
 void main(void)
 {
     DDRA |= (1 << 3);
+    DDRC |= (1 << 7);
     DDRD |= (1 << 5);
     DDRD |= (1 << 4);
 
-    PORTA |= (1 << 3);
-    PORTD |= (1 << 5);
-    PORTD |= (1 << 4);
+    turn_all_leds_off();
 
     while (1)
     {
+        turn_all_leds_off();
+
         PORTD &= ~(1 << 5);
-        PORTD &= ~(1 << 4);
-        PORTA |= (1 << 3);
 
         delay_half_second();
 
-        PORTD |= (1 << 5);
+        turn_all_leds_off();
+
+        PORTD &= ~(1 << 5);
+        PORTD &= ~(1 << 4);
+
+        delay_half_second();
+
+        turn_all_leds_off();
+
         PORTD &= ~(1 << 4);
         PORTA &= ~(1 << 3);
 
         delay_half_second();
 
+        turn_all_leds_off();
+
         PORTD &= ~(1 << 5);
-        PORTD |= (1 << 4);
         PORTA &= ~(1 << 3);
+        PORTC &= ~(1 << 7);
+
+        delay_half_second();
+
+        turn_all_leds_off();
+
+        PORTD &= ~(1 << 5);
+        PORTD &= ~(1 << 4);
+        PORTA &= ~(1 << 3);
+        PORTC &= ~(1 << 7);
 
         delay_half_second();
     }
