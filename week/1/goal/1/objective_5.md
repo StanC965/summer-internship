@@ -8,6 +8,7 @@
 | Task ID | Type | Status / Deliverable |
 | :--- | :--- | :--- |
 | **[151]** | `CORE` | [x] Completed |
+| **[152]** | `CORE` | [x] Completed |
 
 
 #### Task [151]
@@ -16,4 +17,13 @@
 > **Answer/Explanation:**
 > How do we find the 2's complement of a number? (single answer) - 
 > We write the absolute binary representation of the number, then we invert the bits and lastly we add one to the inverted number.
+
+---
+
+#### Task [152]
+> **Question/Prompt:**    In the program code above insert comments explaining what the program does (sum up two numbers). The preprocessor will output files with extension .i. Check how the preprocessor works using the settings showed. Visualize the .i files and observe how the code comments are preprocessed for your main.c file.
+
+> **Answer/Explanation:**
+> 
+
 ---
