@@ -12,6 +12,7 @@
 | **[163]** | `CORE` | [x] Completed
 | **[164]** | `CORE` | [x] Completed
 | **[165]** | `CORE` | [x] Completed
+| **[166]** | `OPTIONAL` | [x] Completed
 
 
 #### Task 161
@@ -63,6 +64,22 @@ SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
 > **Answer/Explanation:**
 > After I included the header file and compiled the source code, the macros expanded just as expected after doing the previous task. 
 > The comments were stripped from the file by the preprocessor, since there was no option chosen to keep them.
+
+---
+
+#### Task 165
+> **Question/Prompt:**  Compare contents of the file iom324PB.h vs. datasheet microcontroller vs. register view of IAR EW. What is your conclusion?
+
+> **Answer/Explanation:**
+
+| Register name | Size (bits) | Datasheet address (offset) | iom324pb.h definition matches? | IAR register view matches?
+| :--- | :--- | :--- | :--- | :--- |
+| TIFR4 | 8 | 0x39 | Yes | Yes |
+| SPSR0 | 8 | 0x4D | Yes | Yes |
+| PINE | 8 | 0x2C | Yes | Yes |
+
+> As demonstrared in the table above, there is a correlation between the hardware registers, macros and the IDE.
+> The hardware specs from the datasheet are translated into software inside the `iom344pb.h` file, whic the registers view the uses to display the hardware states during debugging. 
 
 ## References & Resources
 * AVR Microcontroller with Core Independent Peripherals and PicoPower technology
