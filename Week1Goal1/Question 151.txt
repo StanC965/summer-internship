@@ -1,0 +1,8 @@
+Which hexadecimal value is equivalent to the binary number 10101111?
+
+A. 0x9F
+B. 0xAF
+C. 0xBF
+D. 0xA7
+
+Correct answer: B. 0xAF
