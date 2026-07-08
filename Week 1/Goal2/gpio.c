@@ -20,4 +20,12 @@ void toggle_pin(volatile unsigned char *port,unsigned char pin){
   *port^= (1<<pin);
 }
 
+unsigned char read_pin(volatile unsigned char *pin_reg, unsigned char pin) {
+    if ((*pin_reg & (1 << pin)) == 0) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
 #endif

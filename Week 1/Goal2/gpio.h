@@ -9,4 +9,6 @@ extern void set_direction(volatile unsigned char *ddr, unsigned char pin, unsign
 
 extern void toggle_pin(volatile unsigned char *port, unsigned char pin);
 
+extern unsigned char read_pin(volatile unsigned char *pin_reg, unsigned char pin);
+
 #endif

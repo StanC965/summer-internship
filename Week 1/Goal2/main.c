@@ -1,26 +1,23 @@
-//243
+//252
 #include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
 //sw0 pc6
 void setup(void) {
-    DDRC =0xBF;
+    Init_LED(&DDRC,7,1);
+    set_direction(&DDRC,6,0);
+    set_pin(&PORTC,6);
     
 }
 
 void main(void) {
     setup(); 
-    PORTC=0xFF;
-    PORTC=PORTC | (1<<6);
-    
-    unsigned char buton;
     while(1){
-      buton=PINC;
-      if((buton & (1<<6))==0){
-      PORTC=0x7F;
+      if(read_pin(&PINC,6) ==0){
+        PowerOn_LED(&PORTC,7);
       }
       else{
-      PORTC=0xFF;
+        PowerOff_LED(&PORTC,7);
       }
     }
 }

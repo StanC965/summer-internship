@@ -578,6 +578,8 @@ extern void set_direction(volatile unsigned char *ddr, unsigned char pin, unsign
 
 extern void toggle_pin(volatile unsigned char *port, unsigned char pin);
 
+extern unsigned char read_pin(volatile unsigned char *pin_reg, unsigned char pin);
+
 #line 4 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 #line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\led.h"
 
@@ -598,23 +600,20 @@ extern void BlinkFast_LED(volatile unsigned char *port, unsigned char pin);
 #line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
 void setup(void) {
-    DDRC =0xBF;
+    Init_LED(&DDRC,7,1);
+    set_direction(&DDRC,6,0);
+    set_pin(&PORTC,6);
     
 }
 
 void main(void) {
     setup(); 
-    PORTC=0xFF;
-    PORTC=PORTC | (1<<6);
-    
-    unsigned char buton;
     while(1){
-      buton=PINC;
-      if((buton & (1<<6))==0){
-      PORTC=0x7F;
+      if(read_pin(&PINC,6) ==0){
+        PowerOn_LED(&PORTC,7);
       }
       else{
-      PORTC=0xFF;
+        PowerOff_LED(&PORTC,7);
       }
     }
 }

@@ -14,6 +14,8 @@ extern void set_direction(volatile unsigned char *ddr, unsigned char pin, unsign
 
 extern void toggle_pin(volatile unsigned char *port, unsigned char pin);
 
+extern unsigned char read_pin(volatile unsigned char *pin_reg, unsigned char pin);
+
 #line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
@@ -596,5 +598,13 @@ void set_direction(volatile unsigned char *ddr,unsigned char pin, unsigned char 
 
 void toggle_pin(volatile unsigned char *port,unsigned char pin){
   *port^= (1<<pin);
+}
+
+unsigned char read_pin(volatile unsigned char *pin_reg, unsigned char pin) {
+    if ((*pin_reg & (1 << pin)) == 0) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
