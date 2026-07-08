@@ -22,7 +22,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 2 6</file>
+                    <file> 6 2</file>
                 </tool>
             </outputs>
         </file>
