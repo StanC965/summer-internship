@@ -580,10 +580,7 @@ void reset_pin(unsigned char pin){
 }
 
 void set_direction(unsigned char pin, unsigned char direction){
-  if(direction==1)
-    { DDRC=DDRC | (1<<pin);}
-  else if(direction == 0)
-    { DDRC=DDRC & ~(1<<pin);}
+  DDRC= (direction==1)?  (DDRC | (1<<pin)) : (DDRC & ~(1<<pin));
     
 }
 
