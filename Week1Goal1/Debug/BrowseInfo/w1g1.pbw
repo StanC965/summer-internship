@@ -1,29 +1,59 @@
 [
   {
-    "ID": "c:main.c@45@macro@max",
-    "What": "MacroDef",
+    "ID": "c:@S@student",
+    "What": "Struct",
     "defdec": "Def",
-    "display": "max",
+    "display": "student",
     "location": {
-      "column": "9",
+      "column": "8",
       "line": "2",
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
-    "name": "max",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@88@macro@average",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "average",
-    "location": {
-      "column": "9",
-      "line": "3",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "average",
+    "members": [
+      {
+        "ID": "c:@S@student@FI@name",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "name",
+        "location": {
+          "column": "10",
+          "line": "4",
+          "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
+        },
+        "name": "name",
+        "origin": "project_file",
+        "scope": "student"
+      },
+      {
+        "ID": "c:@S@student@FI@age",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "age",
+        "location": {
+          "column": "19",
+          "line": "5",
+          "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
+        },
+        "name": "age",
+        "origin": "project_file",
+        "scope": "student"
+      },
+      {
+        "ID": "c:@S@student@FI@height",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "height",
+        "location": {
+          "column": "19",
+          "line": "6",
+          "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
+        },
+        "name": "height",
+        "origin": "project_file",
+        "scope": "student"
+      }
+    ],
+    "name": "student",
     "origin": "project_file",
     "scope": null
   },
@@ -34,7 +64,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "5",
+      "line": "9",
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
     "name": "main",
@@ -42,58 +72,16 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@147@F@main@x",
+    "ID": "c:main.c@222@F@main@s",
     "What": "Variable",
     "defdec": "Def",
-    "display": "x",
+    "display": "s",
     "location": {
-      "column": "9",
-      "line": "7",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "x",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@163@F@main@y",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "y",
-    "location": {
-      "column": "9",
-      "line": "8",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "y",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@181@F@main@biggest",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "biggest",
-    "location": {
-      "column": "9",
-      "line": "10",
-      "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
-    },
-    "name": "biggest",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@211@F@main@avg",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "avg",
-    "location": {
-      "column": "9",
+      "column": "20",
       "line": "11",
       "path": "C:\\Users\\Bibi\\Desktop\\summer-internship\\Week1Goal1\\main.c"
     },
-    "name": "avg",
+    "name": "s",
     "origin": "project_file",
     "scope": null
   }
