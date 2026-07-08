@@ -1,5 +1,20 @@
-#line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
+#line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.c"
 
+
+
+#line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.h"
+
+
+
+extern void set_pin(volatile unsigned char *port, unsigned char pin);
+
+extern void reset_pin(volatile unsigned char *port, unsigned char pin);
+
+extern void set_direction(volatile unsigned char *ddr, unsigned char pin, unsigned char direction);
+
+extern void toggle_pin(volatile unsigned char *port, unsigned char pin);
+
+#line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -565,26 +580,21 @@
 
 
 
-#line 3 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
-#line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.h"
+#line 6 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.c"
 
-
-
-extern void set_pin(volatile unsigned char *port, unsigned char pin);
-
-extern void reset_pin(volatile unsigned char *port, unsigned char pin);
-
-extern void set_direction(volatile unsigned char *ddr, unsigned char pin, unsigned char direction);
-
-extern void toggle_pin(volatile unsigned char *port, unsigned char pin);
-
-#line 4 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
-
-void setup(void) {
-    set_direction(&DDRC, 7, 1);
+void set_pin(volatile unsigned char *port,unsigned char pin){
+  *port|= (1<<pin);
 }
 
-void main(void) {
-    setup(); 
-    while(1);
+void reset_pin(volatile unsigned char *port,unsigned char pin){
+  *port &=  ~(1<<pin);
 }
+
+void set_direction(volatile unsigned char *ddr,unsigned char pin, unsigned char direction){
+  *ddr= (direction==1)?  (*ddr | (1<<pin)) : (*ddr & ~(1<<pin));
+}
+
+void toggle_pin(volatile unsigned char *port,unsigned char pin){
+  *port^= (1<<pin);
+}
+

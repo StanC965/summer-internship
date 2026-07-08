@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>347507595</fileChecksum>
+    <fileChecksum>20479407</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -16,6 +16,9 @@
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$PROJ_DIR$\Debug\List\Goal2.map</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\..\Goal1\main.c</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
@@ -37,7 +40,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4 5 6</file>
+                    <file> 4 5 6 12</file>
                 </tool>
             </inputs>
         </file>
