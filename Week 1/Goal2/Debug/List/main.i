@@ -598,35 +598,27 @@ extern void BlinkSlow_LED(volatile unsigned char *port, unsigned char pin);
 extern void BlinkFast_LED(volatile unsigned char *port, unsigned char pin);
 
 #line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
+#line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\sos.h"
+
+
+
+extern void Morse_Point(volatile unsigned char *port, unsigned char pin);
+
+extern void Morse_Line(volatile unsigned char *port, unsigned char pin);
+
+extern void SOS_Sequence(volatile unsigned char *port, unsigned char pin);
+
+#line 6 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
 void setup(void) {
-    Init_LED(&DDRC,7,1);
-    set_direction(&DDRC,6,0);
-    set_pin(&PORTC,6);
-    
+    Init_LED(&DDRC, 7, 1);
+    PowerOff_LED(&PORTC, 7);
 }
 
 void main(void) {
-    setup(); 
-    int pressed_confidence_level = 0;
-    int released_confidence_level = 0;
-    while(1){
-      if(read_pin(&PINC,6) ==0){
-        released_confidence_level=0;
-        pressed_confidence_level++;
-        if(pressed_confidence_level>200){
-          PowerOn_LED(&PORTC,7);
-          pressed_confidence_level=200;
-        }
-        
-      }
-      else{
-        pressed_confidence_level=0;
-        released_confidence_level++;
-        if(released_confidence_level>200){
-          PowerOff_LED(&PORTC,7);
-          released_confidence_level=200;
-        }
-      }
+    setup();
+    
+    while(1) {
+        SOS(&PORTC, 7);
     }
 }
