@@ -13,6 +13,7 @@
 | **[154]** | `CORE` | [x] Completed |
 | **[155]** | `CORE` | [x] Completed |
 | **[156]** | `STRETCH` | [x] Completed |
+| **[157]** | `STRETCH` | [x] Completed |
 
 #### Task [151]
 > **Question/Prompt:**     How to handle the different numeration systems (binary, decimal, hexadecimal). Watch the materials below, then: are you able to create a single question for testing your colleague's knowledge on these topics? The question you create will be used later to build up a quiz for the students group and must be of type "multiple choices - single answer" or "true-false" (include the correct answer also)
@@ -142,4 +143,20 @@ void main(void)
     MAX(counter, 3);
 }
 ```
+
 ---
+
+#### Task [157]
+> **Question/Prompt:**     Implement macros for the following functions: max (a, b), average (a, b).
+
+> **Answer/Explanation:**
+> The macro arguments and the expression were wrapped in parentheses to isolate them. This way, the preprocessor will expand the macros just as the logic of the task expects.
+
+```
+#define MAX(a, b) ((a) + (b))
+#define AVERAGE(a, b) (((a) + (b)) / 2)
+```
+
+> 
+---
+
