@@ -1,0 +1,1 @@
+While TCCR2B and TCNT2 share the exact same functionality and memory locations, the ATmega328P only has a single SPI peripheral (SPDR), meaning the register SPDR1 does not exist on this chip.
