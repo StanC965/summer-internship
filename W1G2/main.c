@@ -9,21 +9,13 @@ void setup()
     DDRC = 0b10000000;         
     PORTC = 0xFF;              
     DDRD=(1<<5)|(1<<4);
-    PORTD=0xFF;
-    DDRA=0b00001000;
+    PORTD=0xEF;  //initial pornim cu led-ul din mijloc aprins 
+    DDRA=0b00001000; 
     PORTA=0xFF;
 }
 
-unsigned char sequence[6]={
-  
-  0b00010000,
-   0b00010000,
-   0b00100000,
-      0b00100000,                               //am facut un sequence care este incrementat de fiecare data cand trec 0.5 sec
-   0b00001000,
-   0b00001000
-};
-      unsigned char i=0;
+_Bool state=0;
+   
 void main(void)
 {
     setup();
@@ -33,17 +25,21 @@ void main(void)
     
         if (TCNT1 >= OCR1A)
         {
-            if(i<4)
+            if(!state)
             {
-              PORTD^=sequence[i++];
+              PORTD^=0b00110000;
+              PORTA^=0b00001000;
+              
+              
             }
-            else if(i>=4)
-            {
-              PORTA^=sequence[i++];
+            else{
+               PORTD^=0b00110000;
+              PORTA^=0b00001000;
             }
+            state=!state;
+            
             TCNT1 = 0;            //reset timer
-            if(i==6)                    //reset sequence
-              i=0;
+
         }
     }
 }
