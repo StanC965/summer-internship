@@ -1,4 +1,4 @@
-//252
+//253
 #include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
@@ -12,12 +12,25 @@ void setup(void) {
 
 void main(void) {
     setup(); 
+    int pressed_confidence_level = 0;
+    int released_confidence_level = 0;
     while(1){
       if(read_pin(&PINC,6) ==0){
-        PowerOn_LED(&PORTC,7);
+        released_confidence_level=0;
+        pressed_confidence_level++;
+        if(pressed_confidence_level>200){
+          PowerOn_LED(&PORTC,7);
+          pressed_confidence_level=200;
+        }
+        
       }
       else{
-        PowerOff_LED(&PORTC,7);
+        pressed_confidence_level=0;
+        released_confidence_level++;
+        if(released_confidence_level>200){
+          PowerOff_LED(&PORTC,7);
+          released_confidence_level=200;
+        }
       }
     }
 }
