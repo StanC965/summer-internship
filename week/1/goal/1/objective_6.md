@@ -67,7 +67,7 @@ SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
 
 ---
 
-#### Task 165
+#### Task 166
 > **Question/Prompt:**  Compare contents of the file iom324PB.h vs. datasheet microcontroller vs. register view of IAR EW. What is your conclusion?
 
 > **Answer/Explanation:**
