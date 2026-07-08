@@ -566,8 +566,33 @@
 
 #line 2 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 void main(void)
 {
+    DDRC |= (1 << 7);
+    PORTC &= ~(1 << 7);
+    
+    
     while (1)
     {
 

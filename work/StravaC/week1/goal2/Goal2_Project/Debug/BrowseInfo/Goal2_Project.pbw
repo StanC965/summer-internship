@@ -41072,6 +41072,20 @@
         },
         "members": [
           {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_Bit7",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_Bit7",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_Bit7",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR7",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41992,20 +42006,6 @@
               "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARH_Bit5",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_Bit7",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_Bit7",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_Bit7",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           }
@@ -46916,20 +46916,6 @@
             "scope": "_anonymous_iom324pb_h_308_2::_anonymous_iom324pb_h_308_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@FI@DDRC",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "DDRC",
-            "location": {
-              "column": "2",
-              "line": "308",
-              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
-            },
-            "name": "DDRC",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_308_2::_anonymous_iom324pb_h_308_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@DDRC_DDRC1",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -47136,6 +47122,20 @@
               "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
             },
             "name": "DDRC_Bit7",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_308_2::_anonymous_iom324pb_h_308_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@FI@DDRC",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "DDRC",
+            "location": {
+              "column": "2",
+              "line": "308",
+              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
+            },
+            "name": "DDRC",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_308_2::_anonymous_iom324pb_h_308_2"
           }
