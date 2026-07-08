@@ -1,20 +1,19 @@
 #include <iom324pb.h>
 
-/* 
- * Program: Suma a doua numere
- * Declara doua variabile intregi a si b, le aduna
- * si stocheaza rezultatul in variabila c.
- */
+#define MAX 1
+
+#if MAX == 1
+#define VAR 4
+#else
+#define VAR 5
+#endif
+
 void main(void)
 {
-    int a = 5;   // primul operand
-    int b = 3;   // al doilea operand
-    int c;       // rezultatul sumei
-
-    c = a + b;   // aduna a si b, rezultatul in c
+    int result;
+    result = VAR;
 
     while(1)
     {
-        // bucla infinita - programul ramane aici la nesfarsit
     }
 }

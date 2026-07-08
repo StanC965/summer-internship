@@ -570,17 +570,16 @@
 
 
 
- 
+
+
+
+
 void main(void)
 {
-    int a = 5;   
-    int b = 3;   
-    int c;       
-
-    c = a + b;   
+    int result;
+    result = 4;
 
     while(1)
     {
-        
     }
 }
