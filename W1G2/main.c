@@ -1,16 +1,14 @@
 #include "iom324pb.h"
 #include "gpio.h" 
+#include "led.h" 
 
-/* Variabile globale de control */
 int counter = 0;
 _Bool state = 1;
 
 void setup(void)
 {
-    
-    gpio_set_direction(&DDRC, 7, GPIO_OUTPUT);
-    gpio_reset_pin(&PORTC, 7);
-    
+    leds_initialize(1, 1, 1, 1, 1);
+    led_Reset(LED_ZERO);
     
     TCNT1 = 0;
     OCR1A = 15625;     // 1 secunda
@@ -26,15 +24,15 @@ void main(void)
     {
         if (TCNT1 >= OCR1A)   
         {
-            gpio_set_pin(&PORTC, 7);    
-                                                                        
+            led_Set(LED_ZERO);   
+                                                                                                        
             if(state)
             {
-                gpio_reset_pin(&PORTC, 7);  
+                 led_Reset(LED_ZERO); 
             }
             else                        
             {
-                gpio_set_pin(&PORTC, 7);
+                led_Set(LED_ZERO); 
             }
             
             state = !state;
@@ -44,7 +42,7 @@ void main(void)
             
             if(counter == 5)
             {
-                //Dupa 5 perioade, transformam pinul in intrare (stinge LED-ul ) 
+                
                 gpio_set_direction(&DDRC, 7, GPIO_INPUT);
             }
         }
