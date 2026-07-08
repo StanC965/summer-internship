@@ -69,21 +69,16 @@ void main(void)
 
     while (1)
     {
-        PORTA |= (1 << 3);
-        PORTD |= (1 << 5);
-        PORTD |= (1 << 4);
-
         PORTD &= ~(1 << 5);
+        PORTA &= ~(1 << 3);
+        PORTD |= (1 << 4);
+
         delay_half_second();
 
         PORTD |= (1 << 5);
-        PORTD &= ~(1 << 4);
-        delay_half_second();
-
-        PORTD |= (1 << 4);
-        PORTA &= ~(1 << 3);
-        delay_half_second();
-
         PORTA |= (1 << 3);
+        PORTD &= ~(1 << 4);
+
+        delay_half_second();
     }
 }
