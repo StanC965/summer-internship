@@ -12,7 +12,7 @@
 | **[153]** | `CORE` | [x] Completed |
 | **[154]** | `CORE` | [x] Completed |
 | **[155]** | `CORE` | [x] Completed |
-
+| **[156]** | `STRETCH` | [x] Completed |
 
 #### Task [151]
 > **Question/Prompt:**     How to handle the different numeration systems (binary, decimal, hexadecimal). Watch the materials below, then: are you able to create a single question for testing your colleague's knowledge on these topics? The question you create will be used later to build up a quiz for the students group and must be of type "multiple choices - single answer" or "true-false" (include the correct answer also)
@@ -89,6 +89,57 @@ int MAX = 10;
 ```
 
 > **Answer/Explanation:**
-> This code defines a constanst MAX equal to 10, then redefines it to 55. The x variable is assigned 2, and after the constant redefinition it is assigned the value 55.
+> This code defines a constanst MAX equal to 100. When running the program, it will throw a compilation error. 
+> In the preprocessing stage, the preprocessor will replace the word MAX with the defined value of 100.
+> This is what the output of preprocessing looks like:
 
+```
+void main ( void ){
+  int 100 = 10;
+}
+```
+
+> The compiler does not expect a number as a variable name, so it throws the `Expected an identifier` error.
+
+---
+
+#### Task [156]
+> **Question/Prompt:**     How the following code will work? Verify it in your main.c file by comparing it with main.i (the preprocessed file).
+
+```
+#define MAX(i, limit) do \
+{ \
+    if (i < limit) \
+    { \
+        i++; \
+    } \
+} while(1)
+
+void main(void)
+{
+    MAX(0,3);
+}
+```
+
+> **Answer/Explanation:**
+> The code throws the following exception: `Expression must be a modifiable lvalue`. This happens because the code tries to change a fixed number in the macro. 
+> If we look at the .i file, we have:
+
+```
+void main(void)
+{
+    do { if (0 < 3) { 0++; } } while(1);
+}
+```
+> The error happens because on the line where we try to increment i, it is actually a literal constant, not a variable in memory. The preprocessor replaced every occurence of i and limit with 0, respectively 3.
+<br>
+> In order to use the macro correctly, the first argument must be a real variable that has a physical spot in memory, so it can acutally be incremented.
+
+```
+void main(void)
+{
+    int counter = 0;
+    MAX(counter, 3);
+}
+```
 ---
