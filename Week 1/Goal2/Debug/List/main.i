@@ -579,12 +579,15 @@ void reset_pin(unsigned char pin){
   PORTC= PORTC & ~(1<<pin);
 }
 
-void main(void){
-    setup();
-    PORTC=0xFF; 
-    for(long i=0;i<200000;i++);
-    reset_pin(7);
+void set_direction(unsigned char pin, unsigned char direction){
+  if(direction==1)
+    { DDRC=DDRC | (1<<pin);}
+  else if(direction == 0)
+    { DDRC=DDRC & ~(1<<pin);}
     
+}
 
+void main(void){
+  setup();
   while(1);
 }
