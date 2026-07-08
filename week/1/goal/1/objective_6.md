@@ -9,6 +9,7 @@
 | :--- | :--- | :--- |
 | **[161]** | `CORE` | [x] Completed
 | **[162]** | `CORE` | [x] Completed
+| **[163]** | `CORE` | [x] Completed
 
 
 
@@ -24,3 +25,20 @@
 
 > **Answer/Explanation:**
 > The sum of a and b is 258 or 0x0102. In the watch window, the result is shown as 0102, but in memory it's stored as 02 01. That means that ATMega324PB is a little endian architecture.
+
+---
+
+#### Task 163
+> **Question/Prompt:** Open the datasheet of the ATMega324PB microcontroller and find the register TCCR2B, a real register!!! Compare the information found in the datasheet with the macro of the register TCCR2B. What is your conclusion?
+
+> **Answer/Explanation:**
+> The Timer/Counter Control Register B (TCCR2B) consists of 8 bits:
+
+![alt text](../../../../images/w1g1obj6t163.PNG)
+
+> The macro has the following structure:  SFR_B_N(0xB1, TCCR2B, FOC2A, FOC2B, Dummy5, Dummy4, WGM22, CS22, CS21, CS20)
+
+> Based on the structure of the register and the macro the conclusion is that the macro directly maps the software definition to the exact physical structure of the hardware register.
+
+## References & Resources
+* AVR Microcontroller with Core Independent Peripherals and PicoPower technology
