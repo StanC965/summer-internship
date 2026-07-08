@@ -1,10 +1,10 @@
 #line 1 "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
 
 
+void main ( void ){
+  int x = 2;
+  
 
-
-
-
-int main (void){
-  int a = 5;
+  
+  x = 55;
 }
