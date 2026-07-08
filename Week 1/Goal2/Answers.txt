@@ -1,0 +1,2 @@
+212. How many pins does the PORTC port have? 
+    PORTC are 8 pini.
