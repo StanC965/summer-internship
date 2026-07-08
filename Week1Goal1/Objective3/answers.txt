@@ -1,0 +1,10 @@
+131 - Identify the light sensor. -> done
+132 - Identify the temperature sensor. -> done
+133 - Identify the lowpass filter. -> done
+134 - Identify the microSD card slot. -> done
+135 - Identify the LED on the board. -> done
+136 - Identify the extension header. -> done
+137 - Identify GND and VCC pin on the header. -> done
+138 - Connect IO1 to EXT4 using the 3-step procedure:
+      (1) unplug USB from PC, (2) connect IO1 to EXT4 header,
+      (3) reconnect USB to PC. -> done
