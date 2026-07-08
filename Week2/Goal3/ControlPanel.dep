@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>1317627208</fileChecksum>
+    <fileChecksum>2976247359</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -33,6 +33,7 @@
             <file>$PROJ_DIR$\..\..\Week1\Goal2\led.c</file>
             <file>$PROJ_DIR$\sos.c</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</name>
@@ -148,6 +149,10 @@
                 </tool>
             </outputs>
         </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
             <tool>ICCAVR</tool>
