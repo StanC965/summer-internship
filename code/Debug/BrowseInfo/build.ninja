@@ -26,7 +26,7 @@ rule PDBLINK
 #Build steps
 build C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
   xclcommand = -source_file C$:\MQ_Summer_Internship\Project\summer-internship\code\main.c -xcl_file C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.xcl -macro_file C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
-  flags = C$:\MQ_Summer_Internship\Project\summer-internship\code\main.c --cpu=m324pb -ms -o C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\Obj\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.tmp
+  flags = C$:\MQ_Summer_Internship\Project\summer-internship\code\main.c --cpu=m324pb -ms -o C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\Obj\ --preprocess C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.tmp
   rspfile_name = C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.xcl.rsp
 
 build C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.pbi : INDEXER C$:\MQ_Summer_Internship\Project\summer-internship\code\Debug\BrowseInfo\main.xcl |  $

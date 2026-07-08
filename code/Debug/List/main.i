@@ -1,7 +1,8 @@
+#line 1 "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
 
 int main( void )
 {
-  // this program sums two numbers, a and b
+  
   int a = 5; 
   int b = 10;
   
@@ -9,8 +10,7 @@ int main( void )
   
   sum = a + b;
   
-  // enter infinite loop
   while(1){
-
+    
   }
 }
