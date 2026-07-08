@@ -1,9 +1,9 @@
 D:\Mircea\Marqurdt\summer-internship\Week2\Goal3\Debug\BrowseInfo\task333.pbi: \
-  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\task333.c \
-  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\sos.h \
-  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\led.h \
-  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\gpio.h \
-  D:\Mircea\Marqurdt\logic\avr\inc\iom324pb.h \
-  D:\Mircea\Marqurdt\logic\avr\inc\iomacro.h \
+  D:\Mircea\Marqurdt\logic\avr\inc\intrinsics.h \
   D:\Mircea\Marqurdt\logic\avr\inc\bitdefinitions\iom324pb.inc \
-  D:\Mircea\Marqurdt\logic\avr\inc\intrinsics.h
+  D:\Mircea\Marqurdt\logic\avr\inc\iomacro.h \
+  D:\Mircea\Marqurdt\logic\avr\inc\iom324pb.h \
+  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\gpio.h \
+  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\led.h \
+  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\sos.h \
+  D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\task333.c

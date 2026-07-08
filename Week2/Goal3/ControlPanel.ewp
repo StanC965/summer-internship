@@ -2104,6 +2104,9 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\..\..\Week1\Goal2\BMWCustomer.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</name>
     </file>
     <file>
@@ -2135,5 +2138,8 @@
     </file>
     <file>
         <name>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
 </project>

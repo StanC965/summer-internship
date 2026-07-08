@@ -2636,6 +2636,9 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\..\..\Week1\Goal2\BMWCustomer.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</name>
     </file>
     <file>
