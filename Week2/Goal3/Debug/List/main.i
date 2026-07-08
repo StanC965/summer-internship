@@ -1,4 +1,7 @@
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -564,87 +567,40 @@
 
 
 
-#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
-#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-#pragma system_include
-
-
-
-#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iomacro.h"
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-#pragma system_include
-
-
-
-#line 21 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-#line 28 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-#line 106 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-
-
-
- 
-#line 324 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 
 
 
 
-extern void set_pin(volatile unsigned char* port,unsigned char pin);
+extern void setPin(volatile unsigned char* port,unsigned char pin);
 
-extern void reset_pin(volatile unsigned char* port,unsigned char pin);
+extern void resetPin(volatile unsigned char* port,unsigned char pin);
 
-extern void set_direction(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
+extern void setDirection(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
 
-extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
-extern unsigned char get_pin(volatile unsigned char* reg, unsigned char pin);
+extern void togglePin(volatile unsigned char* reg, unsigned char pin);
+extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 
 
-extern void PowerOn_LED(unsigned char led);
+extern void ledPowerOn(unsigned char led);
 
-extern void PowerOff_LED(unsigned char led);
+extern void ledPowerOff(unsigned char led);
 
-extern void LED_Blink_slow(unsigned char led);
-extern void LED_Blink_fast(unsigned char led);
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+
+extern void ledPoint(unsigned char led);
+
+extern void ledLine(unsigned char led);
+
+extern void ledSos(unsigned char led);
+
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
 
 
@@ -842,30 +798,97 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #pragma vector = (0x18)
-__interrupt void my_routine(void){
-    PowerOn_LED(1);
+__interrupt void myInterruption1(void){
+  if(!getPin(&PINC,1)){
+        ledPowerOn(1); 
+    
+    }
+  else
+      ledPowerOff(1);
+     
+
+}
+
+#pragma vector = (0x10)
+__interrupt void myInterruption2(void){
+    if(!getPin(&PINA,0)){
+        ledPowerOn(2); 
+    
+    }
+  else
+      ledPowerOff(2);
+    
+    if(!getPin(&PINA,1)){
+        ledPowerOn(3); 
+    
+    }
+  else
+      ledPowerOff(3);
+      
+}
+
+
+
+
+void initialize(){
+    setDirection(&DDRD,5,1);
+  setDirection(&DDRD,4,1);
+  setDirection(&DDRA,3,1);
+  
+  setPin(&PORTD,5);
+  setPin(&PORTD,4);
+  setPin(&PORTA,3);
+  
+  
+  setDirection(&DDRC,1,0);
+  setDirection(&DDRA,0,0);
+  setDirection(&DDRA,1,0);
+  
+  
+  setPin(&PORTC,1);
+  setPin(&PORTA,0);
+  setPin(&PORTA,1);
+  
+  setPin(&PCICR,2);
+  setPin(&PCMSK2,1);
+  
+  
+  setPin(&PCICR,0);
+  setPin(&PCMSK0,1);
+  setPin(&PCMSK0,0);
+  
+  
 }
 
 int main( void )
 {
-  
-  set_direction(&DDRD,5,1);
-  set_pin(&PORTD,5);
-  
-  set_direction(&DDRC,6,0);
-  set_pin(&PORTC,6);
-  
-  
-  PCMSK2 |= (1 << 6);
-
-    
-   PCICR |= (1 << 2);
-
+  initialize();
   __enable_interrupt();
   
   while(1){
- 
+    
+  
+  
+  
   }
+  
 }

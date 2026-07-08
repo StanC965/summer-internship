@@ -4,40 +4,42 @@
 
 void ledPoint(unsigned char led){
     for(long i = 0;i<50000;i++);
-    PowerOn_LED(led);
+    
+    ledPowerOn(led);
     for(long i = 0;i<50000;i++);
-    PowerOff_LED(led);
+    
+    ledPowerOff(led);
     for(long i = 0;i<50000;i++);
-    PowerOn_LED(led);
+    ledPowerOn(led);
     for(long i = 0;i<50000;i++);
-    PowerOff_LED(led);
+    ledPowerOff(led);
     for(long i = 0;i<50000;i++);
-    PowerOn_LED(led);
+    ledPowerOn(led);
     for(long i = 0;i<50000;i++);
-    PowerOff_LED(led);
+    ledPowerOff(led);
       
 }
 
 void ledLine(unsigned char led){
     for(long i = 0;i<50000;i++);
-    PowerOn_LED(led);
+    ledPowerOn(led);
     for(long i = 0;i<100000;i++);
-    PowerOff_LED(led);
+    ledPowerOff(led);
     for(long i = 0;i<50000;i++);
-    PowerOn_LED(led);
+    ledPowerOn(led);
     for(long i = 0;i<100000;i++);
-    PowerOff_LED(led);
+    ledPowerOff(led);
     for(long i = 0;i<50000;i++);
-    PowerOn_LED(led);
+    ledPowerOn(led);
     for(long i = 0;i<100000;i++);
-    PowerOff_LED(led);
+    ledPowerOff(led);
       
 }
 
 void ledSos(unsigned char led){
-  POINT(led);
-  LINE(led);
-  POINT(led);
+  ledPoint(led);
+  ledLine(led);
+  ledPoint(led);
 } 
 
 

@@ -570,14 +570,14 @@
 
 
 
-extern void set_pin(volatile unsigned char* port,unsigned char pin);
+extern void setPin(volatile unsigned char* port,unsigned char pin);
 
-extern void reset_pin(volatile unsigned char* port,unsigned char pin);
+extern void resetPin(volatile unsigned char* port,unsigned char pin);
 
-extern void set_direction(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
+extern void setDirection(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
 
-extern void toggle_pin(volatile unsigned char* reg, unsigned char pin);
-extern unsigned char get_pin(volatile unsigned char* reg, unsigned char pin);
+extern void togglePin(volatile unsigned char* reg, unsigned char pin);
+extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
@@ -587,109 +587,109 @@ extern unsigned char get_pin(volatile unsigned char* reg, unsigned char pin);
 
 
 
-extern void PowerOn_LED(unsigned char led);
+extern void ledPowerOn(unsigned char led);
 
-extern void PowerOff_LED(unsigned char led);
+extern void ledPowerOff(unsigned char led);
 
-extern void LED_Blink_slow(unsigned char led);
-extern void LED_Blink_fast(unsigned char led);
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
-void PowerOn_LED(unsigned char led){
+void ledPowerOn(unsigned char led){
   if(led == 0){
  
-    reset_pin(&PORTC,7);
+    resetPin(&PORTC,7);
     
   }
   else
   if(led == 1){
   
-    reset_pin(&PORTD,5);
+    resetPin(&PORTD,5);
     
   }
   else
   if(led == 2){
    
-    reset_pin(&PORTD,4);
+    resetPin(&PORTD,4);
     
   }
   else
   if(led == 3){
   
-    reset_pin(&PORTA,3);
+    resetPin(&PORTA,3);
     
   }
   else{
     
-    reset_pin(&PORTB,3);
+    resetPin(&PORTB,3);
     
   }
 }
 
-void PowerOff_LED(unsigned char led){
+void ledPowerOff(unsigned char led){
   if(led == 0){
     
-    set_pin(&PORTC,7);
+    setPin(&PORTC,7);
     
   }
   else
   if(led == 1){
    
-    set_pin(&PORTD,5);
+    setPin(&PORTD,5);
     
   }
   else
   if(led == 2){
     
-    set_pin(&PORTD,4);
+    setPin(&PORTD,4);
     
   }
   else
   if(led == 3){
    
-    set_pin(&PORTA,3);
+    setPin(&PORTA,3);
     
   }
   else{
     
-    set_pin(&PORTB,3);
+    setPin(&PORTB,3);
     
   }
 }
 
 
-void LED_Blink_slow(unsigned char led){
-  PowerOn_LED(led);
+void ledBlinkSlow(unsigned char led){
+  ledPowerOn(led);
   for(int i = 0;i<10000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<10000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<10000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
 
 }
-void LED_Blink_fast(unsigned char led){
-  PowerOn_LED(led);
+void ledBlinkFast(unsigned char led){
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
 }
 

@@ -5,30 +5,30 @@
 void ledPowerOn(unsigned char led){
   if(led == 0){
  
-    reset_pin(&PORTC,7);
+    resetPin(&PORTC,7);
     
   }
   else
   if(led == 1){
   
-    reset_pin(&PORTD,5);
+    resetPin(&PORTD,5);
     
   }
   else
   if(led == 2){
    
-    reset_pin(&PORTD,4);
+    resetPin(&PORTD,4);
     
   }
   else
   if(led == 3){
   
-    reset_pin(&PORTA,3);
+    resetPin(&PORTA,3);
     
   }
   else{
     
-    reset_pin(&PORTB,3);
+    resetPin(&PORTB,3);
     
   }
 }
@@ -36,69 +36,69 @@ void ledPowerOn(unsigned char led){
 void ledPowerOff(unsigned char led){
   if(led == 0){
     
-    set_pin(&PORTC,7);
+    setPin(&PORTC,7);
     
   }
   else
   if(led == 1){
    
-    set_pin(&PORTD,5);
+    setPin(&PORTD,5);
     
   }
   else
   if(led == 2){
     
-    set_pin(&PORTD,4);
+    setPin(&PORTD,4);
     
   }
   else
   if(led == 3){
    
-    set_pin(&PORTA,3);
+    setPin(&PORTA,3);
     
   }
   else{
     
-    set_pin(&PORTB,3);
+    setPin(&PORTB,3);
     
   }
 }
 
 
 void ledBlinkSlow(unsigned char led){
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<10000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<10000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<10000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
 
 }
 void ledBlinkFast(unsigned char led){
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
   for(int i = 0;i<5000;i++);
-  PowerOn_LED(led);
+  ledPowerOn(led);
   for(int i = 0;i<5000;i++);
-  PowerOff_LED(led);
+  ledPowerOff(led);
 }
 
 #endif

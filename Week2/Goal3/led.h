@@ -3,10 +3,10 @@
 #include "gpio.h"
 
 
-extern void PowerOn_LED(unsigned char led);
+extern void ledPowerOn(unsigned char led);
 
-extern void PowerOff_LED(unsigned char led);
+extern void ledPowerOff(unsigned char led);
 
-extern void LED_Blink_slow(unsigned char led);
-extern void LED_Blink_fast(unsigned char led);
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
 #endif
