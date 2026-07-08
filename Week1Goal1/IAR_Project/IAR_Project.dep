@@ -35,7 +35,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5</file>
+                    <file> 5 8</file>
                 </tool>
             </outputs>
         </file>

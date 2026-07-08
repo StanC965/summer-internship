@@ -1,10 +1,17 @@
-#define MAX 100
+#define MAX(i, limit) do \
+{ \
+    if (i < limit) \
+    { \
+        i++; \
+    } \
+} while(1)
 
-void main (void)
+void main(void)
 {
-  int MAX = 10;
+  int c=0;
+    MAX(c,3);
 }
 
-// This code will generate an error MAX is replaced with the value 100 
-// This can be seen in the generated .i file, where the code becomes int 100 = 10; the MAX macro has been replaced with its value. 
-// As a result, the compiler encounters 100 where it expects a variable name, causing a compilation error.
+// the initial code as seen in .i file will try to  increment 0 a constant 
+// to make this code work i replaced 0 with a variable c that can be changed
+// it will increment the c until it will reach the limit and after that it will stay into an infinite loop checking the value of c

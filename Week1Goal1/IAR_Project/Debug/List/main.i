@@ -1,5 +1,9 @@
 
-void main (void)
+void main(void)
 {
-  int 100 = 10;
+  int c=0;
+    do { if (c < 3) { c++; } } while(1);
 }
+
+
+

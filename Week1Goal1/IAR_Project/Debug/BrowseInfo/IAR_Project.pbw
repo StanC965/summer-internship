@@ -20,10 +20,24 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "3",
+      "line": "9",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
     "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@125@F@main@c",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "c",
+    "location": {
+      "column": "7",
+      "line": "11",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
+    },
+    "name": "c",
     "origin": "project_file",
     "scope": null
   }
