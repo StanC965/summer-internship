@@ -59,7 +59,7 @@ void main(void)
         if (TCNT1 >= OCR1A)   
         {
             set_pinC(7);    
-            
+                                                                  //Deja fiecare functie e formata dintr-o singura linie 
             if(state)
             {
               reset_pinC(7);
