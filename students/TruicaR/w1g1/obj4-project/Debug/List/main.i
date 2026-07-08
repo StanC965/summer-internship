@@ -566,16 +566,23 @@
 
 #line 2 "C:\\Users\\truic\\summer-internship\\students\\TruicaR\\w1g1\\obj4-project\\main.c"
 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 void main(void)
 {
-    int a = 1;
-    int b = 257;   
-    int c;
-
-    c = a + b;     
-
     while(1)
     {
-      
     }
 }
