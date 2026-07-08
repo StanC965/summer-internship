@@ -1,15 +1,10 @@
-#if MAX == 1
-#define VAR 4
-#else
-#define VAR 5
-#endif
+#define MAX 10
 
-int main( void )
+void main (void)
 {
-  
-  int v = VAR;
-  
-  return 0;
+  int x=2;
+  #define MAX 55
+  x=MAX;
 }
 
-//Value of VAR is 5
+// value of x will be 55 the new vlue of MAX

@@ -1,8 +1,8 @@
 
-int main( void )
+void main (void)
 {
-  
-  int v = 5;
-  
-  return 0;
+  int x=2;
+  x=55;
 }
+
+

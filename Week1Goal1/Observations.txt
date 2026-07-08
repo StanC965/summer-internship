@@ -1,3 +1,5 @@
 152 — CORE: Code comments are ignored 
 
 153 - CORE: Value of VAR is 5
+
+154 - CORE: Value of x will be 55 the new vlue of MAX by redefinition
