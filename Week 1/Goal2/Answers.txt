@@ -12,3 +12,6 @@
 
 241. Why do you think it would be so much needed to organize our software program in a modular way?
     Organizarea modulara este necesara pentru a face codul reutilizabil, pentru a ajuta la debugging, datele fiind mai usor de gasit, si pentru a facilita colaborarea programatorilor.
+
+224. In your opinion what would be the role of these constructs? 
+    Rolul constructorilor este de a preveni includerea multipla a source files. Daca o variabila/functie apare de mai multe ori va copia codul doar prima oara, dupa care va sari peste.
