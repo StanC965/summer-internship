@@ -1,0 +1,27 @@
+Videourile m-au ajutat sa-mi amintesc ce am invatat la facultate 
+Pe baza videouri as putea zice ca pot vorbi liber despre partea de tranzistori
+electronica,diode ...
+
+Intrebari la care m-am gandit: 
+
+1.De cate tranzistoare e nevoie pentru a crea o poarta NAND TTL intre
+2 semnale.
+a) zero (fals)
+b) una (fals)
+c) doua (corect)
+d) patru(fals)
+
+2.Cine leaga denumirea unei variabile din cod cu adresa fizica
+din microcontroller?
+
+a)linker-ul corect
+b)compilatorul fals
+c)preprocesorul fals
+d)asamblorul fals
+e)Manager-ul de memorie fals
+
+3.De cate zone de jonctiune dispune un LED 
+a)zero fals
+b)una true
+c)doua fals
+d)patru fals
