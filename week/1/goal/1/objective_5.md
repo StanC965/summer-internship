@@ -10,6 +10,7 @@
 | **[151]** | `CORE` | [x] Completed |
 | **[152]** | `CORE` | [x] Completed |
 | **[153]** | `CORE` | [x] Completed |
+| **[154]** | `CORE` | [x] Completed |
 
 
 #### Task [151]
@@ -46,5 +47,13 @@
 > **Answer/Explanation:**
 > The value of the VAR constant is 5, because MAX is not defined anywhere in the source code. In this case the preprocessor evaluates it as 0.
 > Since ` 0 == 1` is false, the `#else` branch is triggered.
+
+---
+
+#### Task [154]
+> **Question/Prompt:**    What this code will do?
+
+> **Answer/Explanation:**
+> This code defines a constanst MAX equal to 10, then redefines it to 55. The x variable is assigned 2, and after the constant redefinition it is assigned the value 55.
 
 ---
