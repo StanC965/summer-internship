@@ -3,3 +3,6 @@
 
 213.  How many GPIO (General Purpose Input Output) ports does the ATmega324PB microcontroller have in total?
     Microcontroller-ul ATmega324PB are 5 GPIO: PORTA, PORTB, PORTC, PORTD si PORTE.
+
+221. Check the electronic schematic of the ATMega324PB development board. Is there any resistor connected with the integrated LED0 in order to protect it? What value has that resistor? 
+    Da, exista un rezistor conectat la LED0 pentru a-l proteja, acesta avand valoarea 330 Ohm.
