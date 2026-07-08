@@ -14,4 +14,6 @@
 > **Question/Prompt:**     How to handle the different numeration systems (binary, decimal, hexadecimal). Watch the materials below, then: are you able to create a single question for testing your colleague's knowledge on these topics? The question you create will be used later to build up a quiz for the students group and must be of type "multiple choices - single answer" or "true-false" (include the correct answer also)
 
 > **Answer/Explanation:**
+> How do we find the 2's complement of a number? (single answer) - 
+> We write the absolute binary representation of the number, then we invert the bits and lastly we add one to the inverted number.
 ---
