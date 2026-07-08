@@ -15,6 +15,7 @@
 | **[156]** | `STRETCH` | [x] Completed |
 | **[157]** | `STRETCH` | [x] Completed |
 | **[158]** | `STRETCH` | [x] Completed |
+| **[159]** | `STRETCH` | [x] Completed |
 
 #### Task [151]
 > **Question/Prompt:**     How to handle the different numeration systems (binary, decimal, hexadecimal). Watch the materials below, then: are you able to create a single question for testing your colleague's knowledge on these topics? The question you create will be used later to build up a quiz for the students group and must be of type "multiple choices - single answer" or "true-false" (include the correct answer also)
@@ -216,3 +217,25 @@ void main(void)
   
 }
 ```
+
+---
+
+#### Task [159]
+> **Question/Prompt:**    Define a structure student with the following elements: an array and two unsigned char data. Keep your name within the array; the first unsigned char keeps your age, the second unsigned char keeps your height. Initialize the structure defined.
+
+> **Answer/Explanation:**
+```
+typedef struct{
+  char name[50];
+  unsigned char age;
+  unsigned char height;
+} Student;
+
+void main(void)
+{
+  Student student_1 = { "Alice", 21, 170};
+  Student student_2 = { "Bob", 21, 180};
+}
+```
+
+---
