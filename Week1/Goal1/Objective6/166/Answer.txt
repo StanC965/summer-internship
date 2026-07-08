@@ -1,0 +1,1 @@
+The header file, datasheet, and IAR Register View structurally match bit-for-bit across all three registers. Minor naming variances in unallocated placeholders (Dummy) or bit prefixes (SPID vs SPDR) do not affect functionality.
