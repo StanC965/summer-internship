@@ -1,0 +1,3 @@
+compilatorul inlocuieste toate aparitiile lui MAX cu valoarea definita la inceputul fisierului
+astfel codul prezentat este echivalent cu " int 100=10; "
+de aceea obtinem eroare

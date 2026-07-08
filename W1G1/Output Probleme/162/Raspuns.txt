@@ -1,0 +1,25 @@
+
+Programul este 
+
+int a=1,b=278;
+  int sum=0;
+  
+
+
+int main (void)
+{
+  sum=a+b;
+  
+  return sum;
+}
+
+
+memory 1-> DATA da urmatoarele afisari:
+
+0x000130: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 95
+0x000140: 01 00 16 01 17 01 00 00 00 00 00 00 00 00 00 00
+
+watch spune ca sum sta la 0x000144,b la 0x000142, a la 0x000140
+=> sum este 17 01 
+din moment ce 279 se scrie in hexa ca si : 0x0117 observam ca byte-ul semnificativ sta la o adresa mai mare de memorie 
+decat byte-ul mai putin semnificativ => Little Endian. 

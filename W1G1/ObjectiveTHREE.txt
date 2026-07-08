@@ -1,0 +1,11 @@
+131 — CORE — Search and identify the light sensor.DONE
+132 — CORE — Search and identify the temperature sensor.DONE
+133 — CORE — Search and identify the lowpass filter.DONE
+134 — CORE — Search and identify the microSD card slot.DONE
+135 — CORE — Search and identify the LED on the board.DONE
+136 — CORE — Search and identify the extension header.DONE
+137 — CORE — Search and identify GND and VCC pin on the header.DONE
+138 — CORE — Now, follow this 3-steps procedure: (1) unplug the USB cable from PC/laptop!!! 
+(2) connect IO1 board to EXT4 header from the main board and (3) finally reconnect the USB cable to the PC/laptop. 
+You must ALWAYS follow this procedure when you want to connect something to the main board!
+DONE

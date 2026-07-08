@@ -1,0 +1,4 @@
+
+#define suprascrie MAX ,totusi primim warning ,deoarece compilatorul crede
+ca o sa avem logica gresita .
+in final se stocheaza 55 in x;

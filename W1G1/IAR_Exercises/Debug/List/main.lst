@@ -1,0 +1,137 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V8.10.3.1851/W64 for Microchip AVR   08/Jul/2026  10:49:11
+# Copyright 1996-2025 IAR Systems AB.
+# Evaluation license - IAR Embedded Workbench for Microchip AVR, Evaluation Version 8.10
+#
+#    Source file           =
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
+#    Command line          =
+#        -f
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\Obj\main.r90.rsp
+#        (C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
+#        --cpu=m328pb -ms -o
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\Obj\
+#        --preprocess
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\List\ -lCN
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\List\
+#        --initializers_in_flash --no_cse --no_inline --no_code_motion
+#        --no_cross_call --no_clustering --no_tbaa --debug -e -I "C:\Program
+#        Files\IAR Systems\Embedded Workbench 9.1\avr\inc\\"
+#        --no_system_include --eeprom_size 1024 --dlib --dlib_config
+#        DLib_Config_Normal.h -On) --dependencies=n
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\Obj\main.r90.iar_deps
+#    Locale                =  C
+#    List file             =
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\List\main.lst
+#    Object file           =
+#        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\Obj\main.r90
+#    Runtime model:           
+#      __64bit_doubles     =  disabled
+#      __SystemLibrary     =  DLib
+#      __architecture      =  *
+#      __cpu               =  3
+#      __cpu_name          =  ATmega328PB
+#      __enhanced_core     =  enabled
+#      __enhanced_core_mul =  enabled
+#      __has_elpm          =  false
+#      __memory_model      =  2
+#      __mex               =  disabled
+#      __rt_version        =  3
+#      __vtable_memory     =  __nearflash
+#
+###############################################################################
+
+C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
+      1          
+      2          #include <iom324pb.h>
+      3          
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+      4          int a=1,b=278;
+   \                     a:
+   \   00000000                      DS8 2
+   \   00000002                      REQUIRE `?<Initializer for a>`
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+   \                     b:
+   \   00000000                      DS8 2
+   \   00000002                      REQUIRE `?<Initializer for b>`
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+      5            int sum=0;
+   \                     sum:
+   \   00000000                      DS8 2
+      6          
+      7          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+      8          int main (void)
+   \                     main:
+      9          {
+     10            sum=a+b;
+   \   00000000   ....               LDI     R30, LOW(a)
+   \   00000002   ....               LDI     R31, (a) >> 8
+   \   00000004   8120               LD      R18, Z
+   \   00000006   8131               LDD     R19, Z+1
+   \   00000008   ....               LDI     R30, LOW(b)
+   \   0000000A   ....               LDI     R31, (b) >> 8
+   \   0000000C   8100               LD      R16, Z
+   \   0000000E   8111               LDD     R17, Z+1
+   \   00000010   0F20               ADD     R18, R16
+   \   00000012   1F31               ADC     R19, R17
+   \   00000014   ....               LDI     R30, LOW(sum)
+   \   00000016   ....               LDI     R31, (sum) >> 8
+   \   00000018   8320               ST      Z, R18
+   \   0000001A   8331               STD     Z+1, R19
+     11            
+     12            return sum;
+   \   0000001C   ....               LDI     R30, LOW(sum)
+   \   0000001E   ....               LDI     R31, (sum) >> 8
+   \   00000020   8100               LD      R16, Z
+   \   00000022   8111               LDD     R17, Z+1
+   \   00000024   9508               RET
+     13          }
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for a>`:
+   \   00000000   0001               DC16 1
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for b>`:
+   \   00000000   0116               DC16 278
+
+   Maximum stack usage in bytes:
+
+   RSTACK Function
+   ------ --------
+      2   main
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  ?<Initializer for a>
+       2  ?<Initializer for b>
+       2  a
+       2  b
+      38  main
+       2  sum
+      12  -- Other
+
+ 
+ 38 bytes in segment CODE
+ 12 bytes in segment INITTAB
+  4 bytes in segment NEAR_I
+  4 bytes in segment NEAR_ID
+  2 bytes in segment NEAR_Z
+ 
+ 42 bytes of CODE memory (+ 12 bytes shared)
+  6 bytes of DATA memory
+
+Errors: none
+Warnings: none

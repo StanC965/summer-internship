@@ -1,0 +1,8 @@
+121 — CORE — Search and identify OLED display. DONE
+122 — CORE — Search and identify LED1, LED2 and LED3 that you will program to lit. DONE
+123 — CORE — Search and identify BUTTON 1, BUTTON 2 and BUTTON 3.DONE
+124 — CORE — Search and identify the extension header.DONE
+125 — CORE — Search and identify GND and VCC pin on the header.DONE
+126 — CORE — Now, follow this 3-steps procedure: (1) unplug the USB cable from PC/laptop!!! (2) connect OLED1 board to EXT1 header from the main board and (3) finally reconnect the USB cable to the PC/laptop. You must ALWAYS follow this procedure when you want to connect something to the main board!
+OBSERVATIE:
+Daca placa e sub tensiune si atingem accidental cu conectorul 2 pinii vecini se poate produce un scurtcircuit care sa arda placa, de aceea intrerupem alimentarea

@@ -1,0 +1,16 @@
+
+
+
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+#define average(c, d) ((c+d)/2)
+
+int main(void)
+{
+  
+  int rez=max(2,3);
+  int medie=average(rez,6);
+  return 0;
+  
+}
+
+la final rez e 3 si medie e 4 .

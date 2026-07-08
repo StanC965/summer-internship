@@ -1,0 +1,50 @@
+Note:Desi stiu ca nu e nevoie fac asta ca sa ma obisnuiesc cu commit+branch-uri.
+
+
+111 — CORE — Search and identify ATMega324PB microcontroller on the board.
+ANSWER:
+In mijlocul placii avem un "patrat" din care ies multe trace-uri pe PCB, deasupra lui scrie ATmega324PB acesta e microcontroller-ul.
+
+
+112 — CORE — Search and identify LED0, a LED that you will program to lit later.
+ANSWER:
+Led-ul LED0 se afla in partea de sus sub cele 2 butoane 
+
+
+113 — CORE — Search and identify SW0, a switch that you will program later to be interpreted as pressed/not pressed.
+ANSWER:
+Se afla deasupra la LED0 
+
+
+114 — CORE — Search and identify other components like external oscillator and debugger chip/microcontroller.
+ANSWER:
+1.Oscilatorul extern se afla in stanga la microcontroller-ul de la exercitiul 111 ,are culoare argintie si scrie 16MHZ
+desi in datasheet zice ca ruleaza la 20 Mhz, producatorii l-au fortat sa poata functiona doar la 16 Mhz,prin limitarea hardware cu
+un oscilator de 16Mhz, s-a ales asta pentru voltage constraints(daca era 20 Mhz trebuia 4.5,5.5 volts) si pentru o comunicatie UART mai precisa.
+2. Debugger chip pare ca se afla pe spate, este al doilea cel mai mare circuit dupa microcontroller.
+
+
+115 — CORE — How many extension headers there are on the board? ( <<< just fill in the number )
+ANSWER:
+Sunt 3
+
+
+116 — CORE — How are the extension headers labeled? ( <<< one example of label found )
+ANSWER:
+label-ul lor este EXT1 ,EXT3,EXT4 .EXT2 este omis pentru ca microcontroller-ul are un numar limitat de pini
+
+
+117 — CORE — Search and identify GND and VCC pins on the headers and on the power connector.
+ANSWER:
+GND e sus, VCC e jos la PWR connector,la headers pur si simplu citim de pe backside ce scrie
+
+
+118 — CORE — Connect the USB cable to the main board and you should see the green LED lit.
+Done ... functioneaza
+
+
+119 — OPTIONAL — Even though you don't have an external power supply connected to VCC and GND the board 
+is still powered up (green LED lit) when pluging in the USB cable. How can you explain that? (<<< your answer here)
+ANSWER:
+Alimentarea de 5V DC vine de la cablul USB conectat la portul USB al laptop-ului(care e standard 5V DC) totusi si controller-ul 
+are un voltage regulator in caz ca primeste tensiuni neregulate(intr-o anumita limita).

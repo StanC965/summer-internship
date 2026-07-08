@@ -1,0 +1,10 @@
+
+Daca Max nu a fost definit inainte se initializeaza cu 0
+De aceea in cadrul if-ului se va merge pe a doua ramura deci VAR devine 5
+
+
+int main( void )
+{
+  int test_var = 5;
+  return 0;
+}

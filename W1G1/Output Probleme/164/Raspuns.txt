@@ -1,0 +1,33 @@
+Acesta este exact ce am scris si in main.c
+
+
+
+
+
+#include <ioavr.h>
+
+int a=1,b=278;
+  int sum=0;
+  
+//SFR_B_N(0x08,PORTC,PORTC7,PORTC6,PORTC5,PORTC4,PORTC3,PORTC2,PORTC1,PORTC0)
+//SFR_B_N(0x07, DDRC, DDRC7, DDRC6, DDRC5, DDRC4, DDRC3, DDRC2, DDRC1, DDRC0)
+//SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
+  
+  /*
+Fiecare dintre cele 3 linii de cod va fi extinsa intr-un union format ditr-un char cu numele registrului
+adica: PORTC,DDRC,PINC
+urmat de 2 structuri una care acopera biti propriu zisi adica bit 1 bit 2 ... si una care se utilizeaza de denumirea bitilor din datasheet
+exemplu: PORTC_Bit 0,DDRC_Bit4 ...
+deoarece PORTC ,DDRC SUNT registrii de date si de control fiecare bit are acelasi rol,prin urmare datasheet-ul nu va avea denumiri speciale la acesti biti
+astfel cel mai probabil se regaseste doar un singur struct la acestea. 
+
+la final se atribuie un offset absolut care zice unde in memorie se afla acest registru
+
+*/
+
+int main (void)
+{
+  sum=a+b;
+  
+  return sum;
+}
