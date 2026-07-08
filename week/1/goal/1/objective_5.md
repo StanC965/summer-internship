@@ -15,7 +15,8 @@
 > **Question/Prompt:**     How to handle the different numeration systems (binary, decimal, hexadecimal). Watch the materials below, then: are you able to create a single question for testing your colleague's knowledge on these topics? The question you create will be used later to build up a quiz for the students group and must be of type "multiple choices - single answer" or "true-false" (include the correct answer also)
 
 > **Answer/Explanation:**
-> How do we find the 2's complement of a number? (single answer) - 
+> How do we find the 2's complement of a number? (single answer) 
+<br>
 > We write the absolute binary representation of the number, then we invert the bits and lastly we add one to the inverted number.
 
 ---
@@ -24,6 +25,15 @@
 > **Question/Prompt:**    In the program code above insert comments explaining what the program does (sum up two numbers). The preprocessor will output files with extension .i. Check how the preprocessor works using the settings showed. Visualize the .i files and observe how the code comments are preprocessed for your main.c file.
 
 > **Answer/Explanation:**
-> 
+> The .i files are obtained during the compilation stage, precisely after the preprocessing stage.
+> They are usually deleted after the compilation stage finishes, so in order to view them I have checked the following settings in the Compiler section of the IDE:
 
+![alt text](../../../../images/w1g1obj5t152.PNG)
+
+
+> The preprocessor strips any comments and expands directives, so the .i file that results will have no comments. To be able to see what comments where in the source file the `Preserve comments` box can be checked. 
+<br>
+> Besides the code and the comments from the source file (this being the case when the box was checked), this line is added during the preprocessing stage:
+<br>
+#line 1 "absolute path to the source file"
 ---
