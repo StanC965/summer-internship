@@ -1,5 +1,6 @@
 #line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
+
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -565,7 +566,7 @@
 
 
 
-#line 3 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
+#line 4 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 #line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.h"
 
 
@@ -580,7 +581,7 @@ extern void toggle_pin(volatile unsigned char *port, unsigned char pin);
 
 extern unsigned char read_pin(volatile unsigned char *pin_reg, unsigned char pin);
 
-#line 4 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
+#line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 #line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\led.h"
 
 
@@ -597,28 +598,28 @@ extern void BlinkSlow_LED(volatile unsigned char *port, unsigned char pin);
 
 extern void BlinkFast_LED(volatile unsigned char *port, unsigned char pin);
 
-#line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
-#line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\sos.h"
-
-
-
-extern void Morse_Point(volatile unsigned char *port, unsigned char pin);
-
-extern void Morse_Line(volatile unsigned char *port, unsigned char pin);
-
-extern void SOS_Sequence(volatile unsigned char *port, unsigned char pin);
-
 #line 6 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
+
 void setup(void) {
-    Init_LED(&DDRC, 7, 1);
-    PowerOff_LED(&PORTC, 7);
+    Init_LED(&DDRC,7,1);
+    set_direction(&DDRC,6,0);
+    set_pin(&PORTC,6);
 }
 
 void main(void) {
-    setup();
-    
-    while(1) {
-        SOS(&PORTC, 7);
+    setup(); 
+    PowerOff_LED(&PORTC, 7);
+    int buton=0;   
+
+    while(1){
+        if(read_pin(&PINC,6)==0)
+          buton=1;
+        
+        if(buton==1){
+          SOS(&PORTC,7);
+          PowerOff_LED(&PORTC,7);
+          for(long i=0;i<300000;i++);        
+        }  
     }
-}
+} 

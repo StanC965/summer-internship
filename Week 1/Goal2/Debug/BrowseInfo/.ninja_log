@@ -1,0 +1,20 @@
+# ninja log v5
+0	2524	8052261950000000	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/led.xcl	1ebe91002d915ae0
+55	2571	8052261950000000	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/sos.xcl	835d1378b46d1329
+63	2579	8052261950000000	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/main.xcl	80e578c33ec1624e
+49	2587	8052261950000000	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/gpio.xcl	3629e2d26a208ae6
+2572	2674	8052261961398682	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/sos.pbi	20c481a366d7e1f
+2525	2677	8052261961409719	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/led.pbi	665d0f6c17fb1d22
+2581	2767	8052261962221649	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/main.pbi	4bdaf25031b926f7
+2588	2770	8052261962372907	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/gpio.pbi	1c5a878483c5a3f4
+2771	2864	8052261963225850	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbd	c0e1660a4a4b6a8a
+2866	5068	8052261984949709	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbw	d3602bfbb2d819cf
+2	103	8052263852085038	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/main.pbi	4bdaf25031b926f7
+105	151	8052263852555476	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbd	c0e1660a4a4b6a8a
+152	823	8052263858912418	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbw	d3602bfbb2d819cf
+2	129	8052264719025249	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/main.pbi	4bdaf25031b926f7
+131	173	8052264719342819	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbd	c0e1660a4a4b6a8a
+175	1012	8052264727533455	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbw	d3602bfbb2d819cf
+3	276	8052271270159149	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/main.pbi	4bdaf25031b926f7
+279	385	8052271271256512	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbd	c0e1660a4a4b6a8a
+387	1594	8052271282411349	C:/MQ_Summer_Internship/summer-internship/Week 1/Goal2/Debug/BrowseInfo/Goal2.pbw	d3602bfbb2d819cf

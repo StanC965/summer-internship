@@ -29,19 +29,19 @@ void SOS(volatile unsigned char *port, unsigned char pin) {
     Punct(port, pin);
     Punct(port, pin);
     
-    delay(3);
+    delay(2);
 
     Linie(port, pin);
     Linie(port, pin);
     Linie(port, pin);
     
-    delay(3);
+    delay(2);
 
     Punct(port, pin);
     Punct(port, pin);
     Punct(port, pin);
     
-    delay(8); 
+    delay(6); 
 }
 
 #endif
