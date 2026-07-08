@@ -1,13 +1,15 @@
 #include <iom324pb.h>
 
-#define MAX 100
-
-void main (void)
+void main(void)
 {
-    int MAX = 10;
+    int a = 1;
+    int b = 257;   
+    int c;
+
+    c = a + b;     
 
     while(1)
     {
-        
+      
     }
 }
