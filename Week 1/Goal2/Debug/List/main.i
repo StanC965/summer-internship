@@ -567,6 +567,12 @@
 
 #line 3 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
+void setup(){
+DDRC=0x80;
+}
+
 void main(void){
+  setup();
+  PORTC=0x7F;
   while(1);
 }
