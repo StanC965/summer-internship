@@ -1,18 +1,15 @@
-//215
+//223
 #include "iom324pb.h"
 
 void setup(){
-DDRC=0x80;
+  DDRA=0x08;
+  DDRD=0x30;;
 }
 
 void main(void){
   setup();
-  
+  PORTA=0xF7;
+  PORTD=0xCF;
 
-  while(1){
-    PORTC=0x7F;
-    for(volatile long i=0;i<200000;i++);
-    PORTC=0xFF;
-    for(volatile long i=0;i<200000;i++);
-  }
+  while(1);
 }
