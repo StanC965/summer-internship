@@ -9,4 +9,8 @@ extern void PowerOff_LED(volatile unsigned char *port, unsigned char pin);
 
 extern void Toggle_LED(volatile unsigned char *port, unsigned char pin);
 
+extern void BlinkSlow_LED(volatile unsigned char *port, unsigned char pin);
+
+extern void BlinkFast_LED(volatile unsigned char *port, unsigned char pin);
+
 #endif

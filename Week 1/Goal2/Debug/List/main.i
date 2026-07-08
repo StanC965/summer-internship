@@ -591,6 +591,10 @@ extern void PowerOff_LED(volatile unsigned char *port, unsigned char pin);
 
 extern void Toggle_LED(volatile unsigned char *port, unsigned char pin);
 
+extern void BlinkSlow_LED(volatile unsigned char *port, unsigned char pin);
+
+extern void BlinkFast_LED(volatile unsigned char *port, unsigned char pin);
+
 #line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
 void setup(void) {
@@ -599,6 +603,8 @@ void setup(void) {
 
 void main(void) {
     setup(); 
-    PowerOn_LED(&PORTC, 7);
-    while(1);
+    PowerOff_LED(&PORTC, 7);
+    while(1){
+      BlinkFast_LED(&PORTC, 7);
+    }
 }

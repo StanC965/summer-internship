@@ -14,6 +14,10 @@ extern void PowerOff_LED(volatile unsigned char *port, unsigned char pin);
 
 extern void Toggle_LED(volatile unsigned char *port, unsigned char pin);
 
+extern void BlinkSlow_LED(volatile unsigned char *port, unsigned char pin);
+
+extern void BlinkFast_LED(volatile unsigned char *port, unsigned char pin);
+
 #line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\led.c"
 #line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\gpio.h"
 
@@ -43,5 +47,15 @@ void PowerOff_LED(volatile unsigned char *port, unsigned char pin) {
 
 void Toggle_LED(volatile unsigned char *port, unsigned char pin) {
     toggle_pin(port, pin);
+}
+
+void BlinkSlow_LED(volatile unsigned char *port, unsigned char pin) {
+    Toggle_LED(port, pin);
+    for(volatile long i = 0; i < 37500; i++);
+}
+
+void BlinkFast_LED(volatile unsigned char *port, unsigned char pin) {
+    Toggle_LED(port, pin);
+    for(volatile long i = 0; i < 12500; i++);
 }
 

@@ -1,4 +1,4 @@
-//241
+//242
 #include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
@@ -9,6 +9,8 @@ void setup(void) {
 
 void main(void) {
     setup(); 
-    PowerOn_LED(&PORTC, 7);
-    while(1);
+    PowerOff_LED(&PORTC, 7);
+    while(1){
+      BlinkFast_LED(&PORTC, 7);
+    }
 }

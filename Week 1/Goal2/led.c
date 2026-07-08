@@ -20,4 +20,14 @@ void Toggle_LED(volatile unsigned char *port, unsigned char pin) {
     toggle_pin(port, pin);
 }
 
+void BlinkSlow_LED(volatile unsigned char *port, unsigned char pin) {
+    Toggle_LED(port, pin);
+    for(volatile long i = 0; i < 37500; i++);
+}
+
+void BlinkFast_LED(volatile unsigned char *port, unsigned char pin) {
+    Toggle_LED(port, pin);
+    for(volatile long i = 0; i < 12500; i++);
+}
+
 #endif
