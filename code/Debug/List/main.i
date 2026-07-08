@@ -1,22 +1,12 @@
 #line 1 "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-
-
-
-
-static int a = 10;
-
-void count(void){
-  
-  
-  
-  
-  static int counter = 0;
-  counter++;
-}
+typedef struct{
+  char name[50];
+  unsigned char age;
+  unsigned char height;
+} Student;
 
 void main(void)
 {
-  while(1){
-    count();
-  }
+  Student student_1 = { "Alice", 21, 170};
+  Student student_2 = { "Bob", 21, 180};
 }

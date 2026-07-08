@@ -1,43 +1,73 @@
 [
   {
-    "ID": "c:main.c@a",
-    "What": "Variable",
+    "ID": "c:@SA@Student",
+    "What": "Struct",
     "defdec": "Def",
-    "display": "a",
+    "display": "",
     "location": {
-      "column": "12",
+      "column": "9",
+      "line": "1",
+      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+    },
+    "members": [
+      {
+        "ID": "c:@SA@Student@FI@name",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "name",
+        "location": {
+          "column": "8",
+          "line": "2",
+          "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+        },
+        "name": "name",
+        "origin": "project_file",
+        "scope": "_anonymous_main_c_1_9"
+      },
+      {
+        "ID": "c:@SA@Student@FI@age",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "age",
+        "location": {
+          "column": "17",
+          "line": "3",
+          "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+        },
+        "name": "age",
+        "origin": "project_file",
+        "scope": "_anonymous_main_c_1_9"
+      },
+      {
+        "ID": "c:@SA@Student@FI@height",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "height",
+        "location": {
+          "column": "17",
+          "line": "4",
+          "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+        },
+        "name": "height",
+        "origin": "project_file",
+        "scope": "_anonymous_main_c_1_9"
+      }
+    ],
+    "name": "",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@T@Student",
+    "What": "Typedef",
+    "defdec": "Def",
+    "display": "struct Student",
+    "location": {
+      "column": "3",
       "line": "5",
       "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
     },
-    "name": "a",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@count",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void count(void)",
-    "location": {
-      "column": "6",
-      "line": "7",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "count",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@577@F@count@counter",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "counter",
-    "location": {
-      "column": "14",
-      "line": "12",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "counter",
+    "name": "Student",
     "origin": "project_file",
     "scope": null
   },
@@ -48,10 +78,38 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "16",
+      "line": "7",
       "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
     },
     "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@118@F@main@student_1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "student_1",
+    "location": {
+      "column": "11",
+      "line": "9",
+      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+    },
+    "name": "student_1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@162@F@main@student_2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "student_2",
+    "location": {
+      "column": "11",
+      "line": "10",
+      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+    },
+    "name": "student_2",
     "origin": "project_file",
     "scope": null
   }
