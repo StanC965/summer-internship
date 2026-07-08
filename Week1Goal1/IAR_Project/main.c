@@ -1,24 +1,15 @@
-// declarare variabile globale
-int a;
-int b;
-int c;
-
-// definitie functie care aduna doua valori primite ca parametru
-int function_sum(int x, int y){
-  int sum;
-  sum = x+y;
-  
-  return sum;
-}
+#if MAX == 1
+#define VAR 4
+#else
+#define VAR 5
+#endif
 
 int main( void )
 {
-  // atribuire de valori pentru var globale
-  a=1;
-  b=3;
   
-  // utilizarea functiei de adunare cu salvarea valorii retunate in variabila c
-  c=function_sum(a,b);
+  int v = VAR;
   
   return 0;
 }
+
+//Value of VAR is 5

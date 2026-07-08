@@ -1,1 +1,3 @@
 152 — CORE: Code comments are ignored 
+
+153 - CORE: Value of VAR is 5
