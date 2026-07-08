@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>2976247359</fileChecksum>
+    <fileChecksum>3062644574</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -34,6 +34,12 @@
             <file>$PROJ_DIR$\sos.c</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
             <file>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\task332.r90</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\sos.h</file>
+            <file>$PROJ_DIR$\Debug\List\task332.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task333.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task333.i</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</name>
@@ -76,7 +82,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 6 2 23 14 8 11 0</file>
+                    <file> 6 2 23 14 11 33 0</file>
                 </tool>
             </inputs>
         </file>
@@ -149,8 +155,42 @@
                 </tool>
             </outputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 32 30</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 31 19 15 3 5 9 27</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 34</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 31 19 15 3 5 9 27</file>
+                </tool>
+            </inputs>
+        </file>
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
