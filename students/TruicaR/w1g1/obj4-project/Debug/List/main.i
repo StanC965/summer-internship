@@ -568,16 +568,13 @@
 
 
 
-
-
-
-
-
-
-void main(void)
+void main (void)
 {
-    int result;
-    result = 4;
+    int x = 2;
+
+
+
+    x = 55;
 
     while(1)
     {

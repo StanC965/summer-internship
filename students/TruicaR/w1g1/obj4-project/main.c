@@ -1,17 +1,14 @@
 #include <iom324pb.h>
 
-#define MAX 1
+#define MAX 10
 
-#if MAX == 1
-#define VAR 4
-#else
-#define VAR 5
-#endif
-
-void main(void)
+void main (void)
 {
-    int result;
-    result = VAR;
+    int x = 2;
+
+    #define MAX 55
+
+    x = MAX;
 
     while(1)
     {
