@@ -13,6 +13,8 @@
 | **[164]** | `CORE` | [x] Completed
 | **[165]** | `CORE` | [x] Completed
 | **[166]** | `OPTIONAL` | [x] Completed
+| **[167]** | `OPTIONAL` | [] Completed
+| **[168]** | `OPTIONAL` | [] Completed
 
 
 #### Task 161
@@ -80,6 +82,22 @@ SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
 
 > As demonstrared in the table above, there is a correlation between the hardware registers, macros and the IDE.
 > The hardware specs from the datasheet are translated into software inside the `iom344pb.h` file, whic the registers view the uses to display the hardware states during debugging. 
+
+---
+
+#### Task 167
+> **Question/Prompt:**  
+
+> **Answer/Explanation:**
+
+---
+
+#### Task 168
+> **Question/Prompt:**  
+
+> **Answer/Explanation:**
+
+---
 
 ## References & Resources
 * AVR Microcontroller with Core Independent Peripherals and PicoPower technology
