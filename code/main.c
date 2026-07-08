@@ -1,16 +1,9 @@
+#if MAX == 1
+#define VAR 4
+#else 
+#define VAR 5
+#endif
 
-int main( void )
-{
-  // this program sums two numbers, a and b
-  int a = 5; 
-  int b = 10;
-  
-  int sum = 0;
-  
-  sum = a + b;
-  
-  // enter infinite loop
-  while(1){
-
-  }
+int main (void){
+  int a = VAR;
 }

@@ -1,12 +1,26 @@
 [
   {
+    "ID": "c:main.c@45@macro@VAR",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "VAR",
+    "location": {
+      "column": "9",
+      "line": "4",
+      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+    },
+    "name": "VAR",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@main",
     "What": "Function",
     "defdec": "Def",
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "2",
+      "line": "7",
       "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
     },
     "name": "main",
@@ -14,44 +28,16 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@70@F@main@a",
+    "ID": "c:main.c@82@F@main@a",
     "What": "Variable",
     "defdec": "Def",
     "display": "a",
     "location": {
       "column": "7",
-      "line": "5",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "a",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@85@F@main@b",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "b",
-    "location": {
-      "column": "7",
-      "line": "6",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "b",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@104@F@main@sum",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "sum",
-    "location": {
-      "column": "7",
       "line": "8",
       "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
     },
-    "name": "sum",
+    "name": "a",
     "origin": "project_file",
     "scope": null
   }
