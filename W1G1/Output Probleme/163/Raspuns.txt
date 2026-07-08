@@ -1,0 +1,75 @@
+In cadrul fisierului header ,codul pentru TCCR2 este :
+
+ * SFR_B_R(0x1F,   AVR) Expands to:
+ * __io union {
+ *             unsigned char AVR;                 // The sfrb as 1 byte
+ *             struct {                           // The sfrb as 8 bits
+ *                     unsigned char AVR_Bit0:1,
+ *                                   AVR_Bit1:1,
+ *                                   AVR_Bit2:1,
+ *                                   AVR_Bit3:1,
+ *                                   AVR_Bit4:1,
+ *                                   AVR_Bit5:1,
+ *                                   AVR_Bit6:1,
+ *                                   AVR_Bit7:1;
+ *                    };
+ *            } @ 0x1F;
+ * Examples of how to use the expanded result:
+ * AVR |= (1<<5);
+ * or like this:
+ * AVR_Bit5 = 1;
+ *
+ *
+ *
+ * An example showing the SFR_B_N() macro call, 
+ * the expanded result and usage of this result:
+ * SFR_B_N(0x25,  TCCR2, FOC2, WGM20, COM21, COM20, WGM21, CS22, CS21, CS20)
+ *  Expands to:
+ *  __io union { 
+ *              unsigned char TCCR2; 
+ *              struct { 
+ *                      unsigned char TCCR2_Bit0:1, 
+ *                                    TCCR2_Bit1:1, 
+ *                                    TCCR2_Bit2:1, 
+ *                                    TCCR2_Bit3:1, 
+ *                                    TCCR2_Bit4:1, 
+ *                                    TCCR2_Bit5:1, 
+ *                                    TCCR2_Bit6:1, 
+ *                                    TCCR2_Bit7:1; 
+ *                     }; 
+ *              struct { 
+ *                      unsigned char TCCR2_CS20:1, 
+ *                                    TCCR2_CS21:1, 
+ *                                    TCCR2_CS22:1, 
+ *                                    TCCR2_WGM21:1, 
+ *                                    TCCR2_COM20:1, 
+ *                                    TCCR2_COM21:1, 
+ *                                    TCCR2_WGM20:1, 
+ *                                    TCCR2_FOC2:1; 
+ *                     }; 
+ *             } @ 0x25;
+ * Examples of how to use the expanded result:
+ * TCCR2 |= (1<<5); 
+ * or if ENABLE_BIT_DEFINITIONS is defined   
+ * TCCR2 |= (1<<COM21);
+ * or like this:
+ * TCCR2_Bit5 = 1;
+ * or like this:
+ * TCCR2_COM21 = 1;
+
+
+ANSWER:
+
+in datasheet avem 
+0xB1 TCCR2B 7:0 FOC2A FOC2B WGM2 [2] CS2[2:0]
+adica : offset,name,size, si numete bitilor dintre care 2 sunt 
+neutilizati.
+
+in codul din header se formeaza un union de 2 struct-uri si un char
+sunt 2 struct-uri pentru ca vrem 2 denumiri pentru fiecare bit din
+registru.La final se foloseste @  care e un operator de plasare 
+absoluta la adresa de memorie .
+
+Diferenta dintre ce e in datasheet si ce e in exemplu este la nivel
+de denumire a bitilor 
+

@@ -419,7 +419,7 @@
                 </option>
                 <option>
                     <name>newCCIncludePaths</name>
-                    <state></state>
+                    <state>$TOOLKIT_DIR$\inc</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>

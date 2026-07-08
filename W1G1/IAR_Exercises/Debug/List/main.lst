@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V8.10.3.1851/W64 for Microchip AVR   08/Jul/2026  08:34:32
+# IAR C/C++ Compiler V8.10.3.1851/W64 for Microchip AVR   08/Jul/2026  09:02:48
 # Copyright 1996-2025 IAR Systems AB.
 # Evaluation license - IAR Embedded Workbench for Microchip AVR, Evaluation Version 8.10
 #
@@ -16,7 +16,8 @@
 #        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\List\ -lCN
 #        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\List\
 #        --initializers_in_flash --no_cse --no_inline --no_code_motion
-#        --no_cross_call --no_clustering --no_tbaa --debug -e
+#        --no_cross_call --no_clustering --no_tbaa --debug -e -I "C:\Program
+#        Files\IAR Systems\Embedded Workbench 9.1\avr\inc\\"
 #        --no_system_include --eeprom_size 1024 --dlib --dlib_config
 #        DLib_Config_Normal.h -On) --dependencies=n
 #        C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\Debug\Obj\main.r90.iar_deps
@@ -41,11 +42,14 @@
 #
 ###############################################################################
 
+C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
+      1          
+      2          #include <ioavr.h>
+      3          
 
    \                                 In  segment NEAR_I, align 1, keep-with-next
    \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
-C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
-      1          int a=1,b=278;
+      4          int a=1,b=278;
    \                     a:
    \   00000000                      DS8 2
    \   00000002                      REQUIRE `?<Initializer for a>`
@@ -58,18 +62,18 @@ C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
 
    \                                 In  segment NEAR_Z, align 1, keep-with-next
    \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
-      2            int sum=0;
+      5            int sum=0;
    \                     sum:
    \   00000000                      DS8 2
-      3            
-      4          
-      5          
+      6            
+      7          
+      8          
 
    \                                 In  segment CODE, align 2, keep-with-next
-      6          int main (void)
+      9          int main (void)
    \                     main:
-      7          {
-      8            sum=a+b;
+     10          {
+     11            sum=a+b;
    \   00000000   ....               LDI     R30, LOW(a)
    \   00000002   ....               LDI     R31, (a) >> 8
    \   00000004   8120               LD      R18, Z
@@ -84,14 +88,14 @@ C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
    \   00000016   ....               LDI     R31, (sum) >> 8
    \   00000018   8320               ST      Z, R18
    \   0000001A   8331               STD     Z+1, R19
-      9            
-     10            return sum;
+     12            
+     13            return sum;
    \   0000001C   ....               LDI     R30, LOW(sum)
    \   0000001E   ....               LDI     R31, (sum) >> 8
    \   00000020   8100               LD      R16, Z
    \   00000022   8111               LDD     R17, Z+1
    \   00000024   9508               RET
-     11          }
+     14          }
 
    \                                 In  segment NEAR_ID, align 1, keep-with-next
    \                     `?<Initializer for a>`:
