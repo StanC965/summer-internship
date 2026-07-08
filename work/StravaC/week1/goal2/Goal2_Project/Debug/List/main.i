@@ -604,31 +604,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 
 void delay_half_second(void)
@@ -641,60 +616,38 @@ void delay_half_second(void)
     }
 }
 
-void turn_all_leds_off(void)
+void set_pin(unsigned char pin)
 {
-    PORTD |= (1 << 5);
-    PORTD |= (1 << 4);
-    PORTA |= (1 << 3);
-    PORTC |= (1 << 7);
+    PORTC |= (1 << pin);
+}
+
+void reset_pin(unsigned char pin)
+{
+    PORTC &= ~(1 << pin);
+}
+
+void set_direction(unsigned char pin, unsigned char direction)
+{
+    if (direction == 1)
+    {
+        DDRC |= (1 << pin);
+    }
+    else
+    {
+        DDRC &= ~(1 << pin);
+    }
 }
 
 void main(void)
 {
-    DDRA |= (1 << 3);
-    DDRC |= (1 << 7);
-    DDRD |= (1 << 5);
-    DDRD |= (1 << 4);
-
-    turn_all_leds_off();
+    set_direction(7, 1);
 
     while (1)
     {
-        turn_all_leds_off();
-
-        PORTD &= ~(1 << 5);
-
+        reset_pin(7);
         delay_half_second();
 
-        turn_all_leds_off();
-
-        PORTD &= ~(1 << 5);
-        PORTD &= ~(1 << 4);
-
-        delay_half_second();
-
-        turn_all_leds_off();
-
-        PORTD &= ~(1 << 4);
-        PORTA &= ~(1 << 3);
-
-        delay_half_second();
-
-        turn_all_leds_off();
-
-        PORTD &= ~(1 << 5);
-        PORTA &= ~(1 << 3);
-        PORTC &= ~(1 << 7);
-
-        delay_half_second();
-
-        turn_all_leds_off();
-
-        PORTD &= ~(1 << 5);
-        PORTD &= ~(1 << 4);
-        PORTA &= ~(1 << 3);
-        PORTC &= ~(1 << 7);
-
+        set_pin(7);
         delay_half_second();
     }
 }
