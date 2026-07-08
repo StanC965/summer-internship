@@ -1,14 +1,13 @@
-#define MAX(i, limit) do \
-{ \
-    if (i < limit) \
-    { \
-        i++; \          // 0 ++ 
-    } \
-} while(1)
+// 157 - macros for max and average
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define average(a, b) (((a) + (b)) / 2)
 
 void main(void)
 {
-    MAX(0,3);
-}
+    int x = 5;
+    int y = 8;
 
-// eroor : expression must be a modifiable lvalue 
+    int biggest = max(x, y);
+    int avg = average(x, y);
+
+}
