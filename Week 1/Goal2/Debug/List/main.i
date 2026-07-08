@@ -572,16 +572,26 @@ void setup(){
   DDRD=0x30;;
 }
 
+
+
+
+
 void main(void){
     setup();
 
   while(1){
-  PORTA=0xF7;
-  PORTD=0xDF;
-  for(long i=0;i<200000;i++);
-  PORTD=0xEF;
+  PORTD=0xFF;
   PORTA=0xFF;
-  for(long i=0;i<200000;i++);
+  for(long i=0;i<300000;i++);
+  PORTD=0xCF;
+  PORTA=0xFF;
+  for(long i=0;i<300000;i++);
+  PORTD=0xEF;
+  PORTA=0xF7;
+  for(long i=0;i<300000;i++);
+  PORTD=0xDF;
+  PORTA=0xF7;
+  for(long i=0;i<300000;i++);
 
   }
 }
