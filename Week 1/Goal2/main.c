@@ -1,31 +1,20 @@
-//225
+//226
 #include "iom324pb.h"
 
 void setup(){
-  DDRA=0x08;
-  DDRD=0x30;;
+  DDRC=0x80;
 }
 
-//led1    PD5 7654 3210
-//led2    PD4
-//led3    PA3
+void set_pin(unsigned char pin){
+  PORTC=PORTC | (1<<pin);
+}
 
 void main(void){
     setup();
+    PORTC=0x7F;
+    for(long i=0;i<200000;i++);
+    set_pin(7);
+    
 
-  while(1){
-  PORTD=0xFF;
-  PORTA=0xFF;
-  for(long i=0;i<300000;i++);
-  PORTD=0xCF;
-  PORTA=0xFF;
-  for(long i=0;i<300000;i++);
-  PORTD=0xEF;
-  PORTA=0xF7;
-  for(long i=0;i<300000;i++);
-  PORTD=0xDF;
-  PORTA=0xF7;
-  for(long i=0;i<300000;i++);
-
-  }
+  while(1);
 }

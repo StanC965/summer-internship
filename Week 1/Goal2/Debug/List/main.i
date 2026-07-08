@@ -568,30 +568,19 @@
 #line 3 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
 void setup(){
-  DDRA=0x08;
-  DDRD=0x30;;
+  DDRC=0x80;
 }
 
-
-
-
+void set_pin(unsigned char pin){
+  PORTC=PORTC | (1<<pin);
+}
 
 void main(void){
     setup();
+    PORTC=0x7F;
+    for(long i=0;i<200000;i++);
+    set_pin(7);
+    
 
-  while(1){
-  PORTD=0xFF;
-  PORTA=0xFF;
-  for(long i=0;i<300000;i++);
-  PORTD=0xCF;
-  PORTA=0xFF;
-  for(long i=0;i<300000;i++);
-  PORTD=0xEF;
-  PORTA=0xF7;
-  for(long i=0;i<300000;i++);
-  PORTD=0xDF;
-  PORTA=0xF7;
-  for(long i=0;i<300000;i++);
-
-  }
+  while(1);
 }
