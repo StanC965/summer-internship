@@ -617,18 +617,39 @@
 
  
 
+void delay_half_second(void)
+{
+    volatile unsigned long i;
+
+    for (i = 0; i < 50000UL; i++)
+    {
+
+    }
+}
+
 void main(void)
 {
     DDRA |= (1 << 3);
     DDRD |= (1 << 5);
     DDRD |= (1 << 4);
 
-    PORTA &= ~(1 << 3);
-    PORTD &= ~(1 << 5);
-    PORTD &= ~(1 << 4);
-
     while (1)
     {
+        PORTA |= (1 << 3);
+        PORTD |= (1 << 5);
+        PORTD |= (1 << 4);
 
+        PORTD &= ~(1 << 5);
+        delay_half_second();
+
+        PORTD |= (1 << 5);
+        PORTD &= ~(1 << 4);
+        delay_half_second();
+
+        PORTD |= (1 << 4);
+        PORTA &= ~(1 << 3);
+        delay_half_second();
+
+        PORTA |= (1 << 3);
     }
 }
