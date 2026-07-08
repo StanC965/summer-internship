@@ -1,0 +1,7 @@
+initial am crezut ca o sa fie un singur struct dar am observat ca exista
+si denumirea de datasheet nu doar cea cu biti:
+
+__io union { unsigned char DDRC; struct { unsigned char DDRC_Bit0:1, DDRC_Bit1:1, DDRC_Bit2:1, DDRC_Bit3:1, DDRC_Bit4:1, DDRC_Bit5:1, DDRC_Bit6:1, DDRC_Bit7:1; }; 
+struct { unsigned char DDRC_DDRC0:1, DDRC_DDRC1:1, DDRC_DDRC2:1, DDRC_DDRC3:1, DDRC_DDRC4:1, DDRC_DDRC5:1, DDRC_DDRC6:1, DDRC_DDRC7:1; }; } @ 0x07;
+
+In rest arata exact cum ma asteptam 

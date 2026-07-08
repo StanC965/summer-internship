@@ -1,25 +1,5 @@
 #line 1 "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
 
-#line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\ioavr.h"
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-#pragma system_include
-
-
-
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -585,12 +565,10 @@
 
 
 
-#line 354 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\ioavr.h"
 #line 3 "C:\\Users\\Stefan\\summer-internship\\W1G1\\IAR_Exercises\\main.c"
 
 int a=1,b=278;
   int sum=0;
-  
 
 
 int main (void)

@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V8.10.3.1851/W64 for Microchip AVR   08/Jul/2026  09:02:48
+# IAR C/C++ Compiler V8.10.3.1851/W64 for Microchip AVR   08/Jul/2026  10:19:33
 # Copyright 1996-2025 IAR Systems AB.
 # Evaluation license - IAR Embedded Workbench for Microchip AVR, Evaluation Version 8.10
 #
@@ -44,7 +44,7 @@
 
 C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
       1          
-      2          #include <ioavr.h>
+      2          #include <iom324pb.h>
       3          
 
    \                                 In  segment NEAR_I, align 1, keep-with-next
@@ -65,15 +65,14 @@ C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
       5            int sum=0;
    \                     sum:
    \   00000000                      DS8 2
-      6            
+      6          
       7          
-      8          
 
    \                                 In  segment CODE, align 2, keep-with-next
-      9          int main (void)
+      8          int main (void)
    \                     main:
-     10          {
-     11            sum=a+b;
+      9          {
+     10            sum=a+b;
    \   00000000   ....               LDI     R30, LOW(a)
    \   00000002   ....               LDI     R31, (a) >> 8
    \   00000004   8120               LD      R18, Z
@@ -88,14 +87,14 @@ C:\Users\Stefan\summer-internship\W1G1\IAR_Exercises\main.c
    \   00000016   ....               LDI     R31, (sum) >> 8
    \   00000018   8320               ST      Z, R18
    \   0000001A   8331               STD     Z+1, R19
-     12            
-     13            return sum;
+     11            
+     12            return sum;
    \   0000001C   ....               LDI     R30, LOW(sum)
    \   0000001E   ....               LDI     R31, (sum) >> 8
    \   00000020   8100               LD      R16, Z
    \   00000022   8111               LDD     R17, Z+1
    \   00000024   9508               RET
-     14          }
+     13          }
 
    \                                 In  segment NEAR_ID, align 1, keep-with-next
    \                     `?<Initializer for a>`:
