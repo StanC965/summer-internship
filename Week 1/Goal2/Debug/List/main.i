@@ -579,12 +579,26 @@ extern void set_direction(volatile unsigned char *ddr, unsigned char pin, unsign
 extern void toggle_pin(volatile unsigned char *port, unsigned char pin);
 
 #line 4 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
+#line 1 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\led.h"
+
+
+
+extern void Init_LED(volatile unsigned char *ddr, unsigned char pin, unsigned char direction);
+
+extern void PowerOn_LED(volatile unsigned char *port, unsigned char pin);
+
+extern void PowerOff_LED(volatile unsigned char *port, unsigned char pin);
+
+extern void Toggle_LED(volatile unsigned char *port, unsigned char pin);
+
+#line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
 void setup(void) {
-    set_direction(&DDRC, 7, 1);
+    Init_LED(&DDRC,7,1);
 }
 
 void main(void) {
     setup(); 
+    PowerOn_LED(&PORTC, 7);
     while(1);
 }
