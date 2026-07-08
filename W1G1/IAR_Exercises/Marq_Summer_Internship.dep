@@ -39,7 +39,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 9 10 12</file>
+                    <file> 9 10 12</file>
                 </tool>
             </inputs>
         </file>
