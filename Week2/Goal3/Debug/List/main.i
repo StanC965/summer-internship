@@ -600,7 +600,6 @@ extern void ledLine(unsigned char led);
 extern void ledSos(unsigned char led);
 
 #line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
-
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
 
 
@@ -792,103 +791,48 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#pragma vector = (0x18)
-__interrupt void myInterruption1(void){
-  if(!getPin(&PINC,1)){
-        ledPowerOn(1); 
-    
-    }
+#line 17 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#pragma vector = (0x60)
+__interrupt void myInterrupt(void){
+  unsigned char value = ADCH;
+  if(value >80)
+      ledPowerOn(0);
   else
-      ledPowerOff(1);
-     
-
-}
-
-#pragma vector = (0x10)
-__interrupt void myInterruption2(void){
-    if(!getPin(&PINA,0)){
-        ledPowerOn(2); 
-    
-    }
-  else
-      ledPowerOff(2);
-    
-    if(!getPin(&PINA,1)){
-        ledPowerOn(3); 
-    
-    }
-  else
-      ledPowerOff(3);
-      
+      ledPowerOff(0);
+ 
+  setPin(&ADCSRA,6);    
 }
 
 
+void initADCSRA(){
+    setDirection(&DDRC,7,1);
+    setDirection(&DDRA,1,0);
+    resetPin(&PORTA,1);
+    
+    setPin(&ADMUX,0);
+    setPin(&ADMUX,6);
+    resetPin(&ADMUX,7);
+    setPin(&ADMUX,5);
+    
+    setPin(&ADCSRA,7);
+    setPin(&ADCSRA,3);
 
-
-void initialize(){
-    setDirection(&DDRD,5,1);
-  setDirection(&DDRD,4,1);
-  setDirection(&DDRA,3,1);
-  
-  setPin(&PORTD,5);
-  setPin(&PORTD,4);
-  setPin(&PORTA,3);
-  
-  
-  setDirection(&DDRC,1,0);
-  setDirection(&DDRA,0,0);
-  setDirection(&DDRA,1,0);
-  
-  
-  setPin(&PORTC,1);
-  setPin(&PORTA,0);
-  setPin(&PORTA,1);
-  
-  setPin(&PCICR,2);
-  setPin(&PCMSK2,1);
-  
-  
-  setPin(&PCICR,0);
-  setPin(&PCMSK0,1);
-  setPin(&PCMSK0,0);
-  
-  
+ 
 }
+
 
 int main( void )
 {
-  initialize();
+  initADCSRA();
+  
   __enable_interrupt();
   
+  setPin(&ADCSRA,6);
+  
   while(1){
-    
-  
-  
-  
   }
+  
   
 }

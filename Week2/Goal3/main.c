@@ -1,108 +1,58 @@
 #include "sos.h"
-
 #include <intrinsics.h>
 
-#define led1 1
-#define led2 2
-#define led3 3
-
-#define pinLed1 5
-#define pinLed2 4
-#define pinLed3 3
-
-#define pinButton1 1
-#define pinButton2 0
-#define pinButton3 1
-
-#define OUTPUT 1
+#define PA1 1
 #define INPUT 0
-
-#define PCINT17 1
-#define PCIE2 2
-
-#define PCINT0 0
-#define PCINT1 1
-#define PCIE0 0
-
-#pragma vector = PCINT2_vect
-__interrupt void myInterruption1(void){
-  //pentru ledul 1/butonul 1
-  if(!getPin(&PINC,pinButton1)){
-        ledPowerOn(led1); 
-    
-    }
+#define ADMUX1 0
+#define REF0 6
+#define PC7 7
+#define OUTPUT 1
+#define ADEN 7
+#define ADCS 6
+#define ADLAR 5
+#define ADPS0 0
+#define ADPS1 1
+#define ADPS2 2
+#define ADIE 3
+#pragma vector = ADC_vect
+__interrupt void myInterrupt(void){
+  unsigned char value = ADCH;
+  if(value >80)
+      ledPowerOn(0);
   else
-      ledPowerOff(led1);
-     
-
-}
-
-#pragma vector = PCINT0_vect
-__interrupt void myInterruption2(void){
-  //pentru buton2,3/led2,3
-    if(!getPin(&PINA,pinButton2)){
-        ledPowerOn(led2); 
-    
-    }
-  else
-      ledPowerOff(led2);
-    
-    if(!getPin(&PINA,pinButton3)){
-        ledPowerOn(led3); 
-    
-    }
-  else
-      ledPowerOff(led3);
-      
+      ledPowerOff(0);
+ 
+  setPin(&ADCSRA,ADCS);    
 }
 
 
+void initADCSRA(){
+    setDirection(&DDRC,PC7,OUTPUT);
+    setDirection(&DDRA,PA1,INPUT);
+    resetPin(&PORTA,PA1);
+    
+    setPin(&ADMUX,ADMUX1);
+    setPin(&ADMUX,REF0);
+    resetPin(&ADMUX,7);
+    setPin(&ADMUX,ADLAR);
+    
+    setPin(&ADCSRA,ADEN);
+    setPin(&ADCSRA,ADIE);
 
-
-void initialize(){
-  //initializam pinii ledurilor ca iesiri
-    setDirection(&DDRD,pinLed1,OUTPUT);
-  setDirection(&DDRD,pinLed2,OUTPUT);
-  setDirection(&DDRA,pinLed3,OUTPUT);
-  
-  //ii setam la 1
-  setPin(&PORTD,pinLed1);
-  setPin(&PORTD,pinLed2);
-  setPin(&PORTA,pinLed3);
-  
-  //initializam pinii butoanelor ca intrari
-  setDirection(&DDRC,pinButton1,INPUT);
-  setDirection(&DDRA,pinButton2,INPUT);
-  setDirection(&DDRA,pinButton3,INPUT);
-  
-  //setam acesti pini a butoanelor
-  setPin(&PORTC,pinButton1);
-  setPin(&PORTA,pinButton2);
-  setPin(&PORTA,pinButton3);
-  
-  
-  //activam intreruperile pentru butonul 1
-  setPin(&PCICR,PCIE2);
-  setPin(&PCMSK2,PCINT17);
-  
-  //activam pentru butonul 1 si 2
-  setPin(&PCICR,PCIE0);
-  setPin(&PCMSK0,PCINT1);
-  setPin(&PCMSK0,PCINT0);
-  
-  
+ 
 }
+
 
 int main( void )
 {
-  initialize();
+  initADCSRA();
+  
   __enable_interrupt();
   
+  setPin(&ADCSRA,ADCS);
+  
   while(1){
-    
-  
-  
-  
   }
+  
   
 }

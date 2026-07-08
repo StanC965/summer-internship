@@ -1,4 +1,4 @@
-"D:\Mircea\Marqurdt\summer-internship\Week1\Goal2\gpio.c"
+"D:\Mircea\Marqurdt\summer-internship\Week2\Goal3\gpio.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
@@ -9,7 +9,7 @@ D:\Mircea\Marqurdt\summer-internship\Week2\Goal3\Debug\BrowseInfo\gpio.pbi.dep
 -o
 D:\Mircea\Marqurdt\summer-internship\Week2\Goal3\Debug\BrowseInfo\gpio.pbi
 -I
-D:\Mircea\Marqurdt\summer-internship\Week1\Goal2
+D:\Mircea\Marqurdt\summer-internship\Week2\Goal3
 -I
 D:\Mircea\Marqurdt\logic\avr\inc
 -I

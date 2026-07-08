@@ -1,5 +1,5 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -565,7 +565,7 @@
 
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 
 
 
@@ -580,8 +580,8 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.h"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 
 
 
@@ -593,7 +593,7 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\led.c"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.c"
 void ledPowerOn(unsigned char led){
   if(led == 0){
  

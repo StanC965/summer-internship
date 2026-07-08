@@ -1,4 +1,4 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.c"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -564,8 +564,8 @@
 
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -619,7 +619,7 @@
  
 #line 324 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.h"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 
 
 
@@ -634,7 +634,7 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week1\\Goal2\\gpio.c"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.c"
 
 void setPin(volatile unsigned char* port,unsigned char pin){
     *port |= (1 << pin);

@@ -4,6 +4,9 @@
         <path>$WS_DIR$\ControlPanel.ewp</path>
     </project>
     <project>
+        <path>$WS_DIR$\LightSenzor.ewp</path>
+    </project>
+    <project>
         <path>$WS_DIR$\Objective1.ewp</path>
     </project>
     <batchBuild />
