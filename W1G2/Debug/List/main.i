@@ -738,10 +738,14 @@ extern void led_TEST_Slow(unsigned char Led_id);
  
 extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
 
-#line 5 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+#line 4 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
 
 
 int count=0;
+int pressed_confidence_level=0;
+int released_confidence_level=0;
+
+_Bool button_state=0;
 void setup(void)
 {
     leds_initialize(1, 1, 1, 1, 1);
@@ -758,16 +762,37 @@ void setup(void)
 void main(void)
 {
     setup();
-   gpio_uint8_t button_state_before = ((0x01U));
+   
     while(1)
     {
-      gpio_uint8_t button_state_now=gpio_read_pin(&PINC,6);    
-                                                              
-      if(button_state_before==1&& button_state_now==0)          
+      if(gpio_read_pin(&PINC,6))
       {
-        count++;
-        led_TOGGLE((0xAA));
+        pressed_confidence_level++;
+         released_confidence_level=0;
       }
-     button_state_before=button_state_now;   
+      else
+      {
+      released_confidence_level++;
+      pressed_confidence_level=0;
+      
+      }
+      
+      
+      if(pressed_confidence_level>200)
+      {
+        if(button_state==0)
+        {
+          count++;
+          led_TOGGLE((0xAA));
+          button_state=1;
+        }
+        pressed_confidence_level=0;
+      }   
+      
+      if(released_confidence_level > 200) 
+        {
+            button_state = 0;       
+            released_confidence_level = 0; 
+        }
     }
 }

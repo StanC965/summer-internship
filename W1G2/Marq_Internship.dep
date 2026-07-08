@@ -54,7 +54,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 12 2</file>
+                    <file> 12</file>
                 </tool>
             </outputs>
             <inputs>
