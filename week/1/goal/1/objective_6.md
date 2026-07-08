@@ -10,7 +10,7 @@
 | **[161]** | `CORE` | [x] Completed
 | **[162]** | `CORE` | [x] Completed
 | **[163]** | `CORE` | [x] Completed
-
+| **[164]** | `CORE` | [x] Completed
 
 
 #### Task 161
@@ -39,6 +39,20 @@
 > The macro has the following structure:  SFR_B_N(0xB1, TCCR2B, FOC2A, FOC2B, Dummy5, Dummy4, WGM22, CS22, CS21, CS20)
 
 > Based on the structure of the register and the macro the conclusion is that the macro directly maps the software definition to the exact physical structure of the hardware register.
+
+---
+
+#### Task 164
+> **Question/Prompt:**  By analogy with the expansion example above, write in the main.c file as comments (!) how you understood the following macro registers will be expanded:
+
+```
+SFR_B_N(0x08,PORTC,PORTC7,PORTC6,PORTC5,PORTC4,PORTC3,PORTC2,PORTC1,PORTC0)
+SFR_B_N(0x07, DDRC, DDRC7, DDRC6, DDRC5, DDRC4, DDRC3, DDRC2, DDRC1, DDRC0)
+SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
+```
+
+> **Answer/Explanation:**
+> 
 
 ## References & Resources
 * AVR Microcontroller with Core Independent Peripherals and PicoPower technology
