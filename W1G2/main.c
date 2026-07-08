@@ -19,29 +19,29 @@ void setup()
 
 
 
-void set_pinC(unsigned char bit)
+void set_pin(volatile unsigned char *PORT,unsigned char bit)
 {
-    PORTC |= (1 << bit);  //functia trebuie sa primeasca pin-ul care vrem sa fie setat 
+    *PORT |= (1 << bit);  //functia trebuie sa primeasca pin-ul care vrem sa fie setat 
     
 }
 
 
-void reset_pinC(unsigned char bit)
+void reset_pin(volatile unsigned char *port,unsigned char bit)
 {
-  PORTC &= ~(1 << bit);                 //functia trebuie sa primeasca pin-ul care vrem sa fie resetat 
+  (*port) &= ~(1 << bit);                 //functia trebuie sa primeasca pin-ul care vrem sa fie resetat 
   
     
 }
 
-void toggle_pinC(unsigned char bit)
+void toggle_pin(volatile unsigned char *PORT,unsigned char bit)
 {
-  PORTC ^=1<<bit;             
+  *PORT ^=1<<bit;             
 }
 
-void set_direction(unsigned char bit,_Bool intrare)
+void set_direction(volatile unsigned char *DDR,unsigned char bit,_Bool intrare)
 {
   if(intrare)
-  DDRC&=~(1<<bit);                              //spre deosebire de celelalte,functia asta trebuie sa aiba ca si parametru formal si un bool    
+  *DDR &=~(1<<bit);                              //spre deosebire de celelalte,functia asta trebuie sa aiba ca si parametru formal si un bool    
   else                                 //care sa specifice daca pin-ul setat sa fie de intrare sau iesire in DDR;
  DDRC|=1<<bit;
   
@@ -54,26 +54,29 @@ void main(void)
 
     while(1)
     {
-                                                      //TOATE 3 functiile nu trebuie sa returneze nimic caci modifica PORTC si atat;
+                                                     
       
         if (TCNT1 >= OCR1A)   
         {
-            set_pinC(7);    
-                                                                  //Deja fiecare functie e formata dintr-o singura linie 
+            set_pin(&PORTC,7);    
+                                                                  
             if(state)
             {
-              reset_pinC(7);
+              reset_pin(&PORTC,7);              //AM folosit pointer catre adresa de memorie specifica PORT-ului /DDR-ului astfel am crescut flexibilitatea codului
             }
-            else                          // observam ca la a 5a perioada se opreste de tot led-ul => Set_direction face ce trebuie
-              set_pinC(7);
+            else                        
+              set_pin(&PORTC,7);
             
             state=!state;
               
             TCNT1=0;
             counter++;
             if(counter==5)
-              toggle_pinC(7); // observam ca la a 5a perioada se opreste LED-ul si dupa aceea REVINE, asta inseamna ca toggle-ul a functionat ;
-             // set_direction(7,1);
+              set_direction(    &DDRC,7,1);
+             // toggle_pin(&PORTC,7); 
+              
         }
     }
+    
 }
+
