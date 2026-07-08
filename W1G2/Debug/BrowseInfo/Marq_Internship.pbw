@@ -41758,20 +41758,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy15",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARH_Dummy15",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARH_Dummy15",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit0",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41782,6 +41768,20 @@
               "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
             },
             "name": "EEAR_Bit0",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy15",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARH_Dummy15",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARH_Dummy15",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -50090,13 +50090,41 @@
     "scope": null
   },
   {
+    "ID": "c:@F@set_direction",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void set_direction(unsigned char, _Bool)",
+    "location": {
+      "column": "6",
+      "line": "35",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "set_direction",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@counter",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "counter",
+    "location": {
+      "column": "5",
+      "line": "43",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "counter",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@state",
     "What": "Variable",
     "defdec": "Def",
     "display": "state",
     "location": {
       "column": "7",
-      "line": "34",
+      "line": "44",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "state",
@@ -50110,7 +50138,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "35",
+      "line": "45",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",
