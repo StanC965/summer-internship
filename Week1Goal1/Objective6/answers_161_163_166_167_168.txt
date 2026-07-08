@@ -11,6 +11,9 @@ Answer:
 
 163 - SFR_B macro (TCCR2 example) vs real TCCR2B register from datasheet.
 Answer:
+The SFR_B_N macro holds the same info as the datasheet, but as code:
+1st arg = address, 2nd arg = register name, next 8 = bit names (bit 7 to bit 0).
+iom324pb.h is the datasheet translated into C.
 
 166 - OPTIONAL - iom324pb.h vs datasheet vs IAR register view.
 Answer:
