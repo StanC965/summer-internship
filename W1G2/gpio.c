@@ -39,27 +39,6 @@ void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint
         *ddr |= (1 << bit);
     }
 }
-      
-void gpio_Timer1_start(float secunde,int prescale)
-{
-  TCCR1B&=~((1<<0)|(1<<1)|(1<<2)); //curatam biti de selectie
- unsigned char bits_prescale;
-  switch(prescale)
-  {
-    
-  case 1:       bits_prescale|=1;break;
-  case 8:       bits_prescale|=2;break;
-  case 64:      bits_prescale|=3;break;
-  case 256:     bits_prescale|=4;break;
-  case 1024:    bits_prescale|=5;break;
-  
-  default:                break;
-  }
-   OCR1A=(int)(secunde*1000000)/prescale;
-   TCNT1=0;
-   TCCR1A=0;
-   TCCR1B|=bits_prescale;        
-}
 
 void gpio_Timer1_stop()
 {
@@ -67,6 +46,38 @@ void gpio_Timer1_stop()
   OCR1A=0;
   TCNT1=0;
   
+}
+
+
+void gpio_Timer1_start(float secunde, int prescale)
+{
+    unsigned char bits = 0;
+
+    switch(prescale)
+    {
+        case 1:    bits = 1; break;
+        case 8:    bits = 2; break;
+        case 64:   bits = 3; break;
+        case 256:  bits = 4; break;
+        case 1024: bits = 5; break;
+        default:   return;
+    }
+
+
+    TCCR1A = 0;
+    
+  
+    TCCR1B = (1 << 3); 
+    
+ 
+    TCNT1 = 0;
+    
+    
+    OCR1A = (unsigned int)((1000000 * secunde) / prescale) - 1; 
+
+    
+    TCCR1B &= ~0x07; 
+    TCCR1B |= clock_bits; 
 }
 
   gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
@@ -81,3 +92,4 @@ void gpio_Timer1_stop()
   }
   
 #endif
+

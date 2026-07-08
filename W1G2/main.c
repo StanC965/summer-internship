@@ -1,60 +1,21 @@
 #include "iom324pb.h"
 #include "gpio.h" 
 #include "led.h" 
+#include "sos.h"
 
-
-int count=0;
-int pressed_confidence_level=0;
-int released_confidence_level=0;
-
-_Bool button_state=0;
 void setup(void)
 {
-    leds_initialize(1, 1, 1, 1, 1);
-    led_Set(LED_ZERO);
-    led_Set(LED_TWO);
-    led_Set(LED_THREE);
-    led_Set(LED_ONE);
-   
-    gpio_set_direction(&DDRC, 6, GPIO_INPUT);
     
-    
+    leds_initialize(1, 0, 0, 0, 0); 
 }
 
 void main(void)
 {
     setup();
-   
+
     while(1)
     {
-      if(gpio_read_pin(&PINC,6))
-      {
-        pressed_confidence_level++;
-         released_confidence_level=0;
-      }
-      else
-      {
-      released_confidence_level++;
-      pressed_confidence_level=0;
-      
-      }
-      
-      
-      if(pressed_confidence_level>200)
-      {
-        if(button_state==0)
-        {
-          count++;
-          led_TOGGLE(LED_ZERO);
-          button_state=1;
-        }
-        pressed_confidence_level=0;
-      }   
-      
-      if(released_confidence_level > 200) 
-        {
-            button_state = 0;       
-            released_confidence_level = 0; 
-        }
-    }
+        SOS();                                  //Cum functioneaza:Initial m-am gandit sa aleg o unitate de timp egala cu 50 milisecunde ( printr-un timer)
+                       //dar dupa mi-am dat seama ca perioadele literelor sunt inegale si nu am mai fi respectat cerinta cu point and line
+    }               //varianta asta ia 20% dintr-o valoare pe care io dau ca sa-si creeze unitatea de timp,pe baza careia am creat punctul si linia. 
 }

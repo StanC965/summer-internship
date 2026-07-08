@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>2012242646</fileChecksum>
+    <fileChecksum>1682923623</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\sos.c</file>
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
@@ -21,31 +22,49 @@
             <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$PROJ_DIR$\led.c</file>
             <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\Debug\List\sos.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
             <file>$PROJ_DIR$\led.h</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\sos.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 10 9</file>
+                    <file> 11 10</file>
                 </tool>
             </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\sos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 18</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 19 16 1 6 4</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 13 17</file>
+                    <file> 14 20</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 15 0 5 3</file>
+                    <file> 16 1 6 4</file>
                 </tool>
             </inputs>
         </file>
@@ -54,13 +73,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 12</file>
+                    <file> 13 3</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0 5 3 15 16</file>
+                    <file> 1 6 4 16 19 22</file>
                 </tool>
             </inputs>
         </file>
@@ -69,13 +88,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 9</file>
+                    <file> 10</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 1 4 17 18 2 7</file>
+                    <file> 2 5 20 21 3 18 8</file>
                 </tool>
             </inputs>
         </file>
@@ -84,16 +103,20 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 18</file>
+                    <file> 12 21</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 16 15 0 5 3</file>
+                    <file> 19 16 1 6 4</file>
                 </tool>
             </inputs>
         </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
         <forcedrebuild>
             <name>[REBUILD_ALL]</name>
         </forcedrebuild>

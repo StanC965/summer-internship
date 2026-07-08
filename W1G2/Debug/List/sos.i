@@ -1,4 +1,184 @@
-#line 1 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
+
+
+
+
+ 
+ 
+#line 1 "C:\\Users\\Stefan\\summer-internship\\W1G2\\led.h"
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+typedef     unsigned char   mod_uint8_t;
+
+ 
+typedef     unsigned int    mod_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+
+
+
+
+ 
+extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
+
+
+
+
+
+
+
+
+ 
+extern void led_Set(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_Reset(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TOGGLE(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Fast(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Slow(unsigned char Led_id);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
+
+#line 8 "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\W1G2\\gpio.h"
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+typedef     unsigned char   gpio_uint8_t;
+
+ 
+typedef     unsigned int    gpio_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+ 
+extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+ 
+extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
+
+
+
+
+
+ 
+extern void gpio_Timer1_start(float secunde,int prescale);
+
+
+
+
+
+ 
+extern void gpio_Timer1_stop();
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
+#line 9 "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -564,241 +744,67 @@
 
 
 
-#line 2 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\W1G2\\gpio.h"
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
- 
-typedef     unsigned char   gpio_uint8_t;
-
- 
-typedef     unsigned int    gpio_uint16_t;
+#line 10 "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
 
  
  
  
-  
 
 
-
- 
-extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
- 
-extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
-
-
-
-
-
- 
-extern void gpio_Timer1_start(float secunde,int prescale);
-
-
-
-
-
- 
-extern void gpio_Timer1_stop();
-
-
-
- 
-extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
-
-#line 3 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\W1G2\\led.h"
-
-
-
-
- 
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-typedef     unsigned char   mod_uint8_t;
-
- 
-typedef     unsigned int    mod_uint16_t;
-
- 
- 
- 
-  
-
-
-
-
-
-
-
- 
-extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
-
-
-
-
-
-
-
-
- 
-extern void led_Set(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_Reset(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TOGGLE(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Fast(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Slow(unsigned char Led_id);
-
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
-
-#line 4 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.h"
-
-
-
-
-
- 
-
- 
-
-
- 
-
-
-
- 
- 
- 
-  
-
-
-
-
-
-
- 
-extern void letter_S(void);
-
-
-
-
-
-
-
- 
-extern void letter_O(void);
-
-
-
-
-
-
-
- 
-extern void SOS(void);
-
-#line 5 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
-
-void setup(void)
+static void morse_delay_units(float units)
 {
     
-    leds_initialize(1, 0, 0, 0, 0); 
+    gpio_Timer1_start(0.2 * units, 1024);
+    
+     
+    while(TCNT1 < OCR1A);
+    
+    gpio_Timer1_stop();
 }
 
-void main(void)
-{
-    setup();
 
-    while(1)
-    {
-        SOS(); 
-    }
+static void morse_point(void)
+{
+    led_Set((0xAA));
+    morse_delay_units(1);    
+    led_Reset((0xAA));
+    morse_delay_units(1);    
+}
+
+
+static void morse_line(void)
+{
+    led_Set((0xAA));
+    morse_delay_units(3);    
+    led_Reset((0xAA));
+    morse_delay_units(2);    
+}
+
+
+
+void letter_S(void)
+{
+    morse_point();
+    morse_point();
+    morse_point();
+ 
+    morse_delay_units(2); 
+}
+
+void letter_O(void)
+{
+    morse_line();
+    morse_line();
+      morse_line();
+  
+    morse_delay_units(2);
+}
+
+void SOS(void)
+{
+    letter_S();
+    letter_O();
+    letter_S();
+    
+    morse_delay_units(4); 
 }
