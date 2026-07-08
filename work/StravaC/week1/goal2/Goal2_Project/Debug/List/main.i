@@ -566,46 +566,6 @@
 
 #line 2 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
 void delay_half_second(void)
 {
     volatile unsigned long i;
@@ -616,38 +576,45 @@ void delay_half_second(void)
     }
 }
 
-void set_pin(unsigned char pin)
+void set_pin(volatile unsigned char *port, unsigned char pin)
 {
-    PORTC |= (1 << pin);
+    *port |= (1 << pin);
 }
 
-void reset_pin(unsigned char pin)
+void reset_pin(volatile unsigned char *port, unsigned char pin)
 {
-    PORTC &= ~(1 << pin);
+    *port &= ~(1 << pin);
 }
 
-void set_direction(unsigned char pin, unsigned char direction)
+void toggle_pin(volatile unsigned char *port, unsigned char pin)
 {
-    if (direction == 1)
-    {
-        DDRC |= (1 << pin);
-    }
-    else
-    {
-        DDRC &= ~(1 << pin);
-    }
+    *port ^= (1 << pin);
+}
+
+void set_direction(volatile unsigned char *ddr, unsigned char pin, unsigned char direction)
+{
+    direction ? (*ddr |= (1 << pin)) : (*ddr &= ~(1 << pin));
 }
 
 void main(void)
 {
-    set_direction(7, 1);
+    set_direction(&DDRC, 7, 1);
+    set_direction(&DDRD, 5, 1);
+    set_direction(&DDRD, 4, 1);
+    set_direction(&DDRA, 3, 1);
+
+    set_pin(&PORTC, 7);
+    set_pin(&PORTD, 5);
+    set_pin(&PORTD, 4);
+    set_pin(&PORTA, 3);
 
     while (1)
     {
-        reset_pin(7);
-        delay_half_second();
+        toggle_pin(&PORTC, 7);
+        toggle_pin(&PORTD, 5);
+        toggle_pin(&PORTD, 4);
+        toggle_pin(&PORTA, 3);
 
-        set_pin(7);
         delay_half_second();
     }
 }
