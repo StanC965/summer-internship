@@ -25,6 +25,13 @@ void set_pinC(unsigned char bit)
     
 }
 
+
+void reset_pinC(unsigned char bit)
+{
+    PORTC &= ~(1 << bit); 
+    
+}
+_Bool state=1;
 void main(void)
 {
     setup();
@@ -33,12 +40,20 @@ void main(void)
     {
         
       
-        if (TCNT1 >= OCR1A)   //observam ca dupa o secunda led-ul se stinge =>functia mea e corecta
+        if (TCNT1 >= OCR1A)   
         {
             set_pinC(7);    
             
+            if(state)
+            {
+              reset_pinC(7);
+            }
+            else
+              set_pinC(7);
             
-            TCCR1B = 0x00;  
+            state=!state;
+              
+            TCNT1=0;
             
         }
     }

@@ -41492,20 +41492,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR4",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_EEAR4",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_EEAR4",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit7",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41530,6 +41516,20 @@
               "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
             },
             "name": "EEAR_Bit9",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR4",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_EEAR4",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_EEAR4",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -41730,20 +41730,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy14",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARH_Dummy14",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARH_Dummy14",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_Bit5",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41754,6 +41740,20 @@
               "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARL_Bit5",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARH_Dummy14",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARH_Dummy14",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARH_Dummy14",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -50068,10 +50068,38 @@
     "display": "void set_pinC(unsigned char)",
     "location": {
       "column": "6",
-      "line": "20",
+      "line": "22",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "set_pinC",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@reset_pinC",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void reset_pinC(unsigned char)",
+    "location": {
+      "column": "6",
+      "line": "29",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "reset_pinC",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@state",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "state",
+    "location": {
+      "column": "7",
+      "line": "34",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "state",
     "origin": "project_file",
     "scope": null
   },
@@ -50082,7 +50110,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "25",
+      "line": "35",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",
