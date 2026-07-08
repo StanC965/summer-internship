@@ -77,7 +77,7 @@ void gpio_Timer1_start(float secunde, int prescale)
 
     
     TCCR1B &= ~0x07; 
-    TCCR1B |= clock_bits; 
+    TCCR1B |= bits; 
 }
 
   gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)

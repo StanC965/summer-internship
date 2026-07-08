@@ -50986,13 +50986,69 @@
     "scope": null
   },
   {
+    "ID": "c:@pressed_confidence_level",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "pressed_confidence_level",
+    "location": {
+      "column": "5",
+      "line": "6",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "pressed_confidence_level",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@released_confidence_level",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "released_confidence_level",
+    "location": {
+      "column": "5",
+      "line": "7",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "released_confidence_level",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@button_stable_state",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "button_stable_state",
+    "location": {
+      "column": "7",
+      "line": "8",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "button_stable_state",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@count",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "count",
+    "location": {
+      "column": "5",
+      "line": "9",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "count",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@setup",
     "What": "Function",
     "defdec": "Def",
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "6",
+      "line": "11",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "setup",
@@ -51006,7 +51062,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "12",
+      "line": "17",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",

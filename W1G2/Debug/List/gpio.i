@@ -686,15 +686,15 @@ void gpio_Timer1_stop()
 
 void gpio_Timer1_start(float secunde, int prescale)
 {
-    unsigned char clock_bits = 0;
+    unsigned char bits = 0;
 
     switch(prescale)
     {
-        case 1:    clock_bits = 1; break;
-        case 8:    clock_bits = 2; break;
-        case 64:   clock_bits = 3; break;
-        case 256:  clock_bits = 4; break;
-        case 1024: clock_bits = 5; break;
+        case 1:    bits = 1; break;
+        case 8:    bits = 2; break;
+        case 64:   bits = 3; break;
+        case 256:  bits = 4; break;
+        case 1024: bits = 5; break;
         default:   return;
     }
 
@@ -708,11 +708,11 @@ void gpio_Timer1_start(float secunde, int prescale)
     TCNT1 = 0;
     
     
-    OCR1A = (unsigned int)((1000000 * secunde) / prescale) - 1;
+    OCR1A = (unsigned int)((1000000 * secunde) / prescale) - 1; 
 
     
     TCCR1B &= ~0x07; 
-    TCCR1B |= clock_bits; 
+    TCCR1B |= bits; 
 }
 
   gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
