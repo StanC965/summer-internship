@@ -587,6 +587,10 @@ void set_direction(unsigned char pin, unsigned char direction){
     
 }
 
+void toggle_pin(unsigned char pin){
+  PORTC= PORTC ^ (1<<pin);
+}
+
 void main(void){
   setup();
   while(1);

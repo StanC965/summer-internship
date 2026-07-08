@@ -1,4 +1,4 @@
-//233
+//234
 #include "iom324pb.h"
 
 void setup(){
@@ -19,6 +19,10 @@ void set_direction(unsigned char pin, unsigned char direction){
   else if(direction == 0)
     { DDRC=DDRC & ~(1<<pin);}
     
+}
+
+void toggle_pin(unsigned char pin){
+  PORTC= PORTC ^ (1<<pin);
 }
 
 void main(void){
