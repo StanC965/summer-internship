@@ -33,12 +33,6 @@
         </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 8</file>
-                </tool>
-            </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
