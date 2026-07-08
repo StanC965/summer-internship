@@ -11,6 +11,7 @@
 | **[162]** | `CORE` | [x] Completed
 | **[163]** | `CORE` | [x] Completed
 | **[164]** | `CORE` | [x] Completed
+| **[165]** | `CORE` | [x] Completed
 
 
 #### Task 161
@@ -53,6 +54,15 @@ SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
 
 > **Answer/Explanation:**
 > 
+
+---
+
+#### Task 165
+> **Question/Prompt:**  Include the header file iom324pb.h in your main.c file. Compile. Check with preprocessed files (main.i) how the macros or #defines are expanded. Is this confirming your knowledge acquired so far? How the comments are preprocessed?
+
+> **Answer/Explanation:**
+> After I included the header file and compiled the source code, the macros expanded just as expected after doing the previous task. 
+> The comments were stripped from the file by the preprocessor, since there was no option chosen to keep them.
 
 ## References & Resources
 * AVR Microcontroller with Core Independent Peripherals and PicoPower technology
