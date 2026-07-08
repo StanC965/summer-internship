@@ -598,13 +598,23 @@ extern void BlinkFast_LED(volatile unsigned char *port, unsigned char pin);
 #line 5 "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
 
 void setup(void) {
-    Init_LED(&DDRC,7,1);
+    DDRC =0xBF;
+    
 }
 
 void main(void) {
     setup(); 
-    PowerOff_LED(&PORTC, 7);
+    PORTC=0xFF;
+    PORTC=PORTC | (1<<6);
+    
+    unsigned char buton;
     while(1){
-      BlinkFast_LED(&PORTC, 7);
+      buton=PINC;
+      if((buton & (1<<6))==0){
+      PORTC=0x7F;
+      }
+      else{
+      PORTC=0xFF;
+      }
     }
 }
