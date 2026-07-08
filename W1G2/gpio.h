@@ -61,4 +61,9 @@ extern void gpio_Timer1_start(float secunde,int prescale);
 */
 extern void gpio_Timer1_stop();
 
+/** \fn   void gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
+
+/** \brief Citeste starea curenta a unui pin (Intoarce GPIO_TRUE sau GPIO_FALSE) */
+extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
 #endif

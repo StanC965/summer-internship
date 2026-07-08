@@ -68,4 +68,16 @@ void gpio_Timer1_stop()
   TCNT1=0;
   
 }
+
+  gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
+  {
+    
+    if ((*PIN) & (1 << bit))
+    {
+        return GPIO_TRUE;
+    }
+    return GPIO_FALSE;
+
+  }
+  
 #endif

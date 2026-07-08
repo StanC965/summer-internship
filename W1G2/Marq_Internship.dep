@@ -95,18 +95,6 @@
             </inputs>
         </file>
         <forcedrebuild>
-            <name>$PROJ_DIR$\gpio.c</name>
-            <tool>ICCAVR</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\main.c</name>
-            <tool>ICCAVR</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\led.c</name>
-            <tool>ICCAVR</tool>
-        </forcedrebuild>
-        <forcedrebuild>
             <name>[REBUILD_ALL]</name>
         </forcedrebuild>
     </configuration>

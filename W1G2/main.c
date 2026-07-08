@@ -4,32 +4,29 @@
 #include "led.h" 
 
 
-
+int count=0;
 void setup(void)
 {
-    leds_initialize(1, 1, 1, 1, 1);
-    led_Reset(LED_ZERO);
+    //leds_initialize(1, 1, 1, 1, 1);
+    //led_Reset(LED_ZERO);
+   
+    gpio_set_direction(&DDRC, 6, GPIO_INPUT);
+    
     
 }
 
 void main(void)
 {
     setup();
-
+   gpio_uint8_t button_state_before = GPIO_TRUE;
     while(1)
     {
-     led_TEST_Fast(LED_ZERO);
-
-        
+      gpio_uint8_t button_state_now=gpio_read_pin(&PINC,6);    // pentru a stii cand s-a apasat o sa scriem 2 variabile,una care tine starea anterioara si una tine starea curenta
+                                                              // principiul e similar ca la codul gray ,adica doar atunci cand apare o diferenta se schimba starea(incrementeaza count)
+      if(button_state_before==1&& button_state_now==0)          //totusi  daca rulam normal poate aparea efectul de debounce
+      {
+        count++;
+      }
+     button_state_before=button_state_now;   
     }
 }
-
-//Explicatii: pentru a face cele doua teste cerute la 243 am facut o functie in gpio.c care seteaza un timer pe baza la cate secunde vreau sa fie o perioada 
-// si pe baza la un prescale 
-//dupa aceea am facut si functiile in care se activeaza acest timer si in care se numara ca aproximativ cele 12 perioade (6 on si 6 off) sa se intample intr-o secunda
-//zic aproximativ deoarece OCR1A poate sa dea valori cu virgula care vor fi rotunjite,asta va induce o desincronizare si nu am implementat un mod de rezolvare a acestei desincronizari
-// asa ca din cod va trebui sa calculez sa dea fara virgula.
-
-//Pe langa asta , m-am folosit de functii de dinainte ca sa imi usurez munca cum ar fi toggle set etc...
-// ca si detalii de siguranta in cod m-am asigurat ca registrii sunt mereu setati pe 0 dupa ce nu isi mai au vreo utilizare
-//ex ar fi acel TCCR1B care inainte de a i se atribui vreun prescale ,ma asigur ca nu este nici un prescale deja setat 
