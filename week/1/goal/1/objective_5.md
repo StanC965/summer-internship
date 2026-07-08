@@ -9,6 +9,7 @@
 | :--- | :--- | :--- |
 | **[151]** | `CORE` | [x] Completed |
 | **[152]** | `CORE` | [x] Completed |
+| **[153]** | `CORE` | [x] Completed |
 
 
 #### Task [151]
@@ -36,5 +37,14 @@
 > Besides the code and the comments from the source file (this being the case when the box was checked), this line is added during the preprocessing stage:
 <br>
     - #line 1 "absolute path to the source file", which is a result of the `Generate #line directives` option and it used for error reporting and debugging
+
+---
+
+#### Task [153]
+> **Question/Prompt:**    Now you must delete the code from the previous exercise in IAR EW (because the exercises are not linked together). For the code below, what value will have the VAR constant? (you can easily see this if you store the VAR into a variable and look at main.i preprocessed file)
+
+> **Answer/Explanation:**
+> The value of the VAR constant is 5, because MAX is not defined anywhere in the source code. In this case the preprocessor evaluates it as 0.
+> Since ` 0 == 1` is false, the `#else` branch is triggered.
 
 ---
