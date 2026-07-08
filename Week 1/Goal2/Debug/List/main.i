@@ -574,8 +574,16 @@ void setup(){
 
 void main(void){
   setup();
-  PORTA=0xF7;
-  PORTD=0xCF;
 
-  while(1);
+  while(1){
+  PORTA=0xFF;
+  PORTD=0xDF;
+  for(long i=0;i<200000;i++);
+  PORTD=0xEF;
+  for(long i=0;i<200000;i++);
+  PORTD=0xFF;
+  PORTA=0xF7;
+  for(long i=0;i<200000;i++);
+  
+  }
 }
