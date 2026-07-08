@@ -35,5 +35,6 @@
 <br>
 > Besides the code and the comments from the source file (this being the case when the box was checked), this line is added during the preprocessing stage:
 <br>
-#line 1 "absolute path to the source file"
+    - #line 1 "absolute path to the source file", which is a result of the `Generate #line directives` option and it used for error reporting and debugging
+
 ---
