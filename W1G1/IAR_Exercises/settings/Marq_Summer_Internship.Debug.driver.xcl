@@ -1,10 +1,10 @@
-"--cpu=m324pb" 
+"--cpu=m328pb" 
 
 "--enhanced_core" 
 
 "-p" 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr/config/iom324pb.ddf" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr/config/iom328pb.ddf" 
 
 "--eeprom_size" 
 
@@ -16,7 +16,7 @@
 
 "--drv_communication=USB" 
 
-"--drv_debug_port=jtag" 
+"--drv_debug_port=debugwire" 
 
 
 

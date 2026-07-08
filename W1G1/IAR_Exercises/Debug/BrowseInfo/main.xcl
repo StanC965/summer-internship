@@ -301,7 +301,7 @@ C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc
 -D__PRAGMA_PACK_ON__=1
 -D__MULTIPLE_INHERITANCE__=1
 -D__FOR_DEBUG__=
--D__ATmega324PB__=1
+-D__ATmega328PB__=1
 -D__CORE__=3
 -D__CPU__=3
 -D__HAS_EEPROM__=1

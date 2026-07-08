@@ -180,7 +180,7 @@
                 </option>
                 <option>
                     <name>GenDeviceSelectMenu</name>
-                    <state>m324pb	ATmega324PB</state>
+                    <state>m328pb	ATmega328PB</state>
                 </option>
                 <option>
                     <name>OGProductVersion</name>
