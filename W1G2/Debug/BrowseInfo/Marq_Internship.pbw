@@ -50950,7 +50950,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "7",
+      "line": "8",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "setup",
@@ -50964,7 +50964,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "14",
+      "line": "15",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",

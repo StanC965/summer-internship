@@ -1,0 +1,10 @@
+Rolul  principal la acel cod boilerplate  este de a preveni dubla incluziune a 
+aceluiasi fisier header într-o singura unitate de compilare (fisier .c). 
+fara acea bucata de cod ar aparea erori precum redefinition of ...
+
+Utilitatea lor este evidenta atunci cand avem mai multe fisiere,spre exemplu doua fisiere care 
+acceseaza acelasi header,astfel se include un nivel indirectare ,ceea ce poate scapa unui programator.
+
+
+in cadrul aplicatiei la rulare,indiferent de cate ori repet include-uri, rezultatul in main.i e acelasi
+si anume o singura incluziune a acelui header
