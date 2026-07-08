@@ -26,33 +26,5 @@
     "name": "main",
     "origin": "project_file",
     "scope": null
-  },
-  {
-    "ID": "c:main.c@41@F@main@x",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "x",
-    "location": {
-      "column": "7",
-      "line": "4",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "x",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@65@macro@MAX",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "MAX",
-    "location": {
-      "column": "9",
-      "line": "6",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "MAX",
-    "origin": "project_file",
-    "scope": null
   }
 ]
