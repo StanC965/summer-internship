@@ -11,6 +11,7 @@
 | **[152]** | `CORE` | [x] Completed |
 | **[153]** | `CORE` | [x] Completed |
 | **[154]** | `CORE` | [x] Completed |
+| **[155]** | `CORE` | [x] Completed |
 
 
 #### Task [151]
@@ -68,6 +69,22 @@ void main (void)
 int x=2;
 #define MAX 55
 x=MAX;
+}
+```
+
+> **Answer/Explanation:**
+> This code defines a constanst MAX equal to 10, then redefines it to 55. The x variable is assigned 2, and after the constant redefinition it is assigned the value 55.
+
+---
+
+#### Task [155]
+> **Question/Prompt:**    What this code will do? Verify it by checking the .i preprocessed file.
+
+```
+#define MAX 100
+void main (void)
+{
+int MAX = 10;
 }
 ```
 
