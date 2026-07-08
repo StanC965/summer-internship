@@ -50054,7 +50054,7 @@
     "display": "void delay_half_second(void)",
     "location": {
       "column": "6",
-      "line": "54",
+      "line": "68",
       "path": "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
     },
     "name": "delay_half_second",
@@ -50062,13 +50062,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1838@F@delay_half_second@i",
+    "ID": "c:main.c@2409@F@delay_half_second@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "28",
-      "line": "56",
+      "line": "70",
       "path": "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
     },
     "name": "i",
@@ -50082,7 +50082,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "64",
+      "line": "78",
       "path": "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
     },
     "name": "main",

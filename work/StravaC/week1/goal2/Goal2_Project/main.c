@@ -49,6 +49,20 @@ LED2, de pe EXT pin 8, ajunge la PD4.
 
 User Guide-ul pentru OLED1 confirma informatia din schematic:
 LED-urile sunt active-low, deci se aprind cand scriem 0 logic pe pin.
+
+227:
+Nu a fost nevoie sa adaugam noi rezistoare externe pentru LED-uri,
+deoarece acestea exista deja pe placile folosite.
+
+LED0 de pe placa ATmega324PB Xplained Pro are deja un rezistor de protectie de 330 ohmi.
+
+LED-urile de pe OLED1 Xplained Pro au deja rezistoare de limitare a curentului de 680 ohmi.
+
+LED-ul de pe IO1 Xplained Pro are deja rezistor de limitare a curentului de 680 ohmi.
+
+De aceea LED-urile functioneaza corect si in siguranta:
+noi nu conectam LED-ul direct la pinul microcontroller-ului,
+ci folosim circuitul deja proiectat pe placa.
 */
 
 void delay_half_second(void)
@@ -67,17 +81,27 @@ void main(void)
     DDRD |= (1 << 5);
     DDRD |= (1 << 4);
 
+    PORTA |= (1 << 3);
+    PORTD |= (1 << 5);
+    PORTD |= (1 << 4);
+
     while (1)
     {
         PORTD &= ~(1 << 5);
-        PORTA &= ~(1 << 3);
-        PORTD |= (1 << 4);
+        PORTD &= ~(1 << 4);
+        PORTA |= (1 << 3);
 
         delay_half_second();
 
         PORTD |= (1 << 5);
-        PORTA |= (1 << 3);
         PORTD &= ~(1 << 4);
+        PORTA &= ~(1 << 3);
+
+        delay_half_second();
+
+        PORTD &= ~(1 << 5);
+        PORTD |= (1 << 4);
+        PORTA &= ~(1 << 3);
 
         delay_half_second();
     }
