@@ -1,0 +1,1 @@
+Din acel schematics se poate observa ca rezistorul smd pentru LED0 are valoarea de 330 omhs
