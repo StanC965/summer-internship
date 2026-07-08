@@ -1,8 +1,5 @@
 
 void main (void)
 {
-  int x=2;
-  x=55;
+  int 100 = 10;
 }
-
-
