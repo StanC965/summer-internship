@@ -1,29 +1,43 @@
 [
   {
-    "ID": "c:main.c@8@macro@MAX",
-    "What": "MacroDef",
+    "ID": "c:main.c@a",
+    "What": "Variable",
     "defdec": "Def",
-    "display": "MAX",
+    "display": "a",
     "location": {
-      "column": "9",
-      "line": "1",
+      "column": "12",
+      "line": "5",
       "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
     },
-    "name": "MAX",
+    "name": "a",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@41@macro@AVERAGE",
-    "What": "MacroDef",
+    "ID": "c:@F@count",
+    "What": "Function",
     "defdec": "Def",
-    "display": "AVERAGE",
+    "display": "void count(void)",
     "location": {
-      "column": "9",
-      "line": "3",
+      "column": "6",
+      "line": "7",
       "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
     },
-    "name": "AVERAGE",
+    "name": "count",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@577@F@count@counter",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "counter",
+    "location": {
+      "column": "14",
+      "line": "12",
+      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
+    },
+    "name": "counter",
     "origin": "project_file",
     "scope": null
   },
@@ -34,66 +48,10 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "5",
+      "line": "16",
       "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
     },
     "name": "main",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@100@F@main@a",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "a",
-    "location": {
-      "column": "9",
-      "line": "7",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "a",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@100@F@main@b",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "b",
-    "location": {
-      "column": "16",
-      "line": "7",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "b",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@123@F@main@max",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "max",
-    "location": {
-      "column": "9",
-      "line": "8",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "max",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@123@F@main@average",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "average",
-    "location": {
-      "column": "14",
-      "line": "8",
-      "path": "C:\\MQ_Summer_Internship\\Project\\summer-internship\\code\\main.c"
-    },
-    "name": "average",
     "origin": "project_file",
     "scope": null
   }
