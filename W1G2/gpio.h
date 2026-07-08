@@ -47,4 +47,18 @@ extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
 */
 extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
 
+/** \fn   void gpio_Timer1_start(float secunde,int prescale)
+
+    \brief       [ functia initializeaza registrii pentru ca timer-ul 1 sa numere o perioada la alegere]  
+ 
+*/
+extern void gpio_Timer1_start(float secunde,int prescale);
+
+/** \fn   void gpio_Timer1_stop()
+
+    \brief       [ functia opreste timer1]  
+ 
+*/
+extern void gpio_Timer1_stop();
+
 #endif

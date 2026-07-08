@@ -14,6 +14,7 @@
 
 static mod_uint8_t var1;
 
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  Implementation      */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -85,5 +86,91 @@ void led_TOGGLE(unsigned char Led_id)
     }
 }
 
+void led_TEST_Fast(unsigned char Led_id)
+{
+  
+    int counter=0;
+    gpio_Timer1_start(0.09,8);
+  
+    while(1)
+    { 
+     
+          if(TCNT1>=OCR1A)
+          {
+   
+              TCNT1=0;
+              led_TOGGLE(Led_id); 
+              counter++; 
+   
+          }
+ 
+          if(counter==12)
+          {
+   
+              gpio_Timer1_stop();
+              return;
+ 
+          }
+ 
+      }
+  
+ 
+ }
+        
+void led_TEST_Slow(unsigned char Led_id)
+ {
+   
+      int counter=0; 
+      gpio_Timer1_start(0.25,8);
+  
+      while(1)
+      {
+    
+          if(TCNT1>=OCR1A)
+          {
+   
+              TCNT1=0;
+              led_TOGGLE(Led_id); 
+              counter++; 
+ 
+          }
+ 
+          if(counter==4)
+          { 
+   
+              gpio_Timer1_stop();
+              return;
+ 
+          }
+ 
+      }
+  
+ 
 
+ }
+
+
+  void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri)
+{
+    int counter = 0;
+    gpio_Timer1_start(secunde, 8);
+    
+    while(1)
+    { 
+      
+        if(TCNT1 >= OCR1A)
+        {
+            TCNT1 = 0;
+            led_TOGGLE(Led_id); 
+            counter++; 
+        }
+        
+        if(counter == limite_clipiri)
+        {  
+            gpio_Timer1_stop();
+            return;
+        }
+    }
+}
+        
 #endif

@@ -69,6 +69,35 @@ extern void led_Reset(unsigned char Led_id);
 */
 extern void led_TOGGLE(unsigned char Led_id);
 
+/** \fn    void led_TEST_Fast(unsigned char Led_id)
 
+    \brief       [ functia aprinde si stinge de 6 ori intr-o secunda un LED pentru un test]  
+    \param[in]   [preia o valoare predefinita corespunzatoare unui anumit led  ]
+    \param[out]  [void  ]
+    \return      [ none]
+    \details     [functie de test ]
+*/
+extern void led_TEST_Fast(unsigned char Led_id);
+
+/** \fn    void led_TEST_Slow(unsigned char Led_id)
+
+    \brief       [ functia aprinde si stinge de 2 ori intr-o secunda un LED pentru un test]  
+    \param[in]   [preia o valoare predefinita corespunzatoare unui anumit led  ]
+    \param[out]  [void  ]
+    \return      [ none]
+    \details     [functie de test]
+*/
+extern void led_TEST_Slow(unsigned char Led_id);
+
+
+/** \fn   void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri)
+
+    \brief       [ functia aprinde si stinge de cate ori vrem intr-o secunda un LED ]  
+    \param[in]   [preia o valoare predefinita corespunzatoare unui anumit led  ]
+    \param[out]  [void  ]
+    \return      [ none]
+    \details     [functie de test]
+*/
+extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
 
 #endif
