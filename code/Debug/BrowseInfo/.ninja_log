@@ -1,0 +1,12 @@
+# ninja log v5
+2	1312	8051974620000000	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/main.xcl	a83d4f4dc8b28b6a
+1312	1400	8051974630434838	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/main.pbi	e73177ef0609b321
+1402	1459	8051974630849368	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/summer_internship.pbd	13be100114726f19
+1460	2708	8051974638925902	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/summer_internship.pbw	fb4190de0fd5bf65
+0	77	8051982480000000	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/main.xcl	e15f1a772da88e58
+78	104	8051982483709432	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/main.pbi	e73177ef0609b321
+105	115	8051982483811224	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/summer_internship.pbd	13be100114726f19
+116	355	8051982486045376	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/summer_internship.pbw	fb4190de0fd5bf65
+0	28	8051983242166376	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/main.pbi	e73177ef0609b321
+29	39	8051983242327875	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/summer_internship.pbd	13be100114726f19
+40	296	8051983244671119	C:/MQ_Summer_Internship/Project/summer-internship/code/Debug/BrowseInfo/summer_internship.pbw	fb4190de0fd5bf65
