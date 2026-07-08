@@ -33,12 +33,13 @@ void initADCSRA(){
     
     setPin(&ADMUX,ADMUX1);
     setPin(&ADMUX,REF0);
-    resetPin(&ADMUX,7);
     setPin(&ADMUX,ADLAR);
     
     setPin(&ADCSRA,ADEN);
     setPin(&ADCSRA,ADIE);
-
+    setPin(&ADCSRA,ADPS0);
+    setPin(&ADCSRA,ADPS1);
+    setPin(&ADCSRA,ADPS2);
  
 }
 

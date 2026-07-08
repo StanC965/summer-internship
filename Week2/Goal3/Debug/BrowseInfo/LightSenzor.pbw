@@ -50804,6 +50804,62 @@
     "scope": null
   },
   {
+    "ID": "c:sos.h@23@macro@SOS_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SOS_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+    },
+    "name": "SOS_H",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ledPoint",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledPoint(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "5",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+    },
+    "name": "ledPoint",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ledLine",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledLine(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "7",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+    },
+    "name": "ledLine",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ledSos",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledSos(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+    },
+    "name": "ledSos",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
     "ID": "c:main.c@53@macro@PA1",
     "What": "MacroDef",
     "defdec": "Def",
@@ -51034,7 +51090,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "46",
+      "line": "47",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "main",
@@ -51696,62 +51752,6 @@
       "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
     },
     "name": "__in_word_atomic",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.h@23@macro@SOS_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SOS_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
-    },
-    "name": "SOS_H",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@ledPoint",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void ledPoint(unsigned char)",
-    "location": {
-      "column": "13",
-      "line": "5",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
-    },
-    "name": "ledPoint",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@ledLine",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void ledLine(unsigned char)",
-    "location": {
-      "column": "13",
-      "line": "7",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
-    },
-    "name": "ledLine",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@ledSos",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void ledSos(unsigned char)",
-    "location": {
-      "column": "13",
-      "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
-    },
-    "name": "ledSos",
     "origin": "system_include",
     "scope": null
   },
