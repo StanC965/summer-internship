@@ -1,5 +1,12 @@
-#define MAX 100
+#define MAX(i, limit) do \
+{ \
+    if (i < limit) \
+    { \
+        i++; \
+    } \
+} while(1)
 
-void main ( void ){
-  int MAX = 10;
+void main(void)
+{
+    MAX(0,3);
 }
