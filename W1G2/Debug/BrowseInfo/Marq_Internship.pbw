@@ -50992,7 +50992,7 @@
     "display": "count",
     "location": {
       "column": "5",
-      "line": "7",
+      "line": "6",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "count",
@@ -51006,7 +51006,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "8",
+      "line": "7",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "setup",
@@ -51020,7 +51020,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "18",
+      "line": "20",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",
@@ -51028,13 +51028,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@294@F@main@button_state_before",
+    "ID": "c:main.c@339@F@main@button_state_before",
     "What": "Variable",
     "defdec": "Def",
     "display": "button_state_before",
     "location": {
       "column": "17",
-      "line": "21",
+      "line": "23",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "button_state_before",
@@ -51042,13 +51042,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@368@F@main@button_state_now",
+    "ID": "c:main.c@413@F@main@button_state_now",
     "What": "Variable",
     "defdec": "Def",
     "display": "button_state_now",
     "location": {
       "column": "20",
-      "line": "24",
+      "line": "26",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "button_state_now",

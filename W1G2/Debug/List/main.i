@@ -744,8 +744,11 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 int count=0;
 void setup(void)
 {
-    
-    
+    leds_initialize(1, 1, 1, 1, 1);
+    led_Set((0xAA));
+    led_Set((0xCC));
+    led_Set((0xDD));
+    led_Set((0xBB));
    
     gpio_set_direction(&DDRC, 6, (((0x01U))));
     
@@ -759,10 +762,11 @@ void main(void)
     while(1)
     {
       gpio_uint8_t button_state_now=gpio_read_pin(&PINC,6);    
-      
-      if(button_state_before==1&& button_state_now==0)
+                                                              
+      if(button_state_before==1&& button_state_now==0)          
       {
         count++;
+        led_TOGGLE((0xAA));
       }
      button_state_before=button_state_now;   
     }

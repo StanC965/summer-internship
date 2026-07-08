@@ -1,14 +1,16 @@
 #include "iom324pb.h"
 #include "gpio.h" 
-#include "gpio.h" 
 #include "led.h" 
 
 
 int count=0;
 void setup(void)
 {
-    //leds_initialize(1, 1, 1, 1, 1);
-    //led_Reset(LED_ZERO);
+    leds_initialize(1, 1, 1, 1, 1);
+    led_Set(LED_ZERO);
+    led_Set(LED_TWO);
+    led_Set(LED_THREE);
+    led_Set(LED_ONE);
    
     gpio_set_direction(&DDRC, 6, GPIO_INPUT);
     
@@ -26,6 +28,7 @@ void main(void)
       if(button_state_before==1&& button_state_now==0)          //totusi  daca rulam normal poate aparea efectul de debounce
       {
         count++;
+        led_TOGGLE(LED_ZERO);
       }
      button_state_before=button_state_now;   
     }
