@@ -1,0 +1,17 @@
+214 - Where is LED0 connected and how to light it up?
+
+I found the answer in the ATmega324PB Xplained Pro User Guide, page 16
+
+LED0 is the yellow LED and it is connected to pin PC7 
+
+"The LED can be activated by driving the connected I/O line to GND."
+
+So the LED is active LOW. It lights up when I write 0 on the pin, not 1 as I expected at first.
+The LED anode goes to VCC through the resistor R212, and the
+cathode goes to pin PC7. Current can only flow when PC7 is pulled to GND (0).
+If PC7 is 1 (VCC), there is no potential difference across the LED, so it stays off.
+
+To control LED0
+- set PC7 as output  -> DDRC bit 7 = 1
+- turn the LED ON    -> PORTC bit 7 = 0
+- turn the LED OFF   -> PORTC bit 7 = 1
