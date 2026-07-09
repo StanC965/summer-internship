@@ -1,0 +1,9 @@
+212 - How many pins does the PORTC port have?
+Answer: 8 pins (PC0 .. PC7), matching bits PORTC0 .. PORTC7 of the PORTC register
+
+213 - How many GPIO ports does the ATmega324PB microcontroller have in total?
+Answer: 5 GPIO ports: PORTA, PORTB, PORTC, PORTD, PORTE.
+PORTA, PORTB, PORTC and PORTD have 8 pins each
+PORTE has only 7 pins - in iom324pb.h bit 7 is named "Dummy7", because that pin does not exist physically.
+
+Total: 4 x 8 + 7 = 39 GPIO pins.
