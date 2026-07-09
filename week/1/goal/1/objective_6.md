@@ -13,7 +13,7 @@
 | **[164]** | `CORE`     | [x] Completed
 | **[165]** | `CORE`     | [x] Completed
 | **[166]** | `OPTIONAL` | [x] Completed
-| **[167]** | `OPTIONAL` | [] Completed
+| **[167]** | `OPTIONAL` | [x] Completed
 | **[168]** | `OPTIONAL` | [] Completed
 
 ---
@@ -130,9 +130,29 @@ void main(void)
 ---
 
 #### Task 167
-> **Question/Prompt:**  
+> **Question/Prompt:**  Can you find the same 3 registers in the ATmega328PB (search the internet for ATmega328PB datasheet and the iom328pb.h file in the same manner you found iom324pb.h)? If YES, then this means you can write portable code, the same code works for both microcontrollers, ATmega324PB and ATmega328PB.
 
 > **Answer/Explanation:**
+> I looked at the datasheets and inside the `iom324pb.h` and `iom328pb.h` files:
+
+```
+// iom328pb.h for TIFR4
+SFR_B_N(0x19, TIFR4, Dummy7, Dummy6, ICF4, Dummy4, Dummy3, OCF4B, OCF4A, TOV4)
+// iom324pb.h for TIFR4
+SFR_B_N(0x19, TIFR4, Dummy7, Dummy6, ICF4, Dummy4, Dummy3, OCF4B, OCF4A, TOV4)
+
+// iom328pb.h for SPSR0 
+SFR_B_N(0x2D, SPSR0, SPIF, WCOL, Dummy5, Dummy4, Dummy3, Dummy2, Dummy1, SPI2X)
+// iom324pb.h for SPSR0 
+SFR_B_N(0x2D, SPSR0, SPIF, WCOL, Dummy5, Dummy4, Dummy3, Dummy2, Dummy1, SPI2X)
+
+// iom328pb.h for PINE
+SFR_B_N(0x0C, PINE, Dummy7, Dummy6, Dummy5, Dummy4, PINE3, PINE2, PINE1, PINE0)
+// iom324pb.h for PINE
+SFR_B_N(0x0C, PINE, Dummy7, PINE6, PINE5, PINE4, PINE3, PINE2, PINE1, PINE0)
+```
+
+> I did find the same registers for both chips, but because of differences in registers like `PINE`, we cannot write the same exact code and expect it to work identically on both microcontrollers.
 
 ---
 
@@ -144,4 +164,5 @@ void main(void)
 ---
 
 ## References & Resources
-* AVR Microcontroller with Core Independent Peripherals and PicoPower technology
+* AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATMega324PB)
+* AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATMega328PB)
