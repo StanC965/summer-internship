@@ -50734,13 +50734,55 @@
     "scope": null
   },
   {
+    "ID": "c:@stare_led1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_led1",
+    "location": {
+      "column": "14",
+      "line": "19",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "stare_led1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@stare_led2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_led2",
+    "location": {
+      "column": "14",
+      "line": "20",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "stare_led2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@stare_led3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_led3",
+    "location": {
+      "column": "14",
+      "line": "21",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "stare_led3",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@PortC_ISR",
     "What": "Function",
     "defdec": "Def",
     "display": "void PortC_ISR(void)",
     "location": {
       "column": "18",
-      "line": "20",
+      "line": "24",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "PortC_ISR",
@@ -50754,7 +50796,7 @@
     "display": "void PortA_ISR(void)",
     "location": {
       "column": "18",
-      "line": "31",
+      "line": "41",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "PortA_ISR",
@@ -50768,7 +50810,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "49",
+      "line": "71",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "setup",
@@ -50782,7 +50824,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "71",
+      "line": "93",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "main",

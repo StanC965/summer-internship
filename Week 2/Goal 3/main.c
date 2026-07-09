@@ -1,4 +1,4 @@
-//323
+//331
 #include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
@@ -16,14 +16,24 @@
 #define OUTPUT 1
 #define INPUT 0
 
+volatile int stare_led1 = 0;
+volatile int stare_led2 = 0;
+volatile int stare_led3 = 0;
+
 #pragma vector=PCINT2_vect
 __interrupt void PortC_ISR(void) 
-{
+{ 
   if(read_pin(&PINC, BTN1_PIN)==0){
-    reset_pin(&PORTD,LED1_PIN);
-  }
-  else{
-    set_pin(&PORTD,LED1_PIN);
+    if(stare_led1==0){
+      reset_pin(&PORTD,LED1_PIN);
+      stare_led1=1;
+    }
+  
+    else{
+      set_pin(&PORTD,LED1_PIN);
+      stare_led1=0;
+    }
+    while(read_pin(&PINC, BTN1_PIN)==0);
   }
 }
 
@@ -31,17 +41,29 @@ __interrupt void PortC_ISR(void)
 __interrupt void PortA_ISR(void) 
 {
   if(read_pin(&PINA, BTN2_PIN)==0){
-    reset_pin(&PORTD,LED2_PIN);
+    if(stare_led2==0){
+      reset_pin(&PORTD,LED2_PIN);
+      stare_led2=1;
+    }
+  
+    else{
+      set_pin(&PORTD,LED2_PIN);
+      stare_led2=0;
+    }
+    while(read_pin(&PINA, BTN2_PIN)==0);
   }
-  else{
-    set_pin(&PORTD,LED2_PIN);
-  }
-        
-  if(read_pin(&PINA, BTN3_PIN)==0){
-    reset_pin(&PORTA,LED3_PIN);
-  }
-  else{
-    set_pin(&PORTA,LED3_PIN);
+  
+   if(read_pin(&PINA, BTN3_PIN)==0){
+    if(stare_led3==0){
+      reset_pin(&PORTA,LED3_PIN);
+      stare_led3=1;
+    }
+  
+    else{
+      set_pin(&PORTA,LED3_PIN);
+      stare_led3=0;
+    }
+    while(read_pin(&PINA, BTN3_PIN)==0);
   }
    
 }
