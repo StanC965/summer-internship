@@ -1,4 +1,4 @@
-//315
+//323
 #include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
@@ -7,19 +7,18 @@
 #define PCIE2   2
 #define PCINT22 6
 
-volatile int buton=0;
+volatile int button_state=0;
 
 #pragma vector=PCINT2_vect
 __interrupt void Button_ISR(void) 
 {
     if(read_pin(&PINC,6)==0){
-        if(buton==0){ //toggle la buton
-          buton=1;
+        if(button_state==0){ //toggle la buton
+          button_state=1;
         }
         else {
-          buton=0;
+          button_state=0;
         }
-        //while(read_pin(&PINC,6)==0); //cat timp e apasat 
         for(volatile long i=0; i<3000; i++);
       }
 }
@@ -41,7 +40,7 @@ void main(void) {
     setup(); 
 
     while(1){
-      if(buton==1){
+      if(button_state==1){
         SOS(&PORTC,7);
         PowerOff_LED(&PORTC, 7);
         for(long i=0;i<300000;i++);

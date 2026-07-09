@@ -51280,16 +51280,16 @@
     "scope": null
   },
   {
-    "ID": "c:@buton",
+    "ID": "c:@button_state",
     "What": "Variable",
     "defdec": "Def",
-    "display": "buton",
+    "display": "button_state",
     "location": {
       "column": "14",
       "line": "10",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
-    "name": "buton",
+    "name": "button_state",
     "origin": "project_file",
     "scope": null
   },
@@ -51308,13 +51308,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@449@F@Button_ISR@i",
+    "ID": "c:main.c@416@F@Button_ISR@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "27",
-      "line": "23",
+      "line": "22",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "i",
@@ -51328,7 +51328,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "27",
+      "line": "26",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "setup",
@@ -51342,7 +51342,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "40",
+      "line": "39",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "main",
@@ -51350,13 +51350,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@938@F@main@i",
+    "ID": "c:main.c@912@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "18",
-      "line": "47",
+      "line": "46",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "i",
