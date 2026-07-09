@@ -1,0 +1,11 @@
+222 - How to turn on the LEDs of OLED1 and IO1, just by reading the schematics?
+
+OLED1 board:
+- LED1 = D101 with resistor R101 = 680 ohm, connected to VCC_TARGET
+- LED2 = D102 with resistor R102 = 680 ohm, connected to VCC_TARGET
+- LED3 = D103 with resistor R103 = 680 ohm, connected to VCC_TARGET
+
+IO1 board:
+- LED1 = D101 with resistor R101 = 680 ohm, connected to VCC_TARGET
+
+So all these LEDs are ACTIVE LOW: they light up when the microcontroller pin is driven to 0.
