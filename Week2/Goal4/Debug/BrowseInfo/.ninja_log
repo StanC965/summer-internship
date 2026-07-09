@@ -1,0 +1,23 @@
+# ninja log v5
+0	126	8052855010000000	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/adc.xcl	a4f88947d5f731f8
+15	136	8052855010000000	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/gpio.xcl	9286ab359e079249
+8	159	8052855010000000	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/led.xcl	2ad7cc5f603c60f7
+23	187	8052855010000000	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/task423.xcl	290bca6a83faf89e
+127	234	8052855014656360	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/adc.pbi	25b625706085fbd5
+189	247	8052855014791627	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/task423.pbi	a2452eb5b698bfb1
+160	266	8052855014982000	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/led.pbi	c2231775a1834161
+137	346	8052855015780858	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/gpio.pbi	27ab2ffa95603160
+348	402	8052855016349469	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbd	c2dec4f16f488826
+403	1178	8052855023311156	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbw	47beab45a71dbe3d
+2	99	8052855126111431	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/task423.pbi	a2452eb5b698bfb1
+101	162	8052855126765288	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbd	c2dec4f16f488826
+164	895	8052855133448423	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbw	47beab45a71dbe3d
+2	106	8052869720219003	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/task423.pbi	a2452eb5b698bfb1
+108	180	8052869720974464	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbd	c2dec4f16f488826
+181	970	8052869728065449	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbw	47beab45a71dbe3d
+0	94	8052870386415290	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/task423.pbi	a2452eb5b698bfb1
+95	153	8052870387030508	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbd	c2dec4f16f488826
+155	900	8052870393877366	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbw	47beab45a71dbe3d
+2	127	8052870749360775	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/task423.pbi	a2452eb5b698bfb1
+129	197	8052870750082314	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbd	c2dec4f16f488826
+198	897	8052870756739191	D:/Mircea/Marqurdt/summer-internship/Week2/Goal4/Debug/BrowseInfo/Objective1-2.pbw	47beab45a71dbe3d
