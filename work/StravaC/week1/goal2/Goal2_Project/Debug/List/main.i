@@ -594,55 +594,27 @@
 
 
 
+
+
+
 typedef unsigned char gpio_uint8_t;
 typedef unsigned int  gpio_uint16_t;
 
 
 
-
-
-
-
-
-
-
-
- 
 extern void gpio_set_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
-
-
-
-
-
-
-
-
- 
 extern void gpio_reset_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
-
-
-
-
-
-
-
-
- 
 extern void gpio_toggle_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
-
-
-
-
-
-
-
-
-
- 
 extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8_t direction);
+
+extern void gpio_activate_pullup(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_register, gpio_uint8_t pin);
+
+extern gpio_uint8_t gpio_read_pin_debounced(volatile gpio_uint8_t *pin_register, gpio_uint8_t pin);
 
 #line 3 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
 #line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.h"
@@ -741,7 +713,7 @@ void delay_between_sos(void)
 {
     volatile unsigned long i;
 
-    for (i = 0; i < 150000UL; i++)
+    for (i = 0; i < 250000UL; i++)
     {
 
     }
@@ -749,13 +721,32 @@ void delay_between_sos(void)
 
 void main(void)
 {
+    gpio_uint8_t button_state;
+    gpio_uint8_t sos_started;
+
+    sos_started = ((0x00U));
+
+    gpio_set_direction(&DDRC, 6, ((0x00U)));
     gpio_set_direction(&DDRC, 7, ((0x01U)));
 
+    gpio_activate_pullup(&PORTC, 6);
     led_power_off(&PORTC, 7);
 
     while (1)
     {
-        sos_play(&PORTC, 7);
-        delay_between_sos();
+        if (sos_started == ((0x00U)))
+        {
+            button_state = gpio_read_pin_debounced(&PINC, 6);
+
+            if (button_state == ((0x00U)))
+            {
+                sos_started = ((0x01U));
+            }
+        }
+        else
+        {
+            sos_play(&PORTC, 7);
+            delay_between_sos();
+        }
     }
 }
