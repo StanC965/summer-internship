@@ -729,7 +729,7 @@
                 </option>
                 <option>
                     <name>OutputFile</name>
-                    <state>Objective3.d90</state>
+                    <state>Objective4.d90</state>
                 </option>
                 <option>
                     <name>OutputFormat</name>
@@ -891,7 +891,7 @@
                 </option>
                 <option>
                     <name>ExtraOutputFile</name>
-                    <state>Objective3.a90</state>
+                    <state>Objective4.a90</state>
                 </option>
                 <option>
                     <name>ExtraOutputFormat</name>
@@ -2104,6 +2104,12 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\CarCrashDetection.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\CarCrashDetection.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\gpio.c</name>
     </file>
     <file>
@@ -2117,44 +2123,5 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
-        <excluded>
-            <configuration>Debug</configuration>
-        </excluded>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task432.c</name>
-        <excluded>
-            <configuration>Debug</configuration>
-        </excluded>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task433.c</name>
-        <excluded>
-            <configuration>Debug</configuration>
-        </excluded>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task434.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task436.c</name>
-        <excluded>
-            <configuration>Debug</configuration>
-        </excluded>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task437.c</name>
-        <excluded>
-            <configuration>Debug</configuration>
-        </excluded>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task438.c</name>
-        <excluded>
-            <configuration>Debug</configuration>
-        </excluded>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task439.c</name>
     </file>
 </project>
