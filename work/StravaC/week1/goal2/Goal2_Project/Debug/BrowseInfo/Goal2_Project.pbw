@@ -50684,7 +50684,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "5",
+      "line": "29",
       "path": "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
     },
     "name": "main",
