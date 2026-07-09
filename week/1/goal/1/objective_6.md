@@ -14,7 +14,7 @@
 | **[165]** | `CORE`     | [x] Completed
 | **[166]** | `OPTIONAL` | [x] Completed
 | **[167]** | `OPTIONAL` | [x] Completed
-| **[168]** | `OPTIONAL` | [] Completed
+| **[168]** | `OPTIONAL` | [x] Completed
 
 ---
 
@@ -157,9 +157,26 @@ SFR_B_N(0x0C, PINE, Dummy7, PINE6, PINE5, PINE4, PINE3, PINE2, PINE1, PINE0)
 ---
 
 #### Task 168
-> **Question/Prompt:**  
+> **Question/Prompt:**  You can extend your search for the same registers to see if they are compatible with ATmega328P which is the exact microcontroller used by Arduino.
 
 > **Answer/Explanation:**
+> I looked inside the `iom324pb.h` and `iom328p.h` files:
+
+```
+// iom328p.h for TIFR4 - not found
+// iom324pb.h for TIFR4
+SFR_B_N(0x19, TIFR4, Dummy7, Dummy6, ICF4, Dummy4, Dummy3, OCF4B, OCF4A, TOV4)
+
+// iom328p.h for SPSR0 - not found
+// iom324pb.h for SPSR0 
+SFR_B_N(0x2D, SPSR0, SPIF, WCOL, Dummy5, Dummy4, Dummy3, Dummy2, Dummy1, SPI2X)
+
+// iom328p.h for PINE - not found
+// iom324pb.h for PINE
+SFR_B_N(0x0C, PINE, Dummy7, PINE6, PINE5, PINE4, PINE3, PINE2, PINE1, PINE0)
+```
+
+> In this case I did not find the registers used by ATMega324PB on the ATMega328P microcontroller.
 
 ---
 
