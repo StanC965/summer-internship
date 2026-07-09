@@ -13,6 +13,7 @@
 | **[213]** | `CORE` | [x] Completed 
 | **[214]** | `CORE` | [x] Completed 
 | **[215]** | `CORE` | [x] Completed 
+| **[216]** | `CORE` | [x] Completed 
 
 ---
 
@@ -91,7 +92,43 @@ void main (void){
 
 ---
 
+#### Task 216
+> **Question/Prompt:** Program LED0 to be turned on for 1 second*, turned off for the next 1 second and so on (repeat the sequence).
+
+> **Answer/Explanation:** 
+> To achieve a delay of 1 second, while using a for loop, we would need to count to 1000. I tried to run the program with that value but I have encountered an issue: the LED appeared to be on constantly, with no visible blinking.
+>  
+> This happens due to the fact that ATmega operates at a clock speed of 16 MHz. This means that a single clock takes exactly 1 / 16 MHz which is 62.5 nanoseconds. Since the program logic is relatively simple, the LED operations are executed too fast to be able to percieve them.
+>
+> A value for the counter could be found in this case, but the other issue is that code optimization was disabled for this project, so that makes code execution a bit slower.
+>
+> Since finding a better counter value got harder, I decided to use a bigger value, which does let me see the LED turn on and off continously:
+
+```
+#include <iom324pb.h>
+
+void delay(int count){
+  for(int i = 0; i < count; i++);
+}
+
+void main (void){
+  
+  DDRC |= 1 << 7;
+  
+  while(1){
+    PORTC &= ~(1 << 7);
+    delay(100000);
+    
+    PORTC |= 1 << 7;
+    delay(100000);
+  }
+  
+}
+```
+
+---
+
 ## References & Resources
-* [ATMega324PB Pin Configurations](http://content.alexandria.atmel.com/webhelp/GUID-74F8229E-4C43-4FA0-BE7D-1AA303C6F8A4-en-US-6/index.html?GUID-7CB50236-3F2B-4023-9C78-7F663A7B4801)
-*  AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATMega324PB)
+* [ATmega324PB Pin Configurations](http://content.alexandria.atmel.com/webhelp/GUID-74F8229E-4C43-4FA0-BE7D-1AA303C6F8A4-en-US-6/index.html?GUID-7CB50236-3F2B-4023-9C78-7F663A7B4801)
+*  AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATmega324PB)
 * ATmega324PB Xplained Pro user guide
