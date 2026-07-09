@@ -1,4 +1,31 @@
 #include "iom324pb.h"
+#include "gpio.h"
+
+/*
+241:
+Codul a fost reorganizat modular.
+
+Am creat doua fisiere noi:
+gpio.c si gpio.h.
+
+Fisierul gpio.h este interfata modulului gpio.
+Aici sunt declarate tipurile, constantele si functiile publice.
+
+Fisierul gpio.c contine implementarea functiilor din modulul gpio.
+
+Modulul gpio contine doar functii de baza pentru lucrul cu pini si porturi:
+set pin, reset pin, toggle pin si set direction.
+
+main.c ramane modulul central al aplicatiei.
+El nu mai contine detalii despre cum se modifica bitii din registre,
+ci doar foloseste functiile oferite de modulul gpio.
+
+Organizarea modulara este importanta deoarece face codul mai clar,
+mai usor de inteles, mai usor de testat si mai usor de modificat.
+
+Daca in viitor vrem sa schimbam modul in care controlam pinii,
+modificam doar modulul gpio, fara sa rescriem toata aplicatia.
+*/
 
 void delay_half_second(void)
 {
@@ -10,45 +37,15 @@ void delay_half_second(void)
     }
 }
 
-void set_pin(volatile unsigned char *port, unsigned char pin)
-{
-    *port |= (1 << pin);
-}
-
-void reset_pin(volatile unsigned char *port, unsigned char pin)
-{
-    *port &= ~(1 << pin);
-}
-
-void toggle_pin(volatile unsigned char *port, unsigned char pin)
-{
-    *port ^= (1 << pin);
-}
-
-void set_direction(volatile unsigned char *ddr, unsigned char pin, unsigned char direction)
-{
-    direction ? (*ddr |= (1 << pin)) : (*ddr &= ~(1 << pin));
-}
-
 void main(void)
 {
-    set_direction(&DDRC, 7, 1);
-    set_direction(&DDRD, 5, 1);
-    set_direction(&DDRD, 4, 1);
-    set_direction(&DDRA, 3, 1);
+    gpio_set_direction(&DDRC, 7, GPIO_OUTPUT);
 
-    set_pin(&PORTC, 7);
-    set_pin(&PORTD, 5);
-    set_pin(&PORTD, 4);
-    set_pin(&PORTA, 3);
+    gpio_set_pin(&PORTC, 7);
 
     while (1)
     {
-        toggle_pin(&PORTC, 7);
-        toggle_pin(&PORTD, 5);
-        toggle_pin(&PORTD, 4);
-        toggle_pin(&PORTA, 3);
-
+        gpio_toggle_pin(&PORTC, 7);
         delay_half_second();
     }
 }

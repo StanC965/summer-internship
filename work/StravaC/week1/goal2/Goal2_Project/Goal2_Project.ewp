@@ -704,7 +704,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>192</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -2103,6 +2103,12 @@
             </data>
         </settings>
     </configuration>
+    <file>
+        <name>$PROJ_DIR$\gpio.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\gpio.h</name>
+    </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
     </file>
