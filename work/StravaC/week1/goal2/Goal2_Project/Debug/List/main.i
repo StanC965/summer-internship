@@ -711,10 +711,25 @@ extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
 void main(void)
 {
+    unsigned char button_state;
+
+    gpio_set_direction(&DDRC, 6, ((0x00U)));
     gpio_set_direction(&DDRC, 7, ((0x01U)));
+
+    gpio_set_pin(&PORTC, 6);
+    led_power_off(&PORTC, 7);
 
     while (1)
     {
-      led_blink_slow(&PORTC, 7);
+        button_state = PINC;
+
+        if ((button_state & (1 << 6)) == 0)
+        {
+            led_power_on(&PORTC, 7);
+        }
+        else
+        {
+            led_power_off(&PORTC, 7);
+        }
     }
 }
