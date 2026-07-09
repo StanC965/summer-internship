@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>1259656269</fileChecksum>
+    <fileChecksum>889524570</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -53,6 +53,12 @@
         </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20</file>
+                </tool>
+            </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
