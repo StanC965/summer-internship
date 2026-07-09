@@ -2110,6 +2110,9 @@
         <name>$PROJ_DIR$\adc.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\BMWCustomer.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\gpio.c</name>
     </file>
     <file>
@@ -2153,5 +2156,8 @@
     </file>
     <file>
         <name>$PROJ_DIR$\task428.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
 </project>

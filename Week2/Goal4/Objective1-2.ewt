@@ -2642,6 +2642,9 @@
         <name>$PROJ_DIR$\adc.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\BMWCustomer.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\gpio.c</name>
     </file>
     <file>
