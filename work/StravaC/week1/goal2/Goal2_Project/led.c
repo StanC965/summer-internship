@@ -13,8 +13,8 @@ Modulul led foloseste functiile de baza din modulul gpio.
 Pentru ca LED-urile sunt active-low, aprinderea se face cu reset pe pin,
 iar stingerea se face cu set pe pin.
 
-Pentru task-ul 261 am adaugat comportamente abstracte pentru LED0:
-punct Morse, linie Morse si secventa SOS.
+Modulul led contine doar comportamente specifice LED-urilor:
+power on, power off, blink fast si blink slow.
 */
 
 #include "led.h"
@@ -23,10 +23,6 @@ punct Morse, linie Morse si secventa SOS.
 
 static void led_delay_fast(void);
 static void led_delay_slow(void);
-
-static void led_delay_point(void);
-static void led_delay_line(void);
-static void led_delay_pause(void);
 
 // Public functions
 
@@ -58,39 +54,6 @@ void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin)
     led_delay_slow();
 }
 
-void led_point(volatile gpio_uint8_t *port, gpio_uint8_t pin)
-{
-    led_power_on(port, pin);
-    led_delay_point();
-
-    led_power_off(port, pin);
-    led_delay_pause();
-}
-
-void led_line(volatile gpio_uint8_t *port, gpio_uint8_t pin)
-{
-    led_power_on(port, pin);
-    led_delay_line();
-
-    led_power_off(port, pin);
-    led_delay_pause();
-}
-
-void led_sos(volatile gpio_uint8_t *port, gpio_uint8_t pin)
-{
-    led_point(port, pin);
-    led_point(port, pin);
-    led_point(port, pin);
-
-    led_line(port, pin);
-    led_line(port, pin);
-    led_line(port, pin);
-
-    led_point(port, pin);
-    led_point(port, pin);
-    led_point(port, pin);
-}
-
 // Static private functions
 
 static void led_delay_fast(void)
@@ -108,36 +71,6 @@ static void led_delay_slow(void)
     volatile unsigned long i;
 
     for (i = 0; i < 50000UL; i++)
-    {
-
-    }
-}
-
-static void led_delay_point(void)
-{
-    volatile unsigned long i;
-
-    for (i = 0; i < 25000UL; i++)
-    {
-
-    }
-}
-
-static void led_delay_line(void)
-{
-    volatile unsigned long i;
-
-    for (i = 0; i < 75000UL; i++)
-    {
-
-    }
-}
-
-static void led_delay_pause(void)
-{
-    volatile unsigned long i;
-
-    for (i = 0; i < 25000UL; i++)
     {
 
     }

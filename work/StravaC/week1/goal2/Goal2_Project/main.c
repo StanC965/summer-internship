@@ -1,6 +1,7 @@
 #include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
+#include "sos.h"
 
 void delay_between_sos(void)
 {
@@ -20,7 +21,7 @@ void main(void)
 
     while (1)
     {
-        led_sos(&PORTC, 7);
+        sos_play(&PORTC, 7);
         delay_between_sos();
     }
 }

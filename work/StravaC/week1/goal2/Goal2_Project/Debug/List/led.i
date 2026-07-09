@@ -10,9 +10,20 @@
 
 
 
+
+
+
+
+
+
  
 
 #line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.h"
+
+
+
+
+
 
 
 
@@ -105,7 +116,7 @@ extern void gpio_toggle_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
  
 extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8_t direction);
 
-#line 15 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.h"
+#line 20 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.h"
 
 
 
@@ -153,11 +164,7 @@ extern void led_blink_fast(volatile gpio_uint8_t *port, gpio_uint8_t pin);
  
 extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
-#line 15 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.c"
-
-
-
-
+#line 21 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.c"
 
 
 

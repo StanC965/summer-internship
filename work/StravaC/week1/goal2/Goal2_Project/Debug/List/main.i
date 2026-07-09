@@ -657,6 +657,11 @@ extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpi
 
 
 
+
+
+
+
+
  
 
 
@@ -708,28 +713,49 @@ extern void led_blink_fast(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
 #line 4 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\sos.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+extern void sos_play(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+#line 5 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
+
+void delay_between_sos(void)
+{
+    volatile unsigned long i;
+
+    for (i = 0; i < 150000UL; i++)
+    {
+
+    }
+}
 
 void main(void)
 {
-    unsigned char button_state;
-
-    gpio_set_direction(&DDRC, 6, ((0x00U)));
     gpio_set_direction(&DDRC, 7, ((0x01U)));
 
-    gpio_set_pin(&PORTC, 6);
     led_power_off(&PORTC, 7);
 
     while (1)
     {
-        button_state = PINC;
-
-        if ((button_state & (1 << 6)) == 0)
-        {
-            led_power_on(&PORTC, 7);
-        }
-        else
-        {
-            led_power_off(&PORTC, 7);
-        }
+        sos_play(&PORTC, 7);
+        delay_between_sos();
     }
 }
