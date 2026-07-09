@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>4246687131</fileChecksum>
+    <fileChecksum>219484282</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -23,17 +23,21 @@
             <file>$PROJ_DIR$\gpio.h</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$PROJ_DIR$\Debug\List\Objective3.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\task433.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task433.i</file>
             <file>$PROJ_DIR$\Debug\List\task432.i</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\task432.r90</file>
+            <file>$PROJ_DIR$\task434.c</file>
+            <file>$PROJ_DIR$\task436.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\task432.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 21</file>
+                    <file> 20 23</file>
                 </tool>
             </outputs>
             <inputs>
@@ -48,7 +52,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 20</file>
+                    <file> 22</file>
                 </tool>
             </outputs>
         </file>
@@ -57,7 +61,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 19</file>
+                    <file> 21</file>
                 </tool>
             </outputs>
         </file>
@@ -86,6 +90,21 @@
             </outputs>
         </file>
         <file>
+            <name>$PROJ_DIR$\task433.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 19 18</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 8 1 15 7 11 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
             <name>$PROJ_DIR$\Debug\Exe\Objective3.d90</name>
             <outputs>
                 <tool>
@@ -96,7 +115,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 13 14 19 20 21 16</file>
+                    <file> 13 14 21 22 18 16</file>
                 </tool>
             </inputs>
         </file>
@@ -106,6 +125,10 @@
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task433.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>

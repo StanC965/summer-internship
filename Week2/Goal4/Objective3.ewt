@@ -2656,4 +2656,10 @@
     <file>
         <name>$PROJ_DIR$\task433.c</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task434.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task436.c</name>
+    </file>
 </project>

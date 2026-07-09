@@ -23,7 +23,7 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <DebugChecksum>
-        <Checksum>16565129</Checksum>
+        <Checksum>2656886826</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -31,11 +31,6 @@
     <CallStack>
         <ShowArgs>0</ShowArgs>
     </CallStack>
-    <LogFile>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
-        <Category2>_ 2</Category2>
-    </LogFile>
     <watch_formats>
         <Fmt0>{W}1:OCR0A	4	0</Fmt0>
         <Fmt1>{W}1:PORTB	4	2</Fmt1>
@@ -55,4 +50,9 @@
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
+        <Category2>_ 2</Category2>
+    </LogFile>
 </settings>
