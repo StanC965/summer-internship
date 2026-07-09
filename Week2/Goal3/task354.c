@@ -4,7 +4,7 @@
 #define PA1 1
 #define INPUT 0
 #define ADMUX1 0
-#define REF0 6
+#define REF1 7
 #define PC7 7
 #define OUTPUT 1
 #define ADEN 7
@@ -33,7 +33,7 @@ void initADCSRA(){
     resetPin(&PORTA,PA1);
     
     setPin(&ADMUX,ADMUX1);
-    setPin(&ADMUX,REF0);
+    setPin(&ADMUX,REF1);
     setPin(&ADMUX,ADLAR);
     
     setPin(&ADCSRA,ADEN);

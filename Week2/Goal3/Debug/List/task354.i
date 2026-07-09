@@ -1,4 +1,6 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -580,11 +582,7 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
-
-
-
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 
 extern void ledInit(unsigned char* DDR,unsigned char* PORT,unsigned char pin);
 extern void ledPowerOn(unsigned char led);
@@ -593,109 +591,250 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.c"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
 
-void ledInit(unsigned char* DDR, unsigned char* PORT, unsigned char pin){
-  setDirection(DDR,pin,1);
-  setPin(PORT,pin);
-}
+extern void ledPoint(unsigned char led);
 
-void ledPowerOn(unsigned char led){
-  if(led == 0){
+extern void ledLine(unsigned char led);
+
+extern void ledSos(unsigned char led);
+
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
+#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+
+
+
+
+
+
  
-    resetPin(&PORTC,7);
-    
-  }
-  else
-  if(led == 1){
-  
-    resetPin(&PORTD,5);
-    
-  }
-  else
-  if(led == 2){
-   
-    resetPin(&PORTD,4);
-    
-  }
-  else
-  if(led == 3){
-  
-    resetPin(&PORTA,3);
-    
-  }
-  else{
-    
-    resetPin(&PORTB,3);
-    
-  }
+
+
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+__intrinsic void __no_operation(void);
+__intrinsic void __enable_interrupt(void);
+__intrinsic void __disable_interrupt(void);
+__intrinsic void __sleep(void);
+__intrinsic void __watchdog_reset(void);
+
+
+#pragma language=save
+#pragma language=extended
+
+
+
+__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
+
+
+
+
+
+
+#pragma language=restore
+
+__intrinsic void __insert_opcode(unsigned short op);
+
+#line 59 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+__intrinsic void __require(void *);
+
+__intrinsic void __delay_cycles(unsigned long);
+
+__intrinsic unsigned char __save_interrupt(void);
+
+
+__intrinsic void          __restore_interrupt(unsigned char);
+
+typedef unsigned char __istate_t;
+
+__intrinsic unsigned char __swap_nibbles(unsigned char);
+
+__intrinsic void          __indirect_jump_to(unsigned long);
+
+
+
+
+__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __multiply_signed(signed char, signed char);
+__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
+
+__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
+__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
+
+
+#pragma language=save
+#pragma language=extended
+
+#line 264 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
+                                           unsigned char byte);
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
+                                          unsigned char byte);
+
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
+                                                    unsigned short word, 
+                                                    unsigned char byte);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
+                                                   unsigned char byte);
+
+
+
+
+
+
+
+
+#line 368 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+#line 394 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#pragma language=restore
+
+
+
+
+ 
+#line 411 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+ 
+
+
+
+#line 423 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 431 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 439 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 447 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+ 
+
+#line 468 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+#line 477 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+
+
+
+#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
+
+#line 17 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
+#pragma vector = (0x60)
+__interrupt void myInterrupt(void){
+  volatile unsigned char min = 255;
+  volatile unsigned char max = 0;
+
+  unsigned char value = ADCH;
+
+  if(value < min) min = value;
+  if(value > max) max = value;
+
+
+  setPin(&ADCSRA,6);    
 }
 
-void ledPowerOff(unsigned char led){
-  if(led == 0){
-    
+
+void initADCSRA(){
+    setDirection(&DDRC,7,1);
     setPin(&PORTC,7);
+    setDirection(&DDRA,1,0);
+    resetPin(&PORTA,1);
     
-  }
-  else
-  if(led == 1){
+    setPin(&ADMUX,0);
+    setPin(&ADMUX,6);
+    setPin(&ADMUX,5);
+    
+    setPin(&ADCSRA,7);
+    setPin(&ADCSRA,3);
    
-    setPin(&PORTD,5);
-    
-  }
-  else
-  if(led == 2){
-    
-    setPin(&PORTD,4);
-    
-  }
-  else
-  if(led == 3){
-   
-    setPin(&PORTA,3);
-    
-  }
-  else{
-    
-    setPin(&PORTB,3);
-    
-  }
 }
 
 
-void ledBlinkSlow(unsigned char led){
-  ledPowerOn(led);
-  for(int i = 0;i<10000;i++);
-  ledPowerOff(led);
-  for(int i = 0;i<10000;i++);
-  ledPowerOn(led);
-  for(int i = 0;i<10000;i++);
-  ledPowerOff(led);
-
+int main( void )
+{
+  initADCSRA();
+  
+  __enable_interrupt();
+  
+  setPin(&ADCSRA,6);
+  
+  while(1){
+  }
+  
+  
 }
-void ledBlinkFast(unsigned char led){
-  ledPowerOn(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOff(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOn(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOff(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOn(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOff(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOn(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOff(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOn(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOff(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOn(led);
-  for(int i = 0;i<5000;i++);
-  ledPowerOff(led);
-}
-

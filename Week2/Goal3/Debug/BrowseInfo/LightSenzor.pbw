@@ -50734,238 +50734,406 @@
     "scope": null
   },
   {
-    "ID": "c:sos.h@23@macro@SOS_H",
+    "ID": "c:sos.c@23@macro@SOS_C",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "SOS_H",
+    "display": "SOS_C",
     "location": {
       "column": "9",
       "line": "2",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
     },
-    "name": "SOS_H",
-    "origin": "system_include",
+    "name": "SOS_C",
+    "origin": "project_file",
     "scope": null
   },
   {
     "ID": "c:@F@ledPoint",
     "What": "Function",
-    "defdec": "Dec",
+    "defdec": "Def",
     "display": "void ledPoint(unsigned char)",
     "location": {
-      "column": "13",
+      "column": "6",
       "line": "5",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
     },
     "name": "ledPoint",
-    "origin": "system_include",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@93@F@ledPoint@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@155@F@ledPoint@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@218@F@ledPoint@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "12",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@274@F@ledPoint@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "14",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@331@F@ledPoint@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "16",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@387@F@ledPoint@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "18",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
     "scope": null
   },
   {
     "ID": "c:@F@ledLine",
     "What": "Function",
-    "defdec": "Dec",
+    "defdec": "Def",
     "display": "void ledLine(unsigned char)",
     "location": {
-      "column": "13",
-      "line": "7",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+      "column": "6",
+      "line": "23",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
     },
     "name": "ledLine",
-    "origin": "system_include",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@491@F@ledLine@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "24",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@547@F@ledLine@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "26",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@605@F@ledLine@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "28",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@661@F@ledLine@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "30",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@719@F@ledLine@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "32",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@775@F@ledLine@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "14",
+      "line": "34",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+    },
+    "name": "i",
+    "origin": "project_file",
     "scope": null
   },
   {
     "ID": "c:@F@ledSos",
     "What": "Function",
-    "defdec": "Dec",
+    "defdec": "Def",
     "display": "void ledSos(unsigned char)",
     "location": {
-      "column": "13",
-      "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
+      "column": "6",
+      "line": "39",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
     },
     "name": "ledSos",
-    "origin": "system_include",
+    "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@53@macro@PA1",
+    "ID": "c:task354.c@53@macro@PA1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PA1",
     "location": {
       "column": "9",
       "line": "4",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "PA1",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@68@macro@INPUT",
+    "ID": "c:task354.c@68@macro@INPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "INPUT",
     "location": {
       "column": "9",
       "line": "5",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "INPUT",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@85@macro@ADMUX1",
+    "ID": "c:task354.c@85@macro@ADMUX1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADMUX1",
     "location": {
       "column": "9",
       "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADMUX1",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@103@macro@REF0",
+    "ID": "c:task354.c@103@macro@REF1",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "REF0",
+    "display": "REF1",
     "location": {
       "column": "9",
       "line": "7",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
-    "name": "REF0",
+    "name": "REF1",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@119@macro@PC7",
+    "ID": "c:task354.c@119@macro@PC7",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PC7",
     "location": {
       "column": "9",
       "line": "8",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "PC7",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@134@macro@OUTPUT",
+    "ID": "c:task354.c@134@macro@OUTPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OUTPUT",
     "location": {
       "column": "9",
       "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "OUTPUT",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@152@macro@ADEN",
+    "ID": "c:task354.c@152@macro@ADEN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADEN",
     "location": {
       "column": "9",
       "line": "10",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADEN",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@168@macro@ADCS",
+    "ID": "c:task354.c@168@macro@ADCS",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADCS",
     "location": {
       "column": "9",
       "line": "11",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADCS",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@184@macro@ADLAR",
+    "ID": "c:task354.c@184@macro@ADLAR",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADLAR",
     "location": {
       "column": "9",
       "line": "12",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADLAR",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@201@macro@ADPS0",
+    "ID": "c:task354.c@201@macro@ADPS0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADPS0",
     "location": {
       "column": "9",
       "line": "13",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADPS0",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@218@macro@ADPS1",
+    "ID": "c:task354.c@218@macro@ADPS1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADPS1",
     "location": {
       "column": "9",
       "line": "14",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADPS1",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@235@macro@ADPS2",
+    "ID": "c:task354.c@235@macro@ADPS2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADPS2",
     "location": {
       "column": "9",
       "line": "15",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADPS2",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@252@macro@ADIE",
+    "ID": "c:task354.c@252@macro@ADIE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADIE",
     "location": {
       "column": "9",
       "line": "16",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "ADIE",
     "origin": "project_file",
@@ -50979,21 +51147,21 @@
     "location": {
       "column": "18",
       "line": "18",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "myInterrupt",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@326@F@myInterrupt@value",
+    "ID": "c:task354.c@326@F@myInterrupt@value",
     "What": "Variable",
     "defdec": "Def",
     "display": "value",
     "location": {
       "column": "17",
       "line": "19",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "value",
     "origin": "project_file",
@@ -51007,7 +51175,7 @@
     "location": {
       "column": "6",
       "line": "29",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "initADCSRA",
     "origin": "project_file",
@@ -51020,8 +51188,8 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "47",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+      "line": "45",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "main",
     "origin": "project_file",
@@ -51686,227 +51854,59 @@
     "scope": null
   },
   {
-    "ID": "c:sos.c@23@macro@SOS_C",
+    "ID": "c:sos.h@23@macro@SOS_H",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "SOS_C",
+    "display": "SOS_H",
     "location": {
       "column": "9",
       "line": "2",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
     },
-    "name": "SOS_C",
-    "origin": "project_file",
+    "name": "SOS_H",
+    "origin": "system_include",
     "scope": null
   },
   {
     "ID": "c:@F@ledPoint",
     "What": "Function",
-    "defdec": "Def",
+    "defdec": "Dec",
     "display": "void ledPoint(unsigned char)",
     "location": {
-      "column": "6",
+      "column": "13",
       "line": "5",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
     },
     "name": "ledPoint",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@93@F@ledPoint@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@155@F@ledPoint@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@218@F@ledPoint@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "12",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@274@F@ledPoint@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "14",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@331@F@ledPoint@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "16",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@387@F@ledPoint@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "18",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
+    "origin": "system_include",
     "scope": null
   },
   {
     "ID": "c:@F@ledLine",
     "What": "Function",
-    "defdec": "Def",
+    "defdec": "Dec",
     "display": "void ledLine(unsigned char)",
     "location": {
-      "column": "6",
-      "line": "23",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+      "column": "13",
+      "line": "7",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
     },
     "name": "ledLine",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@491@F@ledLine@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "24",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@547@F@ledLine@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "26",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@605@F@ledLine@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "28",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@661@F@ledLine@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "30",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@719@F@ledLine@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "32",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@775@F@ledLine@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "14",
-      "line": "34",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
-    },
-    "name": "i",
-    "origin": "project_file",
+    "origin": "system_include",
     "scope": null
   },
   {
     "ID": "c:@F@ledSos",
     "What": "Function",
-    "defdec": "Def",
+    "defdec": "Dec",
     "display": "void ledSos(unsigned char)",
     "location": {
-      "column": "6",
-      "line": "39",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.c"
+      "column": "13",
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\sos.h"
     },
     "name": "ledSos",
-    "origin": "project_file",
+    "origin": "system_include",
     "scope": null
   }
 ]

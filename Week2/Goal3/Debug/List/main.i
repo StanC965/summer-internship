@@ -584,7 +584,7 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 
-
+extern void ledInit(unsigned char* DDR,unsigned char* PORT,unsigned char pin);
 extern void ledPowerOn(unsigned char led);
 
 extern void ledPowerOff(unsigned char led);
@@ -797,7 +797,7 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 #pragma vector = (0x60)
 __interrupt void myInterrupt(void){
   unsigned char value = ADCH;
-  if(value >80)
+  if(value >100)
       ledPowerOn(0);
   else
       ledPowerOff(0);
@@ -808,18 +808,17 @@ __interrupt void myInterrupt(void){
 
 void initADCSRA(){
     setDirection(&DDRC,7,1);
+    setPin(&PORTC,7);
     setDirection(&DDRA,1,0);
     resetPin(&PORTA,1);
     
     setPin(&ADMUX,0);
     setPin(&ADMUX,6);
-    resetPin(&ADMUX,7);
     setPin(&ADMUX,5);
     
     setPin(&ADCSRA,7);
     setPin(&ADCSRA,3);
-
- 
+   
 }
 
 

@@ -5,81 +5,57 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\List\task332.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\task333.r90</file>
-            <file>$PROJ_DIR$\Debug\Obj\task332.r90</file>
-            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
             <file>$PROJ_DIR$\Debug\List\task333.i</file>
-            <file>$PROJ_DIR$\Debug\List\BMWCustomer.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\BMWCustomer.r90</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\sos.h</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</file>
-            <file>$PROJ_DIR$\sos.c</file>
-            <file>$PROJ_DIR$\gpio.c</file>
-            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\led.h</file>
-            <file>$PROJ_DIR$\Debug\List\ControlPanel.map</file>
-            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
-            <file>$PROJ_DIR$\sos.h</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\BMWCustomer.c</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</file>
-            <file>$PROJ_DIR$\Debug\Exe\ControlPanel.d90</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\BMWCustomer.r90</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.h</file>
+            <file>$PROJ_DIR$\Debug\List\ControlPanel.map</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\led.h</file>
+            <file>$PROJ_DIR$\Debug\List\BMWCustomer.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task333.r90</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
             <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\Debug\List\task332.i</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\sos.c</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\sos.h</file>
             <file>$PROJ_DIR$\gpio.h</file>
             <file>$PROJ_DIR$\led.h</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.h</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$PROJ_DIR$\Debug\List\sos.i</file>
-            <file>$PROJ_DIR$\Debug\List\led.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$PROJ_DIR$\..\..\Week1\Goal2\led.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\task332.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
+            <file>$PROJ_DIR$\sos.h</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\ControlPanel.d90</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\BMWCustomer.c</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$PROJ_DIR$\Debug\List\sos.i</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
         </outputs>
         <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 13 19</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</name>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 22 36</file>
+                    <file> 0 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 33 14 27</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\sos.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 34 15</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 26 25 11 33 14</file>
+                    <file> 20 9 7 28 35 12 4</file>
                 </tool>
             </inputs>
         </file>
@@ -88,58 +64,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 22 36</file>
+                    <file> 13 37</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 33 14 25</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Week1\Goal2\BMWCustomer.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 5 6</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 7 12 27 11 33 14 3</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 0 2</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 7 12 27 11 33 14 3</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\ControlPanel.d90</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 13</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 20 32 6 36 21 15 30</file>
+                    <file> 28 35 12 21</file>
                 </tool>
             </inputs>
         </file>
@@ -148,28 +79,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 35 21</file>
+                    <file> 32 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 25 11 33 14 26</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 4 1</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 7 12 27 11 33 14 3</file>
+                    <file> 21 28 35 12 22</file>
                 </tool>
             </inputs>
         </file>
@@ -178,13 +94,43 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 23 29</file>
+                    <file> 14 23</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 16 26 25 11 33 14 3</file>
+                    <file> 27 22 21 28 35 12 4</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\sos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 33 26</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 21 28 35 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 16 25</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20 9 7 28 35 12 4</file>
                 </tool>
             </inputs>
         </file>
@@ -193,19 +139,77 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 35 21</file>
+                    <file> 32 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 27 11 33 14 12</file>
+                    <file> 7 28 35 12 9</file>
                 </tool>
             </inputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\ControlPanel.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 8</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 1 36 5 37 2 26 34</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\BMWCustomer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 10 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20 9 7 28 35 12 4</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 13 37</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 35 12 7</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 8 29</file>
+                </tool>
+            </outputs>
+        </file>
         <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</name>
-            <tool>C-STAT</tool>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>ICCAVR</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\..\..\Week1\Goal2\task333.c</name>
@@ -216,12 +220,8 @@
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>[MULTI_TOOL]</name>
-            <tool>XLINK</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\main.c</name>
-            <tool>ICCAVR</tool>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task332.c</name>
+            <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>[REBUILD_ALL]</name>

@@ -2656,4 +2656,7 @@
     <file>
         <name>$PROJ_DIR$\sos.h</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task354.c</name>
+    </file>
 </project>
