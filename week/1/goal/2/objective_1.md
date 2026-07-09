@@ -12,6 +12,7 @@
 | **[212]** | `CORE` | [x] Completed 
 | **[213]** | `CORE` | [x] Completed 
 | **[214]** | `CORE` | [x] Completed 
+| **[215]** | `CORE` | [x] Completed 
 
 ---
 
@@ -66,6 +67,27 @@ void main (void){
 > 1. To allow PC7 to drive the line to GND, it must be an output. Therefore, we must write a `1` to the DDC7 bit inside the DDRC register.
 > 2. To turn LED0 on, we must write a `0` to the PC7 bit inside PORTC. This physically drives the pin to GND, completing the active low circuit.
 > 3. For further implementations, if we need to turn LED0 off, we write a `1` to PC7. This drives PC7 high, removing the voltage difference across the LED and stopping current flow.
+
+---
+
+#### Task 215
+> **Question/Prompt:** Write a program code for light up the LED0. You need to take control over the registers implied in turning LED0 on. Compile and download the code. Run the code in order to see LED0 on. Congrats!
+
+> **Answer/Explanation:** 
+
+```
+#include <iom324pb.h>
+
+void main (void){
+  
+  DDRC |= 1 << 7;
+  PORTC &= ~(1 << 7);
+  
+  while(1){
+    
+  }
+}
+```
 
 ---
 
