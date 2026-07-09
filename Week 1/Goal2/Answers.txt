@@ -15,3 +15,12 @@
 
 224. In your opinion what would be the role of these constructs? 
     Rolul constructorilor este de a preveni includerea multipla a source files. Daca o variabila/functie apare de mai multe ori va copia codul doar prima oara, dupa care va sari peste.
+
+228. Make your own Christmas Tree like sequence, for playing the LEDs and describe it in the table below. Up to 5 states and 5 LEDs available (not mandatory to use them all).
+    LED id |  initial state   | state 1  | state 2  | state 3  | state 4  | state 5
+    1           OFF               OFF        OFF        ON         OFF        OFF
+    2           OFF               OFF        OFF        ON         ON         OFF
+    3           OFF               ON         ON         ON         ON         ON 
+    4           OFF               OFF        OFF        ON         ON         OFF
+    5           OFF               OFF        OFF        ON         OFF        OFF
+    
