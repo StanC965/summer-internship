@@ -1,0 +1,1 @@
+To turn on the LEDs, we must drive the corresponding microcontroller pins LOW. The schematics show an active-low configuration, so pulling the signal lines to ground completes the circuit.
