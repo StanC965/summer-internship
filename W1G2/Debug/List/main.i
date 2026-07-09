@@ -787,90 +787,51 @@ extern void SOS(void);
 
 #line 5 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
 
-
 extern volatile _Bool sos_stop; 
 
-int pressed_confidence_level = 0;
-int released_confidence_level = 0;
-_Bool button_stable_state = 0;
-int count = 0;
+_Bool current_button_state = 0;
+_Bool last_button_state = 0;
 
 void setup(void)
 {
     leds_initialize(1, 0, 0, 0, 0); 
     gpio_set_direction(&DDRC, 6, (((0x01U))));
-    
-    
- 
-    gpio_set_pin(&PORTC, 6);  
+    gpio_set_pin(&PORTC, 6); 
     
     sos_stop = 1; 
+}
+
+void ButtonTask(void)
+{
+    current_button_state = (gpio_read_pin(&PINC,6) == ((0x00U)));
+
+    if(current_button_state && !last_button_state)
+    {
+        sos_stop = !sos_stop;                   
+    }
+
+    last_button_state = current_button_state;
 }
 
 void main(void)
 {
     setup();
-
-    while(1)
+                                                                              
+                
+    while(1)    
     {
-      
-        if(gpio_read_pin(&PINC, 6) == 0) 
-        {
-            pressed_confidence_level++;
-            released_confidence_level = 0; 
-        }
-        else 
-        {
-            released_confidence_level++;
-            pressed_confidence_level = 0;  
-        }
+        ButtonTask();
 
-    
-        if(pressed_confidence_level > 200) 
-        {
-            if(button_stable_state == 0) 
-            {
-                count++;  
-                button_stable_state = 1;
-                
-             
-            }
-            pressed_confidence_level = 0; 
-        }
-
-      
-        if(released_confidence_level > 200) 
-        {
-            button_stable_state = 0;      
-            released_confidence_level = 0; 
-        }
-
-       
-        if(count % 2 == 1)
-        {
-            SOS(); 
+        if(!sos_stop) 
+        {                                       
+            SOS();
             
-         
-            if(sos_stop == 1)
-            {
-                count = 0; 
-                
-              
-                button_stable_state = 1; 
-            }
+        
+            last_button_state = (gpio_read_pin(&PINC,6) == ((0x00U)));
         }
-         else
+        else
         {
-            led_Reset((0xAA)); 
+            led_Reset((0xAA));
         }
-           if(count % 2 == 0)
-                {
-                    sos_stop = 1; 
-                }
-                else
-                {
-                    sos_stop = 0; 
-                }
-       
     }
 }

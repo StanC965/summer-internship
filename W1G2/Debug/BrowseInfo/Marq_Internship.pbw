@@ -50992,7 +50992,7 @@
     "display": "sos_stop",
     "location": {
       "column": "23",
-      "line": "7",
+      "line": "6",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "sos_stop",
@@ -51000,58 +51000,30 @@
     "scope": null
   },
   {
-    "ID": "c:@pressed_confidence_level",
+    "ID": "c:@current_button_state",
     "What": "Variable",
     "defdec": "Def",
-    "display": "pressed_confidence_level",
+    "display": "current_button_state",
     "location": {
-      "column": "5",
+      "column": "7",
+      "line": "8",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "current_button_state",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@last_button_state",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "last_button_state",
+    "location": {
+      "column": "7",
       "line": "9",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
-    "name": "pressed_confidence_level",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@released_confidence_level",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "released_confidence_level",
-    "location": {
-      "column": "5",
-      "line": "10",
-      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
-    },
-    "name": "released_confidence_level",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@button_stable_state",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "button_stable_state",
-    "location": {
-      "column": "7",
-      "line": "11",
-      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
-    },
-    "name": "button_stable_state",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@count",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "count",
-    "location": {
-      "column": "5",
-      "line": "12",
-      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
-    },
-    "name": "count",
+    "name": "last_button_state",
     "origin": "project_file",
     "scope": null
   },
@@ -51062,10 +51034,24 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "14",
+      "line": "11",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "setup",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ButtonTask",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void ButtonTask(void)",
+    "location": {
+      "column": "6",
+      "line": "20",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "ButtonTask",
     "origin": "project_file",
     "scope": null
   },
@@ -51076,7 +51062,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "25",
+      "line": "32",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",
@@ -51202,7 +51188,7 @@
     "display": "void morse_delay_units(float)",
     "location": {
       "column": "13",
-      "line": "17",
+      "line": "16",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "morse_delay_units",
@@ -51210,13 +51196,13 @@
     "scope": null
   },
   {
-    "ID": "c:sos.c@806@F@morse_delay_units@i",
+    "ID": "c:sos.c@846@F@morse_delay_units@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "39",
-      "line": "30",
+      "line": "27",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "i",
@@ -51230,7 +51216,7 @@
     "display": "void morse_point(void)",
     "location": {
       "column": "13",
-      "line": "42",
+      "line": "39",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "morse_point",
@@ -51244,7 +51230,7 @@
     "display": "void morse_line(void)",
     "location": {
       "column": "13",
-      "line": "51",
+      "line": "48",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "morse_line",
@@ -51258,7 +51244,7 @@
     "display": "void letter_S(void)",
     "location": {
       "column": "6",
-      "line": "60",
+      "line": "57",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "letter_S",
@@ -51272,7 +51258,7 @@
     "display": "void letter_O(void)",
     "location": {
       "column": "6",
-      "line": "68",
+      "line": "65",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "letter_O",
@@ -51286,7 +51272,7 @@
     "display": "void SOS(void)",
     "location": {
       "column": "6",
-      "line": "76",
+      "line": "73",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "SOS",

@@ -3,87 +3,51 @@
 #include "led.h" 
 #include "sos.h"
 
-
 extern volatile _Bool sos_stop; 
 
-int pressed_confidence_level = 0;
-int released_confidence_level = 0;
-_Bool button_stable_state = 0;
-int count = 0;
+_Bool current_button_state = 0;
+_Bool last_button_state = 0;
 
 void setup(void)
 {
     leds_initialize(1, 0, 0, 0, 0); 
     gpio_set_direction(&DDRC, 6, GPIO_INPUT);
+    gpio_set_pin(&PORTC, 6); // Pull-up activat asta inseamna ca butonul e active low 
     
-    
-    gpio_set_pin(&PORTC, 6);  
-    
-    sos_stop = 1;
+    sos_stop = 1; 
+}
+
+void ButtonTask(void)
+{
+    current_button_state = (gpio_read_pin(&PINC,6) == GPIO_FALSE);
+
+    if(current_button_state && !last_button_state)
+    {
+        sos_stop = !sos_stop;                   // toggle sos la schimbarea starii (cod gray)
+    }
+
+    last_button_state = current_button_state;// actualizam starea 
 }
 
 void main(void)
 {
     setup();
-
-    while(1)
+                                                                              //Functionare:am schimbat pe metoda de stari si valori boolene si am renuntat la confidence level
+                // astfel acuma acel debounce se face printr-o bucla while la apasarea butonului  ca si schimbari am adaugat bool sos_stop care prin interogare la fiecare instructiune
+    while(1)    //continua sau opreste executia astfel avem efectul de toggle la functia SOS .
     {
-      
-        if(gpio_read_pin(&PINC, 6) == 0) 
-        {
-            pressed_confidence_level++;
-            released_confidence_level = 0; 
-        }
-        else 
-        {
-            released_confidence_level++;
-            pressed_confidence_level = 0;  
-        }
+        ButtonTask();
 
-                                                                // Nu am reusit sa implementez functia de toggle la SOS
-        if(pressed_confidence_level > 200)              //momentan programul va activa sos doar atata timp cat este apasat butonul
-        {                                       //imi este dificil sa dau debug deoarece,valorile de confidence se bazeaza pe sute de iteratii de while(1).
-            if(button_stable_state == 0)         //
-            {
-                count++;  
-                button_stable_state = 1;
-                
-                if(count % 2 == 0)
-                {
-                    sos_stop = 1; 
-                }
-                else
-                {
-                    sos_stop = 0; 
-                }
-            }
-            pressed_confidence_level = 0; 
-        }
-
-      
-        if(released_confidence_level > 200) 
-        {
-            button_stable_state = 0;      
-            released_confidence_level = 0; 
-        }
-
-       
-        if(count % 2 == 1)
-        {
-            SOS(); 
+        if(!sos_stop) // polling simplu                         // rezolutia interogarii este la instructiune pentru fiecare punct . linie  
+        {                                       
+            SOS();
             
-         
-            if(sos_stop == 1)
-            {
-                count = 0; 
-                
-              
-                button_stable_state = 1; 
-            }
+        //    Sincronizam starea butonului dupa terminarea SOS, ca sa nu reinitializeze imediat
+            last_button_state = (gpio_read_pin(&PINC,6) == GPIO_FALSE);
         }
         else
         {
-            led_Reset(LED_ZERO); 
+            led_Reset(LED_ZERO);
         }
     }
 }
