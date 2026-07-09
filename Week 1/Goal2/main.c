@@ -1,4 +1,4 @@
-//262
+//263
 
 #include "iom324pb.h"
 #include "gpio.h"
@@ -17,13 +17,25 @@ void main(void) {
     int buton=0;   
 
     while(1){
-        if(read_pin(&PINC,6)==0)
+      if(read_pin(&PINC,6)==0){
+        if(buton==0){ //toggle la buton
           buton=1;
-        
-        if(buton==1){
-          SOS(&PORTC,7);
-          PowerOff_LED(&PORTC,7);
-          for(long i=0;i<300000;i++);        
-        }  
+        }
+        else {
+          buton=0;
+        }
+        while(read_pin(&PINC,6)==0); //cat timp e apasat 
+        for(volatile long i=0; i<3000; i++);
+      }
+      
+      
+      if(buton==1){
+        SOS(&PORTC,7);
+        PowerOff_LED(&PORTC, 7);
+        for(long i=0;i<300000;i++);
+      }
+      else{
+        PowerOff_LED(&PORTC, 7);
+      } 
     }
 } 

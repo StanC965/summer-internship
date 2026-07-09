@@ -50636,13 +50636,27 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@452@F@main@i",
+    "ID": "c:main.c@513@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
-      "column": "20",
-      "line": "26",
+      "column": "27",
+      "line": "28",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@663@F@main@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "18",
+      "line": "35",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 1\\Goal2\\main.c"
     },
     "name": "i",
