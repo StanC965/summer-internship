@@ -831,19 +831,23 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 
-#pragma vector=(0x48)
+volatile unsigned char x;
+#pragma vector=(0x40)
 __interrupt void myInterrupt(void){
-  unsigned int a = 0;
-
+    
+    x = TCNT0;
+    
 }
 
-
-
-int main( void )
-{
-  setPin(&TIMSK0,0);
+void main(void){
+  TCNT0 = 0;
+  OCR0A = 127;
+  setPin(&TCCR0A,1);
+  setPin(&TIMSK0,1);
+  
   setPin(&TCCR0B,0);
   __enable_interrupt();
+  
   while(1){
   }
 }

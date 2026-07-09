@@ -205,7 +205,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 38</file>
+                    <file> 38 39</file>
                 </tool>
             </outputs>
             <inputs>
