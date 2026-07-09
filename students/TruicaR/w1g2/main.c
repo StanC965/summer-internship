@@ -3,13 +3,13 @@
 void main(void)
 {
   
-    DDRC_DDRC7 = 1;
-
+    DDRD_DDRD5 = 1;
+    DDRD_DDRD4 = 1;
+    DDRA_DDRA3 = 1;
     while (1)
     { 
-        PORTC_PORTC7 = 0; 
-        for (volatile long i = 0; i < 80000; i++);
-        PORTC_PORTC7 = 1;  
-        for (volatile long i = 0; i < 80000; i++);
+         PORTD_PORTD5=0;
+         PORTD_PORTD4=0;
+         PORTA_PORTA3=0;
     }
 }
