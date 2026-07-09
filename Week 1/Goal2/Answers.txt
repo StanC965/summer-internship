@@ -1,0 +1,26 @@
+212. How many pins does the PORTC port have? 
+    PORTC are 8 pini.
+
+213.  How many GPIO (General Purpose Input Output) ports does the ATmega324PB microcontroller have in total?
+    Microcontroller-ul ATmega324PB are 5 GPIO: PORTA, PORTB, PORTC, PORTD si PORTE.
+
+221. Check the electronic schematic of the ATMega324PB development board. Is there any resistor connected with the integrated LED0 in order to protect it? What value has that resistor? 
+    Da, exista un rezistor conectat la LED0 pentru a-l proteja, acesta avand valoarea 330 Ohm.
+
+227. But wait: have you asked yourself so far that you should have put a resistor in the connection with LEDs? You missed the resistor but the LEDs are working fine. Why?
+    Placutele OLED1 si IO1 au deja integrate rezistoare, de aceea nu trebuie sa punem noi.
+
+241. Why do you think it would be so much needed to organize our software program in a modular way?
+    Organizarea modulara este necesara pentru a face codul reutilizabil, pentru a ajuta la debugging, datele fiind mai usor de gasit, si pentru a facilita colaborarea programatorilor.
+
+224. In your opinion what would be the role of these constructs? 
+    Rolul constructorilor este de a preveni includerea multipla a source files. Daca o variabila/functie apare de mai multe ori va copia codul doar prima oara, dupa care va sari peste.
+
+228. Make your own Christmas Tree like sequence, for playing the LEDs and describe it in the table below. Up to 5 states and 5 LEDs available (not mandatory to use them all).
+    LED id |  initial state   | state 1  | state 2  | state 3  | state 4  | state 5
+    1           OFF               OFF        OFF        ON         OFF        OFF
+    2           OFF               OFF        OFF        ON         ON         OFF
+    3           OFF               ON         ON         ON         ON         ON 
+    4           OFF               OFF        OFF        ON         ON         OFF
+    5           OFF               OFF        OFF        ON         OFF        OFF
+    
