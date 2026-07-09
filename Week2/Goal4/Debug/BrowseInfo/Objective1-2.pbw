@@ -50401,7 +50401,7 @@
     "ID": "c:@F@ledInit",
     "What": "Function",
     "defdec": "Def",
-    "display": "void ledInit(unsigned char *, unsigned char *, unsigned char)",
+    "display": "void ledInit(volatile unsigned char *, volatile unsigned char *, unsigned char)",
     "location": {
       "column": "6",
       "line": "6",
@@ -50454,7 +50454,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@973@F@ledBlinkSlow@i",
+    "ID": "c:led.c@990@F@ledBlinkSlow@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50468,7 +50468,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1025@F@ledBlinkSlow@i",
+    "ID": "c:led.c@1042@F@ledBlinkSlow@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50482,7 +50482,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1076@F@ledBlinkSlow@i",
+    "ID": "c:led.c@1093@F@ledBlinkSlow@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50510,7 +50510,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1192@F@ledBlinkFast@i",
+    "ID": "c:led.c@1209@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50524,7 +50524,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1243@F@ledBlinkFast@i",
+    "ID": "c:led.c@1260@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50538,7 +50538,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1293@F@ledBlinkFast@i",
+    "ID": "c:led.c@1310@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50552,7 +50552,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1344@F@ledBlinkFast@i",
+    "ID": "c:led.c@1361@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50566,7 +50566,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1394@F@ledBlinkFast@i",
+    "ID": "c:led.c@1411@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50580,7 +50580,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1445@F@ledBlinkFast@i",
+    "ID": "c:led.c@1462@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50594,7 +50594,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1495@F@ledBlinkFast@i",
+    "ID": "c:led.c@1512@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50608,7 +50608,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1546@F@ledBlinkFast@i",
+    "ID": "c:led.c@1563@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50622,7 +50622,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1596@F@ledBlinkFast@i",
+    "ID": "c:led.c@1613@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50636,7 +50636,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1647@F@ledBlinkFast@i",
+    "ID": "c:led.c@1664@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50650,7 +50650,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1697@F@ledBlinkFast@i",
+    "ID": "c:led.c@1714@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50681,13 +50681,41 @@
     "ID": "c:@F@ledInit",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void ledInit(unsigned char *, unsigned char *, unsigned char)",
+    "display": "void ledInit(volatile unsigned char *, volatile unsigned char *, unsigned char)",
     "location": {
       "column": "13",
       "line": "5",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\led.h"
     },
     "name": "ledInit",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ledInit",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledInit(volatile unsigned char *, volatile unsigned char *, unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "5",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\led.h"
+    },
+    "name": "ledInit",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ledPowerOn",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledPowerOn(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\led.h"
+    },
+    "name": "ledPowerOn",
     "origin": "system_include",
     "scope": null
   },
@@ -50720,6 +50748,20 @@
     "scope": null
   },
   {
+    "ID": "c:@F@ledPowerOff",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledPowerOff(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\led.h"
+    },
+    "name": "ledPowerOff",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
     "ID": "c:@F@ledBlinkSlow",
     "What": "Function",
     "defdec": "Dec",
@@ -50730,6 +50772,34 @@
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\led.h"
     },
     "name": "ledBlinkSlow",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ledBlinkSlow",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledBlinkSlow(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "10",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\led.h"
+    },
+    "name": "ledBlinkSlow",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ledBlinkFast",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void ledBlinkFast(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "11",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\led.h"
+    },
+    "name": "ledBlinkFast",
     "origin": "system_include",
     "scope": null
   },
@@ -51406,30 +51476,114 @@
     "scope": null
   },
   {
-    "ID": "c:task423.c@77@macro@TOIE0",
+    "ID": "c:task425.c@95@macro@TOIE0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TOIE0",
     "location": {
       "column": "9",
-      "line": "5",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task423.c"
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
     },
     "name": "TOIE0",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task423.c@94@macro@CS00",
+    "ID": "c:task425.c@112@macro@CS00",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "CS00",
     "location": {
       "column": "9",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task423.c"
+      "line": "7",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
     },
     "name": "CS00",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:task425.c@128@macro@CS02",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "CS02",
+    "location": {
+      "column": "9",
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
+    },
+    "name": "CS02",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:task425.c@144@macro@SecVar",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SecVar",
+    "location": {
+      "column": "9",
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
+    },
+    "name": "SecVar",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:task425.c@162@macro@PC7",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PC7",
+    "location": {
+      "column": "9",
+      "line": "10",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
+    },
+    "name": "PC7",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:task425.c@177@macro@led0",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "led0",
+    "location": {
+      "column": "9",
+      "line": "11",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
+    },
+    "name": "led0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@led0Status",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "led0Status",
+    "location": {
+      "column": "5",
+      "line": "13",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
+    },
+    "name": "led0Status",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@cnt",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "cnt",
+    "location": {
+      "column": "5",
+      "line": "14",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
+    },
+    "name": "cnt",
     "origin": "project_file",
     "scope": null
   },
@@ -51440,24 +51594,10 @@
     "display": "void myInterrupt(void)",
     "location": {
       "column": "18",
-      "line": "14",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task423.c"
+      "line": "16",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
     },
     "name": "myInterrupt",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:task423.c@309@F@myInterrupt@a",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "a",
-    "location": {
-      "column": "16",
-      "line": "15",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task423.c"
-    },
-    "name": "a",
     "origin": "project_file",
     "scope": null
   },
@@ -51468,8 +51608,8 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "21",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task423.c"
+      "line": "31",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task425.c"
     },
     "name": "main",
     "origin": "project_file",

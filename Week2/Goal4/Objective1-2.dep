@@ -1,102 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>1298178298</fileChecksum>
+    <fileChecksum>346908439</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\task425.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\task423.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task425.i</file>
+            <file>$PROJ_DIR$\adc.h</file>
             <file>$PROJ_DIR$\Debug\List\Objective1-2.map</file>
-            <file>$PROJ_DIR$\Debug\List\led.i</file>
-            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
-            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
-            <file>$PROJ_DIR$\Debug\Exe\Objective1-2.d90</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$PROJ_DIR$\Debug\List\adc.i</file>
-            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-            <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
-            <file>$PROJ_DIR$\task423.c</file>
-            <file>$PROJ_DIR$\led.h</file>
-            <file>$PROJ_DIR$\led.c</file>
-            <file>$PROJ_DIR$\gpio.h</file>
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$PROJ_DIR$\gpio.c</file>
-            <file>$PROJ_DIR$\adc.c</file>
-            <file>$PROJ_DIR$\adc.h</file>
             <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\adc.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\task423.c</file>
+            <file>$PROJ_DIR$\Debug\Exe\Objective1-2.d90</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$PROJ_DIR$\Debug\List\adc.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\task425.c</file>
         </outputs>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 9 3</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\Objective1-2.d90</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 3</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 1 0 15 7 8 6 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\led.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 4 8</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 19 20 10 11 17</file>
-                </tool>
-            </inputs>
-        </file>
         <file>
             <name>$PROJ_DIR$\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5 7</file>
+                    <file> 16 23</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 20 10 11 19</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\adc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 12 15</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 19 20 10 11</file>
+                    <file> 7 5 12 26</file>
                 </tool>
             </inputs>
         </file>
@@ -105,16 +55,98 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 14 6</file>
+                    <file> 19 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 13 20 10 11 19</file>
+                    <file> 22 7 5 12 26</file>
                 </tool>
             </inputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\adc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 6</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 26 7 5 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task423.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Objective1-2.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 4</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 13 20 6 23 18 0 21</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25 18</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 26 7 5 12 27</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 15 4</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task425.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 2 0</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 7 5 12 26 27</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task423.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
             <tool>ICCAVR</tool>
