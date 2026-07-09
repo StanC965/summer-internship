@@ -1,0 +1,1 @@
+The device contains three General Purpose I/O Registers, General Purpose I/O Register 0/1/2.
