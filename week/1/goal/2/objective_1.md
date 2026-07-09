@@ -10,6 +10,7 @@
 | :---      | :---   | :--- 
 | **[211]** | `CORE` | [x] Completed 
 | **[212]** | `CORE` | [x] Completed 
+| **[213]** | `CORE` | [x] Completed 
 
 ---
 
@@ -39,5 +40,14 @@ void main (void){
 
 ---
 
+#### Task 213
+> **Question/Prompt:** How many GPIO (General Purpose Input Output) ports does the ATmega324PB microcontroller have in total?
+
+> **Answer/Explanation:** 
+> 5 (PORTA, PORTB, PORTC, PORTD, PORTE).
+
+---
+
 ## References & Resources
 * [ATMega324PB Pin Configurations](http://content.alexandria.atmel.com/webhelp/GUID-74F8229E-4C43-4FA0-BE7D-1AA303C6F8A4-en-US-6/index.html?GUID-7CB50236-3F2B-4023-9C78-7F663A7B4801)
+*  AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATMega324PB)
