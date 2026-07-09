@@ -11,6 +11,7 @@
 | **[211]** | `CORE` | [x] Completed 
 | **[212]** | `CORE` | [x] Completed 
 | **[213]** | `CORE` | [x] Completed 
+| **[214]** | `CORE` | [x] Completed 
 
 ---
 
@@ -48,6 +49,27 @@ void main (void){
 
 ---
 
+#### Task 214
+> **Question/Prompt:** Search in the dev board User Guide the port and the pin to which LED0 is connected and how you should light up (or activate) LED0. Read carefully, repeatedly (maybe 10x), see if you really understand that information. You can correlate with the information from electronic schematic of our dev board. See if all these information match in your mind with the general knowledge on LEDs control acquired last week. Further correlate with microcontroller datasheet on how to configure the pins (chapter 16.2.1).
+
+> **Answer/Explanation:** 
+> LED0 is connected to Port C, Pin 7 (PC7). The user guide states that the LED can be activated by driving the connected I/O line to GND (logic low). This confirms an active-low configuration. One side of LED is tied to the board's power supply, and the other side leads to pin PC7. Current will only flow and light the LED when PC7 acts as a path to GND.
+>
+> Additional information states that controlling any I/O pin requires configuring specific register bits:
+> - DDxn 
+> - PORTxn
+>
+> where x is the port lettter (C) and n is the pin number (7).
+>
+> From the datasheet we extract the steps needed to light up LED0:
+>
+> 1. To allow PC7 to drive the line to GND, it must be an output. Therefore, we must write a `1` to the DDC7 bit inside the DDRC register.
+> 2. To turn LED0 on, we must write a `0` to the PC7 bit inside PORTC. This physically drives the pin to GND, completing the active low circuit.
+> 3. For further implementations, if we need to turn LED0 off, we write a `1` to PC7. This drives PC7 high, removing the voltage difference across the LED and stopping current flow.
+
+---
+
 ## References & Resources
 * [ATMega324PB Pin Configurations](http://content.alexandria.atmel.com/webhelp/GUID-74F8229E-4C43-4FA0-BE7D-1AA303C6F8A4-en-US-6/index.html?GUID-7CB50236-3F2B-4023-9C78-7F663A7B4801)
 *  AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATMega324PB)
+* ATmega324PB Xplained Pro user guide
