@@ -51392,98 +51392,112 @@
     "scope": null
   },
   {
-    "ID": "c:task432.c@404@macro@COM0A0",
+    "ID": "c:task433.c@91@macro@Var",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "Var",
+    "location": {
+      "column": "9",
+      "line": "5",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
+    },
+    "name": "Var",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:task433.c@108@macro@COM0A0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "COM0A0",
     "location": {
       "column": "9",
-      "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "COM0A0",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task432.c@422@macro@WGM01",
+    "ID": "c:task433.c@126@macro@WGM01",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "WGM01",
     "location": {
       "column": "9",
-      "line": "10",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "7",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "WGM01",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task432.c@439@macro@CS00",
+    "ID": "c:task433.c@143@macro@CS00",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "CS00",
     "location": {
       "column": "9",
-      "line": "11",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "CS00",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task432.c@455@macro@OCIE0A",
+    "ID": "c:task433.c@159@macro@OCIE0A",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OCIE0A",
     "location": {
       "column": "9",
-      "line": "12",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "OCIE0A",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task432.c@473@macro@PB3",
+    "ID": "c:task433.c@177@macro@PB3",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PB3",
     "location": {
       "column": "9",
-      "line": "13",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "10",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "PB3",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task432.c@488@macro@PC7",
+    "ID": "c:task433.c@192@macro@PC7",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PC7",
     "location": {
       "column": "9",
-      "line": "14",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "11",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "PC7",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task432.c@503@macro@led0",
+    "ID": "c:task433.c@207@macro@led0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "led0",
     "location": {
       "column": "9",
-      "line": "15",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "12",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "led0",
     "origin": "project_file",
@@ -51496,10 +51510,24 @@
     "display": "state",
     "location": {
       "column": "5",
-      "line": "16",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "13",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "state",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@cnt",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "cnt",
+    "location": {
+      "column": "5",
+      "line": "14",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
+    },
+    "name": "cnt",
     "origin": "project_file",
     "scope": null
   },
@@ -51510,8 +51538,8 @@
     "display": "void myInterrupt(void)",
     "location": {
       "column": "18",
-      "line": "19",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "16",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "myInterrupt",
     "origin": "project_file",
@@ -51524,8 +51552,8 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "31",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task432.c"
+      "line": "33",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task433.c"
     },
     "name": "main",
     "origin": "project_file",
