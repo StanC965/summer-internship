@@ -1,30 +1,17 @@
 #include "iom324pb.h"
-void set_pin(unsigned char pin)
-{
-  PORTC = PORTC | (1<<pin);
-}
-
-void reset_pin(unsigned char pin)
-{
-  PORTC = PORTC & ~(1<<pin);
-}
-
-void set_direction_pin(unsigned char pin, unsigned char direction)
-{
-  if (direction)
-        DDRC |= (1 << pin);
-    else
-        DDRC &= ~(1 << pin);
-}
+#include "gpio.h"
+#include "led.h"
 
 void main(void)
 {
-  
-    set_direction_pin(7, 1);   
-    reset_pin(7); 
+    set_direction(7, 1);   
+
     while (1)
-    { 
-  
-        
+    {
+        PowerOn_LED(7);
+        for (volatile long i = 0; i < 800000; i++);
+
+        PowerOff_LED(7);
+        for (volatile long i = 0; i < 800000; i++);
     }
 }
