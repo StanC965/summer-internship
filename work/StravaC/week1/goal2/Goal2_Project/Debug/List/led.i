@@ -131,6 +131,28 @@ extern void led_power_on(volatile gpio_uint8_t *port, gpio_uint8_t pin);
  
 extern void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
+
+
+
+
+
+
+
+
+ 
+extern void led_blink_fast(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
 #line 15 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.c"
 
 
@@ -139,7 +161,8 @@ extern void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
 
 
-
+static void led_delay_fast(void);
+static void led_delay_slow(void);
 
 
 
@@ -153,7 +176,43 @@ void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin)
     gpio_set_pin(port, pin);
 }
 
+void led_blink_fast(volatile gpio_uint8_t *port, gpio_uint8_t pin)
+{
+    led_power_on(port, pin);
+    led_delay_fast();
+
+    led_power_off(port, pin);
+    led_delay_fast();
+}
+
+void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin)
+{
+    led_power_on(port, pin);
+    led_delay_slow();
+
+    led_power_off(port, pin);
+    led_delay_slow();
+}
 
 
 
+static void led_delay_fast(void)
+{
+    volatile unsigned long i;
+
+    for (i = 0; i < 15000UL; i++)
+    {
+
+    }
+}
+
+static void led_delay_slow(void)
+{
+    volatile unsigned long i;
+
+    for (i = 0; i < 50000UL; i++)
+    {
+
+    }
+}
 

@@ -685,17 +685,29 @@ extern void led_power_on(volatile gpio_uint8_t *port, gpio_uint8_t pin);
  
 extern void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
+
+
+
+
+
+
+
+
+ 
+extern void led_blink_fast(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
 #line 4 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
-
-void delay_half_second(void)
-{
-    volatile unsigned long i;
-
-    for (i = 0; i < 50000UL; i++)
-    {
-
-    }
-}
 
 void main(void)
 {
@@ -703,10 +715,6 @@ void main(void)
 
     while (1)
     {
-        led_power_on(&PORTC, 7);
-        delay_half_second();
-
-        led_power_off(&PORTC, 7);
-        delay_half_second();
+      led_blink_slow(&PORTC, 7);
     }
 }
