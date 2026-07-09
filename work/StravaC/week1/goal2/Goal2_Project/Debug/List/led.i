@@ -1,0 +1,159 @@
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.c"
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.h"
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\gpio.h"
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+typedef unsigned char gpio_uint8_t;
+typedef unsigned int  gpio_uint16_t;
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_set_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8_t direction);
+
+#line 15 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.h"
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void led_power_on(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+#line 15 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.c"
+
+
+
+
+
+
+
+
+
+
+
+void led_power_on(volatile gpio_uint8_t *port, gpio_uint8_t pin)
+{
+    gpio_reset_pin(port, pin);
+}
+
+void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin)
+{
+    gpio_set_pin(port, pin);
+}
+
+
+
+
+

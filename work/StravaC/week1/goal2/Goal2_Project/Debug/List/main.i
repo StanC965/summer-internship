@@ -645,6 +645,7 @@ extern void gpio_toggle_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8_t direction);
 
 #line 3 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\led.h"
 
 
 
@@ -656,7 +657,7 @@ extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpi
 
 
 
-
+ 
 
 
 
@@ -671,6 +672,20 @@ extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpi
 
 
  
+extern void led_power_on(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+#line 4 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
 
 void delay_half_second(void)
 {
@@ -686,11 +701,12 @@ void main(void)
 {
     gpio_set_direction(&DDRC, 7, ((0x01U)));
 
-    gpio_set_pin(&PORTC, 7);
-
     while (1)
     {
-        gpio_toggle_pin(&PORTC, 7);
+        led_power_on(&PORTC, 7);
+        delay_half_second();
+
+        led_power_off(&PORTC, 7);
         delay_half_second();
     }
 }
