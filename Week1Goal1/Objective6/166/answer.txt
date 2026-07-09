@@ -1,0 +1,6 @@
+166 - iom324pb.h vs datasheet vs IAR Registers View.
+
+Answer: All three sources describe the same registers identically (same name, same size,
+same bit names). 
+The header file is the datasheet translated into C code, and IAR's Registers View reads the same definitions. 
+This confirms that iom324pb.h is a faithful map of the hardware registers.

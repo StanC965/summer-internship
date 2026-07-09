@@ -14,12 +14,3 @@ Answer:
 The SFR_B_N macro holds the same info as the datasheet, but as code:
 1st arg = address, 2nd arg = register name, next 8 = bit names (bit 7 to bit 0).
 iom324pb.h is the datasheet translated into C.
-
-166 - OPTIONAL - iom324pb.h vs datasheet vs IAR register view.
-Answer:
-
-167 - OPTIONAL - same 3 registers in ATmega328PB (portable code)?
-Answer:
-
-168 - OPTIONAL - compatible with ATmega328P (Arduino)?
-Answer:
