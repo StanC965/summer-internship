@@ -1,0 +1,14 @@
+Poza este un screenshot din user guide
+Ce inseamna:
+
+Fiecare port gpio de pe controller poate fi setat astfel incat biti de pe el sa fie de iesire sau intrare
+aceasta setare se face prin registrii DDRx. Unde 1 inseamna ca bit-ul scoate un semnal si 0 inseamna ca intra un semnal
+.Spre exemplu pentru un joystick in care citim o sa setam pe 0 biti din DDR folositi pentru citire
+dar pentru un led ii vom pune pe 1 pentru ca vrem sa pornim acel LED(output).
+Apoi putem modifica starea port-ului pentru manipularea bitilor.
+
+
+CONCLUZIE:
+In user guide pornirea lui LED0 se face prin setarea lui DDRC cu 1 pe pin-ul 7(PC7)
+iar pentru ca LED-ul sa fie aprins vom pune PORTC=0x7f;
+astfel pin-ul reprezentativ LED-ului este pus pe 0 => LED se aprinde deoarece este active low .

@@ -1,0 +1,8 @@
+C:\Users\Stefan\summer-internship\W1G2\Debug\BrowseInfo\main.pbi: \
+  C:\Users\Stefan\summer-internship\W1G2\main.c \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iom324pb.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324pb.inc \
+  C:\Users\Stefan\summer-internship\W1G2\gpio.h \
+  C:\Users\Stefan\summer-internship\W1G2\led.h \
+  C:\Users\Stefan\summer-internship\W1G2\sos.h

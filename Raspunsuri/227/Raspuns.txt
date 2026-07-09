@@ -1,0 +1,2 @@
+Dupa cum se poate observa din schematics (Poza din acest folder),inginerii care au proiectat placa au pus deja o rezistenta interna
+care sa permita utilizarea LED-urilor integrate pe placute fara necesitatea adaugarii unor rezistente de dinafara.

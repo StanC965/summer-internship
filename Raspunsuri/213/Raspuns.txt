@@ -1,0 +1,8 @@
+Ca sa ne putem da seama cate porturi GPIO( ne referim strict la porturi,nu si la registre)
+putem sa ne uitam la numarul de registre de configurare de port
+care incep mereu cu DDR (data direction register) urmat de litera portului
+si in datasheet la final apare :
+DDRA ,DDRB,DDRC,DDRD,DDRE
+
+Concluzie:
+sunt 5 porturi GPIO

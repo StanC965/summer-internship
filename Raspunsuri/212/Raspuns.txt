@@ -1,0 +1,1 @@
+In datasheet scrie ca  PORTC e format din 8 pini 

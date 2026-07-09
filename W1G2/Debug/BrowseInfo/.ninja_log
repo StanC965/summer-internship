@@ -1,0 +1,23 @@
+# ninja log v5
+14	151	8052453840000000	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/main.xcl	42e90e599abbc567
+147	697	8052860993830900	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbw	c67c73d4ee6c2dec
+1	84	8052860987939124	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/main.pbi	bb4f69fd1c01ac0e
+87	145	8052860988561583	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbd	9b6fb400c5ebf918
+1	138	8052453840000000	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/gpio.xcl	c4067b3b00753d2e
+1	92	8052577334147475	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/gpio.pbi	adea26d623ef1cf5
+8	145	8052453840000000	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/led.xcl	d76f17b35a6db7f4
+8	118	8052505189160360	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/led.pbi	b6998577723daf19
+2	125	8052528780000000	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/sos.xcl	89c8608aa08d6000
+2	79	8052858291618538	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/sos.pbi	dd593eef67a8c68a
+2	183	8052861651933397	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/main.pbi	bb4f69fd1c01ac0e
+185	235	8052861652401887	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbd	9b6fb400c5ebf918
+238	757	8052861657399199	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbw	c67c73d4ee6c2dec
+2	80	8052862113022633	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/main.pbi	bb4f69fd1c01ac0e
+82	141	8052862113803440	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbd	9b6fb400c5ebf918
+143	748	8052862119593183	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbw	c67c73d4ee6c2dec
+2	98	8052862323006402	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/sos.pbi	dd593eef67a8c68a
+99	155	8052862323593993	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbd	9b6fb400c5ebf918
+156	703	8052862328796390	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbw	c67c73d4ee6c2dec
+1	90	8052862885053845	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/main.pbi	bb4f69fd1c01ac0e
+93	144	8052862885678357	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbd	9b6fb400c5ebf918
+147	735	8052862891321986	C:/Users/Stefan/summer-internship/W1G2/Debug/BrowseInfo/Marq_Internship.pbw	c67c73d4ee6c2dec
