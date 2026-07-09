@@ -842,7 +842,7 @@ extern void ledBlinkFast(unsigned char led);
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task427.c"
 
 #line 21 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal4\\task427.c"
-int secV = 3905;
+int secV = 4;
 int led0Status = 0;
 int cnt = 0;
 int sel = 0;
@@ -851,7 +851,7 @@ __interrupt void butInterrupt(void){
   if(!getPin(&PINC,6)){
     sel = (sel+1)%5;
     if(sel == 0){
-      secV = 3905;
+      
       setPin(&TCCR0B,0);
       resetPin(&TCCR0B,1);
       resetPin(&TCCR0B,2);
@@ -859,7 +859,7 @@ __interrupt void butInterrupt(void){
     }
     else
       if(sel == 1){
-        secV = 500;
+        
         resetPin(&TCCR0B,0);
       setPin(&TCCR0B,1);
       resetPin(&TCCR0B,2);
@@ -867,7 +867,7 @@ __interrupt void butInterrupt(void){
       }
         else
           if(sel == 2){
-            secV = 61;
+           
             setPin(&TCCR0B,0);
             setPin(&TCCR0B,1);
             resetPin(&TCCR0B,2);
@@ -875,7 +875,7 @@ __interrupt void butInterrupt(void){
           }
           else
             if(sel == 3){
-              secV = 15;
+              
               resetPin(&TCCR0B,0);
               resetPin(&TCCR0B,1);
               setPin(&TCCR0B,2);
@@ -884,7 +884,7 @@ __interrupt void butInterrupt(void){
             }
             else
               if(sel == 4){
-                secV = 4;
+                
                 setPin(&TCCR0B,0);
                 resetPin(&TCCR0B,1);
                 setPin(&TCCR0B,2);

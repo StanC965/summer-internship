@@ -18,7 +18,7 @@
 #define INPUT 0
 #define PCINT22 6
 #define PCIE2 2 
-int secV = SecVarP1;
+int secV = SecVarP5;
 int led0Status = 0;
 int cnt = 0;
 int sel = 0;
@@ -27,7 +27,7 @@ __interrupt void butInterrupt(void){
   if(!getPin(&PINC,PC6)){
     sel = (sel+1)%5;
     if(sel == 0){
-      secV = SecVarP1;
+      
       setPin(&TCCR0B,CS00);
       resetPin(&TCCR0B,CS01);
       resetPin(&TCCR0B,CS02);
@@ -35,7 +35,7 @@ __interrupt void butInterrupt(void){
     }
     else
       if(sel == 1){
-        secV = SecVarP2;
+        
         resetPin(&TCCR0B,CS00);
       setPin(&TCCR0B,CS01);
       resetPin(&TCCR0B,CS02);
@@ -43,7 +43,7 @@ __interrupt void butInterrupt(void){
       }
         else
           if(sel == 2){
-            secV = SecVarP3;
+           
             setPin(&TCCR0B,CS00);
             setPin(&TCCR0B,CS01);
             resetPin(&TCCR0B,CS02);
@@ -51,7 +51,7 @@ __interrupt void butInterrupt(void){
           }
           else
             if(sel == 3){
-              secV = SecVarP4;
+              
               resetPin(&TCCR0B,CS00);
               resetPin(&TCCR0B,CS01);
               setPin(&TCCR0B,CS02);
@@ -60,7 +60,7 @@ __interrupt void butInterrupt(void){
             }
             else
               if(sel == 4){
-                secV = SecVarP5;
+                
                 setPin(&TCCR0B,CS00);
                 resetPin(&TCCR0B,CS01);
                 setPin(&TCCR0B,CS02);
