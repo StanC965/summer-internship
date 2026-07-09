@@ -5,17 +5,18 @@
 
 ### Task Checklist & Results
 
-| Task ID | Type | Status / Deliverable |
-| :--- | :--- | :--- |
-| **[131]** | `CORE` | [x] Completed |
-| **[132]** | `CORE` | [x] Completed |
-| **[133]** | `CORE` | [x] Completed |
-| **[134]** | `CORE` | [x] Completed |
-| **[135]** | `CORE` | [x] Completed |
-| **[136]** | `CORE` | [x] Completed |
-| **[137]** | `CORE` | [x] Completed |
-| **[138]** | `CORE` | [x] Completed |
+| Task ID   | Type   | Status / Deliverable 
+| :---      | :---   | :--- 
+| **[131]** | `CORE` | [x] Completed 
+| **[132]** | `CORE` | [x] Completed 
+| **[133]** | `CORE` | [x] Completed 
+| **[134]** | `CORE` | [x] Completed 
+| **[135]** | `CORE` | [x] Completed 
+| **[136]** | `CORE` | [x] Completed 
+| **[137]** | `CORE` | [x] Completed
+| **[138]** | `CORE` | [x] Completed 
 
+---
 
 #### Task [131]
 > **Question/Prompt:**   Search and identify the light sensor.

@@ -5,17 +5,18 @@
 
 ### Task Checklist & Results
 
-| Task ID | Type | Status / Deliverable
-| :--- | :--- | :--- |
-| **[161]** | `CORE` | [x] Completed
-| **[162]** | `CORE` | [x] Completed
-| **[163]** | `CORE` | [x] Completed
-| **[164]** | `CORE` | [x] Completed
-| **[165]** | `CORE` | [x] Completed
+| Task ID   | Type       | Status / Deliverable
+| :---      | :---       | :--- 
+| **[161]** | `CORE`     | [x] Completed
+| **[162]** | `CORE`     | [x] Completed
+| **[163]** | `CORE`     | [x] Completed
+| **[164]** | `CORE`     | [x] Completed
+| **[165]** | `CORE`     | [x] Completed
 | **[166]** | `OPTIONAL` | [x] Completed
 | **[167]** | `OPTIONAL` | [] Completed
 | **[168]** | `OPTIONAL` | [] Completed
 
+---
 
 #### Task 161
 > **Question/Prompt:** Usually a microcontroller (MCU) comes with a datasheet explaining how it works and different other specifications which engineers are looking for understanding them. Go to ATmega324PB datasheet and familiarize yourself with the block diagram showing the internal components as blocks, with external pinout and finally with the CPU core. Try to identify what is interesting for you or makes you curious about.
@@ -56,7 +57,50 @@ SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
 ```
 
 > **Answer/Explanation:**
-> 
+
+```
+#include <iom324pb.h>
+
+void main(void)
+{  
+ /* SFR_B_N(0x08,PORTC,PORTC7,PORTC6,PORTC5,PORTC4,PORTC3,PORTC2,PORTC1,PORTC0)
+ *  Expands to:
+ *  __io union { 
+ *              - byte level access
+ *              unsigned char PORTC; 
+ *
+ *              - generic bit level
+ *              struct { 
+ *                      unsigned char PORTC_Bit0:1, 
+ *                                    PORTC_Bit1:1, 
+ *                                    PORTC_Bit2:1, 
+ *                                    PORTC_Bit3:1, 
+ *                                    PORTC_Bit4:1, 
+ *                                    PORTC_Bit5:1, 
+ *                                    PORTC_Bit6:1, 
+ *                                    PORTC_Bit7:1; 
+ *                     }; 
+ *              - specific bit-name level
+ *              struct { 
+ *                      unsigned char PORTC_PORTC0:1, 
+ *                                    PORTC_PORTC1:1, 
+ *                                    PORTC_PORTC2:1, 
+ *                                    PORTC_PORTC3:1, 
+ *                                    PORTC_PORTC4:1, 
+ *                                    PORTC_PORTC5:1, 
+ *                                    PORTC_PORTC6:1, 
+ *                                    PORTC_PORTC7:1; 
+ *                     }; 
+ *             } @ 0x08;
+ *
+ * this same expansion happens to the other two macros
+ * we just need to switch:
+ *      - PORTC with DDRC and PINC
+ *      - PORTC_ Bit/PORTC [0-7] with DDRC_ Bit/DDRC [0-7] and PINC_ Bit/PINC [0-7]
+ *      - 0x08 with 0x07 and 0x06
+ */
+}
+```
 
 ---
 
@@ -74,11 +118,11 @@ SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
 
 > **Answer/Explanation:**
 
-| Register name | Size (bits) | Datasheet address (offset) | iom324pb.h definition matches? | IAR register view matches?
-| :--- | :--- | :--- | :--- | :--- |
-| TIFR4 | 8 | 0x39 | Yes | Yes |
-| SPSR0 | 8 | 0x4D | Yes | Yes |
-| PINE | 8 | 0x2C | Yes | Yes |
+| Register | Size (bits) | Datasheet address (offset) | iom324pb.h definition matches? | IAR register view matches?
+| :---     | :---        | :---                       | :---                           | :--- 
+| TIFR4    | 8           | 0x39                       | Yes                            | Yes 
+| SPSR0    | 8           | 0x4D                       | Yes                            | Yes 
+| PINE     | 8           | 0x2C                       | Yes                            | Yes 
 
 > As demonstrared in the table above, there is a correlation between the hardware registers, macros and the IDE.
 > The hardware specs from the datasheet are translated into software inside the `iom344pb.h` file, whic the registers view the uses to display the hardware states during debugging. 

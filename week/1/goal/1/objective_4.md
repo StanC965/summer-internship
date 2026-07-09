@@ -5,15 +5,16 @@
 
 ### Task Checklist & Results
 
-| Task ID | Type | Status / Deliverable |
-| :--- | :--- | :--- |
-| **[141]** | `CORE` | [x] Completed |
-| **[142]** | `CORE` | [x] Completed |
-| **[143]** | `CORE` | [x] Completed |
-| **[144]** | `STRETCH` | [x] Completed |
-| **[145]** | `STRETCH` | [x] Completed |
-| **[146]** | `CORE` | [x] Completed |
+| Task ID   | Type      | Status / Deliverable 
+| :---      | :---      | :--- 
+| **[141]** | `CORE`    | [x] Completed 
+| **[142]** | `CORE`    | [x] Completed 
+| **[143]** | `CORE`    | [x] Completed 
+| **[144]** | `STRETCH` | [x] Completed 
+| **[145]** | `STRETCH` | [x] Completed 
+| **[146]** | `CORE`    | [x] Completed 
 
+---
 
 #### Task [141]
 > **Question/Prompt:**    Install IAR Embedded Workbench on your computer (see Guide on how to do this).
@@ -48,6 +49,7 @@ int main( void )
   }
 }
 ```
+
 ---
 
 #### Task [144]

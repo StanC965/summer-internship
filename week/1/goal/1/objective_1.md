@@ -5,18 +5,19 @@
 
 ### Task Checklist & Results
 
-| Task ID | Type | Status / Deliverable
-| :--- | :--- | :--- |
-| **[111]** | `CORE` | [x] Completed
-| **[112]** | `CORE` | [x] Completed
-| **[113]** | `CORE` | [x] Completed
-| **[114]** | `CORE` | [x] Completed
-| **[115]** | `CORE` | [x] Completed
-| **[116]** | `CORE` | [x] Completed
-| **[117]** | `CORE` | [x] Completed
-| **[118]** | `CORE` | [x] Completed
+| Task ID   | Type       | Status / Deliverable
+| :---      | :---       | :--- 
+| **[111]** | `CORE`     | [x] Completed
+| **[112]** | `CORE`     | [x] Completed
+| **[113]** | `CORE`     | [x] Completed
+| **[114]** | `CORE`     | [x] Completed
+| **[115]** | `CORE`     | [x] Completed
+| **[116]** | `CORE`     | [x] Completed
+| **[117]** | `CORE`     | [x] Completed
+| **[118]** | `CORE`     | [x] Completed
 | **[119]** | `OPTIONAL` | [x] Completed
 
+---
 
 #### Task 111
 > **Question/Prompt:** Search and identify ATMega324PB microcontroller on the board.
@@ -85,6 +86,8 @@
 
 > **Answer/Explanation:**
 > One feature of the board is that it has two possible power sources: external power and embedded debugger USB. Since it is not connected to external power, it uses voltage coming from the USB input.
+
+---
 
 ## References & Resources
 * ATmega324PB Xplained Pro user guide

@@ -5,17 +5,19 @@
 
 ### Task Checklist & Results
 
-| Task ID | Type | Status / Deliverable |
-| :--- | :--- | :--- |
-| **[151]** | `CORE` | [x] Completed |
-| **[152]** | `CORE` | [x] Completed |
-| **[153]** | `CORE` | [x] Completed |
-| **[154]** | `CORE` | [x] Completed |
-| **[155]** | `CORE` | [x] Completed |
-| **[156]** | `STRETCH` | [x] Completed |
-| **[157]** | `STRETCH` | [x] Completed |
-| **[158]** | `STRETCH` | [x] Completed |
-| **[159]** | `STRETCH` | [x] Completed |
+| Task ID   | Type      | Status / Deliverable 
+| :---      | :---      | :--- 
+| **[151]** | `CORE`    | [x] Completed 
+| **[152]** | `CORE`    | [x] Completed 
+| **[153]** | `CORE`    | [x] Completed 
+| **[154]** | `CORE`    | [x] Completed 
+| **[155]** | `CORE`    | [x] Completed 
+| **[156]** | `STRETCH` | [x] Completed 
+| **[157]** | `STRETCH` | [x] Completed 
+| **[158]** | `STRETCH` | [x] Completed 
+| **[159]** | `STRETCH` | [x] Completed 
+
+---
 
 #### Task [151]
 > **Question/Prompt:**     How to handle the different numeration systems (binary, decimal, hexadecimal). Watch the materials below, then: are you able to create a single question for testing your colleague's knowledge on these topics? The question you create will be used later to build up a quiz for the students group and must be of type "multiple choices - single answer" or "true-false" (include the correct answer also)
@@ -35,7 +37,6 @@
 > They are usually deleted after the compilation stage finishes, so in order to view them I have checked the following settings in the Compiler section of the IDE:
 
 ![alt text](../../../../images/w1g1obj5t152.PNG)
-
 
 > The preprocessor strips any comments and expands directives, so the .i file that results will have no comments. To be able to see what comments where in the source file the `Preserve comments` box can be checked. 
 <br>
@@ -134,6 +135,7 @@ void main(void)
     do { if (0 < 3) { 0++; } } while(1);
 }
 ```
+
 > The error happens because on the line where we try to increment i, it is actually a literal constant, not a variable in memory. The preprocessor replaced every occurence of i and limit with 0, respectively 3.
 <br>
 > In order to use the macro correctly, the first argument must be a real variable that has a physical spot in memory, so it can acutally be incremented.
@@ -168,6 +170,7 @@ void main(void)
 
 > **Answer/Explanation:** 
 > 1. The static keyword
+
 ```
 // the static keyword has two properties, depending on what type of variables it is applied on 
 // for global variables, it limits the scope of the variable to the file it was declared in
@@ -201,8 +204,6 @@ void main(void)
 <br>
 
 > 2. The volatile keyword
-
----
 
 ``` 
 void main(void)
