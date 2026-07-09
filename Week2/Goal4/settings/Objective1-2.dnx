@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <settings>
     <DebugChecksum>
-        <Checksum>3919923758</Checksum>
+        <Checksum>2068706651</Checksum>
     </DebugChecksum>
     <Disassembly>
-        <MixedMode>1</MixedMode>
         <InstrCount>0</InstrCount>
+        <MixedMode>1</MixedMode>
     </Disassembly>
     <Stack>
         <FillEnabled>0</FillEnabled>
