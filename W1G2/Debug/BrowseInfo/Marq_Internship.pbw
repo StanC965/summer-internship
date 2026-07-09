@@ -50986,13 +50986,27 @@
     "scope": null
   },
   {
+    "ID": "c:@sos_stop",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "sos_stop",
+    "location": {
+      "column": "23",
+      "line": "7",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
+    },
+    "name": "sos_stop",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@pressed_confidence_level",
     "What": "Variable",
     "defdec": "Def",
     "display": "pressed_confidence_level",
     "location": {
       "column": "5",
-      "line": "6",
+      "line": "9",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "pressed_confidence_level",
@@ -51006,7 +51020,7 @@
     "display": "released_confidence_level",
     "location": {
       "column": "5",
-      "line": "7",
+      "line": "10",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "released_confidence_level",
@@ -51020,7 +51034,7 @@
     "display": "button_stable_state",
     "location": {
       "column": "7",
-      "line": "8",
+      "line": "11",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "button_stable_state",
@@ -51034,7 +51048,7 @@
     "display": "count",
     "location": {
       "column": "5",
-      "line": "9",
+      "line": "12",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "count",
@@ -51048,7 +51062,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "11",
+      "line": "14",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "setup",
@@ -51062,7 +51076,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "17",
+      "line": "25",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
     },
     "name": "main",
@@ -51168,16 +51182,44 @@
     "scope": null
   },
   {
+    "ID": "c:@sos_stop",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "sos_stop",
+    "location": {
+      "column": "16",
+      "line": "15",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
+    },
+    "name": "sos_stop",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:sos.c@F@morse_delay_units",
     "What": "Function",
     "defdec": "Def",
     "display": "void morse_delay_units(float)",
     "location": {
       "column": "13",
-      "line": "16",
+      "line": "17",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "morse_delay_units",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@806@F@morse_delay_units@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "39",
+      "line": "30",
+      "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
+    },
+    "name": "i",
     "origin": "project_file",
     "scope": null
   },
@@ -51188,7 +51230,7 @@
     "display": "void morse_point(void)",
     "location": {
       "column": "13",
-      "line": "28",
+      "line": "42",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "morse_point",
@@ -51202,7 +51244,7 @@
     "display": "void morse_line(void)",
     "location": {
       "column": "13",
-      "line": "37",
+      "line": "51",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "morse_line",
@@ -51216,7 +51258,7 @@
     "display": "void letter_S(void)",
     "location": {
       "column": "6",
-      "line": "47",
+      "line": "60",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "letter_S",
@@ -51230,7 +51272,7 @@
     "display": "void letter_O(void)",
     "location": {
       "column": "6",
-      "line": "56",
+      "line": "68",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "letter_O",
@@ -51244,7 +51286,7 @@
     "display": "void SOS(void)",
     "location": {
       "column": "6",
-      "line": "65",
+      "line": "76",
       "path": "C:\\Users\\Stefan\\summer-internship\\W1G2\\sos.c"
     },
     "name": "SOS",

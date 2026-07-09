@@ -787,25 +787,34 @@ extern void SOS(void);
 
 #line 5 "C:\\Users\\Stefan\\summer-internship\\W1G2\\main.c"
 
+
+extern volatile _Bool sos_stop; 
+
 int pressed_confidence_level = 0;
 int released_confidence_level = 0;
 _Bool button_stable_state = 0;
-int count=0;
+int count = 0;
 
 void setup(void)
 {
-    
     leds_initialize(1, 0, 0, 0, 0); 
+    gpio_set_direction(&DDRC, 6, (((0x01U))));
+    
+    
+ 
+    gpio_set_pin(&PORTC, 6);  
+    
+    sos_stop = 1; 
 }
 
 void main(void)
 {
     setup();
 
- while(1)
+    while(1)
     {
-       
-        if(gpio_read_pin(&PINC, 6)) 
+      
+        if(gpio_read_pin(&PINC, 6) == 0) 
         {
             pressed_confidence_level++;
             released_confidence_level = 0; 
@@ -816,32 +825,52 @@ void main(void)
             pressed_confidence_level = 0;  
         }
 
-  
-       
+    
         if(pressed_confidence_level > 200) 
         {
-          
-            if(button_stable_state == 1) 
+            if(button_stable_state == 0) 
             {
-                count++;                  
-                led_TOGGLE((0xAA));     
-                button_stable_state = 1; 
-                SOS();
+                count++;  
+                button_stable_state = 1;
                 
-             gpio_Timer1_start(1, 64);
-              led_TOGGLE((0xAA)); 
              
-             while(TCNT1 < OCR1A);
-             gpio_Timer1_stop();
             }
             pressed_confidence_level = 0; 
         }
 
-        
+      
         if(released_confidence_level > 200) 
         {
-            button_stable_state = 1;    
-            released_confidence_level = 0;
+            button_stable_state = 0;      
+            released_confidence_level = 0; 
         }
+
+       
+        if(count % 2 == 1)
+        {
+            SOS(); 
+            
+         
+            if(sos_stop == 1)
+            {
+                count = 0; 
+                
+              
+                button_stable_state = 1; 
+            }
+        }
+         else
+        {
+            led_Reset((0xAA)); 
+        }
+           if(count % 2 == 0)
+                {
+                    sos_stop = 1; 
+                }
+                else
+                {
+                    sos_stop = 0; 
+                }
+       
     }
 }

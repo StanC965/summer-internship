@@ -3,25 +3,33 @@
 #include "led.h" 
 #include "sos.h"
 
+
+extern volatile _Bool sos_stop; 
+
 int pressed_confidence_level = 0;
 int released_confidence_level = 0;
 _Bool button_stable_state = 0;
-int count=0;
+int count = 0;
 
 void setup(void)
 {
-    
     leds_initialize(1, 0, 0, 0, 0); 
+    gpio_set_direction(&DDRC, 6, GPIO_INPUT);
+    
+    
+    gpio_set_pin(&PORTC, 6);  
+    
+    sos_stop = 1;
 }
 
 void main(void)
 {
     setup();
 
- while(1)
+    while(1)
     {
-       
-        if(gpio_read_pin(&PINC, 6)) 
+      
+        if(gpio_read_pin(&PINC, 6) == 0) 
         {
             pressed_confidence_level++;
             released_confidence_level = 0; 
@@ -32,32 +40,50 @@ void main(void)
             pressed_confidence_level = 0;  
         }
 
-  
-       
-        if(pressed_confidence_level > 200) 
-        {
-          
-            if(button_stable_state == 1) 
+                                                                // Nu am reusit sa implementez functia de toggle la SOS
+        if(pressed_confidence_level > 200)              //momentan programul va activa sos doar atata timp cat este apasat butonul
+        {                                       //imi este dificil sa dau debug deoarece,valorile de confidence se bazeaza pe sute de iteratii de while(1).
+            if(button_stable_state == 0)         //
             {
-                count++;                  
-                led_TOGGLE(LED_ZERO);     
-                button_stable_state = 1; 
-                SOS();
+                count++;  
+                button_stable_state = 1;
                 
-             gpio_Timer1_start(1, 64);
-              led_TOGGLE(LED_ZERO); 
-             
-             while(TCNT1 < OCR1A);
-             gpio_Timer1_stop();
+                if(count % 2 == 0)
+                {
+                    sos_stop = 1; 
+                }
+                else
+                {
+                    sos_stop = 0; 
+                }
             }
             pressed_confidence_level = 0; 
         }
 
-        
+      
         if(released_confidence_level > 200) 
         {
-            button_stable_state = 1;    // am luat codul de  problema 254 si am pus 1 aici ca sa intre mereu pe ramura cu SOS    
-            released_confidence_level = 0;
+            button_stable_state = 0;      
+            released_confidence_level = 0; 
+        }
+
+       
+        if(count % 2 == 1)
+        {
+            SOS(); 
+            
+         
+            if(sos_stop == 1)
+            {
+                count = 0; 
+                
+              
+                button_stable_state = 1; 
+            }
+        }
+        else
+        {
+            led_Reset(LED_ZERO); 
         }
     }
 }
