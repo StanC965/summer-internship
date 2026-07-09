@@ -59,4 +59,37 @@ extern void led_blink_fast(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 */
 extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
+/** \fn         void led_point(volatile gpio_uint8_t *port, gpio_uint8_t pin)
+
+    \brief      Genereaza un punct Morse cu LED-ul.
+    \param[in]  port - adresa registrului PORTx pe care este conectat LED-ul
+    \param[in]  pin  - pinul pe care este conectat LED-ul
+    \param[out] Nu exista.
+    \return     Nu returneaza nimic.
+    \details    Aprinde LED-ul scurt, apoi il stinge scurt.
+*/
+extern void led_point(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+/** \fn         void led_line(volatile gpio_uint8_t *port, gpio_uint8_t pin)
+
+    \brief      Genereaza o linie Morse cu LED-ul.
+    \param[in]  port - adresa registrului PORTx pe care este conectat LED-ul
+    \param[in]  pin  - pinul pe care este conectat LED-ul
+    \param[out] Nu exista.
+    \return     Nu returneaza nimic.
+    \details    Aprinde LED-ul mai mult timp, apoi il stinge scurt.
+*/
+extern void led_line(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+/** \fn         void led_sos(volatile gpio_uint8_t *port, gpio_uint8_t pin)
+
+    \brief      Genereaza secventa SOS in cod Morse.
+    \param[in]  port - adresa registrului PORTx pe care este conectat LED-ul
+    \param[in]  pin  - pinul pe care este conectat LED-ul
+    \param[out] Nu exista.
+    \return     Nu returneaza nimic.
+    \details    SOS inseamna 3 puncte, 3 linii, 3 puncte.
+*/
+extern void led_sos(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
 #endif
