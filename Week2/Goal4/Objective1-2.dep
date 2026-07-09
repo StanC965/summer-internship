@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>1256095166</fileChecksum>
+    <fileChecksum>1298178298</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -21,6 +21,7 @@
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
+            <file>$PROJ_DIR$\task423.c</file>
             <file>$PROJ_DIR$\led.h</file>
             <file>$PROJ_DIR$\led.c</file>
             <file>$PROJ_DIR$\gpio.h</file>
@@ -65,7 +66,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 19 10 11 16</file>
+                    <file> 19 20 10 11 17</file>
                 </tool>
             </inputs>
         </file>
@@ -80,7 +81,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 19 10 11 18</file>
+                    <file> 20 10 11 19</file>
                 </tool>
             </inputs>
         </file>
@@ -95,7 +96,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 19 10 11</file>
+                    <file> 19 20 10 11</file>
                 </tool>
             </inputs>
         </file>
@@ -110,7 +111,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 13 19 10 11 18</file>
+                    <file> 13 20 10 11 19</file>
                 </tool>
             </inputs>
         </file>

@@ -775,7 +775,7 @@
                 </option>
                 <option>
                     <name>XclFile</name>
-                    <state>lnk0t.xcl</state>
+                    <state>$TOOLKIT_DIR$/src/template/cfgm324pb.xcl</state>
                 </option>
                 <option>
                     <name>XclFileSlave</name>
@@ -863,7 +863,7 @@
                 </option>
                 <option>
                     <name>xcProgramEntryLabel</name>
-                    <state></state>
+                    <state>__program_start</state>
                 </option>
                 <option>
                     <name>DebugInformation</name>
@@ -891,7 +891,7 @@
                 </option>
                 <option>
                     <name>ExtraOutputFile</name>
-                    <state></state>
+                    <state>Objective1-2.a90</state>
                 </option>
                 <option>
                     <name>ExtraOutputFormat</name>
@@ -2123,5 +2123,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task423.c</name>
     </file>
 </project>
