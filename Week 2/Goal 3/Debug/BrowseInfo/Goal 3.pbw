@@ -51280,16 +51280,44 @@
     "scope": null
   },
   {
-    "ID": "c:@F@setup",
+    "ID": "c:@F@adc_init",
     "What": "Function",
     "defdec": "Def",
-    "display": "void setup(void)",
+    "display": "void adc_init(void)",
     "location": {
       "column": "6",
       "line": "12",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
-    "name": "setup",
+    "name": "adc_init",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@adc_start_conversion",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void adc_start_conversion(void)",
+    "location": {
+      "column": "6",
+      "line": "19",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "adc_start_conversion",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@adc_get_result",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "unsigned char adc_get_result(void)",
+    "location": {
+      "column": "15",
+      "line": "23",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "adc_get_result",
     "origin": "project_file",
     "scope": null
   },
@@ -51300,7 +51328,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "19",
+      "line": "27",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "main",
