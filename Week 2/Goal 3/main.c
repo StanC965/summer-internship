@@ -1,12 +1,18 @@
-//355
+//362
 #include "iom324pb.h"
 #include "led.h"
 #include "gpio.h"
 #include <intrinsics.h>
 
-#define LED0_PIN 7      //pc7
+#define LED0_PIN 7 
+#define LED1_PIN 5      //pd5
+#define LED2_PIN 4      //pd4
+#define LED3_PIN 3      //pa3//pc7
 #define OUTPUT 1
-#define MIDDLE_POINT 127 //255/2
+#define FULL_DARK 255
+#define SEMI_DARK 225
+#define SEMI_LIGHT 98
+#define FULL_LIGHT 30
 
 volatile unsigned char lumina_ambientala=0;
 
@@ -22,9 +28,36 @@ void adc_init(){
   __enable_interrupt();
 }
 
-void led0_init(){
-  Init_LED(&DDRC, LED0_PIN,OUTPUT);
-  set_pin(&PORTC, LED0_PIN);
+void oled1_leds_init(){
+  Init_LED(&DDRD, LED1_PIN, OUTPUT);
+  Init_LED(&DDRD, LED2_PIN, OUTPUT);
+  Init_LED(&DDRA, LED3_PIN, OUTPUT);
+  set_pin(&PORTD, LED1_PIN); 
+  set_pin(&PORTD, LED2_PIN); 
+  set_pin(&PORTA, LED3_PIN);
+}
+
+void turn_on_leds(unsigned char lumina){
+  if(lumina>=SEMI_DARK && lumina <=FULL_DARK){
+    set_pin(&PORTD, LED1_PIN); 
+    set_pin(&PORTD, LED2_PIN); 
+    set_pin(&PORTA, LED3_PIN);
+  }
+  if(lumina>=SEMI_LIGHT && lumina <SEMI_DARK){
+    reset_pin(&PORTD, LED1_PIN); 
+    set_pin(&PORTD, LED2_PIN); 
+    set_pin(&PORTA, LED3_PIN);
+  }
+  if(lumina>=FULL_LIGHT && lumina <SEMI_LIGHT){
+    reset_pin(&PORTD, LED1_PIN); 
+    reset_pin(&PORTD, LED2_PIN); 
+    set_pin(&PORTA, LED3_PIN);
+  }
+  if(lumina<FULL_LIGHT){
+    reset_pin(&PORTD, LED1_PIN); 
+    reset_pin(&PORTD, LED2_PIN); 
+    reset_pin(&PORTA, LED3_PIN);
+  }
 }
 
 void adc_start_conversion(void){
@@ -37,18 +70,13 @@ unsigned char adc_get_result(void){
 
 void main(void){
   adc_init();
-  led0_init();
+  oled1_leds_init();
   
   while(1){
     adc_start_conversion();
     unsigned char lumina=adc_get_result();
     
-    if(lumina<MIDDLE_POINT){
-      reset_pin(&PORTC, LED0_PIN);
-    }
-    else{
-      set_pin(&PORTC, LED0_PIN);
-    }
+    turn_on_leds(lumina);
   }
 }
 
