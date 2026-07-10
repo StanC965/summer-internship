@@ -1,57 +1,74 @@
-#include "sos.h"
 #include <intrinsics.h>
+#include "led.h"
+#include "gpio.h"
+#include "adc.h"
 
-#define PA1 1
-#define INPUT 0
-#define ADMUX1 0
+#define PA3 3
+#define PD4 4
+#define PD5 5
+#define PA4 4
+#define ADC4 2
 #define REF0 6
-#define PC7 7
-#define OUTPUT 1
-#define ADEN 7
-#define ADCS 6
 #define ADLAR 5
-#define ADPS0 0
-#define ADPS1 1
-#define ADPS2 2
 #define ADIE 3
+#define ADPS00 0
+#define ADPS01 1
+#define ADPS02 2
+
+#define led0 0
+#define led1 1
+#define led2 2
+#define led3 3
+
+#define dark 120
+#define semiDark 80
+#define semiLight 40
+
 #pragma vector = ADC_vect
 __interrupt void myInterrupt(void){
   unsigned char value = ADCH;
-  if(value >100)
-      ledPowerOn(0);
-  else
-      ledPowerOff(0);
- 
-  setPin(&ADCSRA,ADCS);    
-}
-
-
-void initADCSRA(){
-    setDirection(&DDRC,PC7,OUTPUT);
-    setPin(&PORTC,PC7);
-    setDirection(&DDRA,PA1,INPUT);
-    resetPin(&PORTA,PA1);
-    
-    setPin(&ADMUX,ADMUX1);
-    setPin(&ADMUX,REF0);
-    setPin(&ADMUX,ADLAR);
-    
-    setPin(&ADCSRA,ADEN);
-    setPin(&ADCSRA,ADIE);
-   
-}
-
-
-int main( void )
-{
-  initADCSRA();
   
-  __enable_interrupt();
-  
-  setPin(&ADCSRA,ADCS);
-  
-  while(1){
+  if(value < semiLight)
+  {
+    ledPowerOn(led1);
+      ledPowerOn(led2);
+      ledPowerOn(led3);
   }
+  else
+    if(value >= semiLight && value < semiDark){
+      ledPowerOn(led1);
+      ledPowerOn(led2);
+      ledPowerOff(led3);
+    }
+  else
+    if(value >= semiDark && value < dark){
+      ledPowerOn(led1);
+      ledPowerOff(led2);
+      ledPowerOff(led3);
+    }
+    else{
+    ledPowerOff(led1);
+      ledPowerOff(led2);
+      ledPowerOff(led3);
+    }
+  startConversionAdc();
+      
+}
+
+
+
+
+void main( void )
+{
+  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADLAR,ADIE,ADPS00,0,0);
+  ledInit(&DDRA,&PORTA,PA3);
+  ledInit(&DDRD,&PORTD,PD4);
+  ledInit(&DDRD,&PORTD,PD5);
   
+  startConversionAdc();
+  __enable_interrupt();
+  while(1){
+  
+  }
   
 }

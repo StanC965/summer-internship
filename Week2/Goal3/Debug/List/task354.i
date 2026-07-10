@@ -794,6 +794,8 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 #line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
 
 #line 17 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
+
+
 #pragma vector = (0x60)
 __interrupt void myInterrupt(void){
   unsigned char value = ADCH;
@@ -811,11 +813,11 @@ void initADCSRA(){
   
     setDirection(&DDRC,7,1);
     setPin(&PORTC,7);
-    setDirection(&DDRA,1,0);
-    resetPin(&PORTA,1);
+    setDirection(&DDRA,4,0);
+    resetPin(&PORTA,4);
     
     setPin(&ADMUX,2);
-    setPin(&ADMUX,7);
+    setPin(&ADMUX,6);
     setPin(&ADMUX,5);
     
     setPin(&ADCSRA,7);
