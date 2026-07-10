@@ -23,7 +23,7 @@
         <ShowTimeSum>1</ShowTimeSum>
     </DataLog>
     <DebugChecksum>
-        <Checksum>2036227909</Checksum>
+        <Checksum>64183881</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -32,8 +32,7 @@
         <ShowArgs>0</ShowArgs>
     </CallStack>
     <Breakpoints2>
-        <Bp0>_ 1 "STD_CODE2" "{$PROJ_DIR$\main.c}.18.7" 0 0 1 "" 0 ""</Bp0>
-        <Count>1</Count>
+        <Count>0</Count>
     </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>

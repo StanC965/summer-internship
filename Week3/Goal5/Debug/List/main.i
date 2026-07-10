@@ -797,18 +797,55 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
+
+int flag10ms = 0;
+int flag50ms = 0;
+int flag100ms = 0;
+int flag500ms = 0;
+int flag1000ms = 0;
+
+void schedulerFlasgsManagement(void){
+  static unsigned char cnt50 = 0;
+  static unsigned char cnt100 = 0;
+  static unsigned short int cnt500 = 0;
+  static unsigned short int cnt1000 = 0;
+  flag10ms = 1;
+  cnt50++;
+  cnt100++;
+  cnt500++;
+  cnt1000++;
+  if(cnt50 == 5){
+    cnt50 = 0;
+    flag50ms = 1;
+    
+  }
+   if(cnt100 == 10){
+    cnt100 = 0;
+    flag100ms = 0;
+  }
+  if(cnt500 ==50){
+    cnt500 = 0;
+    flag500ms = 1;
+  }
+  
+  if(cnt1000 == 100){
+    cnt1000 = 0;
+    flag1000ms = 1;
+  }
+}
+
 #pragma vector=(0x34)
 __interrupt void myInterrupt(void){
   
-  int a = 5;
+  schedulerFlasgsManagement();
 }
 
 void programInit(){
   TCNT1 = 0;
   OCR1A = 9999;
   
-  ledInit(&DDRD,&PORTD,5);
-  
+
+  ledInit(&DDRD,&PORTD,4);
   setPin(&TCCR1B,3);
   setPin(&TIMSK1,1);
   setPin(&TCCR1B,1);
@@ -824,6 +861,26 @@ int main( void )
   
   
   while(1){
-  
+    if(flag10ms){
+      flag10ms = 0;
+      
+      
+    }
+    if(flag50ms){
+      flag50ms = 0;
+      
+    }
+    if(flag100ms){
+      flag100ms = 0;
+      
+    }
+    if(flag500ms){
+      flag500ms = 0;
+      
+    }
+    if(flag1000ms){
+      flag1000ms = 0;
+      togglePin(&PORTD,4);
+    }
   }
 }

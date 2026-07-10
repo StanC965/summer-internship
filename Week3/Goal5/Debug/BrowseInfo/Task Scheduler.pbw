@@ -51462,13 +51462,27 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@223@macro@COM1A",
+    "ID": "c:main.c@223@macro@PD4",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PD4",
+    "location": {
+      "column": "9",
+      "line": "12",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "PD4",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@238@macro@COM1A",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "COM1A",
     "location": {
       "column": "9",
-      "line": "12",
+      "line": "13",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
     },
     "name": "COM1A",
@@ -51476,16 +51490,156 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@240@macro@PD5",
+    "ID": "c:main.c@255@macro@PD5",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PD5",
     "location": {
       "column": "9",
-      "line": "13",
+      "line": "14",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
     },
     "name": "PD5",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag10ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag10ms",
+    "location": {
+      "column": "5",
+      "line": "16",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "flag10ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag50ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag50ms",
+    "location": {
+      "column": "5",
+      "line": "17",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "flag50ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag100ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag100ms",
+    "location": {
+      "column": "5",
+      "line": "18",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "flag100ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag500ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag500ms",
+    "location": {
+      "column": "5",
+      "line": "19",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "flag500ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag1000ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag1000ms",
+    "location": {
+      "column": "5",
+      "line": "20",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "flag1000ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@schedulerFlasgsManagement",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void schedulerFlasgsManagement(void)",
+    "location": {
+      "column": "6",
+      "line": "22",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "schedulerFlasgsManagement",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@406@F@schedulerFlasgsManagement@cnt50",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "cnt50",
+    "location": {
+      "column": "24",
+      "line": "23",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "cnt50",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@441@F@schedulerFlasgsManagement@cnt100",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "cnt100",
+    "location": {
+      "column": "24",
+      "line": "24",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "cnt100",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@477@F@schedulerFlasgsManagement@cnt500",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "cnt500",
+    "location": {
+      "column": "29",
+      "line": "25",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "cnt500",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@518@F@schedulerFlasgsManagement@cnt1000",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "cnt1000",
+    "location": {
+      "column": "29",
+      "line": "26",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "cnt1000",
     "origin": "project_file",
     "scope": null
   },
@@ -51496,24 +51650,10 @@
     "display": "void myInterrupt(void)",
     "location": {
       "column": "18",
-      "line": "16",
+      "line": "53",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
     },
     "name": "myInterrupt",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@326@F@myInterrupt@a",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "a",
-    "location": {
-      "column": "7",
-      "line": "18",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
-    },
-    "name": "a",
     "origin": "project_file",
     "scope": null
   },
@@ -51524,7 +51664,7 @@
     "display": "void programInit(void)",
     "location": {
       "column": "6",
-      "line": "21",
+      "line": "58",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
     },
     "name": "programInit",
@@ -51538,7 +51678,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "34",
+      "line": "71",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
     },
     "name": "main",
