@@ -2104,6 +2104,9 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\AmbientLight.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\gpio.c</name>
     </file>
     <file>
@@ -2117,5 +2120,20 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduleCFG.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduleCFG.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task362.c</name>
     </file>
 </project>
