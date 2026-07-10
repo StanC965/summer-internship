@@ -50622,13 +50622,27 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@142@macro@BTN1_PIN",
+    "ID": "c:main.c@142@macro@BTNSW0_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTNSW0_PIN",
+    "location": {
+      "column": "9",
+      "line": "10",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "BTNSW0_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@173@macro@BTN1_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "BTN1_PIN",
     "location": {
       "column": "9",
-      "line": "10",
+      "line": "11",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "BTN1_PIN",
@@ -50636,13 +50650,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@173@macro@BTN2_PIN",
+    "ID": "c:main.c@204@macro@BTN2_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "BTN2_PIN",
     "location": {
       "column": "9",
-      "line": "11",
+      "line": "12",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "BTN2_PIN",
@@ -50650,13 +50664,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@204@macro@BTN3_PIN",
+    "ID": "c:main.c@235@macro@BTN3_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "BTN3_PIN",
     "location": {
       "column": "9",
-      "line": "12",
+      "line": "13",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "BTN3_PIN",
@@ -50664,13 +50678,27 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@235@macro@LED1_PIN",
+    "ID": "c:main.c@266@macro@LED0_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LED0_PIN",
+    "location": {
+      "column": "9",
+      "line": "14",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "LED0_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@297@macro@LED1_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED1_PIN",
     "location": {
       "column": "9",
-      "line": "13",
+      "line": "15",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "LED1_PIN",
@@ -50678,13 +50706,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@266@macro@LED2_PIN",
+    "ID": "c:main.c@328@macro@LED2_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED2_PIN",
     "location": {
       "column": "9",
-      "line": "14",
+      "line": "16",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "LED2_PIN",
@@ -50692,13 +50720,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@297@macro@LED3_PIN",
+    "ID": "c:main.c@359@macro@LED3_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED3_PIN",
     "location": {
       "column": "9",
-      "line": "15",
+      "line": "17",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "LED3_PIN",
@@ -50706,13 +50734,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@328@macro@OUTPUT",
+    "ID": "c:main.c@390@macro@OUTPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OUTPUT",
     "location": {
       "column": "9",
-      "line": "16",
+      "line": "18",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "OUTPUT",
@@ -50720,13 +50748,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@346@macro@INPUT",
+    "ID": "c:main.c@408@macro@INPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "INPUT",
     "location": {
       "column": "9",
-      "line": "17",
+      "line": "19",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "INPUT",
@@ -50740,7 +50768,7 @@
     "display": "stare_led1",
     "location": {
       "column": "14",
-      "line": "19",
+      "line": "21",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "stare_led1",
@@ -50754,7 +50782,7 @@
     "display": "stare_led2",
     "location": {
       "column": "14",
-      "line": "20",
+      "line": "22",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "stare_led2",
@@ -50768,7 +50796,7 @@
     "display": "stare_led3",
     "location": {
       "column": "14",
-      "line": "21",
+      "line": "23",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "stare_led3",
@@ -50782,7 +50810,7 @@
     "display": "void PortC_ISR(void)",
     "location": {
       "column": "18",
-      "line": "24",
+      "line": "26",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "PortC_ISR",
@@ -50796,7 +50824,7 @@
     "display": "void PortA_ISR(void)",
     "location": {
       "column": "18",
-      "line": "41",
+      "line": "56",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "PortA_ISR",
@@ -50810,7 +50838,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "71",
+      "line": "86",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "setup",
@@ -50824,7 +50852,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "93",
+      "line": "112",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "main",
