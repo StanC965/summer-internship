@@ -1,0 +1,1 @@
+Portable code is fully possible because both microcontrollers share the exact same names, bit functions, and memory addresses for these registers.
