@@ -12,12 +12,13 @@
 #define PD4 4
 #define COM1A 6
 #define PD5 5
+#define PA3 3
 
-int flag10ms = 0;
-int flag50ms = 0;
-int flag100ms = 0;
-int flag500ms = 0;
-int flag1000ms = 0;
+_Bool flag10ms = 0;
+_Bool flag50ms = 0;
+_Bool flag100ms = 0;
+_Bool flag500ms = 0;
+_Bool flag1000ms = 0;
 
 void schedulerFlasgsManagement(void){
   static unsigned char cnt50 = 0;
@@ -48,6 +49,32 @@ void schedulerFlasgsManagement(void){
     flag1000ms = 1;
   }
 }
+void scheduleTaskDispatcher(void){
+ while(1){
+    if(flag10ms){
+      flag10ms = 0;
+      togglePin(&PORTA,PA3);
+      
+      
+    }
+    if(flag50ms){
+      flag50ms = 0;
+      
+    }
+    if(flag100ms){
+      flag100ms = 0;
+      
+    }
+    if(flag500ms){
+      flag500ms = 0;
+      
+    }
+    if(flag1000ms){
+      flag1000ms = 0;
+      togglePin(&PORTD,PD4);
+    }
+  }
+}
 
 #pragma vector=TIMER1_COMPA_vect
 __interrupt void myInterrupt(void){
@@ -55,11 +82,14 @@ __interrupt void myInterrupt(void){
   schedulerFlasgsManagement();
 }
 
+
+
 void programInit(){
   TCNT1 = 0;
   OCR1A = 9999;
-  
-
+  //initializam pini de care avem nevoie pentru a vedea cum se schimba unu la 10 ms si unu la 1000ms 
+    
+  ledInit(&DDRA,&PORTA,PA3);
   ledInit(&DDRD,&PORTD,PD4);
   setPin(&TCCR1B,WGM12);
   setPin(&TIMSK1,OCIE1A);
@@ -74,8 +104,7 @@ int main( void )
   programInit();
   __enable_interrupt();
   
+  scheduleTaskDispatcher();
   
-  while(1){
-    
-  }
+ 
 }

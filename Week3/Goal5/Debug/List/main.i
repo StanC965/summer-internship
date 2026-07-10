@@ -798,11 +798,12 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
-int flag10ms = 0;
-int flag50ms = 0;
-int flag100ms = 0;
-int flag500ms = 0;
-int flag1000ms = 0;
+
+_Bool flag10ms = 0;
+_Bool flag50ms = 0;
+_Bool flag100ms = 0;
+_Bool flag500ms = 0;
+_Bool flag1000ms = 0;
 
 void schedulerFlasgsManagement(void){
   static unsigned char cnt50 = 0;
@@ -833,36 +834,11 @@ void schedulerFlasgsManagement(void){
     flag1000ms = 1;
   }
 }
-
-#pragma vector=(0x34)
-__interrupt void myInterrupt(void){
-  
-  schedulerFlasgsManagement();
-}
-
-void programInit(){
-  TCNT1 = 0;
-  OCR1A = 9999;
-  
-
-  ledInit(&DDRD,&PORTD,4);
-  setPin(&TCCR1B,3);
-  setPin(&TIMSK1,1);
-  setPin(&TCCR1B,1);
-  
-  setPin(&TCCR1A,6);
-}
-
-int main( void )
-{
-  
-  programInit();
-  __enable_interrupt();
-  
-  
-  while(1){
+void scheduleTaskDispatcher(void){
+ while(1){
     if(flag10ms){
       flag10ms = 0;
+      togglePin(&PORTA,3);
       
       
     }
@@ -883,4 +859,35 @@ int main( void )
       togglePin(&PORTD,4);
     }
   }
+}
+
+#pragma vector=(0x34)
+__interrupt void myInterrupt(void){
+  
+  schedulerFlasgsManagement();
+}
+
+
+
+void programInit(){
+  TCNT1 = 0;
+  OCR1A = 9999;
+  
+  ledInit(&DDRA,&PORTA,3);
+  ledInit(&DDRD,&PORTD,4);
+  setPin(&TCCR1B,3);
+  setPin(&TIMSK1,1);
+  setPin(&TCCR1B,1);
+  
+  setPin(&TCCR1A,6);
+}
+
+int main( void )
+{
+  
+  programInit();
+  __enable_interrupt();
+  scheduleTaskDispatcher();
+  
+ 
 }
