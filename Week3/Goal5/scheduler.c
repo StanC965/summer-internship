@@ -24,13 +24,13 @@ void programInit(){
   OCR1A = 9999;
   //initializam pini de care avem nevoie pentru a vedea cum se schimba unu la 10 ms si unu la 1000ms 
     
-  ledInit(&DDRA,&PORTA,PA3);
-  ledInit(&DDRD,&PORTD,PD4);
+  
+  
   setPin(&TCCR1B,WGM12);
   setPin(&TIMSK1,OCIE1A);
   setPin(&TCCR1B,CS11);
   
-  setPin(&TCCR1A,COM1A);
+
 }
 
 void scheduleTaskDispatcher(void){

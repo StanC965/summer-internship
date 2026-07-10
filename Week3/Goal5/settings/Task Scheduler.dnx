@@ -23,7 +23,7 @@
         <ShowTimeSum>1</ShowTimeSum>
     </DataLog>
     <DebugChecksum>
-        <Checksum>4216179003</Checksum>
+        <Checksum>2903766383</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -37,8 +37,7 @@
         <Category2>_ 2</Category2>
     </LogFile>
     <Breakpoints2>
-        <Bp0>_ 1 "STD_CODE2" "{$PROJ_DIR$\AmbientLight.c}.43.3" 0 0 1 "" 0 ""</Bp0>
-        <Count>1</Count>
+        <Count>0</Count>
     </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>

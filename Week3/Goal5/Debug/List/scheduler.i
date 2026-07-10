@@ -625,13 +625,13 @@ void programInit(){
   OCR1A = 9999;
   
     
-  ledInit(&DDRA,&PORTA,3);
-  ledInit(&DDRD,&PORTD,4);
+  
+  
   setPin(&TCCR1B,3);
   setPin(&TIMSK1,1);
   setPin(&TCCR1B,1);
   
-  setPin(&TCCR1A,6);
+
 }
 
 void scheduleTaskDispatcher(void){
