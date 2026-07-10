@@ -3,8 +3,8 @@
 
 #define PA1 1
 #define INPUT 0
-#define ADMUX1 0
-#define REF0 6
+#define ADC4 2
+#define REF1 7
 #define PC7 7
 #define OUTPUT 1
 #define ADEN 7
@@ -14,6 +14,8 @@
 #define ADPS1 1
 #define ADPS2 2
 #define ADIE 3
+
+//am putut observa ca a fost la acceeasi intensitate de lumina 255
 #pragma vector = ADC_vect
 __interrupt void myInterrupt(void){
   unsigned char value = ADCH;
@@ -34,8 +36,8 @@ void initADCSRA(){
     setDirection(&DDRA,PA1,INPUT);
     resetPin(&PORTA,PA1);
     
-    setPin(&ADMUX,2);
-    setPin(&ADMUX,REF0);
+    setPin(&ADMUX,ADC4);
+    setPin(&ADMUX,REF1);
     setPin(&ADMUX,ADLAR);
     
     setPin(&ADCSRA,ADEN);

@@ -3,12 +3,13 @@
 #include "gpio.h"
 #define INPUT 0
 #define ADCS 6
+#define ADEN 7
 
 //aici sunt definite toate porturile care sunt folosite penrtu exercitii-le pe care le-am intampinat pana acum acum 
 //acestea se vor defini cu numarul bitului care va trebuii schimbat sau numele DDR sau portul care treuie folosit
 void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADLAR,unsigned char ADIE,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2){
-  setDirection(*DDR,pin,INPUT);
-  resetPin(*port,pin);
+  setDirection(DDR,pin,INPUT);
+  resetPin(port,pin);
   
   setPin(&ADMUX,ADMUXn);
   if(REF0 !=0)
