@@ -13,3 +13,47 @@ void PressToSos(){
      Point(&PORTC,PIN7);
      delay(5);
   }
+  }
+void SosStop(){
+   if(PINC_PINC6==0){
+     delay(2);
+     while(1){
+       if(PINC_PINC6==0){
+         delay(2);
+         break;}
+     Point(&PORTC,PIN7);
+     if(PINC_PINC6==0){
+       delay(2);
+       break;}
+     Point(&PORTC,PIN7);
+     if(PINC_PINC6==0){
+         delay(2);
+         break;}
+     Point(&PORTC,PIN7);
+    if(PINC_PINC6==0){
+         delay(2);
+         break;}
+     Line(&PORTC,PIN7);
+     if(PINC_PINC6==0){
+         delay(2);
+         break;}
+     Line(&PORTC,PIN7);
+     if(PINC_PINC6==0)
+         break;
+     Line(&PORTC,PIN7);
+     if(PINC_PINC6==0){
+         delay(2);
+         break;}
+     Point(&PORTC,PIN7);
+     if(PINC_PINC6==0){
+         delay(2);
+         break;}
+     Point(&PORTC,PIN7);
+    if(PINC_PINC6==0){
+         delay(2);
+         break;}
+     Point(&PORTC,PIN7);
+     
+     }
+   }
+}
