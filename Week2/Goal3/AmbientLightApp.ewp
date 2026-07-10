@@ -775,7 +775,7 @@
                 </option>
                 <option>
                     <name>XclFile</name>
-                    <state>$TOOLKIT_DIR$/src/template/lnk3s.xcl</state>
+                    <state>$TOOLKIT_DIR$/src/template/cfgm324pb.xcl</state>
                 </option>
                 <option>
                     <name>XclFileSlave</name>
@@ -2123,5 +2123,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task362.c</name>
     </file>
 </project>

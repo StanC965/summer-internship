@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>4100941614</fileChecksum>
+    <fileChecksum>998968561</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -24,24 +24,27 @@
             <file>$PROJ_DIR$\Debug\List\AmbientLightApp.map</file>
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\task362.r90</file>
+            <file>$PROJ_DIR$\Debug\List\task362.i</file>
             <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$PROJ_DIR$\Debug\List\adc.i</file>
             <file>$PROJ_DIR$\Debug\List\led.i</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\task362.c</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\adc.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 20 11</file>
+                    <file> 22 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0 13 3 22</file>
+                    <file> 0 13 3 24</file>
                 </tool>
             </inputs>
         </file>
@@ -56,7 +59,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 18 17 11 2 10 9 15</file>
+                    <file> 18 17 11 2 10 9 19 15</file>
                 </tool>
             </inputs>
         </file>
@@ -65,13 +68,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 23 9</file>
+                    <file> 25 9</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4 7 0 13 3 22 6</file>
+                    <file> 4 7 0 13 3 24 6</file>
                 </tool>
             </inputs>
         </file>
@@ -80,13 +83,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 19 2</file>
+                    <file> 21 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 13 3 22 0</file>
+                    <file> 13 3 24 0</file>
                 </tool>
             </inputs>
         </file>
@@ -95,13 +98,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 21 10</file>
+                    <file> 23 10</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0 13 3 22 7</file>
+                    <file> 0 13 3 24 7</file>
                 </tool>
             </inputs>
         </file>
@@ -114,6 +117,25 @@
                 </tool>
             </outputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\task362.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20 19</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 4 7 0 13 3 24 6</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>XLINK</tool>

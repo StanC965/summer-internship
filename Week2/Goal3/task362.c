@@ -27,7 +27,7 @@
 //curentul se masoara cu un ampermetru
 #pragma vector = ADC_vect
 __interrupt void myInterrupt(void){
-  unsigned int value = ADC;
+  unsigned char value = ADCH;
   disableAdc();
   
   if(value < semiLight)
@@ -64,7 +64,7 @@ __interrupt void myInterrupt(void){
 void main( void )
 {
   DIDR0 |= (1 << ADC4DIDR);
-  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,0,ADIE,ADPS00,0,0);
+  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,ADLAR,0,ADIE,ADPS00,0,0);
   ledInit(&DDRA,&PORTA,PA3);
   ledInit(&DDRD,&PORTD,PD4);
   ledInit(&DDRD,&PORTD,PD5);

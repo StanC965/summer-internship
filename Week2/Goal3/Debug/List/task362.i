@@ -1,4 +1,4 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
 
 
@@ -190,7 +190,7 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 
 
 
-#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
@@ -782,7 +782,7 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
 
 
@@ -793,9 +793,9 @@ extern void startConversionAdc();
 extern void enableAdc();
 
 extern void disableAdc();
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
 
-#line 18 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 18 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
 
 
 
@@ -808,7 +808,7 @@ extern void disableAdc();
 
 #pragma vector = (0x60)
 __interrupt void myInterrupt(void){
-  unsigned int value = ADC;
+  unsigned char value = ADCH;
   disableAdc();
   
   if(value < 40)
@@ -845,7 +845,7 @@ __interrupt void myInterrupt(void){
 void main( void )
 {
   DIDR0 |= (1 << 2);
-  initAdc(&DDRA,&PORTA,4,2,6,0,0,3,0,0,0);
+  initAdc(&DDRA,&PORTA,4,2,6,5,0,3,0,0,0);
   ledInit(&DDRA,&PORTA,3);
   ledInit(&DDRD,&PORTD,4);
   ledInit(&DDRD,&PORTD,5);

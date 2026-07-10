@@ -2656,4 +2656,7 @@
     <file>
         <name>$PROJ_DIR$\main.c</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task362.c</name>
+    </file>
 </project>
