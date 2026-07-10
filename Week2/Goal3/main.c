@@ -8,6 +8,7 @@
 #define PD5 5
 #define PA4 4
 #define ADC4 2
+#define ADC4DIDR 2
 #define REF0 6
 #define ADLAR 5
 #define ADIE 3
@@ -23,10 +24,11 @@
 #define dark 120
 #define semiDark 80
 #define semiLight 40
-
+//curentul se masoara cu un ampermetru
 #pragma vector = ADC_vect
 __interrupt void myInterrupt(void){
   unsigned char value = ADCH;
+  disableAdc();
   
   if(value < semiLight)
   {
@@ -51,6 +53,7 @@ __interrupt void myInterrupt(void){
       ledPowerOff(led2);
       ledPowerOff(led3);
     }
+  enableAdc();
   startConversionAdc();
       
 }
@@ -60,12 +63,14 @@ __interrupt void myInterrupt(void){
 
 void main( void )
 {
+  DIDR0 |= (1 << ADC4DIDR);
   initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADLAR,ADIE,ADPS00,0,0);
   ledInit(&DDRA,&PORTA,PA3);
   ledInit(&DDRD,&PORTD,PD4);
   ledInit(&DDRD,&PORTD,PD5);
-  
+  enableAdc();
   startConversionAdc();
+  
   __enable_interrupt();
   while(1){
   

@@ -19,7 +19,7 @@ void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned c
   if(ADLAR != 0){
     setPin(&ADMUX,ADLAR);
   }
-  setPin(&ADCSRA,ADEN);
+  
   if(ADIE != 0)
     setPin(&ADCSRA,ADIE);
   if(ADPS0!= 0)
@@ -39,6 +39,14 @@ void startConversionAdc(){
   setPin(&ADCSRA,ADCS);
 
 }
+
+void enableAdc(){
+  setPin(&ADCSRA,ADEN);
+}
+void disableAdc(){
+  resetPin(&ADCSRA,ADEN);
+}
+
 
 
 #endif

@@ -790,10 +790,12 @@ extern void ledBlinkFast(unsigned char led);
 extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADLAR,unsigned char ADIE,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
 
 extern void startConversionAdc();
+extern void enableAdc();
 
+extern void disableAdc();
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
 
-#line 17 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+#line 18 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
 
 
 
@@ -807,6 +809,7 @@ extern void startConversionAdc();
 #pragma vector = (0x60)
 __interrupt void myInterrupt(void){
   unsigned char value = ADCH;
+  disableAdc();
   
   if(value < 40)
   {
@@ -831,6 +834,7 @@ __interrupt void myInterrupt(void){
       ledPowerOff(2);
       ledPowerOff(3);
     }
+  enableAdc();
   startConversionAdc();
       
 }
@@ -840,12 +844,14 @@ __interrupt void myInterrupt(void){
 
 void main( void )
 {
+  DIDR0 |= (1 << 2);
   initAdc(&DDRA,&PORTA,4,2,6,0,5,3,0,0,0);
   ledInit(&DDRA,&PORTA,3);
   ledInit(&DDRD,&PORTD,4);
   ledInit(&DDRD,&PORTD,5);
-  
+  enableAdc();
   startConversionAdc();
+  
   __enable_interrupt();
   while(1){
   
