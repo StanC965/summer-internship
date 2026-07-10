@@ -583,7 +583,7 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 
-extern void ledInit(unsigned char* DDR,unsigned char* PORT,unsigned char pin);
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
 extern void ledPowerOn(unsigned char led);
 
 extern void ledPowerOff(unsigned char led);

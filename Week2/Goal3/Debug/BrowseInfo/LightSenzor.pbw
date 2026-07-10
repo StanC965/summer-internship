@@ -50317,7 +50317,7 @@
     "ID": "c:@F@ledInit",
     "What": "Function",
     "defdec": "Def",
-    "display": "void ledInit(unsigned char *, unsigned char *, unsigned char)",
+    "display": "void ledInit(volatile unsigned char *, volatile unsigned char *, unsigned char)",
     "location": {
       "column": "6",
       "line": "6",
@@ -50370,7 +50370,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@973@F@ledBlinkSlow@i",
+    "ID": "c:led.c@990@F@ledBlinkSlow@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50384,7 +50384,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1025@F@ledBlinkSlow@i",
+    "ID": "c:led.c@1042@F@ledBlinkSlow@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50398,7 +50398,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1076@F@ledBlinkSlow@i",
+    "ID": "c:led.c@1093@F@ledBlinkSlow@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50426,7 +50426,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1192@F@ledBlinkFast@i",
+    "ID": "c:led.c@1209@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50440,7 +50440,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1243@F@ledBlinkFast@i",
+    "ID": "c:led.c@1260@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50454,7 +50454,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1293@F@ledBlinkFast@i",
+    "ID": "c:led.c@1310@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50468,7 +50468,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1344@F@ledBlinkFast@i",
+    "ID": "c:led.c@1361@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50482,7 +50482,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1394@F@ledBlinkFast@i",
+    "ID": "c:led.c@1411@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50496,7 +50496,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1445@F@ledBlinkFast@i",
+    "ID": "c:led.c@1462@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50510,7 +50510,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1495@F@ledBlinkFast@i",
+    "ID": "c:led.c@1512@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50524,7 +50524,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1546@F@ledBlinkFast@i",
+    "ID": "c:led.c@1563@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50538,7 +50538,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1596@F@ledBlinkFast@i",
+    "ID": "c:led.c@1613@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50552,7 +50552,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1647@F@ledBlinkFast@i",
+    "ID": "c:led.c@1664@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50566,7 +50566,7 @@
     "scope": null
   },
   {
-    "ID": "c:led.c@1697@F@ledBlinkFast@i",
+    "ID": "c:led.c@1714@F@ledBlinkFast@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -50597,7 +50597,7 @@
     "ID": "c:@F@ledInit",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void ledInit(unsigned char *, unsigned char *, unsigned char)",
+    "display": "void ledInit(volatile unsigned char *, volatile unsigned char *, unsigned char)",
     "location": {
       "column": "13",
       "line": "5",
@@ -50611,7 +50611,7 @@
     "ID": "c:@F@ledInit",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void ledInit(unsigned char *, unsigned char *, unsigned char)",
+    "display": "void ledInit(volatile unsigned char *, volatile unsigned char *, unsigned char)",
     "location": {
       "column": "13",
       "line": "5",
@@ -51000,16 +51000,16 @@
     "scope": null
   },
   {
-    "ID": "c:task354.c@103@macro@REF1",
+    "ID": "c:task354.c@103@macro@REF0",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "REF1",
+    "display": "REF0",
     "location": {
       "column": "9",
       "line": "7",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
-    "name": "REF1",
+    "name": "REF0",
     "origin": "project_file",
     "scope": null
   },
@@ -51188,7 +51188,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "45",
+      "line": "47",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
     },
     "name": "main",

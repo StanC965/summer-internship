@@ -4,7 +4,7 @@
 #define PA1 1
 #define INPUT 0
 #define ADMUX1 0
-#define REF1 7
+#define REF0 6
 #define PC7 7
 #define OUTPUT 1
 #define ADEN 7
@@ -27,13 +27,15 @@ __interrupt void myInterrupt(void){
 
 
 void initADCSRA(){
+  //initializam tot ce avem nevoie
+  
     setDirection(&DDRC,PC7,OUTPUT);
     setPin(&PORTC,PC7);
     setDirection(&DDRA,PA1,INPUT);
     resetPin(&PORTA,PA1);
     
-    setPin(&ADMUX,ADMUX1);
-    setPin(&ADMUX,REF1);
+    setPin(&ADMUX,2);
+    setPin(&ADMUX,REF0);
     setPin(&ADMUX,ADLAR);
     
     setPin(&ADCSRA,ADEN);
@@ -48,10 +50,12 @@ int main( void )
   
   __enable_interrupt();
   
-  setPin(&ADCSRA,ADCS);
-  
+ 
+   setPin(&ADCSRA,ADCS);
   while(1){
+    
   }
+  
   
   
 }

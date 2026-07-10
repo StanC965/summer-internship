@@ -586,7 +586,7 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 
-extern void ledInit(unsigned char* DDR,unsigned char* PORT,unsigned char pin);
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
 extern void ledPowerOn(unsigned char led);
 
 extern void ledPowerOff(unsigned char led);
@@ -595,7 +595,7 @@ extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.c"
 
-void ledInit(unsigned char* DDR, unsigned char* PORT, unsigned char pin){
+void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT, unsigned char pin){
   setDirection(DDR,pin,1);
   setPin(PORT,pin);
 }

@@ -3,7 +3,7 @@
 #include "gpio.h"
 #include "led.h"
 #define OUTPUT 1
-void ledInit(unsigned char* DDR, unsigned char* PORT, unsigned char pin){
+void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT, unsigned char pin){
   setDirection(DDR,pin,OUTPUT);
   setPin(PORT,pin);
 }

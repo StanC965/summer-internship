@@ -584,7 +584,7 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\led.h"
 
-extern void ledInit(unsigned char* DDR,unsigned char* PORT,unsigned char pin);
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
 extern void ledPowerOn(unsigned char led);
 
 extern void ledPowerOff(unsigned char led);
@@ -796,15 +796,12 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 #line 17 "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task354.c"
 #pragma vector = (0x60)
 __interrupt void myInterrupt(void){
-  volatile unsigned char min = 255;
-  volatile unsigned char max = 0;
-
   unsigned char value = ADCH;
-
-  if(value < min) min = value;
-  if(value > max) max = value;
-
-
+  if(value >100)
+      ledPowerOn(0);
+  else
+      ledPowerOff(0);
+ 
   setPin(&ADCSRA,6);    
 }
 
@@ -815,7 +812,7 @@ void initADCSRA(){
     setDirection(&DDRA,1,0);
     resetPin(&PORTA,1);
     
-    setPin(&ADMUX,0);
+    setPin(&ADMUX,2);
     setPin(&ADMUX,6);
     setPin(&ADMUX,5);
     
@@ -831,10 +828,12 @@ int main( void )
   
   __enable_interrupt();
   
-  setPin(&ADCSRA,6);
-  
+ 
+   setPin(&ADCSRA,6);
   while(1){
+    
   }
+  
   
   
 }

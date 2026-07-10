@@ -23,7 +23,7 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <DebugChecksum>
-        <Checksum>2723933261</Checksum>
+        <Checksum>822062334</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -31,27 +31,26 @@
     <CallStack>
         <ShowArgs>0</ShowArgs>
     </CallStack>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
+        <Category2>_ 2</Category2>
+    </LogFile>
     <watch_formats>
         <Fmt0>{W}1:ADCH	3	2</Fmt0>
         <Fmt1>{W}1:ADCSRA	0	2</Fmt1>
         <Fmt2>{W}1:ADMUX	3	0</Fmt2>
         <Fmt3>{W}1:value	3	0</Fmt3>
     </watch_formats>
+    <Breakpoints2>
+        <Bp0>_ 0 "STD_CODE2" "{$PROJ_DIR$\main.c}.26.1" 0 0 1 "" 0 ""</Bp0>
+        <Bp1>_ 0 "STD_CODE2" "{$PROJ_DIR$\main.c}.19.17" 0 0 1 "" 0 ""</Bp1>
+        <Count>2</Count>
+    </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
     </TermIOLog>
-    <LogFile>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
-        <Category2>_ 2</Category2>
-    </LogFile>
-    <Breakpoints2>
-        <Bp0>_ 0 "STD_CODE2" "{$PROJ_DIR$\main.c}.26.1" 0 0 1 "" 0 ""</Bp0>
-        <Bp1>_ 0 "STD_CODE2" "{$PROJ_DIR$\main.c}.19.17" 0 0 1 "" 0 ""</Bp1>
-        <Bp2>_ 1 "STD_CODE2" "{$PROJ_DIR$\task354.c}.19.26" 0 0 1 "" 0 ""</Bp2>
-        <Count>3</Count>
-    </Breakpoints2>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>
