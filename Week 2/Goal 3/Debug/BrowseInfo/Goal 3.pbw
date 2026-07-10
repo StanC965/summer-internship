@@ -50594,286 +50594,6 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@104@macro@PCIE2",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "PCIE2",
-    "location": {
-      "column": "9",
-      "line": "8",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "PCIE2",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@123@macro@PCIE0",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "PCIE0",
-    "location": {
-      "column": "9",
-      "line": "9",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "PCIE0",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@142@macro@BTNSW0_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "BTNSW0_PIN",
-    "location": {
-      "column": "9",
-      "line": "10",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "BTNSW0_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@173@macro@BTN1_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "BTN1_PIN",
-    "location": {
-      "column": "9",
-      "line": "11",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "BTN1_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@204@macro@BTN2_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "BTN2_PIN",
-    "location": {
-      "column": "9",
-      "line": "12",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "BTN2_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@235@macro@BTN3_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "BTN3_PIN",
-    "location": {
-      "column": "9",
-      "line": "13",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "BTN3_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@266@macro@LED0_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "LED0_PIN",
-    "location": {
-      "column": "9",
-      "line": "14",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "LED0_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@297@macro@LED1_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "LED1_PIN",
-    "location": {
-      "column": "9",
-      "line": "15",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "LED1_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@328@macro@LED2_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "LED2_PIN",
-    "location": {
-      "column": "9",
-      "line": "16",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "LED2_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@359@macro@LED3_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "LED3_PIN",
-    "location": {
-      "column": "9",
-      "line": "17",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "LED3_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@390@macro@OUTPUT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "OUTPUT",
-    "location": {
-      "column": "9",
-      "line": "18",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "OUTPUT",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@408@macro@INPUT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "INPUT",
-    "location": {
-      "column": "9",
-      "line": "19",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "INPUT",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@panel_blocat",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "panel_blocat",
-    "location": {
-      "column": "14",
-      "line": "21",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "panel_blocat",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@stare_led1",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "stare_led1",
-    "location": {
-      "column": "14",
-      "line": "23",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "stare_led1",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@stare_led2",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "stare_led2",
-    "location": {
-      "column": "14",
-      "line": "24",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "stare_led2",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@stare_led3",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "stare_led3",
-    "location": {
-      "column": "14",
-      "line": "25",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "stare_led3",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@PortC_ISR",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void PortC_ISR(void)",
-    "location": {
-      "column": "18",
-      "line": "28",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "PortC_ISR",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@PortA_ISR",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void PortA_ISR(void)",
-    "location": {
-      "column": "18",
-      "line": "69",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "PortA_ISR",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@setup",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void setup(void)",
-    "location": {
-      "column": "6",
-      "line": "110",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "setup",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@main",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void main(void)",
-    "location": {
-      "column": "6",
-      "line": "136",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
-    },
-    "name": "main",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
     "ID": "c:intrinsics.h@484@macro@__INTRINSICS_H",
     "What": "MacroDef",
     "defdec": "Def",
@@ -51529,6 +51249,62 @@
     },
     "name": "__in_word_atomic",
     "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@lumina_ambientala",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "lumina_ambientala",
+    "location": {
+      "column": "24",
+      "line": "5",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "lumina_ambientala",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@ADC_interrupt",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void ADC_interrupt(void)",
+    "location": {
+      "column": "18",
+      "line": "8",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "ADC_interrupt",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@setup",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void setup(void)",
+    "location": {
+      "column": "6",
+      "line": "12",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "setup",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@main",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void main(void)",
+    "location": {
+      "column": "6",
+      "line": "19",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "main",
+    "origin": "project_file",
     "scope": null
   },
   {

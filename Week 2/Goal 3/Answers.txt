@@ -1,0 +1,2 @@
+342. Observe in the electronic schematic also the connections to GND and VCC (without them the sensor would not work, right?)
+    Pinul de pe microcontroller este PA4. Fara GND, masa, si VCC, tensiunea de alimentare, senzorul nu ar putea functiona.
