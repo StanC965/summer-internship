@@ -1,6 +1,12 @@
 //355
 #include "iom324pb.h"
+#include "led.h"
+#include "gpio.h"
 #include <intrinsics.h>
+
+#define LED0_PIN 7      //pc7
+#define OUTPUT 1
+#define MIDDLE_POINT 127 //255/2
 
 volatile unsigned char lumina_ambientala=0;
 
@@ -16,6 +22,11 @@ void adc_init(){
   __enable_interrupt();
 }
 
+void led0_init(){
+  Init_LED(&DDRC, LED0_PIN,OUTPUT);
+  set_pin(&PORTC, LED0_PIN);
+}
+
 void adc_start_conversion(void){
   ADCSRA=0b11001000;
 }
@@ -26,8 +37,18 @@ unsigned char adc_get_result(void){
 
 void main(void){
   adc_init();
+  led0_init();
+  
   while(1){
     adc_start_conversion();
+    unsigned char lumina=adc_get_result();
+    
+    if(lumina<MIDDLE_POINT){
+      reset_pin(&PORTC, LED0_PIN);
+    }
+    else{
+      set_pin(&PORTC, LED0_PIN);
+    }
   }
 }
 
