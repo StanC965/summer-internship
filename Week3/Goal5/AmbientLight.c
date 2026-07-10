@@ -16,21 +16,19 @@
 #define ADPS00 0
 #define ADPS01 1
 #define ADPS02 2
+#define Adc8Bit 
 
-#define led0 0
-#define led1 1
-#define led2 2
-#define led3 3
-#define Adc10Bit
-
-#define dark 120
-#define semiDark 80
-#define semiLight 40
 
 
 void initProgram(){
-  DIDR0 |= (1 << ADC4DIDR);
-  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,0,ADPS01,ADPS02);
+  //initializam ledurile ADC si deconectam ceilalti pini pentru a consuma mai putin
+  DIDR0 = 0xff;
+  DIDR0 &= ~(1 << ADC4DIDR);
+#if defined(Adc8Bit)
+  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,ADLAR,0,ADPS01,ADPS02);
+#elif defined(Adc10Bit)
+     initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,0,0,ADPS01,ADPS02);
+#endif
   ledInit(&DDRA,&PORTA,PA3);
   ledInit(&DDRD,&PORTD,PD4);
   ledInit(&DDRD,&PORTD,PD5);
@@ -40,39 +38,23 @@ void initProgram(){
 
 #pragma vector = ADC_vect
 __interrupt void myInterrupt(void){
-  setAdcValue();
   
-  unsigned short int value = getAdcValue();
+ #if defined(Adc8Bit)
+  setAdcValue(ADCH);
+#elif defined(Adc10Bit)
+     setAdcValue(ADC);
+#endif
   
-  disableAdc();
-  
-  if(value < semiLight)
-  {
-    ledPowerOn(led1);
-      ledPowerOn(led2);
-      ledPowerOn(led3);
-  }
-  else
-    if(value >= semiLight && value < semiDark){
-      ledPowerOn(led1);
-      ledPowerOn(led2);
-      ledPowerOff(led3);
-    }
-  else
-    if(value >= semiDark && value < dark){
-      ledPowerOn(led1);
-      ledPowerOff(led2);
-      ledPowerOff(led3);
-    }
-    else{
-    ledPowerOff(led1);
-      ledPowerOff(led2);
-      ledPowerOff(led3);
-    }
-  enableAdc();
-  startConversionAdc();
+ 
       
 }
+
+#pragma vector=TIMER1_COMPA_vect
+__interrupt void myInterrupt1(void){
+  
+  schedulerFlasgsManagement();
+}
+
 
 
 
@@ -80,10 +62,8 @@ __interrupt void myInterrupt(void){
 void main( void )
 {
   initProgram();
-  enableAdc();
-  startConversionAdc();
+  
   
   __enable_interrupt();
-  while(1){
-  }
+  scheduleTaskDispatcher();
 }

@@ -788,8 +788,7 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
-
-extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
+extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
 
 extern void startConversionAdc();
 extern void enableAdc();
@@ -797,7 +796,7 @@ extern void enableAdc();
 extern void disableAdc();
 extern unsigned short int getAdcValue(void);
 
-extern void setAdcValue(void);
+extern void setAdcValue(unsigned short int val);
 #line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\AmbientLight.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.h"
 
@@ -811,22 +810,19 @@ extern void schedulerFlasgsManagement(void);
 
 #line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\AmbientLight.c"
 
-#line 19 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\AmbientLight.c"
-
-
-
-
-
-
-
-
-
+#line 20 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\AmbientLight.c"
 
 
 
 void initProgram(){
-  DIDR0 |= (1 << 2);
-  initAdc(&DDRA,&PORTA,4,2,6,0,3,0,1,2);
+  
+  DIDR0 = 0xff;
+  DIDR0 &= ~(1 << 2);
+
+  initAdc(&DDRA,&PORTA,4,2,6,0,3,5,0,1,2);
+
+
+
   ledInit(&DDRA,&PORTA,3);
   ledInit(&DDRD,&PORTD,4);
   ledInit(&DDRD,&PORTD,5);
@@ -836,39 +832,23 @@ void initProgram(){
 
 #pragma vector = (0x60)
 __interrupt void myInterrupt(void){
-  setAdcValue();
   
-  unsigned short int value = getAdcValue();
+
+  setAdcValue(ADCH);
+
+
+
   
-  disableAdc();
-  
-  if(value < 40)
-  {
-    ledPowerOn(1);
-      ledPowerOn(2);
-      ledPowerOn(3);
-  }
-  else
-    if(value >= 40 && value < 80){
-      ledPowerOn(1);
-      ledPowerOn(2);
-      ledPowerOff(3);
-    }
-  else
-    if(value >= 80 && value < 120){
-      ledPowerOn(1);
-      ledPowerOff(2);
-      ledPowerOff(3);
-    }
-    else{
-    ledPowerOff(1);
-      ledPowerOff(2);
-      ledPowerOff(3);
-    }
-  enableAdc();
-  startConversionAdc();
+ 
       
 }
+
+#pragma vector=(0x34)
+__interrupt void myInterrupt1(void){
+  
+  schedulerFlasgsManagement();
+}
+
 
 
 
@@ -876,10 +856,8 @@ __interrupt void myInterrupt(void){
 void main( void )
 {
   initProgram();
-  enableAdc();
-  startConversionAdc();
+  
   
   __enable_interrupt();
-  while(1){
-  }
+  scheduleTaskDispatcher();
 }

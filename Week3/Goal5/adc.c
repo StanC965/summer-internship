@@ -7,7 +7,7 @@
 static short int adcValue = 100;
 //aici sunt definite toate porturile care sunt folosite penrtu exercitii-le pe care le-am intampinat pana acum acum 
 //acestea se vor defini cu numarul bitului care va trebuii schimbat sau numele DDR sau portul care treuie folosit
-void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2){
+void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2){
   setDirection(DDR,pin,INPUT);
   resetPin(port,pin);
   
@@ -16,12 +16,8 @@ void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned c
     setPin(&ADMUX,REF0);
   if(REF1 != 0)
     setPin(&ADMUX,REF1);
-  
-  #if defined(Adc8Bit)
-      setPin(&ADMUX, ADLAR);      
-  #elif defined(Adc10Bit)
-      resetPin(&ADMUX, ADLAR);    
-  #endif
+  if(ADLAR!=0)
+    setPin(&ADMUX,ADLAR);
   if(ADIE != 0)
     setPin(&ADCSRA,ADIE);
   if(ADPS0!= 0)
@@ -49,12 +45,8 @@ void disableAdc(){
   resetPin(&ADCSRA,ADEN);
 }
 
-void setAdcValue(void){
-#if defined(Adc8Bit)
-    adcValue = ADCH;
-#elif defined(Adc10Bit)
-     adcValue = ADC;
-#endif
+void setAdcValue(unsigned short int val){
+    adcValue = val;
 }
 unsigned short int getAdcValue(void){
      return adcValue;
