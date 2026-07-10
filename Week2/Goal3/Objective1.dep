@@ -5,102 +5,57 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-            <file>$PROJ_DIR$\Debug\Obj\task316.r90</file>
-            <file>$PROJ_DIR$\Debug\List\led.i</file>
-            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$PROJ_DIR$\led.h</file>
             <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\led.h</file>
             <file>$PROJ_DIR$\Debug\List\task316.i</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\led.c</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\sos.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
-            <file>$PROJ_DIR$\Debug\Exe\Objective1.d90</file>
-            <file>$PROJ_DIR$\gpio.h</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\task316.c</file>
-            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
-            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\sos.h</file>
-            <file>$PROJ_DIR$\sos.c</file>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\Debug\List\sos.i</file>
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\led.h</file>
-            <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\sos.c</file>
             <file>$PROJ_DIR$\Debug\List\Objective1.map</file>
-            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\task316.r90</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\led.c</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\Objective1.d90</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\task316.c</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\..\..\Week1\Goal2\gpio.c</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 27 12</file>
+                    <file> 18 24</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Week1\Goal2\led.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 2 11</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 5 23 3 10 25</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\Objective1.d90</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 27</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 16 20 28 11 24 1 0</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 21 9</file>
+                    <file> 12 10</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 23 3 10 4 13 6</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Week1\Goal2\task316.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 7 1</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 18 25 5 23 3 10 6</file>
+                    <file> 14 21 11 23 7 4</file>
                 </tool>
             </inputs>
         </file>
@@ -109,13 +64,58 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 22 24</file>
+                    <file> 13 15</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4 13 23 3 10</file>
+                    <file> 23 7 14 21 11</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20 3</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 2 14 21 11 5</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Objective1.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 18</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 26 9 0 3 15 19 1</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Week1\Goal2\task316.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 6 19</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 8 5 2 14 21 11 4</file>
                 </tool>
             </inputs>
         </file>
@@ -124,20 +124,16 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 17 28</file>
+                    <file> 28 0</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 23 3 10 5</file>
+                    <file> 14 21 11 2</file>
                 </tool>
             </inputs>
         </file>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\main.c</name>
-            <tool>C-STAT</tool>
-        </forcedrebuild>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>XLINK</tool>
@@ -145,6 +141,10 @@
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
             <tool>ICCAVR</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>[REBUILD_ALL]</name>
