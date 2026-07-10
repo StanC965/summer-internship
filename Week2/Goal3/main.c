@@ -20,6 +20,7 @@
 #define led1 1
 #define led2 2
 #define led3 3
+#define Adc10bit
 
 #define dark 120
 #define semiDark 80
@@ -60,11 +61,11 @@ __interrupt void myInterrupt(void){
 
 
 
-
+//senzorul nu mai citeste asa bine datele
 void main( void )
 {
   DIDR0 |= (1 << ADC4DIDR);
-  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,0,ADIE,ADPS00,0,0);
+  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,ADPS00,0,0);
   ledInit(&DDRA,&PORTA,PA3);
   ledInit(&DDRD,&PORTD,PD4);
   ledInit(&DDRD,&PORTD,PD5);

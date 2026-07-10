@@ -41100,20 +41100,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_EEAR0",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEAR_EEAR0",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEAR_EEAR0",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR0",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41124,6 +41110,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARL_EEAR0",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_EEAR0",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEAR_EEAR0",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEAR_EEAR0",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -41422,20 +41422,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit3",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEAR_Bit3",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEAR_Bit3",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR7",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41446,6 +41432,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEARL_EEAR7",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit3",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEAR_Bit3",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEAR_Bit3",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -50107,7 +50107,7 @@
     "ID": "c:@F@initAdc",
     "What": "Function",
     "defdec": "Def",
-    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
+    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
     "location": {
       "column": "6",
       "line": "10",
@@ -50124,7 +50124,7 @@
     "display": "void startConversionAdc(void)",
     "location": {
       "column": "6",
-      "line": "38",
+      "line": "40",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.c"
     },
     "name": "startConversionAdc",
@@ -50138,7 +50138,7 @@
     "display": "void enableAdc(void)",
     "location": {
       "column": "6",
-      "line": "43",
+      "line": "45",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.c"
     },
     "name": "enableAdc",
@@ -50152,7 +50152,7 @@
     "display": "void disableAdc(void)",
     "location": {
       "column": "6",
-      "line": "46",
+      "line": "48",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.c"
     },
     "name": "disableAdc",
@@ -51504,266 +51504,280 @@
     "scope": null
   },
   {
-    "ID": "c:task362.c@90@macro@PA3",
+    "ID": "c:main.c@90@macro@PA3",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PA3",
     "location": {
       "column": "9",
       "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "PA3",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@105@macro@PD4",
+    "ID": "c:main.c@105@macro@PD4",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PD4",
     "location": {
       "column": "9",
       "line": "7",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "PD4",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@120@macro@PD5",
+    "ID": "c:main.c@120@macro@PD5",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PD5",
     "location": {
       "column": "9",
       "line": "8",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "PD5",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@135@macro@PA4",
+    "ID": "c:main.c@135@macro@PA4",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PA4",
     "location": {
       "column": "9",
       "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "PA4",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@150@macro@ADC4",
+    "ID": "c:main.c@150@macro@ADC4",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADC4",
     "location": {
       "column": "9",
       "line": "10",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "ADC4",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@166@macro@ADC4DIDR",
+    "ID": "c:main.c@166@macro@ADC4DIDR",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADC4DIDR",
     "location": {
       "column": "9",
       "line": "11",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "ADC4DIDR",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@186@macro@REF0",
+    "ID": "c:main.c@186@macro@REF0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "REF0",
     "location": {
       "column": "9",
       "line": "12",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "REF0",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@202@macro@ADLAR",
+    "ID": "c:main.c@202@macro@ADLAR",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADLAR",
     "location": {
       "column": "9",
       "line": "13",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "ADLAR",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@219@macro@ADIE",
+    "ID": "c:main.c@219@macro@ADIE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADIE",
     "location": {
       "column": "9",
       "line": "14",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "ADIE",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@235@macro@ADPS00",
+    "ID": "c:main.c@235@macro@ADPS00",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADPS00",
     "location": {
       "column": "9",
       "line": "15",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "ADPS00",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@253@macro@ADPS01",
+    "ID": "c:main.c@253@macro@ADPS01",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADPS01",
     "location": {
       "column": "9",
       "line": "16",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "ADPS01",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@271@macro@ADPS02",
+    "ID": "c:main.c@271@macro@ADPS02",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ADPS02",
     "location": {
       "column": "9",
       "line": "17",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "ADPS02",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@291@macro@led0",
+    "ID": "c:main.c@291@macro@led0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "led0",
     "location": {
       "column": "9",
       "line": "19",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "led0",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@307@macro@led1",
+    "ID": "c:main.c@307@macro@led1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "led1",
     "location": {
       "column": "9",
       "line": "20",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "led1",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@323@macro@led2",
+    "ID": "c:main.c@323@macro@led2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "led2",
     "location": {
       "column": "9",
       "line": "21",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "led2",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@339@macro@led3",
+    "ID": "c:main.c@339@macro@led3",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "led3",
     "location": {
       "column": "9",
       "line": "22",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "led3",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@357@macro@dark",
+    "ID": "c:main.c@355@macro@Adc10bit",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "Adc10bit",
+    "location": {
+      "column": "9",
+      "line": "23",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
+    },
+    "name": "Adc10bit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@375@macro@dark",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "dark",
     "location": {
       "column": "9",
-      "line": "24",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "line": "25",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "dark",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@375@macro@semiDark",
+    "ID": "c:main.c@393@macro@semiDark",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "semiDark",
     "location": {
       "column": "9",
-      "line": "25",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "line": "26",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "semiDark",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@396@macro@semiLight",
+    "ID": "c:main.c@414@macro@semiLight",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "semiLight",
     "location": {
       "column": "9",
-      "line": "26",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "line": "27",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "semiLight",
     "origin": "project_file",
@@ -51776,22 +51790,22 @@
     "display": "void myInterrupt(void)",
     "location": {
       "column": "18",
-      "line": "29",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "line": "30",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "myInterrupt",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:task362.c@516@F@myInterrupt@value",
+    "ID": "c:main.c@534@F@myInterrupt@value",
     "What": "Variable",
     "defdec": "Def",
     "display": "value",
     "location": {
-      "column": "17",
-      "line": "30",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "column": "16",
+      "line": "31",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "value",
     "origin": "project_file",
@@ -51804,8 +51818,8 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "64",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\task362.c"
+      "line": "65",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "main",
     "origin": "project_file",
@@ -51826,13 +51840,41 @@
     "scope": null
   },
   {
+    "ID": "c:adc.h@57@macro@Adc8Bit",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "Adc8Bit",
+    "location": {
+      "column": "9",
+      "line": "4",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
+    },
+    "name": "Adc8Bit",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:adc.h@76@macro@Adc10Bit",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "Adc10Bit",
+    "location": {
+      "column": "9",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
+    },
+    "name": "Adc10Bit",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
     "ID": "c:@F@initAdc",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
+    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
     "location": {
       "column": "13",
-      "line": "4",
+      "line": "7",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
     },
     "name": "initAdc",
@@ -51846,7 +51888,7 @@
     "display": "void startConversionAdc(void)",
     "location": {
       "column": "13",
-      "line": "6",
+      "line": "9",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
     },
     "name": "startConversionAdc",
@@ -51860,7 +51902,7 @@
     "display": "void enableAdc(void)",
     "location": {
       "column": "13",
-      "line": "7",
+      "line": "10",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
     },
     "name": "enableAdc",
@@ -51874,7 +51916,7 @@
     "display": "void disableAdc(void)",
     "location": {
       "column": "13",
-      "line": "9",
+      "line": "12",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
     },
     "name": "disableAdc",

@@ -2123,11 +2123,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
-        <excluded>
-            <configuration>Debug</configuration>
-        </excluded>
     </file>
     <file>
         <name>$PROJ_DIR$\task362.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
 </project>

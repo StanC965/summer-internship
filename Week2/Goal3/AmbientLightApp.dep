@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>998968561</fileChecksum>
+    <fileChecksum>1010202616</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -59,7 +59,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 18 17 11 2 10 9 19 15</file>
+                    <file> 18 17 11 2 10 9 15</file>
                 </tool>
             </inputs>
         </file>
@@ -134,6 +134,10 @@
         </file>
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task362.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
