@@ -1,0 +1,15 @@
+"--cpu=m324pb" 
+
+"--enhanced_core" 
+
+"-p" 
+
+"D:\Mircea\Marqurdt\logic\avr/config/iom324pb.ddf" 
+
+"--eeprom_size" 
+
+"1024" 
+
+
+
+

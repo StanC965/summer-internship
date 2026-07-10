@@ -5,59 +5,58 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\gpio.c</file>
             <file>$PROJ_DIR$\gpio.h</file>
-            <file>$PROJ_DIR$\led.c</file>
-            <file>$PROJ_DIR$\led.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
-            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
-            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
-            <file>$PROJ_DIR$\Debug\List\led.i</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\led.h</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$PROJ_DIR$\mainObj4.c</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\gpio.c</file>
         </outputs>
         <file>
-            <name>$PROJ_DIR$\gpio.c</name>
+            <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5 11</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 8 10 12 1</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\led.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 9 4</file>
+                    <file> 5 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 1 8 10 12 3</file>
+                    <file> 0 7 4 9 8</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\main.c</name>
+            <name>$PROJ_DIR$\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 7</file>
+                    <file> 6 11</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 7 4 9 0</file>
+                </tool>
+            </inputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>

@@ -1,0 +1,63 @@
+#include "sos.h"
+#include <intrinsics.h>
+
+#define PA4 4
+#define INPUT 0
+#define ADC4 2
+#define REF0 6
+#define PC7 7
+#define OUTPUT 1
+#define ADEN 7
+#define ADCS 6
+#define ADLAR 5
+#define ADPS0 0
+#define ADPS1 1
+#define ADPS2 2
+#define ADIE 3
+
+//am putut observa ca a fost la acceeasi intensitate de lumina 255
+#pragma vector = ADC_vect
+__interrupt void myInterrupt(void){
+  unsigned char value = ADCH;
+  if(value >100)
+      ledPowerOn(0);
+  else
+      ledPowerOff(0);
+ 
+  setPin(&ADCSRA,ADCS);    
+}
+
+
+void initADCSRA(){
+  //initializam tot ce avem nevoie
+  
+    setDirection(&DDRC,PC7,OUTPUT);
+    setPin(&PORTC,PC7);
+    setDirection(&DDRA,PA4,INPUT);
+    resetPin(&PORTA,PA4);
+    
+    setPin(&ADMUX,ADC4);
+    setPin(&ADMUX,REF0);
+    setPin(&ADMUX,ADLAR);
+    
+    setPin(&ADCSRA,ADEN);
+    setPin(&ADCSRA,ADIE);
+   
+}
+
+
+int main( void )
+{
+  initADCSRA();
+  
+  __enable_interrupt();
+  
+ 
+   setPin(&ADCSRA,ADCS);
+  while(1){
+    
+  }
+  
+  
+  
+}

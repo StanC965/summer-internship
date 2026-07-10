@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspace>
+    <project>
+        <path>$WS_DIR$\AmbientLightApp.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\ControlPanel.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\LightSenzor.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\Objective1.ewp</path>
+    </project>
+    <batchBuild />
+</workspace>
