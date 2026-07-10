@@ -73,7 +73,29 @@
 //                              PINC_PINC7:1; 
 //                 }; 
  //}
-int main (void)
+#include <iom324pb.h>
+
+
+void cycle(unsigned long i){
+  
+  while(i>0){
+  i--;
+  }
+}
+
+void main (void)
 {
-return 0;
+  
+    DDRC=0xff;
+    
+  while(1){
+    PORTC=0x7f;
+    cycle(160000000);
+    PORTC=0xff;
+    cycle(160000000);
+    
+
+    
+  
+  }
 }
