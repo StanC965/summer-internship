@@ -126,6 +126,8 @@ void main(void)
 
 > As demonstrared in the table above, there is a correlation between the hardware registers, macros and the IDE.
 > The hardware specs from the datasheet are translated into software inside the `iom344pb.h` file, whic the registers view the uses to display the hardware states during debugging. 
+>
+> I also attached the `SamanC_Registers_Compare_324_328.xlsx` file which displays a table with the structure of the 3 chosen registers, and their structure and format in the header file, datasheet and register view in IAR EW.
 
 ---
 
@@ -153,6 +155,8 @@ SFR_B_N(0x0C, PINE, Dummy7, PINE6, PINE5, PINE4, PINE3, PINE2, PINE1, PINE0)
 ```
 
 > I did find the same registers for both chips, but because of differences in registers like `PINE`, we cannot write the same exact code and expect it to work identically on both microcontrollers.
+>
+> I attached the `SamanC_Registers_Compare_324_324.xlsx` which contains a better view of the differences between the ATmega324PB and the ATmega328PB microcontrollers.
 
 ---
 
@@ -176,7 +180,12 @@ SFR_B_N(0x2D, SPSR0, SPIF, WCOL, Dummy5, Dummy4, Dummy3, Dummy2, Dummy1, SPI2X)
 SFR_B_N(0x0C, PINE, Dummy7, PINE6, PINE5, PINE4, PINE3, PINE2, PINE1, PINE0)
 ```
 
-> In this case I did not find the registers used by ATMega324PB on the ATMega328P microcontroller.
+> In this case I did not find the registers used by ATmega324PB on the ATmega328P microcontroller.
+>
+> Doing some further research, the differences between the two boards are:
+> - ATmega324PB has 6 timers (Timer 0, 1, 2, 3, 4, 5), ATmega328P only 3 (Timer 0, 1, 2)
+> - Atmega324PB has 5 ports (Port A, B, C, D, E), ATmega328P (Port B, C, D)
+> - Atmega324PB features 2 SPI modules (SPI0, SPI1 - SPSR0 and SPSR1 registers), ATmega328P features only 1 (SPI - only SPSR register)
 
 ---
 
