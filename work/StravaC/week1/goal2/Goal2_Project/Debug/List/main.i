@@ -699,6 +699,9 @@ extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
 
 
+
+
+
  
 
 
@@ -706,6 +709,11 @@ extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
 
 extern void sos_play(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+extern gpio_uint8_t sos_play_interruptible(volatile gpio_uint8_t *led_port,
+                                           gpio_uint8_t led_pin,
+                                           volatile gpio_uint8_t *button_pin_register,
+                                           gpio_uint8_t button_pin);
 
 #line 5 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week1\\goal2\\Goal2_Project\\main.c"
 
@@ -719,12 +727,20 @@ void delay_between_sos(void)
     }
 }
 
+void wait_button_release(void)
+{
+    while (gpio_read_pin_debounced(&PINC, 6) == ((0x00U)))
+    {
+
+    }
+}
+
 void main(void)
 {
+    gpio_uint8_t sos_enabled;
     gpio_uint8_t button_state;
-    gpio_uint8_t sos_started;
 
-    sos_started = ((0x00U));
+    sos_enabled = ((0x00U));
 
     gpio_set_direction(&DDRC, 6, ((0x00U)));
     gpio_set_direction(&DDRC, 7, ((0x01U)));
@@ -734,19 +750,24 @@ void main(void)
 
     while (1)
     {
-        if (sos_started == ((0x00U)))
+        if (sos_enabled == ((0x00U)))
         {
             button_state = gpio_read_pin_debounced(&PINC, 6);
 
             if (button_state == ((0x00U)))
             {
-                sos_started = ((0x01U));
+                sos_enabled = ((0x01U));
+                wait_button_release();
             }
         }
         else
         {
-            sos_play(&PORTC, 7);
-            delay_between_sos();
+            sos_enabled = sos_play_interruptible(&PORTC, 7, &PINC, 6);
+
+            if (sos_enabled == ((0x01U)))
+            {
+                delay_between_sos();
+            }
         }
     }
 }

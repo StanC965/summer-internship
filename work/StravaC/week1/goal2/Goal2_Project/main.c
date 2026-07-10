@@ -13,12 +13,20 @@ void delay_between_sos(void)
     }
 }
 
+void wait_button_release(void)
+{
+    while (gpio_read_pin_debounced(&PINC, 6) == GPIO_LOW)
+    {
+
+    }
+}
+
 void main(void)
 {
+    gpio_uint8_t sos_enabled;
     gpio_uint8_t button_state;
-    gpio_uint8_t sos_started;
 
-    sos_started = GPIO_FALSE;
+    sos_enabled = GPIO_FALSE;
 
     gpio_set_direction(&DDRC, 6, GPIO_INPUT);
     gpio_set_direction(&DDRC, 7, GPIO_OUTPUT);
@@ -28,19 +36,24 @@ void main(void)
 
     while (1)
     {
-        if (sos_started == GPIO_FALSE)
+        if (sos_enabled == GPIO_FALSE)
         {
             button_state = gpio_read_pin_debounced(&PINC, 6);
 
             if (button_state == GPIO_LOW)
             {
-                sos_started = GPIO_TRUE;
+                sos_enabled = GPIO_TRUE;
+                wait_button_release();
             }
         }
         else
         {
-            sos_play(&PORTC, 7);
-            delay_between_sos();
+            sos_enabled = sos_play_interruptible(&PORTC, 7, &PINC, 6);
+
+            if (sos_enabled == GPIO_TRUE)
+            {
+                delay_between_sos();
+            }
         }
     }
 }

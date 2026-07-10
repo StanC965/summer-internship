@@ -78,7 +78,7 @@ static void gpio_debounce_delay(void)
 {
     volatile unsigned long i;
 
-    for (i = 0; i < 5000UL; i++)
+    for (i = 0; i < 20000UL; i++)
     {
 
     }
