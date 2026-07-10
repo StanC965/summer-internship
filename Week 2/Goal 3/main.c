@@ -1,4 +1,4 @@
-//332
+//333
 #include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
@@ -18,6 +18,8 @@
 #define OUTPUT 1
 #define INPUT 0
 
+volatile int panel_blocat=0;
+//volatile int stare_led0 = 0;
 volatile int stare_led1 = 0;
 volatile int stare_led2 = 0;
 volatile int stare_led3 = 0;
@@ -26,20 +28,30 @@ volatile int stare_led3 = 0;
 __interrupt void PortC_ISR(void) 
 { 
   if(read_pin(&PINC, BTNSW0_PIN)==0){
+    if(panel_blocat==0){
+      panel_blocat=1;
     reset_pin(&PORTC,LED0_PIN);
     set_pin(&PORTD,LED1_PIN);
     set_pin(&PORTD,LED2_PIN);
     set_pin(&PORTA,LED3_PIN);
     stare_led1=0;
     stare_led2=0;
-    stare_led3=0;
+    stare_led3=0;   
+    }
+    else{
+      set_pin(&PORTC,LED0_PIN);
+      panel_blocat=0;
+    }
+    //while(read_pin(&PINC, BTNSW0_PIN) == 0);
   }
-  else{
-    set_pin(&PORTC,LED0_PIN);
-  }
-  
+
   if(read_pin(&PINC, BTN1_PIN)==0){
-    if(stare_led1==0){
+    if(panel_blocat==1){
+      BlinkFast_LED(&PORTC, LED0_PIN);
+      reset_pin(&PORTC,LED0_PIN);
+    }
+    else{
+      if(stare_led1==0){
       reset_pin(&PORTD,LED1_PIN);
       stare_led1=1;
     }
@@ -47,6 +59,7 @@ __interrupt void PortC_ISR(void)
     else{
       set_pin(&PORTD,LED1_PIN);
       stare_led1=0;
+    }
     }
     while(read_pin(&PINC, BTN1_PIN)==0);
   }
@@ -56,6 +69,11 @@ __interrupt void PortC_ISR(void)
 __interrupt void PortA_ISR(void) 
 {
   if(read_pin(&PINA, BTN2_PIN)==0){
+    if(panel_blocat==1){
+      BlinkFast_LED(&PORTC, LED0_PIN);
+      reset_pin(&PORTC,LED0_PIN);
+    }
+    else{
     if(stare_led2==0){
       reset_pin(&PORTD,LED2_PIN);
       stare_led2=1;
@@ -65,10 +83,15 @@ __interrupt void PortA_ISR(void)
       set_pin(&PORTD,LED2_PIN);
       stare_led2=0;
     }
+    }
     while(read_pin(&PINA, BTN2_PIN)==0);
   }
   
    if(read_pin(&PINA, BTN3_PIN)==0){
+     if(panel_blocat==1){
+       BlinkFast_LED(&PORTC, LED0_PIN);
+       reset_pin(&PORTC,LED0_PIN);}
+     else{
     if(stare_led3==0){
       reset_pin(&PORTA,LED3_PIN);
       stare_led3=1;
@@ -78,6 +101,7 @@ __interrupt void PortA_ISR(void)
       set_pin(&PORTA,LED3_PIN);
       stare_led3=0;
     }
+     }
     while(read_pin(&PINA, BTN3_PIN)==0);
   }
    
