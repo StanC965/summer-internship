@@ -790,7 +790,7 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
-extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
+extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
 
 extern void startConversionAdc();
 extern void enableAdc();
@@ -812,7 +812,12 @@ extern void disableAdc();
 
 #pragma vector = (0x60)
 __interrupt void myInterrupt(void){
-  unsigned int value = ADC;
+  unsigned int value = 0;
+
+
+
+   value = ADCH;
+
   disableAdc();
   
   if(value < 40)
@@ -846,10 +851,11 @@ __interrupt void myInterrupt(void){
 
 
 
+
 void main( void )
 {
   DIDR0 |= (1 << 2);
-  initAdc(&DDRA,&PORTA,4,2,6,0,3,0,1,2);
+  initAdc(&DDRA,&PORTA,4,2,6,0,3,5,0,1,2);
   ledInit(&DDRA,&PORTA,3);
   ledInit(&DDRD,&PORTD,4);
   ledInit(&DDRD,&PORTD,5);

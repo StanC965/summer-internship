@@ -41100,20 +41100,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR0",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_EEAR0",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_EEAR0",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_EEAR0",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41124,6 +41110,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEAR_EEAR0",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR0",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_EEAR0",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_EEAR0",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -41422,20 +41422,6 @@
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
           {
-            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR7",
-            "What": "FieldDecl",
-            "defdec": "Def",
-            "display": "EEARL_EEAR7",
-            "location": {
-              "column": "2",
-              "line": "289",
-              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-            },
-            "name": "EEARL_EEAR7",
-            "origin": "system_include",
-            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
-          },
-          {
             "ID": "c:iom324pb.h@Ua@Sa@FI@EEAR_Bit3",
             "What": "FieldDecl",
             "defdec": "Def",
@@ -41446,6 +41432,20 @@
               "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
             },
             "name": "EEAR_Bit3",
+            "origin": "system_include",
+            "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
+          },
+          {
+            "ID": "c:iom324pb.h@Ua@Sa@FI@EEARL_EEAR7",
+            "What": "FieldDecl",
+            "defdec": "Def",
+            "display": "EEARL_EEAR7",
+            "location": {
+              "column": "2",
+              "line": "289",
+              "path": "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
+            },
+            "name": "EEARL_EEAR7",
             "origin": "system_include",
             "scope": "_anonymous_iom324pb_h_289_2::_anonymous_iom324pb_h_289_2"
           },
@@ -50107,7 +50107,7 @@
     "ID": "c:@F@initAdc",
     "What": "Function",
     "defdec": "Def",
-    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
+    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
     "location": {
       "column": "6",
       "line": "10",
@@ -50124,7 +50124,7 @@
     "display": "void startConversionAdc(void)",
     "location": {
       "column": "6",
-      "line": "40",
+      "line": "37",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.c"
     },
     "name": "startConversionAdc",
@@ -50138,7 +50138,7 @@
     "display": "void enableAdc(void)",
     "location": {
       "column": "6",
-      "line": "45",
+      "line": "42",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.c"
     },
     "name": "enableAdc",
@@ -50152,7 +50152,7 @@
     "display": "void disableAdc(void)",
     "location": {
       "column": "6",
-      "line": "48",
+      "line": "45",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.c"
     },
     "name": "disableAdc",
@@ -51728,21 +51728,21 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@355@macro@Adc10bit",
+    "ID": "c:main.c@355@macro@Adc8Bit",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "Adc10bit",
+    "display": "Adc8Bit",
     "location": {
       "column": "9",
       "line": "23",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
-    "name": "Adc10bit",
+    "name": "Adc8Bit",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@375@macro@dark",
+    "ID": "c:main.c@374@macro@dark",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "dark",
@@ -51756,7 +51756,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@393@macro@semiDark",
+    "ID": "c:main.c@392@macro@semiDark",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "semiDark",
@@ -51770,7 +51770,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@414@macro@semiLight",
+    "ID": "c:main.c@413@macro@semiLight",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "semiLight",
@@ -51798,7 +51798,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@534@F@myInterrupt@value",
+    "ID": "c:main.c@533@F@myInterrupt@value",
     "What": "Variable",
     "defdec": "Def",
     "display": "value",
@@ -51818,7 +51818,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "66",
+      "line": "71",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\main.c"
     },
     "name": "main",
@@ -51840,38 +51840,10 @@
     "scope": null
   },
   {
-    "ID": "c:adc.h@57@macro@Adc8Bit",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "Adc8Bit",
-    "location": {
-      "column": "9",
-      "line": "4",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
-    },
-    "name": "Adc8Bit",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:adc.h@76@macro@Adc10Bit",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "Adc10Bit",
-    "location": {
-      "column": "9",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week2\\Goal3\\adc.h"
-    },
-    "name": "Adc10Bit",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
     "ID": "c:@F@initAdc",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
+    "display": "void initAdc(volatile unsigned char *, volatile unsigned char *, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)",
     "location": {
       "column": "13",
       "line": "7",

@@ -20,7 +20,7 @@
 #define led1 1
 #define led2 2
 #define led3 3
-#define Adc10bit
+#define Adc8Bit
 
 #define dark 120
 #define semiDark 80
@@ -28,7 +28,12 @@
 //curentul se masoara cu un ampermetru
 #pragma vector = ADC_vect
 __interrupt void myInterrupt(void){
-  unsigned int value = ADC;
+  unsigned int value = 0;
+#if defined(Adc10Bit)
+   value= ADC;
+#elif defined(Adc8Bit)
+   value = ADCH;
+#endif
   disableAdc();
   
   if(value < semiLight)
@@ -66,7 +71,7 @@ __interrupt void myInterrupt(void){
 void main( void )
 {
   DIDR0 |= (1 << ADC4DIDR);
-  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,0,ADPS01,ADPS02);
+  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,ADLAR,0,ADPS01,ADPS02);
   ledInit(&DDRA,&PORTA,PA3);
   ledInit(&DDRD,&PORTD,PD4);
   ledInit(&DDRD,&PORTD,PD5);

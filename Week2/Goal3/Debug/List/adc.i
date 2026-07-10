@@ -587,7 +587,7 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 
-void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2){
+void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2){
   setDirection(DDR,pin,0);
   resetPin(port,pin);
   
@@ -597,11 +597,8 @@ void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned c
   if(REF1 != 0)
     setPin(&ADMUX,REF1);
   
-
-
-
-
-
+  if(ADLAR!=0)
+    setPin(&ADMUX,ADLAR);
   if(ADIE != 0)
     setPin(&ADCSRA,ADIE);
   if(ADPS0!= 0)
