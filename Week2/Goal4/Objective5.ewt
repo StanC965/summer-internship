@@ -2636,15 +2636,6 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\CarCrash.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\CarCrashDetection.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\CarCrashDetection.h</name>
-    </file>
-    <file>
         <name>$PROJ_DIR$\gpio.c</name>
     </file>
     <file>
@@ -2658,5 +2649,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task452.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task453.c</name>
     </file>
 </project>

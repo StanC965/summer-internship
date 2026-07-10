@@ -2104,6 +2104,9 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\CarCrash.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\CarCrashDetection.c</name>
     </file>
     <file>
@@ -2123,5 +2126,8 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
 </project>
