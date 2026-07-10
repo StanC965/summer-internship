@@ -849,7 +849,7 @@ __interrupt void myInterrupt(void){
 void main( void )
 {
   DIDR0 |= (1 << 2);
-  initAdc(&DDRA,&PORTA,4,2,6,0,3,0,0,0);
+  initAdc(&DDRA,&PORTA,4,2,6,0,3,0,1,2);
   ledInit(&DDRA,&PORTA,3);
   ledInit(&DDRD,&PORTD,4);
   ledInit(&DDRD,&PORTD,5);

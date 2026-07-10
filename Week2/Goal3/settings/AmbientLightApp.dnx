@@ -23,7 +23,7 @@
         <ShowTimeSum>1</ShowTimeSum>
     </DataLog>
     <DebugChecksum>
-        <Checksum>3867439086</Checksum>
+        <Checksum>974142504</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -31,6 +31,11 @@
     <CallStack>
         <ShowArgs>0</ShowArgs>
     </CallStack>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
+        <Category2>_ 2</Category2>
+    </LogFile>
     <Breakpoints2>
         <Count>0</Count>
     </Breakpoints2>
@@ -42,9 +47,4 @@
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
-    <LogFile>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
-        <Category2>_ 2</Category2>
-    </LogFile>
 </settings>

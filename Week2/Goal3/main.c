@@ -62,10 +62,11 @@ __interrupt void myInterrupt(void){
 
 
 //senzorul nu mai citeste asa bine datele
+//prescale de 128 sau 64
 void main( void )
 {
   DIDR0 |= (1 << ADC4DIDR);
-  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,ADPS00,0,0);
+  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,0,ADPS01,ADPS02);
   ledInit(&DDRA,&PORTA,PA3);
   ledInit(&DDRD,&PORTD,PD4);
   ledInit(&DDRD,&PORTD,PD5);
