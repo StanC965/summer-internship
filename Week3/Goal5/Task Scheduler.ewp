@@ -2104,6 +2104,12 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\adc.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\adc.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\AmbientLight.c</name>
     </file>
     <file>
@@ -2120,6 +2126,9 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
     <file>
         <name>$PROJ_DIR$\scheduleCFG.c</name>
@@ -2132,8 +2141,5 @@
     </file>
     <file>
         <name>$PROJ_DIR$\scheduler.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\task362.c</name>
     </file>
 </project>

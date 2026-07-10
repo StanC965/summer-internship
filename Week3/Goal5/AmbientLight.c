@@ -2,6 +2,7 @@
 #include "led.h"
 #include "gpio.h"
 #include "adc.h"
+#include "scheduler.h"
 
 #define PA3 3
 #define PD4 4
@@ -20,18 +21,29 @@
 #define led1 1
 #define led2 2
 #define led3 3
-#define Adc10bit
+#define Adc10Bit
 
 #define dark 120
 #define semiDark 80
 #define semiLight 40
-//curentul se masoara cu un ampermetru
 
+
+void initProgram(){
+  DIDR0 |= (1 << ADC4DIDR);
+  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,0,ADPS01,ADPS02);
+  ledInit(&DDRA,&PORTA,PA3);
+  ledInit(&DDRD,&PORTD,PD4);
+  ledInit(&DDRD,&PORTD,PD5);
+}
+    
+  
 
 #pragma vector = ADC_vect
 __interrupt void myInterrupt(void){
- 
-  unsigned int value = ADC;
+  setAdcValue();
+  
+  unsigned short int value = getAdcValue();
+  
   disableAdc();
   
   if(value < semiLight)
@@ -64,21 +76,14 @@ __interrupt void myInterrupt(void){
 
 
 
-//senzorul nu mai citeste asa bine datele
-//prescale de 128 sau 64
+
 void main( void )
 {
-  DIDR0 |= (1 << ADC4DIDR);
-  initAdc(&DDRA,&PORTA,PA4,ADC4,REF0,0,ADIE,0,ADPS01,ADPS02);
-  ledInit(&DDRA,&PORTA,PA3);
-  ledInit(&DDRD,&PORTD,PD4);
-  ledInit(&DDRD,&PORTD,PD5);
+  initProgram();
   enableAdc();
   startConversionAdc();
   
   __enable_interrupt();
   while(1){
-  
   }
-  
 }

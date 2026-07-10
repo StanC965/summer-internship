@@ -49,7 +49,22 @@ void schedulerFlasgsManagement(void){
     flag1000ms = 1;
   }
 }
+
+void programInit(){
+  TCNT1 = 0;
+  OCR1A = 9999;
+  //initializam pini de care avem nevoie pentru a vedea cum se schimba unu la 10 ms si unu la 1000ms 
+    
+  ledInit(&DDRA,&PORTA,PA3);
+  ledInit(&DDRD,&PORTD,PD4);
+  setPin(&TCCR1B,WGM12);
+  setPin(&TIMSK1,OCIE1A);
+  setPin(&TCCR1B,CS11);
+  
+  setPin(&TCCR1A,COM1A);
+}
 void scheduleTaskDispatcher(void){
+  programInit();
  while(1){
     if(flag10ms){
       flag10ms = 0;
@@ -84,24 +99,12 @@ __interrupt void myInterrupt(void){
 
 
 
-void programInit(){
-  TCNT1 = 0;
-  OCR1A = 9999;
-  //initializam pini de care avem nevoie pentru a vedea cum se schimba unu la 10 ms si unu la 1000ms 
-    
-  ledInit(&DDRA,&PORTA,PA3);
-  ledInit(&DDRD,&PORTD,PD4);
-  setPin(&TCCR1B,WGM12);
-  setPin(&TIMSK1,OCIE1A);
-  setPin(&TCCR1B,CS11);
-  
-  setPin(&TCCR1A,COM1A);
-}
+
 
 int main( void )
 {
   
-  programInit();
+ 
   __enable_interrupt();
   
   scheduleTaskDispatcher();
