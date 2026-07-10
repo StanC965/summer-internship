@@ -7,57 +7,52 @@
         <outputs>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$PROJ_DIR$\gpio.h</file>
-            <file>$PROJ_DIR$\gpio.c</file>
-            <file>$PROJ_DIR$\led.h</file>
-            <file>$PROJ_DIR$\led.c</file>
-            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
             <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\gpio.c</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
             <file>$PROJ_DIR$\Debug\List\led.i</file>
-            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\led.h</file>
             <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$PROJ_DIR$\Debug\Exe\Task Scheduler.d90</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\Task Scheduler.map</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 10 1</file>
+                    <file> 6 1</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 8 12 9 4 2 6</file>
+                    <file> 7 9 3 15 4 11</file>
                 </tool>
             </inputs>
-        </file>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 15</file>
-                </tool>
-            </outputs>
         </file>
         <file>
             <name>$PROJ_DIR$\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 7 14</file>
+                    <file> 2 13</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 8 12 9 2</file>
+                    <file> 3 15 4 9</file>
                 </tool>
             </inputs>
         </file>
@@ -66,15 +61,39 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11</file>
+                    <file> 8 12</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 2 8 12 9 4</file>
+                    <file> 9 3 15 4 11</file>
                 </tool>
             </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Task Scheduler.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 17</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 16 19 13 12 1 18</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 14 17</file>
+                </tool>
+            </outputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>

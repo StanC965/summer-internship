@@ -51448,16 +51448,86 @@
     "scope": null
   },
   {
+    "ID": "c:main.c@203@macro@OCIE1A",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "OCIE1A",
+    "location": {
+      "column": "9",
+      "line": "10",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "OCIE1A",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@223@macro@COM1A",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "COM1A",
+    "location": {
+      "column": "9",
+      "line": "12",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "COM1A",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@240@macro@PD5",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PD5",
+    "location": {
+      "column": "9",
+      "line": "13",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "PD5",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@myInterrupt",
     "What": "Function",
     "defdec": "Def",
     "display": "void myInterrupt(void)",
     "location": {
       "column": "18",
-      "line": "12",
+      "line": "16",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
     },
     "name": "myInterrupt",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@326@F@myInterrupt@a",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "a",
+    "location": {
+      "column": "7",
+      "line": "18",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "a",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@programInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void programInit(void)",
+    "location": {
+      "column": "6",
+      "line": "21",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+    },
+    "name": "programInit",
     "origin": "project_file",
     "scope": null
   },
@@ -51468,7 +51538,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "15",
+      "line": "34",
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
     },
     "name": "main",

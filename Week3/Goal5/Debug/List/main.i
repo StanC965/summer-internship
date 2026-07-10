@@ -1,5 +1,198 @@
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
 
+#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+__intrinsic void __no_operation(void);
+__intrinsic void __enable_interrupt(void);
+__intrinsic void __disable_interrupt(void);
+__intrinsic void __sleep(void);
+__intrinsic void __watchdog_reset(void);
+
+
+#pragma language=save
+#pragma language=extended
+
+
+
+__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
+
+
+
+
+
+
+#pragma language=restore
+
+__intrinsic void __insert_opcode(unsigned short op);
+
+#line 59 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+__intrinsic void __require(void *);
+
+__intrinsic void __delay_cycles(unsigned long);
+
+__intrinsic unsigned char __save_interrupt(void);
+
+
+__intrinsic void          __restore_interrupt(unsigned char);
+
+typedef unsigned char __istate_t;
+
+__intrinsic unsigned char __swap_nibbles(unsigned char);
+
+__intrinsic void          __indirect_jump_to(unsigned long);
+
+
+
+
+__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __multiply_signed(signed char, signed char);
+__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
+
+__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
+__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
+
+
+#pragma language=save
+#pragma language=extended
+
+#line 264 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
+                                           unsigned char byte);
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
+                                          unsigned char byte);
+
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
+                                                    unsigned short word, 
+                                                    unsigned char byte);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
+                                                   unsigned char byte);
+
+
+
+
+
+
+
+
+#line 368 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+#line 394 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#pragma language=restore
+
+
+
+
+ 
+#line 411 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+ 
+
+
+
+#line 423 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 431 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 439 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 447 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+ 
+
+#line 468 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+#line 477 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+
+
+
+#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -565,62 +758,6 @@
 
 
 
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\led.h"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\gpio.h"
-#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-#pragma system_include
-
-
-
-#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iomacro.h"
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-#pragma system_include
-
-
-
-#line 21 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-#line 28 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-#line 106 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
-
-
-
- 
-#line 324 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
-
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\gpio.h"
 
 
@@ -636,7 +773,11 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\led.h"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\led.h"
+
+
+
 
 extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
 extern void ledPowerOn(unsigned char led);
@@ -645,8 +786,7 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
 
 
 
@@ -657,252 +797,33 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
-
- 
-
-
-
-#pragma system_include
-
-
-
-
-
-
-
-
-
-
-__intrinsic void __no_operation(void);
-__intrinsic void __enable_interrupt(void);
-__intrinsic void __disable_interrupt(void);
-__intrinsic void __sleep(void);
-__intrinsic void __watchdog_reset(void);
-
-
-#pragma language=save
-#pragma language=extended
-
-
-
-__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
-
-
-
-
-
-
-#pragma language=restore
-
-__intrinsic void __insert_opcode(unsigned short op);
-
-#line 59 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-
-__intrinsic void __require(void *);
-
-__intrinsic void __delay_cycles(unsigned long);
-
-__intrinsic unsigned char __save_interrupt(void);
-
-
-__intrinsic void          __restore_interrupt(unsigned char);
-
-typedef unsigned char __istate_t;
-
-__intrinsic unsigned char __swap_nibbles(unsigned char);
-
-__intrinsic void          __indirect_jump_to(unsigned long);
-
-
-
-
-__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
-__intrinsic signed int    __multiply_signed(signed char, signed char);
-__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
-
-__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
-__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
-__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
-
-
-#pragma language=save
-#pragma language=extended
-
-#line 264 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-
-
-
- 
-
-
-
-
-
-
- 
-__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
-                                           unsigned char byte);
-
-
-
-
-
-
- 
-__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
-                                          unsigned char byte);
-
-
-
-
-
-
-
- 
-__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
-                                                    unsigned short word, 
-                                                    unsigned char byte);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
-                                                   unsigned char byte);
-
-
-
-
-
-
-
-
-#line 368 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-
-
-
-
-#line 394 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-#pragma language=restore
-
-
-
-
- 
-#line 411 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
- 
-
-
-
-#line 423 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-#line 431 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-#line 439 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-#line 447 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-
- 
-
-#line 468 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-
-#line 477 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
-
-
-
-
-
-
-
-
-#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
-
-#line 16 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\main.c"
-
-volatile unsigned char lumina_ambientala=0;
-
-#pragma vector=(0x60)
-__interrupt void ADC_interrupt(void){
-  lumina_ambientala=ADCH;
+#pragma vector=(0x34)
+__interrupt void myInterrupt(void){
+  
+  int a = 5;
 }
 
-void adc_init(){
-  ADMUX=0b01100100; 
-  ADCSRA=0b10001000;  
-                  
-  __enable_interrupt();
-}
-
-void oled1_leds_init(){
-
- 
-}
-
-void turn_on_leds(unsigned char lumina){
-  if(lumina>=225 && lumina <=255){
-    setPin(&PORTD, 5); 
-    setPin(&PORTD, 4); 
-    setPin(&PORTA, 3);
-  }
-  if(lumina>=98 && lumina <225){
-    resetPin(&PORTD, 5); 
-    setPin(&PORTD, 4); 
-    setPin(&PORTA, 3);
-  }
-  if(lumina>=30 && lumina <98){
-    resetPin(&PORTD, 5); 
-    resetPin(&PORTD, 4); 
-    setPin(&PORTA, 3);
-  }
-  if(lumina<30){
-    resetPin(&PORTD, 5); 
-    resetPin(&PORTD, 4); 
-    resetPin(&PORTA, 3);
-  }
-}
-
-void adc_start_conversion(void){
-  ADCSRA=0b11001000;
-}
-
-unsigned char adc_get_result(void){
-  return lumina_ambientala;
-}
-
-void main(void){
-    ledInit(&DDRA,&PORTA,3);
-  ledInit(&DDRD,&PORTD,4);
+void programInit(){
+  TCNT1 = 0;
+  OCR1A = 9999;
+  
   ledInit(&DDRD,&PORTD,5);
-  adc_init();
-  oled1_leds_init();
+  
+  setPin(&TCCR1B,3);
+  setPin(&TIMSK1,1);
+  setPin(&TCCR1B,1);
+  
+  setPin(&TCCR1A,6);
+}
+
+int main( void )
+{
+  
+  programInit();
+  __enable_interrupt();
+  
   
   while(1){
-    adc_start_conversion();
-    unsigned char lumina=adc_get_result();
-    
-    turn_on_leds(lumina);
+  
   }
 }
-
