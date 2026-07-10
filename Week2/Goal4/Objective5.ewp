@@ -2126,5 +2126,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\task453.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task454.c</name>
     </file>
 </project>

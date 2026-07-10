@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>4167217326</fileChecksum>
+    <fileChecksum>2156409573</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -27,6 +27,11 @@
             <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$PROJ_DIR$\task452.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\task439.c</file>
+            <file>$PROJ_DIR$\task454.c</file>
+            <file>$PROJ_DIR$\CarCrashDetection.h</file>
+            <file>$PROJ_DIR$\task438.c</file>
+            <file>$PROJ_DIR$\CarCrashDetection.c</file>
             <file>$PROJ_DIR$\main.c</file>
         </outputs>
         <file>
@@ -111,6 +116,10 @@
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
             <tool>ICCAVR</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task453.c</name>
+            <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>

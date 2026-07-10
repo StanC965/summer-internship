@@ -2656,4 +2656,7 @@
     <file>
         <name>$PROJ_DIR$\task453.c</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task454.c</name>
+    </file>
 </project>
