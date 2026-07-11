@@ -1,17 +1,4 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\ScheduleCFGBMW.h"
-
-
-
-extern void task10ms();
-
-extern void task50ms();
-extern void task100ms();
-extern void task500ms();
-extern void task1000ms();
-
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.c"
-
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\BMWCustomer.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
@@ -603,7 +590,9 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.c"
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\BMWCustomer.c"
+
+#line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
 
 
 
@@ -615,82 +604,274 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
-_Bool flag10ms = 0;
-_Bool flag50ms = 0;
-_Bool flag100ms = 0;
-_Bool flag500ms = 0;
-_Bool flag1000ms = 0;
-void programInit(){
-  TCNT1 = 0;
-  OCR1A = 9999;
+ 
+
+
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+__intrinsic void __no_operation(void);
+__intrinsic void __enable_interrupt(void);
+__intrinsic void __disable_interrupt(void);
+__intrinsic void __sleep(void);
+__intrinsic void __watchdog_reset(void);
+
+
+#pragma language=save
+#pragma language=extended
+
+
+
+__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
+
+
+
+
+
+
+#pragma language=restore
+
+__intrinsic void __insert_opcode(unsigned short op);
+
+#line 59 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+__intrinsic void __require(void *);
+
+__intrinsic void __delay_cycles(unsigned long);
+
+__intrinsic unsigned char __save_interrupt(void);
+
+
+__intrinsic void          __restore_interrupt(unsigned char);
+
+typedef unsigned char __istate_t;
+
+__intrinsic unsigned char __swap_nibbles(unsigned char);
+
+__intrinsic void          __indirect_jump_to(unsigned long);
+
+
+
+
+__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __multiply_signed(signed char, signed char);
+__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
+
+__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
+__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
+
+
+#pragma language=save
+#pragma language=extended
+
+#line 264 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
+                                           unsigned char byte);
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
+                                          unsigned char byte);
+
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
+                                                    unsigned short word, 
+                                                    unsigned char byte);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
+                                                   unsigned char byte);
+
+
+
+
+
+
+
+
+#line 368 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+#line 394 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#pragma language=restore
+
+
+
+
+ 
+#line 411 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+ 
+
+
+
+#line 423 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 431 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 439 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+#line 447 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+ 
+
+#line 468 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+#line 477 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+
+
+
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\BMWCustomer.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.h"
+
+
+
+extern void scheduleTaskDispatcher(void);
+
+extern void schedulerFlasgsManagement(void);
+
+
+
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\BMWCustomer.c"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma vector=(0x34)
+__interrupt void myInterrupt(void){
   
-    
-  
-  
-  setPin(&TCCR1B,3);
-  setPin(&TIMSK1,1);
-  setPin(&TCCR1B,1);
-  
-
+  schedulerFlasgsManagement();
 }
 
-void scheduleTaskDispatcher(void){
-  programInit();
- while(1){
-    if(flag10ms){
-      flag10ms = 0;
-      task10ms();
-      
-      
-    }
-    if(flag50ms){
-      flag50ms = 0;
-      task50ms();
-    }
-    if(flag100ms){
-      flag100ms = 0;
-      task100ms();
-    }
-    if(flag500ms){
-      flag500ms = 0;
-      task500ms();
-    }
-    if(flag1000ms){
-      flag1000ms = 0;
-      task100ms();
-    }
-  }
-}
 
-void schedulerFlasgsManagement(void){
-  static unsigned char cnt50 = 0;
-  static unsigned char cnt100 = 0;
-  static unsigned short int cnt500 = 0;
-  static unsigned short int cnt1000 = 0;
-  flag10ms = 1;
-  cnt50++;
-  cnt100++;
-  cnt500++;
-  cnt1000++;
-  if(cnt50 == 5){
-    cnt50 = 0;
-    flag50ms = 1;
-    
-  }
-   if(cnt100 == 10){
-    cnt100 = 0;
-    flag100ms = 0;
-  }
-  if(cnt500 ==50){
-    cnt500 = 0;
-    flag500ms = 1;
-  }
+void initialize(){
   
-  if(cnt1000 == 100){
-    cnt1000 = 0;
-    flag1000ms = 1;
-  }
+    setDirection(&DDRD,5,1);
+  setDirection(&DDRD,4,1);
+  setDirection(&DDRA,3,1);
+  setDirection(&DDRC,7,1);
+  
+  
+  setPin(&PORTC,7);
+  setPin(&PORTD,5);
+  setPin(&PORTD,4);
+  setPin(&PORTA,3);
+  
+  
+  setDirection(&DDRC,6,0);
+  setDirection(&DDRC,1,0);
+  setDirection(&DDRA,0,0);
+  setDirection(&DDRA,1,0);
+  
+  
+   setPin(&PORTC,6);
+  setPin(&PORTC,1);
+  setPin(&PORTA,0);
+  setPin(&PORTA,1);
+  
+  
 }
 
-
-
+int main( void )
+{
+  initialize();
+  
+  __enable_interrupt();
+  scheduleTaskDispatcher();
+  
+  
+}

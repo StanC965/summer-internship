@@ -1,153 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>3869604737</fileChecksum>
+    <fileChecksum>1482390515</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\AmbientLight.c</file>
-            <file>$PROJ_DIR$\scheduler.h</file>
-            <file>$PROJ_DIR$\Debug\List\led.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
-            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
-            <file>$PROJ_DIR$\gpio.c</file>
-            <file>$PROJ_DIR$\scheduleCFG.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\AmbientLight.r90</file>
-            <file>$PROJ_DIR$\led.h</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\adc.h</file>
-            <file>$PROJ_DIR$\led.c</file>
-            <file>$PROJ_DIR$\task362.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\scheduleCFG.r90</file>
-            <file>$PROJ_DIR$\Debug\List\Task Scheduler.map</file>
-            <file>$PROJ_DIR$\adc.c</file>
-            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
-            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$PROJ_DIR$\Debug\List\main.i</file>
-            <file>$PROJ_DIR$\gpio.h</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-            <file>$PROJ_DIR$\Debug\Exe\Task Scheduler.d90</file>
-            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$PROJ_DIR$\scheduleCFG.h</file>
-            <file>$PROJ_DIR$\scheduler.c</file>
-            <file>$PROJ_DIR$\Debug\List\AmbientLight.i</file>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\task362.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
-            <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
-            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-            <file>$PROJ_DIR$\Debug\List\adc.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$PROJ_DIR$\Debug\List\scheduleCFG.i</file>
+            <file>$PROJ_DIR$\adc.c</file>
+            <file>$PROJ_DIR$\ScheduleCFGBMW.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$PROJ_DIR$\Debug\Exe\Task Scheduler.d90</file>
+            <file>$PROJ_DIR$\adc.h</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\scheduler.c</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$PROJ_DIR$\ScheduleCFGBMW.c</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\AmbientLight.r90</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\AmbientLight.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\scheduleCFG.h</file>
+            <file>$PROJ_DIR$\task362.c</file>
+            <file>$PROJ_DIR$\BMWCustomer.c</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\scheduler.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduleCFG.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\task362.r90</file>
+            <file>$PROJ_DIR$\scheduleCFG.c</file>
+            <file>$PROJ_DIR$\Debug\List\Task Scheduler.map</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\ScheduleCFGBMW.r90</file>
+            <file>$PROJ_DIR$\Debug\List\BMWCustomer.i</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
+            <file>$PROJ_DIR$\Debug\List\ScheduleCFGBMW.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\BMWCustomer.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\Debug\List\AmbientLight.i</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\Debug\List\adc.i</file>
         </outputs>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 23 14</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\AmbientLight.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 27 7</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 33 8 21 16 18 24 10 1</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\gpio.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 4 31</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 16 18 24 21</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\scheduleCFG.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 36 13</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 10 21 16 18 24 8</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 20 19</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 33 21 16 18 24 8</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\led.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 2 35</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 21 16 18 24 8</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\task362.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 30</file>
-                </tool>
-            </outputs>
-        </file>
         <file>
             <name>$PROJ_DIR$\adc.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 34 32</file>
+                    <file> 43 4</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 21 16 18 24</file>
+                    <file> 25 12 14 35</file>
                 </tool>
             </inputs>
         </file>
@@ -156,13 +70,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 14</file>
+                    <file> 31</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 17 28 32 7 31 35 13 3 22</file>
+                    <file> 24 32 4 38 0 39 33 27 42</file>
                 </tool>
             </inputs>
         </file>
@@ -171,16 +85,151 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 29 3</file>
+                    <file> 36 27</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 25 8 21 16 18 24</file>
+                    <file> 3 8 25 12 14 35</file>
                 </tool>
             </inputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\ScheduleCFGBMW.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 37 33</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 7 25 12 14 35 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\AmbientLight.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 41 13</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 8 25 12 14 35 7 22</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 40</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 25 12 14 35 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\task362.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 29</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\BMWCustomer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 34 38</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 8 25 12 14 35 28 22</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 10 0</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 12 14 35 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 5 39</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25 12 14 35 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduleCFG.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1 23</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 7 25 12 14 35 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 6 31</file>
+                </tool>
+            </outputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\AmbientLight.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\scheduleCFG.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>XLINK</tool>
@@ -188,10 +237,6 @@
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
             <tool>ICCAVR</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\main.c</name>
-            <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>[REBUILD_ALL]</name>

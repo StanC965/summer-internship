@@ -1,18 +1,5 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\ScheduleCFGBMW.h"
-
-
-
-extern void task10ms();
-
-extern void task50ms();
-extern void task100ms();
-extern void task500ms();
-extern void task1000ms();
-
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.c"
-
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\led.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\ScheduleCFGBMW.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\adc.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -594,7 +581,22 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\led.h"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\adc.h"
+
+extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
+
+extern void startConversionAdc();
+extern void enableAdc();
+
+extern void disableAdc();
+extern unsigned short int getAdcValue(void);
+
+extern void setAdcValue(unsigned short int val);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\ScheduleCFGBMW.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\led.h"
+
+
+
 
 extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
 extern void ledPowerOn(unsigned char led);
@@ -603,7 +605,7 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\scheduler.c"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal5\\ScheduleCFGBMW.c"
 
 
 
@@ -613,84 +615,170 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
+int led0State = 0;
+int led1State = 0;
+int led2State = 0;
+int led3State = 0;
 
 
-_Bool flag10ms = 0;
-_Bool flag50ms = 0;
-_Bool flag100ms = 0;
-_Bool flag500ms = 0;
-_Bool flag1000ms = 0;
-void programInit(){
-  TCNT1 = 0;
-  OCR1A = 9999;
-  
-    
-  
-  
-  setPin(&TCCR1B,3);
-  setPin(&TIMSK1,1);
-  setPin(&TCCR1B,1);
-  
 
+
+
+
+
+
+volatile unsigned char blinkFast = 0;
+unsigned char led0BlinkState = 0;
+unsigned char cnt = 0;
+
+unsigned char button0Buffer = 0;
+unsigned char button1Buffer = 0;
+unsigned char button2Buffer = 0;
+unsigned char button3Buffer = 0;
+
+unsigned char button0State = 0;
+unsigned char button1State = 0;
+unsigned char button2State = 0;
+unsigned char button3State = 0;
+
+unsigned char lastButton0State = 0;
+unsigned char lastButton1State = 0;
+unsigned char lastButton2State = 0;
+unsigned char lastButton3State = 0;
+
+
+
+
+
+
+
+void led0Funtionality(){
+  ledPowerOn(0);
+  ledPowerOff(1);
+  ledPowerOff(2);
+  ledPowerOff(3);
 }
 
-void scheduleTaskDispatcher(void){
-  programInit();
- while(1){
-    if(flag10ms){
-      flag10ms = 0;
-      task10ms();
+
+void led0FunctionalityReversed(){
+  ledPowerOff(0);
+   if(led1State == 1)
+            ledPowerOn(1);
+        else
+            ledPowerOff(1);
+  if(led2State == 1)
+          ledPowerOn(2); 
+        else
+          ledPowerOff(2);
+  if(led3State == 1)
+        ledPowerOn(3);
+    else
+      ledPowerOff(3);
+}
+
+
+void debounceButton(volatile unsigned char *PIN,unsigned char pin,unsigned char *buffer,unsigned char *state)
+{
+    *buffer <<= 1;
+
+    if(!getPin(PIN, pin))
+        *buffer |= 1;
+
+    if((*buffer & 0x1F)== 0x1F)
+        *state =1;
+    else if((*buffer & 0x1F)== 0x00)
+        *state = 0;
+}
+
+void task10ms(){
+  debounceButton(&PINC, 6, &button0Buffer, &button0State);
+  debounceButton(&PINC, 1, &button1Buffer, &button1State);
+  debounceButton(&PINA, 0, &button2Buffer, &button2State);
+  debounceButton(&PINA, 1, &button3Buffer, &button3State);
+  if(button0State == 1 && lastButton0State == 0){
+      led0State ^= 1;
+      if(led0State == 1){
+        led0Funtionality();
+      }
+      else
+          led0FunctionalityReversed();
       
+  }
+  lastButton0State = button0State;
+      if(button1State == 1 && lastButton1State == 0){
+    if(led0State == 1){
+        blinkFast |= 1;
+        ledPowerOn(0);}
+    else{
+        led1State ^= 1;
+        if(led1State == 1)
+            ledPowerOn(1);
+        else
+          ledPowerOff(1);}
+  }
       
+  lastButton1State = button1State;
+      if(button2State == 1 && lastButton2State == 0){
+      if(led0State == 1){
+        blinkFast |= 1;
+        ledPowerOn(0);}
+    else{
+        led2State ^= 1;
+        if(led2State == 1)
+          ledPowerOn(2); 
+        else
+          ledPowerOff(2);}
     }
-    if(flag50ms){
-      flag50ms = 0;
-      task50ms();
-    }
-    if(flag100ms){
-      flag100ms = 0;
-      task100ms();
-    }
-    if(flag500ms){
-      flag500ms = 0;
-      task500ms();
-    }
-    if(flag1000ms){
-      flag1000ms = 0;
-      task100ms();
-    }
-  }
+     
+    lastButton2State = button2State;
+     if(button3State == 1 && lastButton3State == 0){
+          if(led0State == 1){
+            blinkFast |= 1;
+            ledPowerOn(0);}
+        else{
+              led3State ^= 1;
+              if(led3State == 1)
+                ledPowerOn(3);
+              else
+              ledPowerOff(3);
+            }
+        }
+     
+lastButton3State = button3State;
 }
+      
+void task50ms(){
+  if(led0State == 1){
+      if(blinkFast)
+      {
+          cnt++;
+          led0BlinkState ^= 1;
 
-void schedulerFlasgsManagement(void){
-  static unsigned char cnt50 = 0;
-  static unsigned char cnt100 = 0;
-  static unsigned short int cnt500 = 0;
-  static unsigned short int cnt1000 = 0;
-  flag10ms = 1;
-  cnt50++;
-  cnt100++;
-  cnt500++;
-  cnt1000++;
-  if(cnt50 == 5){
-    cnt50 = 0;
-    flag50ms = 1;
-    
+          if(led0BlinkState)
+              ledPowerOn(0);
+          else
+              ledPowerOff(0);
+          if(cnt == 10){
+            cnt =0;
+            blinkFast = 0;
+          }
+      }
+      else
+        ledPowerOn(0);
   }
-   if(cnt100 == 10){
-    cnt100 = 0;
-    flag100ms = 0;
-  }
-  if(cnt500 ==50){
-    cnt500 = 0;
-    flag500ms = 1;
-  }
+
+}
+      
+void task100ms(){
   
-  if(cnt1000 == 100){
-    cnt1000 = 0;
-    flag1000ms = 1;
-  }
+
+}
+      
+void task500ms(){
+
 }
 
+void task1000ms(){
 
+}
 
