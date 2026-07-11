@@ -14,13 +14,27 @@
     "scope": null
   },
   {
+    "ID": "c:main.c@40@macro@AVERAGE",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "AVERAGE",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
+    },
+    "name": "AVERAGE",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@main",
     "What": "Function",
     "defdec": "Def",
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "9",
+      "line": "5",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
     "name": "main",
@@ -28,16 +42,30 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@125@F@main@c",
+    "ID": "c:main.c@93@F@main@c",
     "What": "Variable",
     "defdec": "Def",
     "display": "c",
     "location": {
       "column": "7",
-      "line": "11",
+      "line": "7",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
     "name": "c",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@114@F@main@d",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "d",
+    "location": {
+      "column": "10",
+      "line": "8",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
+    },
+    "name": "d",
     "origin": "project_file",
     "scope": null
   }

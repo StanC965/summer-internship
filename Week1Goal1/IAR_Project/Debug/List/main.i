@@ -1,9 +1,11 @@
 
+
 void main(void)
 {
-  int c=0;
-    do { if (c < 3) { c++; } } while(1);
+  int c = ((3>4) ? 3:4);
+  double d = ((3+6) /2.0);
 }
+
 
 
 
