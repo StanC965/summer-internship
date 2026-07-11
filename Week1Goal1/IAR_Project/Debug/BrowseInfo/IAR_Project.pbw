@@ -1,29 +1,29 @@
 [
   {
-    "ID": "c:main.c@8@macro@MAX",
-    "What": "MacroDef",
+    "ID": "c:@F@counter",
+    "What": "Function",
     "defdec": "Def",
-    "display": "MAX",
+    "display": "void counter(void)",
     "location": {
-      "column": "9",
+      "column": "6",
       "line": "1",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
-    "name": "MAX",
+    "name": "counter",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:main.c@40@macro@AVERAGE",
-    "What": "MacroDef",
+    "ID": "c:main.c@120@F@counter@count",
+    "What": "Variable",
     "defdec": "Def",
-    "display": "AVERAGE",
+    "display": "count",
     "location": {
-      "column": "9",
-      "line": "2",
+      "column": "16",
+      "line": "5",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
-    "name": "AVERAGE",
+    "name": "count",
     "origin": "project_file",
     "scope": null
   },
@@ -34,38 +34,10 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "5",
+      "line": "10",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
     "name": "main",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@93@F@main@c",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "c",
-    "location": {
-      "column": "7",
-      "line": "7",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
-    },
-    "name": "c",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@114@F@main@d",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "d",
-    "location": {
-      "column": "10",
-      "line": "8",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
-    },
-    "name": "d",
     "origin": "project_file",
     "scope": null
   }
