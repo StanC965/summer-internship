@@ -1,15 +1,16 @@
-void counter(void)
+struct Student
 {
-    
-    
-    static int count = 0;
+    char name[30];
+    unsigned char age;
+    unsigned char height;
+};
 
-    count++;
-}
 
 void main(void)
 {
-    counter();   
-    counter();   
-    counter();   
+    struct Student student = {
+        "Viorel",
+        25,
+        180
+    };
 }

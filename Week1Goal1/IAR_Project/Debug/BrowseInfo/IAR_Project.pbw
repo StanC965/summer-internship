@@ -1,29 +1,59 @@
 [
   {
-    "ID": "c:@buttonPressed",
-    "What": "Variable",
+    "ID": "c:@S@Student",
+    "What": "Struct",
     "defdec": "Def",
-    "display": "buttonPressed",
+    "display": "Student",
     "location": {
-      "column": "14",
+      "column": "8",
       "line": "1",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
-    "name": "buttonPressed",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@buttonInterrupt",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void buttonInterrupt(void)",
-    "location": {
-      "column": "6",
-      "line": "4",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
-    },
-    "name": "buttonInterrupt",
+    "members": [
+      {
+        "ID": "c:@S@Student@FI@name",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "name",
+        "location": {
+          "column": "10",
+          "line": "3",
+          "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
+        },
+        "name": "name",
+        "origin": "project_file",
+        "scope": "Student"
+      },
+      {
+        "ID": "c:@S@Student@FI@age",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "age",
+        "location": {
+          "column": "19",
+          "line": "4",
+          "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
+        },
+        "name": "age",
+        "origin": "project_file",
+        "scope": "Student"
+      },
+      {
+        "ID": "c:@S@Student@FI@height",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "height",
+        "location": {
+          "column": "19",
+          "line": "5",
+          "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
+        },
+        "name": "height",
+        "origin": "project_file",
+        "scope": "Student"
+      }
+    ],
+    "name": "Student",
     "origin": "project_file",
     "scope": null
   },
@@ -38,6 +68,20 @@
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
     },
     "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@122@F@main@student",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "student",
+    "location": {
+      "column": "20",
+      "line": "11",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal1\\IAR_Project\\main.c"
+    },
+    "name": "student",
     "origin": "project_file",
     "scope": null
   }

@@ -1,19 +1,16 @@
-volatile int buttonPressed = 0;
-
-// Assume this function is called by an interrupt
-void buttonInterrupt(void)
+struct Student
 {
-    buttonPressed = 1;
-}
+    char name[30];
+    unsigned char age;
+    unsigned char height;
+};
+
 
 void main(void)
 {
-    while (!buttonPressed)
-    {
-        // Wait until the interrupt changes the variable.
-        // 'volatile' tells the compiler not to optimize
-        // repeated reads of buttonPressed.
-    }
+    struct Student student = {
+        "Viorel",
+        25,
+        180
+    };
 }
-
-//volatile is used for variables whose value may change outside the program's normal flow (e.g., hardware registers, interrupt service routines, or another thread).
