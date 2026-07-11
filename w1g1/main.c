@@ -68,3 +68,15 @@ int main(void) {
     
     return 0;
 }
+
+*/
+
+
+
+
+// 162: Verificare Endianness
+int main(void) {
+    int b = 257;    // 257 in hex este 0x0101
+    int c = b + 1;  // 258 in hex este 0x0102
+    return 0;
+}
