@@ -1,0 +1,63 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="Sct7DxmSEBPRZQ2h4VMS">
+    <mxGraphModel dx="567" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-4" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pVWH7z_1bgFtgv-ZrMom-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="task10ms()&lt;br&gt;readButton" vertex="1">
+          <mxGeometry height="60" width="120" x="210" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-11" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pVWH7z_1bgFtgv-ZrMom-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Daca este 0:&lt;br&gt;buffer |= 1" vertex="1">
+          <mxGeometry height="60" width="120" x="130" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-5" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pVWH7z_1bgFtgv-ZrMom-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-9" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pVWH7z_1bgFtgv-ZrMom-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="buffer &amp;lt;&amp;lt;=1;" vertex="1">
+          <mxGeometry height="60" width="120" x="210" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-12" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pVWH7z_1bgFtgv-ZrMom-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Daca este 1:&lt;div&gt;Ramane 0&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="290" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-14" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pVWH7z_1bgFtgv-ZrMom-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-15" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pVWH7z_1bgFtgv-ZrMom-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Buffer valoare" vertex="1">
+          <mxGeometry height="60" width="120" x="210" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Este 0x1F&lt;br&gt;=&amp;gt;PRESSED" vertex="1">
+          <mxGeometry height="60" width="120" x="140" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Primi 5 biti sunt 00000&lt;br&gt;=&amp;gt;RELEASED" vertex="1">
+          <mxGeometry height="60" width="120" x="305" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Debounce ready pentru button" vertex="1">
+          <mxGeometry height="60" width="120" x="230" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-18" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.445;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;" target="pVWH7z_1bgFtgv-ZrMom-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pVWH7z_1bgFtgv-ZrMom-19" edge="1" parent="1" source="pVWH7z_1bgFtgv-ZrMom-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.445;entryY=0.043;entryDx=0;entryDy=0;entryPerimeter=0;" target="pVWH7z_1bgFtgv-ZrMom-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
