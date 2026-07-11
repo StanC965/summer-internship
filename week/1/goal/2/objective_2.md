@@ -10,6 +10,7 @@
 | :---      | :---   | :--- 
 | **[221]** | `CORE` | [x] Completed 
 | **[222]** | `CORE` | [x] Completed 
+| **[223]** | `CORE` | [x] Completed 
 
 ---
 
@@ -40,7 +41,45 @@
 > To turn the LEDs on, the microcontroller pins connected to LED1, LED2, and LED3 must be configured as outputs and driven to LOW.
 > When the pins are LOW, a voltage potential is created between VCC and the microcontroller pins. Current then flows from the power supply, through the resistor, through the LED and lighting it up, and lastly it sinks directly into the microcontroller pin to GND.
 
-> Even tough the physical hardware wiring looks the same, I assume that there must be a slight difference between the two boards, since the LEDs on the OLED board work just as encounterd before in this week's goals, but the LED on the IO1 board uses pulse width modulation (PWM).
+> Even tough the physical hardware wiring looks the same, I assume that there must be a slight difference between the two boards, since the LEDs on the OLED1 board work just as encounterd before in this week's goals, but the LED on the IO1 board uses pulse width modulation (PWM).
+
+---
+
+#### Task 223
+> **Question/Prompt:** Check that OLED1 extension board is connected to EXT1 header. Program all 3 LEDs to be turned on at once. Double check(!) with User Guide for OLED1 to see if schematics information matches with regards to LEDs activation.
+
+> **Answer/Explanation:**
+> I connected the OLED1 board to the EXT1 header, and also checked the information regarding LED activation, which states the following: The LEDs can be activated by driving the connected I/O line low. This aligns with previous findings.
+>
+> In order to turn the LEDs on, I looked for the pins in the EXT1 header in the OLED1 user guied, which are pin 7, 8, and 6 for LED1, LED3, and LED3 respectively. Then, using these pins, I looked in the ATmega user guide, and found the corresponding pins, which are PD5, PD4 and PA3.
+
+```
+#include <iom324pb.h>
+
+void main (void){
+  
+  // set PD5 as OUTPUT by setting bit 5 to 1
+  DDRD |= 1 << 5;
+  // set PD4 as OUTPUT by setting bit 4 to 1
+  DDRD |= 1 << 4;
+  // set PA3 as OUTPUT by setting bit 3 to 1
+  DDRA |= 1 << 3;
+
+  // drive PD5 LOW by clearing bit 5 to 0
+  PORTD &= ~(1 << 5);
+  // drive PD4 LOW by clearing bit 4 to 0
+  PORTD &= ~(1 << 4);
+  // drive PDA LOW by clearing bit 3 to 0
+  PORTA &= ~(1 << 3);
+  
+  while(1){
+    // keep the controller running and the LED lit
+  }
+  
+}
+```
+
+![alt text](../../../../images/w1g2obj2t221.PNG)
 
 ---
 
@@ -48,3 +87,4 @@
 * ATmega324PB Xplained Pro Schematics
 * IO1 Xplained Pro design documentation
 * OLED Xplained Pro design documentation
+* OLED1 Xplained Pro user guide
