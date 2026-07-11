@@ -58,8 +58,8 @@ void main (void){
 > LED0 is connected to Port C, Pin 7 (PC7). The user guide states that the LED can be activated by driving the connected I/O line to GND (logic low). This confirms an active-low configuration. One side of LED is tied to the board's power supply, and the other side leads to pin PC7. Current will only flow and light the LED when PC7 acts as a path to GND.
 >
 > Additional information states that controlling any I/O pin requires configuring specific register bits:
-> - DDxn 
-> - PORTxn
+> - DDxn (part of data direction register)
+> - PORTxn (part of port data register)
 >
 > where x is the port lettter (C) and n is the pin number (7).
 >
@@ -75,18 +75,23 @@ void main (void){
 > **Question/Prompt:** Write a program code for light up the LED0. You need to take control over the registers implied in turning LED0 on. Compile and download the code. Run the code in order to see LED0 on. Congrats!
 
 > **Answer/Explanation:** 
+> LED0 uses PC7, which is port C, pin 7. We need to set the direction of the LED to output (write 1 to DDRC) and also drive the pin LOW (write 0 to PORTC) to turn the active low LED on. 
 
 ```
 #include <iom324pb.h>
 
 void main (void){
   
+  // set PC as OUTPUT by setting bit 7 to 1
   DDRC |= 1 << 7;
+
+  // drive PC7 LOW by clearing bit 7 to 0
   PORTC &= ~(1 << 7);
   
   while(1){
-    
+    // keep the controller running and the LED lit
   }
+
 }
 ```
 
@@ -113,12 +118,15 @@ void delay(int count){
 
 void main (void){
   
+  // set PC as OUTPUT by setting bit 7 to 1
   DDRC |= 1 << 7;
   
   while(1){
+    // drive PC7 LOW by clearing bit 7 to 0
     PORTC &= ~(1 << 7);
     delay(100000);
     
+    // drive PC7 LOW by setting bit 7 to 1
     PORTC |= 1 << 7;
     delay(100000);
   }
