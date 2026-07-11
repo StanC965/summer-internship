@@ -1,4 +1,6 @@
-//164 — CORE
+//164 - 165 - CORE
+
+#include <iom324pb.h>
 
 /*SFR_B_N(0x08,PORTC,PORTC7,PORTC6,PORTC5,PORTC4,PORTC3,PORTC2,PORTC1,PORTC0)
 
@@ -95,3 +97,11 @@ int main( void )
 
   return 0;
 }
+
+
+/*
+The preprocessed file confirms that the preprocessor
+    expands all #include directives by inserting the contents of the included files,
+    eplaces all macros (#define) with their corresponding definitions,
+    removes all comments before the compilation.
+*/

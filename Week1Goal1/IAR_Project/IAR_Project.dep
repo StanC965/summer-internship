@@ -13,6 +13,8 @@
             <file>$PROJ_DIR$\Debug\Exe\IAR_Project.d90</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
