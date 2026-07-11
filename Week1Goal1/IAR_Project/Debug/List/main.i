@@ -1,16 +1,23 @@
-struct Student
-{
-    char name[30];
-    unsigned char age;
-    unsigned char height;
-};
+int a;
+int b;
+int c;
 
 
-void main(void)
+int function_sum(int x, int y){
+  int sum;
+  sum = x+y;
+  
+  return sum;
+}
+
+int main( void )
 {
-    struct Student student = {
-        "Viorel",
-        25,
-        180
-    };
+  
+  a=1;
+  b=257;
+  
+  
+  c=function_sum(a,b);
+  
+  return 0;
 }
