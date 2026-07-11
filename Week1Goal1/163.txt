@@ -1,0 +1,6 @@
+SFR_B_N(0x25, TCCR2, FOC2, WGM20, COM21, COM20, WGM21, CS22, CS21, CS20)
+SFR_B_N(0xB1, TCCR2B, FOC2A, FOC2B, Dummy5, Dummy4, WGM22, CS22, CS21, CS20)
+
+The register definition in iom324pb.h matches the description of the TCCR2B register in the ATmega324PB datasheet.
+The first parameter of the macro is the register adress, then name of the register and then the names of its bits
+The header file provides a C-language interface to the hardware by mapping the physical SFR address and its individual bits to software-accessible variables and macros
