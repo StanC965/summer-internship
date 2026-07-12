@@ -11,3 +11,5 @@ As a result, the compiler encounters 100 where it expects a variable name, causi
 166 - CORE: The representation is mostly the same in all three cases.
 
 167 - CORE: I found the same three registers for the ATmega328PB as well, which means we can write code that is compatible with both the ATmega324PB and the ATmega328PB.
+
+168 - CORE: The same registers can be found also for ATmega328P
