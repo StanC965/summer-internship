@@ -1,4 +1,4 @@
-// 225 - CORE
+// 226 - CORE
 #include <iom324pb.h>
 
 void delay(unsigned long count)
@@ -16,20 +16,26 @@ void main( void )
   DDRD_DDRD4 = 1;
   DDRA_DDRA3 = 1;
   
-  PORTD_PORTD5 = 1;
-  PORTD_PORTD4 = 1;
-  PORTA_PORTA3 = 1;
-  
   while(1){
     
-    PORTD_PORTD5 = 0;
-    PORTA_PORTA3 = 0;
+    PORTD_PORTD5 = 1;
     PORTD_PORTD4 = 1;
+    PORTA_PORTA3 = 1;
+    delay(250000UL);
+    
+    PORTD_PORTD5 = 0;
+    PORTD_PORTD4 = 0;
+    PORTA_PORTA3 = 1;
     delay(250000UL);
 
     PORTD_PORTD5 = 1;
-    PORTA_PORTA3 = 1;
     PORTD_PORTD4 = 0;
+    PORTA_PORTA3 = 0;
+    delay(250000UL);
+    
+    PORTD_PORTD5 = 0;
+    PORTD_PORTD4 = 1;
+    PORTA_PORTA3 = 0;
     delay(250000UL);
 
   }
