@@ -64,4 +64,24 @@ extern void led_power_off(led_id_t led_id);
 */
 extern void led_toggle(led_id_t led_id);
 
+/** \fn     void led_blink_fast(led_id_t led_id)
+
+    \brief      [ Blinks the specified LED quickly. ]
+    \param[in]  led_id [ the LED identifier ]
+    \param[out] [ None ]
+    \return     [ None ]
+    \details    [ This function turns the LED on and off repetitively with 6-ons and 6-offs per second. ]
+*/
+extern void led_blink_fast(led_id_t led_id);
+
+/** \fn     void led_blink_slow(led_id_t led_id)
+
+    \brief      [ Blinks the specified LED slowly. ]
+    \param[in]  led_id [ the LED identifier ]
+    \param[out] [ None ]
+    \return     [ None ]
+    \details    [ This function turns the LED on and off repetitively with 2-ons and 2-offs per second.]
+*/
+extern void led_blink_slow(led_id_t led_id);
+
 #endif /* LED_H */
