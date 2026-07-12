@@ -10,3 +10,6 @@ Further correlate with microcontroller datasheet on how to configure the pins (c
 
 Answer: LED0 is connected to pin PC7 (PORTC, bit 7). The LED is active LOW, meaning it turns ON when PC7 is driven to GND (logic 0) and turns OFF when PC7 is driven HIGH (logic 1). 
 Therefore, PC7 must first be configured as an output by setting DDRC7 = 1, then writing PORTC7 = 0 lights the LED, while writing PORTC7 = 1 turns it off.
+
+221 — CORE — Check the electronic schematic of the ATMega324PB development board. Is there any resistor connected with the integrated LED0 in order to protect it? What value has that resistor?
+Anser: A resistor named R214 with value 330ohms is conected with the integrated LED0
