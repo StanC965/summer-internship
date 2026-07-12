@@ -9,3 +9,5 @@ This can be seen in the generated .i file, where the code becomes int 100 = 10; 
 As a result, the compiler encounters 100 where it expects a variable name, causing a compilation error.
 
 166 - CORE: The representation is mostly the same in all three cases.
+
+167 - CORE: I found the same three registers for the ATmega328PB as well, which means we can write code that is compatible with both the ATmega324PB and the ATmega328PB.
