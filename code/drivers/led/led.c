@@ -7,6 +7,7 @@
 #include "led.h"
 #include <iom324pb.h>
 #include "gpio.h"
+#include "delay.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects
@@ -56,5 +57,29 @@ void led_toggle(led_id_t led_id){
         gpio_toggle_pin(led_table[led_id].port_register, led_table[led_id].pin);
     }
 }
+
+void led_blink_fast(led_id_t led_id){
+    if(led_id < LED_COUNT){
+        for(uint8_t i = 0; i < 5; i++){
+            led_power_on(led_id);
+            delay(SECOND / 12);
+
+            led_power_off(led_id);
+            delay(SECOND / 12);
+        }
+    }
+}  
+
+void led_blink_slow(led_id_t led_id){
+    if(led_id < LED_COUNT){
+        for(uint8_t i = 0; i < 2; i++){
+            led_power_on(led_id);
+            delay(SECOND / 4);
+
+            led_power_off(led_id);
+            delay(SECOND / 4);
+        }
+    }
+}  
 
 #endif /* LED_C */
