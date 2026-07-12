@@ -399,14 +399,27 @@
 
 
 
+void delay(void)
+{
+    volatile unsigned long i;
+
+    for (i = 0; i < 200000UL; i++)
+    {
+      
+    }
+}
+
 void main( void )
 {
   
   DDRC_DDRC7 = 1; 
   
-  PORTC_PORTC7 = 0; 
-  
   while(1){
     
+    PORTC_PORTC7 = 0; 
+    delay();
+    
+    PORTC_PORTC7 = 1;
+    delay();
   }
 }
