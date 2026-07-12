@@ -400,6 +400,67 @@
 
 
 
+
+ 
+
+ 
+typedef unsigned char gpio_uint8_t;
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_set_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8_t direction);
+
 void delay(unsigned long count){
   volatile unsigned long i;
 
@@ -408,56 +469,36 @@ void delay(unsigned long count){
   }
 }
 
-
-void set_pin(volatile unsigned char *port, unsigned char pin){
-  *port |= (1 << pin);
-}
-
-
-void reset_pin(volatile unsigned char *port, unsigned char pin){
-  *port &= ~(1 << pin);
-}
-
-
-void set_direction(volatile unsigned char *ddr, unsigned char pin, unsigned char direction){
-  direction ? (*ddr |= (1 << pin)) : (*ddr &= ~(1 << pin));
-}
-
-
-void toggle_pin(volatile unsigned char *port, unsigned char pin){
-  *port ^= (1 << pin);
-}
-
 void main( void )
 {
-  set_direction(&DDRD,5,1);
-  set_direction(&DDRD,4,1);
-  set_direction(&DDRA,3,1);
+  gpio_set_direction(&DDRD,5,(1U));
+  gpio_set_direction(&DDRD,4,(1U));
+  gpio_set_direction(&DDRA,3,(1U));
   
-  set_direction(&DDRC,7,1);
+  gpio_set_direction(&DDRC,7,(1U));
   
   while(1){
     
-    toggle_pin(&PORTC,7);
+    gpio_toggle_pin(&PORTC,7);
     
-    set_pin(&PORTD,5);
-    set_pin(&PORTD,4);
-    set_pin(&PORTA,3);
+    gpio_set_pin(&PORTD,5);
+    gpio_set_pin(&PORTD,4);
+    gpio_set_pin(&PORTA,3);
     delay(250000UL);
     
-    reset_pin(&PORTD,5);
-    reset_pin(&PORTD,4);
-    set_pin(&PORTA,3);
+    gpio_reset_pin(&PORTD,5);
+    gpio_reset_pin(&PORTD,4);
+    gpio_set_pin(&PORTA,3);
     delay(250000UL);
 
-    set_pin(&PORTD,5);
-    reset_pin(&PORTD,4);
-    reset_pin(&PORTA,3);
+    gpio_set_pin(&PORTD,5);
+    gpio_reset_pin(&PORTD,4);
+    gpio_reset_pin(&PORTA,3);
     delay(250000UL);
     
-    reset_pin(&PORTD,5);
-    set_pin(&PORTD,4);
-    reset_pin(&PORTA,3);
+    gpio_reset_pin(&PORTD,5);
+    gpio_set_pin(&PORTD,4);
+    gpio_reset_pin(&PORTA,3);
     delay(250000UL);
 
   }
