@@ -11,6 +11,7 @@
 | **[241]** | `CORE`    | [x] Completed 
 | **[242]** | `CORE`    | [x] Completed 
 | **[243]** | `STRETCH` | [x] Completed 
+| **[244]** | `CORE`    | [x] Completed 
 
 ---
 
@@ -41,6 +42,33 @@
 >Compile again. It often happens during software development to have to reorganize the written code, process called redesign or refactoring.
 
 > **Answer/Explanation:**
+
+---
+
+#### Task 244
+> **Question/Prompt:** In the header file mod.h observe the existence of some constructs at the beginning and at the end of the file (they are called guardians). By analogy, to the gpio module they should look like:
+
+```c
+#ifndef GPIO_H
+#define GPIO_H
+……..
+#endif
+```
+
+> In your opinion what would be the role of these constructs? To clear the issue of these constructs, compare the output files .i of the preprocessor in these use cases:
+
+> **Answer/Explanation:**
+
+| What you observe to .i files when     | gpio.h is included ONCE in main.c        | gpio.h is included TWICE in main.c
+| :---                                  | :---                                     | :--- 
+| gpio.h with guardians                 | SAME                                     | SAME
+| gpio.h without guardians	            | SAME                                     | DIFFERENCE
+
+> I gathered all of the .i files obtained after preprocessing for the 4 cases, and after comparing each file what I observed is that the files have the same content if we use no guardians but include the header only once in main or if we use guardians and include the file as many times as we want.
+> 
+> If we do not use the guardians and include the file twice in main, then the contents of the gpio.h file will appear twice.
+> 
+> The role of this constructs is to prevent duplicate declaration errors during compilation phase. It ensures that structures, data types, macros and function prototypes are only parsed exactly once by the compiler, no matter how many times or through how many intermediate headers the file is included.
 
 ---
 
