@@ -1,0 +1,5 @@
+212 — CORE — How many pins does the PORTC port have? 
+Answer: PORTC has 8 pins
+
+213 — CORE — How many GPIO (General Purpose Input Output) ports does the ATmega324PB microcontroller have in total?
+Answer: There are 4 GPIO ports: PORTA, PORTB, PORTC, PORTD
