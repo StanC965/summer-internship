@@ -399,23 +399,38 @@
 
 
 
+void delay(unsigned long count)
+{
+    volatile unsigned long i;
+
+    for (i = 0; i < count; i++)
+    {
+        
+    }
+}
 void main( void )
 {
-  
-  
   DDRD_DDRD5 = 1;
-  PORTD_PORTD5 = 0;
-  
-  
   DDRD_DDRD4 = 1;
-  PORTD_PORTD4 = 0;
-  
-  
   DDRA_DDRA3 = 1;
-  PORTA_PORTA3 = 0;
+  
+  PORTD_PORTD5 = 1;
+  PORTD_PORTD4 = 1;
+  PORTA_PORTA3 = 1;
   
   while(1){
     
+    PORTD_PORTD5 = 0;
+    delay(250000UL);
+    PORTD_PORTD5 = 1;
+
+    PORTD_PORTD4 = 0;
+    delay(250000UL);
+    PORTD_PORTD4 = 1;
+
+    PORTA_PORTA3 = 0;
+    delay(250000UL);
+    PORTA_PORTA3 = 1;
 
   }
 }
