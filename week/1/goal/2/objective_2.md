@@ -6,15 +6,16 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type      | Status
-| :---      | :---      | :--- 
-| **[221]** | `CORE`    | [x] Completed 
-| **[222]** | `CORE`    | [x] Completed 
-| **[223]** | `CORE`    | [x] Completed 
-| **[224]** | `CORE`    | [x] Completed 
-| **[225]** | `STRETCH` | [x] Completed 
-| **[226]** | `STRETCH` | [x] Completed 
-| **[227]** | `CORE`    | [x] Completed 
+| Task ID   | Type       | Status
+| :---      | :---       | :--- 
+| **[221]** | `CORE`     | [x] Completed 
+| **[222]** | `CORE`     | [x] Completed 
+| **[223]** | `CORE`     | [x] Completed 
+| **[224]** | `CORE`     | [x] Completed 
+| **[225]** | `STRETCH`  | [x] Completed 
+| **[226]** | `STRETCH`  | [x] Completed 
+| **[227]** | `CORE`     | [x] Completed 
+| **[228]** | `OPTIONAL` | [x] Completed 
 
 ---
 
@@ -261,6 +262,106 @@ void main (void){
 
 > **Answer/Explanation:**
 > The LEDs are working fine because the board already includes built-in, onboard resistors in series with the LEDs. These are called surface-mount (SMD) resistors and can be seen right next to the LEDs on the board.
+
+---
+
+#### Task 228
+> **Question/Prompt:** Make your own Christmas Tree like sequence, for playing the LEDs and describe it in the table below. Up to 5 states and 5 LEDs available (not mandatory to use them all).
+
+> **Answer/Explanation:**
+
+| LED id    | BOARD             | initial state     | state 1     | state 2     | state 3     | state 4     | state 5
+| :---      | :---              | :---              | :---        | :---        | :---        | :---        | :--- 
+| 1         | OLED1             | OFF               | ON          | OFF         | OFF         | OFF         | OFF
+| 2         | OLED1             | OFF               | OFF         | ON          | OFF         | OFF         | OFF
+| 3         | OLED1             | OFF               | OFF         | OFF         | ON          | OFF         | OFF
+| 4         | Atmega324PB       | OFF               | OFF         | OFF         | OFF         | ON          | OFF
+| 5         | IO1               | OFF               | OFF         | OFF         | OFF         | OFF         | ON
+
+> LEDs 1-3 correspond to LED1, LED2 and LED3 on the OLED1 board and we use the same registers from previous tasks to set the output and the state of the LEDs.
+>
+> LED 4 corresponds to the LED on the ATmega324PB board, which uses port C, pin 7.
+>
+> LED 5 corresponds to the LED on the IO1 board, which is connected thorugh the EXT4 header, and uses port B, pin 3.
+
+```c
+#include <iom324pb.h>
+
+void delay(long count){
+  for(long i = 0; i < count; i++);
+}
+
+void main (void){
+  
+  // set PD5 as OUTPUT by setting bit 5 to 1 (LED1)
+  DDRD |= 1 << 5;
+  // set PD4 as OUTPUT by setting bit 4 to 1 (LED2)
+  DDRD |= 1 << 4;
+  // set PA3 as OUTPUT by setting bit 3 to 1 (LED3)
+  DDRA |= 1 << 3;
+  // set PC7 as OUTPUT by setting bit 7 to 1 (LED4)
+  DDRC |= 1 << 7;
+  // set PB3 as OUTPUT by setting bit 3 to 1 (LED5)
+  DDRB |= 1 << 3;
+  
+  while(1){
+    // INITIAL STATE:
+    // drive PD5 HIGH by setting bit 5 to 1 (LED1 OFF)
+    PORTD |= 1 << 5;
+    // drive PD4 HIGH by setting bit 4 to 1 (LED2 OFF)
+    PORTD |= 1 << 4;
+    // drive PA3 HIGH by setting bit 3 to 1 (LED3 OFF)
+    PORTA |= 1 << 3;
+    // drive PC7 HIGH by setting bit 7 to 1 (LED4 OFF)
+    PORTC |= 1 << 7;
+    // drive PB3 HIGH by setting bit 3 to 1 (LED5 OFF)
+    PORTB |= 1 << 3;
+
+    delay(50000);
+
+    // STATE 1
+    // drive PD5 LOW by clearing bit 5 to 0 (LED1 ON)
+    PORTD &= ~(1 << 5);
+
+    delay(50000);
+
+    // STATE 2
+    // drive PD5 HIGH by setting bit 5 to 1 (LED1 OFF)
+    PORTD |= 1 << 5;
+    // drive PD4 LOW by clearing bit 4 to 0 (LED2 ON)
+    PORTD &= ~(1 << 4);
+
+    delay(50000);
+
+    // STATE 3
+    // drive PD4 HIGH by setting bit 4 to 1 (LED2 OFF)
+    PORTD |= 1 << 4;
+    // drive PA3 LOW by clearing bit 3 to 0 (LED3 ON)
+    PORTA &= ~(1 << 3);
+
+    delay(50000);
+
+    // STATE 4
+    // drive PA3 HIGH by setting bit 3 to 1 (LED3 OFF)
+    PORTA |= 1 << 3;
+    // drive PC7 LOW by clearing bit 7 to 1 (LED4 ON)
+    PORTC &= ~(1 << 7);
+
+    delay(50000);
+
+    // STATE 5
+    // drive PC7 HIGH by setting bit 7 to 1 (LED4 OFF)
+    PORTC |= 1 << 7;
+    // drive PB3 LOW by clearing bit 3 to 0 (LED5 ON)
+    PORTB &= ~(1 << 3);
+
+    delay(50000);
+
+  }
+  
+}
+```
+
 ---
 
 ## References & Resources

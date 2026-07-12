@@ -5,38 +5,52 @@ void delay(long count){
 }
 
 void main (void){
+  
   DDRD |= 1 << 5;
   DDRD |= 1 << 4;
   DDRA |= 1 << 3;
+  DDRC |= 1 << 7;
+  DDRB |= 1 << 3;
   
   while(1){
     // INITIAL STATE:
     PORTD |= 1 << 5;
     PORTD |= 1 << 4;
     PORTA |= 1 << 3;
+    PORTC |= 1 << 7;
+    PORTB |= 1 << 3;
 
     delay(50000);
 
     // STATE 1
     PORTD &= ~(1 << 5);
-    PORTD &= ~(1 << 4);
-    PORTA |= 1 << 3;
 
     delay(50000);
 
     // STATE 2
     PORTD |= 1 << 5;
     PORTD &= ~(1 << 4);
-    PORTA &= ~(1 << 3);
 
     delay(50000);
 
     // STATE 3
-    PORTD &= ~(1 << 5);
     PORTD |= 1 << 4;
     PORTA &= ~(1 << 3);
 
     delay(50000);
+
+    // STATE 4
+    PORTA |= 1 << 3;
+    PORTC &= ~(1 << 7);
+
+    delay(50000);
+
+    // STATE 5
+    PORTC |= 1 << 7;
+    PORTB &= ~(1 << 3);
+
+    delay(50000);
+
   }
   
 }
