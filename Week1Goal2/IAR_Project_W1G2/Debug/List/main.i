@@ -418,6 +418,7 @@ void reset_pin(unsigned char pin){
   PORTC &= ~(1 << pin);
 }
 
+
 void set_direction(unsigned char pin, unsigned char direction){
   
   if (direction){
@@ -426,6 +427,11 @@ void set_direction(unsigned char pin, unsigned char direction){
   else{
     DDRC &= ~(1 << pin);     
   }
+}
+
+
+void toggle_pin(unsigned char pin){
+  PORTC ^= (1 << pin);
 }
 
 void main( void )
@@ -438,7 +444,7 @@ void main( void )
   
   while(1){
     
-    set_pin(7); 
+    toggle_pin(7);
     
     PORTD_PORTD5 = 1;
     PORTD_PORTD4 = 1;
@@ -458,7 +464,6 @@ void main( void )
     PORTD_PORTD5 = 0;
     PORTD_PORTD4 = 1;
     PORTA_PORTA3 = 0;
-    reset_pin(7); 
     delay(250000UL);
 
   }

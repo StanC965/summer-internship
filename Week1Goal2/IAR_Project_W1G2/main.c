@@ -1,4 +1,4 @@
-// 233 - CORE
+// 234 - CORE
 #include <iom324pb.h>
 
 #define INPUT   0
@@ -22,6 +22,7 @@ void reset_pin(unsigned char pin){
   PORTC &= ~(1 << pin);
 }
 
+//Function tu set direction for DDRC register
 void set_direction(unsigned char pin, unsigned char direction){
   
   if (direction){
@@ -30,6 +31,11 @@ void set_direction(unsigned char pin, unsigned char direction){
   else{
     DDRC &= ~(1 << pin);     // Input
   }
+}
+
+//Function to toggle pin from PORTC
+void toggle_pin(unsigned char pin){
+  PORTC ^= (1 << pin);
 }
 
 void main( void )
@@ -42,7 +48,7 @@ void main( void )
   
   while(1){
     
-    set_pin(7); //LEDO OFF
+    toggle_pin(7);
     
     PORTD_PORTD5 = 1;
     PORTD_PORTD4 = 1;
@@ -62,7 +68,6 @@ void main( void )
     PORTD_PORTD5 = 0;
     PORTD_PORTD4 = 1;
     PORTA_PORTA3 = 0;
-    reset_pin(7); //LED0 ON
     delay(250000UL);
 
   }
