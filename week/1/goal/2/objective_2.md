@@ -11,6 +11,7 @@
 | **[221]** | `CORE` | [x] Completed 
 | **[222]** | `CORE` | [x] Completed 
 | **[223]** | `CORE` | [x] Completed 
+| **[224]** | `CORE` | [x] Completed 
 
 ---
 
@@ -53,7 +54,7 @@
 >
 > In order to turn the LEDs on, I looked for the pins in the EXT1 header in the OLED1 user guied, which are pin 7, 8, and 6 for LED1, LED3, and LED3 respectively. Then, using these pins, I looked in the ATmega user guide, and found the corresponding pins, which are PD5, PD4 and PA3.
 
-```
+```c
 #include <iom324pb.h>
 
 void main (void){
@@ -69,7 +70,7 @@ void main (void){
   PORTD &= ~(1 << 5);
   // drive PD4 LOW by clearing bit 4 to 0
   PORTD &= ~(1 << 4);
-  // drive PDA LOW by clearing bit 3 to 0
+  // drive PA3 LOW by clearing bit 3 to 0
   PORTA &= ~(1 << 3);
   
   while(1){
@@ -79,8 +80,56 @@ void main (void){
 }
 ```
 
-![alt text](../../../../images/w1g2obj2t221.PNG)
+---
 
+#### Task 224
+> **Question/Prompt:** Make a program where LEDs are individually turned on and off (for half a second) in a repetitive sequence.
+
+
+> **Answer/Explanation:**
+> For this task I reused the delay function created for objective 1 task 216, but with half the value of the previous counter.
+
+```c
+#include <iom324pb.h>
+
+void delay(long count){
+  for(long i = 0; i < count; i++);
+}
+
+void main (void){
+  
+  // set PD5 as OUTPUT by setting bit 5 to 1 
+  DDRD |= 1 << 5;
+  // set PD4 as OUTPUT by setting bit 4 to 1
+  DDRD |= 1 << 4;
+  // set PA3 as OUTPUT by setting bit 3 to 1
+  DDRA |= 1 << 3;
+  
+  while(1){
+    // drive PD5 LOW by clearing bit 5 to 0 (LED ON)
+    PORTD &= ~(1 << 5);
+    delay(50000);
+    // drive PD5 HIGH by setting bit 5 to 1 (LED OFF)
+    PORTD |= 1 << 5;
+    delay(50000);
+    
+    // drive PD4 LOW by clearing bit 4 to 0 (LED ON)
+    PORTD &= ~(1 << 4);
+    delay(50000);
+    // drive PD4 HIGH by setting bit 4 to 1 (LED OFF)
+    PORTD |= 1 << 4;
+     delay(50000);
+    
+     // drive PA3 LOW by clearing bit 3 to 0 (LED ON)
+    PORTA &= ~(1 << 3);
+    delay(50000);
+     // drive PA3 HIGH by setting bit 3 to 1 (LED OFF)
+    PORTA |= 1 << 3;
+     delay(50000);
+  }
+  
+}
+```
 ---
 
 ## References & Resources

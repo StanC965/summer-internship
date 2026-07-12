@@ -6,17 +6,25 @@ void delay(long count){
 
 void main (void){
   
-  // set PC as OUTPUT by setting bit 7 to 1
-  DDRC |= 1 << 7;
+  DDRD |= 1 << 5;
+  DDRD |= 1 << 4;
+  DDRA |= 1 << 3;
   
   while(1){
-    // drive PC7 LOW by clearing bit 7 to 0
-    PORTC &= ~(1 << 7);
-    delay(100000); // 2000 000
+    PORTD &= ~(1 << 5);
+    delay(50000);
+    PORTD |= 1 << 5;
+    delay(50000);
     
-    // drive PC7 LOW by setting bit 7 to 1
-    PORTC |= 1 << 7;
-    delay(100000);
+    PORTD &= ~(1 << 4);
+    delay(50000);
+    PORTD |= 1 << 4;
+     delay(50000);
+    
+    PORTA &= ~(1 << 3);
+    delay(50000);
+    PORTA |= 1 << 3;
+     delay(50000);
   }
   
 }
