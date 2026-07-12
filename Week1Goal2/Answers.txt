@@ -12,4 +12,7 @@ Answer: LED0 is connected to pin PC7 (PORTC, bit 7). The LED is active LOW, mean
 Therefore, PC7 must first be configured as an output by setting DDRC7 = 1, then writing PORTC7 = 0 lights the LED, while writing PORTC7 = 1 turns it off.
 
 221 — CORE — Check the electronic schematic of the ATMega324PB development board. Is there any resistor connected with the integrated LED0 in order to protect it? What value has that resistor?
-Anser: A resistor named R214 with value 330ohms is conected with the integrated LED0
+Anwser: A resistor named R214 with value 330ohms is conected with the integrated LED0
+
+222 — CORE — In Reference_Documents folder you find the electronic schematics for OLED1 and IO1 boards (check .zip files). Can you figure it out, just by reading the schematics (NOT the User Guide!!!), how to turn on the contained LEDs for each board?
+Anwser:Both development boards share the same hardware configuration for the LEDs. Because a pull-up resistor is used, the LED turns on when a logic LOW is applied.
