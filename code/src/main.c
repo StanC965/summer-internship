@@ -1,13 +1,18 @@
 #include <iom324pb.h>
 #include "main.h" 
+#include "gpio.h"
+
+void delay(long count){
+  for(long i = 0; i < count; i++);
+}
 
 void main (void){
   
-  gpio_set_direction(&DDRD, OUTPUT, 5);
-  gpio_set_direction(&DDRD, OUTPUT, 4);
-  gpio_set_direction(&DDRA, OUTPUT, 3);
-  gpio_set_direction(&DDRC, OUTPUT, 7);
-  gpio_set_direction(&DDRB, OUTPUT, 3);
+  gpio_set_direction(&DDRD, GPIO_OUTPUT, 5);
+  gpio_set_direction(&DDRD, GPIO_OUTPUT, 4);
+  gpio_set_direction(&DDRA, GPIO_OUTPUT, 3);
+  gpio_set_direction(&DDRC, GPIO_OUTPUT, 7);
+  gpio_set_direction(&DDRB, GPIO_OUTPUT, 3);
   
   while(1){
     // INITIAL STATE:
