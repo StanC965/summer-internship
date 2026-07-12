@@ -13,6 +13,7 @@
 | **[223]** | `CORE`    | [x] Completed 
 | **[224]** | `CORE`    | [x] Completed 
 | **[225]** | `STRETCH` | [x] Completed 
+| **[226]** | `STRETCH` | [x] Completed 
 
 ---
 
@@ -133,7 +134,7 @@ void main (void){
 
 ---
 
-#### Task 224
+#### Task 225
 > **Question/Prompt:** Make a program where LEDs are individually turned on and off (for half a second) in the following sequence: LED1 and LED3 are on when LED2 is off, then LED2 is on when LED1 and LED3 are off.
 
 > **Answer/Explanation:**
@@ -172,6 +173,81 @@ void main (void){
     PORTA |= 1 << 3;
 
     delay(50000);
+  }
+  
+}
+```
+
+---
+
+#### Task 226
+> **Question/Prompt:** Make a program where LEDs are individually turned on and off (for half a second) in the following sequence, described by the table:
+
+| LED id    | initial state     | state 1     | state 2     | state 3
+| :---      | :---              | :---        | :---        | :--- 
+| 1         | OFF               | ON          | OFF         | ON
+| 2         | OFF               | ON          | ON          | OFF
+| 3         | OFF               | OFF         | ON          | ON
+
+> **Answer/Explanation:**
+
+```c
+#include <iom324pb.h>
+
+void delay(long count){
+  for(long i = 0; i < count; i++);
+}
+
+void main (void){
+  
+  // set PD5 as OUTPUT by setting bit 5 to 1 
+  DDRD |= 1 << 5;
+  // set PD4 as OUTPUT by setting bit 4 to 1
+  DDRD |= 1 << 4;
+  // set PA3 as OUTPUT by setting bit 3 to 1
+  DDRA |= 1 << 3;
+  
+  while(1){
+    // INITIAL STATE:
+    // drive PD5 HIGH by setting bit 5 to 1 (LED1 OFF)
+    PORTD |= 1 << 5;
+    // drive PD4 HIGH by setting bit 4 to 1 (LED2 OFF)
+    PORTD |= 1 << 4;
+    // drive PA3 HIGH by setting bit 3 to 1 (LED3 OFF)
+    PORTA |= 1 << 3;
+
+    delay(50000);
+
+    // STATE 1
+    // drive PD5 LOW by clearing bit 5 to 0 (LED1 ON)
+    PORTD &= ~(1 << 5);
+    // drive PD4 LOW by clearing bit 4 to 0 (LED2 ON)
+    PORTD &= ~(1 << 4);
+    // drive PA3 HIGH by setting bit 3 to 1 (LED3 OFF)
+    PORTA |= 1 << 3;
+
+    delay(50000);
+
+    // STATE 2
+    // drive PD5 HIGH by setting bit 5 to 1 (LED1 OFF)
+    PORTD |= 1 << 5;
+    // drive PD4 LOW by clearing bit 4 to 0 (LED2 ON)
+    PORTD &= ~(1 << 4);
+    // drive PA3 LOW by clearing bit 3 to 0 (LED3 ON)
+    PORTA &= ~(1 << 3);
+
+    delay(50000);
+
+    // STATE 3
+    // drive PD5 LOW by clearing bit 5 to 0 (LED1 ON)
+    PORTD &= ~(1 << 5);
+    // drive PD4 HIGH by setting bit 4 to 1 (LED2 OFF)
+    PORTD |= 1 << 4;
+    // drive PA3 LOW by clearing bit 3 to 0 (LED3 ON)
+    PORTA &= ~(1 << 3);
+
+    delay(50000);
+
   }
   
 }
