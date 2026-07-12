@@ -16,3 +16,6 @@ Anwser: A resistor named R214 with value 330ohms is conected with the integrated
 
 222 — CORE — In Reference_Documents folder you find the electronic schematics for OLED1 and IO1 boards (check .zip files). Can you figure it out, just by reading the schematics (NOT the User Guide!!!), how to turn on the contained LEDs for each board?
 Anwser:Both development boards share the same hardware configuration for the LEDs. Because a pull-up resistor is used, the LED turns on when a logic LOW is applied.
+
+223 — CORE — Check that OLED1 extension board is connected to EXT1 header. Program all 3 LEDs to be turned on at once. Double check(!) with User Guide for OLED1 to see if schematics information matches with regards to LEDs activation.
+Answer: After reviewing the LED activation details, the schematics, and the header pins, I determined that LED1, LED2, and LED3 are routed to pins 7, 8, and 6. These correspond to I/O pins PD5, PD4, and PA3, respectively.

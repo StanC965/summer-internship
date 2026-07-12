@@ -1,27 +1,23 @@
-// 216 - CORE
+// 223 - CORE
 #include <iom324pb.h>
-
-void delay(void)
-{
-    volatile unsigned long i;
-
-    for (i = 0; i < 200000UL; i++)
-    {
-      //Do nothing
-    }
-}
 
 void main( void )
 {
   
-  DDRC_DDRC7 = 1; //Configure PC7 as an output:
+  //Turn on LED1
+  DDRD_DDRD5 = 1;
+  PORTD_PORTD5 = 0;
+  
+  //Turn on LED2
+  DDRD_DDRD4 = 1;
+  PORTD_PORTD4 = 0;
+  
+  //Turn on LED3
+  DDRA_DDRA3 = 1;
+  PORTA_PORTA3 = 0;
   
   while(1){
     
-    PORTC_PORTC7 = 0; //Turn the LED ON (active LOW)
-    delay();
-    
-    PORTC_PORTC7 = 1;
-    delay();
+
   }
 }
