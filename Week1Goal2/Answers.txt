@@ -19,3 +19,6 @@ Anwser:Both development boards share the same hardware configuration for the LED
 
 223 — CORE — Check that OLED1 extension board is connected to EXT1 header. Program all 3 LEDs to be turned on at once. Double check(!) with User Guide for OLED1 to see if schematics information matches with regards to LEDs activation.
 Answer: After reviewing the LED activation details, the schematics, and the header pins, I determined that LED1, LED2, and LED3 are routed to pins 7, 8, and 6. These correspond to I/O pins PD5, PD4, and PA3, respectively.
+
+227 — CORE — But wait: have you asked yourself so far that you should have put a resistor in the connection with LEDs? You missed the resistor but the LEDs are working fine. Why?
+Answer: The LEDs already have built-in series resistors on the development board. These resistors limit the current, so the LEDs can be driven directly from the microcontroller GPIO pins without adding an external resistor.
