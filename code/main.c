@@ -20,6 +20,10 @@ void ddrc_set_direction(uint8_t direction, uint8_t pin){
   }
 }
 
+void portc_toggle_pin(uint8_t pin){
+  PORTC ^= (1 << pin);
+}
+
 void delay(long count){
   for(long i = 0; i < count; i++);
 }
@@ -70,7 +74,12 @@ void main (void){
     PORTB &= ~(1 << 3);
 
     delay(50000);
-
+    
+    // STATE 6
+    PORTB |= (1 << 3);
+    portc_toggle_pin(7);
+    
+    delay(50000);
   }
   
 }

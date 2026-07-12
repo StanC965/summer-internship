@@ -6,11 +6,12 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type   | Status
-| :---      | :---   | :--- 
-| **[231]** | `CORE` | [x] Completed 
-| **[232]** | `CORE` | [x] Completed 
-| **[233]** | `CORE` | [x] Completed 
+| Task ID   | Type       | Status
+| :---      | :---       | :--- 
+| **[231]** | `CORE`     | [x] Completed 
+| **[232]** | `CORE`     | [x] Completed 
+| **[233]** | `CORE`     | [x] Completed 
+| **[234]** | `OPTIONAL` | [x] Completed 
 
 ---
 
@@ -189,6 +190,69 @@ void main (void){
     // STATE 5
     portc_set_pin(7);
 
+    delay(50000);
+
+  }
+  
+}
+```
+
+---
+
+#### Task 234
+> **Question/Prompt:** Build yet another function e.g. toggle_pin( … ) to toggle any pin from the same register, without affecting any other pin from the register.
+
+> **Answer/Explanation:**
+
+```c
+void portc_toggle_pin(uint8_t pin){
+  PORTC ^= (1 << pin);
+}
+```
+
+> I then tested the function in the program:
+
+```c
+void main (void){
+  
+  // set PINs direction to OUTPUT
+  ddrc_set_direction(OUTPUT, 7);
+  
+  while(1){
+    // INITIAL STATE:
+    PORTD |= 1 << 5;
+    PORTD |= 1 << 4;
+    PORTA |= 1 << 3;
+    portc_set_pin(7);
+    PORTB |= 1 << 3;
+
+    delay(50000);
+
+    // STATE 1
+
+    delay(50000);
+
+    // STATE 2
+
+    delay(50000);
+
+    // STATE 3
+
+    delay(50000);
+
+    // STATE 4
+    portc_reset_pin(7);
+
+    delay(50000);
+
+    // STATE 5
+    portc_set_pin(7);
+
+    delay(50000);
+
+    // STATE 6
+    portc_toggle_pin(7);
+    
     delay(50000);
 
   }
