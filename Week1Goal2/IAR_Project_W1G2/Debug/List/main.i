@@ -420,13 +420,7 @@ void reset_pin(unsigned char pin){
 
 
 void set_direction(unsigned char pin, unsigned char direction){
-  
-  if (direction){
-    DDRC |= (1 << pin);      
-  }
-  else{
-    DDRC &= ~(1 << pin);     
-  }
+  direction ? (DDRC |= (1 << pin)) : (DDRC &= ~(1 << pin));
 }
 
 

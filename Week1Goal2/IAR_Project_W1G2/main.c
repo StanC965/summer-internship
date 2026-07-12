@@ -1,4 +1,4 @@
-// 234 - CORE
+// 235 - CORE
 #include <iom324pb.h>
 
 #define INPUT   0
@@ -24,13 +24,7 @@ void reset_pin(unsigned char pin){
 
 //Function tu set direction for DDRC register
 void set_direction(unsigned char pin, unsigned char direction){
-  
-  if (direction){
-    DDRC |= (1 << pin);      // Output
-  }
-  else{
-    DDRC &= ~(1 << pin);     // Input
-  }
+  direction ? (DDRC |= (1 << pin)) : (DDRC &= ~(1 << pin));
 }
 
 //Function to toggle pin from PORTC

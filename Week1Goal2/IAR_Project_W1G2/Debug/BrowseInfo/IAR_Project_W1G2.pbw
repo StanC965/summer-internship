@@ -50152,7 +50152,7 @@
     "display": "void toggle_pin(unsigned char)",
     "location": {
       "column": "6",
-      "line": "37",
+      "line": "31",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.c"
     },
     "name": "toggle_pin",
@@ -50166,7 +50166,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "41",
+      "line": "35",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.c"
     },
     "name": "main",
