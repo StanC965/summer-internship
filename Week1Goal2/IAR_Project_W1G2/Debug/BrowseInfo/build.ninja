@@ -29,6 +29,11 @@ build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Deb
   flags = C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\gpio.c --cpu=m324pb -ms -o C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\Obj\ --preprocess=s C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\gpio.tmp
   rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\gpio.xcl.rsp
 
+build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\led.c -xcl_file C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.xcl -macro_file C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\led.c --cpu=m324pb -ms -o C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\Obj\ --preprocess=s C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.tmp
+  rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.xcl.rsp
+
 build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
   xclcommand = -source_file C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\main.c -xcl_file C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.xcl -macro_file C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\main.c --cpu=m324pb -ms -o C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\Obj\ --preprocess=s C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.tmp
@@ -38,6 +43,10 @@ build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Deb
 C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\gpio.c
   flags = -out=C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\gpio.pbi -f C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\gpio.xcl
 
+build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.xcl |  $
+C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\led.c
+  flags = -out=C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.pbi -f C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.xcl
+
 build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.xcl |  $
 C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\main.c
   flags = -out=C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.pbi -f C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.xcl
@@ -46,6 +55,7 @@ build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Deb
   flags = C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\IAR_Project_W1G2.pbd -output C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\IAR_Project_W1G2.pbw
 
 build C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\IAR_Project_W1G2.pbd : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\gpio.pbi |  $
+C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.pbi $
 C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.pbi
-  flags = -M C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\IAR_Project_W1G2.pbd C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\gpio.pbi C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.pbi
+  flags = -M C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\IAR_Project_W1G2.pbd C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\gpio.pbi C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.pbi C$:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.pbi
 

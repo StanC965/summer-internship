@@ -12,13 +12,17 @@ Answer: LED0 is connected to pin PC7 (PORTC, bit 7). The LED is active LOW, mean
 Therefore, PC7 must first be configured as an output by setting DDRC7 = 1, then writing PORTC7 = 0 lights the LED, while writing PORTC7 = 1 turns it off.
 
 221 — CORE — Check the electronic schematic of the ATMega324PB development board. Is there any resistor connected with the integrated LED0 in order to protect it? What value has that resistor?
-Anwser: A resistor named R214 with value 330ohms is conected with the integrated LED0
+Answer: A resistor named R214 with value 330ohms is conected with the integrated LED0
 
 222 — CORE — In Reference_Documents folder you find the electronic schematics for OLED1 and IO1 boards (check .zip files). Can you figure it out, just by reading the schematics (NOT the User Guide!!!), how to turn on the contained LEDs for each board?
-Anwser:Both development boards share the same hardware configuration for the LEDs. Because a pull-up resistor is used, the LED turns on when a logic LOW is applied.
+Answer:Both development boards share the same hardware configuration for the LEDs. Because a pull-up resistor is used, the LED turns on when a logic LOW is applied.
 
 223 — CORE — Check that OLED1 extension board is connected to EXT1 header. Program all 3 LEDs to be turned on at once. Double check(!) with User Guide for OLED1 to see if schematics information matches with regards to LEDs activation.
 Answer: After reviewing the LED activation details, the schematics, and the header pins, I determined that LED1, LED2, and LED3 are routed to pins 7, 8, and 6. These correspond to I/O pins PD5, PD4, and PA3, respectively.
 
 227 — CORE — But wait: have you asked yourself so far that you should have put a resistor in the connection with LEDs? You missed the resistor but the LEDs are working fine. Why?
 Answer: The LEDs already have built-in series resistors on the development board. These resistors limit the current, so the LEDs can be driven directly from the microcontroller GPIO pins without adding an external resistor.
+
+241 — CORE Why do you think it would be so much needed to organize our software program in a modular way? 
+Answer: Organizing the software into modules improves readability, maintainability, and code reuse. Each module has a well-defined responsibility—for example, the gpio module handles only GPIO operations,
+while main.c contains the application logic. This separation makes the code easier to understand, test, debug, and extend. It also allows the same gpio module to be reused in other embedded projects without rewriting the GPIO functions.

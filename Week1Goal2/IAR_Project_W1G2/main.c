@@ -1,6 +1,9 @@
-// 241 - CORE
-#include <iom324pb.h>
+// 242 - CORE
+#include "main.h"
 #include "gpio.h"
+#include "led.h"
+
+
 void delay(unsigned long count){
   volatile unsigned long i;
 
@@ -11,34 +14,30 @@ void delay(unsigned long count){
 
 void main( void )
 {
-  gpio_set_direction(&DDRD,5,GPIO_OUTPUT);
-  gpio_set_direction(&DDRD,4,GPIO_OUTPUT);
-  gpio_set_direction(&DDRA,3,GPIO_OUTPUT);
-  
-  gpio_set_direction(&DDRC,7,GPIO_OUTPUT);
+  LED_Init();
   
   while(1){
     
-    gpio_toggle_pin(&PORTC,7);
+    Toggle_LED(LED0);
     
-    gpio_set_pin(&PORTD,5);
-    gpio_set_pin(&PORTD,4);
-    gpio_set_pin(&PORTA,3);
+    PowerOff_LED(LED1);
+    PowerOff_LED(LED2);
+    PowerOff_LED(LED3);
     delay(250000UL);
     
-    gpio_reset_pin(&PORTD,5);
-    gpio_reset_pin(&PORTD,4);
-    gpio_set_pin(&PORTA,3);
+    PowerOn_LED(LED1);
+    PowerOn_LED(LED2);
+    PowerOff_LED(LED3);
     delay(250000UL);
 
-    gpio_set_pin(&PORTD,5);
-    gpio_reset_pin(&PORTD,4);
-    gpio_reset_pin(&PORTA,3);
+    PowerOff_LED(LED1);
+    PowerOn_LED(LED2);
+    PowerOn_LED(LED3);
     delay(250000UL);
     
-    gpio_reset_pin(&PORTD,5);
-    gpio_set_pin(&PORTD,4);
-    gpio_reset_pin(&PORTA,3);
+    PowerOn_LED(LED1);
+    PowerOff_LED(LED2);
+    PowerOn_LED(LED3);
     delay(250000UL);
 
   }
