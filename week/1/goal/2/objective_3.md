@@ -9,6 +9,7 @@
 | Task ID   | Type   | Status
 | :---      | :---   | :--- 
 | **[231]** | `CORE` | [x] Completed 
+| **[232]** | `CORE` | [x] Completed 
 
 ---
 
@@ -65,6 +66,19 @@ void main (void){
 
   }
   
+}
+```
+
+---
+
+#### Task 232
+> **Question/Prompt:** Build another function e.g. reset_pin( … ) to reset (reset = means writing value "0" to bit) any pin from the same register without changing the other pins value from the register. Test with LEDs connected to PORTC.
+
+> **Answer/Explanation:**
+
+```c
+void portc_reset_pin(uint8_t pin){
+  PORTC &= ~(1 << pin);
 }
 ```
 

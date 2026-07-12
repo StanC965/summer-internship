@@ -5,6 +5,10 @@ void portc_set_pin(uint8_t pin){
   PORTC |= (1 << pin);
 }
 
+void portc_reset_pin(uint8_t pin){
+  PORTC &= ~(1 << pin);
+}
+
 void delay(long count){
   for(long i = 0; i < count; i++);
 }
@@ -46,7 +50,7 @@ void main (void){
 
     // STATE 4
     PORTA |= 1 << 3;
-    PORTC &= ~(1 << 7);
+    portc_reset_pin(7);
 
     delay(50000);
 
