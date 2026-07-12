@@ -369,3 +369,5 @@ void main (void){
 * IO1 Xplained Pro design documentation
 * OLED Xplained Pro design documentation
 * OLED1 Xplained Pro user guide
+* ATmega324PB Xplained Pro user guide
+* IO1 Xplained Pro user guide
