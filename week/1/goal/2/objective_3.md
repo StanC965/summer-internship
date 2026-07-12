@@ -13,6 +13,7 @@
 | **[233]** | `CORE`     | [x] Completed 
 | **[234]** | `OPTIONAL` | [x] Completed 
 | **[235]** | `OPTIONAL` | [x] Completed 
+| **[236]** | `OPTIONAL` | [x] Completed 
 
 ---
 
@@ -284,6 +285,40 @@ void ddrc_set_direction(uint8_t direction, uint8_t pin){
 
 void portc_toggle_pin(uint8_t pin){
   PORTC ^= (1 << pin);
+}
+```
+
+---
+
+#### Task 236
+> **Question/Prompt:** Yet another challenge is to generalize the functions above to cover all existing ports and pins on this ATmega324PB microcontroller! In this way you will cover any connection LED <=> pin! What parameters you could design your function to have in order to cover the existing variability?
+
+> **Answer/Explanation:**
+> In order to be able to use the previous functions not only for port C, but for the rest of the ports and registers, I used pointers.
+> 
+> The hardware registers are not variables, but instead they are macros that point directly to specific memory addresses in the microntroller's RAM map. Because they are just memory addresses, they can be passed into a function using a pointer.
+>
+> I went with parameters of type volatile to practice some critical code adaptions in embedded systems, even tough the compiler optimizations are turned off for this project.
+
+```c
+void gpio_set_pin(volatile uint8_t *port, uint8_t pin){
+  *port |= (1 << pin);
+}
+
+void gpio_reset_pin(volatile uint8_t *port, uint8_t pin){
+  *port &= ~(1 << pin);
+}
+
+void gpio_set_direction(volatile uint8_t *ddr_register, uint8_t direction, uint8_t pin){
+  *ddr_register = (direction == OUTPUT) ? (*ddr_register | (1 << pin)) : (*ddr_register & ~(1 << pin)); 
+}
+
+void gpio_toggle_pin(volatile uint8_t *port, uint8_t pin){
+  *port ^= (1 << pin);
+}
+
+void delay(long count){
+  for(long i = 0; i < count; i++);
 }
 ```
 
