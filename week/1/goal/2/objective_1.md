@@ -101,19 +101,37 @@ void main (void){
 > **Question/Prompt:** Program LED0 to be turned on for 1 second*, turned off for the next 1 second and so on (repeat the sequence).
 
 > **Answer/Explanation:** 
-> To achieve a delay of 1 second, while using a for loop, we would need to count to 1000. I tried to run the program with that value but I have encountered an issue: the LED appeared to be on constantly, with no visible blinking.
->  
-> This happens due to the fact that ATmega operates at a clock speed of 16 MHz. This means that a single clock takes exactly 1 / 16 MHz which is 62.5 nanoseconds. Since the program logic is relatively simple, the LED operations are executed too fast to be able to percieve them.
+> To achieve a visible blinking effect with a delay of 1 second, we cannot simply count to 1000 in a for loop (which is 1 second in miliseconds). The value 1000 represents miliseconds only when utilizing high level abstraction library functions. A hardware level CPU loop, however, measures time purely in clock cycles and instruction executuion states.
 >
-> A value for the counter could be found in this case, but the other issue is that code optimization was disabled for this project, so that makes code execution a bit slower.
->
-> Since finding a better counter value got harder, I decided to use a bigger value, which does let me see the LED turn on and off continously:
+> ATmega324PB operates at a clock speed of 16 MHz. This means that a single clock takes exactly:
 
+```math
+T = \frac{1}{f} = \frac{1}{16\,MHz} = 62.5\,nanoseconds  
 ```
+
+> Becuase code optimization is disabled for this project, the compiler does not strip away the empty for loop. Instead, it generates several assembly instructions, for every single instruction. While this makes execution slower than optimized code, each iteration still only takes a handful of clock cycles.
+>
+> To stall a 16 MHz processor for a full 1 second, we must pass a significantly larger counter value to accumulate enough clock cycles. Further more, because a standard 16 bit `int` in the AVR compiler maxes out at a value of 32,767, passing large values requires redefining the counter parameter to a 32 bit `long` to prevent an arithmetic integer overflow, which maxes out at 2,147,483,647.
+>
+> An iteration takes:
+
+```math
+time\,per\,iteration = nr.\,clock\,cycles * time\,per\,clock\,cycle 
+```
+
+> The final count:
+
+```math
+count = \frac{1,000,000,000\,ns}{time\,per\,iteration} 
+```
+
+> Since the task only got harder because of the previous observations, and also because now the issue of determining the number of clock cycles and whether or not the counter value was correctly chosen to represent 1 second have arisen, I decided to chose a value of 100000 to represent the '1 second delay'.
+
+```c
 #include <iom324pb.h>
 
-void delay(int count){
-  for(int i = 0; i < count; i++);
+void delay(long count){
+  for(long i = 0; i < count; i++);
 }
 
 void main (void){
