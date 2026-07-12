@@ -22,7 +22,7 @@
 
 > **Answer/Explanation:**
 
-```
+```c
 #include <iom324pb.h>
 
 void main (void){
@@ -77,7 +77,7 @@ void main (void){
 > **Answer/Explanation:** 
 > LED0 uses PC7, which is port C, pin 7. We need to set the direction of the LED to output (write 1 to DDRC) and also drive the pin LOW (write 0 to PORTC) to turn the active low LED on. 
 
-```
+```c
 #include <iom324pb.h>
 
 void main (void){
