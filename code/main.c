@@ -1,4 +1,9 @@
 #include <iom324pb.h>
+#include <stdint.h>
+
+void portc_set_pin(uint8_t pin){
+  PORTC |= (1 << pin);
+}
 
 void delay(long count){
   for(long i = 0; i < count; i++);
@@ -17,7 +22,7 @@ void main (void){
     PORTD |= 1 << 5;
     PORTD |= 1 << 4;
     PORTA |= 1 << 3;
-    PORTC |= 1 << 7;
+    portc_set_pin(7);
     PORTB |= 1 << 3;
 
     delay(50000);
@@ -46,7 +51,7 @@ void main (void){
     delay(50000);
 
     // STATE 5
-    PORTC |= 1 << 7;
+    portc_set_pin(7);
     PORTB &= ~(1 << 3);
 
     delay(50000);
