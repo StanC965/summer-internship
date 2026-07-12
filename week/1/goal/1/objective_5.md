@@ -49,7 +49,7 @@
 #### Task [153]
 > **Question/Prompt:**    Now you must delete the code from the previous exercise in IAR EW (because the exercises are not linked together). For the code below, what value will have the VAR constant? (you can easily see this if you store the VAR into a variable and look at main.i preprocessed file)
 
-```
+```c
 #if MAX == 1
 #define VAR 4
 #else
@@ -66,7 +66,7 @@
 #### Task [154]
 > **Question/Prompt:**    What this code will do?
 
-```
+```c
 #define MAX 10
 void main (void)
 {
@@ -84,7 +84,7 @@ x=MAX;
 #### Task [155]
 > **Question/Prompt:**    What this code will do? Verify it by checking the .i preprocessed file.
 
-```
+```c
 #define MAX 100
 void main (void)
 {
@@ -97,7 +97,7 @@ int MAX = 10;
 > In the preprocessing stage, the preprocessor will replace the word MAX with the defined value of 100.
 > This is what the output of preprocessing looks like:
 
-```
+```c
 void main ( void ){
   int 100 = 10;
 }
@@ -110,7 +110,7 @@ void main ( void ){
 #### Task [156]
 > **Question/Prompt:**     How the following code will work? Verify it in your main.c file by comparing it with main.i (the preprocessed file).
 
-```
+```c
 #define MAX(i, limit) do \
 { \
     if (i < limit) \
@@ -129,7 +129,7 @@ void main(void)
 > The code throws the following exception: `Expression must be a modifiable lvalue`. This happens because the code tries to change a fixed number in the macro. 
 > If we look at the .i file, we have:
 
-```
+```c
 void main(void)
 {
     do { if (0 < 3) { 0++; } } while(1);
@@ -140,7 +140,7 @@ void main(void)
 <br>
 > In order to use the macro correctly, the first argument must be a real variable that has a physical spot in memory, so it can acutally be incremented.
 
-```
+```c
 void main(void)
 {
     int counter = 0;
@@ -156,7 +156,7 @@ void main(void)
 > **Answer/Explanation:**
 > The macro arguments and the expression were wrapped in parentheses to isolate them. This way, the preprocessor will expand the macros just as the logic of the task expects.
 
-```
+```c
 #define MAX(a, b) ((a) + (b))
 #define AVERAGE(a, b) (((a) + (b)) / 2)
 ```
@@ -171,7 +171,7 @@ void main(void)
 > **Answer/Explanation:** 
 > 1. The static keyword
 
-```
+```c
 // the static keyword has two properties, depending on what type of variables it is applied on 
 // for global variables, it limits the scope of the variable to the file it was declared in
 
@@ -205,7 +205,7 @@ void main(void)
 
 > 2. The volatile keyword
 
-``` 
+```c
 void main(void)
 {
   // the volatile keyword is used to stop the compiler from optimizing a variable 
@@ -225,7 +225,8 @@ void main(void)
 > **Question/Prompt:**    Define a structure student with the following elements: an array and two unsigned char data. Keep your name within the array; the first unsigned char keeps your age, the second unsigned char keeps your height. Initialize the structure defined.
 
 > **Answer/Explanation:**
-```
+
+```c
 typedef struct{
   char name[50];
   unsigned char age;

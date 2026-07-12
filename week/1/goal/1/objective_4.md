@@ -35,7 +35,7 @@
 > **Answer/Explanation:**
 > I added the following code snippet:
 
-```
+```c
 int main( void )
 {
   int a = 5; 

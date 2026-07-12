@@ -50,7 +50,7 @@
 #### Task 164
 > **Question/Prompt:**  By analogy with the expansion example above, write in the main.c file as comments (!) how you understood the following macro registers will be expanded:
 
-```
+```c
 SFR_B_N(0x08,PORTC,PORTC7,PORTC6,PORTC5,PORTC4,PORTC3,PORTC2,PORTC1,PORTC0)
 SFR_B_N(0x07, DDRC, DDRC7, DDRC6, DDRC5, DDRC4, DDRC3, DDRC2, DDRC1, DDRC0)
 SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
@@ -58,7 +58,7 @@ SFR_B_N(0x06, PINC, PINC7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
 
 > **Answer/Explanation:**
 
-```
+```c
 #include <iom324pb.h>
 
 void main(void)
@@ -137,7 +137,7 @@ void main(void)
 > **Answer/Explanation:**
 > I looked at the datasheets and inside the `iom324pb.h` and `iom328pb.h` files:
 
-```
+```c
 // iom328pb.h for TIFR4
 SFR_B_N(0x19, TIFR4, Dummy7, Dummy6, ICF4, Dummy4, Dummy3, OCF4B, OCF4A, TOV4)
 // iom324pb.h for TIFR4
@@ -166,7 +166,7 @@ SFR_B_N(0x0C, PINE, Dummy7, PINE6, PINE5, PINE4, PINE3, PINE2, PINE1, PINE0)
 > **Answer/Explanation:**
 > I looked inside the `iom324pb.h` and `iom328p.h` files:
 
-```
+```c
 // iom328p.h for TIFR4 - not found
 // iom324pb.h for TIFR4
 SFR_B_N(0x19, TIFR4, Dummy7, Dummy6, ICF4, Dummy4, Dummy3, OCF4B, OCF4A, TOV4)
