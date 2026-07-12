@@ -12,19 +12,16 @@ void main (void){
   
   while(1){
     PORTD &= ~(1 << 5);
-    delay(50000);
-    PORTD |= 1 << 5;
-    delay(50000);
-    
-    PORTD &= ~(1 << 4);
-    delay(50000);
-    PORTD |= 1 << 4;
-     delay(50000);
-    
     PORTA &= ~(1 << 3);
+    PORTD |= 1 << 4;
+
     delay(50000);
+
+    PORTD &= ~(1 << 4);
+    PORTD |= 1 << 5;
     PORTA |= 1 << 3;
-     delay(50000);
+    
+    delay(50000);
   }
   
 }
