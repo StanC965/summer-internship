@@ -415,6 +415,12 @@ void set_pin(unsigned char pin)
     PORTC |= (1 << pin);
 }
 
+
+void reset_pin(unsigned char pin)
+{
+    PORTC &= ~(1 << pin);
+}
+
 void main( void )
 {
   DDRD_DDRD5 = 1;
@@ -422,9 +428,10 @@ void main( void )
   DDRA_DDRA3 = 1;
   
   DDRC_DDRC7 = 1;
-  set_pin(7); 
   
   while(1){
+    
+    set_pin(7); 
     
     PORTD_PORTD5 = 1;
     PORTD_PORTD4 = 1;
@@ -444,6 +451,7 @@ void main( void )
     PORTD_PORTD5 = 0;
     PORTD_PORTD4 = 1;
     PORTA_PORTA3 = 0;
+    reset_pin(7); 
     delay(250000UL);
 
   }
