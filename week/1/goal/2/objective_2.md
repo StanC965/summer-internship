@@ -14,6 +14,7 @@
 | **[224]** | `CORE`    | [x] Completed 
 | **[225]** | `STRETCH` | [x] Completed 
 | **[226]** | `STRETCH` | [x] Completed 
+| **[227]** | `CORE`    | [x] Completed 
 
 ---
 
@@ -253,6 +254,13 @@ void main (void){
 }
 ```
 
+---
+
+#### Task 227
+> **Question/Prompt:** But wait: have you asked yourself so far that you should have put a resistor in the connection with LEDs? You missed the resistor but the LEDs are working fine. Why?
+
+> **Answer/Explanation:**
+> The LEDs are working fine because the board already includes built-in, onboard resistors in series with the LEDs. These are called surface-mount (SMD) resistors and can be seen right next to the LEDs on the board.
 ---
 
 ## References & Resources
