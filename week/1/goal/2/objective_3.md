@@ -12,6 +12,7 @@
 | **[232]** | `CORE`     | [x] Completed 
 | **[233]** | `CORE`     | [x] Completed 
 | **[234]** | `OPTIONAL` | [x] Completed 
+| **[235]** | `OPTIONAL` | [x] Completed 
 
 ---
 
@@ -257,6 +258,32 @@ void main (void){
 
   }
   
+}
+```
+
+---
+
+#### Task 235
+> **Question/Prompt:** A real challenge is to reduce the complexity of the code for each function above, by writing the functionality of each function in a single line of code! How can you realize this?
+
+> **Answer/Explanation:**
+> I did use a single line of code for most functions, and for the function that sets the direction I used a ternary operator.
+
+```c
+void portc_set_pin(uint8_t pin){
+  PORTC |= (1 << pin);
+}
+
+void portc_reset_pin(uint8_t pin){
+  PORTC &= ~(1 << pin);
+}
+
+void ddrc_set_direction(uint8_t direction, uint8_t pin){
+  DDRC = (direction == OUTPUT) ? (DDRC | (1 << pin)) : (DDRC & ~(1 << pin)); 
+}
+
+void portc_toggle_pin(uint8_t pin){
+  PORTC ^= (1 << pin);
 }
 ```
 

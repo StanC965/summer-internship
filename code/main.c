@@ -13,11 +13,7 @@ void portc_reset_pin(uint8_t pin){
 }
 
 void ddrc_set_direction(uint8_t direction, uint8_t pin){
-  if(direction == OUTPUT){
-    DDRC |= (1 << pin);
-  } else {
-    DDRC &= ~(1 << pin);
-  }
+  DDRC = (direction == OUTPUT) ? (DDRC | (1 << pin)) : (DDRC & ~(1 << pin)); 
 }
 
 void portc_toggle_pin(uint8_t pin){
