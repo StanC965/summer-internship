@@ -18,22 +18,22 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-/** \fn     void gpio_set_pin(volatile uint8_t *port, uint8_t pin)
+/** \fn     void gpio_set_pin(volatile uint8_t *port_register, uint8_t pin)
 
     \brief      [ Sets the specified pin of the given port to high. ]
-    \param[in]  port [ pointer to the port register (e.g., PORTA, PORTB, etc.) ]
+    \param[in]  port_register [ pointer to the port register (e.g., PORTA, PORTB, etc.) ]
     \param[in]  pin [ the pin number, valid range: [ 0 .. 7 ] ]
     \param[out] [ None ]
     \return     [ None ]
     \details    [ Uses a bitwise OR assignment operator to set the target bit position
                  to 1, without afffecting the state of the remaining pins in the port. ]
 */
-extern void gpio_set_pin(volatile uint8_t *port, uint8_t pin);
+extern void gpio_set_pin(volatile uint8_t *port_register, uint8_t pin);
 
-/** \fn     void gpio_reset_pin(volatile uint8_t *port, uint8_t pin)
+/** \fn     void gpio_reset_pin(volatile uint8_t *port_register, uint8_t pin)
 
     \brief      [ Resets the specified pin of the given port. ]  
-    \param[in]  port [ pointer to the port register (e.g., PORTA, PORTB, etc.) ]
+    \param[in]  port_register [ pointer to the port register (e.g., PORTA, PORTB, etc.) ]
     \param[in]  pin [ the pin number, valid range: [ 0 .. 7 ] ]
     \param[out] [ None ]
     \return     [ None ]
@@ -41,20 +41,20 @@ extern void gpio_set_pin(volatile uint8_t *port, uint8_t pin);
                  clear the target bit position to 0, without affecting the state
                  of the remaining pins in the port. ]
 */
-extern void gpio_reset_pin(volatile uint8_t *port, uint8_t pin);
+extern void gpio_reset_pin(volatile uint8_t *port_register, uint8_t pin);
 
-/** \fn     void gpio_toggle_pin(volatile uint8_t *port, uint8_t pin)
+/** \fn     void gpio_toggle_pin(volatile uint8_t *port_register, uint8_t pin)
 
     \brief      [ Toggles the specified pin of the given port. ]  
 
-    \param[in]  port [ pointer to the port register (e.g., PORTA, PORTB, etc.) ]
+    \param[in]  port_register [ pointer to the port register (e.g., PORTA, PORTB, etc.) ]
     \param[in]  pin [ the pin number, valid range: [ 0 .. 7 ] ]
     \param[out] [ None ]
     \return     [ None ]
     \details    [ Uses a bitwise XOR assignment operator to toggle the target bit position,
                  without affecting the state of the remaining pins in the port. ]
 */
-extern void gpio_toggle_pin(volatile uint8_t *port, uint8_t pin);
+extern void gpio_toggle_pin(volatile uint8_t *port_register, uint8_t pin);
 
 /** \fn     void gpio_set_direction(volatile uint8_t *ddr_register, uint8_t direction, uint8_t pin)
 
