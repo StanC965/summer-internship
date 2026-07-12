@@ -23,28 +23,28 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <DebugChecksum>
-        <Checksum>1112058522</Checksum>
+        <Checksum>3173587844</Checksum>
     </DebugChecksum>
-    <Disassembly>
-        <MixedMode>1</MixedMode>
-    </Disassembly>
-    <CallStack>
-        <ShowArgs>0</ShowArgs>
-    </CallStack>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
         <Category2>_ 2</Category2>
     </LogFile>
+    <Disassembly>
+        <MixedMode>1</MixedMode>
+    </Disassembly>
+    <Breakpoints2>
+        <Count>0</Count>
+    </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
     </TermIOLog>
-    <Breakpoints2>
-        <Count>0</Count>
-    </Breakpoints2>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
 </settings>
