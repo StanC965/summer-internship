@@ -399,26 +399,33 @@
 
 
 
-void delay(unsigned long count)
-{
-    volatile unsigned long i;
 
-    for (i = 0; i < count; i++)
-    {
-        
-    }
+void delay(unsigned long count){
+  volatile unsigned long i;
+
+  for (i = 0; i < count; i++){
+      
+  }
 }
 
 
-void set_pin(unsigned char pin)
-{
-    PORTC |= (1 << pin);
+void set_pin(unsigned char pin){
+  PORTC |= (1 << pin);
 }
 
 
-void reset_pin(unsigned char pin)
-{
-    PORTC &= ~(1 << pin);
+void reset_pin(unsigned char pin){
+  PORTC &= ~(1 << pin);
+}
+
+void set_direction(unsigned char pin, unsigned char direction){
+  
+  if (direction){
+    DDRC |= (1 << pin);      
+  }
+  else{
+    DDRC &= ~(1 << pin);     
+  }
 }
 
 void main( void )
@@ -427,7 +434,7 @@ void main( void )
   DDRD_DDRD4 = 1;
   DDRA_DDRA3 = 1;
   
-  DDRC_DDRC7 = 1;
+  set_direction(7,1);
   
   while(1){
     

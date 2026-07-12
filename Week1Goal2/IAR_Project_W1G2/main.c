@@ -1,26 +1,35 @@
-// 232 - CORE
+// 233 - CORE
 #include <iom324pb.h>
 
-void delay(unsigned long count)
-{
-    volatile unsigned long i;
+#define INPUT   0
+#define OUTPUT  1
 
-    for (i = 0; i < count; i++)
-    {
-        // Software delay
-    }
+void delay(unsigned long count){
+  volatile unsigned long i;
+
+  for (i = 0; i < count; i++){
+      // Software delay
+  }
 }
 
 //Function tu set any pin from PORTC
-void set_pin(unsigned char pin)
-{
-    PORTC |= (1 << pin);
+void set_pin(unsigned char pin){
+  PORTC |= (1 << pin);
 }
 
 //Function tu reset any pin from PORTC
-void reset_pin(unsigned char pin)
-{
-    PORTC &= ~(1 << pin);
+void reset_pin(unsigned char pin){
+  PORTC &= ~(1 << pin);
+}
+
+void set_direction(unsigned char pin, unsigned char direction){
+  
+  if (direction){
+    DDRC |= (1 << pin);      // Output
+  }
+  else{
+    DDRC &= ~(1 << pin);     // Input
+  }
 }
 
 void main( void )
@@ -29,7 +38,7 @@ void main( void )
   DDRD_DDRD4 = 1;
   DDRA_DDRA3 = 1;
   
-  DDRC_DDRC7 = 1;
+  set_direction(7,OUTPUT);
   
   while(1){
     
