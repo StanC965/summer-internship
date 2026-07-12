@@ -9,6 +9,7 @@
 | Task ID   | Type   | Status
 | :---      | :---   | :--- 
 | **[241]** | `CORE` | [x] Completed 
+| **[242]** | `CORE` | [x] Completed 
 
 ---
 
@@ -22,6 +23,13 @@
 > 2. we can encapsulate variables and function in modules, and make them unreachable from the rest of the modules
 > 3. it provides scalability, other people can work on the project and design other modules, which can then be added without breaking other code
 > 4. cleaner debugging
+
+---
+
+#### Task 242
+> **Question/Prompt:** Further separate the software program, considering the functionality of the LEDs (on, off). Create a new LED module (led.c and led.h) which will contain only the variables and functions that manipulate the on/off state of LEDs (e.g. functions might be referred as PowerOn_LED(...) and PowerOff_LED(...)). These led related functions will call the basic i/o functions of the gpio module!*
+
+> **Answer/Explanation:**
 
 ---
 

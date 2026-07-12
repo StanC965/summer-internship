@@ -1,62 +1,57 @@
-#include <iom324pb.h>
 #include "main.h" 
-#include "gpio.h"
+#include "led.h"
 
 void delay(long count){
   for(long i = 0; i < count; i++);
 }
 
 void main (void){
-  
-  gpio_set_direction(&DDRD, GPIO_OUTPUT, 5);
-  gpio_set_direction(&DDRD, GPIO_OUTPUT, 4);
-  gpio_set_direction(&DDRA, GPIO_OUTPUT, 3);
-  gpio_set_direction(&DDRC, GPIO_OUTPUT, 7);
-  gpio_set_direction(&DDRB, GPIO_OUTPUT, 3);
+
+  led_init();
   
   while(1){
     // INITIAL STATE:
-    gpio_set_pin(&PORTD, 5);
-    gpio_set_pin(&PORTD, 4);
-    gpio_set_pin(&PORTA, 3);
-    gpio_set_pin(&PORTC, 7);
-    gpio_set_pin(&PORTB, 3);
+    led_power_off(LED_ONBOARD);
+    led_power_off(LED_OLED1_1);
+    led_power_off(LED_OLED1_2);
+    led_power_off(LED_OLED1_3);
+    led_power_off(LED_IO1);
 
     delay(50000);
 
     // STATE 1
-    gpio_reset_pin(&PORTD, 5);
+    led_power_on(LED_OLED1_1);
 
     delay(50000);
 
     // STATE 2
-    gpio_set_pin(&PORTD, 5);
-    gpio_reset_pin(&PORTD, 4);
+    led_power_off(LED_OLED1_1);
+    led_power_on(LED_OLED1_2);
 
     delay(50000);
 
     // STATE 3
-    gpio_set_pin(&PORTD, 4);
-    gpio_reset_pin(&PORTA, 3);
+    led_power_off(LED_OLED1_2);
+    led_power_on(LED_OLED1_3);
 
     delay(50000);
 
     // STATE 4
-    gpio_set_pin(&PORTA, 3);
-    gpio_reset_pin(&PORTC, 7);
+    led_power_off(LED_OLED1_3);
+    led_power_on(LED_ONBOARD);
 
     delay(50000);
 
     // STATE 5
-    gpio_set_pin(&PORTC, 7);
-    gpio_reset_pin(&PORTB, 3);
+    led_power_off(LED_ONBOARD);
+    led_power_on(LED_IO1);
 
     delay(50000);
     
     // STATE 6
-    gpio_set_pin(&PORTB, 3);
-    gpio_toggle_pin(&PORTC, 7);
-    
+    led_power_off(LED_IO1);
+    led_toggle(LED_ONBOARD);
+
     delay(50000);
   }
   
