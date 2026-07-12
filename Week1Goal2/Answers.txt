@@ -3,3 +3,10 @@ Answer: PORTC has 8 pins
 
 213 — CORE — How many GPIO (General Purpose Input Output) ports does the ATmega324PB microcontroller have in total?
 Answer: There are 4 GPIO ports: PORTA, PORTB, PORTC, PORTD
+
+214 — CORE — Search in the dev board User Guide the port and the pin to which LED0 is connected and how you should light up (or activate) LED0. Read carefully, repeatedly (maybe 10x), see if you really understand that information.
+You can correlate with the information from electronic schematic of our dev board. See if all these information match in your mind with the general knowledge on LEDs control acquired last week.
+Further correlate with microcontroller datasheet on how to configure the pins (chapter 16.2.1).
+
+Answer: LED0 is connected to pin PC7 (PORTC, bit 7). The LED is active LOW, meaning it turns ON when PC7 is driven to GND (logic 0) and turns OFF when PC7 is driven HIGH (logic 1). 
+Therefore, PC7 must first be configured as an output by setting DDRC7 = 1, then writing PORTC7 = 0 lights the LED, while writing PORTC7 = 1 turns it off.
