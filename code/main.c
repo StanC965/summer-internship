@@ -1,12 +1,23 @@
 #include <iom324pb.h>
 #include <stdint.h>
 
+#define INPUT 0
+#define OUTPUT 1
+
 void portc_set_pin(uint8_t pin){
   PORTC |= (1 << pin);
 }
 
 void portc_reset_pin(uint8_t pin){
   PORTC &= ~(1 << pin);
+}
+
+void ddrc_set_direction(uint8_t direction, uint8_t pin){
+  if(direction == OUTPUT){
+    DDRC |= (1 << pin);
+  } else {
+    DDRC &= ~(1 << pin);
+  }
 }
 
 void delay(long count){
@@ -18,7 +29,7 @@ void main (void){
   DDRD |= 1 << 5;
   DDRD |= 1 << 4;
   DDRA |= 1 << 3;
-  DDRC |= 1 << 7;
+  ddrc_set_direction(OUTPUT, 7);
   DDRB |= 1 << 3;
   
   while(1){
