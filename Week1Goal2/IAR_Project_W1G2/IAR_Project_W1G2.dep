@@ -5,6 +5,14 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\IAR_Project_W1G2.map</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
             <file>$PROJ_DIR$\..\..\Week1Goal1\IAR_Project\main.c</file>
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
@@ -13,13 +21,43 @@
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
         </outputs>
         <file>
+            <name>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 2 6 13 7</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 0 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5</file>
+                    <file> 5 13</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 10 1 4</file>
+                </tool>
+            </inputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>

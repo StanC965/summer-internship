@@ -9,6 +9,7 @@
 
 
 
+
  
 
 #pragma system_include
@@ -401,4 +402,11 @@
 void main( void )
 {
   
+  DDRC_DDRC7 = 1; 
+  
+  PORTC_PORTC7 = 0; 
+  
+  while(1){
+    
+  }
 }
