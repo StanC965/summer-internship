@@ -1,79 +1,56 @@
 #include <iom324pb.h>
-#include <stdint.h>
-
-#define INPUT 0
-#define OUTPUT 1
-
-void portc_set_pin(uint8_t pin){
-  PORTC |= (1 << pin);
-}
-
-void portc_reset_pin(uint8_t pin){
-  PORTC &= ~(1 << pin);
-}
-
-void ddrc_set_direction(uint8_t direction, uint8_t pin){
-  DDRC = (direction == OUTPUT) ? (DDRC | (1 << pin)) : (DDRC & ~(1 << pin)); 
-}
-
-void portc_toggle_pin(uint8_t pin){
-  PORTC ^= (1 << pin);
-}
-
-void delay(long count){
-  for(long i = 0; i < count; i++);
-}
+#include "main.h" 
 
 void main (void){
   
-  DDRD |= 1 << 5;
-  DDRD |= 1 << 4;
-  DDRA |= 1 << 3;
-  ddrc_set_direction(OUTPUT, 7);
-  DDRB |= 1 << 3;
+  gpio_set_direction(&DDRD, OUTPUT, 5);
+  gpio_set_direction(&DDRD, OUTPUT, 4);
+  gpio_set_direction(&DDRA, OUTPUT, 3);
+  gpio_set_direction(&DDRC, OUTPUT, 7);
+  gpio_set_direction(&DDRB, OUTPUT, 3);
   
   while(1){
     // INITIAL STATE:
-    PORTD |= 1 << 5;
-    PORTD |= 1 << 4;
-    PORTA |= 1 << 3;
-    portc_set_pin(7);
-    PORTB |= 1 << 3;
+    gpio_set_pin(&PORTD, 5);
+    gpio_set_pin(&PORTD, 4);
+    gpio_set_pin(&PORTA, 3);
+    gpio_set_pin(&PORTC, 7);
+    gpio_set_pin(&PORTB, 3);
 
     delay(50000);
 
     // STATE 1
-    PORTD &= ~(1 << 5);
+    gpio_reset_pin(&PORTD, 5);
 
     delay(50000);
 
     // STATE 2
-    PORTD |= 1 << 5;
-    PORTD &= ~(1 << 4);
+    gpio_set_pin(&PORTD, 5);
+    gpio_reset_pin(&PORTD, 4);
 
     delay(50000);
 
     // STATE 3
-    PORTD |= 1 << 4;
-    PORTA &= ~(1 << 3);
+    gpio_set_pin(&PORTD, 4);
+    gpio_reset_pin(&PORTA, 3);
 
     delay(50000);
 
     // STATE 4
-    PORTA |= 1 << 3;
-    portc_reset_pin(7);
+    gpio_set_pin(&PORTA, 3);
+    gpio_reset_pin(&PORTC, 7);
 
     delay(50000);
 
     // STATE 5
-    portc_set_pin(7);
-    PORTB &= ~(1 << 3);
+    gpio_set_pin(&PORTC, 7);
+    gpio_reset_pin(&PORTB, 3);
 
     delay(50000);
     
     // STATE 6
-    PORTB |= (1 << 3);
-    portc_toggle_pin(7);
+    gpio_set_pin(&PORTB, 3);
+    gpio_toggle_pin(&PORTC, 7);
     
     delay(50000);
   }
