@@ -6,10 +6,11 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type   | Status
-| :---      | :---   | :--- 
-| **[241]** | `CORE` | [x] Completed 
-| **[242]** | `CORE` | [x] Completed 
+| Task ID   | Type      | Status
+| :---      | :---      | :--- 
+| **[241]** | `CORE`    | [x] Completed 
+| **[242]** | `CORE`    | [x] Completed 
+| **[243]** | `STRETCH` | [x] Completed 
 
 ---
 
@@ -32,4 +33,16 @@
 > **Answer/Explanation:**
 
 ---
+
+#### Task 243
+> **Question/Prompt:** The separation of functionalities in logical units allows us to develop new functionalities. For example, add two new LED functionalities to the LED module:
+> - LED blink fast = The LED lights on and off repetitively with 6-ons and 6-offs per second;
+> - LED blink slow = The LED lights on and off repetitively with 2-ons and 2-offs per second.
+>Compile again. It often happens during software development to have to reorganize the written code, process called redesign or refactoring.
+
+> **Answer/Explanation:**
+
+---
+
+
 
