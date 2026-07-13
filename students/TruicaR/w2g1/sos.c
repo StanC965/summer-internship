@@ -1,7 +1,7 @@
 #include "gpio.h"
 #include "led.h"
 #include "sos.h"
-
+#define DELAY 200000
 #define LED0_PIN 7
 
 void delay(long units)
@@ -12,9 +12,9 @@ void delay(long units)
 void point(void)
 {
     PowerOn_LED(LED0_PIN);
-    delay(200000);
+    delay(DELAY);
     PowerOff_LED(LED0_PIN);
-    delay(200000);
+    delay(DELAY);
 }
 
 void line(void)
@@ -22,7 +22,7 @@ void line(void)
     PowerOn_LED(LED0_PIN);
     delay(600000);
     PowerOff_LED(LED0_PIN);
-    delay(200000);
+    delay(DELAY);
 }
 
 void sos(void)
