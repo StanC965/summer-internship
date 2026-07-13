@@ -16,12 +16,20 @@ void main (void){
     button_pressed = button_read(BUTTON_ONBOARD);
     
     if(!button_pressed){
-      // Button is pressed, turn on the onboard LED
-      led_power_on(LED_ONBOARD); 
+      delay((SECOND / 1000) * 10);
+      button_pressed = button_read(BUTTON_ONBOARD);
+      
+      if(!button_pressed){
+        led_power_on(LED_ONBOARD);
+
+        delay((SECOND / 1000) * 10));
+      }
+
     }
+
     else{
-      // Button is not pressed, turn off the onboard LED
       led_power_off(LED_ONBOARD); 
+
     }
     
   }
