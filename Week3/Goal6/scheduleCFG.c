@@ -6,12 +6,12 @@
 
 
 
-#define top 4
+#define top 256
 #define step 25
 unsigned char cnt = 0;
 
 void task10ms(){
-    pwmSetDutyCycle(cnt*step);
+    setPwmDc(cnt);
     cnt = (cnt + 1)%top;
     
 }

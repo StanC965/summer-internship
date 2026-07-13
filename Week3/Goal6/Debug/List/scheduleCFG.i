@@ -9,6 +9,7 @@ extern void startPwm(unsigned short int prescale);
 
 extern void pwmSetDutyCycle(unsigned char duty);
 
+extern void setPwmDc(unsigned char param);
 #line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
@@ -611,8 +612,8 @@ extern void ledBlinkFast(unsigned char led);
 unsigned char cnt = 0;
 
 void task10ms(){
-    pwmSetDutyCycle(cnt*25);
-    cnt = (cnt + 1)%4;
+    setPwmDc(cnt);
+    cnt = (cnt + 1)%256;
     
 }
       

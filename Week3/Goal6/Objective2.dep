@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>2663023448</fileChecksum>
+    <fileChecksum>2718059899</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -38,6 +38,9 @@
             <file>$PROJ_DIR$\led.h</file>
             <file>$PROJ_DIR$\led.c</file>
             <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\Debug\List\task625.i</file>
+            <file>$PROJ_DIR$\task625.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\task625.r90</file>
             <file>$PROJ_DIR$\Debug\List\Objective2.map</file>
         </outputs>
         <file>
@@ -60,7 +63,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 5 33</file>
+                    <file> 5 36</file>
                 </tool>
             </outputs>
         </file>
@@ -69,13 +72,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 33</file>
+                    <file> 36</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 18 19 6 8 7 0 3 25 23</file>
+                    <file> 18 19 6 8 7 0 3 35 23</file>
                 </tool>
             </inputs>
         </file>
@@ -169,8 +172,27 @@
                 </tool>
             </inputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\task625.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 33 35</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 27 20 15 16 10</file>
+                </tool>
+            </inputs>
+        </file>
         <forcedrebuild>
             <name>$PROJ_DIR$\main.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\task624.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>

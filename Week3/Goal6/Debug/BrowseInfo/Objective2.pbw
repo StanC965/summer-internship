@@ -51126,6 +51126,20 @@
     "scope": null
   },
   {
+    "ID": "c:@F@setPwmDc",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void setPwmDc(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "10",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
+    },
+    "name": "setPwmDc",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
     "ID": "c:scheduleCFG.c@26@macro@SCDCFG_C",
     "What": "MacroDef",
     "defdec": "Def",
@@ -51154,7 +51168,7 @@
     "scope": null
   },
   {
-    "ID": "c:scheduleCFG.c@103@macro@step",
+    "ID": "c:scheduleCFG.c@105@macro@step",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "step",
@@ -51650,8 +51664,8 @@
     "display": "void myInterrupt(void)",
     "location": {
       "column": "18",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task624.c"
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task625.c"
     },
     "name": "myInterrupt",
     "origin": "project_file",
@@ -51664,8 +51678,8 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "10",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task624.c"
+      "line": "12",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task625.c"
     },
     "name": "main",
     "origin": "project_file",

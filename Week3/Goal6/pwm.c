@@ -105,7 +105,7 @@ void pwmSetDutyCycle(unsigned char duty)
 
 void setPwmDc(unsigned char param){
   if(param <=100){
-    OCR0A = (top * param)/100;
+    OCR0A = top - (top * param)/100;
   }
 
 }

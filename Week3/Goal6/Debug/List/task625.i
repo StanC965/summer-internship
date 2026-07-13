@@ -1,9 +1,18 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task625.c"
+
+
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
 
 
 
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
+extern void initializePwm();
+
+extern void startPwm(unsigned short int prescale);
+
+extern void pwmSetDutyCycle(unsigned char duty);
+
+extern void setPwmDc(unsigned char param);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task625.c"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -569,129 +578,30 @@
 
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task625.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
 
 
 
+extern void scheduleTaskDispatcher(void);
 
-extern void setPin(volatile unsigned char* port,unsigned char pin);
-
-extern void resetPin(volatile unsigned char* port,unsigned char pin);
-
-extern void setDirection(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
-
-extern void togglePin(volatile unsigned char* reg, unsigned char pin);
-extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
-
-
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
-
-extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
-extern void ledPowerOn(unsigned char led);
-
-extern void ledPowerOff(unsigned char led);
-
-extern void ledBlinkSlow(unsigned char led);
-extern void ledBlinkFast(unsigned char led);
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.c"
-
-
-#line 15 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.c"
+extern void schedulerFlasgsManagement(void);
 
 
 
+#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task625.c"
 
-
-
-
-
-void initializePwm(){
-    ledInit(&DDRB,&PORTB,3);
-    setPin(&TCCR0A,7); 
-   
-    setPin(&TCCR0A,0);
-    setPin(&TCCR0A,1);
+#pragma vector = (0x34)
+__interrupt void myInterrupt(void){
+  schedulerFlasgsManagement();
 }
 
-void startPwm(unsigned short int prescale){
-  if(prescale == 1){
-    setPin(&TCCR0B,0);
-    resetPin(&TCCR0B,1);
-    resetPin(&TCCR0B,2);
-  }
-  if(prescale == 8){
-    resetPin(&TCCR0B,0);
-    setPin(&TCCR0B,1);
-    resetPin(&TCCR0B,2);
-  }
-  if(prescale == 64){
-    setPin(&TCCR0B,0);
-    setPin(&TCCR0B,1);
-    resetPin(&TCCR0B,2);
-  }
-  if(prescale == 256){
-      resetPin(&TCCR0B,0);
-      resetPin(&TCCR0B,1);
-      setPin(&TCCR0B,2);
-    }  
-  if(prescale == 1024){
-    setPin(&TCCR0B,0);
-    resetPin(&TCCR0B,1);
-    setPin(&TCCR0B,2);
-  }
-}
-
-void pwm100(){
-    OCR0A = 0;
-}
-
-void pwm75(){
-    OCR0A = 64;
-}
-
-void pwm50(){
-    OCR0A = 127;
-}
-
-void pwm25(){
-    OCR0A = 191;
-}
-
-void pwm0(){
-  OCR0A = 255;
-}
-
-void pwmSetDutyCycle(unsigned char duty)
+void main( void )
 {
-    switch(duty)
-    {
-        case 0:
-            pwm0();
-            break;
-
-        case 25:
-            pwm25();
-            break;
-
-        case 50:
-           pwm50(); 
-          break;
-
-        case 75:
-            pwm75();
-            break;
-
-        case 100:
-            pwm100();
-            break;
-    }
+  initializePwm();
+  startPwm(1);
+  SREG |= 1<<7;
+  scheduleTaskDispatcher();
+  
+  
 }
-
-
-void setPwmDc(unsigned char param){
-  if(param <=100){
-    OCR0A = 255 - (255 * param)/100;
-  }
-
-}
-
