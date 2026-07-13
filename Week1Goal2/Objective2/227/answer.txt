@@ -1,0 +1,4 @@
+227 - I never added a resistor for the LEDs, but they work fine. Why?
+
+Because the current resistors are already built into the boards, in series with
+each LED, so I do not need to add them myself.
