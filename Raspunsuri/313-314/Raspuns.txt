@@ -1,4 +1,10 @@
 
+In cadrul codului folosim 3 registri noi si anume cel de coontrol al pinilor pentru intrerupere
+adica PCICR ,care permite configurarea registrului PCMSK2 atata timp cat registrul SREG are 
+intreruperile globale activate(adica pin7)
+
+daca punem breakpoint in interiorul intreruperii o sa functioneze,deoarece butonul e active high
+
 #include <iom324pb.h>
 
 
@@ -31,3 +37,7 @@ int main(void)
        
     }
 }
+
+
+
+
