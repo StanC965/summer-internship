@@ -77,7 +77,7 @@ int main( void )
 {
   initialize();
   
-  __enable_interrupt();
+  SREG |= 1<<7;
   scheduleTaskDispatcher();
   
   
