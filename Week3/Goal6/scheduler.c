@@ -1,6 +1,6 @@
 #ifndef SCH_C
 #define SCH_C
-#include "schedule632.h"
+#include "schedulesin.h"
 
 #include "led.h"
 #define WGM12 3

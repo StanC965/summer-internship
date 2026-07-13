@@ -2129,9 +2129,15 @@
     </file>
     <file>
         <name>$PROJ_DIR$\schedule632.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
     <file>
         <name>$PROJ_DIR$\schedule632.h</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
     <file>
         <name>$PROJ_DIR$\scheduleCFG631.c</name>
@@ -2150,6 +2156,12 @@
     </file>
     <file>
         <name>$PROJ_DIR$\scheduler.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\schedulesin.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\schedulesin.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\task632.c</name>

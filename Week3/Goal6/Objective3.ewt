@@ -2675,6 +2675,12 @@
         <name>$PROJ_DIR$\scheduler.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\schedulesin.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\schedulesin.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\task632.c</name>
     </file>
 </project>
