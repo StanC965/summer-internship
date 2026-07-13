@@ -90,3 +90,5 @@ Week1Goal2/w1g2.dep
 Week1Goal2/gpio.c
 Week1Goal2/gpio.h
 Week1Goal2/w1g2.ewt
+Week1Goal2/led.c
+Week1Goal2/led.h
