@@ -1,7 +1,6 @@
-//431-432
-//Ambele leduri clipesc sincron prin resetarea pinilor la initializare
-//(1024*128)/1M=0.131072 s
-// putem folosi alti factori de prescalare, si inlocuim in formula 1024 cu 256,64,8 sau 1
+//433
+// 100ms/2=50ms
+// 50ms= prescaler*(OCR0A+1)/1M, cea mai buna varianta e prescaler=256 si OCR0A=50000/256 -1=194.31 (impartita la 2 este aprox 100ms)
 #include "iom324.h"
 #include "led.h"
 #include "gpio.h"
@@ -15,9 +14,9 @@
 
 void timer0_init(void){
   TCCR0A=0b01000010; //COM0A[1:0]=01, COM0B[1:0]- normal mode operation, 0x00 , WGM0[1:0]=10 -toggle OC0A on compare match
-  OCR0A=127;
+  OCR0A=194;
   TIMSK0=0b00000010; //Overflow Interrupt Enable
-  TCCR0B=0b00000101;
+  TCCR0B=0b00000100; //prescale 256
   __enable_interrupt();
 }
 
