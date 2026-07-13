@@ -17,6 +17,7 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 #include <iom324pb.h>
 #include "gpio.h"
+#include "Utils/utils.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
@@ -39,6 +40,10 @@ typedef unsigned char led_uint8_t;
                 
 /** \brief Total number of leds */
 #define NUMBER_OF_LEDS  (4U)
+
+/** \brief Delays */
+#define FAST_BLINK_DELAY   (ONE_SECOND_DELAY / 12)
+#define SLOW_BLINK_DELAY   (ONE_SECOND_DELAY / 4)
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
@@ -89,5 +94,31 @@ extern void PowerOff_LED(led_uint8_t led);
                 or from OFF to ON by toggling the corresponding GPIO pin.
 */
 extern void Toggle_LED(led_uint8_t led);
+
+/** \fn     void BlinkFast_LED(led_uint8_t led)
+
+    \brief      Blinks the selected LED at a fast rate.
+    \param[in]  led LED identifier (LED0...LED3).
+    \param[out] None.
+    \return     None.
+    \details    Performs one fast blink cycle by turning the selected
+                LED ON and then OFF. The function does not contain an
+                infinite loop and must be called repeatedly to achieve
+                continuous blinking.
+*/
+extern void BlinkFast_LED(led_uint8_t led);
+
+/** \fn     void BlinkSlow_LED(led_uint8_t led)
+
+    \brief      Blinks the selected LED at a slow rate.
+    \param[in]  led LED identifier (LED0...LED3).
+    \param[out] None.
+    \return     None.
+    \details    Performs one slow blink cycle by turning the selected
+                LED ON and then OFF. The function does not contain an
+                infinite loop and must be called repeatedly to achieve
+                continuous blinking.
+*/
+extern void BlinkSlow_LED(led_uint8_t led);
 
 #endif

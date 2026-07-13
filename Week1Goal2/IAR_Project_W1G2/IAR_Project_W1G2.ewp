@@ -419,7 +419,7 @@
                 </option>
                 <option>
                     <name>newCCIncludePaths</name>
-                    <state></state>
+                    <state>$PROJ_DIR$\</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -704,7 +704,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>16</hasPrio>
+                <hasPrio>208</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>

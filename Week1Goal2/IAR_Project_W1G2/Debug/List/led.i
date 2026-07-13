@@ -506,6 +506,41 @@ extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpi
 
  
 
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+extern void delay(unsigned long count);
+
+
+
+
+ 
+
  
 typedef unsigned char led_uint8_t;
 
@@ -517,6 +552,8 @@ typedef unsigned char led_uint8_t;
 
  
                 
+ 
+
  
 
 
@@ -568,6 +605,32 @@ extern void PowerOff_LED(led_uint8_t led);
 
  
 extern void Toggle_LED(led_uint8_t led);
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void BlinkFast_LED(led_uint8_t led);
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void BlinkSlow_LED(led_uint8_t led);
 
 
 
@@ -627,5 +690,25 @@ void PowerOff_LED(led_uint8_t led){
 void Toggle_LED(gpio_uint8_t led){
   if(led < (4U)){
     gpio_toggle_pin(led_table[led].port, led_table[led].pin);
+  }
+}
+
+void BlinkFast_LED(led_uint8_t led){
+  if(led < (4U)){
+    PowerOn_LED(led);
+    delay(((100000L) / 12));
+
+    PowerOff_LED(led);
+    delay(((100000L) / 12));
+  }
+}
+
+void BlinkSlow_LED(led_uint8_t led){
+  if(led < (4U)){
+    PowerOn_LED(led);
+    delay(((100000L) / 4));
+
+    PowerOff_LED(led);
+    delay(((100000L) / 4));
   }
 }

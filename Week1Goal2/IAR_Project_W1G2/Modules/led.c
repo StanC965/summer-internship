@@ -76,4 +76,24 @@ void Toggle_LED(gpio_uint8_t led){
     gpio_toggle_pin(led_table[led].port, led_table[led].pin);
   }
 }
+
+void BlinkFast_LED(led_uint8_t led){
+  if(led < NUMBER_OF_LEDS){
+    PowerOn_LED(led);
+    delay(FAST_BLINK_DELAY);
+
+    PowerOff_LED(led);
+    delay(FAST_BLINK_DELAY);
+  }
+}
+
+void BlinkSlow_LED(led_uint8_t led){
+  if(led < NUMBER_OF_LEDS){
+    PowerOn_LED(led);
+    delay(SLOW_BLINK_DELAY);
+
+    PowerOff_LED(led);
+    delay(SLOW_BLINK_DELAY);
+  }
+}
 #endif

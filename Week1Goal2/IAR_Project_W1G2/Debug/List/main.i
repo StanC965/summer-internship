@@ -506,6 +506,41 @@ extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpi
 
  
 
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+extern void delay(unsigned long count);
+
+
+
+
+ 
+
  
 typedef unsigned char led_uint8_t;
 
@@ -517,6 +552,8 @@ typedef unsigned char led_uint8_t;
 
  
                 
+ 
+
  
 
 
@@ -572,27 +609,18 @@ extern void Toggle_LED(led_uint8_t led);
 
 
 
- 
 
 
 
 
-
-
- 
-
-
- 
 
 
 
  
-
- 
-
+extern void BlinkFast_LED(led_uint8_t led);
 
 
- 
+
 
 
 
@@ -602,7 +630,7 @@ extern void Toggle_LED(led_uint8_t led);
 
 
  
-extern void delay(unsigned long count);
+extern void BlinkSlow_LED(led_uint8_t led);
 
 
 
@@ -623,27 +651,28 @@ void main( void )
   
   while(1){
     
-    Toggle_LED((0U));
     
-    PowerOff_LED((1U));
-    PowerOff_LED((2U));
-    PowerOff_LED((3U));
-    delay((100000L));
+    BlinkFast_LED((0U));
     
-    PowerOn_LED((1U));
-    PowerOn_LED((2U));
-    PowerOff_LED((3U));
-    delay((100000L));
 
-    PowerOff_LED((1U));
-    PowerOn_LED((2U));
-    PowerOn_LED((3U));
-    delay((100000L));
-    
-    PowerOn_LED((1U));
-    PowerOff_LED((2U));
-    PowerOn_LED((3U));
-    delay((100000L));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
   }
 }
