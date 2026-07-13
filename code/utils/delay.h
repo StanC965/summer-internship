@@ -5,7 +5,8 @@
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /** \brief  Module specific constant number zero */
-#define SECOND  (100000U)
+#define SECOND      (100000U)
+#define MILISECOND  (SECOND / 1000U)
 
 /** \fn     void delay(long count)
 
