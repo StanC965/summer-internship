@@ -805,32 +805,16 @@ extern void SOS_play(led_uint8_t led);
 
 void main( void )
 {
-  
-  
+  BUTTON_Init();
 
-  
-  
-  
-  
-
+  unsigned char button_state;
+  unsigned char pressed = 0;
   
   while(1){
     
-    SOS_play((0U));
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+    button_state = button_read_state((0U));
+    if(button_state == 0){
+      SOS_play((0U)); 
+    }
   }
 }
