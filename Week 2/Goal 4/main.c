@@ -1,4 +1,4 @@
-//437
+//438
 #include "iom324.h"
 #include "led.h"
 #include "gpio.h"
@@ -31,14 +31,22 @@ void leds_init(void){
 __interrupt void timer0_compa_interrupt(void){
   static unsigned char contor=0;
   contor++;
-  if(contor==14){ //1000ms 700ms high si 300ms low, 1000/50=20, 14high, 6low
-    Toggle_LED(&PORTC,LED0_PIN);
-    Toggle_LED(&PORTB,OC0A_PIN);
+  if(contor==4){ //1200ms/50ms=24=[ 4h,6l,10h,4l]
+    set_pin(&PORTC,LED0_PIN);
+    set_pin(&PORTB,OC0A_PIN);
   }
   
-  if(contor==20){
-    Toggle_LED(&PORTC,LED0_PIN);
-    Toggle_LED(&PORTB,OC0A_PIN);
+  if(contor==10){
+    reset_pin(&PORTC,LED0_PIN);
+    reset_pin(&PORTB,OC0A_PIN);
+  }
+  if(contor==20){ 
+    set_pin(&PORTC,LED0_PIN);
+    set_pin(&PORTB,OC0A_PIN);
+  }
+  if(contor==24){ 
+    reset_pin(&PORTC,LED0_PIN);
+    reset_pin(&PORTB,OC0A_PIN);
     contor=0;
   }
 
