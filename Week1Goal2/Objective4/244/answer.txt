@@ -1,0 +1,20 @@
+244 - Role of the include guards (#ifndef GPIO_H / #define GPIO_H / #endif)
+
+Role: they prevent a header from being included more than once in the same compiled file.
+The first include defines GPIO_H and processes the content, a second include finds GPIO_H
+already defined, so the content is skipped.
+
+Comparison of the .i files:
+
+                          | gpio.h included ONCE          | gpio.h included TWICE
+--------------------------|-------------------------------|------------------------------
+gpio.h WITH guards        | content appears 1x, compiles  | content appears 1x (2nd skipped),
+                          |                               | compiles OK
+--------------------------|-------------------------------|------------------------------
+gpio.h WITHOUT guards     | content appears 1x, compiles  | content appears 2x in the .i,
+                          |                               | but still compiles in my case
+
+It WOULD give an error if the header contained DEFINITIONS that cannot be duplicated,
+such as a variable definition, a function body, or a typedef/struct definition.
+Then including it twice without guards produces "redefinition" errors.
+
