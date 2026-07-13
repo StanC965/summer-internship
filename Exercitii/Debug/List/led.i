@@ -1,4 +1,184 @@
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.c"
+
+
+
+
+ 
+
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+typedef     unsigned char   mod_uint8_t;
+
+ 
+typedef     unsigned int    mod_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+
+
+
+
+ 
+extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
+
+
+
+
+
+
+
+
+ 
+extern void led_Set(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_Reset(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TOGGLE(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Fast(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Slow(unsigned char Led_id);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
+
+#line 8 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+typedef     unsigned char   gpio_uint8_t;
+
+ 
+typedef     unsigned int    gpio_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+ 
+extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+ 
+extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
+
+
+
+
+
+ 
+extern void gpio_Timer1_start(float secunde,int prescale);
+
+
+
+
+
+ 
+extern void gpio_Timer1_stop();
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
+#line 9 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -564,271 +744,170 @@
 
 
 
-#line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
- 
-typedef     unsigned char   gpio_uint8_t;
-
- 
-typedef     unsigned int    gpio_uint16_t;
-
- 
- 
- 
-  
-
-
-
- 
-extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
- 
-extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
-
-
-
-
-
- 
-extern void gpio_Timer1_start(float secunde,int prescale);
-
-
-
-
-
- 
-extern void gpio_Timer1_stop();
-
-
-
- 
-extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
-
-#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
-
+#line 10 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.c"
 
 
 
  
 
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-typedef     unsigned char   mod_uint8_t;
-
- 
-typedef     unsigned int    mod_uint16_t;
-
- 
- 
- 
-  
-
-
-
-
-
-
-
- 
-extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
-
-
-
-
-
-
-
-
- 
-extern void led_Set(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_Reset(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TOGGLE(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Fast(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Slow(unsigned char Led_id);
-
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
-
-#line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.h"
-
-
-
-
-
- 
-
- 
-
-
- 
-
+static mod_uint8_t var1;
 
 
  
  
  
-  
+void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4)
+{       
+    if(led0)
+    {
+        gpio_set_direction(&DDRC, 7, (((0x00U))));
+        gpio_reset_pin(&PORTC, 7);
+    }
+    if(led1)
+    {
+        gpio_set_direction(&DDRD, 4, (((0x00U))));
+        gpio_reset_pin(&PORTD, 4);
+    }
+    if(led2)
+    {
+        gpio_set_direction(&DDRD, 5, (((0x00U))));
+        gpio_reset_pin(&PORTD, 5);
+    }
+    if(led3)
+    {
+        gpio_set_direction(&DDRA, 3, (((0x00U))));
+        gpio_reset_pin(&PORTA, 3);
+    }
+    if(led4)
+    {
+        gpio_set_direction(&DDRB, 3, (((0x00U))));
+        gpio_reset_pin(&PORTB, 3);
+    }
+}
 
+void led_Set(unsigned char Led_id)
+{ 
+    switch(Led_id)
+    {
+        case (0xAA):  gpio_set_pin(&PORTC, 7); break;
+        case (0xBB):   gpio_set_pin(&PORTD, 4); break;
+        case (0xCC):   gpio_set_pin(&PORTD, 5); break;
+        case (0xDD): gpio_set_pin(&PORTA, 3); break;
+        case (0xEE):  gpio_set_pin(&PORTB, 3); break;
+        default: break;
+    }
+}
 
+void led_Reset(unsigned char Led_id)
+{ 
+    switch(Led_id)
+    {
+        case (0xAA):  gpio_reset_pin(&PORTC, 7); break;
+        case (0xBB):   gpio_reset_pin(&PORTD, 4); break;
+        case (0xCC):   gpio_reset_pin(&PORTD, 5); break;
+        case (0xDD): gpio_reset_pin(&PORTA, 3); break;
+        case (0xEE):  gpio_reset_pin(&PORTB, 3); break;
+        default: break;
+    }
+}
 
+void led_TOGGLE(unsigned char Led_id)
+{ 
+    switch(Led_id)
+    {
+        case (0xAA):  gpio_toggle_pin(&PORTC, 7); break;
+        case (0xBB):   gpio_toggle_pin(&PORTD, 4); break;
+        case (0xCC):   gpio_toggle_pin(&PORTD, 5); break;
+        case (0xDD): gpio_toggle_pin(&PORTA, 3); break;
+        case (0xEE):  gpio_toggle_pin(&PORTB, 3); break;
+        default: break;
+    }
+}
 
-
-
- 
-extern void letter_S(void);
-
-
-
-
-
-
-
- 
-extern void letter_O(void);
-
-
-
-
-
-
-
- 
-extern void SOS(void);
-
-#line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-
-extern volatile _Bool sos_stop; 
-
-#pragma vector = (0x18)
-__interrupt void PinChangePortC_ISR(void)
+void led_TEST_Fast(unsigned char Led_id)
 {
   
-
-    
-    if ( (PINC & (1 << 6)) == 0 )  
-    {
-         sos_stop = !sos_stop;    
-    }
-    
+    int counter=0;
+    gpio_Timer1_start(0.09,8);
+  
+    while(1)
+    { 
+     
+          if(TCNT1>=OCR1A)
+          {
    
+              TCNT1=0;
+              led_TOGGLE(Led_id); 
+              counter++; 
+   
+          }
+ 
+          if(counter==12)
+          {
+   
+              gpio_Timer1_stop();
+              return;
+ 
+          }
+ 
+      }
   
-}
+ 
+ }
+        
+void led_TEST_Slow(unsigned char Led_id)
+ {
+   
+      int counter=0; 
+      gpio_Timer1_start(0.25,8);
+  
+      while(1)
+      {
+    
+          if(TCNT1>=OCR1A)
+          {
+   
+              TCNT1=0;
+              led_TOGGLE(Led_id); 
+              counter++; 
+ 
+          }
+ 
+          if(counter==4)
+          { 
+   
+              gpio_Timer1_stop();
+              return;
+ 
+          }
+ 
+      }
+  
+ 
 
-void setup(void)
-{
-    leds_initialize(1, 0, 0, 0, 0); 
-    gpio_set_direction(&DDRC, 6, (((0x01U))));
-    gpio_set_pin(&PORTC, 6); 
-    gpio_set_pin(&PCICR, 2);
-    gpio_set_pin(&PCMSK2, 6);
-    gpio_set_pin(&SREG, 7);
-    sos_stop = 1; 
-}
+ }
 
-void main(void)
+
+  void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri)
 {
-    setup();
-                                                                      
-    while(1)    
-    {
-        if(sos_stop == 0)
+    int counter = 0;
+    gpio_Timer1_start(secunde, 8);
+    
+    while(1)
+    { 
+      
+        if(TCNT1 >= OCR1A)
         {
-            SOS();
+            TCNT1 = 0;
+            led_TOGGLE(Led_id); 
+            counter++; 
         }
-        else
-        {
-          
-            led_Set((0xAA));
+        
+        if(counter == limite_clipiri)
+        {  
+            gpio_Timer1_stop();
+            return;
         }
     }
 }
+        
