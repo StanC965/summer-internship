@@ -647,12 +647,18 @@ extern void BlinkSlow_LED(led_uint8_t led);
 
 void main( void )
 {
-  LED_Init();
+  
+  
+  unsigned char button_state;
+  
+  gpio_set_direction(&DDRC,6,(0U));
+  gpio_set_pin(&PORTC,6);
   
   while(1){
     
+    button_state = PINC_PINC6;
     
-    BlinkFast_LED((0U));
+    
     
 
 

@@ -16,6 +16,7 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 #include "Modules/led.h"
 #include "Utils/utils.h"
+#include "Modules/gpio.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
