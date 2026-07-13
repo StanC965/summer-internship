@@ -1,6 +1,36 @@
 
 
 
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
 
  
 
@@ -13,6 +43,27 @@
 
 
  
+
+
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+extern void delay(unsigned long count);
+
 
 
 
@@ -518,41 +569,6 @@ extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_reg, gpio_uint8_t p
 
  
 
-
-
-
-
-
- 
-
-
- 
-
-
-
- 
-
- 
-
-
-
- 
-
-
-
-
-
-
-
-
- 
-extern void delay(unsigned long count);
-
-
-
-
- 
-
  
 typedef unsigned char led_uint8_t;
 
@@ -652,131 +668,6 @@ extern void BlinkSlow_LED(led_uint8_t led);
 
 
 
-
-
- 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-#pragma system_include
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-#pragma system_include
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
- 
-typedef unsigned char button_uint8_t;
-
- 
-
- 
-
- 
-
- 
-                
- 
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
- 
-extern void BUTTON_Init(void);
-
-
-
-
-
-
-
-
- 
-extern void button_enable_pullup(button_uint8_t button);
-
-
-
-
-
-
-
-
-
- 
-extern unsigned char button_read_state(button_uint8_t button);
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
- 
-
-
-
-
- 
-
-
-
-
  
 
 
@@ -800,37 +691,43 @@ extern void SOS_play(led_uint8_t led);
 
  
 
+static void point(led_uint8_t led){
+  PowerOn_LED(led);
+  delay((100000L));
+  PowerOff_LED(led);
+}
 
+static void line(led_uint8_t led){
+  PowerOn_LED(led);
+  delay((100000L)*3);
+  PowerOff_LED(led);
+}
 
-
-void main( void )
-{
-  
-  
-
-  
-  
-  
-  
-
-  
-  while(1){
-    
-    SOS_play((0U));
-    
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
  
-  }
+
+void SOS_play(led_uint8_t led){
+  LED_Init();
+  
+  point(led);
+  delay((100000L));
+  point(led);
+  delay((100000L));
+  point(led);
+  delay((100000L));
+  
+  line(led);
+  delay((100000L));
+  
+  point(led);
+  delay((100000L));
+  point(led);
+  delay((100000L));
+  point(led);
+  
+  delay((100000L)*2);
 }
+

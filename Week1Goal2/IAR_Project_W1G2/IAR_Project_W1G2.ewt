@@ -2660,6 +2660,12 @@
         <name>$PROJ_DIR$\main.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\sos.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\sos.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\Utils\utils.c</name>
     </file>
     <file>

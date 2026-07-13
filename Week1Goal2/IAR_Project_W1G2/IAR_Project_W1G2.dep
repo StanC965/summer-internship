@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>4229026657</fileChecksum>
+    <fileChecksum>510161606</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
             <file>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\Debug\List\sos.i</file>
             <file>$PROJ_DIR$\Debug\Obj\button.r90</file>
             <file>$PROJ_DIR$\Debug\List\button.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
             <file>$PROJ_DIR$\Debug\List\utils.i</file>
             <file>$PROJ_DIR$\Debug\Obj\utils.r90</file>
             <file>$PROJ_DIR$\Modules\button.c</file>
@@ -30,22 +32,24 @@
             <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\sos.c</file>
             <file>$PROJ_DIR$\Modules\button.h</file>
             <file>$PROJ_DIR$\main.h</file>
             <file>$PROJ_DIR$\Utils\utils.c</file>
+            <file>$PROJ_DIR$\sos.h</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 16</file>
+                    <file> 18</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 15 19 2 1 12 24 5 20</file>
+                    <file> 17 21 3 1 14 26 5 7 22</file>
                 </tool>
             </inputs>
         </file>
@@ -54,13 +58,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 3 2</file>
+                    <file> 4 3</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 25 22 14 17 9 13</file>
+                    <file> 28 24 16 19 11 15</file>
                 </tool>
             </inputs>
         </file>
@@ -69,13 +73,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 12</file>
+                    <file> 13 14</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 8 22 14 17 9 13</file>
+                    <file> 10 24 16 19 11 15</file>
                 </tool>
             </inputs>
         </file>
@@ -84,13 +88,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 21 1</file>
+                    <file> 23 1</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 9</file>
+                    <file> 11</file>
                 </tool>
             </inputs>
         </file>
@@ -99,7 +103,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 0 16</file>
+                    <file> 0 18</file>
                 </tool>
             </outputs>
         </file>
@@ -108,13 +112,28 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 24</file>
+                    <file> 20 26</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 26 8 22 14 17 9 13 25</file>
+                    <file> 29 10 24 16 19 11 15 28 31</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\sos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 2 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 31 15 10 24 16 19 11</file>
                 </tool>
             </inputs>
         </file>
@@ -123,7 +142,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4 5</file>
+                    <file> 6 7</file>
                 </tool>
             </outputs>
         </file>
