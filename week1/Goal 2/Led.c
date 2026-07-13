@@ -40,3 +40,6 @@ void LedBlinkSlow(volatile unsigned char *reg,PIN_Number pin){
   delay(2);
   
 }
+void led0_set_state(unsigned char led_state){
+  led_state ? set_pin(&PORTC,PIN7) : reset_pin(&PORTC,PIN7);
+}

@@ -9,7 +9,10 @@ PIN6=6,
 PIN7=7
 }PIN_Number;
 
+#define OUTPUT 1
+#define INPUT 0
 
+void delay(unsigned long i);
 void set_pin(volatile unsigned char *reg,PIN_Number pin);
 void reset_pin(volatile unsigned char *reg,PIN_Number pin);
 void toggle_pin(volatile unsigned char *reg,PIN_Number pin);
