@@ -1,15 +1,6 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
-
-
-
-extern void initializePwm();
-
-extern void startPwm(unsigned short int prescale);
-
-extern void pwmSetDutyCycle(unsigned char duty);
-
-#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\adc.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -575,34 +566,102 @@ extern void pwmSetDutyCycle(unsigned char duty);
 
 
 
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
 
-void main( void )
-{
-  initializePwm();
-  startPwm(1);
-  SREG |= 1<<7;
-  while(1){
-    pwmSetDutyCycle(100);
 
-    for(long i=0;i<500000;i++);
 
-    pwmSetDutyCycle(75);
 
-    for(long i=0;i<500000;i++);
+extern void setPin(volatile unsigned char* port,unsigned char pin);
 
-    pwmSetDutyCycle(50);
+extern void resetPin(volatile unsigned char* port,unsigned char pin);
 
-    for(long i=0;i<500000;i++);
+extern void setDirection(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
 
-    pwmSetDutyCycle(25);
+extern void togglePin(volatile unsigned char* reg, unsigned char pin);
+extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
-    for(long i=0;i<500000;i++);
 
-    pwmSetDutyCycle(0);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\adc.h"
 
-    for(long i=0;i<500000;i++);
-}
-    
+extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
+
+extern void startConversionAdc();
+extern void enableAdc();
+
+extern void disableAdc();
+extern unsigned short int getAdcValue(void);
+
+extern void setAdcValue(unsigned short int val);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
+
+
+
+
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
+extern void ledPowerOn(unsigned char led);
+
+extern void ledPowerOff(unsigned char led);
+
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.c"
+
+
+
+
+
+
+
+
+
+
+
+
+void task10ms(){
+  unsigned short int value = getAdcValue();
   
+  disableAdc();
+  
+  if(value < 40)
+  {
+    ledPowerOn(1);
+      ledPowerOn(2);
+      ledPowerOn(3);
+  }
+  else
+    if(value >= 40 && value < 80){
+      ledPowerOn(1);
+      ledPowerOn(2);
+      ledPowerOff(3);
+    }
+  else
+    if(value >= 80 && value < 100){
+      ledPowerOn(1);
+      ledPowerOff(2);
+      ledPowerOff(3);
+    }
+    else{
+    ledPowerOff(1);
+      ledPowerOff(2);
+      ledPowerOff(3);
+    }
 }
+      
+void task50ms(){
+ 
+ enableAdc();
+  startConversionAdc();
+}
+      
+void task100ms(){
+}
+      
+void task500ms(){
+
+}
+
+void task1000ms(){
+
+}
+

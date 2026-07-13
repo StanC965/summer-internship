@@ -1,6 +1,6 @@
 #ifndef SCH_C
 #define SCH_C
-#include "ScheduleCFGBMW.h"
+#include "scheduleCFG.h"
 
 #include "led.h"
 #define WGM12 3

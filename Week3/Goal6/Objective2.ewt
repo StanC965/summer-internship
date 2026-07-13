@@ -2656,4 +2656,16 @@
     <file>
         <name>$PROJ_DIR$\pwm.h</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\scheduleCFG.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduleCFG.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler.h</name>
+    </file>
 </project>

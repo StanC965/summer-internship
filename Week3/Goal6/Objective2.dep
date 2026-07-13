@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>3105513629</fileChecksum>
+    <fileChecksum>1577962005</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Debug\Obj\scheduleCFG.r90</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
+            <file>$PROJ_DIR$\adc.h</file>
+            <file>$PROJ_DIR$\Debug\List\scheduleCFG.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Exe\Objective2.d90</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\pwm.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\scheduler.h</file>
+            <file>$PROJ_DIR$\scheduleCFG.h</file>
+            <file>$PROJ_DIR$\scheduleCFG.c</file>
+            <file>$PROJ_DIR$\scheduler.c</file>
             <file>$PROJ_DIR$\pwm.c</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
@@ -34,13 +43,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 13 5</file>
+                    <file> 22 10</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 17</file>
+                    <file> 26 21 16 17</file>
                 </tool>
             </inputs>
         </file>
@@ -49,7 +58,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 1 22</file>
+                    <file> 6 31</file>
                 </tool>
             </outputs>
         </file>
@@ -58,28 +67,52 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 22</file>
+                    <file> 31</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 10 11 2 4 5 3 15</file>
+                    <file> 19 20 7 9 10 8 24</file>
                 </tool>
             </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduleCFG.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 3 0</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 2 27 21 16 17 28</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduler.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1</file>
+                </tool>
+            </outputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pwm.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 16 3</file>
+                    <file> 25 8</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 19 18 12 7 8</file>
+                    <file> 28 27 21 16 17</file>
                 </tool>
             </inputs>
         </file>
@@ -88,13 +121,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 9 4</file>
+                    <file> 18 9</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 12 7 8 19</file>
+                    <file> 27 21 16 17 28</file>
                 </tool>
             </inputs>
         </file>
@@ -103,13 +136,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 14 2</file>
+                    <file> 23 7</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 12 7 8 18</file>
+                    <file> 21 16 17 27</file>
                 </tool>
             </inputs>
         </file>
