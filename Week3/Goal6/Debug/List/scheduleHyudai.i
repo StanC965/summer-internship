@@ -637,24 +637,24 @@ extern void setAdcValue(unsigned short int val);
 
 #line 33 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleHyudai.c"
 
-double vect[] = {0,1.0/10,2.0/10,8.0/10,13.0/10,13.0/10,12.0/10,11.0/10,10.5/10,1};
+unsigned char vect[] ={0,10,20,80,130,130,120,110,105,100};
 volatile unsigned short int value =0;
 volatile unsigned char dayMode =1;
 unsigned char cnt = 0;
 unsigned char cntVal = 0;
 unsigned char lightValue = 0;
 unsigned char targetValue = 0;
-unsigned char up = 1;
+_Bool up = 1;
 
 unsigned char state = -1;
 unsigned char stateVal = 0;
  unsigned char lastState = -1;
- unsigned char dayTime = 0;
+_Bool dayTime = 0;
 
- unsigned char led0State = 0;
+_Bool led0State = 0;
  unsigned char buffer0 = 0;
-unsigned char button0State = 0;
-unsigned char lastButton0State = 0;
+_Bool button0State = 0;
+_Bool lastButton0State = 0;
 
 
 
@@ -774,7 +774,7 @@ void task100ms(){
     if(switching == 1){
       
       if(up == 1){
-        short int val = lightValue + vect[cntVal] * targetValue;
+        short int val = lightValue + (vect[cntVal] * targetValue)/100;
         if(val < 0)
           val = 0;
         else
@@ -783,7 +783,7 @@ void task100ms(){
         setPwmDc(val);
       }
       else{
-        short int val = lightValue - vect[cntVal] * targetValue;
+        short int val = lightValue - (vect[cntVal] * targetValue)/100;
         if(val < 0)
           val = 0;
         else
