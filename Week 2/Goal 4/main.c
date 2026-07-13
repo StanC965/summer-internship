@@ -1,7 +1,4 @@
-//434
-//MAX=(1024*(255+1))/1M=0,262144s
-//MIN=(1*(0+1))/1M=0,000001 s= 1 us
-//Putem extinde timpul real maxim masurat prin folosirea unei variabile contor pe  are o incrementam la fiecare intrerupere
+//436
 #include "iom324.h"
 #include "led.h"
 #include "gpio.h"
@@ -14,7 +11,7 @@
 #define INPUT 0
 
 void timer0_init(void){
-  TCCR0A=0b01000010; //COM0A[1:0]=01, COM0B[1:0]- normal mode operation, 0x00 , WGM0[1:0]=10 -toggle OC0A on compare match
+  TCCR0A=0b00000010; //COM0A[1:0]=01, COM0B[1:0]- normal mode operation, 0x00 , WGM0[1:0]=10 -toggle OC0A on compare match
   OCR0A=194;
   TIMSK0=0b00000010; //Overflow Interrupt Enable
   TCCR0B=0b00000100; //prescale 256
@@ -32,7 +29,13 @@ void leds_init(void){
 
 #pragma vector=TIMER0_COMPA_vect
 __interrupt void timer0_compa_interrupt(void){
+  static unsigned char contor=0;
+  contor++;
+  if(contor==4){ //400ms/2=200ms schimbam starea, 200ms/50ms=4, contorul trebuie sa fie 4
     Toggle_LED(&PORTC,LED0_PIN);
+    Toggle_LED(&PORTB,OC0A_PIN);
+    contor=0;
+  }
 
 }
 void main( void )
