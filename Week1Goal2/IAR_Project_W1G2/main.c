@@ -8,7 +8,6 @@ void main( void )
   BUTTON_Init();
 
   unsigned char button_state;
-  unsigned char pressed = 0;
   
   while(1){
     

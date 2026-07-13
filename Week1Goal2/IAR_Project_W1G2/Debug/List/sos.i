@@ -668,6 +668,115 @@ extern void BlinkSlow_LED(led_uint8_t led);
 
 
 
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+ 
+typedef unsigned char button_uint8_t;
+
+ 
+
+ 
+
+ 
+
+ 
+                
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+extern void BUTTON_Init(void);
+
+
+
+
+
+
+
+
+ 
+extern void button_enable_pullup(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+ 
+extern unsigned char button_read_state(button_uint8_t button);
+
+
+
+
+ 
+
+
+
+
  
 
 

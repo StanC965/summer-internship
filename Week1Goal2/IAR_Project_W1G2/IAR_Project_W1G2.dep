@@ -133,7 +133,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 31 15 10 24 16 19 11</file>
+                    <file> 31 15 10 24 16 19 11 28</file>
                 </tool>
             </inputs>
         </file>

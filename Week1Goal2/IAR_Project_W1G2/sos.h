@@ -18,6 +18,7 @@
 
 #include "Utils/utils.h"
 #include "Modules/led.h"
+#include "Modules/button.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
