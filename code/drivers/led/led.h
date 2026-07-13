@@ -86,4 +86,17 @@ extern void led_blink_fast(led_id_t led_id);
 */
 extern void led_blink_slow(led_id_t led_id);
 
+/** \fn     void led_blink_custom(led_id_t led_id, uint8_t count, uint32_t on_time, uint32_t off_time)
+
+    \brief      [ Blinks the specified LED with custom timing. ]
+    \param[in]  led_id [ the LED identifier ]
+    \param[in]  count [ the number of blinks ]
+    \param[in]  on_time [ the duration the LED is on (in milliseconds) ]
+    \param[in]  off_time [ the duration the LED is off (in milliseconds) ]
+    \param[out] [ None ]
+    \return     [ None ]
+    \details    [ This function turns the LED on and off repetitively with custom timing. ]
+*/
+extern void led_blink_custom(led_id_t led_id, uint8_t count, uint32_t on_time, uint32_t off_time);
+
 #endif /* LED_H */

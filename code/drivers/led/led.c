@@ -83,4 +83,16 @@ void led_blink_slow(led_id_t led_id){
     }
 }  
 
+void led_blink_custom(led_id_t led_id, uint8_t times, uint32_t on_time, uint32_t off_time){
+    if(led_id < LED_COUNT){
+        for(uint8_t i = 0; i < times; i++){
+            led_power_on(led_id);
+            delay(on_time);
+
+            led_power_off(led_id);
+            delay(off_time);
+        }
+    }
+}
+
 #endif /* LED_C */
