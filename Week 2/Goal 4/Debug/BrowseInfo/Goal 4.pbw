@@ -75884,13 +75884,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@252@macro@OC0A_PIN",
+    "ID": "c:main.c@297@macro@OC0A_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OC0A_PIN",
     "location": {
       "column": "9",
-      "line": "9",
+      "line": "10",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "OC0A_PIN",
@@ -75898,13 +75898,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@303@macro@LED0_PIN",
+    "ID": "c:main.c@348@macro@LED0_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED0_PIN",
     "location": {
       "column": "9",
-      "line": "10",
+      "line": "11",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "LED0_PIN",
@@ -75912,13 +75912,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@329@macro@SW0_PIN",
+    "ID": "c:main.c@374@macro@SW0_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SW0_PIN",
     "location": {
       "column": "9",
-      "line": "11",
+      "line": "12",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "SW0_PIN",
@@ -75926,13 +75926,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@354@macro@OUTPUT",
+    "ID": "c:main.c@399@macro@OUTPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OUTPUT",
     "location": {
       "column": "9",
-      "line": "12",
+      "line": "13",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "OUTPUT",
@@ -75940,13 +75940,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@372@macro@INPUT",
+    "ID": "c:main.c@417@macro@INPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "INPUT",
     "location": {
       "column": "9",
-      "line": "13",
+      "line": "14",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "INPUT",
@@ -75960,7 +75960,7 @@
     "display": "void timer0_init(void)",
     "location": {
       "column": "6",
-      "line": "15",
+      "line": "16",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "timer0_init",
@@ -75974,7 +75974,7 @@
     "display": "void leds_init(void)",
     "location": {
       "column": "6",
-      "line": "23",
+      "line": "24",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "leds_init",
@@ -75988,7 +75988,7 @@
     "display": "void timer0_compa_interrupt(void)",
     "location": {
       "column": "18",
-      "line": "33",
+      "line": "34",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "timer0_compa_interrupt",
@@ -76002,7 +76002,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "37",
+      "line": "38",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 4\\main.c"
     },
     "name": "main",

@@ -1,6 +1,7 @@
-//433
-// 100ms/2=50ms
-// 50ms= prescaler*(OCR0A+1)/1M, cea mai buna varianta e prescaler=256 si OCR0A=50000/256 -1=194.31 (impartita la 2 este aprox 100ms)
+//434
+//MAX=(1024*(255+1))/1M=0,262144s
+//MIN=(1*(0+1))/1M=0,000001 s= 1 us
+//Putem extinde timpul real maxim masurat prin folosirea unei variabile contor pe  are o incrementam la fiecare intrerupere
 #include "iom324.h"
 #include "led.h"
 #include "gpio.h"
