@@ -1,0 +1,17 @@
+Table 4-2 I/O1 Xplained Pro Extension Header
+
+Pin on EXT        Function           Description
+1                 ID                 Communication line to ID chip
+2                 GND                Ground
+3                 LIGHTSENSOR        Light sensor output (ADC)
+
+
+Table 4-3. Extension Header EXT4
+
+EXT4 pin         ATmega324PB pin    Function            Shared functionality
+1 [ID]           -                  -                   Communication line to the ID chip on an extension board
+2 [GND]          -                  -                   Ground
+3 [ADC(+)]       PA4                ADC4
+
+=>
+Microcontroller Pin: PA4, connected via EXT4 Pin 3
