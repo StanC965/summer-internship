@@ -504,6 +504,18 @@ extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpi
 
 
 
+
+
+
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_reg, gpio_uint8_t pin);
+
+
+
+
  
 
 

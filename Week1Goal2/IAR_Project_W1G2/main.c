@@ -13,7 +13,7 @@ void main( void )
   
   while(1){
     
-    button_state = PINC_PINC6;
+    button_state = gpio_read_pin(&PINC,6);
     if(button_state == 0){
       PowerOn_LED(LED0);
     }else{

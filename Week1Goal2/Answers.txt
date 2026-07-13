@@ -29,3 +29,5 @@ while main.c contains the application logic. This separation makes the code easi
 
 244 - CORE - Answer: The role of the include guards (#ifndef, #define, #endif) is to prevent a header file from being included multiple times during preprocessing. When gpio.h is included only once, the generated .i file is the same regardless of whether guards are present.
 When gpio.h is included twice, the guards ensure that the header contents appear only once in the .i file. Without guards, the header contents are duplicated, which can lead to compilation errors due to multiple definitions or redefinitions. 
+
+253 - CORE - Answer: In the gpio module I added a function to read a pin

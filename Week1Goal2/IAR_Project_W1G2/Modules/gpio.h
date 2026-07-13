@@ -76,4 +76,16 @@ extern void gpio_toggle_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 */
 extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8_t direction);
 
+/** \fn     gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_reg, gpio_uint8_t pin)
+
+    \brief      Reads the logic level of a GPIO pin.
+    \param[in]  pin_reg Pointer to the PIN register.
+    \param[in]  pin Pin number (0...7).
+    \param[out] None.
+    \return     Returns 0 if the pin is LOW or 1 if the pin is HIGH.
+    \details    Reads the state of the selected pin from the specified
+                PIN register without affecting the other pins.
+*/
+extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_reg, gpio_uint8_t pin);
+
 #endif

@@ -504,6 +504,18 @@ extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpi
 
 
 
+
+
+
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_reg, gpio_uint8_t pin);
+
+
+
+
  
 
 
@@ -656,7 +668,7 @@ void main( void )
   
   while(1){
     
-    button_state = PINC_PINC6;
+    button_state = gpio_read_pin(&PINC,6);
     if(button_state == 0){
       PowerOn_LED((0U));
     }else{

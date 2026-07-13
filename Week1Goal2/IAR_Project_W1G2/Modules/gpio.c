@@ -44,4 +44,8 @@ void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8
   direction ? (*ddr |= (1 << pin)) : (*ddr &= ~(1 << pin));
 }
 
+gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_reg, gpio_uint8_t pin){
+  return ((*pin_reg & (1U << pin)) != 0U);
+}
+
 #endif
