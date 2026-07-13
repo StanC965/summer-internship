@@ -1,19 +1,16 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule632.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task632.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
 
 
 
-extern void task10ms();
+extern void initializePwm();
 
-extern void task50ms();
-extern void task100ms();
-extern void task500ms();
-extern void task1000ms();
+extern void startPwm(unsigned short int prescale);
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
+extern void pwmSetDutyCycle(unsigned char duty);
 
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
+extern void setPwmDc(unsigned char param);
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task632.c"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -579,118 +576,29 @@ extern void task1000ms();
 
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
+#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task632.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
 
 
 
+extern void scheduleTaskDispatcher(void);
 
-extern void setPin(volatile unsigned char* port,unsigned char pin);
-
-extern void resetPin(volatile unsigned char* port,unsigned char pin);
-
-extern void setDirection(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
-
-extern void togglePin(volatile unsigned char* reg, unsigned char pin);
-extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
-
-
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
-
-extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
-extern void ledPowerOn(unsigned char led);
-
-extern void ledPowerOff(unsigned char led);
-
-extern void ledBlinkSlow(unsigned char led);
-extern void ledBlinkFast(unsigned char led);
-#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
+extern void schedulerFlasgsManagement(void);
 
 
 
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task632.c"
 
-
-
-
-
-
-
-
-_Bool flag10ms = 0;
-_Bool flag50ms = 0;
-_Bool flag100ms = 0;
-_Bool flag500ms = 0;
-_Bool flag1000ms = 0;
-void programInit(){
-  TCNT1 = 0;
-  OCR1A = 9999;
-  
-    
-  
-  
-  setPin(&TCCR1B,3);
-  setPin(&TIMSK1,1);
-  setPin(&TCCR1B,1);
-  
-
+#pragma vector = (0x34)
+__interrupt void myInterrupt(void){
+  schedulerFlasgsManagement();
 }
 
-void scheduleTaskDispatcher(void){
-  programInit();
- while(1){
-    if(flag10ms){
-      flag10ms = 0;
-      task10ms();
-      
-      
-    }
-    if(flag50ms){
-      flag50ms = 0;
-      task50ms();
-    }
-    if(flag100ms){
-      flag100ms = 0;
-      task100ms();
-    }
-    if(flag500ms){
-      flag500ms = 0;
-      task500ms();
-    }
-    if(flag1000ms){
-      flag1000ms = 0;
-      task1000ms();
-    }
-  }
+void main( void )
+{
+  initializePwm();
+  startPwm(1);
+  setPwmDc(0);
+  SREG |= 1<<7;
+  scheduleTaskDispatcher();
 }
-
-void schedulerFlasgsManagement(void){
-  static unsigned char cnt50 = 0;
-  static unsigned char cnt100 = 0;
-  static unsigned short int cnt500 = 0;
-  static unsigned short int cnt1000 = 0;
-  flag10ms = 1;
-  cnt50++;
-  cnt100++;
-  cnt500++;
-  cnt1000++;
-  if(cnt50 == 5){
-    cnt50 = 0;
-    flag50ms = 1;
-    
-  }
-   if(cnt100 == 10){
-    cnt100 = 0;
-    flag100ms = 1;
-  }
-  if(cnt500 ==50){
-    cnt500 = 0;
-    flag500ms = 1;
-  }
-  
-  if(cnt1000 == 100){
-    cnt1000 = 0;
-    flag1000ms = 1;
-  }
-}
-
-
-

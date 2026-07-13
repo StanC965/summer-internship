@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>4139364551</fileChecksum>
+    <fileChecksum>2421670210</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -10,14 +10,24 @@
             <file>$PROJ_DIR$\Debug\Obj\scheduleCFG531.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\pwm.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduleCFG631.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\schedule632.r90</file>
             <file>$PROJ_DIR$\led.c</file>
             <file>$PROJ_DIR$\gpio.h</file>
             <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\task632.c</file>
+            <file>$PROJ_DIR$\schedule632.h</file>
+            <file>$PROJ_DIR$\scheduleCFG631.h</file>
+            <file>$PROJ_DIR$\scheduleCFG631.c</file>
             <file>$PROJ_DIR$\scheduleCFG531.c</file>
             <file>$PROJ_DIR$\scheduleCFG531.h</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\scheduleCFG.h</file>
             <file>$PROJ_DIR$\pwm.c</file>
+            <file>$PROJ_DIR$\schedule632.c</file>
+            <file>$PROJ_DIR$\Debug\List\task632.i</file>
+            <file>$PROJ_DIR$\Debug\List\scheduleCFG631.i</file>
+            <file>$PROJ_DIR$\Debug\List\schedule632.i</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$PROJ_DIR$\Debug\List\Objective3.map</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
@@ -36,6 +46,7 @@
             <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
             <file>$PROJ_DIR$\Debug\List\scheduleCFG531.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\task632.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
         </outputs>
         <file>
@@ -57,26 +68,56 @@
             </outputs>
         </file>
         <file>
+            <name>$PROJ_DIR$\task632.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20 41</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 30 32 33 36 27</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 18 14</file>
+                    <file> 28 24</file>
                 </tool>
             </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduleCFG631.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 21 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 30 37 8 32 33 36</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\scheduleCFG531.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 30 2</file>
+                    <file> 40 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 20 27 6 22 23 26</file>
+                    <file> 30 37 8 32 33 36</file>
                 </tool>
             </inputs>
         </file>
@@ -85,13 +126,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 28 31</file>
+                    <file> 38 42</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 20 22 23 26 17</file>
+                    <file> 30 32 33 36 27</file>
                 </tool>
             </inputs>
         </file>
@@ -105,17 +146,32 @@
             </outputs>
         </file>
         <file>
+            <name>$PROJ_DIR$\schedule632.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 6</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 30 37 8 32 33 36</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
             <name>$PROJ_DIR$\Debug\Exe\Objective3.d90</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 14</file>
+                    <file> 24</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 13 16 3 1 31 4 2 0 15</file>
+                    <file> 23 26 3 1 4 6 0 41 25</file>
                 </tool>
             </inputs>
         </file>
@@ -124,13 +180,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 29 0</file>
+                    <file> 39 0</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 9 27 6 22 23 26</file>
+                    <file> 11 37 8 32 33 36</file>
                 </tool>
             </inputs>
         </file>

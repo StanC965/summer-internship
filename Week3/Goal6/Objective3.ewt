@@ -2657,15 +2657,24 @@
         <name>$PROJ_DIR$\pwm.h</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\scheduleCFG531.c</name>
+        <name>$PROJ_DIR$\schedule632.c</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\scheduleCFG531.h</name>
+        <name>$PROJ_DIR$\schedule632.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduleCFG631.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduleCFG631.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\scheduler.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\scheduler.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task632.c</name>
     </file>
 </project>

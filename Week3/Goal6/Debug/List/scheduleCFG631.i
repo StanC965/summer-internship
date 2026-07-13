@@ -1,17 +1,16 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule632.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG631.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
 
 
 
-extern void task10ms();
+extern void initializePwm();
 
-extern void task50ms();
-extern void task100ms();
-extern void task500ms();
-extern void task1000ms();
+extern void startPwm(unsigned short int prescale);
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
+extern void pwmSetDutyCycle(unsigned char duty);
 
+extern void setPwmDc(unsigned char param);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG631.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
@@ -603,7 +602,7 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG631.c"
 
 
 
@@ -613,84 +612,67 @@ extern void ledBlinkFast(unsigned char led);
 
 
 
+unsigned char cnt = 0;
+unsigned char mainCnt = 0;
 
-
-_Bool flag10ms = 0;
-_Bool flag50ms = 0;
-_Bool flag100ms = 0;
-_Bool flag500ms = 0;
-_Bool flag1000ms = 0;
-void programInit(){
-  TCNT1 = 0;
-  OCR1A = 9999;
-  
+void task10ms(){
     
-  
-  
-  setPin(&TCCR1B,3);
-  setPin(&TIMSK1,1);
-  setPin(&TCCR1B,1);
-  
-
 }
-
-void scheduleTaskDispatcher(void){
-  programInit();
- while(1){
-    if(flag10ms){
-      flag10ms = 0;
-      task10ms();
       
+void task50ms(){
+ 
+
+}
+      
+void task100ms(){
+  
+  if(mainCnt >= 0 && mainCnt < 2){
+      cnt+= 5;
+      setPwmDc(cnt);
+  }
+  else
+    if(mainCnt >= 7 && mainCnt < 9){
+      cnt -= 5;
+      setPwmDc(cnt);
+    }
+  
+  
+}
+      
+void task500ms(){
+
+}
+
+void task1000ms(){
+  if(mainCnt == 2){
+    setPwmDc(cnt);
+   
+  }
+  else 
+    if(mainCnt == 3){
+      setPwmDc(0);
       
     }
-    if(flag50ms){
-      flag50ms = 0;
-      task50ms();
-    }
-    if(flag100ms){
-      flag100ms = 0;
-      task100ms();
-    }
-    if(flag500ms){
-      flag500ms = 0;
-      task500ms();
-    }
-    if(flag1000ms){
-      flag1000ms = 0;
-      task1000ms();
-    }
-  }
+    else        
+      if(mainCnt == 4){
+        setPwmDc(cnt);
+       
+      }
+      else
+        if(mainCnt == 5){
+          setPwmDc(0);
+          
+        }
+        else
+          if(mainCnt == 6){
+           setPwmDc(cnt);
+            
+          }
+        else
+          if(mainCnt >= 9 && mainCnt <12){
+            setPwmDc(0);}
+        
+  mainCnt = (mainCnt + 1)%12;
 }
-
-void schedulerFlasgsManagement(void){
-  static unsigned char cnt50 = 0;
-  static unsigned char cnt100 = 0;
-  static unsigned short int cnt500 = 0;
-  static unsigned short int cnt1000 = 0;
-  flag10ms = 1;
-  cnt50++;
-  cnt100++;
-  cnt500++;
-  cnt1000++;
-  if(cnt50 == 5){
-    cnt50 = 0;
-    flag50ms = 1;
-    
-  }
-   if(cnt100 == 10){
-    cnt100 = 0;
-    flag100ms = 1;
-  }
-  if(cnt500 ==50){
-    cnt500 = 0;
-    flag500ms = 1;
-  }
-  
-  if(cnt1000 == 100){
-    cnt1000 = 0;
-    flag1000ms = 1;
-  }
-}
-
 
 
