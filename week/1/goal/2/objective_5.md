@@ -6,11 +6,12 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type   | Status
-| :---      | :---   | :--- 
-| **[251]** | `CORE` | [x] Completed 
-| **[252]** | `CORE` | [x] Completed 
-| **[253]** | `CORE` | [x] Completed 
+| Task ID   | Type      | Status
+| :---      | :---      | :--- 
+| **[251]** | `CORE`    | [x] Completed 
+| **[252]** | `CORE`    | [x] Completed 
+| **[253]** | `CORE`    | [x] Completed 
+| **[254]** | `STRETCH` | [x] Completed 
 
 ---
 
