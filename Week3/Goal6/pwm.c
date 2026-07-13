@@ -18,6 +18,8 @@
 #define duty50 127
 #define duty75 64
 #define duty100 0 
+
+#define top 255
 void initializePwm(){
     ledInit(&DDRB,&PORTB,PB3);
     setPin(&TCCR0A,COM0A1); 
@@ -100,5 +102,12 @@ void pwmSetDutyCycle(unsigned char duty)
     }
 }
 
+
+void setPwmDc(unsigned char param){
+  if(param <=100){
+    OCR0A = (top * param)/100;
+  }
+
+}
 
 #endif

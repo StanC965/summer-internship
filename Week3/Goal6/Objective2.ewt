@@ -2668,4 +2668,7 @@
     <file>
         <name>$PROJ_DIR$\scheduler.h</name>
     </file>
+    <file>
+        <name>$PROJ_DIR$\task624.c</name>
+    </file>
 </project>

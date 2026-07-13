@@ -1,4 +1,4 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task624.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
 
 
@@ -9,9 +9,7 @@ extern void startPwm(unsigned short int prescale);
 
 extern void pwmSetDutyCycle(unsigned char duty);
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task624.c"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
 
@@ -577,58 +575,30 @@ extern void pwmSetDutyCycle(unsigned char duty);
 
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
+#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task624.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
 
 
 
+extern void scheduleTaskDispatcher(void);
 
-extern void setPin(volatile unsigned char* port,unsigned char pin);
-
-extern void resetPin(volatile unsigned char* port,unsigned char pin);
-
-extern void setDirection(volatile unsigned char* ddr, unsigned char pin,_Bool dir);
-
-extern void togglePin(volatile unsigned char* reg, unsigned char pin);
-extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
-
-
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
-
-extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
-extern void ledPowerOn(unsigned char led);
-
-extern void ledPowerOff(unsigned char led);
-
-extern void ledBlinkSlow(unsigned char led);
-extern void ledBlinkFast(unsigned char led);
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.c"
+extern void schedulerFlasgsManagement(void);
 
 
 
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\task624.c"
 
-
-
-unsigned char cnt = 0;
-
-void task10ms(){
-    pwmSetDutyCycle(cnt*25);
-    cnt = (cnt + 1)%4;
-    
-}
-      
-void task50ms(){
- 
-
-}
-      
-void task100ms(){
-}
-      
-void task500ms(){
-
+#pragma vector = (0x34)
+__interrupt void myInterrupt(void){
+  schedulerFlasgsManagement();
 }
 
-void task1000ms(){
-
+void main( void )
+{
+  initializePwm();
+  startPwm(1);
+  SREG |= 1<<7;
+  scheduleTaskDispatcher();
+  
+  
 }
-
