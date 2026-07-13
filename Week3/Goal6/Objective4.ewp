@@ -2123,6 +2123,9 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
     <file>
         <name>$PROJ_DIR$\pwm.c</name>
@@ -2141,5 +2144,8 @@
     </file>
     <file>
         <name>$PROJ_DIR$\scheduler.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\task656.c</name>
     </file>
 </project>
