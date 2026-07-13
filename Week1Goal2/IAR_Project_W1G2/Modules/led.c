@@ -21,7 +21,20 @@
     Static private objects
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-/* None */
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  
+} led_config_t;
+
+static const led_config_t led_table[] =
+{
+    { &PORTC, 7 },
+    { &PORTD, 5 },
+    { &PORTD, 4 },
+    { &PORTA, 3 }
+};
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private function declarations
@@ -47,65 +60,20 @@ void LED_Init(void){
 }
 
 void PowerOn_LED(led_uint8_t led){
-  switch (led){
-    case LED0:
-      gpio_reset_pin(&PORTC, 7);
-      break;
-
-    case LED1:
-      gpio_reset_pin(&PORTD, 5);
-      break;
-
-    case LED2:
-      gpio_reset_pin(&PORTD, 4);
-      break;
-
-    case LED3:
-      gpio_reset_pin(&PORTA, 3);
-      break;
+  if(led < NUMBER_OF_LEDS){
+    gpio_reset_pin(led_table[led].port, led_table[led].pin);
   }
 }
 
 void PowerOff_LED(led_uint8_t led){
-  switch (led){
-    case LED0:
-      gpio_set_pin(&PORTC, 7);
-      break;
-
-    case LED1:
-      gpio_set_pin(&PORTD, 5);
-      break;
-
-    case LED2:
-      gpio_set_pin(&PORTD, 4);
-      break;
-
-    case LED3:
-      gpio_set_pin(&PORTA, 3);
-      break;
+  if(led < NUMBER_OF_LEDS){
+    gpio_set_pin(led_table[led].port, led_table[led].pin);
   }
 }
 
 void Toggle_LED(gpio_uint8_t led){
-  switch (led){
-    case LED0:
-      gpio_toggle_pin(&PORTC, 7);
-      break;
-
-    case LED1:
-      gpio_toggle_pin(&PORTD, 5);
-      break;
-
-    case LED2:
-      gpio_toggle_pin(&PORTD, 4);
-      break;
-
-    case LED3:
-      gpio_toggle_pin(&PORTA, 3);
-      break;
-
-    default:
-      break;
+  if(led < NUMBER_OF_LEDS){
+    gpio_toggle_pin(led_table[led].port, led_table[led].pin);
   }
 }
 #endif

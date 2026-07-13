@@ -2104,21 +2104,27 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\gpio.c</name>
+        <name>$PROJ_DIR$\Modules\gpio.c</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\gpio.h</name>
+        <name>$PROJ_DIR$\Modules\gpio.h</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\led.c</name>
+        <name>$PROJ_DIR$\Modules\led.c</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\led.h</name>
+        <name>$PROJ_DIR$\Modules\led.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\main.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Utils\utils.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Utils\utils.h</name>
     </file>
 </project>

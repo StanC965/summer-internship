@@ -36,6 +36,9 @@ typedef unsigned char led_uint8_t;
 
 /** \brief LED3 identifier */
 #define LED3    (3U)
+                
+/** \brief Total number of leds */
+#define NUMBER_OF_LEDS  (4U)
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions

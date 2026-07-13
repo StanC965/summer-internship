@@ -1,18 +1,18 @@
 
 
 
-
  
 
 
 
 
 
-
  
 
 
+
  
+
 
 
 
@@ -516,8 +516,6 @@ typedef unsigned char led_uint8_t;
  
 
  
-                
- 
 
 
 
@@ -574,14 +572,6 @@ extern void Toggle_LED(led_uint8_t led);
 
  
 
-
-
-
-
-
- 
-
-
  
 
 
@@ -594,56 +584,78 @@ extern void Toggle_LED(led_uint8_t led);
 
  
 
+void LED_Init(void){
+  gpio_set_direction(&DDRC, 7, (1U));
+  gpio_set_direction(&DDRD, 5, (1U));
+  gpio_set_direction(&DDRD, 4, (1U));
+  gpio_set_direction(&DDRA, 3, (1U));
 
+   
+  PowerOff_LED((0U));
+  PowerOff_LED((1U));
+  PowerOff_LED((2U));
+  PowerOff_LED((3U));
+}
 
+void PowerOn_LED(led_uint8_t led){
+  switch (led){
+    case (0U):
+      gpio_reset_pin(&PORTC, 7);
+      break;
 
+    case (1U):
+      gpio_reset_pin(&PORTD, 5);
+      break;
 
+    case (2U):
+      gpio_reset_pin(&PORTD, 4);
+      break;
 
+    case (3U):
+      gpio_reset_pin(&PORTA, 3);
+      break;
+  }
+}
 
+void PowerOff_LED(led_uint8_t led){
+  switch (led){
+    case (0U):
+      gpio_set_pin(&PORTC, 7);
+      break;
 
- 
-extern void delay(unsigned long count);
+    case (1U):
+      gpio_set_pin(&PORTD, 5);
+      break;
 
+    case (2U):
+      gpio_set_pin(&PORTD, 4);
+      break;
 
+    case (3U):
+      gpio_set_pin(&PORTA, 3);
+      break;
+  }
+}
 
+void Toggle_LED(gpio_uint8_t led){
+  switch (led){
+    case (0U):
+      gpio_toggle_pin(&PORTC, 7);
+      break;
 
- 
+    case (1U):
+      gpio_toggle_pin(&PORTD, 5);
+      break;
 
- 
+    case (2U):
+      gpio_toggle_pin(&PORTD, 4);
+      break;
 
+    case (3U):
+      gpio_toggle_pin(&PORTA, 3);
+      break;
 
-
- 
-
-
-
-void main( void )
-{
-  LED_Init();
-  
-  while(1){
-    
-    Toggle_LED((0U));
-    
-    PowerOff_LED((1U));
-    PowerOff_LED((2U));
-    PowerOff_LED((3U));
-    delay((100000L));
-    
-    PowerOn_LED((1U));
-    PowerOn_LED((2U));
-    PowerOff_LED((3U));
-    delay((100000L));
-
-    PowerOff_LED((1U));
-    PowerOn_LED((2U));
-    PowerOn_LED((3U));
-    delay((100000L));
-    
-    PowerOn_LED((1U));
-    PowerOff_LED((2U));
-    PowerOn_LED((3U));
-    delay((100000L));
-
+    default:
+      break;
   }
 }

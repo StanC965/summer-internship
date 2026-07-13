@@ -516,6 +516,8 @@ typedef unsigned char led_uint8_t;
  
 
  
+                
+ 
 
 
 
@@ -572,7 +574,20 @@ extern void Toggle_LED(led_uint8_t led);
 
  
 
- 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  
+} led_config_t;
+
+static const led_config_t led_table[] =
+{
+    { &PORTC, 7 },
+    { &PORTD, 5 },
+    { &PORTD, 4 },
+    { &PORTA, 3 }
+};
 
 
 
@@ -598,64 +613,19 @@ void LED_Init(void){
 }
 
 void PowerOn_LED(led_uint8_t led){
-  switch (led){
-    case (0U):
-      gpio_reset_pin(&PORTC, 7);
-      break;
-
-    case (1U):
-      gpio_reset_pin(&PORTD, 5);
-      break;
-
-    case (2U):
-      gpio_reset_pin(&PORTD, 4);
-      break;
-
-    case (3U):
-      gpio_reset_pin(&PORTA, 3);
-      break;
+  if(led < (4U)){
+    gpio_reset_pin(led_table[led].port, led_table[led].pin);
   }
 }
 
 void PowerOff_LED(led_uint8_t led){
-  switch (led){
-    case (0U):
-      gpio_set_pin(&PORTC, 7);
-      break;
-
-    case (1U):
-      gpio_set_pin(&PORTD, 5);
-      break;
-
-    case (2U):
-      gpio_set_pin(&PORTD, 4);
-      break;
-
-    case (3U):
-      gpio_set_pin(&PORTA, 3);
-      break;
+  if(led < (4U)){
+    gpio_set_pin(led_table[led].port, led_table[led].pin);
   }
 }
 
 void Toggle_LED(gpio_uint8_t led){
-  switch (led){
-    case (0U):
-      gpio_toggle_pin(&PORTC, 7);
-      break;
-
-    case (1U):
-      gpio_toggle_pin(&PORTD, 5);
-      break;
-
-    case (2U):
-      gpio_toggle_pin(&PORTD, 4);
-      break;
-
-    case (3U):
-      gpio_toggle_pin(&PORTA, 3);
-      break;
-
-    default:
-      break;
+  if(led < (4U)){
+    gpio_toggle_pin(led_table[led].port, led_table[led].pin);
   }
 }
