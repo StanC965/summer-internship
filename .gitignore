@@ -71,3 +71,16 @@ __pycache__/
 # Microsoft Office temporary lock files
 ~$*
 
+# IAR Embedded Workbench build artifacts
+*.pbi
+*.pbd
+*.pbd.browse
+*.pbw
+*.dbgdt
+*.dni
+Debug/
+Release/
+settings/
+*.dep
+.ninja_log
+*.builtins.log
