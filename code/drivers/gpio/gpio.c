@@ -26,7 +26,7 @@ void gpio_toggle_pin(volatile uint8_t *port_register, uint8_t pin){
 }
   
 uint8_t gpio_read_pin(volatile uint8_t *pin_register, uint8_t pin){
-  return (*pin_register & (1 << pin));
+  return ((*pin_register & (1 << pin)) != 0);
 }
 
 #endif /* GPIO_C */

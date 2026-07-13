@@ -69,4 +69,16 @@ extern void gpio_toggle_pin(volatile uint8_t *port_register, uint8_t pin);
 */
 extern void gpio_set_direction(volatile uint8_t *ddr_register, uint8_t direction, uint8_t pin);
 
+/** \fn     uint8_t gpio_read_pin(volatile uint8_t *pin_register, uint8_t pin)
+
+    \brief      [ Reads the state of the specified pin of the given port. ]
+    \param[in]  pin_register [ pointer to the pin register (e.g., PINA, PINB, etc.) ]
+    \param[in]  pin [ the pin number, valid range: [ 0 .. 7 ] ]
+    \param[out] [ None ]
+    \return     [ The state of the pin (0 or 1) ]
+    \details    [ Reads the corresponding bit in the pin register by applying a mask 
+                 and checking if the result is non-zero. ]
+*/
+extern uint8_t gpio_read_pin(volatile uint8_t *pin_register, uint8_t pin);
+
 #endif /* GPIO_H */
