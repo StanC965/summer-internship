@@ -565,7 +565,224 @@
 
 
 #line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-int main( void )
+#line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+__intrinsic void __no_operation(void);
+__intrinsic void __enable_interrupt(void);
+__intrinsic void __disable_interrupt(void);
+__intrinsic void __sleep(void);
+__intrinsic void __watchdog_reset(void);
+
+
+#pragma language=save
+#pragma language=extended
+
+
+
+__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
+
+
+
+
+
+
+#pragma language=restore
+
+__intrinsic void __insert_opcode(unsigned short op);
+
+#line 59 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+
+__intrinsic void __require(void *);
+
+__intrinsic void __delay_cycles(unsigned long);
+
+__intrinsic unsigned char __save_interrupt(void);
+
+
+__intrinsic void          __restore_interrupt(unsigned char);
+
+typedef unsigned char __istate_t;
+
+__intrinsic unsigned char __swap_nibbles(unsigned char);
+
+__intrinsic void          __indirect_jump_to(unsigned long);
+
+
+
+
+__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __multiply_signed(signed char, signed char);
+__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
+
+__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
+__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
+
+
+#pragma language=save
+#pragma language=extended
+
+#line 264 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
+                                           unsigned char byte);
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
+                                          unsigned char byte);
+
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
+                                                    unsigned short word, 
+                                                    unsigned char byte);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
+                                                   unsigned char byte);
+
+
+
+
+
+
+
+
+#line 368 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+#line 394 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+#pragma language=restore
+
+
+
+
+ 
+#line 411 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+ 
+
+
+
+#line 423 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+#line 431 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+#line 439 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+#line 447 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+
+ 
+
+#line 468 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+
+#line 477 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
+
+
+
+
+
+
+
+
+#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+
+#pragma vector = (0x18)
+__interrupt void PinChangePortC_ISR(void)
 {
-  return 0;
+    if ( !(PINC & (1 << 6)) )  
+    {
+        
+    }
+}
+
+void setup(void)
+{
+    DDRC  &= ~(1 << 6); 
+    PORTC |=  (1 << 6); 
+    
+    PCICR |= (1 << 2);   
+    PCMSK2 |= (1 << 6); 
+    
+    __enable_interrupt(); 
+}
+
+int main(void)
+{
+    setup();
+    while(1)
+    {
+        
+    }
 }

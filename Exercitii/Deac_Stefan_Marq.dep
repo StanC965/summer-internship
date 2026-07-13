@@ -7,10 +7,13 @@
         <outputs>
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$PROJ_DIR$\Debug\Exe\Deac_Stefan_Marq.d90</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$PROJ_DIR$\Debug\List\Deac_Stefan_Marq.map</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
             <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$PROJ_DIR$\main.c</file>
         </outputs>
@@ -19,13 +22,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 4</file>
+                    <file> 5</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 2 0 5 3</file>
+                    <file> 3 0 7 4</file>
                 </tool>
             </inputs>
         </file>
@@ -34,16 +37,22 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 6 5</file>
+                    <file> 9 7</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 6 2 8</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 1 4</file>
+                    <file> 1 5</file>
                 </tool>
             </outputs>
         </file>
