@@ -34,6 +34,8 @@ typedef enum {
     \param[in]  [ None ]
     \param[out] [ None ]
     \return     [ None ]
+    \details    [ This function initializes the LED module by setting the pins in the port registers to high 
+                  and configuring the corresponding data direction registers as outputs. ]
 */
 extern void led_init(void);
 

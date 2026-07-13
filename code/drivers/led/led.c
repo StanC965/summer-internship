@@ -36,6 +36,7 @@ static const led_config_t led_table[LED_COUNT] = {
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void led_init(void){
     for(uint8_t i = 0; i < LED_COUNT; i++){
+        gpio_set_pin(led_table[i].port_register, led_table[i].pin);
         gpio_set_direction(led_table[i].ddr_register, GPIO_OUTPUT, led_table[i].pin);
     }
 }
