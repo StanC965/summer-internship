@@ -9,6 +9,7 @@
 | Task ID   | Type   | Status
 | :---      | :---   | :--- 
 | **[251]** | `CORE` | [x] Completed 
+| **[252]** | `CORE` | [x] Completed 
 
 ---
 
@@ -74,5 +75,29 @@ static const button_config_t button_table[BUTTON_COUNT] = {
 
 ---
 
+#### Task 252
+> **Question/Prompt:** Within main.c file combine the reading of a "pressed" SW0 button with turning ON the LED0. Congrats!
+
+> **Answer/Explanation:**
+
+```c
+  uint8_t button_pressed;
+  
+  while(1){
+    button_pressed = button_read(BUTTON_ONBOARD);
+    
+    if(!button_pressed){
+      // Button is pressed, turn on the onboard LED
+      led_power_on(LED_ONBOARD); 
+    }
+    else{
+      // Button is not pressed, turn off the onboard LED
+      led_power_off(LED_ONBOARD); 
+    }
+    
+  }
+```
+
+---
 ## References & Resources
 * ATmega324PB Xplained Pro user guide
