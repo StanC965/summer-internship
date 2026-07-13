@@ -50678,7 +50678,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@262@macro@SEMI_DARK",
+    "ID": "c:main.c@263@macro@SEMI_DARK",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SEMI_DARK",
@@ -50692,7 +50692,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@285@macro@SEMI_LIGHT",
+    "ID": "c:main.c@286@macro@SEMI_LIGHT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SEMI_LIGHT",
@@ -50706,7 +50706,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@309@macro@FULL_LIGHT",
+    "ID": "c:main.c@310@macro@FULL_LIGHT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "FULL_LIGHT",
@@ -50725,7 +50725,7 @@
     "defdec": "Def",
     "display": "lumina_ambientala",
     "location": {
-      "column": "24",
+      "column": "23",
       "line": "17",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
@@ -50748,13 +50748,41 @@
     "scope": null
   },
   {
+    "ID": "c:main.c@440@F@ADC_interrupt@lumina_low",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "lumina_low",
+    "location": {
+      "column": "17",
+      "line": "21",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "lumina_low",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@474@F@ADC_interrupt@lumina_high",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "lumina_high",
+    "location": {
+      "column": "17",
+      "line": "22",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
+    },
+    "name": "lumina_high",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@adc_init",
     "What": "Function",
     "defdec": "Def",
     "display": "void adc_init(void)",
     "location": {
       "column": "6",
-      "line": "25",
+      "line": "27",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "adc_init",
@@ -50768,7 +50796,7 @@
     "display": "void oled1_leds_init(void)",
     "location": {
       "column": "6",
-      "line": "34",
+      "line": "36",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "oled1_leds_init",
@@ -50779,10 +50807,10 @@
     "ID": "c:@F@turn_on_leds",
     "What": "Function",
     "defdec": "Def",
-    "display": "void turn_on_leds(unsigned char)",
+    "display": "void turn_on_leds(unsigned int)",
     "location": {
       "column": "6",
-      "line": "43",
+      "line": "45",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "turn_on_leds",
@@ -50796,7 +50824,7 @@
     "display": "void adc_start_conversion(void)",
     "location": {
       "column": "6",
-      "line": "66",
+      "line": "68",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "adc_start_conversion",
@@ -50804,13 +50832,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1902@F@adc_start_conversion@i",
+    "ID": "c:main.c@2001@F@adc_start_conversion@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "12",
-      "line": "68",
+      "line": "70",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "i",
@@ -50821,10 +50849,10 @@
     "ID": "c:@F@adc_get_result",
     "What": "Function",
     "defdec": "Def",
-    "display": "unsigned char adc_get_result(void)",
+    "display": "unsigned int adc_get_result(void)",
     "location": {
-      "column": "15",
-      "line": "73",
+      "column": "14",
+      "line": "75",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "adc_get_result",
@@ -50838,7 +50866,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "77",
+      "line": "79",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "main",
@@ -50846,13 +50874,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2157@F@main@i",
+    "ID": "c:main.c@2255@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "14",
-      "line": "83",
+      "line": "85",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "i",
@@ -50860,13 +50888,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2193@F@main@lumina",
+    "ID": "c:main.c@2291@F@main@lumina",
     "What": "Variable",
     "defdec": "Def",
     "display": "lumina",
     "location": {
-      "column": "19",
-      "line": "84",
+      "column": "18",
+      "line": "86",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 2\\Goal 3\\main.c"
     },
     "name": "lumina",
