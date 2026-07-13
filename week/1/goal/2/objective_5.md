@@ -10,6 +10,7 @@
 | :---      | :---   | :--- 
 | **[251]** | `CORE` | [x] Completed 
 | **[252]** | `CORE` | [x] Completed 
+| **[253]** | `CORE` | [x] Completed 
 
 ---
 
@@ -99,5 +100,21 @@ static const button_config_t button_table[BUTTON_COUNT] = {
 ```
 
 ---
+
+#### Task 253
+> **Question/Prompt:** The GPIO module should be developed further. So add/modify the GPIO module according to the new button functionality. What variables and/or functions should be changed or added? Remember the point where we started in the modular programming. Observe one of the advantages of modular programming, that the code interventions are punctual in the modules affected by the newly added button functionality (LED module is not affected).
+
+> **Answer/Explanation:**
+> I added a new function in the gpio module called `gpio_read_pin` to be able to implement the `button_read` function.
+> 
+> Additionaly, I hava created the button module, which implements:
+> - the `button_init` function
+> - the `button_enable_pullup` function
+> - the `button_read` function
+
+> I integrated the button functions in the main file, alongside the led functions, to light up a led when the button is pressed.
+
+---
+
 ## References & Resources
 * ATmega324PB Xplained Pro user guide
