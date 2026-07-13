@@ -7,17 +7,17 @@ __interrupt void buton_apasat(void)
     btn0 ^=1;
   }
   if(PINC_PINC1==0){
-  btn1 ^=1;
+    btn0 ? (state=1) : (btn1^=1);
   }
 }
 
 __interrupt void Button3(void)
 {
   if(PINA_PINA1==0){
-    btn3 ^= 1;
+   btn0 ? (state=1) : (btn3^=1);
   }
   if(PINA_PINA0==0){
-  btn2 ^= 1;
+   btn0 ? (state=1) : (btn2^=1);
   }
   
 }
@@ -84,10 +84,8 @@ void SosStop(){
 void ButtonPlay(){
   if(btn0){
     led0_set_state(ON);
-    LedOff(&PORTD,PIN4);
-    LedOff(&PORTD,PIN5);
-    LedOff(&PORTA,PIN3);
-    btn1=btn2=btn3=0;
+    if(state) {LedBlinkFast(&PORTC,PIN7);state=0;}
+    
   }
   else{
     led0_set_state(OFF);
