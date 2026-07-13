@@ -647,7 +647,7 @@ extern void BlinkSlow_LED(led_uint8_t led);
 
 void main( void )
 {
-  
+  LED_Init();
   
   unsigned char button_state;
   
@@ -657,6 +657,11 @@ void main( void )
   while(1){
     
     button_state = PINC_PINC6;
+    if(button_state == 0){
+      PowerOn_LED((0U));
+    }else{
+      PowerOff_LED((0U));
+    }
     
     
     

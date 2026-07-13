@@ -1,10 +1,10 @@
-// 251 - CORE
+// 252 - CORE
 #include "main.h"
 
 
 void main( void )
 {
-  //LED_Init();
+  LED_Init();
   
   unsigned char button_state;
   
@@ -14,6 +14,11 @@ void main( void )
   while(1){
     
     button_state = PINC_PINC6;
+    if(button_state == 0){
+      PowerOn_LED(LED0);
+    }else{
+      PowerOff_LED(LED0);
+    }
     //Toggle_LED(LED0);
     //BlinkFast_LED(LED0);
     /*
