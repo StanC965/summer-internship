@@ -12,6 +12,7 @@
 | **[252]** | `CORE`    | [x] Completed 
 | **[253]** | `CORE`    | [x] Completed 
 | **[254]** | `STRETCH` | [x] Completed 
+| **[255]** | `CORE`    | [x] Completed 
 
 ---
 
@@ -114,6 +115,41 @@ static const button_config_t button_table[BUTTON_COUNT] = {
 > - the `button_read` function
 
 > I integrated the button functions in the main file, alongside the led functions, to light up a led when the button is pressed.
+
+---
+
+#### Task 255
+> **Question/Prompt:** Introduce a debounce for the button you read to filter the noise in the signal when pressed or released.
+
+> **Answer/Explanation:**
+> When a button is presses or released, the metal contacts don't close perfectly in one motion, and that makes them bounce against each other for a few miliseconds. This makes the microcontroller think the button is being pressed and release a dozens of times in a microsecond.
+>
+> To filter out this noise, a debounce mechanism is introduced. A simple method of software debouncing uses time delays.
+
+```c
+  while(1){
+    button_pressed = button_read(BUTTON_ONBOARD);
+    
+    if(!button_pressed){
+      // delay of 10 miliseconds
+      delay((SECOND / 1000) * 10);
+      button_pressed = button_read(BUTTON_ONBOARD);
+      
+      if(!button_pressed){
+        led_power_on(LED_ONBOARD);
+        // delay of 10 miliseconds
+        delay((SECOND / 1000) * 10));
+      }
+
+    }
+
+    else{
+      led_power_off(LED_ONBOARD); 
+
+    }
+    
+  }
+```
 
 ---
 
