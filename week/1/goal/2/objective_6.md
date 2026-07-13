@@ -9,6 +9,7 @@
 | Task ID   | Type      | Status
 | :---      | :---      | :--- 
 | **[261]** | `CORE`    | [x] Completed 
+| **[262]** | `CORE`    | [x] Completed 
 
 ---
 
@@ -64,6 +65,36 @@ void led_blink_custom(led_id_t led_id, uint8_t times, uint32_t on_time, uint32_t
         }
     }
 }
+```
+
+---
+
+#### Task 262
+> **Question/Prompt:**  Code to launch the SOS signaling at the press of the SW0 button. The complete SOS sequence runs indefinitely with a 1 second break between the smaller sequences (see graph).
+
+> **Answer/Explanation:**
+> I modified the code in main and reintroduced the logic for button press, but this time when the button is pressed the sos sequence starts playing, and between each full sos sequence there is a 1 second time delay.
+
+```c
+ uint8_t button_pressed;
+  
+  while(1){
+    button_pressed = button_read(BUTTON_ONBOARD);
+    
+    if(!button_pressed){
+      delay(10 * MILISECOND);
+      
+      button_pressed = button_read(BUTTON_ONBOARD);
+      
+      if(!button_pressed){
+        while(1){
+          sos_play(LED_ONBOARD);
+          delay(SECOND);
+      
+        }
+      }
+    }
+  }
 ```
 
 ---
