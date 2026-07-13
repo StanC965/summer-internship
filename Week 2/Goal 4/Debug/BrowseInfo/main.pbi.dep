@@ -2,4 +2,7 @@ C:\MQ_Summer_Internship\summer-internship\Week\ 2\Goal\ 4\Debug\BrowseInfo\main.
   C:\MQ_Summer_Internship\summer-internship\Week\ 2\Goal\ 4\main.c \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iom324.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \
-  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324.inc
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324.inc \
+  C:\MQ_Summer_Internship\summer-internship\Week\ 2\Goal\ 4\led.h \
+  C:\MQ_Summer_Internship\summer-internship\Week\ 2\Goal\ 4\gpio.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\intrinsics.h

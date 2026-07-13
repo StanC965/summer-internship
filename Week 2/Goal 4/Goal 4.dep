@@ -1,22 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>3927881949</fileChecksum>
+    <fileChecksum>39735529</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\Goal 4.map</file>
+            <file>$PROJ_DIR$\Debug\Exe\Goal 4.d90</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\iom324.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324.inc</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\led.c</file>
             <file>$PROJ_DIR$\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
         </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 4 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Goal 4.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 10 2 5 1 18 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 0 17 9 7</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 8 0</file>
+                </tool>
+            </inputs>
+        </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 2</file>
+                    <file> 18</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 11 9 13 8 0 6</file>
+                </tool>
+            </inputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
