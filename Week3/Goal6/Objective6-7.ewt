@@ -2651,6 +2651,12 @@
         <name>$PROJ_DIR$\main.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\schedule673.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\schedule673.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\scheduler.c</name>
     </file>
     <file>

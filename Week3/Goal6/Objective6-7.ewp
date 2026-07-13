@@ -775,7 +775,7 @@
                 </option>
                 <option>
                     <name>XclFile</name>
-                    <state>lnk0t.xcl</state>
+                    <state>$TOOLKIT_DIR$/src/template/cfgm324pb.xcl</state>
                 </option>
                 <option>
                     <name>XclFileSlave</name>
@@ -863,7 +863,7 @@
                 </option>
                 <option>
                     <name>xcProgramEntryLabel</name>
-                    <state></state>
+                    <state>__program_start</state>
                 </option>
                 <option>
                     <name>DebugInformation</name>
@@ -891,7 +891,7 @@
                 </option>
                 <option>
                     <name>ExtraOutputFile</name>
-                    <state></state>
+                    <state>Objective6-7.a90</state>
                 </option>
                 <option>
                     <name>ExtraOutputFormat</name>
@@ -2119,6 +2119,12 @@
         <name>$PROJ_DIR$\main.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\schedule673.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\schedule673.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\scheduler.c</name>
     </file>
     <file>
@@ -2126,8 +2132,14 @@
     </file>
     <file>
         <name>$PROJ_DIR$\schedulerLed.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
     <file>
         <name>$PROJ_DIR$\schedulerLed.h</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
 </project>

@@ -50734,6 +50734,456 @@
     "scope": null
   },
   {
+    "ID": "c:main.c@52@macro@PC7",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PC7",
+    "location": {
+      "column": "9",
+      "line": "4",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+    },
+    "name": "PC7",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@myInterrupt",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void myInterrupt(void)",
+    "location": {
+      "column": "18",
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+    },
+    "name": "myInterrupt",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@main",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void main(void)",
+    "location": {
+      "column": "6",
+      "line": "13",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+    },
+    "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.h@23@macro@SCH_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SCH_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
+    },
+    "name": "SCH_H",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@scheduleTaskDispatcher",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void scheduleTaskDispatcher(void)",
+    "location": {
+      "column": "13",
+      "line": "4",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
+    },
+    "name": "scheduleTaskDispatcher",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@schedulerFlasgsManagement",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void schedulerFlasgsManagement(void)",
+    "location": {
+      "column": "13",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
+    },
+    "name": "schedulerFlasgsManagement",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:pwm.h@23@macro@PWM_C",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PWM_C",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
+    },
+    "name": "PWM_C",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@initializePwm",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void initializePwm(void)",
+    "location": {
+      "column": "13",
+      "line": "4",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
+    },
+    "name": "initializePwm",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@startPwm",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void startPwm(unsigned short)",
+    "location": {
+      "column": "13",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
+    },
+    "name": "startPwm",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@pwmSetDutyCycle",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void pwmSetDutyCycle(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
+    },
+    "name": "pwmSetDutyCycle",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@setPwmDc",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void setPwmDc(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "10",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
+    },
+    "name": "setPwmDc",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:schedule673.c@26@macro@SCDCFG_C",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SCDCFG_C",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "SCDCFG_C",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:schedule673.c@82@macro@led0",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "led0",
+    "location": {
+      "column": "9",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "led0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@E@states",
+    "What": "Enum",
+    "defdec": "Def",
+    "display": "states",
+    "fields": [
+      {
+        "ID": "c:@E@states@LED_ON2S",
+        "What": "Enumerator",
+        "defdec": "Def",
+        "display": "LED_ON2S",
+        "location": {
+          "column": "3",
+          "line": "10",
+          "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+        },
+        "name": "LED_ON2S",
+        "origin": "project_file",
+        "scope": null
+      },
+      {
+        "ID": "c:@E@states@LED_OFF1S",
+        "What": "Enumerator",
+        "defdec": "Def",
+        "display": "LED_OFF1S",
+        "location": {
+          "column": "3",
+          "line": "11",
+          "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+        },
+        "name": "LED_OFF1S",
+        "origin": "project_file",
+        "scope": null
+      },
+      {
+        "ID": "c:@E@states@LED_ON1S",
+        "What": "Enumerator",
+        "defdec": "Def",
+        "display": "LED_ON1S",
+        "location": {
+          "column": "3",
+          "line": "12",
+          "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+        },
+        "name": "LED_ON1S",
+        "origin": "project_file",
+        "scope": null
+      },
+      {
+        "ID": "c:@E@states@LED_OFF3S",
+        "What": "Enumerator",
+        "defdec": "Def",
+        "display": "LED_OFF3S",
+        "location": {
+          "column": "3",
+          "line": "13",
+          "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+        },
+        "name": "LED_OFF3S",
+        "origin": "project_file",
+        "scope": null
+      }
+    ],
+    "location": {
+      "column": "6",
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "states",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@state",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "state",
+    "location": {
+      "column": "13",
+      "line": "15",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "state",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@secs",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "secs",
+    "location": {
+      "column": "15",
+      "line": "16",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "secs",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stateMachine",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void stateMachine(void)",
+    "location": {
+      "column": "6",
+      "line": "19",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "stateMachine",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task10ms",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void task10ms(void)",
+    "location": {
+      "column": "6",
+      "line": "49",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "task10ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task50ms",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void task50ms(void)",
+    "location": {
+      "column": "6",
+      "line": "54",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "task50ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task100ms",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void task100ms(void)",
+    "location": {
+      "column": "6",
+      "line": "59",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "task100ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task500ms",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void task500ms(void)",
+    "location": {
+      "column": "6",
+      "line": "62",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "task500ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task1000ms",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void task1000ms(void)",
+    "location": {
+      "column": "6",
+      "line": "66",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedule673.c"
+    },
+    "name": "task1000ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:schedulesin.h@26@macro@SCDSIN_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SCDSIN_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
+    },
+    "name": "SCDSIN_H",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task10ms",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void task10ms(void)",
+    "location": {
+      "column": "13",
+      "line": "4",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
+    },
+    "name": "task10ms",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task50ms",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void task50ms(void)",
+    "location": {
+      "column": "13",
+      "line": "6",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
+    },
+    "name": "task50ms",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task100ms",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void task100ms(void)",
+    "location": {
+      "column": "13",
+      "line": "7",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
+    },
+    "name": "task100ms",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task500ms",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void task500ms(void)",
+    "location": {
+      "column": "13",
+      "line": "8",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
+    },
+    "name": "task500ms",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@task1000ms",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void task1000ms(void)",
+    "location": {
+      "column": "13",
+      "line": "9",
+      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
+    },
+    "name": "task1000ms",
+    "origin": "system_include",
+    "scope": null
+  },
+  {
     "ID": "c:scheduler.c@23@macro@SCH_C",
     "What": "MacroDef",
     "defdec": "Def",
@@ -51038,414 +51488,6 @@
       "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
     },
     "name": "cnt1000",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:schedulesin.h@26@macro@SCDSIN_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SCDSIN_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
-    },
-    "name": "SCDSIN_H",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task10ms",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void task10ms(void)",
-    "location": {
-      "column": "13",
-      "line": "4",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
-    },
-    "name": "task10ms",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task50ms",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void task50ms(void)",
-    "location": {
-      "column": "13",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
-    },
-    "name": "task50ms",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task100ms",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void task100ms(void)",
-    "location": {
-      "column": "13",
-      "line": "7",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
-    },
-    "name": "task100ms",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task500ms",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void task500ms(void)",
-    "location": {
-      "column": "13",
-      "line": "8",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
-    },
-    "name": "task500ms",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task1000ms",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void task1000ms(void)",
-    "location": {
-      "column": "13",
-      "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulesin.h"
-    },
-    "name": "task1000ms",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@52@macro@PC7",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "PC7",
-    "location": {
-      "column": "9",
-      "line": "4",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-    },
-    "name": "PC7",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@myInterrupt",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void myInterrupt(void)",
-    "location": {
-      "column": "18",
-      "line": "8",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-    },
-    "name": "myInterrupt",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@main",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void main(void)",
-    "location": {
-      "column": "6",
-      "line": "13",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-    },
-    "name": "main",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler.h@23@macro@SCH_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SCH_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
-    },
-    "name": "SCH_H",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@scheduleTaskDispatcher",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void scheduleTaskDispatcher(void)",
-    "location": {
-      "column": "13",
-      "line": "4",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
-    },
-    "name": "scheduleTaskDispatcher",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@schedulerFlasgsManagement",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void schedulerFlasgsManagement(void)",
-    "location": {
-      "column": "13",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
-    },
-    "name": "schedulerFlasgsManagement",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:pwm.h@23@macro@PWM_C",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "PWM_C",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
-    },
-    "name": "PWM_C",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@initializePwm",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void initializePwm(void)",
-    "location": {
-      "column": "13",
-      "line": "4",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
-    },
-    "name": "initializePwm",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@startPwm",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void startPwm(unsigned short)",
-    "location": {
-      "column": "13",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
-    },
-    "name": "startPwm",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@pwmSetDutyCycle",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void pwmSetDutyCycle(unsigned char)",
-    "location": {
-      "column": "13",
-      "line": "8",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
-    },
-    "name": "pwmSetDutyCycle",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@setPwmDc",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void setPwmDc(unsigned char)",
-    "location": {
-      "column": "13",
-      "line": "10",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
-    },
-    "name": "setPwmDc",
-    "origin": "system_include",
-    "scope": null
-  },
-  {
-    "ID": "c:schedulerLed.c@26@macro@SCDCFG_C",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SCDCFG_C",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "SCDCFG_C",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:schedulerLed.c@82@macro@led0",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "led0",
-    "location": {
-      "column": "9",
-      "line": "6",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "led0",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@E@states",
-    "What": "Enum",
-    "defdec": "Def",
-    "display": "states",
-    "fields": [
-      {
-        "ID": "c:@E@states@LED_ON",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "LED_ON",
-        "location": {
-          "column": "3",
-          "line": "10",
-          "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-        },
-        "name": "LED_ON",
-        "origin": "project_file",
-        "scope": null
-      },
-      {
-        "ID": "c:@E@states@LED_OFF",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "LED_OFF",
-        "location": {
-          "column": "3",
-          "line": "11",
-          "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-        },
-        "name": "LED_OFF",
-        "origin": "project_file",
-        "scope": null
-      }
-    ],
-    "location": {
-      "column": "6",
-      "line": "9",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "states",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@state",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "state",
-    "location": {
-      "column": "13",
-      "line": "12",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "state",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@stateMachine",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void stateMachine(void)",
-    "location": {
-      "column": "6",
-      "line": "15",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "stateMachine",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task10ms",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void task10ms(void)",
-    "location": {
-      "column": "6",
-      "line": "27",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "task10ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task50ms",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void task50ms(void)",
-    "location": {
-      "column": "6",
-      "line": "32",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "task50ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task100ms",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void task100ms(void)",
-    "location": {
-      "column": "6",
-      "line": "37",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "task100ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task500ms",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void task500ms(void)",
-    "location": {
-      "column": "6",
-      "line": "40",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "task500ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@task1000ms",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void task1000ms(void)",
-    "location": {
-      "column": "6",
-      "line": "44",
-      "path": "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
-    },
-    "name": "task1000ms",
     "origin": "project_file",
     "scope": null
   }
