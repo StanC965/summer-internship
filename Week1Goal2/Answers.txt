@@ -26,3 +26,6 @@ Answer: The LEDs already have built-in series resistors on the development board
 241 — CORE Why do you think it would be so much needed to organize our software program in a modular way? 
 Answer: Organizing the software into modules improves readability, maintainability, and code reuse. Each module has a well-defined responsibility—for example, the gpio module handles only GPIO operations,
 while main.c contains the application logic. This separation makes the code easier to understand, test, debug, and extend. It also allows the same gpio module to be reused in other embedded projects without rewriting the GPIO functions.
+
+244 - CORE - Answer: The role of the include guards (#ifndef, #define, #endif) is to prevent a header file from being included multiple times during preprocessing. When gpio.h is included only once, the generated .i file is the same regardless of whether guards are present.
+When gpio.h is included twice, the guards ensure that the header contents appear only once in the .i file. Without guards, the header contents are duplicated, which can lead to compilation errors due to multiple definitions or redefinitions. 
