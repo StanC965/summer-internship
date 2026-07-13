@@ -1,15 +1,16 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
 
 
 
-extern void scheduleTaskDispatcher(void);
+extern void initializePwm();
 
-extern void schedulerFlasgsManagement(void);
+extern void startPwm(unsigned short int prescale);
 
+extern void pwmSetDutyCycle(unsigned char duty);
 
-
-#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+extern void setPwmDc(unsigned char param);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
@@ -601,20 +602,47 @@ extern void ledPowerOff(unsigned char led);
 
 extern void ledBlinkSlow(unsigned char led);
 extern void ledBlinkFast(unsigned char led);
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\schedulerLed.c"
 
 
 
 
-#pragma vector = (0x34)
-__interrupt void myInterrupt(void){
-    schedulerFlasgsManagement();
+enum states{ 
+  LED_ON,
+  LED_OFF};
+enum states state = LED_OFF;
+
+
+void stateMachine(void){
+  switch (state){
+      case LED_ON:
+        ledPowerOn(0);
+        state = LED_OFF;
+        break;
+      case LED_OFF:
+        ledPowerOff(0);
+        state = LED_ON;
+  }
+}
+
+void task10ms(){
+    
+    
+}
+      
+void task50ms(){
+ 
+
+}
+      
+void task100ms(){
+}
+      
+void task500ms(){
 
 }
 
-void main( void )
-{
-  ledInit(&DDRC,&PORTC,7);
-  SREG |= 1<<7;
-  scheduleTaskDispatcher();
+void task1000ms(){
+  stateMachine();
 }
+

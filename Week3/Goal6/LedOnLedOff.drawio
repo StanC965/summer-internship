@@ -1,0 +1,34 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="MHVP-LaCNg_Bs92Zi894">
+    <mxGraphModel dx="565" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AgZmD1Qaobi7Wb9e2zss-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="LedOff" vertex="1">
+          <mxGeometry height="60" width="120" x="220" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="AgZmD1Qaobi7Wb9e2zss-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="LedOn" vertex="1">
+          <mxGeometry height="60" width="120" x="220" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="AgZmD1Qaobi7Wb9e2zss-3" edge="1" parent="1" source="AgZmD1Qaobi7Wb9e2zss-2" style="endArrow=classic;html=1;rounded=0;entryX=0.338;entryY=1.043;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.352;exitY=0.037;exitDx=0;exitDy=0;exitPerimeter=0;" target="AgZmD1Qaobi7Wb9e2zss-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="270" y="420" as="sourcePoint" />
+            <mxPoint x="320" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AgZmD1Qaobi7Wb9e2zss-4" edge="1" parent="1" source="AgZmD1Qaobi7Wb9e2zss-1" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="AgZmD1Qaobi7Wb9e2zss-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="270" y="420" as="sourcePoint" />
+            <mxPoint x="320" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AgZmD1Qaobi7Wb9e2zss-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="switch Led On" vertex="1">
+          <mxGeometry height="30" width="60" x="310" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="AgZmD1Qaobi7Wb9e2zss-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="switch Led Off" vertex="1">
+          <mxGeometry height="30" width="60" x="200" y="310" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
