@@ -3,5 +3,8 @@
     <project>
         <path>$WS_DIR$\Objective2.ewp</path>
     </project>
+    <project>
+        <path>$WS_DIR$\Objective3.ewp</path>
+    </project>
     <batchBuild />
 </workspace>

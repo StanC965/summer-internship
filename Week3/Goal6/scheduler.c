@@ -1,6 +1,6 @@
 #ifndef SCH_C
 #define SCH_C
-#include "scheduleCFG.h"
+#include "scheduleCFG531.h"
 
 #include "led.h"
 #define WGM12 3
@@ -56,7 +56,7 @@ void scheduleTaskDispatcher(void){
     }
     if(flag1000ms){
       flag1000ms = 0;
-      task100ms();
+      task1000ms();
     }
   }
 }
@@ -78,7 +78,7 @@ void schedulerFlasgsManagement(void){
   }
    if(cnt100 == 10){
     cnt100 = 0;
-    flag100ms = 0;
+    flag100ms = 1;
   }
   if(cnt500 ==50){
     cnt500 = 0;

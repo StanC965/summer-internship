@@ -1,5 +1,5 @@
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleCFG531.h"
 
 
 
@@ -657,7 +657,7 @@ void scheduleTaskDispatcher(void){
     }
     if(flag1000ms){
       flag1000ms = 0;
-      task100ms();
+      task1000ms();
     }
   }
 }
@@ -679,7 +679,7 @@ void schedulerFlasgsManagement(void){
   }
    if(cnt100 == 10){
     cnt100 = 0;
-    flag100ms = 0;
+    flag100ms = 1;
   }
   if(cnt500 ==50){
     cnt500 = 0;

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>4139364551</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduleCFG531.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm.r90</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\scheduleCFG531.c</file>
+            <file>$PROJ_DIR$\scheduleCFG531.h</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\scheduleCFG.h</file>
+            <file>$PROJ_DIR$\pwm.c</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\Objective3.map</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\scheduler.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\Objective3.d90</file>
+            <file>$PROJ_DIR$\scheduleCFG.c</file>
+            <file>$PROJ_DIR$\pwm.h</file>
+            <file>$PROJ_DIR$\task624.c</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\task625.c</file>
+            <file>$PROJ_DIR$\scheduler.c</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
+            <file>$PROJ_DIR$\Debug\List\scheduleCFG531.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 18 14</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduleCFG531.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 30 2</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20 27 6 22 23 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 31</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20 22 23 26 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pwm.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 4</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Objective3.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 14</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 13 16 3 1 31 4 2 0 15</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduler.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 29 0</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 9 27 6 22 23 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>ICCAVR</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

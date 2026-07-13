@@ -1,32 +1,18 @@
+
 #include "pwm.h"
 #include "iom324pb.h"
+#include "scheduler.h"
+
+#pragma vector = TIMER1_COMPA_vect
+__interrupt void myInterrupt(void){
+  schedulerFlasgsManagement();
+}
 
 void main( void )
 {
   initializePwm();
   startPwm(1);
+  setPwmDc(0);
   SREG |= 1<<7;
-  while(1){
-    pwmSetDutyCycle(100);
-
-    for(long i=0;i<500000;i++);
-
-    pwmSetDutyCycle(75);
-
-    for(long i=0;i<500000;i++);
-
-    pwmSetDutyCycle(50);
-
-    for(long i=0;i<500000;i++);
-
-    pwmSetDutyCycle(25);
-
-    for(long i=0;i<500000;i++);
-
-    pwmSetDutyCycle(0);
-
-    for(long i=0;i<500000;i++);
-}
-    
-  
+  scheduleTaskDispatcher();
 }
