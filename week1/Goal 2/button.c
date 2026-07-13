@@ -4,22 +4,22 @@
 __interrupt void buton_apasat(void)
 {
   if(PINC_PINC6==0){
-    btn0^=1;
+    btn0 ^=1;
   }
   if(PINC_PINC1==0){
-  btn1^=1;
-  PORTD_PORTD5^=1;
+  btn1 ^=1;
   }
 }
 
 __interrupt void Button3(void)
 {
-  if(PINA_PINA0==0){
- btn2 ^= 1;PORTD_PORTD4^=1;
-  }
   if(PINA_PINA1==0){
-    btn3 ^= 1;PORTA_PORTA3^=1;
+    btn3 ^= 1;
   }
+  if(PINA_PINA0==0){
+  btn2 ^= 1;
+  }
+  
 }
 
 
@@ -80,4 +80,20 @@ void SosStop(){
      }
      btn0=0;
    }
+}
+void ButtonPlay(){
+  if(btn0){
+    led0_set_state(ON);
+    LedOff(&PORTD,PIN4);
+    LedOff(&PORTD,PIN5);
+    LedOff(&PORTA,PIN3);
+    btn1=btn2=btn3=0;
+  }
+  else{
+    led0_set_state(OFF);
+    if(btn1){ LedOn(&PORTD,PIN5); }else{LedOff(&PORTD,PIN5);}
+    if(btn2){ LedOn(&PORTD,PIN4);}else {LedOff(&PORTD,PIN4);}
+    if(btn3){ LedOn(&PORTA,PIN3);}else{LedOff(&PORTA,PIN3);}
+    
+  }
 }
