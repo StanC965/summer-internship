@@ -2120,9 +2120,21 @@
     </file>
     <file>
         <name>$PROJ_DIR$\schedule673.c</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
     </file>
     <file>
         <name>$PROJ_DIR$\schedule673.h</name>
+        <excluded>
+            <configuration>Debug</configuration>
+        </excluded>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\schedule674.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\schedule674.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\scheduler.c</name>

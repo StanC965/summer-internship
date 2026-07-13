@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>33179980</fileChecksum>
+    <fileChecksum>3338429597</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -28,7 +28,12 @@
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
             <file>$PROJ_DIR$\Debug\Exe\Objective6-7.d90</file>
             <file>$PROJ_DIR$\schedule673.h</file>
+            <file>$PROJ_DIR$\schedule674.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\schedule674.r90</file>
+            <file>$PROJ_DIR$\Debug\List\schedule674.i</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\schedule674.h</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\led.h</file>
             <file>$PROJ_DIR$\gpio.c</file>
@@ -48,7 +53,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 16 25 29 17 20 18</file>
+                    <file> 16 30 34 17 20 18</file>
                 </tool>
             </inputs>
         </file>
@@ -72,7 +77,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 16 25 29 17 20 18</file>
+                    <file> 16 30 34 17 20 18</file>
                 </tool>
             </inputs>
         </file>
@@ -87,7 +92,22 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 2 1 14 10 23 19 12 3</file>
+                    <file> 2 1 14 10 27 24 19 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\schedule674.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25 24</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 16 30 34 17 20 18</file>
                 </tool>
             </inputs>
         </file>
@@ -96,13 +116,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 23</file>
+                    <file> 11 27</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 28 25 29 17 20 18</file>
+                    <file> 33 30 34 17 20 18</file>
                 </tool>
             </inputs>
         </file>
@@ -129,9 +149,15 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 19</file>
+                    <file> 26 19</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 30 34 17 20 18</file>
+                </tool>
+            </inputs>
         </file>
         <forcedrebuild>
             <name>$PROJ_DIR$\schedulerLed.c</name>
