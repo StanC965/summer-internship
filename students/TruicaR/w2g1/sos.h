@@ -1,6 +1,6 @@
 #ifndef SOS_H
 #define SOS_H
 
-void sos(void);
+void sos_play(void);
 
 #endif

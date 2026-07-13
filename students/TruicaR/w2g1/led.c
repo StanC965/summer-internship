@@ -1,13 +1,12 @@
 #include "gpio.h"
 #include "led.h"
 
-
-void PowerOn_LED(unsigned char pin)
+void led_on(unsigned char pin)
 {
-    reset_pin(pin);
+    gpio_reset_pin(pin);
 }
 
-void PowerOff_LED(unsigned char pin)
+void led_off(unsigned char pin)
 {
-    set_pin(pin);
+    gpio_set_pin(pin);
 }

@@ -1,33 +1,35 @@
 #include "gpio.h"
 #include "led.h"
 #include "sos.h"
-#define DELAY 200000
-#define LED0_PIN 7
 
-void delay(long units)
+#define SOS_DOT_DELAY   200000
+#define SOS_DASH_DELAY  600000
+#define LED0_PIN        7
+
+static void sos_delay(long units)
 {
     for (volatile long i = 0; i < units; i++);
 }
 
-void point(void)
+static void sos_dot(void)
 {
-    PowerOn_LED(LED0_PIN);
-    delay(DELAY);
-    PowerOff_LED(LED0_PIN);
-    delay(DELAY);
+    led_on(LED0_PIN);
+    sos_delay(SOS_DOT_DELAY);
+    led_off(LED0_PIN);
+    sos_delay(SOS_DOT_DELAY);
 }
 
-void line(void)
+static void sos_dash(void)
 {
-    PowerOn_LED(LED0_PIN);
-    delay(600000);
-    PowerOff_LED(LED0_PIN);
-    delay(DELAY);
+    led_on(LED0_PIN);
+    sos_delay(SOS_DASH_DELAY);
+    led_off(LED0_PIN);
+    sos_delay(SOS_DOT_DELAY);
 }
 
-void sos(void)
+void sos_play(void)
 {
-    for (int i = 0; i < 3; i++) point();
-    for (int i = 0; i < 3; i++) line();
-    for (int i = 0; i < 3; i++) point();
+    for (int i = 0; i < 3; i++) sos_dot();
+    for (int i = 0; i < 3; i++) sos_dash();
+    for (int i = 0; i < 3; i++) sos_dot();
 }
