@@ -2669,6 +2669,12 @@
         <name>$PROJ_DIR$\scheduleCFG631.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\scheduleHeart.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduleHeart.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\scheduler.c</name>
     </file>
     <file>
