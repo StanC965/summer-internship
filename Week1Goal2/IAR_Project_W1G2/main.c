@@ -1,46 +1,32 @@
-// 252 - CORE
+// 255 - CORE
 #include "main.h"
 
 
 void main( void )
 {
   LED_Init();
-  
+  BUTTON_Init();
+
   unsigned char button_state;
+  int pressed_confidence_level = 0;
+  int released_confidence_level = 0;
   
-  gpio_set_direction(&DDRC,6,GPIO_INPUT);
-  gpio_set_pin(&PORTC,6);
   
   while(1){
     
-    button_state = gpio_read_pin(&PINC,6);
+    button_state = button_read_state(SW0);
     if(button_state == 0){
-      PowerOn_LED(LED0);
+      pressed_confidence_level++;
+      if(pressed_confidence_level >PRESSED_CONFIDENCE_LEVEL_TARGET){
+        PowerOn_LED(LED0);
+        pressed_confidence_level = 0;
+      }
     }else{
-      PowerOff_LED(LED0);
+      released_confidence_level++;
+      if(released_confidence_level >RELEASED_CONFIDENCE_LEVEL_TARGET){
+        PowerOff_LED(LED0);
+        released_confidence_level = 0;
+      }
     }
-    //Toggle_LED(LED0);
-    //BlinkFast_LED(LED0);
-    /*
-    PowerOff_LED(LED1);
-    PowerOff_LED(LED2);
-    PowerOff_LED(LED3);
-    delay(ONE_SECOND_DELAY);
-    
-    PowerOn_LED(LED1);
-    PowerOn_LED(LED2);
-    PowerOff_LED(LED3);
-    delay(ONE_SECOND_DELAY);
-
-    PowerOff_LED(LED1);
-    PowerOn_LED(LED2);
-    PowerOn_LED(LED3);
-    delay(ONE_SECOND_DELAY);
-    
-    PowerOn_LED(LED1);
-    PowerOff_LED(LED2);
-    PowerOn_LED(LED3);
-    delay(ONE_SECOND_DELAY);*/
-
   }
 }

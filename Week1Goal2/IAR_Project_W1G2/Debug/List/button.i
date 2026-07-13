@@ -1,18 +1,18 @@
 
 
 
-
  
 
 
 
 
 
-
  
 
 
+
  
+
 
 
 
@@ -554,156 +554,6 @@ extern void delay(unsigned long count);
  
 
  
-typedef unsigned char led_uint8_t;
-
- 
-
- 
-
- 
-
- 
-                
- 
-
- 
-
-
-
- 
-
-
-
-
-
-
-
-
-
- 
-extern void LED_Init(void);
-
-
-
-
-
-
-
-
-
-
- 
-extern void PowerOn_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
-
- 
-extern void PowerOff_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
- 
-extern void Toggle_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
-
-
- 
-extern void BlinkFast_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
-
-
- 
-extern void BlinkSlow_LED(led_uint8_t led);
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-#pragma system_include
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-#pragma system_include
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
- 
 typedef unsigned char button_uint8_t;
 
  
@@ -758,62 +608,45 @@ extern unsigned char button_read_state(button_uint8_t button);
 
  
 
- 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *pin_register;
+  
+} button_config_t;
 
-
-
- 
-
-
-
-void main( void )
+static const button_config_t button_table[] =
 {
-  LED_Init();
-  BUTTON_Init();
-
-  unsigned char button_state;
-  int pressed_confidence_level = 0;
-  int released_confidence_level = 0;
-  
-  
-  while(1){
-    
-    button_state = button_read_state((0U));
-    if(button_state == 0){
-      pressed_confidence_level++;
-      if(pressed_confidence_level >(500)){
-        PowerOn_LED((0U));
-        pressed_confidence_level = 0;
-      }
-    }else{
-      released_confidence_level++;
-      if(released_confidence_level >(500)){
-        PowerOff_LED((0U));
-        released_confidence_level = 0;
-      }
-    }
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    { &PORTC, 6, &PINC},
+};
 
 
 
  
 
+ 
+
+
+
+ 
+
+void BUTTON_Init(void){
+  gpio_set_direction(&DDRC, 6, (0U));
+  
+  button_enable_pullup((0U));
+}
+
+void button_enable_pullup(button_uint8_t button){
+  if(button<(1U)){
+    gpio_set_pin(button_table[button].port,button_table[button].pin);
   }
 }
+
+unsigned char button_read_state(button_uint8_t button){
+  if(button < (1U)){
+    return gpio_read_pin(button_table[button].pin_register,button_table[button].pin);
+  }
+  return -1;
+}
+
