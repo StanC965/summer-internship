@@ -20,7 +20,7 @@ void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned c
     setPin(&ADMUX,ADLAR);
   if(ADIE != 0)
     setPin(&ADCSRA,ADIE);
-  if(ADPS0!= 0)
+  if(ADPS0 == 0)
       setPin(&ADCSRA,ADPS0);
   if(ADPS1!= 0)
       setPin(&ADCSRA,ADPS1);

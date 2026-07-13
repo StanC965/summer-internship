@@ -1,5 +1,17 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\adc.h"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleHyudai.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
+
+
+
+extern void initializePwm();
+
+extern void startPwm(unsigned short int prescale);
+
+extern void pwmSetDutyCycle(unsigned char duty);
+
+extern void setPwmDc(unsigned char param);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleHyudai.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -581,7 +593,20 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\adc.h"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
+
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
+extern void ledPowerOn(unsigned char led);
+
+extern void ledPowerOff(unsigned char led);
+
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleHyudai.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\adc.h"
+
+
+
 
 extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
 
@@ -592,46 +617,7 @@ extern void disableAdc();
 extern unsigned short int getAdcValue(void);
 
 extern void setAdcValue(unsigned short int val);
-#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\pwm.h"
-
-
-
-extern void initializePwm();
-
-extern void startPwm(unsigned short int prescale);
-
-extern void pwmSetDutyCycle(unsigned char duty);
-
-extern void setPwmDc(unsigned char param);
-#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\led.h"
-
-
-
-
-extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
-extern void ledPowerOn(unsigned char led);
-
-extern void ledPowerOff(unsigned char led);
-
-extern void ledBlinkSlow(unsigned char led);
-extern void ledBlinkFast(unsigned char led);
-#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduler.h"
-
-
-
-extern void scheduleTaskDispatcher(void);
-
-extern void schedulerFlasgsManagement(void);
-
-
-
-#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
-
-#line 13 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\main.c"
+#line 6 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleHyudai.c"
 
 
 
@@ -639,35 +625,193 @@ extern void schedulerFlasgsManagement(void);
 
 
 
-#pragma vector = (0x60)
-__interrupt void adcInterrupt(void){
-    setAdcValue(ADC);
-}
-
-#pragma vector = (0x34)
-__interrupt void schedInterrupt(void){
-  schedulerFlasgsManagement();
-}
 
 
-void main( void )
+
+
+
+
+
+
+
+
+#line 33 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal6\\scheduleHyudai.c"
+
+double vect[] = {0,1.0/10,2.0/10,8.0/10,13.0/10,13.0/10,12.0/10,11.0/10,10.5/10,1};
+volatile unsigned short int value =0;
+volatile unsigned char dayMode =1;
+unsigned char cnt = 0;
+unsigned char cntVal = 0;
+unsigned char lightValue = 0;
+unsigned char targetValue = 0;
+unsigned char up = 1;
+
+unsigned char state = -1;
+unsigned char stateVal = 0;
+ unsigned char lastState = -1;
+ unsigned char dayTime = 0;
+
+ unsigned char led0State = 0;
+ unsigned char buffer0 = 0;
+unsigned char button0State = 0;
+unsigned char lastButton0State = 0;
+
+
+
+
+ unsigned char switching = 0;
+ 
+ 
+void startTransition(unsigned char newState, unsigned char newValue, unsigned char isDay)
 {
-  initAdc(&DDRA,&PORTA,4,2,6,0,3,0,0,0,0);
-  ledInit(&DDRC,&PORTC,7);
-  ledInit(&DDRD,&PORTD,4);
-  ledInit(&DDRD,&PORTD,5);
-  setDirection(&DDRC,6,0);
-  setPin(&PORTC,6);
-  initializePwm();
-  setPwmDc(0);
-  startPwm(1);
-  
-  enableAdc();
-  SREG |= 1<<7;
-  
-  startConversionAdc();
-  
-  scheduleTaskDispatcher();
-  
+    if(state == newState)
+        return;
+
+    lastState = state;
+    state = newState;
+    stateVal = newValue;
+    dayTime = isDay;
+
+    if(stateVal >= lightValue)
+    {
+        up = 1;
+        targetValue = stateVal - lightValue;
+    }
+    else
+    {
+        up = 0;
+        targetValue = lightValue - stateVal;
+    }
+
+    cnt = 0;
+    cntVal = 0;
+    switching = 1;
+}
+
+void debounce(volatile unsigned char *PIN,unsigned char pin,unsigned char *buffer, unsigned char *state)
+{
+    *buffer <<= 1;
+
+    if(!getPin(PIN, pin))
+        *buffer |= 1;
+
+    if((*buffer & 0x1F)== 0x1F)
+        *state =1;
+    else if((*buffer & 0x1F)== 0x00)
+        *state = 0;
+}
+
+
+
+void task10ms(){
+    
+    debounce(&PINC,6,&buffer0,&button0State);
+    if(button0State == 1 && lastButton0State == 0){
+        led0State ^= 1;
+        if(led0State == 1){
+          ledPowerOn(0);
+          
+        }
+        else{
+          ledPowerOff(0);
+          ledPowerOff(2);
+          ledPowerOff(1);
+          setPwmDc(0);
+        }
+    }
+    lastButton0State = button0State;
+    if(led0State == 1){
+      
+      startConversionAdc();
+    }
     
 }
+      
+void task50ms(){
+    if(led0State == 1)
+    {
+       value = getAdcValue();
+
+        if(value > 850)
+        {
+            startTransition(0, 15, 0);
+            ledPowerOn(2);
+            ledPowerOff(1);
+        }
+        else if(value > 500)
+        {
+            startTransition(1, 20, 0);
+            ledPowerOn(2);
+            ledPowerOff(1);
+
+        }
+        else if(value > 300)
+        {
+            startTransition(2, 42, 1);
+            ledPowerOn(1);
+            ledPowerOff(2);
+        }
+        else if(value > 150)
+        {
+            startTransition(3, 80, 1);
+            ledPowerOn(1);
+            ledPowerOff(2);
+        }
+        else
+        {
+            startTransition(4, 90, 1);
+            ledPowerOn(1);
+            ledPowerOff(2);
+        }
+      }
+    
+
+}
+      
+void task100ms(){
+  
+
+    if(switching == 1){
+      
+      if(up == 1){
+        short int val = lightValue + vect[cntVal] * targetValue;
+        if(val < 0)
+          val = 0;
+        else
+            if(val >100)
+              val = 100;
+        setPwmDc(val);
+      }
+      else{
+        short int val = lightValue - vect[cntVal] * targetValue;
+        if(val < 0)
+          val = 0;
+        else
+            if(val >100)
+              val = 100;
+        setPwmDc(val);
+      }
+      cnt++;
+       if(cnt %2 == 0)
+         cntVal++;
+          
+       if(cntVal == 10)
+       {
+        switching = 0;
+        lightValue = stateVal;
+        setPwmDc(lightValue);
+       }
+                    
+        
+    }
+  }
+
+      
+void task500ms(){
+
+}
+
+void task1000ms(){
+
+}
+
