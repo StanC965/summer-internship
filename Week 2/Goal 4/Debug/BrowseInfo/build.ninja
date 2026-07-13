@@ -24,6 +24,11 @@ rule PDBLINK
 
 
 #Build steps
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\CarCrashDetection.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\CarCrashDetection.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.tmp"
+  rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.xcl.rsp
+
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.xcl : COMPILER_XCL 
   xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\gpio.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\gpio.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.tmp"
@@ -38,6 +43,10 @@ build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInf
   xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\main.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\main.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\main.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\main.tmp"
   rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.xcl |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\CarCrashDetection.c
+  flags = "-out=C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.pbi" -f "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.xcl"
 
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.xcl |  $
 C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\gpio.c
@@ -54,8 +63,9 @@ C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\main.c
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbw : MAKEBROWSE C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbd
   flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbd" -output "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbw"
 
-build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbd : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.pbi |  $
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbd : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.pbi |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.pbi $
 C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\led.pbi $
 C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\main.pbi
-  flags = -M "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbd" "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\led.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\main.pbi"
+  flags = -M "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\Goal$ 4.pbd" "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\CarCrashDetection.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\gpio.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\led.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 2\Goal$ 4\Debug\BrowseInfo\main.pbi"
 

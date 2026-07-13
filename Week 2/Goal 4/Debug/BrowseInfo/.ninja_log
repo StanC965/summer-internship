@@ -1,94 +1,11 @@
 # ninja log v5
-2	756	8056336950000000	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.xcl	caa2e5e85c4ff46c
-758	939	8056336954734742	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-941	967	8056336954909723	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	1a80dd2d9c76da7f
-970	1489	8056336959795319	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-36	219	8056363364654893	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-223	252	8056363364958892	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	1a80dd2d9c76da7f
-260	939	8056363371178910	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	355	8056380744963774	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-357	411	8056380745311747	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	1a80dd2d9c76da7f
-415	1198	8056380752662923	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
 2	254	8056383400000000	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.xcl	861cc766b1e67877
-255	374	8056383407093433	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-377	419	8056383407622479	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	1a80dd2d9c76da7f
-2	970	8056383476351873	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-16	177	8056392411197342	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-179	257	8056392411878085	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	1a80dd2d9c76da7f
-260	1129	8056392420113493	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-24	168	8056396455432010	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-3	208	8056396450000000	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/led.xcl	a1e98ea57377814c
-14	217	8056396450000000	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/gpio.xcl	c2bd095e0f5beff8
+4	160	8056593916289293	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
+163	230	8056593917085696	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	ce9d1eb441e0b127
+232	1953	8056593933417006	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
 209	358	8056396457417244	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/led.pbi	7bb85631d0a95c7
+3	208	8056396450000000	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/led.xcl	a1e98ea57377814c
 219	432	8056396458166750	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/gpio.pbi	f84c7d3d48cea01a
-435	498	8056396458734198	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-500	1933	8056396472437336	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-6	161	8056397846862977	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-164	226	8056397847499655	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-228	1932	8056397863558574	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-3	193	8056398427016914	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-196	262	8056398427723414	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-265	1859	8056398442728795	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	258	8056418553867613	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-261	407	8056418555356936	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-409	2889	8056418579732856	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-3	131	8056421875077509	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-133	191	8056421875652988	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-193	1269	8056421885884928	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-1	93	8056423858119289	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-95	143	8056423858756956	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-2	1112	8056423929518514	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-1	96	8056428176920091	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-98	143	8056428177441297	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-145	1215	8056428187557045	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-1	98	8056428947527224	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-99	141	8056428947952597	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-143	1209	8056428957941951	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	114	8056442851929969	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-116	171	8056442852544103	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-173	1200	8056442862462407	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	88	8056445689968001	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-90	132	8056445690285972	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-134	1199	8056445700400917	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	117	8056448478578164	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-119	171	8056448479158697	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-3	978	8056448544183682	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	199	8056450967944882	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-200	240	8056450968260378	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-242	1161	8056450976974602	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	197	8056451484316763	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-199	239	8056451484747648	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-240	1186	8056451493662751	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	84	8056453665273320	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-86	127	8056453665729935	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-2	1012	8056453735565677	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	88	8056454140771900	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-90	131	8056454141198586	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-133	1065	8056454149981183	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	169	8056464860434292	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-171	271	8056464861562317	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-273	2729	8056464885628475	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	86	8056469376548720	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-87	129	8056469377020379	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-131	1140	8056469386682512	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-2	161	8056475933100175	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-163	237	8056475933827772	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-239	1790	8056475948386394	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-3	148	8056478644607367	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-151	219	8056478645273467	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-221	1769	8056478659915761	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-3	297	8056479374818803	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-299	353	8056479375388167	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-355	1649	8056479387424337	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-3	266	8056482486177231	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-268	342	8056482486946895	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-2	1548	8056482565417926	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-4	238	8056566637077776	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-241	321	8056566637933455	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-324	1814	8056566652213633	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-4	135	8056566958863086	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-139	254	8056566960031782	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-256	1599	8056566972815033	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
-3	126	8056567431579739	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/main.pbi	21424448f641a538
-129	185	8056567432288041	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbd	92d61f76a67117eb
-187	1544	8056567444975861	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/Goal 4.pbw	6449cf4c235cae6b
+14	217	8056396450000000	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/gpio.xcl	c2bd095e0f5beff8
+4	1123	8056591550000000	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/CarCrashDetection.xcl	454019b3f4fe9072
+1125	1226	8056591554178175	C:/MQ_Summer_Internship/summer-internship/Week 2/Goal 4/Debug/BrowseInfo/CarCrashDetection.pbi	b5055d14cc58c1b3
