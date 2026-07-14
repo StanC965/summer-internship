@@ -2650,10 +2650,4 @@
     <file>
         <name>$PROJ_DIR$\main.c</name>
     </file>
-    <file>
-        <name>$PROJ_DIR$\sos.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\sos.h</name>
-    </file>
 </project>

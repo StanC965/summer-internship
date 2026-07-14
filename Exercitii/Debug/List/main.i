@@ -765,7 +765,7 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 
 
  
-extern void letter_S(void);
+extern void sos_letter_S(void);
 
 
 
@@ -774,7 +774,7 @@ extern void letter_S(void);
 
 
  
-extern void letter_O(void);
+extern void sos_letter_O(void);
 
 
 
@@ -783,11 +783,37 @@ extern void letter_O(void);
 
 
  
-extern void SOS(void);
+extern void sos_pattern(void);
 
 #line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
-extern volatile _Bool sos_stop; 
+
+#pragma vector = (0x10)
+__interrupt void PinChangePortA_ISR(void)
+{
+  
+
+    
+    if ( (PINA & (1 << 0)) == 0 )  
+    {
+        led_Reset((0xBB));
+    }   
+    else
+    {
+        led_Set((0xBB));
+    }         
+                
+    if ( (PINA & (1 << 1)) == 0 )  
+    {
+        led_Reset((0xDD));
+    }
+    else
+    {
+        led_Set((0xDD));
+    }
+   
+  
+}
 
 #pragma vector = (0x18)
 __interrupt void PinChangePortC_ISR(void)
@@ -795,24 +821,55 @@ __interrupt void PinChangePortC_ISR(void)
   
 
     
-    if ( (PINC & (1 << 6)) == 0 )  
+    if ( (PINC & (1 << 1)) == 0 )  
     {
-         sos_stop = !sos_stop;    
+        led_Reset((0xCC));
     }
-    
-   
+    else
+    {
+        led_Set((0xCC));
+    }
   
 }
 
+
+
+
 void setup(void)
 {
-    leds_initialize(1, 0, 0, 0, 0); 
-    gpio_set_direction(&DDRC, 6, (((0x01U))));
-    gpio_set_pin(&PORTC, 6); 
-    gpio_set_pin(&PCICR, 2);
-    gpio_set_pin(&PCMSK2, 6);
-    gpio_set_pin(&SREG, 7);
-    sos_stop = 1; 
+    leds_initialize(0, 1, 1, 1, 0);  
+    
+    led_Set((0xBB));
+    led_Set((0xCC));        
+    led_Set((0xDD));
+    
+    
+    gpio_set_direction(&DDRC, 1, (((0x01U)))); 
+    gpio_set_direction(&DDRA, 0, (((0x01U)))); 
+    gpio_set_direction(&DDRA, 1, (((0x01U)))); 
+    
+    
+    
+    
+     
+     gpio_set_pin(&PCICR, 2); 
+     gpio_set_pin(&PCICR, 0); 
+     
+     
+     
+       gpio_set_pin(&PORTC, 1);
+       gpio_set_pin(&PORTA, 1);            
+       gpio_set_pin(&PORTA, 0);
+     
+     
+    
+     gpio_set_pin(&PCMSK0, 1); 
+     gpio_set_pin(&PCMSK0, 0); 
+     gpio_set_pin(&PCMSK2, 1); 
+     
+     
+     gpio_set_pin(&SREG, 7);
+    
 }
 
 void main(void)
@@ -821,14 +878,125 @@ void main(void)
                                                                       
     while(1)    
     {
-        if(sos_stop == 0)
-        {
-            SOS();
-        }
-        else
-        {
-          
-            led_Set((0xAA));
-        }
+  
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
