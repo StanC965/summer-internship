@@ -225,13 +225,16 @@ void sos_update(led_id_t led_id){
 
 > Additionally, I used an array which consists of LED states and their respective duration units.
 
-**`sos.c`**
+**`sos.h`**
 ```c
 typedef struct{
   uint8_t led_state;
   uint8_t duration_units;
 }step_t;
+```
 
+**`sos.c`**
+```c
 const step_t sos_sequence[] = {
     // S1 - ON & OFF
     {1, 1}, {0, 1},
