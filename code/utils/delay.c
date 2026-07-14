@@ -12,8 +12,11 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-void delay(long count){
-  for(long i = 0; i < count; i++);
+
+void delay(long count)
+{
+    for (long i = 0; i < count; i++)
+        ;
 }
 
 #endif /* DELAY_C */
