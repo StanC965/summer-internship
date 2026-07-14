@@ -20,6 +20,7 @@
 > **Answer/Explanation:**
 > I created the sos module, which contains the function for the sos sequence:
 
+**`sos.c`** 
 ```c
 void sos_play(led_id_t led_id){
     sos_point(led_id);
@@ -40,8 +41,9 @@ void sos_play(led_id_t led_id){
 }
 ```
 
-> This function uses two static functions of the sos module:
+> This function uses two static functions from the sos module:
 
+**`sos.c`** 
 ```c
 static void sos_point(led_id_t led_id){
     led_blink_custom(led_id, 1, SECOND / 2, SECOND / 2);
@@ -54,6 +56,7 @@ static void sos_line(led_id_t led_id){
 
 > I chose to create a custom led blinking function that makes the led blink repeateadly for a number of times, with customizable durations between LED on and off.
 
+**`led.c`** 
 ```c
 void led_blink_custom(led_id_t led_id, uint8_t times, uint32_t on_time, uint32_t off_time){
     if(led_id < LED_COUNT){
@@ -74,8 +77,9 @@ void led_blink_custom(led_id_t led_id, uint8_t times, uint32_t on_time, uint32_t
 > **Question/Prompt:**  Code to launch the SOS signaling at the press of the SW0 button. The complete SOS sequence runs indefinitely with a 1 second break between the smaller sequences (see graph).
 
 > **Answer/Explanation:**
-> I modified the code in main and reintroduced the logic for button press, but this time when the button is pressed the sos sequence starts playing, and between each full sos sequence there is a 1 second time delay.
+> I modified the code in main and reintroduced the logic for button pressing, but this time when the button is pressed the sos sequence starts playing, and between each full sos sequence there is a 1 second time delay.
 
+**`main.c`** 
 ```c
  uint8_t button_pressed;
   
@@ -91,11 +95,42 @@ void led_blink_custom(led_id_t led_id, uint8_t times, uint32_t on_time, uint32_t
         while(1){
           sos_play(LED_ONBOARD);
           delay(SECOND);
-      
         }
       }
     }
   }
+```
+
+> Additionaly, I modified the logic of the sos module, and introduce a `TIME_UNIT`, to reproduce the effect of an sos signal better.
+
+**`sos.h`** 
+```c
+#define TIME_UNIT (SECOND / 2U)
+```
+
+**`sos.c`** 
+```c
+static void sos_point(led_id_t led_id){
+    led_blink_custom(led_id, 1, TIME_UNIT, TIME_UNIT);
+}
+
+static void sos_line(led_id_t led_id){
+    led_blink_custom(led_id, 1, 3 * TIME_UNIT, TIME_UNIT);
+}
+
+void sos_play(led_id_t led_id){
+    // sos points
+
+    // wait 1 second between sequences
+    delay(2 * TIME_UNIT);
+
+    // sos lines
+    
+    // wait 1 second between sequences
+    delay(2 * TIME_UNIT);
+    
+    // sos points
+}
 ```
 
 ---
