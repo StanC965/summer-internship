@@ -37,7 +37,7 @@ void main (void){
   // set PINs direction to OUTPUT
   
   while(1){
-    // INITIAL STATE:
+    // INITIAL STATE
     PORTD |= 1 << 5;
     PORTD |= 1 << 4;
     PORTA |= 1 << 3;
@@ -69,7 +69,6 @@ void main (void){
     delay(50000);
 
   }
-  
 }
 ```
 
@@ -94,7 +93,7 @@ void main (void){
   // set PINs direction to OUTPUT
   
   while(1){
-    // INITIAL STATE:
+    // INITIAL STATE
     PORTD |= 1 << 5;
     PORTD |= 1 << 4;
     PORTA |= 1 << 3;
@@ -126,7 +125,6 @@ void main (void){
     delay(50000);
 
   }
-  
 }
 ```
 
@@ -163,7 +161,7 @@ void main (void){
   ddrc_set_direction(OUTPUT, 7);
   
   while(1){
-    // INITIAL STATE:
+    // INITIAL STATE
     PORTD |= 1 << 5;
     PORTD |= 1 << 4;
     PORTA |= 1 << 3;
@@ -195,7 +193,6 @@ void main (void){
     delay(50000);
 
   }
-  
 }
 ```
 
@@ -221,7 +218,7 @@ void main (void){
   ddrc_set_direction(OUTPUT, 7);
   
   while(1){
-    // INITIAL STATE:
+    // INITIAL STATE
     PORTD |= 1 << 5;
     PORTD |= 1 << 4;
     PORTA |= 1 << 3;
@@ -258,7 +255,6 @@ void main (void){
     delay(50000);
 
   }
-  
 }
 ```
 
@@ -296,7 +292,7 @@ void portc_toggle_pin(uint8_t pin){
 > **Answer/Explanation:**
 > In order to be able to use the previous functions not only for port C, but for the rest of the ports and registers, I used pointers.
 > 
-> The hardware registers are not variables, but instead they are macros that point directly to specific memory addresses in the microntroller's RAM map. Because they are just memory addresses, they can be passed into a function using a pointer.
+> The hardware registers are not variables, but instead they are macros that point directly to specific memory addresses in the microcontroller's RAM map. Because they are just memory addresses, they can be passed into a function using a pointer.
 >
 > I went with parameters of type volatile to practice some critical code adaptions in embedded systems, even tough the compiler optimizations are turned off for this project.
 
@@ -315,10 +311,6 @@ void gpio_set_direction(volatile uint8_t *ddr_register, uint8_t direction, uint8
 
 void gpio_toggle_pin(volatile uint8_t *port, uint8_t pin){
   *port ^= (1 << pin);
-}
-
-void delay(long count){
-  for(long i = 0; i < count; i++);
 }
 ```
 
