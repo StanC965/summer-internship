@@ -1,4 +1,81 @@
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
+
+
+
+
+ 
+
+
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+typedef     unsigned char   gpio_uint8_t;
+
+ 
+typedef     unsigned int    gpio_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+ 
+extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+ 
+extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
+
+
+
+
+
+ 
+extern void gpio_Timer1_start(float secunde,int prescale);
+
+
+
+
+
+ 
+extern void gpio_Timer1_stop();
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
+#line 9 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -564,77 +641,7 @@
 
 
 
-#line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
- 
-typedef     unsigned char   gpio_uint8_t;
-
- 
-typedef     unsigned int    gpio_uint16_t;
-
- 
- 
- 
-  
-
-
-
- 
-extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
- 
-extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
-
-
-
-
-
- 
-extern void gpio_Timer1_start(float secunde,int prescale);
-
-
-
-
-
- 
-extern void gpio_Timer1_stop();
-
-
-
- 
-extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
-
-#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 10 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.h"
 
 
@@ -672,35 +679,31 @@ extern void adc_start_conversie();
  
 extern ADC_reader_8bits adc_adapter(ADC_reader_8bits value);
 
-#line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 11 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 
-volatile ADC_reader_8bits ADC_value = 0; 
 
-#pragma vector = (0x60)
-__interrupt void ADC_ISR(void)
+
+ 
+ 
+ 
+
+ void adc_init_LIGHT()
+      {
+          ADMUX=1<<6; 
+          ADMUX|=1<<5; 
+          ADMUX|=1<<2; 
+          ADCSRA=1<<7;
+          ADCSRA|=1<<ADCSRA_ADIE;
+          PRR0&=~(1<<PRR0_PRADC);
+          ADCSRA|=1<<3;
+       }
+void adc_start_conversie()
 {
-   
-     ADC_value = adc_adapter(ADCH);
-    
-   
+      ADCSRA |= (1 << 6); 
 }
 
-void setup(void)
+ADC_reader_8bits adc_adapter(ADC_reader_8bits value)
 {
-  adc_init_LIGHT();
-  gpio_set_pin(&SREG, 7);
+    return (255 - value);
 }
-    
-
-void main(void)
-{
-    setup();
-    adc_start_conversie();                                                   
-    while(1)    
-    {
-  
-    }
-}
-
-
 

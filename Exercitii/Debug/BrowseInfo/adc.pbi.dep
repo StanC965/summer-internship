@@ -1,7 +1,7 @@
-C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi: \
-  C:\Users\Stefan\summer-internship\Exercitii\main.c \
+C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.pbi: \
+  C:\Users\Stefan\summer-internship\Exercitii\adc.c \
+  C:\Users\Stefan\summer-internship\Exercitii\gpio.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iom324pb.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324pb.inc \
-  C:\Users\Stefan\summer-internship\Exercitii\gpio.h \
   C:\Users\Stefan\summer-internship\Exercitii\adc.h

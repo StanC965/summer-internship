@@ -24,6 +24,11 @@ rule PDBLINK
 
 
 #Build steps
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\Stefan\summer-internship\Exercitii\adc.c -xcl_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.xcl -macro_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = C$:\Users\Stefan\summer-internship\Exercitii\adc.c --cpu=m324pb -ms -o C$:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\ --preprocess C$:\Users\Stefan\summer-internship\Exercitii\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\inc\\" --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.tmp
+  rspfile_name = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.xcl.rsp
+
 build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.xcl : COMPILER_XCL 
   xclcommand = -source_file C$:\Users\Stefan\summer-internship\Exercitii\gpio.c -xcl_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.xcl -macro_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = C$:\Users\Stefan\summer-internship\Exercitii\gpio.c --cpu=m324pb -ms -o C$:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\ --preprocess C$:\Users\Stefan\summer-internship\Exercitii\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\inc\\" --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.tmp
@@ -38,6 +43,10 @@ build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl : C
   xclcommand = -source_file C$:\Users\Stefan\summer-internship\Exercitii\main.c -xcl_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl -macro_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = C$:\Users\Stefan\summer-internship\Exercitii\main.c --cpu=m324pb -ms -o C$:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\ --preprocess C$:\Users\Stefan\summer-internship\Exercitii\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\inc\\" --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.tmp
   rspfile_name = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.pbi : INDEXER C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.xcl |  $
+C$:\Users\Stefan\summer-internship\Exercitii\adc.c
+  flags = -out=C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.pbi -f C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.xcl
 
 build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi : INDEXER C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.xcl |  $
 C$:\Users\Stefan\summer-internship\Exercitii\gpio.c
@@ -54,8 +63,9 @@ C$:\Users\Stefan\summer-internship\Exercitii\main.c
 build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbw : MAKEBROWSE C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd
   flags = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd -output C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbw
 
-build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi |  $
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.pbi |  $
+C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi $
 C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\led.pbi $
 C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi
-  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\led.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi
+  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\adc.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\led.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi
 
