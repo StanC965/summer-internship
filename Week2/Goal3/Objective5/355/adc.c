@@ -1,0 +1,27 @@
+#ifndef ADC_C
+#define ADC_C
+
+#include "adc.h"
+
+void adc_init(unsigned char adc_channel_pin)
+{
+    ADMUX = (1 << ADC_REFS_AVCC) | (1 << ADC_LEFT_ADJUST);
+    
+    ADMUX |= (adc_channel_pin & 0x1F);
+        
+    ADCSRA |= (1 << ADC_INT_ENABLE);
+    
+    ADCSRA |= (1 << ADC_ENABLE);
+}
+
+void adc_start_conversion(void)
+{
+    ADCSRA |= (1 << ADC_START);
+}
+
+unsigned char adc_get_result(void)
+{
+    return ADCH;
+}
+
+#endif
