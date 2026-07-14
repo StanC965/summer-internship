@@ -1,0 +1,12 @@
+Do you observe any difference to ADC results?
+
+da ,am observat diferente si anume :
+
+cand nu folosim prescale si ne bazam pe 8 bits trecerea de la un led la altul este mai brusca
+,adica trebuie sa acopar senzorul de lumina mai mult pentru a observa o diferenta
+(stingere a Led-urilor);
+
+in timp ce la 10 bits diferenta pare mai graduala
+
+
+Totusi e o diferenta mica si in cazul exercitiilor astea nu se observa asa tare.

@@ -1,0 +1,7 @@
+Dupa o verificare intre tabelul scris in documentul de la functia help si tabelul din fisierul:
+iom324pb.h se poate observa ca sunt intr-o masura foarte mare identice,singura diferenta pe care am gasit-o
+a fost ca in fiserul iom324pb.h exista o intrerupere in plus si anume:
+
+#define USART2_RXS_vect          (0xC8) /* USART2 RX start edge detect */
+
+este pe penultima pozitie in tabelul din iom324pb.h
