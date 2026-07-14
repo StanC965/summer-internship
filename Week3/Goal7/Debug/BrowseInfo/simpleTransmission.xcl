@@ -1,13 +1,13 @@
-"D:\Mircea\Marqurdt\summer-internship\Week3\Goal7\main.c"
+"D:\Mircea\Marqurdt\summer-internship\Week3\Goal7\simpleTransmission.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-D:\Mircea\Marqurdt\summer-internship\Week3\Goal7\Debug\BrowseInfo\main.pbi.dep
+D:\Mircea\Marqurdt\summer-internship\Week3\Goal7\Debug\BrowseInfo\simpleTransmission.pbi.dep
 -o
-D:\Mircea\Marqurdt\summer-internship\Week3\Goal7\Debug\BrowseInfo\main.pbi
+D:\Mircea\Marqurdt\summer-internship\Week3\Goal7\Debug\BrowseInfo\simpleTransmission.pbi
 -I
 D:\Mircea\Marqurdt\summer-internship\Week3\Goal7
 -I
