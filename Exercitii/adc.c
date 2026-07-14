@@ -10,7 +10,6 @@
 #include "adc.h"
 
 
-
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  Implementation      */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -18,9 +17,16 @@
  void adc_init_LIGHT()
       {
         
+       #ifdef ADC_USE_8_BIT_RESOLUTION
+        gpio_set_pin(&ADMUX, 5);   
+    #else
+        gpio_reset_pin(&ADMUX, 5);
+    #endif
+
+        
          gpio_set_pin(&ADMUX,2);
          gpio_set_pin(&ADMUX,6);//pini ref 7 /6   , combinatia 01 selecteaza AVCC adica 3.3V 
-         gpio_set_pin(&ADMUX,5); //setam adlar pe 1
+        // gpio_set_pin(&ADMUX,5); //setam adlar pe 1
          
           
           gpio_reset_pin(&PRR0,PRR0_PRADC);
@@ -32,38 +38,40 @@
           gpio_set_pin(&ADCSRA,0); //8
         
        }
+
+    
+
 void adc_start_conversie()
 {
       gpio_set_pin(&ADCSRA,6); // 6 este ADSC
 }
 
-ADC_reader_8bits adc_adapter8(ADC_reader_8bits value)
+#ifdef ADC_USE_8_BIT_RESOLUTION
+ADC_result adc_adapter(ADC_result value)
 {
     return (255 - value);
 }
-ADC_reader_16bits adc_adapter16(ADC_reader_16bits value)
-{
-    
-    return (1023 - value);
-}
 
-
-ADC_reader_16bits adc_get_result16(void)
-{
-  
- ADC_reader_16bits rezultat;
- ADC_reader_8bits low_nibble,high_nibble;
- low_nibble=ADCL;
- high_nibble=ADCH;
- rezultat=low_nibble|(high_nibble<<8);
-  return rezultat;
-  
-}
-
-ADC_reader_8bits adc_get_result8(void)
+ADC_result adc_get_result(void)
 {
     return ADCH; 
 }
+#else
+ADC_result adc_adapter(ADC_result value)
+{
+    return (1023 - value);
+}
+
+ADC_result adc_get_result(void)
+{
+    ADC_result rezultat;
+    unsigned char low_byte = ADCL;
+    unsigned char high_byte = ADCH;
+    rezultat = low_byte | (high_byte << 8);
+    return rezultat;
+}
+#endif
+
 
 void disable_input_buffer_for_lightSensor()
 {

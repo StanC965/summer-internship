@@ -1,16 +1,23 @@
 #ifndef ADC_H
 #define ADC_H
+#define ADC_USE_8_BIT_RESOLUTION
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /** \brief  Module specific null pointer */
 
+/*
+ \brief  parameter type unsigned byte (8 bit) 
+typedef     unsigned char   ADC_result;
 
-/** \brief  parameter type unsigned byte (8 bit) */
-typedef     unsigned char   ADC_reader_8bits;
-
-/** \brief  parameter type unsigned word (16 bit) */
+ \brief  parameter type unsigned word (16 bit) 
 typedef     unsigned short   ADC_reader_16bits;
+*/
+#ifdef ADC_USE_8_BIT_RESOLUTION  
+typedef unsigned char ADC_result;
+#else
+typedef unsigned short ADC_result;
+#endif
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  public functions            */
@@ -28,36 +35,21 @@ extern void adc_init_LIGHT();
 */
 extern void adc_start_conversie();
 
-/** \fn     ADC_reader_8bits adc_adapter8()
+/** \fn     ADC_result adc_adapter()
 
-    \brief      [ Aceasta functie  preia valoarea obtinuta de 8 bits din conversie si o inverseaza ]  
+    \brief      [ Aceasta functie  preia valoarea obtinuta de 8 bits sau 16 bits  din conversie si o inverseaza ]  
 */
-extern ADC_reader_8bits adc_adapter8(ADC_reader_8bits value);
+extern ADC_result adc_adapter8(ADC_result value);
 
-/** \fn     ADC_reader_16bits adc_adapter16()
 
-    \brief      [ Aceasta functie  preia valoarea obtinuta de 16 bits  din conversie si o inverseaza ]  
+
+/** \fn     void adc_get_result()
+
+    \brief      [ Aceasta functie  preia valoarea obtinuta din ADCH de 8 biti sau 16 biti]  
 */
-extern ADC_reader_16bits adc_adapter16(ADC_reader_16bits value);
+extern ADC_result adc_get_result();
 
 
-/** \fn     void adc_get_result8()
-
-    \brief      [ Aceasta functie  preia valoarea obtinuta din ADCH de 8 biti]  
-*/
-extern ADC_reader_8bits adc_get_result8();
-
-/** \fn     ADC_reader_16bits adc_get_result16()
-
-    \brief      [ Aceasta functie  preia valoarea obtinuta din ADCH de 16 biti]  
-*/
-extern ADC_reader_16bits adc_get_result16();
-
-
-/** \fn     void disable_input_buffer_for_lightSensor()
-
-    \brief      [ Aceasta functie dezactiveaza input buffer-ul din DIDR0 pentru ADC -ul responsabil de senzorul de lumina ]  
-*/
 extern void disable_input_buffer_for_lightSensor();
 
 /** \fn     void enable_input_buffer_for_lightSensor()

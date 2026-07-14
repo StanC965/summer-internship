@@ -640,15 +640,22 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 
 
 
+
  
  
 
 
- 
-typedef     unsigned char   ADC_reader_8bits;
+
+
+
+
 
  
-typedef     unsigned short   ADC_reader_16bits;
+
+typedef unsigned char ADC_result;
+
+
+
 
  
  
@@ -670,32 +677,17 @@ extern void adc_start_conversie();
 
 
  
-extern ADC_reader_8bits adc_adapter8(ADC_reader_8bits value);
+extern ADC_result adc_adapter8(ADC_result value);
 
-
-
-
- 
-extern ADC_reader_16bits adc_adapter16(ADC_reader_16bits value);
 
 
 
 
 
  
-extern ADC_reader_8bits adc_get_result8();
+extern ADC_result adc_get_result();
 
 
-
-
- 
-extern ADC_reader_16bits adc_get_result16();
-
-
-
-
-
- 
 extern void disable_input_buffer_for_lightSensor();
 
 
@@ -810,14 +802,14 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 
 #line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
-volatile ADC_reader_16bits ADC_value = 0; 
+volatile ADC_result ADC_value = 0; 
 
 #pragma vector = (0x60)
 __interrupt void ADC_ISR(void)
 {
    
-    ADC_reader_16bits hardware_value = adc_get_result16();
-    ADC_value = adc_adapter16(hardware_value);
+ADC_result hardware_value = adc_get_result();
+    ADC_value = adc_adapter(hardware_value);
    
 }
 
@@ -827,66 +819,54 @@ void setup(void)
   gpio_set_pin(&SREG, 7);
   disable_input_buffer_for_lightSensor();
   
-  ADMUX&=~(1<<5);
+  
    leds_initialize(0,1,1,1,0);
   
 }
     
 int counter=0;
+
+#line 39 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 void main(void)
 {
     setup();
-                
-          gpio_Timer1_start(1,64);
+    gpio_Timer1_start(1, 64);
+    
     while(1)    
     {
-      
-      
-      
-      if(TCNT1>=OCR1A)
-      {
-        adc_start_conversie();
-      
-        
-        
-      if (ADC_value < 255) 
-{
-    
-    led_Set((0xBB));
-    led_Set((0xCC));
-    led_Set((0xDD));
-}
-else if (ADC_value < 511) 
-{
-    
-    led_Reset((0xBB));
-    led_Set((0xCC));
-    led_Set((0xDD));
-}
-else if (ADC_value < 767) 
-{
-    
-    led_Reset((0xBB));
-    led_Reset((0xCC));
-    led_Set((0xDD));
-}
-else 
-{
-    
-    led_Reset((0xBB));
-    led_Reset((0xCC));
-    led_Reset((0xDD));
-}
-        
-  
-
-        TCNT1=0;
-        counter++;
-      }
-      if(counter==100)
-        gpio_Timer1_stop();
+        if(TCNT1 >= OCR1A)
+        {
+            adc_start_conversie();
+            
+            
+            if (ADC_value < 64) 
+            {
+                led_Set((0xBB));
+                led_Set((0xCC));
+                led_Set((0xDD));
+            }
+            else if (ADC_value < 128) 
+            {
+                led_Reset((0xBB));
+                led_Set((0xCC));
+                led_Set((0xDD));
+            }
+            else if (ADC_value < 192) 
+            {
+                led_Reset((0xBB));
+                led_Reset((0xCC));
+                led_Set((0xDD));
+            }
+            else 
+            {
+                led_Reset((0xBB));
+                led_Reset((0xCC));
+                led_Reset((0xDD));
+            }
+            
+            TCNT1 = 0;
+        }
     }
 }
-
 
 

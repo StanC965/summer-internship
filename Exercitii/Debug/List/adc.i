@@ -647,15 +647,22 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 
 
 
+
  
  
 
 
- 
-typedef     unsigned char   ADC_reader_8bits;
+
+
+
+
 
  
-typedef     unsigned short   ADC_reader_16bits;
+
+typedef unsigned char ADC_result;
+
+
+
 
  
  
@@ -677,32 +684,17 @@ extern void adc_start_conversie();
 
 
  
-extern ADC_reader_8bits adc_adapter8(ADC_reader_8bits value);
+extern ADC_result adc_adapter8(ADC_result value);
 
-
-
-
- 
-extern ADC_reader_16bits adc_adapter16(ADC_reader_16bits value);
 
 
 
 
 
  
-extern ADC_reader_8bits adc_get_result8();
+extern ADC_result adc_get_result();
 
 
-
-
- 
-extern ADC_reader_16bits adc_get_result16();
-
-
-
-
-
- 
 extern void disable_input_buffer_for_lightSensor();
 
 
@@ -714,7 +706,6 @@ extern void enable_input_buffer_for_lightSensor();
 #line 11 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 
 
-
  
  
  
@@ -722,9 +713,16 @@ extern void enable_input_buffer_for_lightSensor();
  void adc_init_LIGHT()
       {
         
+
+        gpio_set_pin(&ADMUX, 5);   
+
+
+
+
+        
          gpio_set_pin(&ADMUX,2);
          gpio_set_pin(&ADMUX,6);
-         gpio_set_pin(&ADMUX,5); 
+        
          
           
           gpio_reset_pin(&PRR0,PRR0_PRADC);
@@ -736,38 +734,26 @@ extern void enable_input_buffer_for_lightSensor();
           gpio_set_pin(&ADCSRA,0); 
         
        }
+
+    
+
 void adc_start_conversie()
 {
       gpio_set_pin(&ADCSRA,6); 
 }
 
-ADC_reader_8bits adc_adapter8(ADC_reader_8bits value)
+
+ADC_result adc_adapter(ADC_result value)
 {
     return (255 - value);
 }
-ADC_reader_16bits adc_adapter16(ADC_reader_16bits value)
-{
-    
-    return (1023 - value);
-}
 
-
-ADC_reader_16bits adc_get_result16(void)
-{
-  
- ADC_reader_16bits rezultat;
- ADC_reader_8bits low_nibble,high_nibble;
- low_nibble=ADCL;
- high_nibble=ADCH;
- rezultat=low_nibble|(high_nibble<<8);
-  return rezultat;
-  
-}
-
-ADC_reader_8bits adc_get_result8(void)
+ADC_result adc_get_result(void)
 {
     return ADCH; 
 }
+#line 74 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
+
 
 void disable_input_buffer_for_lightSensor()
 {
