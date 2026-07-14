@@ -1,0 +1,14 @@
+1.What changes should I do to register settings to implement 10bit resolution? 
+2.How can I get the result now? 
+3.Does data type change?
+4.Would be easier to have the result right aligned or left aligned?
+5.Should I change the prescaler as chapter 27.4 is telling me?
+
+
+ANSWERS:
+1.scoaterea alinierii la stanga ca sa fie mai usoara citirea.Adica bit-ul ADLAR din ADMUX =0
+2.Prin citirea byte-ului low (ADCL) urmata de citirea byte-ului high(ADCH),dupa aceea unirea lor prin "|" 
+3.da,se schimba in 16 biti deoarece ADC imparte VREF in 1024 de parti nu 256
+4.right aligned deoarece e mai intuitiv ca cei doi biti MSB sa fie in high
+5.da,cu siguranta,fara prescaler ceasul merge prea repede ,ideal e intre 50 khz si 125 khz
+am observat ca ceasul e la 1000000 hz,deci un prescale de 8 care sa dea 125khz ar fi potrivit.

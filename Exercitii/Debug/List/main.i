@@ -648,7 +648,7 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 typedef     unsigned char   ADC_reader_8bits;
 
  
-typedef     unsigned int    ADC_reader_16bits;
+typedef     unsigned short   ADC_reader_16bits;
 
  
  
@@ -670,13 +670,39 @@ extern void adc_start_conversie();
 
 
  
-extern ADC_reader_8bits adc_adapter(ADC_reader_8bits value);
+extern ADC_reader_8bits adc_adapter8(ADC_reader_8bits value);
 
 
 
 
  
-extern ADC_reader_8bits adc_get_result();
+extern ADC_reader_16bits adc_adapter16(ADC_reader_16bits value);
+
+
+
+
+
+ 
+extern ADC_reader_8bits adc_get_result8();
+
+
+
+
+ 
+extern ADC_reader_16bits adc_get_result16();
+
+
+
+
+
+ 
+extern void disable_input_buffer_for_lightSensor();
+
+
+
+
+ 
+extern void enable_input_buffer_for_lightSensor();
 
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
@@ -784,19 +810,14 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 
 #line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
-volatile ADC_reader_8bits ADC_value = 0; 
+volatile ADC_reader_16bits ADC_value = 0; 
 
 #pragma vector = (0x60)
 __interrupt void ADC_ISR(void)
 {
    
-   ADC_reader_8bits hardware_value = adc_get_result();
-    ADC_value = adc_adapter(hardware_value);
-    leds_initialize(1,1,1,1,0);
-    led_Set((0xAA));
-     led_Set((0xBB));
-      led_Set((0xCC));
-       led_Set((0xDD));
+    ADC_reader_16bits hardware_value = adc_get_result16();
+    ADC_value = adc_adapter16(hardware_value);
    
 }
 
@@ -804,6 +825,11 @@ void setup(void)
 {
   adc_init_LIGHT();
   gpio_set_pin(&SREG, 7);
+  disable_input_buffer_for_lightSensor();
+  
+  ADMUX&=~(1<<5);
+   leds_initialize(0,1,1,1,0);
+  
 }
     
 int counter=0;
@@ -823,21 +849,21 @@ void main(void)
       
         
         
-      if (ADC_value < 64) 
+      if (ADC_value < 255) 
 {
     
     led_Set((0xBB));
     led_Set((0xCC));
     led_Set((0xDD));
 }
-else if (ADC_value < 128) 
+else if (ADC_value < 511) 
 {
     
     led_Reset((0xBB));
     led_Set((0xCC));
     led_Set((0xDD));
 }
-else if (ADC_value < 192) 
+else if (ADC_value < 767) 
 {
     
     led_Reset((0xBB));

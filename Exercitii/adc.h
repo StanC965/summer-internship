@@ -10,7 +10,7 @@
 typedef     unsigned char   ADC_reader_8bits;
 
 /** \brief  parameter type unsigned word (16 bit) */
-typedef     unsigned int    ADC_reader_16bits;
+typedef     unsigned short   ADC_reader_16bits;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  public functions            */
@@ -28,17 +28,31 @@ extern void adc_init_LIGHT();
 */
 extern void adc_start_conversie();
 
-/** \fn     void adc_adapter()
+/** \fn     ADC_reader_8bits adc_adapter8()
 
-    \brief      [ Aceasta functie  preia valoarea obtinuta din conversie si o inverseaza ]  
+    \brief      [ Aceasta functie  preia valoarea obtinuta de 8 bits din conversie si o inverseaza ]  
 */
-extern ADC_reader_8bits adc_adapter(ADC_reader_8bits value);
+extern ADC_reader_8bits adc_adapter8(ADC_reader_8bits value);
 
-/** \fn     void adc_get_result()
+/** \fn     ADC_reader_16bits adc_adapter16()
 
-    \brief      [ Aceasta functie  preia valoarea obtinuta din ADCH ]  
+    \brief      [ Aceasta functie  preia valoarea obtinuta de 16 bits  din conversie si o inverseaza ]  
 */
-extern ADC_reader_8bits adc_get_result();
+extern ADC_reader_16bits adc_adapter16(ADC_reader_16bits value);
+
+
+/** \fn     void adc_get_result8()
+
+    \brief      [ Aceasta functie  preia valoarea obtinuta din ADCH de 8 biti]  
+*/
+extern ADC_reader_8bits adc_get_result8();
+
+/** \fn     ADC_reader_16bits adc_get_result16()
+
+    \brief      [ Aceasta functie  preia valoarea obtinuta din ADCH de 16 biti]  
+*/
+extern ADC_reader_16bits adc_get_result16();
+
 
 /** \fn     void disable_input_buffer_for_lightSensor()
 
