@@ -792,8 +792,11 @@ __interrupt void ADC_ISR(void)
    
    ADC_reader_8bits hardware_value = adc_get_result();
     ADC_value = adc_adapter(hardware_value);
-    leds_initialize(1,0,0,0,0);
+    leds_initialize(1,1,1,1,0);
     led_Set((0xAA));
+     led_Set((0xBB));
+      led_Set((0xCC));
+       led_Set((0xDD));
    
 }
 
@@ -811,24 +814,50 @@ void main(void)
           gpio_Timer1_start(1,64);
     while(1)    
     {
-
+      
+      
+      
       if(TCNT1>=OCR1A)
       {
         adc_start_conversie();
-
-  
-        if(ADC_value >(0xff/2))
-      {
-              led_Reset((0xAA));
-      }
-        else{
-            led_Set((0xAA));
-        }
+      
+        
+        
+      if (ADC_value < 64) 
+{
     
+    led_Set((0xBB));
+    led_Set((0xCC));
+    led_Set((0xDD));
+}
+else if (ADC_value < 128) 
+{
+    
+    led_Reset((0xBB));
+    led_Set((0xCC));
+    led_Set((0xDD));
+}
+else if (ADC_value < 192) 
+{
+    
+    led_Reset((0xBB));
+    led_Reset((0xCC));
+    led_Set((0xDD));
+}
+else 
+{
+    
+    led_Reset((0xBB));
+    led_Reset((0xCC));
+    led_Reset((0xDD));
+}
+        
+  
+
         TCNT1=0;
         counter++;
       }
-      if(counter==20)
+      if(counter==100)
         gpio_Timer1_stop();
     }
 }

@@ -51258,7 +51258,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "19",
+      "line": "22",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -51272,7 +51272,7 @@
     "display": "counter",
     "location": {
       "column": "5",
-      "line": "25",
+      "line": "28",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "counter",
@@ -51286,7 +51286,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "26",
+      "line": "29",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
