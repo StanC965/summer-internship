@@ -2,7 +2,7 @@
 #include "gpio.h" 
 #include "led.h" 
 #include "sos.h"
-
+#define 
 extern volatile _Bool sos_stop; 
 
 #pragma vector = PCINT2_vect
@@ -39,7 +39,7 @@ void main(void)
     {
         if(sos_stop == 0)
         {
-            SOS();
+            sos_pattern();
         }
         else
         {

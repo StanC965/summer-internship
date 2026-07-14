@@ -51084,44 +51084,44 @@
     "scope": null
   },
   {
-    "ID": "c:@F@letter_S",
+    "ID": "c:@F@sos_letter_S",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void letter_S(void)",
+    "display": "void sos_letter_S(void)",
     "location": {
       "column": "13",
       "line": "26",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.h"
     },
-    "name": "letter_S",
+    "name": "sos_letter_S",
     "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@F@letter_O",
+    "ID": "c:@F@sos_letter_O",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void letter_O(void)",
+    "display": "void sos_letter_O(void)",
     "location": {
       "column": "13",
       "line": "35",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.h"
     },
-    "name": "letter_O",
+    "name": "sos_letter_O",
     "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@F@SOS",
+    "ID": "c:@F@sos_pattern",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void SOS(void)",
+    "display": "void sos_pattern(void)",
     "location": {
       "column": "13",
       "line": "44",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.h"
     },
-    "name": "SOS",
+    "name": "sos_pattern",
     "origin": "user_include",
     "scope": null
   },
@@ -51154,21 +51154,21 @@
     "scope": null
   },
   {
-    "ID": "c:sos.c@F@morse_delay_units",
+    "ID": "c:sos.c@F@sos_morse_delay_units",
     "What": "Function",
     "defdec": "Def",
-    "display": "void morse_delay_units(float)",
+    "display": "void sos_morse_delay_units(float)",
     "location": {
       "column": "13",
       "line": "16",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.c"
     },
-    "name": "morse_delay_units",
+    "name": "sos_morse_delay_units",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:sos.c@846@F@morse_delay_units@i",
+    "ID": "c:sos.c@850@F@sos_morse_delay_units@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -51182,72 +51182,72 @@
     "scope": null
   },
   {
-    "ID": "c:sos.c@F@morse_point",
+    "ID": "c:sos.c@F@sos_morse_point",
     "What": "Function",
     "defdec": "Def",
-    "display": "void morse_point(void)",
+    "display": "void sos_morse_point(void)",
     "location": {
       "column": "13",
       "line": "39",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.c"
     },
-    "name": "morse_point",
+    "name": "sos_morse_point",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:sos.c@F@morse_line",
+    "ID": "c:sos.c@F@sos_morse_line",
     "What": "Function",
     "defdec": "Def",
-    "display": "void morse_line(void)",
+    "display": "void sos_morse_line(void)",
     "location": {
       "column": "13",
       "line": "48",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.c"
     },
-    "name": "morse_line",
+    "name": "sos_morse_line",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@letter_S",
+    "ID": "c:@F@sos_letter_S",
     "What": "Function",
     "defdec": "Def",
-    "display": "void letter_S(void)",
+    "display": "void sos_letter_S(void)",
     "location": {
       "column": "6",
       "line": "57",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.c"
     },
-    "name": "letter_S",
+    "name": "sos_letter_S",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@letter_O",
+    "ID": "c:@F@sos_letter_O",
     "What": "Function",
     "defdec": "Def",
-    "display": "void letter_O(void)",
+    "display": "void sos_letter_O(void)",
     "location": {
       "column": "6",
       "line": "65",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.c"
     },
-    "name": "letter_O",
+    "name": "sos_letter_O",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@SOS",
+    "ID": "c:@F@sos_pattern",
     "What": "Function",
     "defdec": "Def",
-    "display": "void SOS(void)",
+    "display": "void sos_pattern(void)",
     "location": {
       "column": "6",
       "line": "73",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\sos.c"
     },
-    "name": "SOS",
+    "name": "sos_pattern",
     "origin": "project_file",
     "scope": null
   }

@@ -13,7 +13,7 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 volatile _Bool sos_stop = 0;
-static void morse_delay_units(float units)
+static void sos_morse_delay_units(float units)
 {
     if (sos_stop) return;
 
@@ -36,49 +36,49 @@ static void morse_delay_units(float units)
     gpio_Timer1_stop();
 }
 
-static void morse_point(void)
+static void sos_morse_point(void)
 {
     if (sos_stop) return;
     led_Set(LED_ZERO);
-    morse_delay_units(1);    
+    sos_morse_delay_units(1);    
     led_Reset(LED_ZERO);
-    morse_delay_units(1);    
+    sos_morse_delay_units(1);    
 }
 
-static void morse_line(void)
+static void sos_morse_line(void)
 {
     if (sos_stop) return;
     led_Set(LED_ZERO);
-    morse_delay_units(3);    
+    sos_morse_delay_units(3);    
     led_Reset(LED_ZERO);
-    morse_delay_units(1);    
+    sos_morse_delay_units(1);    
 }
 
-void letter_S(void)
+void sos_letter_S(void)
 {
-    morse_point();
-    morse_point(); 
-    morse_point(); 
-    morse_delay_units(2); 
+    sos_morse_point();
+    sos_morse_point(); 
+    sos_morse_point(); 
+    sos_morse_delay_units(2); 
 }
 
-void letter_O(void)
+void sos_letter_O(void)
 {
-    morse_line(); 
-    morse_line(); 
-    morse_line(); 
-    morse_delay_units(2);
+    sos_morse_line(); 
+    sos_morse_line(); 
+    sos_morse_line(); 
+    sos_morse_delay_units(2);
 }
 
-void SOS(void)
+void sos_pattern(void)
 {
     
     while(gpio_read_pin(&PINC, 6) == GPIO_FALSE);
     
-    letter_S();
-    letter_O(); 
-    letter_S(); 
+    sos_letter_S();
+    sos_letter_O(); 
+    sos_letter_S(); 
     
-    morse_delay_units(4); 
+    sos_morse_delay_units(4); 
 }
 #endif

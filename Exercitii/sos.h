@@ -23,7 +23,7 @@
     \return     [ none ]
     \details    [ Executa secventa de 3 puncte pentru litera S ]
 */
-extern void letter_S(void);
+extern void sos_letter_S(void);
 
 /** \fn      void letter_O(void)
     \brief      [ Litera O in codul morse ]  
@@ -32,7 +32,7 @@ extern void letter_S(void);
     \return     [ none ]
     \details    [ Executa secventa de 3 linii pentru litera O ]
 */
-extern void letter_O(void);
+extern void sos_letter_O(void);
 
 /** \fn     void SOS(void)
     \brief      [ Se foloseste de functiile S si O ca sa faca un semnal SOS complet ]  
@@ -41,6 +41,6 @@ extern void letter_O(void);
     \return     [ none ]
     \details    [ Ruleaza S-O-S cu pauzele standard  ]
 */
-extern void SOS(void);
+extern void sos_pattern(void);
 
 #endif 
