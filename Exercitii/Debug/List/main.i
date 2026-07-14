@@ -790,6 +790,7 @@ extern void sos_pattern(void);
 
 
 
+
 int volatile count1=0;
 int volatile count2=0;
 int volatile count3=0;
@@ -799,44 +800,62 @@ _Bool volatile sw0=0;
 #pragma vector = (0x10)
 __interrupt void PinChangePortA_ISR(void)
 {
+     for(int i=0;i<3000U;i++)
+       {}
   
-    if(!sw0)
+     if(sw0)
+     {
+             
+           led_Set((0xAA));
+           for(int i=0;i<500U;i++)
+           led_Reset((0xAA));
+           for(int i=0;i<500U;i++)
+           led_Set((0xAA));
+           for(int i=0;i<500U;i++)
+           led_Reset((0xAA));
+           for(int i=0;i<500U;i++)
+           led_Set((0xAA));
+           for(int i=0;i<500U;i++)
+           led_Reset((0xAA));
+     }
+   else
     {
-    for(int i=0;i<3000U;i++)
-    {}
     
-    if ( ((PINA & (1 << 0)) == 0)&& count1==0 )  
-    {
-        led_Reset((0xBB));
-        count1++;
+          
+         if ( ((PINA & (1 << 0)) == 0)&& count1==0 )  
+          {
+               led_Reset((0xBB));
+               count1++;
         
-    }   
-    else if((PINA & (1 << 0)) == 0)
-    {
-        count1++;
-    }         
+          }   
+         
+         else if((PINA & (1 << 0)) == 0)
+          {
+                  count1++;
+          }         
                 
-    if ( ((PINA & (1 << 1)) == 0)&& count3==0 )  
-    {
-        led_Reset((0xDD));
-        count3++;
+          if ( ((PINA & (1 << 1)) == 0)&& count3==0 )  
+           {
+                  led_Reset((0xDD));
+                  count3++;
+           }
+          else if ((PINA & (1 << 1)) == 0)
+           {
+                count3++;
+           }
+          
+          if(count1 == 3)
+           {
+                  count1=0;
+                  led_Set((0xBB));
+           }
+           if(count3== 3)
+            {
+                  led_Set((0xDD));
+                  count3=0;
+            }
     }
-    else if ((PINA & (1 << 1)) == 0)
-    {
-        count3++;
-    }
-    
-    if(count1 == 3)
-    {
-      count1=0;
-      led_Set((0xBB));
-    }
-      if(count3== 3)
-    {
-      led_Set((0xDD));
-      count3=0;
-    }
-    }
+
   
 }
 
@@ -848,46 +867,62 @@ __interrupt void PinChangePortC_ISR(void)
              
              
              
-             
+            
     for(int i=0;i<3000U;i++)
     {}
-   if( (PINC & (1 << 6)) == 0 )
-    {
-      
-      sw0=!sw0;
-      if(sw0)
-      {
-      led_Set((0xBB));
-      led_Set((0xCC));  
-      led_Set((0xDD));
-      count1=0;
-      count2=0;
-      count3=0;
-      led_Reset((0xAA));
-      }
-      else{
-        led_Set((0xAA));
-      }
-    }
+          if ( ((PINC & (1 << 6)) == 0 ))  
+              {
+                     sw0=!sw0;
+                     if(sw0)
+                     {
+                      
+                         led_Reset((0xAA));
+                     }
+                     else
+                        led_Set((0xAA));
+                      led_Set((0xBB));
+                      led_Set((0xCC));       
+                      led_Set((0xDD));
+                      count1=0;
+                      count2=0;
+                      count3=0;
+                     
+                     
+                     
+              }
          
-    if(!sw0)
+   else if ( (PINC & (1 << 1)) == 0 )
     {
-    if ( ((PINC & (1 << 1)) == 0 )&&count2==0)  
-    {
-        led_Reset((0xCC));
-        count2++;
-    }
-    else if ((PINC & (1 << 1)) == 0 )
-    {
-        count2++;
-    }
-    
-    if(count2==3)
-    {
-      count2=0;
-      led_Set((0xCC));
-    }
-    }
+        if (sw0) 
+        {
+            led_Set((0xAA));
+            for(int i = 0; i < 500U; i++) led_Reset((0xAA));
+            for(int i = 0; i < 500U; i++) led_Set((0xAA));
+            for(int i = 0; i < 500U; i++) led_Reset((0xAA));
+            for(int i = 0; i < 500U; i++) led_Set((0xAA));
+            for(int i = 0; i < 500U; i++) led_Reset((0xAA));
+        }
+        else 
+        {
+            if (count2 == 0)  
+            {
+                led_Reset((0xCC));
+                count2++;
+            }
+            else 
+            {
+                count2++;
+            }
+              
+            if(count2 == 3)
+            {
+                count2 = 0;
+                led_Set((0xCC));
+            }
+        }
+
+
+      }
 }
 
 

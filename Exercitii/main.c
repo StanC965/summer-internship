@@ -4,6 +4,7 @@
 #include "sos.h"
 #define  TOGGLE_NR       3
 #define  DEBOUNCE        3000U
+#define  BLINK_SPACE     500U
 
 
 int volatile count1=0;
@@ -15,44 +16,62 @@ _Bool volatile sw0=0;
 #pragma vector = PCINT0_vect
 __interrupt void PinChangePortA_ISR(void)
 {
+     for(int i=0;i<DEBOUNCE;i++)  
+       {}
   
-    if(!sw0)
+     if(sw0)
+     {
+             
+           led_Set(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Reset(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)      //Bloc de clipire/blink
+           led_Set(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Reset(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Set(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Reset(LED_ZERO);
+     }
+   else
     {
-    for(int i=0;i<DEBOUNCE;i++)
-    {}
     
-    if ( ((PINA & (1 << 0)) == 0)&& count1==0 )  
-    {
-        led_Reset(LED_ONE);
-        count1++;
+          
+         if ( ((PINA & (1 << 0)) == 0)&& count1==0 )    //daca e prima apasare 
+          {
+               led_Reset(LED_ONE);
+               count1++;
         
-    }   
-    else if((PINA & (1 << 0)) == 0)
-    {
-        count1++;
-    }         
+          }   
+         
+         else if((PINA & (1 << 0)) == 0)    // daca e alta apasare decat prima
+          {
+                  count1++;
+          }         
                 
-    if ( ((PINA & (1 << 1)) == 0)&& count3==0 )  
-    {
-        led_Reset(LED_THREE);
-        count3++;
+          if ( ((PINA & (1 << 1)) == 0)&& count3==0 )     //daca e prima apasare 
+           {
+                  led_Reset(LED_THREE);
+                  count3++;
+           }
+          else if ((PINA & (1 << 1)) == 0)   // daca e alta apasare decat prima
+           {
+                count3++;
+           }
+          
+          if(count1 == TOGGLE_NR)       // daca am apasat de destule ori ca sa se stinga
+           {
+                  count1=0;
+                  led_Set(LED_ONE);
+           }
+           if(count3== TOGGLE_NR)
+            {
+                  led_Set(LED_THREE);
+                  count3=0;
+            }
     }
-    else if ((PINA & (1 << 1)) == 0)
-    {
-        count3++;
-    }
-    
-    if(count1 == TOGGLE_NR)
-    {
-      count1=0;
-      led_Set(LED_ONE);
-    }
-      if(count3== TOGGLE_NR)
-    {
-      led_Set(LED_THREE);
-      count3=0;
-    }
-    }
+
   
 }
 
@@ -64,46 +83,67 @@ __interrupt void PinChangePortC_ISR(void)
              
              
              
-             
+            
     for(int i=0;i<DEBOUNCE;i++)
     {}
-   if( (PINC & (1 << 6)) == 0 )
-    {
-      
-      sw0=!sw0;
-      if(sw0)
-      {
-      led_Set(LED_ONE);
-      led_Set(LED_TWO);  
-      led_Set(LED_THREE);
-      count1=0;
-      count2=0;
-      count3=0;
-      led_Reset(LED_ZERO);
-      }
-      else{
-        led_Set(LED_ZERO);
-      }
-    }
+          if ( ((PINC & (1 << 6)) == 0 ))  
+              {
+                     sw0=!sw0;
+                     if(sw0)
+                     {
+                      
+                         led_Reset(LED_ZERO);  
+                     }
+                     else
+                        led_Set(LED_ZERO);
+                      led_Set(LED_ONE);
+                      led_Set(LED_TWO);       
+                      led_Set(LED_THREE);         //resetam tot la LEDs
+                      count1=0;
+                      count2=0;
+                      count3=0;
+                     
+                     
+                     
+              }
          
-    if(!sw0)
+   else if ( (PINC & (1 << 1)) == 0 )
     {
-    if ( ((PINC & (1 << 1)) == 0 )&&count2==0)  
-    {
-        led_Reset(LED_TWO);
-        count2++;
-    }
-    else if ((PINC & (1 << 1)) == 0 )
-    {
-        count2++;
-    }
-    
-    if(count2==TOGGLE_NR)
-    {
-      count2=0;
-      led_Set(LED_TWO);
-    }
-    }
+        if (sw0) // Daca e blocat facem blink
+        {
+              led_Set(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Reset(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)      //Bloc de clipire/blink
+           led_Set(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Reset(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Set(LED_ZERO);
+           for(int i=0;i<BLINK_SPACE;i++)
+           led_Reset(LED_ZERO);
+        }
+        else // Daca NU este blocat avemomportamentul normal
+        {
+            if (count2 == 0)  
+            {
+                led_Reset(LED_TWO);
+                count2++;
+            }
+            else 
+            {
+                count2++;
+            }
+              
+            if(count2 == TOGGLE_NR)
+            {
+                count2 = 0;
+                led_Set(LED_TWO);
+            }
+        }
+
+
+      }
 }
 
 

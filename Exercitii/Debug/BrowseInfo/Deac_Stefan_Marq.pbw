@@ -51014,13 +51014,27 @@
     "scope": null
   },
   {
+    "ID": "c:main.c@149@macro@BLINK_SPACE",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BLINK_SPACE",
+    "location": {
+      "column": "10",
+      "line": "7",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "BLINK_SPACE",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@count1",
     "What": "Variable",
     "defdec": "Def",
     "display": "count1",
     "location": {
       "column": "14",
-      "line": "9",
+      "line": "10",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "count1",
@@ -51034,7 +51048,7 @@
     "display": "count2",
     "location": {
       "column": "14",
-      "line": "10",
+      "line": "11",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "count2",
@@ -51048,7 +51062,7 @@
     "display": "count3",
     "location": {
       "column": "14",
-      "line": "11",
+      "line": "12",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "count3",
@@ -51062,7 +51076,7 @@
     "display": "sw0",
     "location": {
       "column": "16",
-      "line": "12",
+      "line": "13",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "sw0",
@@ -51076,7 +51090,7 @@
     "display": "void PinChangePortA_ISR(void)",
     "location": {
       "column": "18",
-      "line": "16",
+      "line": "17",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "PinChangePortA_ISR",
@@ -51084,13 +51098,83 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@352@F@PinChangePortA_ISR@i",
+    "ID": "c:main.c@359@F@PinChangePortA_ISR@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
-      "column": "13",
-      "line": "21",
+      "column": "14",
+      "line": "19",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@484@F@PinChangePortA_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "26",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@560@F@PinChangePortA_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "28",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@663@F@PinChangePortA_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "30",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@739@F@PinChangePortA_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "32",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@813@F@PinChangePortA_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "34",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "i",
@@ -51104,7 +51188,7 @@
     "display": "void PinChangePortC_ISR(void)",
     "location": {
       "column": "18",
-      "line": "60",
+      "line": "79",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "PinChangePortC_ISR",
@@ -51112,13 +51196,83 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1145@F@PinChangePortC_ISR@i",
+    "ID": "c:main.c@2084@F@PinChangePortC_ISR@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "68",
+      "line": "87",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@2944@F@PinChangePortC_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "115",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@3020@F@PinChangePortC_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "117",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@3123@F@PinChangePortC_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "119",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@3199@F@PinChangePortC_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "121",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@3273@F@PinChangePortC_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "20",
+      "line": "123",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "i",
@@ -51132,7 +51286,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "112",
+      "line": "152",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -51146,7 +51300,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "153",
+      "line": "193",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
