@@ -46,7 +46,7 @@
 > To turn the LEDs on, the microcontroller pins connected to LED1, LED2, and LED3 must be configured as outputs and driven to LOW.
 > When the pins are LOW, a voltage potential is created between VCC and the microcontroller pins. Current then flows from the power supply, through the resistor, through the LED and lighting it up, and lastly it sinks directly into the microcontroller pin to GND.
 
-> Even tough the physical hardware wiring looks the same, I assume that there must be a slight difference between the two boards, since the LEDs on the OLED1 board work just as encounterd before in this week's goals, but the LED on the IO1 board uses pulse width modulation (PWM).
+> Even tough the physical hardware wiring looks the same, I assume that there must be a slight difference between the two boards, since the LEDs on the OLED1 board seem that will work just as I encounterd before in this week's goals related to lighting up a LED, but for the LED on the IO1 board a link with pulse width modulation (PWM) is specified.
 
 ---
 
@@ -54,33 +54,31 @@
 > **Question/Prompt:** Check that OLED1 extension board is connected to EXT1 header. Program all 3 LEDs to be turned on at once. Double check(!) with User Guide for OLED1 to see if schematics information matches with regards to LEDs activation.
 
 > **Answer/Explanation:**
-> I connected the OLED1 board to the EXT1 header, and also checked the information regarding LED activation, which states the following: The LEDs can be activated by driving the connected I/O line low. This aligns with previous findings.
+> I connected the OLED1 board to the EXT1 header, and also checked the information regarding LED activation, which states the following: `The LEDs can be activated by driving the connected I/O line low`. This aligns with previous findings.
 >
-> In order to turn the LEDs on, I looked for the pins in the EXT1 header in the OLED1 user guied, which are pin 7, 8, and 6 for LED1, LED3, and LED3 respectively. Then, using these pins, I looked in the ATmega user guide, and found the corresponding pins, which are PD5, PD4 and PA3.
+> In order to turn the LEDs on, I looked for the pins which are related to them, using the OLED1 user guide. These pins are pin 7, 8, and 6 for LED1, LED3, and LED3 respectively. Then, using these pins, I looked in the ATmega user guide in the EXT1 section, which is responsible for the connection between the boards, and found the corresponding pins, which are PD5, PD4 and PA3.
 
 ```c
 #include <iom324pb.h>
 
 void main (void){
-  
-  // set PD5 as OUTPUT by setting bit 5 to 1
+  // set PD5 as OUTPUT by setting bit 5 to 1 (LED1)
   DDRD |= 1 << 5;
-  // set PD4 as OUTPUT by setting bit 4 to 1
+  // set PD4 as OUTPUT by setting bit 4 to 1 (LED2)
   DDRD |= 1 << 4;
-  // set PA3 as OUTPUT by setting bit 3 to 1
+  // set PA3 as OUTPUT by setting bit 3 to 1 (LED3)
   DDRA |= 1 << 3;
 
-  // drive PD5 LOW by clearing bit 5 to 0
+  // drive PD5 LOW by clearing bit 5 to 0 (LED1 ON)
   PORTD &= ~(1 << 5);
-  // drive PD4 LOW by clearing bit 4 to 0
+  // drive PD4 LOW by clearing bit 4 to 0 (LED2 ON)
   PORTD &= ~(1 << 4);
-  // drive PA3 LOW by clearing bit 3 to 0
+  // drive PA3 LOW by clearing bit 3 to 0 (LED3 ON)
   PORTA &= ~(1 << 3);
   
   while(1){
     // keep the controller running and the LED lit
   }
-  
 }
 ```
 
@@ -100,37 +98,35 @@ void delay(long count){
 }
 
 void main (void){
-  
-  // set PD5 as OUTPUT by setting bit 5 to 1 
+  // set PD5 as OUTPUT by setting bit 5 to 1 (LED1)
   DDRD |= 1 << 5;
-  // set PD4 as OUTPUT by setting bit 4 to 1
+  // set PD4 as OUTPUT by setting bit 4 to 1 (LED2)
   DDRD |= 1 << 4;
-  // set PA3 as OUTPUT by setting bit 3 to 1
+  // set PA3 as OUTPUT by setting bit 3 to 1 (LED3)
   DDRA |= 1 << 3;
   
   while(1){
-    // drive PD5 LOW by clearing bit 5 to 0 (LED ON)
+    // drive PD5 LOW by clearing bit 5 to 0 (LED1 ON)
     PORTD &= ~(1 << 5);
     delay(50000);
-    // drive PD5 HIGH by setting bit 5 to 1 (LED OFF)
+    // drive PD5 HIGH by setting bit 5 to 1 (LED1 OFF)
     PORTD |= 1 << 5;
     delay(50000);
     
-    // drive PD4 LOW by clearing bit 4 to 0 (LED ON)
+    // drive PD4 LOW by clearing bit 4 to 0 (LED2 ON)
     PORTD &= ~(1 << 4);
     delay(50000);
-    // drive PD4 HIGH by setting bit 4 to 1 (LED OFF)
+    // drive PD4 HIGH by setting bit 4 to 1 (LED2 OFF)
     PORTD |= 1 << 4;
     delay(50000);
     
-     // drive PA3 LOW by clearing bit 3 to 0 (LED ON)
+     // drive PA3 LOW by clearing bit 3 to 0 (LED3 ON)
     PORTA &= ~(1 << 3);
     delay(50000);
-     // drive PA3 HIGH by setting bit 3 to 1 (LED OFF)
+     // drive PA3 HIGH by setting bit 3 to 1 (LED3 OFF)
     PORTA |= 1 << 3;
     delay(50000);
   }
-  
 }
 ```
 
@@ -144,17 +140,12 @@ void main (void){
 ```c
 #include <iom324pb.h>
 
-void delay(long count){
-  for(long i = 0; i < count; i++);
-}
-
 void main (void){
-  
-  // set PD5 as OUTPUT by setting bit 5 to 1 
+  // set PD5 as OUTPUT by setting bit 5 to 1 (LED1)
   DDRD |= 1 << 5;
-  // set PD4 as OUTPUT by setting bit 4 to 1
+  // set PD4 as OUTPUT by setting bit 4 to 1 (LED2)
   DDRD |= 1 << 4;
-  // set PA3 as OUTPUT by setting bit 3 to 1
+  // set PA3 as OUTPUT by setting bit 3 to 1 (LED3)
   DDRA |= 1 << 3;
   
   while(1){
@@ -176,7 +167,6 @@ void main (void){
 
     delay(50000);
   }
-  
 }
 ```
 
@@ -196,21 +186,16 @@ void main (void){
 ```c
 #include <iom324pb.h>
 
-void delay(long count){
-  for(long i = 0; i < count; i++);
-}
-
 void main (void){
-  
-  // set PD5 as OUTPUT by setting bit 5 to 1 
+  // set PD5 as OUTPUT by setting bit 5 to 1 (LED1)
   DDRD |= 1 << 5;
-  // set PD4 as OUTPUT by setting bit 4 to 1
+  // set PD4 as OUTPUT by setting bit 4 to 1 (LED2)
   DDRD |= 1 << 4;
-  // set PA3 as OUTPUT by setting bit 3 to 1
+  // set PA3 as OUTPUT by setting bit 3 to 1 (LED3)
   DDRA |= 1 << 3;
   
   while(1){
-    // INITIAL STATE:
+    // INITIAL STATE
     // drive PD5 HIGH by setting bit 5 to 1 (LED1 OFF)
     PORTD |= 1 << 5;
     // drive PD4 HIGH by setting bit 4 to 1 (LED2 OFF)
@@ -251,7 +236,6 @@ void main (void){
     delay(50000);
 
   }
-  
 }
 ```
 
@@ -278,21 +262,14 @@ void main (void){
 | 4         | Atmega324PB       | OFF               | OFF         | OFF         | OFF         | ON          | OFF
 | 5         | IO1               | OFF               | OFF         | OFF         | OFF         | OFF         | ON
 
-> LEDs 1-3 correspond to LED1, LED2 and LED3 on the OLED1 board and we use the same registers from previous tasks to set the output and the state of the LEDs.
->
-> LED 4 corresponds to the LED on the ATmega324PB board, which uses port C, pin 7.
->
-> LED 5 corresponds to the LED on the IO1 board, which is connected thorugh the EXT4 header, and uses port B, pin 3.
+> - LEDs 1-3 correspond to LED1, LED2 and LED3 on the OLED1 board and we use the same registers from previous tasks to set the output and the state of the LEDs.
+> - LED 4 corresponds to the LED on the ATmega324PB board, which uses port C, pin 7.
+> - LED 5 corresponds to the LED on the IO1 board, which is connected thorugh the EXT4 header, and uses port B, pin 3.
 
 ```c
 #include <iom324pb.h>
 
-void delay(long count){
-  for(long i = 0; i < count; i++);
-}
-
 void main (void){
-  
   // set PD5 as OUTPUT by setting bit 5 to 1 (LED1)
   DDRD |= 1 << 5;
   // set PD4 as OUTPUT by setting bit 4 to 1 (LED2)
@@ -305,7 +282,7 @@ void main (void){
   DDRB |= 1 << 3;
   
   while(1){
-    // INITIAL STATE:
+    // INITIAL STATE
     // drive PD5 HIGH by setting bit 5 to 1 (LED1 OFF)
     PORTD |= 1 << 5;
     // drive PD4 HIGH by setting bit 4 to 1 (LED2 OFF)
@@ -358,7 +335,6 @@ void main (void){
     delay(50000);
 
   }
-  
 }
 ```
 
