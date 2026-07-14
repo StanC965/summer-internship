@@ -4,4 +4,5 @@ C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi: \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324pb.inc \
   C:\Users\Stefan\summer-internship\Exercitii\gpio.h \
-  C:\Users\Stefan\summer-internship\Exercitii\adc.h
+  C:\Users\Stefan\summer-internship\Exercitii\adc.h \
+  C:\Users\Stefan\summer-internship\Exercitii\led.h

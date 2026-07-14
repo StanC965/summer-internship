@@ -679,6 +679,12 @@ extern void adc_start_conversie();
  
 extern ADC_reader_8bits adc_adapter(ADC_reader_8bits value);
 
+
+
+
+ 
+extern ADC_reader_8bits adc_get_result();
+
 #line 11 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 
 
@@ -705,5 +711,10 @@ void adc_start_conversie()
 ADC_reader_8bits adc_adapter(ADC_reader_8bits value)
 {
     return (255 - value);
+}
+
+ADC_reader_8bits adc_get_result(void)
+{
+    return ADCH; 
 }
 

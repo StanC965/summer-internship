@@ -672,7 +672,117 @@ extern void adc_start_conversie();
  
 extern ADC_reader_8bits adc_adapter(ADC_reader_8bits value);
 
+
+
+
+ 
+extern ADC_reader_8bits adc_get_result();
+
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+typedef     unsigned char   mod_uint8_t;
+
+ 
+typedef     unsigned int    mod_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+
+
+
+
+ 
+extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
+
+
+
+
+
+
+
+
+ 
+extern void led_Set(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_Reset(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TOGGLE(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Fast(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Slow(unsigned char Led_id);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
+
+#line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
 volatile ADC_reader_8bits ADC_value = 0; 
 
@@ -680,8 +790,10 @@ volatile ADC_reader_8bits ADC_value = 0;
 __interrupt void ADC_ISR(void)
 {
    
-     ADC_value = adc_adapter(ADCH);
-    
+   ADC_reader_8bits hardware_value = adc_get_result();
+    ADC_value = adc_adapter(hardware_value);
+    leds_initialize(1,0,0,0,0);
+    led_Set((0xAA));
    
 }
 
@@ -691,14 +803,33 @@ void setup(void)
   gpio_set_pin(&SREG, 7);
 }
     
-
+int counter=0;
 void main(void)
 {
     setup();
-    adc_start_conversie();                                                   
+                
+          gpio_Timer1_start(1,64);
     while(1)    
     {
+
+      if(TCNT1>=OCR1A)
+      {
+        adc_start_conversie();
+
   
+        if(ADC_value >(0xff/2))
+      {
+              led_Reset((0xAA));
+      }
+        else{
+            led_Set((0xAA));
+        }
+    
+        TCNT1=0;
+        counter++;
+      }
+      if(counter==20)
+        gpio_Timer1_stop();
     }
 }
 

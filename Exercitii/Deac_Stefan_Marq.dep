@@ -64,13 +64,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 14</file>
+                    <file> 14 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5 8 9 3 22</file>
+                    <file> 5 8 9 3 22 2</file>
                 </tool>
             </inputs>
         </file>

@@ -51028,6 +51028,20 @@
     "scope": null
   },
   {
+    "ID": "c:@F@leds_initialize",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void leds_initialize(_Bool, _Bool, _Bool, _Bool, _Bool)",
+    "location": {
+      "column": "13",
+      "line": "40",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+    },
+    "name": "leds_initialize",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:@F@led_Set",
     "What": "Function",
     "defdec": "Dec",
@@ -51038,6 +51052,34 @@
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
     },
     "name": "led_Set",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@led_Set",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void led_Set(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "50",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+    },
+    "name": "led_Set",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@led_Reset",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void led_Reset(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "60",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+    },
+    "name": "led_Reset",
     "origin": "user_include",
     "scope": null
   },
@@ -51070,6 +51112,20 @@
     "scope": null
   },
   {
+    "ID": "c:@F@led_TOGGLE",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void led_TOGGLE(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "70",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+    },
+    "name": "led_TOGGLE",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:@F@led_TEST_Fast",
     "What": "Function",
     "defdec": "Dec",
@@ -51080,6 +51136,34 @@
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
     },
     "name": "led_TEST_Fast",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@led_TEST_Fast",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void led_TEST_Fast(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "80",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+    },
+    "name": "led_TEST_Fast",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@led_TEST_Slow",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void led_TEST_Slow(unsigned char)",
+    "location": {
+      "column": "13",
+      "line": "90",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+    },
+    "name": "led_TEST_Slow",
     "origin": "user_include",
     "scope": null
   },
@@ -51112,13 +51196,27 @@
     "scope": null
   },
   {
+    "ID": "c:@F@led_TEST_Blink",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void led_TEST_Blink(unsigned char, float, int)",
+    "location": {
+      "column": "13",
+      "line": "101",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+    },
+    "name": "led_TEST_Blink",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:@ADC_value",
     "What": "Variable",
     "defdec": "Def",
     "display": "ADC_value",
     "location": {
       "column": "27",
-      "line": "5",
+      "line": "6",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "ADC_value",
@@ -51132,7 +51230,7 @@
     "display": "void ADC_ISR(void)",
     "location": {
       "column": "18",
-      "line": "8",
+      "line": "9",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "ADC_ISR",
@@ -51140,13 +51238,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@178@F@ADC_ISR@hardware_value",
+    "ID": "c:main.c@196@F@ADC_ISR@hardware_value",
     "What": "Variable",
     "defdec": "Def",
     "display": "hardware_value",
     "location": {
       "column": "21",
-      "line": "11",
+      "line": "12",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "hardware_value",
@@ -51160,10 +51258,24 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "16",
+      "line": "19",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@counter",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "counter",
+    "location": {
+      "column": "5",
+      "line": "25",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "counter",
     "origin": "project_file",
     "scope": null
   },
@@ -51174,7 +51286,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "23",
+      "line": "26",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
