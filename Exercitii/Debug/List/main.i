@@ -788,30 +788,52 @@ extern void sos_pattern(void);
 #line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
 
+
+
+int volatile count1=0;
+int volatile count2=0;
+int volatile count3=0;
+
+
 #pragma vector = (0x10)
 __interrupt void PinChangePortA_ISR(void)
 {
   
 
+    for(int i=0;i<5000U;i++)
+    {}
     
-    if ( (PINA & (1 << 0)) == 0 )  
+    if ( ((PINA & (1 << 0)) == 0)&& count1==0 )  
     {
         led_Reset((0xBB));
+        count1++;
+        
     }   
-    else
+    else if((PINA & (1 << 0)) == 0)
     {
-        led_Set((0xBB));
+        count1++;
     }         
                 
-    if ( (PINA & (1 << 1)) == 0 )  
+    if ( ((PINA & (1 << 1)) == 0)&& count3==0 )  
     {
         led_Reset((0xDD));
+        count3++;
     }
-    else
+    else if ((PINA & (1 << 1)) == 0)
     {
-        led_Set((0xDD));
+        count3++;
     }
-   
+    
+    if(count1 == 3)
+    {
+      count1=0;
+      led_Set((0xBB));
+    }
+      if(count3== 3)
+    {
+      led_Set((0xDD));
+      count3=0;
+    }
   
 }
 
@@ -820,16 +842,24 @@ __interrupt void PinChangePortC_ISR(void)
 {
   
 
+    for(int i=0;i<5000U;i++)
+    {}
     
-    if ( (PINC & (1 << 1)) == 0 )  
+    if ( ((PINC & (1 << 1)) == 0 )&&count2==0)  
     {
         led_Reset((0xCC));
+        count2++;
     }
-    else
+    else if ((PINC & (1 << 1)) == 0 )
     {
-        led_Set((0xCC));
+        count2++;
     }
-  
+    
+    if(count2==3)
+    {
+      count2=0;
+      led_Set((0xCC));
+    }
 }
 
 
@@ -901,102 +931,3 @@ void main(void)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

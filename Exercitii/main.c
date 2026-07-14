@@ -2,6 +2,13 @@
 #include "gpio.h" 
 #include "led.h" 
 #include "sos.h"
+#define  TOGGLE_NR       3
+#define  DEBOUNCE        5000U
+
+
+int volatile count1=0;
+int volatile count2=0;
+int volatile count3=0;
 
 
 #pragma vector = PCINT0_vect
@@ -9,25 +16,40 @@ __interrupt void PinChangePortA_ISR(void)
 {
   
 
+    for(int i=0;i<DEBOUNCE;i++)
+    {}
     
-    if ( (PINA & (1 << 0)) == 0 )  
+    if ( ((PINA & (1 << 0)) == 0)&& count1==0 )  
     {
         led_Reset(LED_ONE);
+        count1++;
+        
     }   
-    else
+    else if((PINA & (1 << 0)) == 0)
     {
-        led_Set(LED_ONE);
+        count1++;
     }         
                 
-    if ( (PINA & (1 << 1)) == 0 )  
+    if ( ((PINA & (1 << 1)) == 0)&& count3==0 )  
     {
         led_Reset(LED_THREE);
+        count3++;
     }
-    else
+    else if ((PINA & (1 << 1)) == 0)
     {
-        led_Set(LED_THREE);
+        count3++;
     }
-   
+    
+    if(count1 == TOGGLE_NR)
+    {
+      count1=0;
+      led_Set(LED_ONE);
+    }
+      if(count3== TOGGLE_NR)
+    {
+      led_Set(LED_THREE);
+      count3=0;
+    }
   
 }
 
@@ -36,16 +58,24 @@ __interrupt void PinChangePortC_ISR(void)
 {
   
 
+    for(int i=0;i<DEBOUNCE;i++)
+    {}
     
-    if ( (PINC & (1 << 1)) == 0 )  
+    if ( ((PINC & (1 << 1)) == 0 )&&count2==0)  
     {
         led_Reset(LED_TWO);
+        count2++;
     }
-    else
+    else if ((PINC & (1 << 1)) == 0 )
     {
-        led_Set(LED_TWO);
+        count2++;
     }
-  
+    
+    if(count2==TOGGLE_NR)
+    {
+      count2=0;
+      led_Set(LED_TWO);
+    }
 }
 
 
