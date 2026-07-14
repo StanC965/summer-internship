@@ -63,7 +63,7 @@ void main (void){
 >
 > where x is the port lettter (C) and n is the pin number (7).
 >
-> From the datasheet we extract the steps needed to light up LED0:
+> I extracted the steps needed to light up LED0 from the datasheet:
 >
 > 1. To allow PC7 to drive the line to GND, it must be an output. Therefore, we must write a `1` to the DDC7 bit inside the DDRC register.
 > 2. To turn LED0 on, we must write a `0` to the PC7 bit inside PORTC. This physically drives the pin to GND, completing the active low circuit.
@@ -101,7 +101,7 @@ void main (void){
 > **Question/Prompt:** Program LED0 to be turned on for 1 second*, turned off for the next 1 second and so on (repeat the sequence).
 
 > **Answer/Explanation:** 
-> To achieve a visible blinking effect with a delay of 1 second, we cannot simply count to 1000 in a for loop (which is 1 second in miliseconds). The value 1000 represents miliseconds only when utilizing high level abstraction library functions. A hardware level CPU loop, however, measures time purely in clock cycles and instruction executuion states.
+> To achieve a visible blinking effect with a delay of 1 second, we cannot simply count to 1000 in a for loop (which is 1 second in miliseconds). The value 1000 represents miliseconds only when utilizing high level abstraction library functions. A hardware level CPU loop, however, measures time purely in clock cycles and instruction execution states.
 >
 > ATmega324PB operates at a clock speed of 16 MHz. This means that a single clock takes exactly:
 
@@ -148,7 +148,6 @@ void main (void){
     PORTC |= 1 << 7;
     delay(100000);
   }
-  
 }
 ```
 
