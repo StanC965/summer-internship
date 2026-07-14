@@ -1,0 +1,960 @@
+
+
+###############################################################################
+#
+# IAR UBROF Linker V8.10.3.1851/W64 for Microchip AVR     14/Jul/2026  20:05:52
+# Copyright 2017-2025 IAR Systems AB.
+#
+#    Target Cpu    =  AVR
+#    Map file      =
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\List\Deac_Stefan_Marq.map
+#    Output file 1 =
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\Exe\Deac_Stefan_Marq.d90
+#                  =  Format: debug
+#                  =  UBROF version 12.0.0
+#                  =  Using library modules for C-SPY (-rt)
+#    Command line  =
+#        -f
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\Exe\Deac_Stefan_Marq.d90.rsp
+#        (C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\adc.r90
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\gpio.r90
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\led.r90
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\main.r90
+#        --output
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\Exe\Deac_Stefan_Marq.d90
+#        -l
+#        C:\Users\Stefan\summer-internship\Exercitii\Debug\List\Deac_Stefan_Marq.map
+#        -xaems "-IC:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\avr\lib\\" --f "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\avr/src/template/cfgm324pb.xcl" (-D_..X_INTVEC_SIZE=CC
+#        -D_..X_FLASH_END=7FFF -D_..X_FLASH_NEND=_..X_FLASH_END
+#        -D_..X_SRAM_BASE=100 -D_..X_SRAM_TBASE=0 -D_..X_SRAM_TSIZE=0
+#        -D_..X_SRAM_END=8FF -D_..X_EXT_SRAM_BASE=_..X_SRAM_END
+#        -D_..X_EXT_SRAM_SIZE=0 -D_..X_EXT_ROM_BASE=_..X_SRAM_END
+#        -D_..X_EXT_ROM_SIZE=0 -D_..X_EXT_NV_BASE=_..X_SRAM_END
+#        -D_..X_EXT_NV_SIZE=0 -D_..X_EEPROM_START=0 -D_..X_EEPROM_END=3FF)
+#        -D_..X_HEAP_SIZE=0 -D_..X_TINY_HEAP_SIZE=0 -D_..X_NEAR_HEAP_SIZE=20
+#        -D_..X_FAR_HEAP_SIZE=0 -D_..X_HUGE_HEAP_SIZE=0 -D_..X_CSTACK_SIZE=20
+#        -D_..X_RSTACK_SIZE=20 -D_..X_FLASH_CODE_END=_..X_FLASH_END --f
+#        "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\avr/src/template/cfg3soim.xcl" (-ca90 -w29
+#        "-Z(CODE)INTVEC=0-(_..X_INTVEC_SIZE-1)"
+#        "-Z(CODE)TINY_F=_..X_FLASH_BASE-FF"
+#        "-Z(CODE)NEAR_F=_..X_FLASH_BASE-_..X_FLASH_NEND"
+#        "-Z(CODE)SWITCH=_..X_FLASH_BASE-_..X_FLASH_NEND"
+#        "-Z(CODE)DIFUNCT=_..X_FLASH_BASE-_..X_FLASH_NEND"
+#        "-Z(CODE)CODE=_..X_FLASH_BASE-_..X_FLASH_END"
+#        "-P(CODE)FAR_F=[_..X_FLASH_BASE-_..X_FLASH_END]/10000"
+#        "-Z(CODE)INITTAB=_..X_FLASH_BASE-_..X_FLASH_END"
+#        "-Z(CODE)HUGE_F=_..X_FLASH_BASE-_..X_FLASH_END"
+#        "-Z(CODE).iar.locale_table,.iar.locale_encoding,__iar_tls$$INIT_DATA=_..X_FLASH_BASE-_..X_FLASH_END"
+#        "-Z(CODE)TINY_ID=_..X_FLASH_BASE-_..X_FLASH_END"
+#        "-Z(CODE)NEAR_ID=_..X_FLASH_BASE-_..X_FLASH_END"
+#        "-Z(CODE)CHECKSUM#_..X_FLASH_END"
+#        "-Z(DATA)TINY_I,TINY_Z,TINY_N=_..X_SRAM_TBASE:+_..X_SRAM_TSIZE"
+#        "-Z(DATA)CSTACK+_..X_CSTACK_SIZE=_..X_CSTACK_BASE-_..X_CSTACK_END"
+#        "-Z(DATA)HEAP+_..X_HEAP_SIZE=_..X_SRAM_BASE-_..X_SRAM_END"
+#        "-Z(DATA)IOSTREAM_N#_..X_SRAM_BASE-_..X_SRAM_END"
+#        "-Z(DATA)NEAR_HEAP+_..X_NEAR_HEAP_SIZE=_..X_SRAM_BASE-_..X_SRAM_END"
+#        "-Z(DATA)RSTACK+_..X_RSTACK_SIZE=_..X_RSTACK_BASE-_..X_RSTACK_END"
+#        "-Z(DATA)NEAR_I,NEAR_Z,NEAR_N=_..X_SRAM_BASE-_..X_SRAM_END"
+#        "-Z(DATA)__iar_tls$$DATA=_..X_SRAM_BASE-_..X_SRAM_END"
+#        "-Z(XDATA)EEPROM_I,EEPROM_N=_..X_EEPROM_START-_..X_EEPROM_END")
+#        -D_..X_FLASH_BASE=_..X_INTVEC_SIZE
+#        "-h'1895'(CODE)0-(_..X_INTVEC_SIZE-1)" --global_fill
+#        -D_..X_CSTACK_BASE=_..X_SRAM_BASE -D_..X_CSTACK_END=_..X_SRAM_END
+#        -D_..X_RSTACK_BASE=_..X_SRAM_BASE -D_..X_RSTACK_END=_..X_SRAM_END -rt
+#        --entry __program_start --text_out locale)
+#
+###############################################################################
+
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *            PROGRAM ENTRY             *
+                *                                      *
+                ****************************************
+
+  ADDRESS     SPACE  TYPE         MODULE
+  -------     -----  ----         ------
+  0x0000050A  CODE   Relocatable  ?C_STARTUP
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  ATTRIBUTE                   VALUE
+  ---------                   -----
+  R4                          REG
+  R5                          REG
+  R6                          REG
+  R7                          REG
+  R8                          REG
+  __64bit_doubles             disabled
+  __SystemLibrary             DLib
+  __architecture              *
+  __cpu                       3
+  __cpu_name                  ATmega324PB
+  __dlib_full_locale_support  0
+  __dlib_version              6
+  __enhanced_core             enabled
+  __enhanced_core_mul         enabled
+  __has_elpm                  false
+  __memory_model              2
+  __mex                       disabled
+  __rt_version                3
+  __tiny_avr                  false
+  __vtable_memory             __nearflash
+
+
+                ****************************************
+                *                                      *
+                *    AUTOMATIC SYMBOL REDIRECTIONS     *
+                *                                      *
+                ****************************************
+
+                   There are no automatic symbol redirections.
+
+
+
+                ****************************************
+                *                                      *
+                *   AUTOMATICALLY SELECTED LIBRARIES   *
+                *                                      *
+                ****************************************
+
+                  C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90
+
+
+
+                ****************************************
+                *                                      *
+                *              ENTRY LIST              *
+                *                                      *
+                ****************************************
+
+ENTRY                           SPACE  ADDRESS     KIND  TYPE  MODULE
+-----                           -----  -------     ----  ----  ------
+OCR1A                                     N/A      Loc         led
+OCR1AH                                    N/A      Loc         led
+OCR1AL                                    N/A      Loc         led
+TCNT1                                     N/A      Loc         led
+TCNT1H                                    N/A      Loc         led
+TCNT1L                                    N/A      Loc         led
+OCR1A                                     N/A      Loc         main
+OCR1AH                                    N/A      Loc         main
+OCR1AL                                    N/A      Loc         main
+TCNT1                                     N/A      Loc         main
+TCNT1H                                    N/A      Loc         main
+TCNT1L                                    N/A      Loc         main
+_..X_HUGE_HEAP_SIZE             CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_FAR_HEAP_SIZE              CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_TINY_HEAP_SIZE             CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_HEAP_SIZE                  CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_EEPROM_START               CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_EXT_NV_SIZE                CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_EXT_ROM_SIZE               CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_EXT_SRAM_SIZE              CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_SRAM_TSIZE                 CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+_..X_SRAM_TBASE                 CODE   0x00000000  Pub         ?ABS_ENTRY_MOD [0]
+?RESET                          CODE   0x00000000  Pub         ?RESET [1]
+_..X_RSTACK_SIZE                CODE   0x00000020  Pub         ?ABS_ENTRY_MOD [0]
+_..X_CSTACK_SIZE                CODE   0x00000020  Pub         ?ABS_ENTRY_MOD [0]
+_..X_NEAR_HEAP_SIZE             CODE   0x00000020  Pub         ?ABS_ENTRY_MOD [0]
+ADC_ISR::??INTVEC 96            CODE   0x00000060  Pub         main
+_..X_FLASH_BASE                 CODE   0x000000CC  Pub         ?ABS_ENTRY_MOD [0]
+_..X_INTVEC_SIZE                CODE   0x000000CC  Pub         ?ABS_ENTRY_MOD [0]
+adc_init_LIGHT                  CODE   0x000000E2  Pub   Code  adc
+_..X_RSTACK_BASE                CODE   0x00000100  Pub         ?ABS_ENTRY_MOD [0]
+_..X_CSTACK_BASE                CODE   0x00000100  Pub         ?ABS_ENTRY_MOD [0]
+_..X_SRAM_BASE                  CODE   0x00000100  Pub         ?ABS_ENTRY_MOD [0]
+adc_start_conversie             CODE   0x00000138  Pub   Code  adc
+adc_adapter                     CODE   0x00000144  Pub   Code  adc
+adc_get_result                  CODE   0x00000150  Pub   Code  adc
+disable_input_buffer_for_lightSensor
+                                CODE   0x0000015E  Pub   Code  adc
+gpio_set_pin                    CODE   0x0000016A  Pub   Code  gpio
+gpio_reset_pin                  CODE   0x0000017E  Pub   Code  gpio
+gpio_set_direction              CODE   0x00000194  Pub   Code  gpio
+gpio_Timer1_start               CODE   0x000001C0  Pub   Code  gpio
+leds_initialize                 CODE   0x0000026C  Pub   Code  led
+led_Set                         CODE   0x00000302  Pub   Code  led
+led_Reset                       CODE   0x0000035C  Pub   Code  led
+ADC_ISR                         CODE   0x000003B6  Pub   Code  main
+_..X_EEPROM_END                 CODE   0x000003FF  Pub         ?ABS_ENTRY_MOD [0]
+setup                           CODE   0x00000414  Pub   Code  main
+main                            CODE   0x00000436  Pub   Code  main
+__DebugBreak                    CODE   0x000004EE  Pub   Code  ?__dbg_break [1]
+__exit                          CODE   0x000004F0  Pub   Code  ?__exit [1]
+_exit                           CODE   0x00000506  Pub   Code  ?_exit [1]
+__program_start                 CODE   0x0000050A  Pub         ?C_STARTUP [1]
+?C_STARTUP                      CODE   0x0000050A  Pub         ?C_STARTUP [1]
+__RESTART                       CODE   0x0000050A  Pub         ?C_STARTUP [1]
+?call_low_level_init            CODE   0x00000516  Pub         ?C_STARTUP [1]
+?need_segment_init              CODE   0x0000051A  Pub         ?C_STARTUP [1]
+?cstartup_call_main             CODE   0x00000522  Pub         ?C_STARTUP [1]
+exit                            CODE   0x0000052E  Pub   Code  ?exit [1]
+?S_SHL_L02                      CODE   0x00000536  Pub         ?S_SHL_L02 [1]
+?UL_SHR_L03                     CODE   0x00000544  Pub         ?UL_SHR_L03 [1]
+?L_NEG_L03                      CODE   0x0000054A  Pub         ?SL_DIVMOD_L03 [1]
+?F_UNPACK_L04                   CODE   0x0000055A  Pub         ?FLOATS_L04 [1]
+?F_UNPACK_1_L04                 CODE   0x0000056A  Pub         ?FLOATS_L04 [1]
+?F_NORMALIZE_L04                CODE   0x0000057C  Loc         ?FLOATS_L04 [1]
+?F_ROUND_L04                    CODE   0x00000590  Pub         ?FLOATS_L04 [1]
+?SL2F_L04                       CODE   0x000005C6  Pub         ?FLOATS_L04 [1]
+?SL2F_2                         CODE   0x000005D0  Loc         ?FLOATS_L04 [1]
+?TEST_P_L04                     CODE   0x000005DE  Pub         ?FLOATS_L04 [1]
+?TEST_Q_L04                     CODE   0x0000060A  Pub         ?FLOATS_L04 [1]
+?F_ADD_L04                      CODE   0x00000648  Pub         ?FLOATS_L04 [1]
+?F_ZERO_L04                     CODE   0x000006C6  Pub         ?FLOATS_L04 [1]
+PX                              CODE   0x000006CC  Loc         ?FLOATS_L04 [1]
+?F_INFINITE_L04                 CODE   0x000006D2  Pub         ?FLOATS_L04 [1]
+?F_NAN_L04                      CODE   0x000006DA  Pub         ?FLOATS_L04 [1]
+?F_MUL_L04                      CODE   0x000006FA  Pub         ?FLOATS_L04 [1]
+?F_DIV_L04                      CODE   0x000007E4  Pub         ?FLOATS_L04 [1]
+?F2SL_L04                       CODE   0x000008CA  Pub         ?FLOATS_L04 [1]
+?SKIP8                          CODE   0x000008DA  Loc         ?FLOATS_L04 [1]
+_..X_RSTACK_END                 CODE   0x000008FF  Pub         ?ABS_ENTRY_MOD [0]
+_..X_CSTACK_END                 CODE   0x000008FF  Pub         ?ABS_ENTRY_MOD [0]
+_..X_EXT_NV_BASE                CODE   0x000008FF  Pub         ?ABS_ENTRY_MOD [0]
+_..X_EXT_ROM_BASE               CODE   0x000008FF  Pub         ?ABS_ENTRY_MOD [0]
+_..X_EXT_SRAM_BASE              CODE   0x000008FF  Pub         ?ABS_ENTRY_MOD [0]
+_..X_SRAM_END                   CODE   0x000008FF  Pub         ?ABS_ENTRY_MOD [0]
+GET_INFO_S                      CODE   0x00000908  Loc         ?xV_SWITCH_L06 [1]
+GET_INFO_C                      CODE   0x0000090A  Loc         ?xV_SWITCH_L06 [1]
+?SV_SWITCH_L06                  CODE   0x00000916  Pub         ?xV_SWITCH_L06 [1]
+P_0_S                           CODE   0x0000091C  Loc         ?xV_SWITCH_L06 [1]
+CHECK_LOW_LIMIT                 CODE   0x00000922  Loc         ?xV_SWITCH_L06 [1]
+?PROLOGUE7_L09                  CODE   0x0000098E  Pub         ?PROLOGUE_L09 [1]
+?PROLOGUE6_L09                  CODE   0x00000990  Pub         ?PROLOGUE_L09 [1]
+?PROLOGUE5_L09                  CODE   0x00000992  Pub         ?PROLOGUE_L09 [1]
+?PROLOGUE4_L09                  CODE   0x00000994  Pub         ?PROLOGUE_L09 [1]
+?PROLOGUE3_L09                  CODE   0x00000996  Pub         ?PROLOGUE_L09 [1]
+?PROLOGUE2_L09                  CODE   0x00000998  Pub         ?PROLOGUE_L09 [1]
+?PROLOGUE1_L09                  CODE   0x0000099A  Pub         ?PROLOGUE_L09 [1]
+?EPILOGUE_B7_L09                CODE   0x0000099E  Pub         ?EPILOGUE_B_L09 [1]
+?EPILOGUE_B6_L09                CODE   0x000009A0  Pub         ?EPILOGUE_B_L09 [1]
+?EPILOGUE_B5_L09                CODE   0x000009A2  Pub         ?EPILOGUE_B_L09 [1]
+?EPILOGUE_B4_L09                CODE   0x000009A4  Pub         ?EPILOGUE_B_L09 [1]
+?EPILOGUE_B3_L09                CODE   0x000009A6  Pub         ?EPILOGUE_B_L09 [1]
+?EPILOGUE_B2_L09                CODE   0x000009A8  Pub         ?EPILOGUE_B_L09 [1]
+?EPILOGUE_B1_L09                CODE   0x000009AA  Pub         ?EPILOGUE_B_L09 [1]
+?EPILOGUE_B0_L09                CODE   0x000009AC  Pub         ?EPILOGUE_B_L09 [1]
+?Register_R4_is_cg_reg          CODE   0x000009B6  Pub         ?REGISTER_CGREGR4_L10 [1]
+?Register_R5_is_cg_reg          CODE   0x000009B6  Pub         ?REGISTER_CGREGR5_L10 [1]
+?Register_R6_is_cg_reg          CODE   0x000009B6  Pub         ?REGISTER_CGREGR6_L10 [1]
+__low_level_init                CODE   0x000009B6  Pub   Code  ?low_level_init [1]
+__segment_init                  CODE   0x000009BA  Pub   Code  ?segment_init [1]
+?<Segment init: NEAR_Z>         CODE   0x000009F8  Pub         main
+_..X_FLASH_CODE_END             CODE   0x00007FFF  Pub         ?ABS_ENTRY_MOD [0]
+_..X_FLASH_NEND                 CODE   0x00007FFF  Pub         ?ABS_ENTRY_MOD [0]
+_..X_FLASH_END                  CODE   0x00007FFF  Pub         ?ABS_ENTRY_MOD [0]
+__?EECR                         DATA   0x0000001F  Pub         adc
+__?EEDR                         DATA   0x00000020  Pub         adc
+__?EEARL                        DATA   0x00000021  Pub         adc
+_A_DDRA                         DATA   0x00000021  Pub   Data  led
+DDRA                            DATA   0x00000021  Loc         led
+__?EEARH                        DATA   0x00000022  Pub         adc
+_A_PORTA                        DATA   0x00000022  Pub   Data  led
+PORTA                           DATA   0x00000022  Loc         led
+_A_DDRB                         DATA   0x00000024  Pub   Data  led
+DDRB                            DATA   0x00000024  Loc         led
+_A_PORTB                        DATA   0x00000025  Pub   Data  led
+PORTB                           DATA   0x00000025  Loc         led
+_A_DDRC                         DATA   0x00000027  Pub   Data  led
+DDRC                            DATA   0x00000027  Loc         led
+_A_PORTC                        DATA   0x00000028  Pub   Data  led
+PORTC                           DATA   0x00000028  Loc         led
+_A_DDRD                         DATA   0x0000002A  Pub   Data  led
+DDRD                            DATA   0x0000002A  Loc         led
+_A_PORTD                        DATA   0x0000002B  Pub   Data  led
+PORTD                           DATA   0x0000002B  Loc         led
+_A_SREG                         DATA   0x0000005F  Pub   Data  main
+SREG                            DATA   0x0000005F  Loc         main
+_A_PRR0                         DATA   0x00000064  Pub   Data  adc
+PRR0                            DATA   0x00000064  Loc         adc
+_A_ADC                          DATA   0x00000078  Pub   Data  adc
+ADC                             DATA   0x00000078  Loc         adc
+ADCL                            DATA   0x00000078  Loc         adc
+ADCH                            DATA   0x00000079  Loc         adc
+_A_ADCSRA                       DATA   0x0000007A  Pub   Data  adc
+ADCSRA                          DATA   0x0000007A  Loc         adc
+_A_ADMUX                        DATA   0x0000007C  Pub   Data  adc
+ADMUX                           DATA   0x0000007C  Loc         adc
+_A_DIDR0                        DATA   0x0000007E  Pub   Data  adc
+DIDR0                           DATA   0x0000007E  Loc         adc
+_A_TCCR1A                       DATA   0x00000080  Pub   Data  gpio
+TCCR1A                          DATA   0x00000080  Loc         gpio
+_A_TCCR1B                       DATA   0x00000081  Pub   Data  gpio
+TCCR1B                          DATA   0x00000081  Loc         gpio
+_A_TCNT1                        DATA   0x00000084  Pub   Data  gpio
+TCNT1                           DATA   0x00000084  Loc         gpio
+TCNT1L                          DATA   0x00000084  Loc         gpio
+TCNT1H                          DATA   0x00000085  Loc         gpio
+_A_OCR1A                        DATA   0x00000088  Pub   Data  gpio
+OCR1A                           DATA   0x00000088  Loc         gpio
+OCR1AL                          DATA   0x00000088  Loc         gpio
+OCR1AH                          DATA   0x00000089  Loc         gpio
+ADC_value                       DATA   0x00000140  Pub   Data  main
+
+[0] = Command line (linker generated)
+[1] = C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90
+
+
+                ****************************************
+                *                                      *
+                *              MODULE MAP              *
+                *                                      *
+                ****************************************
+
+Linker generated:
+  Module: ?ABS_ENTRY_MOD
+
+      Absolute module symbols:
+        _..X_RSTACK_END      0x000008FF  Pub
+        _..X_RSTACK_BASE     0x00000100  Pub
+        _..X_CSTACK_END      0x000008FF  Pub
+        _..X_CSTACK_BASE     0x00000100  Pub
+        _..X_FLASH_BASE      0x000000CC  Pub
+        _..X_FLASH_CODE_END  0x00007FFF  Pub
+        _..X_RSTACK_SIZE     0x00000020  Pub
+        _..X_CSTACK_SIZE     0x00000020  Pub
+        _..X_HUGE_HEAP_SIZE  0x00000000  Pub
+        _..X_FAR_HEAP_SIZE   0x00000000  Pub
+        _..X_NEAR_HEAP_SIZE  0x00000020  Pub
+        _..X_TINY_HEAP_SIZE  0x00000000  Pub
+        _..X_HEAP_SIZE       0x00000000  Pub
+        _..X_EEPROM_END      0x000003FF  Pub
+        _..X_EEPROM_START    0x00000000  Pub
+        _..X_EXT_NV_SIZE     0x00000000  Pub
+        _..X_EXT_NV_BASE     0x000008FF  Pub
+        _..X_EXT_ROM_SIZE    0x00000000  Pub
+        _..X_EXT_ROM_BASE    0x000008FF  Pub
+        _..X_EXT_SRAM_SIZE   0x00000000  Pub
+        _..X_EXT_SRAM_BASE   0x000008FF  Pub
+        _..X_SRAM_END        0x000008FF  Pub
+        _..X_SRAM_TSIZE      0x00000000  Pub
+        _..X_SRAM_TBASE      0x00000000  Pub
+        _..X_SRAM_BASE       0x00000100  Pub
+        _..X_FLASH_NEND      0x00007FFF  Pub
+        _..X_FLASH_END       0x00007FFF  Pub
+        _..X_INTVEC_SIZE     0x000000CC  Pub
+**************************************************************
+File: C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\adc.r90
+  Module: adc
+       Segment part 1, ABSOLUTE [root]
+       Address: DATA 0x0000007E Size: 0x1 Align: 1(0)
+       Ref by:   disable_input_buffer_for_lightSensor
+      _A_DIDR0             0x0000007E  Pub
+      DIDR0                0x0000007E  Loc
+    --------------------------------------------------
+       Segment part 2, ABSOLUTE [root]
+       Address: DATA 0x0000007C Size: 0x1 Align: 1(0)
+       Ref by:   adc_init_LIGHT
+      _A_ADMUX             0x0000007C  Pub
+      ADMUX                0x0000007C  Loc
+    --------------------------------------------------
+       Segment part 3, ABSOLUTE [root]
+       Address: DATA 0x0000007A Size: 0x1 Align: 1(0)
+       Ref by:   adc_start_conversie
+                 adc_init_LIGHT
+      _A_ADCSRA            0x0000007A  Pub
+      ADCSRA               0x0000007A  Loc
+    --------------------------------------------------
+       Segment part 4, ABSOLUTE [root]
+       Address: DATA 0x00000078 Size: 0x2 Align: 1(0)
+       Ref by:   adc_get_result
+      _A_ADC               0x00000078  Pub
+      ADC                  0x00000078  Loc
+      ADCH                 0x00000079  Loc
+      ADCL                 0x00000078  Loc
+    --------------------------------------------------
+       Segment part 5, ABSOLUTE [root]
+       Address: DATA 0x00000064 Size: 0x1 Align: 1(0)
+       Ref by:   adc_init_LIGHT
+      _A_PRR0              0x00000064  Pub
+      PRR0                 0x00000064  Loc
+    --------------------------------------------------
+       Segment part 12, CODE
+       Address: CODE 0x000000E2 Size: 0x56 Align: 2(1)
+      adc_init_LIGHT       0x000000E2  Pub  Ref by:   setup (main)
+    --------------------------------------------------
+       Segment part 13, CODE
+       Address: CODE 0x00000138 Size: 0xC Align: 2(1)
+      adc_start_conversie  0x00000138  Pub  Ref by:   main (main)
+    --------------------------------------------------
+       Segment part 14, CODE
+       Address: CODE 0x00000144 Size: 0xC Align: 2(1)
+      adc_adapter          0x00000144  Pub  Ref by:   ADC_ISR (main)
+    --------------------------------------------------
+       Segment part 15, CODE
+       Address: CODE 0x00000150 Size: 0xE Align: 2(1)
+      adc_get_result       0x00000150  Pub  Ref by:   ADC_ISR (main)
+    --------------------------------------------------
+       Segment part 16, CODE
+       Address: CODE 0x0000015E Size: 0xC Align: 2(1)
+      disable_input_buffer_for_lightSensor  0x0000015E  Pub  Ref by:   setup (main)
+    --------------------------------------------------
+       Segment part 6, ABSOLUTE [root]
+       Address: DATA 0x0000001F Size: 0x0 Align: 1(0)
+      __?EECR              0x0000001F  Pub
+    --------------------------------------------------
+       Segment part 7, ABSOLUTE [root]
+       Address: DATA 0x00000020 Size: 0x0 Align: 1(0)
+      __?EEDR              0x00000020  Pub
+    --------------------------------------------------
+       Segment part 8, ABSOLUTE [root]
+       Address: DATA 0x00000021 Size: 0x0 Align: 1(0)
+      __?EEARL             0x00000021  Pub
+    --------------------------------------------------
+       Segment part 9, ABSOLUTE [root]
+       Address: DATA 0x00000022 Size: 0x0 Align: 1(0)
+      __?EEARH             0x00000022  Pub
+**************************************************************
+File: C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\gpio.r90
+  Module: gpio
+       Segment part 1, ABSOLUTE [root]
+       Address: DATA 0x00000088 Size: 0x2 Align: 1(0)
+       Ref by:   main (main)
+                 gpio_Timer1_start
+      _A_OCR1A             0x00000088  Pub
+      OCR1A                0x00000088  Loc
+      OCR1AH               0x00000089  Loc
+      OCR1AL               0x00000088  Loc
+    --------------------------------------------------
+       Segment part 2, ABSOLUTE [root]
+       Address: DATA 0x00000084 Size: 0x2 Align: 1(0)
+       Ref by:   main (main)
+                 gpio_Timer1_start
+      _A_TCNT1             0x00000084  Pub
+      TCNT1                0x00000084  Loc
+      TCNT1H               0x00000085  Loc
+      TCNT1L               0x00000084  Loc
+    --------------------------------------------------
+       Segment part 3, ABSOLUTE [root]
+       Address: DATA 0x00000081 Size: 0x1 Align: 1(0)
+       Ref by:   gpio_Timer1_start
+      _A_TCCR1B            0x00000081  Pub
+      TCCR1B               0x00000081  Loc
+    --------------------------------------------------
+       Segment part 4, ABSOLUTE [root]
+       Address: DATA 0x00000080 Size: 0x1 Align: 1(0)
+       Ref by:   gpio_Timer1_start
+      _A_TCCR1A            0x00000080  Pub
+      TCCR1A               0x00000080  Loc
+    --------------------------------------------------
+       Segment part 11, CODE
+       Address: CODE 0x0000016A Size: 0x14 Align: 2(1)
+      gpio_set_pin         0x0000016A  Pub  Ref by:   setup (main)
+                                                      led_Set (led)
+                                                      disable_input_buffer_for_lightSensor (adc)
+                                                      adc_start_conversie (adc)
+                                                      adc_init_LIGHT (adc)
+    --------------------------------------------------
+       Segment part 12, CODE
+       Address: CODE 0x0000017E Size: 0x16 Align: 2(1)
+      gpio_reset_pin       0x0000017E  Pub  Ref by:   led_Reset (led)
+                                                      leds_initialize (led)
+                                                      adc_init_LIGHT (adc)
+    --------------------------------------------------
+       Segment part 14, CODE
+       Address: CODE 0x00000194 Size: 0x2C Align: 2(1)
+      gpio_set_direction   0x00000194  Pub  Ref by:   leds_initialize (led)
+    --------------------------------------------------
+       Segment part 16, CODE
+       Address: CODE 0x000001C0 Size: 0xAC Align: 2(1)
+       Ref by:   Segment part 18
+      gpio_Timer1_start    0x000001C0  Pub  Ref by:   main (main)
+    --------------------------------------------------
+       Segment part 18, SWITCH
+       Address: CODE 0x000000CC Size: 0x16 Align: 2(1)
+       Ref by:   gpio_Timer1_start
+**************************************************************
+File: C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\led.r90
+  Module: led
+       Segment part 3, ABSOLUTE [root]
+       Address: DATA 0x0000002B Size: 0x1 Align: 1(0)
+       Ref by:   led_Reset
+                 led_Set
+                 leds_initialize
+      _A_PORTD             0x0000002B  Pub
+      PORTD                0x0000002B  Loc
+    --------------------------------------------------
+       Segment part 4, ABSOLUTE [root]
+       Address: DATA 0x0000002A Size: 0x1 Align: 1(0)
+       Ref by:   leds_initialize
+      _A_DDRD              0x0000002A  Pub
+      DDRD                 0x0000002A  Loc
+    --------------------------------------------------
+       Segment part 5, ABSOLUTE [root]
+       Address: DATA 0x00000028 Size: 0x1 Align: 1(0)
+       Ref by:   led_Reset
+                 led_Set
+                 leds_initialize
+      _A_PORTC             0x00000028  Pub
+      PORTC                0x00000028  Loc
+    --------------------------------------------------
+       Segment part 6, ABSOLUTE [root]
+       Address: DATA 0x00000027 Size: 0x1 Align: 1(0)
+       Ref by:   leds_initialize
+      _A_DDRC              0x00000027  Pub
+      DDRC                 0x00000027  Loc
+    --------------------------------------------------
+       Segment part 7, ABSOLUTE [root]
+       Address: DATA 0x00000025 Size: 0x1 Align: 1(0)
+       Ref by:   led_Reset
+                 led_Set
+                 leds_initialize
+      _A_PORTB             0x00000025  Pub
+      PORTB                0x00000025  Loc
+    --------------------------------------------------
+       Segment part 8, ABSOLUTE [root]
+       Address: DATA 0x00000024 Size: 0x1 Align: 1(0)
+       Ref by:   leds_initialize
+      _A_DDRB              0x00000024  Pub
+      DDRB                 0x00000024  Loc
+    --------------------------------------------------
+       Segment part 9, ABSOLUTE [root]
+       Address: DATA 0x00000022 Size: 0x1 Align: 1(0)
+       Ref by:   led_Reset
+                 led_Set
+                 leds_initialize
+      _A_PORTA             0x00000022  Pub
+      PORTA                0x00000022  Loc
+    --------------------------------------------------
+       Segment part 10, ABSOLUTE [root]
+       Address: DATA 0x00000021 Size: 0x1 Align: 1(0)
+       Ref by:   leds_initialize
+      _A_DDRA              0x00000021  Pub
+      DDRA                 0x00000021  Loc
+    --------------------------------------------------
+       Segment part 17, CODE
+       Address: CODE 0x0000026C Size: 0x96 Align: 2(1)
+      leds_initialize      0x0000026C  Pub  Ref by:   setup (main)
+    --------------------------------------------------
+       Segment part 18, CODE
+       Address: CODE 0x00000302 Size: 0x5A Align: 2(1)
+      led_Set              0x00000302  Pub  Ref by:   main (main)
+    --------------------------------------------------
+       Segment part 19, CODE
+       Address: CODE 0x0000035C Size: 0x5A Align: 2(1)
+      led_Reset            0x0000035C  Pub  Ref by:   main (main)
+**************************************************************
+File: C:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\main.r90
+  Module: main
+       Segment part 3, ABSOLUTE [root]
+       Address: DATA 0x0000005F Size: 0x1 Align: 1(0)
+       Ref by:   setup
+      _A_SREG              0x0000005F  Pub
+      SREG                 0x0000005F  Loc
+    --------------------------------------------------
+       Segment part 11, NEAR_Z
+       Address: DATA 0x00000140 Size: 0x2 Align: 1(0)
+       Ref by:   main
+                 ADC_ISR
+      ADC_value            0x00000140  Pub
+    --------------------------------------------------
+       Segment part 14, CODE
+       Address: CODE 0x000003B6 Size: 0x5E Align: 2(1)
+       Ref by:   ADC_ISR::??INTVEC 96
+      ADC_ISR              0x000003B6  Pub
+    --------------------------------------------------
+       Segment part 15, CODE
+       Address: CODE 0x00000414 Size: 0x22 Align: 2(1)
+       Ref by:   main
+      setup                0x00000414  Pub
+    --------------------------------------------------
+       Segment part 16, CODE
+       Address: CODE 0x00000436 Size: 0xB8 Align: 2(1)
+      main                 0x00000436  Pub  Ref by:   ?cstartup_call_main (?C_STARTUP)
+    --------------------------------------------------
+       Segment part 8, INTVEC [root]
+       Address: CODE 0x00000000 Size: 0x64 Align: 2(1)
+      ADC_ISR::??INTVEC 96  0x00000060  Pub
+    --------------------------------------------------
+       Segment part 12, INITTAB
+       Address: CODE 0x000009F8 Size: 0x6 Align: 1(0)
+       Ref by:   ADC_value
+      ?<Segment init: NEAR_Z>  0x000009F8  Pub
+**************************************************************
+File: C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90
+  Module: ?__dbg_break
+       Segment part 3, CODE
+       Address: CODE 0x000004EE Size: 0x2 Align: 2(1)
+      __DebugBreak         0x000004EE  Pub  Ref by:   __exit (?__exit)
+  ============================================================
+  Module: ?__exit
+       Segment part 3, CODE
+       Address: CODE 0x000004F0 Size: 0x16 Align: 2(1)
+      __exit               0x000004F0  Pub  Ref by:   Segment part 6 (?_exit)
+  ============================================================
+  Module: ?_exit
+       Segment part 0, CODE
+       Address: CODE 0x00000506 Size: 0x0 Align: 2(1)
+      _exit                0x00000506  Pub  Ref by:   exit (?exit)
+                                                      ?cstartup_call_main (?C_STARTUP)
+    --------------------------------------------------
+       Segment part 6, CODE
+       Address: CODE 0x00000506 Size: 0x4 Align: 2(1)
+       Ref by:   _exit
+  ============================================================
+  Module: ?RESET
+       Segment part 0, INTVEC [root]
+       Address: CODE 0x00000000 Size: 0x4 Align: 2(1)
+      ?RESET               0x00000000  Pub  Ref by:   Segment part 2 (?C_STARTUP)
+  ============================================================
+  Module: ?C_STARTUP
+       Segment part 2, CODE
+       Address: CODE 0x0000050A Size: 0x0 Align: 2(1)
+      __program_start      0x0000050A  Pub  Ref by:   Absolute parts (?ABS_ENTRY_MOD)
+      ?C_STARTUP           0x0000050A  Pub  Ref by:   ?RESET (?RESET)
+      __RESTART            0x0000050A  Pub
+    --------------------------------------------------
+       Segment part 5, CODE
+       Address: CODE 0x0000050A Size: 0xC Align: 2(1)
+       Ref by:   Segment part 2
+    --------------------------------------------------
+       Segment part 7, CODE
+       Address: CODE 0x00000516 Size: 0x4 Align: 2(1)
+       Ref by:   Segment part 5
+      ?call_low_level_init  0x00000516  Pub
+    --------------------------------------------------
+       Segment part 8, CODE
+       Address: CODE 0x0000051A Size: 0x8 Align: 2(1)
+      ?need_segment_init   0x0000051A  Pub  Ref by:   ?<Segment init: NEAR_Z> (main)
+    --------------------------------------------------
+       Segment part 11, CODE
+       Address: CODE 0x00000522 Size: 0xC Align: 2(1)
+       Ref by:   ?call_low_level_init
+      ?cstartup_call_main  0x00000522  Pub
+  ============================================================
+  Module: ?exit
+       Segment part 3, CODE
+       Address: CODE 0x0000052E Size: 0x4 Align: 2(1)
+      exit                 0x0000052E  Pub  Ref by:   ?cstartup_call_main (?C_STARTUP)
+  ============================================================
+  Module: ?S_SHL_L02
+       Segment part 0, CODE
+       Address: CODE 0x00000532 Size: 0xA Align: 2(1)
+      ?S_SHL_L02           0x00000536  Pub  Ref by:   gpio_set_direction (gpio)
+                                                      gpio_reset_pin (gpio)
+                                                      gpio_set_pin (gpio)
+  ============================================================
+  Module: ?UL_SHR_L03
+       Segment part 0, CODE
+       Address: CODE 0x0000053C Size: 0xE Align: 2(1)
+      ?UL_SHR_L03          0x00000544  Pub  Ref by:   ?SKIP8 (?FLOATS_L04)
+  ============================================================
+  Module: ?UL_DIVMOD_L03
+  ============================================================
+  Module: ?SL_DIVMOD_L03
+       Segment part 2, CODE
+       Address: CODE 0x0000054A Size: 0x10 Align: 2(1)
+      ?L_NEG_L03           0x0000054A  Pub  Ref by:   ?SKIP8 (?FLOATS_L04)
+                                                      ?SL2F_L04 (?FLOATS_L04)
+  ============================================================
+  Module: ?FLOATS_L04
+       Segment part 0, CODE
+       Address: CODE 0x0000055A Size: 0x10 Align: 2(1)
+       Ref by:   ?F_DIV_L04
+                 ?F_MUL_L04
+                 ?F_ADD_L04
+      ?F_UNPACK_L04        0x0000055A  Pub
+    --------------------------------------------------
+       Segment part 1, CODE
+       Address: CODE 0x0000056A Size: 0x12 Align: 2(1)
+       Ref by:   ?F2SL_L04
+                 ?F_UNPACK_L04
+      ?F_UNPACK_1_L04      0x0000056A  Pub
+    --------------------------------------------------
+       Segment part 2, CODE
+       Address: CODE 0x0000057C Size: 0x48 Align: 2(1)
+       Ref by:   ?F_DIV_L04
+                 ?F_MUL_L04
+                 ?F_ADD_L04
+                 ?SL2F_2
+      ?F_ROUND_L04         0x00000590  Pub
+      ?F_NORMALIZE_L04     0x0000057C  Loc
+    --------------------------------------------------
+       Segment part 4, CODE
+       Address: CODE 0x000005C4 Size: 0x2 Align: 2(1)
+       Ref by:   ?F_ROUND_L04
+    --------------------------------------------------
+       Segment part 5, CODE
+       Address: CODE 0x000005C6 Size: 0xA Align: 2(1)
+      ?SL2F_L04            0x000005C6  Pub  Ref by:   gpio_Timer1_start (gpio)
+    --------------------------------------------------
+       Segment part 6, CODE
+       Address: CODE 0x000005D0 Size: 0xE Align: 2(1)
+       Ref by:   ?SL2F_L04
+      ?SL2F_2              0x000005D0  Loc
+    --------------------------------------------------
+       Segment part 8, CODE
+       Address: CODE 0x000005DE Size: 0x2C Align: 2(1)
+       Ref by:   ?F_DIV_L04
+                 ?F_MUL_L04
+                 ?F_ADD_L04
+                 ?TEST_Q_L04
+      ?TEST_P_L04          0x000005DE  Pub
+    --------------------------------------------------
+       Segment part 9, CODE
+       Address: CODE 0x0000060A Size: 0x1E Align: 2(1)
+       Ref by:   ?F_DIV_L04
+                 ?F_MUL_L04
+                 Segment part 16
+                 ?F_ADD_L04
+      ?TEST_Q_L04          0x0000060A  Pub
+    --------------------------------------------------
+       Segment part 10, CODE
+       Address: CODE 0x00000628 Size: 0x9E Align: 2(1)
+       Ref by:   Segment part 16
+      ?F_ADD_L04           0x00000648  Pub
+    --------------------------------------------------
+       Segment part 12, CODE
+       Address: CODE 0x000006C6 Size: 0x6 Align: 2(1)
+       Ref by:   ?F2SL_L04
+                 ?F_DIV_L04
+                 ?F_MUL_L04
+                 ?F_ADD_L04
+      ?F_ZERO_L04          0x000006C6  Pub
+    --------------------------------------------------
+       Segment part 13, CODE
+       Address: CODE 0x000006CC Size: 0x6 Align: 2(1)
+       Ref by:   ?F_NAN_L04
+                 ?F_INFINITE_L04
+                 ?F_ZERO_L04
+      PX                   0x000006CC  Loc
+    --------------------------------------------------
+       Segment part 14, CODE
+       Address: CODE 0x000006D2 Size: 0x8 Align: 2(1)
+       Ref by:   ?F_DIV_L04
+                 ?F_MUL_L04
+                 Segment part 4
+      ?F_INFINITE_L04      0x000006D2  Pub
+    --------------------------------------------------
+       Segment part 15, CODE
+       Address: CODE 0x000006DA Size: 0x6 Align: 2(1)
+       Ref by:   ?F_DIV_L04
+                 ?F_MUL_L04
+                 Segment part 16
+                 ?F_ADD_L04
+      ?F_NAN_L04           0x000006DA  Pub
+    --------------------------------------------------
+       Segment part 16, CODE
+       Address: CODE 0x000006E0 Size: 0x1A Align: 2(1)
+       Ref by:   ?F_MUL_L04
+    --------------------------------------------------
+       Segment part 17, CODE
+       Address: CODE 0x000006FA Size: 0xCA Align: 2(1)
+      ?F_MUL_L04           0x000006FA  Pub  Ref by:   gpio_Timer1_start (gpio)
+    --------------------------------------------------
+       Segment part 22, CODE
+       Address: CODE 0x000007C4 Size: 0x106 Align: 2(1)
+      ?F_DIV_L04           0x000007E4  Pub  Ref by:   gpio_Timer1_start (gpio)
+    --------------------------------------------------
+       Segment part 24, CODE
+       Address: CODE 0x000008CA Size: 0x10 Align: 2(1)
+      ?F2SL_L04            0x000008CA  Pub  Ref by:   gpio_Timer1_start (gpio)
+    --------------------------------------------------
+       Segment part 25, CODE
+       Address: CODE 0x000008DA Size: 0x2E Align: 2(1)
+       Ref by:   ?F2SL_L04
+      ?SKIP8               0x000008DA  Loc
+  ============================================================
+  Module: ?xV_SWITCH_L06
+       Segment part 1, CODE
+       Address: CODE 0x00000908 Size: 0x2 Align: 2(1)
+       Ref by:   ?SV_SWITCH_L06
+      GET_INFO_S           0x00000908  Loc
+    --------------------------------------------------
+       Segment part 2, CODE
+       Address: CODE 0x0000090A Size: 0xC Align: 2(1)
+       Ref by:   GET_INFO_S
+      GET_INFO_C           0x0000090A  Loc
+    --------------------------------------------------
+       Segment part 4, CODE
+       Address: CODE 0x00000916 Size: 0x6 Align: 2(1)
+      ?SV_SWITCH_L06       0x00000916  Pub  Ref by:   gpio_Timer1_start (gpio)
+    --------------------------------------------------
+       Segment part 5, CODE
+       Address: CODE 0x0000091C Size: 0x6 Align: 2(1)
+       Ref by:   ?SV_SWITCH_L06
+      P_0_S                0x0000091C  Loc
+    --------------------------------------------------
+       Segment part 7, CODE
+       Address: CODE 0x00000922 Size: 0x6C Align: 2(1)
+       Ref by:   P_0_S
+      CHECK_LOW_LIMIT      0x00000922  Loc
+  ============================================================
+  Module: ?PROLOGUE_L09
+       Segment part 9, CODE
+       Address: CODE 0x0000098E Size: 0x2 Align: 2(1)
+      ?PROLOGUE7_L09       0x0000098E  Pub  Ref by:   gpio_Timer1_start (gpio)
+    --------------------------------------------------
+       Segment part 10, CODE
+       Address: CODE 0x00000990 Size: 0x2 Align: 2(1)
+       Ref by:   ?PROLOGUE7_L09
+      ?PROLOGUE6_L09       0x00000990  Pub
+    --------------------------------------------------
+       Segment part 11, CODE
+       Address: CODE 0x00000992 Size: 0x2 Align: 2(1)
+       Ref by:   ?PROLOGUE6_L09
+      ?PROLOGUE5_L09       0x00000992  Pub  Ref by:   leds_initialize (led)
+    --------------------------------------------------
+       Segment part 12, CODE
+       Address: CODE 0x00000994 Size: 0x2 Align: 2(1)
+       Ref by:   ?PROLOGUE5_L09
+      ?PROLOGUE4_L09       0x00000994  Pub
+    --------------------------------------------------
+       Segment part 13, CODE
+       Address: CODE 0x00000996 Size: 0x2 Align: 2(1)
+       Ref by:   ?PROLOGUE4_L09
+      ?PROLOGUE3_L09       0x00000996  Pub
+    --------------------------------------------------
+       Segment part 14, CODE
+       Address: CODE 0x00000998 Size: 0x2 Align: 2(1)
+       Ref by:   ?PROLOGUE3_L09
+      ?PROLOGUE2_L09       0x00000998  Pub
+    --------------------------------------------------
+       Segment part 15, CODE
+       Address: CODE 0x0000099A Size: 0x2 Align: 2(1)
+       Ref by:   ?PROLOGUE2_L09
+      ?PROLOGUE1_L09       0x0000099A  Pub
+    --------------------------------------------------
+       Segment part 16, CODE
+       Address: CODE 0x0000099C Size: 0x2 Align: 2(1)
+       Ref by:   ?PROLOGUE1_L09
+  ============================================================
+  Module: ?EPILOGUE_B_L09
+       Segment part 9, CODE
+       Address: CODE 0x0000099E Size: 0x2 Align: 2(1)
+      ?EPILOGUE_B7_L09     0x0000099E  Pub  Ref by:   gpio_Timer1_start (gpio)
+    --------------------------------------------------
+       Segment part 10, CODE
+       Address: CODE 0x000009A0 Size: 0x2 Align: 2(1)
+       Ref by:   ?EPILOGUE_B7_L09
+      ?EPILOGUE_B6_L09     0x000009A0  Pub
+    --------------------------------------------------
+       Segment part 11, CODE
+       Address: CODE 0x000009A2 Size: 0x2 Align: 2(1)
+       Ref by:   ?EPILOGUE_B6_L09
+      ?EPILOGUE_B5_L09     0x000009A2  Pub  Ref by:   leds_initialize (led)
+    --------------------------------------------------
+       Segment part 12, CODE
+       Address: CODE 0x000009A4 Size: 0x2 Align: 2(1)
+       Ref by:   ?EPILOGUE_B5_L09
+      ?EPILOGUE_B4_L09     0x000009A4  Pub
+    --------------------------------------------------
+       Segment part 13, CODE
+       Address: CODE 0x000009A6 Size: 0x2 Align: 2(1)
+       Ref by:   ?EPILOGUE_B4_L09
+      ?EPILOGUE_B3_L09     0x000009A6  Pub
+    --------------------------------------------------
+       Segment part 14, CODE
+       Address: CODE 0x000009A8 Size: 0x2 Align: 2(1)
+       Ref by:   ?EPILOGUE_B3_L09
+      ?EPILOGUE_B2_L09     0x000009A8  Pub
+    --------------------------------------------------
+       Segment part 15, CODE
+       Address: CODE 0x000009AA Size: 0x2 Align: 2(1)
+       Ref by:   ?EPILOGUE_B2_L09
+      ?EPILOGUE_B1_L09     0x000009AA  Pub
+    --------------------------------------------------
+       Segment part 16, CODE
+       Address: CODE 0x000009AC Size: 0xA Align: 2(1)
+       Ref by:   ?EPILOGUE_B1_L09
+      ?EPILOGUE_B0_L09     0x000009AC  Pub
+  ============================================================
+  Module: ?REGISTER_CGREGR4_L10
+       Segment part 0, CODE
+       Address: CODE 0x000009B6 Size: 0x0 Align: 2(1)
+      ?Register_R4_is_cg_reg  0x000009B6  Pub  Ref by:   leds_initialize (led)
+                                                         gpio_Timer1_start (gpio)
+  ============================================================
+  Module: ?REGISTER_CGREGR5_L10
+       Segment part 0, CODE
+       Address: CODE 0x000009B6 Size: 0x0 Align: 2(1)
+      ?Register_R5_is_cg_reg  0x000009B6  Pub  Ref by:   gpio_Timer1_start (gpio)
+  ============================================================
+  Module: ?REGISTER_CGREGR6_L10
+       Segment part 0, CODE
+       Address: CODE 0x000009B6 Size: 0x0 Align: 2(1)
+      ?Register_R6_is_cg_reg  0x000009B6  Pub  Ref by:   gpio_Timer1_start (gpio)
+  ============================================================
+  Module: ?REGISTER_CGREGR7_L10
+  ============================================================
+  Module: ?REGISTER_CGREGR8_L10
+  ============================================================
+  Module: ?low_level_init
+       Segment part 3, CODE
+       Address: CODE 0x000009B6 Size: 0x4 Align: 2(1)
+      __low_level_init     0x000009B6  Pub  Ref by:   ?call_low_level_init (?C_STARTUP)
+  ============================================================
+  Module: ?segment_init
+       Segment part 3, CODE
+       Address: CODE 0x000009BA Size: 0x3E Align: 2(1)
+      __segment_init       0x000009BA  Pub  Ref by:   ?need_segment_init (?C_STARTUP)
+**************************************************************
+Linker generated:
+  Module: ?FILLER_BYTES
+       Segment part 1, INTVEC
+       Address: CODE 0x00000000 Size: 0x64 Align: 1(0)
+    --------------------------------------------------
+       Segment part 0, ?FILL1
+       Address: CODE 0x00000064 Size: 0x68 Align: 1(0)
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+SEGMENT   SPACE     START/END ADDRESS      SIZE  TYPE  ALIGN
+-------   -----   ---------------------    ----  ----  -----
+INTVEC    CODE   0x00000000 - 0x00000063   0x64   com   2(1)
+?FILL1    CODE   0x00000064 - 0x000000CB   0x68   rel   1(0)
+SWITCH    CODE   0x000000CC - 0x000000E1   0x16   rel   2(1)
+CODE      CODE   0x000000E2 - 0x000009F7  0x916   rel   2(1)
+INITTAB   CODE   0x000009F8 - 0x000009FD    0x6   rel   1(0)
+CSTACK    DATA   0x00000100 - 0x0000011F   0x20   dse   1(0)
+RSTACK    DATA   0x00000120 - 0x0000013F   0x20   dse   1(0)
+NEAR_I    DATA         0x00000140                 dse   1(0)
+NEAR_Z    DATA   0x00000140 - 0x00000141    0x2   rel   1(0)
+ABSOLUTE  DATA         0x0000001F                 abs   1(0)
+          DATA         0x00000020
+          DATA         0x00000021
+          DATA   0x00000024 - 0x00000025    0x2
+          DATA   0x00000027 - 0x00000028    0x2
+          DATA   0x0000002A - 0x0000002B    0x2
+          DATA   0x0000005F - 0x0000005F    0x1
+          DATA   0x00000064 - 0x00000064    0x1
+          DATA   0x00000078 - 0x0000007A    0x3
+          DATA   0x0000007C - 0x0000007C    0x1
+          DATA   0x0000007E - 0x0000007E    0x1
+          DATA   0x00000080 - 0x00000081    0x2
+          DATA   0x00000084 - 0x00000085    0x2
+          DATA   0x00000088 - 0x00000089    0x2
+
+ 2'454 bytes of CODE memory (+             104 range fill )
+    66 bytes of DATA memory (+ 21 absolute )
+
+Errors: none
+Warnings: 2
+
+
+
+ 2'412 bytes of CODE memory (+             104 range fill )
+    65 bytes of DATA memory (+ 21 absolute )
+
+Errors: none
+Warnings: 2

@@ -1,0 +1,28 @@
+
+Ca sa putem masura diferenta avem fisierul map al proiectului cand rulam cu rezolutia de 8 bits
+si fisierul map cand rulam cu 10 bits
+fiecare e pus intr-un text file separat
+la finalul fiecaruia se specifica memoria utilizata:
+
+
+
+PENTRU 10 BITS de rezolutie 
+:::::::::::::::::::::::::::
+
+ 2'454 bytes of CODE memory (+             104 range fill )
+    66 bytes of DATA memory (+ 21 absolute )
+
+
+
+
+PENTRU 8 BITS de rezolutie 
+:::::::::::::::::::::::::::
+
+ 2'412 bytes of CODE memory (+             104 range fill )
+    65 bytes of DATA memory (+ 21 absolute )
+
+
+
+
+
+Lista de functii se  afla in adc.h

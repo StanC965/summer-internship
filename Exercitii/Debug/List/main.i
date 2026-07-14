@@ -652,9 +652,9 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 
  
 
-typedef unsigned char ADC_result;
 
 
+typedef unsigned short ADC_result;
 
 
  
@@ -839,19 +839,19 @@ void main(void)
             adc_start_conversie();
             
             
-            if (ADC_value < 64) 
+            if (ADC_value < 255) 
             {
                 led_Set((0xBB));
                 led_Set((0xCC));
                 led_Set((0xDD));
             }
-            else if (ADC_value < 128) 
+            else if (ADC_value < 511) 
             {
                 led_Reset((0xBB));
                 led_Set((0xCC));
                 led_Set((0xDD));
             }
-            else if (ADC_value < 192) 
+            else if (ADC_value < 767) 
             {
                 led_Reset((0xBB));
                 led_Reset((0xCC));

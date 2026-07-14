@@ -659,9 +659,9 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 
  
 
-typedef unsigned char ADC_result;
 
 
+typedef unsigned short ADC_result;
 
 
  
@@ -714,9 +714,9 @@ extern void enable_input_buffer_for_lightSensor();
       {
         
 
-        gpio_set_pin(&ADMUX, 5);   
 
 
+        gpio_reset_pin(&ADMUX, 5);
 
 
         
@@ -742,17 +742,21 @@ void adc_start_conversie()
       gpio_set_pin(&ADCSRA,6); 
 }
 
-
+#line 60 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 ADC_result adc_adapter(ADC_result value)
 {
-    return (255 - value);
+    return (1023 - value);
 }
 
 ADC_result adc_get_result(void)
 {
-    return ADCH; 
+    ADC_result rezultat;
+    unsigned char low_byte = ADCL;
+    unsigned char high_byte = ADCH;
+    rezultat = low_byte | (high_byte << 8);
+    return rezultat;
 }
-#line 74 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
+
 
 
 void disable_input_buffer_for_lightSensor()
