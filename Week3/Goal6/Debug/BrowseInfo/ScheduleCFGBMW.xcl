@@ -1,13 +1,13 @@
-"D:\Mircea\Marqurdt\summer-internship\Week3\Goal6\main.c"
+"D:\Mircea\Marqurdt\summer-internship\Week3\Goal6\ScheduleCFGBMW.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-D:\Mircea\Marqurdt\summer-internship\Week3\Goal6\Debug\BrowseInfo\main.pbi.dep
+D:\Mircea\Marqurdt\summer-internship\Week3\Goal6\Debug\BrowseInfo\ScheduleCFGBMW.pbi.dep
 -o
-D:\Mircea\Marqurdt\summer-internship\Week3\Goal6\Debug\BrowseInfo\main.pbi
+D:\Mircea\Marqurdt\summer-internship\Week3\Goal6\Debug\BrowseInfo\ScheduleCFGBMW.pbi
 -I
 D:\Mircea\Marqurdt\summer-internship\Week3\Goal6
 -I
@@ -249,56 +249,46 @@ D:\Mircea\Marqurdt\logic\avr\inc\dlib\c
 -D__DATA_MEM3_UINTPTR_TYPE__=unsigned int
 -D__DATA_MEM3_INTPTR_SIZE_PREFIX__=""
 -D__DATA_MEM3_MAX_SIZE__=0x7fffU
--D__DATA_MEM4__=__farflash
+-D__DATA_MEM4__=__eeprom
 -D__DATA_MEM4_POINTER_OK__=1
 -D__DATA_MEM4_UNIQUE_POINTER__=1
 -D__DATA_MEM4_VAR_OK__=0
 -D__DATA_MEM4_INDEX_TYPE__=int
 -D__DATA_MEM4_SIZE_TYPE__=unsigned int
--D__DATA_MEM4_INTPTR_TYPE__=long int
--D__DATA_MEM4_UINTPTR_TYPE__=unsigned long int
--D__DATA_MEM4_INTPTR_SIZE_PREFIX__="l"
--D__DATA_MEM4_MAX_SIZE__=0x7fffU
--D__DATA_MEM5__=__hugeflash
+-D__DATA_MEM4_INTPTR_TYPE__=int
+-D__DATA_MEM4_UINTPTR_TYPE__=unsigned int
+-D__DATA_MEM4_INTPTR_SIZE_PREFIX__=""
+-D__DATA_MEM4_MAX_SIZE__=0xffffU
+-D__DATA_MEM5__=__io
 -D__DATA_MEM5_POINTER_OK__=1
 -D__DATA_MEM5_UNIQUE_POINTER__=1
 -D__DATA_MEM5_VAR_OK__=0
--D__DATA_MEM5_INDEX_TYPE__=long
--D__DATA_MEM5_SIZE_TYPE__=unsigned long
--D__DATA_MEM5_INTPTR_TYPE__=long int
--D__DATA_MEM5_UINTPTR_TYPE__=unsigned long int
--D__DATA_MEM5_INTPTR_SIZE_PREFIX__="l"
--D__DATA_MEM5_MAX_SIZE__=0xffffffffU
--D__DATA_MEM6__=__io
+-D__DATA_MEM5_INDEX_TYPE__=signed char
+-D__DATA_MEM5_SIZE_TYPE__=unsigned char
+-D__DATA_MEM5_INTPTR_TYPE__=signed char
+-D__DATA_MEM5_UINTPTR_TYPE__=unsigned char
+-D__DATA_MEM5_INTPTR_SIZE_PREFIX__="hh"
+-D__DATA_MEM5_MAX_SIZE__=0xff
+-D__DATA_MEM6__=__ext_io
 -D__DATA_MEM6_POINTER_OK__=1
 -D__DATA_MEM6_UNIQUE_POINTER__=1
 -D__DATA_MEM6_VAR_OK__=0
--D__DATA_MEM6_INDEX_TYPE__=signed char
--D__DATA_MEM6_SIZE_TYPE__=unsigned char
--D__DATA_MEM6_INTPTR_TYPE__=signed char
--D__DATA_MEM6_UINTPTR_TYPE__=unsigned char
--D__DATA_MEM6_INTPTR_SIZE_PREFIX__="hh"
--D__DATA_MEM6_MAX_SIZE__=0xff
--D__DATA_MEM7__=__ext_io
+-D__DATA_MEM6_INDEX_TYPE__=int
+-D__DATA_MEM6_SIZE_TYPE__=unsigned int
+-D__DATA_MEM6_INTPTR_TYPE__=int
+-D__DATA_MEM6_UINTPTR_TYPE__=unsigned int
+-D__DATA_MEM6_INTPTR_SIZE_PREFIX__=""
+-D__DATA_MEM6_MAX_SIZE__=0xffffU
+-D__DATA_MEM7__=__generic
 -D__DATA_MEM7_POINTER_OK__=1
 -D__DATA_MEM7_UNIQUE_POINTER__=1
 -D__DATA_MEM7_VAR_OK__=0
--D__DATA_MEM7_INDEX_TYPE__=int
--D__DATA_MEM7_SIZE_TYPE__=unsigned int
--D__DATA_MEM7_INTPTR_TYPE__=int
--D__DATA_MEM7_UINTPTR_TYPE__=unsigned int
--D__DATA_MEM7_INTPTR_SIZE_PREFIX__=""
--D__DATA_MEM7_MAX_SIZE__=0xffffU
--D__DATA_MEM8__=__generic
--D__DATA_MEM8_POINTER_OK__=1
--D__DATA_MEM8_UNIQUE_POINTER__=1
--D__DATA_MEM8_VAR_OK__=0
--D__DATA_MEM8_INDEX_TYPE__=long
--D__DATA_MEM8_SIZE_TYPE__=unsigned long
--D__DATA_MEM8_INTPTR_TYPE__=long int
--D__DATA_MEM8_UINTPTR_TYPE__=unsigned long int
--D__DATA_MEM8_INTPTR_SIZE_PREFIX__="l"
--D__DATA_MEM8_MAX_SIZE__=0x7fffffffU
+-D__DATA_MEM7_INDEX_TYPE__=long
+-D__DATA_MEM7_SIZE_TYPE__=unsigned long
+-D__DATA_MEM7_INTPTR_TYPE__=long int
+-D__DATA_MEM7_UINTPTR_TYPE__=unsigned long int
+-D__DATA_MEM7_INTPTR_SIZE_PREFIX__="l"
+-D__DATA_MEM7_MAX_SIZE__=0x7fffffffU
 -D__CODE_MEM0__=__nearfunc
 -D__CODE_MEM0_POINTER_OK__=1
 -D__CODE_MEM0_UNIQUE_POINTER__=1
@@ -311,12 +301,12 @@ D:\Mircea\Marqurdt\logic\avr\inc\dlib\c
 -D__PRAGMA_PACK_ON__=1
 -D__MULTIPLE_INHERITANCE__=1
 -D__FOR_DEBUG__=
+-D__ATmega324PB__=1
 -D__CORE__=3
 -D__CPU__=3
--D__HAS_ELPM__=1
+-D__HAS_EEPROM__=1
 -D__HAS_ENHANCED_CORE__=1
 -D__HAS_MUL__=1
--D__HAS_RAMPZ__=1
 -D__ICCAVR__=1
 -D__MEMORY_MODEL__=2
 -D__VERSION_4_CALLS__=1
