@@ -1,0 +1,9 @@
+How you can measure the current in a circuit?
+
+Raspuns:
+curentul intr-un circuit se masoara prin intermediul unui ampermetru,
+acesta trebuie sa fie mereu in serie ,daca il punem in paralel se va distruge ampermetru
+(deoarece un ampermetru are ideal rezistenta 0)
+in cazul placii exista un measurement header,probabil 2 pini apropiatie izolati printr-un jumper
+daca vrem sa masuram curentul in cadrul placii ,vom pune sondele multimetrului/ampermetrului 
+la acesti pini

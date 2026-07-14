@@ -9,13 +9,14 @@ volatile ADC_reader_8bits ADC_value = 0;
 __interrupt void ADC_ISR(void)
 {
    
-   ADC_reader_8bits hardware_value = adc_get_result();
+    ADC_reader_8bits hardware_value = adc_get_result();
     ADC_value = adc_adapter(hardware_value);
     leds_initialize(1,1,1,1,0);
     led_Set(LED_ZERO);
-     led_Set(LED_ONE);
-      led_Set(LED_TWO);
-       led_Set(LED_THREE);
+    led_Set(LED_ONE);
+    led_Set(LED_TWO);
+    led_Set(LED_THREE);
+    
    
 }
 
@@ -23,6 +24,7 @@ void setup(void)
 {
   adc_init_LIGHT();
   gpio_set_pin(&SREG, 7);
+  disable_input_buffer_for_lightSensor();
 }
     
 int counter=0;

@@ -40,4 +40,14 @@ ADC_reader_8bits adc_get_result(void)
     return ADCH; 
 }
 
+void disable_input_buffer_for_lightSensor()
+{
+  DIDR0|=1<<4;
+}
+void enable_input_buffer_for_lightSensor()
+{
+  DIDR0&=~(1<<4);
+}
+
+
 #endif

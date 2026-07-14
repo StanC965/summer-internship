@@ -40,4 +40,16 @@ extern ADC_reader_8bits adc_adapter(ADC_reader_8bits value);
 */
 extern ADC_reader_8bits adc_get_result();
 
+/** \fn     void disable_input_buffer_for_lightSensor()
+
+    \brief      [ Aceasta functie dezactiveaza input buffer-ul din DIDR0 pentru ADC -ul responsabil de senzorul de lumina ]  
+*/
+extern void disable_input_buffer_for_lightSensor();
+
+/** \fn     void enable_input_buffer_for_lightSensor()
+
+    \brief      [ Aceasta functie activeaza input buffer-ul din DIDR0 pentru ADC -ul responsabil de senzorul de lumina ]  
+*/
+extern void enable_input_buffer_for_lightSensor();
+
 #endif
