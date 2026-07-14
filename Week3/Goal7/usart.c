@@ -98,6 +98,7 @@ unsigned char receiveUsart(){
 }
 
 void transmitUsartChar(unsigned char trans){
+   
   txBuffer[txHead] = trans;
   txHead = (txHead + 1)%bufferSize;
   setPin(&UCSR2B,UDRIE);

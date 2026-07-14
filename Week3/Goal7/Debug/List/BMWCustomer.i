@@ -1,7 +1,5 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.c"
-
-
-
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\BMWCustomer.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -583,7 +581,52 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.c"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\led.h"
+
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
+extern void ledPowerOn(unsigned char led);
+
+extern void ledPowerOff(unsigned char led);
+
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
+#line 2 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\BMWCustomer.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.h"
+
+
+
+extern void initUsart();
+
+unsigned char receiveUsart();
+
+extern void transmitUsartChar(unsigned char trans);
+
+extern void transmitUsartString(unsigned char str[]);
+
+#line 3 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\BMWCustomer.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\scheduler.h"
+
+
+
+extern void scheduleTaskDispatcher(void);
+
+extern void schedulerFlasgsManagement(void);
+
+
+
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\BMWCustomer.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\scheduleCFG.h"
+
+
+
+extern void task10msSlave();
+
+extern void task50msSlave();
+extern void task100msSlave();
+extern void task500msSlave();
+extern void task1000msSlave();
+
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\BMWCustomer.c"
 
 
 
@@ -605,95 +648,63 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 
-static unsigned char overflow = 0;
-static unsigned char receiveBuffer[128];
-static unsigned char rxHead = 0;
-static unsigned char rxTail = 0;
 
-static unsigned char txBuffer[128];
 
-static unsigned char txHead = 0;
-static unsigned char txTail = 0;
 
-#pragma vector = (0xBC)    
-__interrupt void receiveInterrupt(void){
-    unsigned char next = (rxHead+1) %128;
-    if(overflow == 0){
-      if(next != rxTail){
-        receiveBuffer[rxHead] = UDR2;
-        rxHead = next;
-      }
-      else
-        overflow = 1;
-    }
-    else
-    {
-      if(rxHead != rxTail){
-          overflow = 0;
-      }
-    }
-}
 
-#pragma vector = (0xC0)    
-__interrupt void transmitInterrupt(void){
-   if(txHead == txTail)
-    {
-        resetPin(&UCSR2B,5);  
-    }
-    else
-    {
-        UDR2 = txBuffer[txTail];
-        txTail = (txTail + 1) % 128;
-    }
 
-}
 
-void initUsart(){
+
+
+
+
+
+
+
+
+#pragma vector=(0x34)
+__interrupt void myInterrupt(void){
   
-    setPin(&UCSR2B,7);
-    
-    setPin(&UCSR2B,4);
-    setPin(&UCSR2B,3);
-    
-    
-    setPin(&UCSR2C,3); 
-    setPin(&UCSR2C,2); 
-    setPin(&UCSR2C,1);
-    
-    UBRR2H = (unsigned char)(((8000000UL/(16UL*9600UL))-1) >> 8);
-    UBRR2L = (unsigned char)((8000000UL/(16UL*9600UL))-1);
-    
-    setDirection(&DDRE,3,1);
-
-    
-    setDirection(&DDRE,2,0);
-}
-
-unsigned char receiveUsart(){
-  if(rxTail != rxHead){
-    unsigned char c = receiveBuffer[rxTail];
-    rxTail = (rxTail+1)%128;
-    return c;
-  }
-  else
-      return -1;
-}
-
-void transmitUsartChar(unsigned char trans){
-   
-  txBuffer[txHead] = trans;
-  txHead = (txHead + 1)%128;
-  setPin(&UCSR2B,5);
-
-}
-
-void transmitUsartString(unsigned char str[]){
-  while(*str != '\0'){
-    transmitUsartChar(*str);
-    str++;
-  }
-
+  schedulerFlasgsManagement();
 }
 
 
 
+void initialize(){
+  
+    setDirection(&DDRD,5,1);
+  setDirection(&DDRD,4,1);
+  setDirection(&DDRA,3,1);
+  setDirection(&DDRC,7,1);
+  
+  
+  setPin(&PORTC,7);
+  setPin(&PORTD,5);
+  setPin(&PORTD,4);
+  setPin(&PORTA,3);
+  
+  
+  setDirection(&DDRC,6,0);
+  setDirection(&DDRC,1,0);
+  setDirection(&DDRA,0,0);
+  setDirection(&DDRA,1,0);
+  
+  
+   setPin(&PORTC,6);
+  setPin(&PORTC,1);
+  setPin(&PORTA,0);
+  setPin(&PORTA,1);
+  
+  
+}
+
+int main( void )
+{
+  initialize();
+  initUsart();
+  SREG |= 1<<7;
+  scheduleTaskDispatcher();
+ 
+  
+  
+}

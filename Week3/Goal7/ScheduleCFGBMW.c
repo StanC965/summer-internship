@@ -3,14 +3,22 @@
 #include "adc.h"
 #include "led.h"
 #include "gpio.h"
+#include "usart.h"
 
-#define led0 0
-#define led1 1
-#define led2 2
-#define led3 3
+#define led0 'A'
+#define led1 'B'
+#define led2 'C'
+#define led3 'D'
+
+#define led0Off 'E'
+#define led1Off 'F'
+#define led2Off 'G'
+#define led3Off 'H'
 
 #define ON 1
 #define OFF 0
+
+#define le
 
 int led0State = 0;
 int led1State = 0;
@@ -61,29 +69,29 @@ enum states {
 };
 
 void led0Funtionality(){
-  ledPowerOff(led1);
-  ledPowerOff(led2);
-  ledPowerOff(led3);
-  ledPowerOn(led0);
+  transmitUsartChar(led1Off);
+  transmitUsartChar(led2Off);
+  transmitUsartChar(led3Off);
+ transmitUsartChar(led0);
   
 }
 
 enum states state = NORMAL_MODE;
 
 void led0FunctionalityReversed(){
-  ledPowerOff(led0);
+  transmitUsartChar(led0Off);
    if(led1State == ON)
-            ledPowerOn(led1);
+            transmitUsartChar(led1);
         else
-            ledPowerOff(led1);
+            transmitUsartChar(led1Off);
   if(led2State == ON)
-          ledPowerOn(led2); 
+          transmitUsartChar(led2); 
         else
-          ledPowerOff(led2);
+          transmitUsartChar(led2Off);
   if(led3State == ON)
-        ledPowerOn(led3);
+        transmitUsartChar(led3);
     else
-      ledPowerOff(led3);
+      transmitUsartChar(led3Off);
 }
 
 void stateMachine(void){
@@ -94,24 +102,24 @@ void stateMachine(void){
         if(button1State == PRESSED && lastButton1State == RELEASED){
                led1State ^= 1;
                if(led1State == ON)
-                   ledPowerOn(led1);
+                   transmitUsartChar(led1);
                else
-                  ledPowerOff(led1);
+                  transmitUsartChar(led1Off);
         }
         lastButton1State = button1State;
         if(button2State == PRESSED && lastButton2State == RELEASED){
               led2State ^= 1;
               if(led2State == ON)
-                ledPowerOn(led2); 
+                transmitUsartChar(led2);
               else
-                ledPowerOff(led2);}
+                transmitUsartChar(led2Off);}
         lastButton2State = button2State;
         if(button3State == PRESSED && lastButton3State == RELEASED){
               led3State ^= 1;
               if(led3State == ON)
-                ledPowerOn(led3);
+                transmitUsartChar(led3);
              else
-               ledPowerOff(led3);
+               transmitUsartChar(led3Off);
         }
             
          

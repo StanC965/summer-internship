@@ -1,7 +1,30 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\scheduler.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\ScheduleCFGBMW.h"
 
 
 
+extern void task10ms();
+
+extern void task50ms();
+extern void task100ms();
+extern void task500ms();
+extern void task1000ms();
+
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\scheduler.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\scheduleCFG.h"
+
+
+
+extern void task10msSlave();
+
+extern void task50msSlave();
+extern void task100msSlave();
+extern void task500msSlave();
+extern void task1000msSlave();
+
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\scheduler.c"
+
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\led.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -583,7 +606,16 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.c"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\led.h"
+
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
+extern void ledPowerOn(unsigned char led);
+
+extern void ledPowerOff(unsigned char led);
+
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
+#line 7 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\scheduler.c"
 
 
 
@@ -595,104 +627,90 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 
+_Bool flag10ms = 0;
+_Bool flag50ms = 0;
+_Bool flag100ms = 0;
+_Bool flag500ms = 0;
+_Bool flag1000ms = 0;
 
 
 
 
-
-
-
-
-
-
-static unsigned char overflow = 0;
-static unsigned char receiveBuffer[128];
-static unsigned char rxHead = 0;
-static unsigned char rxTail = 0;
-
-static unsigned char txBuffer[128];
-
-static unsigned char txHead = 0;
-static unsigned char txTail = 0;
-
-#pragma vector = (0xBC)    
-__interrupt void receiveInterrupt(void){
-    unsigned char next = (rxHead+1) %128;
-    if(overflow == 0){
-      if(next != rxTail){
-        receiveBuffer[rxHead] = UDR2;
-        rxHead = next;
-      }
-      else
-        overflow = 1;
-    }
-    else
-    {
-      if(rxHead != rxTail){
-          overflow = 0;
-      }
-    }
-}
-
-#pragma vector = (0xC0)    
-__interrupt void transmitInterrupt(void){
-   if(txHead == txTail)
-    {
-        resetPin(&UCSR2B,5);  
-    }
-    else
-    {
-        UDR2 = txBuffer[txTail];
-        txTail = (txTail + 1) % 128;
-    }
-
-}
-
-void initUsart(){
+void programInit(){
+  TCNT1 = 0;
+  OCR1A = 9999;
   
-    setPin(&UCSR2B,7);
     
-    setPin(&UCSR2B,4);
-    setPin(&UCSR2B,3);
-    
-    
-    setPin(&UCSR2C,3); 
-    setPin(&UCSR2C,2); 
-    setPin(&UCSR2C,1);
-    
-    UBRR2H = (unsigned char)(((8000000UL/(16UL*9600UL))-1) >> 8);
-    UBRR2L = (unsigned char)((8000000UL/(16UL*9600UL))-1);
-    
-    setDirection(&DDRE,3,1);
+  
+  
+  setPin(&TCCR1B,3);
+  setPin(&TIMSK1,1);
+  setPin(&TCCR1B,1);
+  
 
-    
-    setDirection(&DDRE,2,0);
 }
 
-unsigned char receiveUsart(){
-  if(rxTail != rxHead){
-    unsigned char c = receiveBuffer[rxTail];
-    rxTail = (rxTail+1)%128;
-    return c;
+void scheduleTaskDispatcher(void){
+  programInit();
+ while(1){
+    if(flag10ms){
+      flag10ms = 0;
+      task10ms();
+      task10msSlave();
+      
+      
+    }
+    if(flag50ms){
+      flag50ms = 0;
+      task50ms();
+      task50msSlave();
+    }
+    if(flag100ms){
+      flag100ms = 0;
+      task100ms();
+      task100msSlave();
+    }
+    if(flag500ms){
+      flag500ms = 0;
+      task500ms();
+      task500msSlave();
+    }
+    if(flag1000ms){
+      flag1000ms = 0;
+      task1000ms();
+      task1000msSlave();
+    }
   }
-  else
-      return -1;
 }
 
-void transmitUsartChar(unsigned char trans){
-   
-  txBuffer[txHead] = trans;
-  txHead = (txHead + 1)%128;
-  setPin(&UCSR2B,5);
-
-}
-
-void transmitUsartString(unsigned char str[]){
-  while(*str != '\0'){
-    transmitUsartChar(*str);
-    str++;
+void schedulerFlasgsManagement(void){
+  static unsigned char cnt50 = 0;
+  static unsigned char cnt100 = 0;
+  static unsigned short int cnt500 = 0;
+  static unsigned short int cnt1000 = 0;
+  flag10ms = 1;
+  cnt50++;
+  cnt100++;
+  cnt500++;
+  cnt1000++;
+  if(cnt50 == 5){
+    cnt50 = 0;
+    flag50ms = 1;
+    
   }
-
+   if(cnt100 == 10){
+    cnt100 = 0;
+    flag100ms = 1;
+  }
+  if(cnt500 ==50){
+    cnt500 = 0;
+    flag500ms = 1;
+  }
+  
+  if(cnt1000 == 100){
+    cnt1000 = 0;
+    flag1000ms = 1;
+  }
 }
 
 

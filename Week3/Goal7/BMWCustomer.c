@@ -1,7 +1,7 @@
 #include "led.h"
-
-#include <intrinsics.h>
+#include "usart.h"
 #include "scheduler.h"
+#include "scheduleCFG.h"
 
 #define led0 0
 #define led1 1
@@ -37,12 +37,12 @@
 #define CS00 0
 
 
-
 #pragma vector=TIMER1_COMPA_vect
 __interrupt void myInterrupt(void){
   
   schedulerFlasgsManagement();
 }
+
 
 
 void initialize(){
@@ -76,9 +76,10 @@ void initialize(){
 int main( void )
 {
   initialize();
-  
+  initUsart();
   SREG |= 1<<7;
   scheduleTaskDispatcher();
+ 
   
   
 }

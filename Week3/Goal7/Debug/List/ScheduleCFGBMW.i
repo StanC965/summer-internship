@@ -1,7 +1,5 @@
-#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.c"
-
-
-
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\ScheduleCFGBMW.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\adc.h"
 #line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\gpio.h"
 #line 1 "D:\\Mircea\\Marqurdt\\logic\\avr\\inc\\iom324pb.h"
 
@@ -583,7 +581,44 @@ extern void togglePin(volatile unsigned char* reg, unsigned char pin);
 extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
-#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.c"
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\adc.h"
+
+extern void initAdc(volatile unsigned char* DDR,volatile unsigned char* port,unsigned char pin,unsigned char ADMUXn,unsigned char REF0,unsigned char REF1,unsigned char ADIE,unsigned char ADLAR,unsigned char ADPS0,unsigned char ADPS1,unsigned char ADPS2);
+
+extern void startConversionAdc();
+extern void enableAdc();
+
+extern void disableAdc();
+extern unsigned short int getAdcValue(void);
+
+extern void setAdcValue(unsigned short int val);
+#line 4 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\ScheduleCFGBMW.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\led.h"
+
+
+
+
+extern void ledInit(volatile unsigned char* DDR,volatile unsigned char* PORT,unsigned char pin);
+extern void ledPowerOn(unsigned char led);
+
+extern void ledPowerOff(unsigned char led);
+
+extern void ledBlinkSlow(unsigned char led);
+extern void ledBlinkFast(unsigned char led);
+#line 5 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\ScheduleCFGBMW.c"
+#line 1 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\usart.h"
+
+
+
+extern void initUsart();
+
+unsigned char receiveUsart();
+
+extern void transmitUsartChar(unsigned char trans);
+
+extern void transmitUsartString(unsigned char str[]);
+
+#line 7 "D:\\Mircea\\Marqurdt\\summer-internship\\Week3\\Goal7\\ScheduleCFGBMW.c"
 
 
 
@@ -600,100 +635,203 @@ extern unsigned char getPin(volatile unsigned char* reg, unsigned char pin);
 
 
 
+int led0State = 0;
+int led1State = 0;
+int led2State = 0;
+int led3State = 0;
 
 
 
 
 
-static unsigned char overflow = 0;
-static unsigned char receiveBuffer[128];
-static unsigned char rxHead = 0;
-static unsigned char rxTail = 0;
 
-static unsigned char txBuffer[128];
 
-static unsigned char txHead = 0;
-static unsigned char txTail = 0;
 
-#pragma vector = (0xBC)    
-__interrupt void receiveInterrupt(void){
-    unsigned char next = (rxHead+1) %128;
-    if(overflow == 0){
-      if(next != rxTail){
-        receiveBuffer[rxHead] = UDR2;
-        rxHead = next;
-      }
-      else
-        overflow = 1;
-    }
-    else
-    {
-      if(rxHead != rxTail){
-          overflow = 0;
-      }
-    }
-}
 
-#pragma vector = (0xC0)    
-__interrupt void transmitInterrupt(void){
-   if(txHead == txTail)
-    {
-        resetPin(&UCSR2B,5);  
-    }
-    else
-    {
-        UDR2 = txBuffer[txTail];
-        txTail = (txTail + 1) % 128;
-    }
+volatile unsigned char blinkFast = 0;
+unsigned char led0BlinkState = 0;
+unsigned char cnt = 0;
 
-}
+unsigned char button0Buffer = 0;
+unsigned char button1Buffer = 0;
+unsigned char button2Buffer = 0;
+unsigned char button3Buffer = 0;
 
-void initUsart(){
+unsigned char button0State = 0;
+unsigned char button1State = 0;
+unsigned char button2State = 0;
+unsigned char button3State = 0;
+
+unsigned char lastButton0State = 0;
+unsigned char lastButton1State = 0;
+unsigned char lastButton2State = 0;
+unsigned char lastButton3State = 0;
+
+
+
+
+
+
+
+
+
+
+
+enum states {
+  NORMAL_MODE,
+  STOPPED_MODE,
+  BLINKING_MODE
+};
+
+void led0Funtionality(){
+  transmitUsartChar('F');
+  transmitUsartChar('G');
+  transmitUsartChar('H');
+ transmitUsartChar('A');
   
-    setPin(&UCSR2B,7);
-    
-    setPin(&UCSR2B,4);
-    setPin(&UCSR2B,3);
-    
-    
-    setPin(&UCSR2C,3); 
-    setPin(&UCSR2C,2); 
-    setPin(&UCSR2C,1);
-    
-    UBRR2H = (unsigned char)(((8000000UL/(16UL*9600UL))-1) >> 8);
-    UBRR2L = (unsigned char)((8000000UL/(16UL*9600UL))-1);
-    
-    setDirection(&DDRE,3,1);
-
-    
-    setDirection(&DDRE,2,0);
 }
 
-unsigned char receiveUsart(){
-  if(rxTail != rxHead){
-    unsigned char c = receiveBuffer[rxTail];
-    rxTail = (rxTail+1)%128;
-    return c;
+enum states state = NORMAL_MODE;
+
+void led0FunctionalityReversed(){
+  transmitUsartChar('E');
+   if(led1State == 1)
+            transmitUsartChar('B');
+        else
+            transmitUsartChar('F');
+  if(led2State == 1)
+          transmitUsartChar('C'); 
+        else
+          transmitUsartChar('G');
+  if(led3State == 1)
+        transmitUsartChar('D');
+    else
+      transmitUsartChar('H');
+}
+
+void stateMachine(void){
+  switch(state){
+    
+    
+    case NORMAL_MODE:
+        if(button1State == 1 && lastButton1State == 0){
+               led1State ^= 1;
+               if(led1State == 1)
+                   transmitUsartChar('B');
+               else
+                  transmitUsartChar('F');
+        }
+        lastButton1State = button1State;
+        if(button2State == 1 && lastButton2State == 0){
+              led2State ^= 1;
+              if(led2State == 1)
+                transmitUsartChar('C');
+              else
+                transmitUsartChar('G');}
+        lastButton2State = button2State;
+        if(button3State == 1 && lastButton3State == 0){
+              led3State ^= 1;
+              if(led3State == 1)
+                transmitUsartChar('D');
+             else
+               transmitUsartChar('H');
+        }
+            
+         
+        lastButton3State = button3State;
+        if(button0State == 1 && lastButton0State == 0){
+                led0Funtionality();
+                state = STOPPED_MODE;
+                cnt = 0;
+        }
+        lastButton0State = button0State;
+        break;
+        
+        
+    case STOPPED_MODE:
+      if((button1State == 1 && lastButton1State == 0)
+         || (button2State == 1 && lastButton2State == 0)
+           ||(button3State == 1 && lastButton3State == 0)){
+               state = BLINKING_MODE;
+               cnt = 0;
+               
+        }
+        lastButton1State = button1State;
+        lastButton2State = button2State;   
+        lastButton3State = button3State;
+        if(button0State == 1 && lastButton0State == 0){
+                led0FunctionalityReversed();
+                state = NORMAL_MODE;
+                cnt = 0;
+        }
+        lastButton0State = button0State;
+        break;
+        
+    case BLINKING_MODE:
+        if(cnt % 5 == 0)
+            togglePin(&PORTC,7);
+        cnt++;
+        if(cnt >= 50){
+            led0Funtionality();
+            state = STOPPED_MODE;
+            cnt = 0;
+            
+        }    
+        
+        
+        if(button0State == 1 && lastButton0State == 0){
+                led0FunctionalityReversed();
+                state = NORMAL_MODE;
+                cnt = 0;
+
+        }
+        lastButton0State = button0State;
+        break;
+        
+        
+  
   }
-  else
-      return -1;
-}
-
-void transmitUsartChar(unsigned char trans){
-   
-  txBuffer[txHead] = trans;
-  txHead = (txHead + 1)%128;
-  setPin(&UCSR2B,5);
-
-}
-
-void transmitUsartString(unsigned char str[]){
-  while(*str != '\0'){
-    transmitUsartChar(*str);
-    str++;
-  }
-
+  
 }
 
 
+void debounceButton(volatile unsigned char *PIN,unsigned char pin,unsigned char *buffer,unsigned char *state)
+{
+    *buffer <<= 1;
+
+    if(!getPin(PIN, pin))
+        *buffer |= 1;
+
+    if((*buffer & 0x1F)== 0x1F)
+        *state =1;
+    else if((*buffer & 0x1F)== 0x00)
+        *state = 0;
+}
+
+void task10ms(){
+  debounceButton(&PINC, 6, &button0Buffer, &button0State);
+  debounceButton(&PINC, 1, &button1Buffer, &button1State);
+  debounceButton(&PINA, 0, &button2Buffer, &button2State);
+  debounceButton(&PINA, 1, &button3Buffer, &button3State);
+  stateMachine();
+
+}
+      
+void task50ms(){
+
+
+}
+      
+void task100ms(){
+  
+
+}
+      
+void task500ms(){
+
+}
+
+void task1000ms(){
+
+}
 

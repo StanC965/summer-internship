@@ -1,6 +1,7 @@
 #ifndef SCH_C
 #define SCH_C
-#include "schedule674.h"
+#include "ScheduleCFGBMW.h"
+#include "scheduleCFG.h"
 
 #include "led.h"
 #define WGM12 3
@@ -19,6 +20,10 @@ _Bool flag50ms = 0;
 _Bool flag100ms = 0;
 _Bool flag500ms = 0;
 _Bool flag1000ms = 0;
+
+
+
+
 void programInit(){
   TCNT1 = 0;
   OCR1A = 9999;
@@ -39,24 +44,29 @@ void scheduleTaskDispatcher(void){
     if(flag10ms){
       flag10ms = 0;
       task10ms();
+      task10msSlave();
       
       
     }
     if(flag50ms){
       flag50ms = 0;
       task50ms();
+      task50msSlave();
     }
     if(flag100ms){
       flag100ms = 0;
       task100ms();
+      task100msSlave();
     }
     if(flag500ms){
       flag500ms = 0;
       task500ms();
+      task500msSlave();
     }
     if(flag1000ms){
       flag1000ms = 0;
       task1000ms();
+      task1000msSlave();
     }
   }
 }
