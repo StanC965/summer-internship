@@ -1,0 +1,5 @@
+            AVCC        1.1V
+
+dark        D6          FF
+
+bright      0F          1C
