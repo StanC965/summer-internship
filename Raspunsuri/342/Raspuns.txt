@@ -1,0 +1,1 @@
+Pin-ul  pentru senzorul de lumina corespunde cu PORT A PIN 4 (PA04)
