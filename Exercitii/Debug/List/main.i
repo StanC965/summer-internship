@@ -793,14 +793,16 @@ extern void sos_pattern(void);
 int volatile count1=0;
 int volatile count2=0;
 int volatile count3=0;
+_Bool volatile sw0=0;
 
 
 #pragma vector = (0x10)
 __interrupt void PinChangePortA_ISR(void)
 {
   
-
-    for(int i=0;i<5000U;i++)
+    if(!sw0)
+    {
+    for(int i=0;i<3000U;i++)
     {}
     
     if ( ((PINA & (1 << 0)) == 0)&& count1==0 )  
@@ -834,6 +836,7 @@ __interrupt void PinChangePortA_ISR(void)
       led_Set((0xDD));
       count3=0;
     }
+    }
   
 }
 
@@ -842,9 +845,33 @@ __interrupt void PinChangePortC_ISR(void)
 {
   
 
-    for(int i=0;i<5000U;i++)
+             
+             
+             
+             
+    for(int i=0;i<3000U;i++)
     {}
-    
+   if( (PINC & (1 << 6)) == 0 )
+    {
+      
+      sw0=!sw0;
+      if(sw0)
+      {
+      led_Set((0xBB));
+      led_Set((0xCC));  
+      led_Set((0xDD));
+      count1=0;
+      count2=0;
+      count3=0;
+      led_Reset((0xAA));
+      }
+      else{
+        led_Set((0xAA));
+      }
+    }
+         
+    if(!sw0)
+    {
     if ( ((PINC & (1 << 1)) == 0 )&&count2==0)  
     {
         led_Reset((0xCC));
@@ -860,6 +887,7 @@ __interrupt void PinChangePortC_ISR(void)
       count2=0;
       led_Set((0xCC));
     }
+    }
 }
 
 
@@ -867,16 +895,18 @@ __interrupt void PinChangePortC_ISR(void)
 
 void setup(void)
 {
-    leds_initialize(0, 1, 1, 1, 0);  
+    leds_initialize(1, 1, 1, 1, 0);  
     
     led_Set((0xBB));
     led_Set((0xCC));        
     led_Set((0xDD));
+    led_Set((0xAA));
     
     
     gpio_set_direction(&DDRC, 1, (((0x01U)))); 
     gpio_set_direction(&DDRA, 0, (((0x01U)))); 
     gpio_set_direction(&DDRA, 1, (((0x01U)))); 
+    gpio_set_direction(&DDRC,6, (((0x01U)))); 
     
     
     
@@ -890,12 +920,14 @@ void setup(void)
        gpio_set_pin(&PORTC, 1);
        gpio_set_pin(&PORTA, 1);            
        gpio_set_pin(&PORTA, 0);
+       gpio_set_pin(&PORTC, 6);
      
      
     
      gpio_set_pin(&PCMSK0, 1); 
      gpio_set_pin(&PCMSK0, 0); 
      gpio_set_pin(&PCMSK2, 1); 
+     gpio_set_pin(&PCMSK2, 6); 
      
      
      gpio_set_pin(&SREG, 7);

@@ -51056,13 +51056,27 @@
     "scope": null
   },
   {
+    "ID": "c:@sw0",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "sw0",
+    "location": {
+      "column": "16",
+      "line": "12",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "sw0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@PinChangePortA_ISR",
     "What": "Function",
     "defdec": "Def",
     "display": "void PinChangePortA_ISR(void)",
     "location": {
       "column": "18",
-      "line": "15",
+      "line": "16",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "PinChangePortA_ISR",
@@ -51070,13 +51084,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@310@F@PinChangePortA_ISR@i",
+    "ID": "c:main.c@352@F@PinChangePortA_ISR@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "19",
+      "line": "21",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "i",
@@ -51090,7 +51104,7 @@
     "display": "void PinChangePortC_ISR(void)",
     "location": {
       "column": "18",
-      "line": "57",
+      "line": "60",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "PinChangePortC_ISR",
@@ -51098,13 +51112,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1036@F@PinChangePortC_ISR@i",
+    "ID": "c:main.c@1145@F@PinChangePortC_ISR@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "61",
+      "line": "68",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "i",
@@ -51118,7 +51132,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "84",
+      "line": "112",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -51132,7 +51146,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "121",
+      "line": "153",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",

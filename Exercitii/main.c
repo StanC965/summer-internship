@@ -3,19 +3,21 @@
 #include "led.h" 
 #include "sos.h"
 #define  TOGGLE_NR       3
-#define  DEBOUNCE        5000U
+#define  DEBOUNCE        3000U
 
 
 int volatile count1=0;
 int volatile count2=0;
 int volatile count3=0;
+_Bool volatile sw0=0;
 
 
 #pragma vector = PCINT0_vect
 __interrupt void PinChangePortA_ISR(void)
 {
   
-
+    if(!sw0)
+    {
     for(int i=0;i<DEBOUNCE;i++)
     {}
     
@@ -50,6 +52,7 @@ __interrupt void PinChangePortA_ISR(void)
       led_Set(LED_THREE);
       count3=0;
     }
+    }
   
 }
 
@@ -58,9 +61,33 @@ __interrupt void PinChangePortC_ISR(void)
 {
   
 
+             
+             
+             
+             
     for(int i=0;i<DEBOUNCE;i++)
     {}
-    
+   if( (PINC & (1 << 6)) == 0 )
+    {
+      
+      sw0=!sw0;
+      if(sw0)
+      {
+      led_Set(LED_ONE);
+      led_Set(LED_TWO);  
+      led_Set(LED_THREE);
+      count1=0;
+      count2=0;
+      count3=0;
+      led_Reset(LED_ZERO);
+      }
+      else{
+        led_Set(LED_ZERO);
+      }
+    }
+         
+    if(!sw0)
+    {
     if ( ((PINC & (1 << 1)) == 0 )&&count2==0)  
     {
         led_Reset(LED_TWO);
@@ -76,6 +103,7 @@ __interrupt void PinChangePortC_ISR(void)
       count2=0;
       led_Set(LED_TWO);
     }
+    }
 }
 
 
@@ -83,16 +111,18 @@ __interrupt void PinChangePortC_ISR(void)
 
 void setup(void)
 {
-    leds_initialize(0, 1, 1, 1, 0);  //initializam cele 3 led-uri  in manual spune ca sunt active low 
+    leds_initialize(1, 1, 1, 1, 0);  //initializam cele 3 led-uri  in manual spune ca sunt active low 
     
     led_Set(LED_ONE);
     led_Set(LED_TWO);        //le punem pe high(le stingem)
     led_Set(LED_THREE);
+    led_Set(LED_ZERO);
     
     ///////DIRECTIE BUTOANE/////////   
     gpio_set_direction(&DDRC, 1, GPIO_INPUT); //punem butonul 1 ca intrare
     gpio_set_direction(&DDRA, 0, GPIO_INPUT); //punem butonul 2 ca intrare
     gpio_set_direction(&DDRA, 1, GPIO_INPUT); //punem butonul 3 ca intrare
+    gpio_set_direction(&DDRC,6, GPIO_INPUT); //SW0
     
     
     
@@ -106,12 +136,14 @@ void setup(void)
        gpio_set_pin(&PORTC, 1);
        gpio_set_pin(&PORTA, 1);            //fara asta led-urile se comporta instabil
        gpio_set_pin(&PORTA, 0);
+       gpio_set_pin(&PORTC, 6);
      
      ////////INTRERUPERI BUTOANE/////////
     
      gpio_set_pin(&PCMSK0, 1); //buton 2
      gpio_set_pin(&PCMSK0, 0); //buton 3
      gpio_set_pin(&PCMSK2, 1); //buton 1
+     gpio_set_pin(&PCMSK2, 6); //SW0
      
      //////INTRERUPERI GLOBALE///////
      gpio_set_pin(&SREG, 7);
