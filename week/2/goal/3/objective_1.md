@@ -12,6 +12,7 @@
 | **[311]** | `CORE` | [x] Completed 
 | **[312]** | `CORE` | [x] Completed 
 | **[313]** | `CORE` | [x] Completed 
+| **[314]** | `CORE` | [x] Completed 
 
 --- 
 
@@ -195,6 +196,28 @@ __interrupt void my_routine(void)
 
 ---
 
+#### Task 314
+> **Question/Prompt:** Establish what kind of settings you should do for the registers supporting external interrupts, knowing the connection between SW0 and microcontroller's pin. Adapt also the interrupt vector name (above it was just an example).
+
+> **Answer/Explanation:**
+> The button is connected to PC6, which has an alternate function PCINT22. So the pin will be configured using pin change interrupt, not an INT.
+>
+> - Configure PC6 as an input with pull-up.
+> - Set the PCIE2 pin in the PCICR register.
+> - Set the PCINT22 bit (6) in the PCMSK2 register.
+
+```c
+#pragma vector=PCINT2_vect
+__interrupt void my_routine(void)
+/* the amazing routine for serving the interrupt caused by my button press */
+{
+    /* some code here… e.g. you can turn ON the LED0 here  */
+}
+```
+
+---
+
 ## References & Resources
 * AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATmega324PB)
 * IAR Embedded Workbench IDE online help
+* ATmega324PB Xplained Pro user guide
