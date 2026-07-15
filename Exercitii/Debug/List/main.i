@@ -741,17 +741,16 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
   volatile unsigned char overflow_counter = 0;
-  volatile unsigned char cycle = 1;
+  volatile _Bool start = 1;
 
   #pragma vector = (0x18)
   __interrupt void my_routine(void)
   {
     if(!(PINC&(1<<6)))
     {
-    cycle++;
-    if(cycle>5)
-      cycle=1;
+    start=!start;
     }
+  
   }
 
 
@@ -761,65 +760,102 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
       overflow_counter++;
   }
 
-  void setup(void)
-  {
-    leds_initialize(1,0,0,0,0);
-    led_Set((0xAA));
+void setup(void)
+{
     
+    leds_initialize(1, 1, 1, 1, 1);  
 
+    led_Set((0xBB));
+    led_Set((0xCC));        
+    led_Set((0xDD));
+    led_Set((0xAA));
+    led_Set((0xEE));
+
+    
+ 
+    gpio_set_direction(&DDRC,6, (((0x01U)))); 
+    gpio_set_pin(&PORTC, 6);
+
+
+
+       gpio_set_pin(&PORTC, 1);
+       gpio_set_pin(&PORTA, 1);            
+       gpio_set_pin(&PORTA, 0);
+       gpio_set_pin(&PORTC, 7);
+       gpio_set_pin(&PORTB, 3);
+
+     
+
+    
+     gpio_set_pin(&PCMSK2, 6); 
+
+     
+     gpio_set_pin(&SREG, 7);
+     
     TCCR0A = 0;
     TCCR0B = 0;
 
     TIMSK0 |= (1 << TIMSK0_TOIE0);
     TCNT0 = 0;
 
-    gpio_set_direction(&DDRC,6,(((0x01U))));
-    gpio_set_pin(&PORTC,6);
+   
     
 
-   
     PCICR |= (1 << 2);    
     PCMSK2 |= (1 << 6); 
+}
 
-    gpio_set_pin(&SREG,7);
-   
-  }
 
+ int seq[5]={(0xAA),(0xBB),(0xCC),(0xDD),(0xEE)};
+  _Bool on=0;
   void main(void)
   {
-    _Bool on=0;
-    unsigned char diferenta=cycle;
+ 
       setup();
-
+      int i=0;
       while(1)
       {
-            if(cycle!=diferenta)
-             {
-               diferenta=cycle;
-                  switch(cycle)
-                  {
-                      case 0:TCCR0B=0 ;break;
-                      case 1:TCCR0B=1 ;break;
-                      case 2:TCCR0B=2 ;break;
-                      case 3:TCCR0B=3 ;break;
-                      case 4:TCCR0B=4 ;break;
-                      case 5:TCCR0B=5 ;break;
-                  }
-        
-               
-             }
-             if(overflow_counter >= 4)
-                   {
-               
-                      overflow_counter = 0;
-                    if(on)
-                      led_Set((0xAA));
-                    else
-                      led_Reset((0xAA));
-                      on=!on;
-                  }
-      }
+         if(start)
+         {
+              TCCR0B=5;
+              if(overflow_counter >= 4)
+          {
+              overflow_counter = 0;
+              if(on)
+                  led_Reset(seq[i++]);
+             
+              on = !on;
+              if(i==5)
+              {
+                
+                  i=0;
+              
+                  led_Set((0xBB));
+                  led_Set((0xCC));
+                  led_Set((0xDD));
+                  led_Set((0xAA));
+                  led_Set((0xEE));
+                
+                
+               }
+              
+            }
+            
+          }
+          else
+            {
+                i=0;
+
+              
+                led_Set((0xBB));
+                led_Set((0xCC));
+                led_Set((0xDD));
+                led_Set((0xAA));
+                led_Set((0xEE));
+
+            }
+        }
       
   }
-
-
+  
+ 

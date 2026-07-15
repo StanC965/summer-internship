@@ -51000,16 +51000,16 @@
     "scope": null
   },
   {
-    "ID": "c:@cycle",
+    "ID": "c:@start",
     "What": "Variable",
     "defdec": "Def",
-    "display": "cycle",
+    "display": "start",
     "location": {
-      "column": "26",
+      "column": "18",
       "line": "6",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "cycle",
+    "name": "start",
     "origin": "project_file",
     "scope": null
   },
@@ -51034,7 +51034,7 @@
     "display": "void aprindeLed(void)",
     "location": {
       "column": "20",
-      "line": "21",
+      "line": "20",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "aprindeLed",
@@ -51047,11 +51047,39 @@
     "defdec": "Def",
     "display": "void setup(void)",
     "location": {
-      "column": "8",
-      "line": "26",
+      "column": "6",
+      "line": "25",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@seq",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "seq",
+    "location": {
+      "column": "6",
+      "line": "71",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "seq",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@on",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "on",
+    "location": {
+      "column": "9",
+      "line": "72",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "on",
     "origin": "project_file",
     "scope": null
   },
@@ -51062,7 +51090,7 @@
     "display": "void main(void)",
     "location": {
       "column": "8",
-      "line": "50",
+      "line": "73",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
@@ -51070,30 +51098,16 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@902@F@main@on",
+    "ID": "c:main.c@1528@F@main@i",
     "What": "Variable",
     "defdec": "Def",
-    "display": "on",
+    "display": "i",
     "location": {
       "column": "11",
-      "line": "52",
+      "line": "77",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "on",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@919@F@main@diferenta",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "diferenta",
-    "location": {
-      "column": "19",
-      "line": "53",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "diferenta",
+    "name": "i",
     "origin": "project_file",
     "scope": null
   }
