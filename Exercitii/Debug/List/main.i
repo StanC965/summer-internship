@@ -744,116 +744,15 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
 
-
-
-
-
-
-
-volatile int count1 = 0;
-volatile int count2 = 0;
-volatile int count3 = 0;
-volatile _Bool sw0 = 0;
-
-volatile unsigned char overflow_counter = 0;
-
-
-#pragma vector=(0x48)
-__interrupt void timer0_isr(void)
+#pragma vector=(0x40)
+__interrupt void TimerCTC(void)
 {
-    overflow_counter++;
-}
-
-
-#pragma vector = (0x10)
-__interrupt void PinChangePortA_ISR(void)
-{
-    
-    for(volatile int i=0; i<3000u; i++) {} 
-  
-    if(!sw0) 
-    {
-      TCCR0B = 0; 
-         if ((PINA & (1 << 0)) == 0) 
-         {
-             count1++;
-             if(count1 == 1) led_Reset((0xBB));
-             else if(count1 >= 3)
-             {
-                 count1 = 0;
-                 led_Set((0xBB));
-             }
-         }   
-         
-         if ((PINA & (1 << 1)) == 0) 
-         {
-             count3++;
-             if(count3 == 1) led_Reset((0xDD));
-             else if(count3 >= 3)
-             {
-                 count3 = 0;
-                 led_Set((0xDD));
-             }
-         }
-    }
-    else{
-    TCCR0B = 3; }
-    
-}
-
-
-#pragma vector = (0x18)
-__interrupt void PinChangePortC_ISR(void)
-{
-    for(volatile int i=0; i<3000u; i++) {}
-    
-   
-    if ((PINC & (1 << 6)) == 0 )  
-    {
-         sw0 = !sw0; 
-         
-         if(sw0)
-         {
-             
-             overflow_counter = 0;
-     
-              led_Reset((0xAA));   
-               led_Set((0xBB));
-                led_Set((0xCC));        
-              led_Set((0xDD));
-              count1=0;
-              count2=0;count3=0;
-         }
-         else
-         {
-             
-             TCCR0B = 0;
-             led_Set((0xAA));
-        
-         }
-    }
-
-    else if ((PINC & (1 << 1)) == 0 )
-    {
-        if (!sw0) 
-        {
-          TCCR0B = 0; 
-            count2++;
-            if (count2 == 1) led_Reset((0xCC));
-            else if(count2 >= 3)
-            {
-                count2 = 0;
-                led_Set((0xCC));
-            }
-        }
-        else{
-        TCCR0B = 3; 
-        }
-    }
+    led_TOGGLE((0xAA));
 }
 
 void setup(void)
 {
+    
     leds_initialize(1, 1, 1, 1, 0);  
     
     
@@ -863,33 +762,16 @@ void setup(void)
     led_Set((0xAA));
     
     
-    gpio_set_direction(&DDRC, 1, (((0x01U)))); 
-    gpio_set_direction(&DDRA, 0, (((0x01U)))); 
-    gpio_set_direction(&DDRA, 1, (((0x01U)))); 
-    gpio_set_direction(&DDRC, 6, (((0x01U)))); 
-    
-    
-    gpio_set_pin(&PORTC, 1);
-    gpio_set_pin(&PORTA, 1);           
-    gpio_set_pin(&PORTA, 0);
-    gpio_set_pin(&PORTC, 6);
 
     
-    TCCR0A = 0;
-    TCCR0B = 0; 
-    TIMSK0 |= (1 << TIMSK0_TOIE0); 
-    TCNT0 = 0;
+    TCCR0A = 2; 
+    TCCR0B = 5; 
+    TCNT0 = 0;  
+    OCR0A = 127; 
     
     
-    gpio_set_pin(&PCICR, 2); 
-    gpio_set_pin(&PCICR, 0); 
-     
+    TIMSK0 |= (1 << TIMSK0_OCIE0A); 
     
-    gpio_set_pin(&PCMSK0, 1); 
-    gpio_set_pin(&PCMSK0, 0); 
-    gpio_set_pin(&PCMSK2, 1); 
-    gpio_set_pin(&PCMSK2, 6); 
-     
     
     gpio_set_pin(&SREG, 7);
 }
@@ -897,36 +779,9 @@ void setup(void)
 void main(void)
 {
     setup();
-    _Bool on = 0; 
-     int durata=0;                                      
+                                                
     while(1)    
     {
-        if(sw0) 
-        {
-            
-            if(overflow_counter >= 4)
-            {
-                overflow_counter = 0; 
-                
-                if(on)
-                    led_Set((0xAA));
-                else
-                    led_Reset((0xAA));
-                    
-                on = !on;
-                durata++;
-            }
-            if(durata>=10)
-            {
-              durata=0;
-              TCCR0B =0; 
-              led_Reset((0xAA));
-            }; 
-            
-        }
-      
+        
     }
 }
-
-
-

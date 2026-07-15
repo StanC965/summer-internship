@@ -50986,184 +50986,16 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@79@macro@TOGGLE_NR",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "TOGGLE_NR",
-    "location": {
-      "column": "10",
-      "line": "8",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "TOGGLE_NR",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@107@macro@DEBOUNCE",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "DEBOUNCE",
-    "location": {
-      "column": "10",
-      "line": "9",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "DEBOUNCE",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@139@macro@BLINK_NUMBER",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "BLINK_NUMBER",
-    "location": {
-      "column": "10",
-      "line": "10",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "BLINK_NUMBER",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@count1",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "count1",
-    "location": {
-      "column": "14",
-      "line": "12",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "count1",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@count2",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "count2",
-    "location": {
-      "column": "14",
-      "line": "13",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "count2",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@count3",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "count3",
-    "location": {
-      "column": "14",
-      "line": "14",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "count3",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@sw0",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "sw0",
-    "location": {
-      "column": "16",
-      "line": "15",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "sw0",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@overflow_counter",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "overflow_counter",
-    "location": {
-      "column": "24",
-      "line": "17",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "overflow_counter",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@timer0_isr",
+    "ID": "c:@F@TimerCTC",
     "What": "Function",
     "defdec": "Def",
-    "display": "void timer0_isr(void)",
+    "display": "void TimerCTC(void)",
     "location": {
       "column": "18",
-      "line": "21",
+      "line": "7",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "timer0_isr",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@PinChangePortA_ISR",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void PinChangePortA_ISR(void)",
-    "location": {
-      "column": "18",
-      "line": "28",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "PinChangePortA_ISR",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@508@F@PinChangePortA_ISR@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "22",
-      "line": "31",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "i",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@PinChangePortC_ISR",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void PinChangePortC_ISR(void)",
-    "location": {
-      "column": "18",
-      "line": "65",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "PinChangePortC_ISR",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@1322@F@PinChangePortC_ISR@i",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "i",
-    "location": {
-      "column": "22",
-      "line": "67",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "i",
+    "name": "TimerCTC",
     "origin": "project_file",
     "scope": null
   },
@@ -51174,7 +51006,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "114",
+      "line": "12",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -51188,38 +51020,10 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "156",
+      "line": "38",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@3731@F@main@on",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "on",
-    "location": {
-      "column": "11",
-      "line": "159",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "on",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@3752@F@main@durata",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "durata",
-    "location": {
-      "column": "10",
-      "line": "160",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "durata",
     "origin": "project_file",
     "scope": null
   }
