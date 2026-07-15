@@ -1,6 +1,5 @@
-C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi: \
-  C:\Users\Stefan\summer-internship\Exercitii\main.c \
-  C:\Users\Stefan\summer-internship\Exercitii\led.h \
+C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi: \
+  C:\Users\Stefan\summer-internship\Exercitii\gpio.c \
   C:\Users\Stefan\summer-internship\Exercitii\gpio.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iom324pb.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \

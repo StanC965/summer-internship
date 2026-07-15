@@ -1,108 +1,10 @@
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.c"
 
 
 
 
  
 
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-typedef     unsigned char   mod_uint8_t;
-
- 
-typedef     unsigned int    mod_uint16_t;
-
- 
- 
- 
-  
-
-
-
-
-
-
-
- 
-extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
-
-
-
-
-
-
-
-
- 
-extern void led_Set(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_Reset(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TOGGLE(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Fast(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Slow(unsigned char Led_id);
-
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
-
-#line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
 
 
@@ -172,7 +74,7 @@ extern void gpio_Timer1_stop();
  
 extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
 
-#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 8 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -738,53 +640,89 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 
 
 
-#line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 9 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.c"
 
-volatile unsigned char overflow_counter = 0;
 
-#pragma vector=(0x48)
-__interrupt void aprindeLed(void)
+ 
+ 
+ 
+
+
+void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit)
 {
-    overflow_counter++;
+    *PORT |= (1 << bit);  
 }
 
-void setup(void)
+void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit)
 {
-    leds_initialize(1,0,0,0,0);
-    led_Set((0xAA));
-
-   
-
-    TCCR0A = 0;
-    TCCR0B = 0;
-
-    gpio_set_pin(&TCCR0B,0);
-    
-    gpio_set_pin(&TCCR0B,2);      
-
-    TIMSK0 |= (1 << TIMSK0_TOIE0);
-
-    TCNT0 = 0;
-
-    gpio_set_pin(&SREG,7);
+    (*port) &= ~(1 << bit);                 
 }
 
-void main(void)
+void gpio_toggle_pin(volatile unsigned char *PORT, gpio_uint8_t bit)
 {
-  _Bool on=0;
-    setup();
+    *PORT ^= (1 << bit);              
+}
 
-    while(1)
+void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare)
+{
+    if(intrare == ((0x01U)))
     {
-        if(overflow_counter >= 4)
-        {
-          
-            overflow_counter = 0;
-            if(on)
-            led_Set((0xAA));
-            else
-            led_Reset((0xAA));
-            on=!on;
-        }
+        *ddr &= ~(1 << bit);                             
+    }
+    else                                  
+    {
+        *ddr |= (1 << bit);
     }
 }
+
+void gpio_Timer1_stop()
+{
+  TCCR1B=0;
+  OCR1A=0;
+  TCNT1=0;
+  
+}
+
+
+void gpio_Timer1_start(float secunde, int prescale)
+{
+    unsigned char bits = 0;
+
+    switch(prescale)
+    {
+        case 1:    bits = 1; break;
+        case 8:    bits = 2; break;
+        case 64:   bits = 3; break;
+        case 256:  bits = 4; break;
+        case 1024: bits = 5; break;
+        default:   return;
+    }
+
+
+    TCCR1A = 0;
+    
+  
+    TCCR1B = (1 << 3); 
+    
+ 
+    TCNT1 = 0;
+    
+    
+    OCR1A = (unsigned int)((1000000 * secunde) / prescale) - 1; 
+
+    
+    TCCR1B &= ~0x07; 
+    TCCR1B |= bits; 
+}
+
+  gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
+  {
+    
+    if ((*PIN) & (1 << bit))
+    {
+        return ((0x01U));
+    }
+    return ((0x00U));
+
+  }
+  
