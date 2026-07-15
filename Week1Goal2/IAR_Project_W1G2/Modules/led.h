@@ -60,6 +60,17 @@ typedef unsigned char led_uint8_t;
 */
 extern void LED_Init(void);
 
+/** \fn     void led_init(led_uint8_t led)
+
+    \brief      Initializes a specific LED.
+    \param[in]  led LED identifier (LED0...LED3).
+    \param[out] None.
+    \return     None.
+    \details    Configures the GPIO pins connected to the LED as
+                outputs and turns the LED OFF.
+*/
+extern void led_init(led_uint8_t led);
+
 /** \fn     void PowerOn_LED(led_uint8_t led)
 
     \brief      Turns the selected LED ON.

@@ -37,6 +37,7 @@
             <file>$PROJ_DIR$\main.h</file>
             <file>$PROJ_DIR$\Utils\utils.c</file>
             <file>$PROJ_DIR$\sos.h</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</name>
@@ -118,7 +119,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 29 10 24 16 19 11 15 28 31</file>
+                    <file> 29 10 24 16 19 11 15 28 31 32</file>
                 </tool>
             </inputs>
         </file>

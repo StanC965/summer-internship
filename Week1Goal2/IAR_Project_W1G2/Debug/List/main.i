@@ -591,6 +591,17 @@ extern void LED_Init(void);
 
 
 
+ 
+extern void led_init(led_uint8_t led);
+
+
+
+
+
+
+
+
+
 
  
 extern void PowerOn_LED(led_uint8_t led);
@@ -803,18 +814,163 @@ extern void SOS_play(led_uint8_t led);
 
 
 
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+__intrinsic void __no_operation(void);
+__intrinsic void __enable_interrupt(void);
+__intrinsic void __disable_interrupt(void);
+__intrinsic void __sleep(void);
+__intrinsic void __watchdog_reset(void);
+
+#pragma language=save
+#pragma language=extended
+
+__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
+
+#pragma language=restore
+
+__intrinsic void __insert_opcode(unsigned short op);
+
+
+
+__intrinsic void __require(void *);
+
+__intrinsic void __delay_cycles(unsigned long);
+
+__intrinsic unsigned char __save_interrupt(void);
+
+__intrinsic void          __restore_interrupt(unsigned char);
+typedef unsigned char __istate_t;
+
+__intrinsic unsigned char __swap_nibbles(unsigned char);
+
+__intrinsic void          __indirect_jump_to(unsigned long);
+
+
+__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __multiply_signed(signed char, signed char);
+__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
+
+__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
+__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
+
+#pragma language=save
+#pragma language=extended
+
+
+
+ 
+
+
+
+
+
+
+ 
+__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
+                                           unsigned char byte);
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
+                                          unsigned char byte);
+
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
+                                                    unsigned short word, 
+                                                    unsigned char byte);
+
+
+
+
+
+
+
+
+
+
+
+ 
+__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
+                                                   unsigned char byte);
+
+
+
+
+
+
+
+
+#pragma language=restore
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+#pragma vector = (0x18)
+__interrupt void SW0_Interrupt_Handler(void) {
+
+  if (button_read_state((0U)) == 0) {
+  
+    PowerOn_LED((0U));
+      
+  }
+}
+
+void interrupt_init(){
+  
+  PCMSK2 |= (1 << 6);
+  PCICR |= (1 << 2);
+  
+  __enable_interrupt();
+}
+
 void main( void )
 {
   BUTTON_Init();
-
-  unsigned char button_state;
-  unsigned char pressed = 0;
+  led_init((0U));
+  interrupt_init();
   
   while(1){
     
-    button_state = button_read_state((0U));
-    if(button_state == 0){
-      SOS_play((0U)); 
-    }
+    
   }
 }

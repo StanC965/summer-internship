@@ -25,15 +25,16 @@ typedef struct {
   
   volatile gpio_uint8_t *port;
   gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
   
 } led_config_t;
 
 static const led_config_t led_table[] =
 {
-    { &PORTC, 7 },
-    { &PORTD, 5 },
-    { &PORTD, 4 },
-    { &PORTA, 3 }
+    { &PORTC, 7, &DDRC },
+    { &PORTD, 5, &DDRD },
+    { &PORTD, 4, &DDRD },
+    { &PORTA, 3, &DDRA }
 };
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,6 +60,11 @@ void LED_Init(void){
   PowerOff_LED(LED3);
 }
 
+void led_init(led_uint8_t led){
+  gpio_set_direction(led_table[led].ddr, led_table[led].pin, GPIO_OUTPUT);
+  PowerOff_LED(led);
+}
+  
 void PowerOn_LED(led_uint8_t led){
   if(led < NUMBER_OF_LEDS){
     gpio_reset_pin(led_table[led].port, led_table[led].pin);

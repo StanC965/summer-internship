@@ -607,6 +607,17 @@ extern void LED_Init(void);
 
 
 
+ 
+extern void led_init(led_uint8_t led);
+
+
+
+
+
+
+
+
+
 
  
 extern void PowerOn_LED(led_uint8_t led);
