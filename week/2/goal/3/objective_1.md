@@ -10,6 +10,7 @@
 | Task ID   | Type   | Status 
 | :---      | :---   | :---                    
 | **[311]** | `CORE` | [x] Completed 
+| **[312]** | `CORE` | [x] Completed 
 
 --- 
 
@@ -111,5 +112,61 @@
 
 ---
 
+#### Task 312
+> **Question/Prompt:** Identify and double check within iom324pb.h that the interrupt vector table is implemented correctly. Go to Compiler Guide (from IAR Embedded Workbench HELP) and read for:
+
+- [x] INTERRUPT FUNCTIONS (pag.64)
+- [x] RESTRICTIONS FOR SPECIAL FUNCTION TYPES => Interrupt functions (pag.163)
+- [x] __interrupt keyword (pag. 307)
+
+> **Answer/Explanation:**
+> The interrupt vector table from the header follows the structure of the table featured in the datasheet, with a few naming differences between some vectors.
+>
+> The main "difference" is the addressing:
+> - the datasheet uses word addresses, which are 2 bytes wide: 0x0002
+> - the compiler header uses byte addresses: 0x04
+> To convert a word address to a byte address:
+
+```math
+word\,address\,(0x0002) * 2 = byte\,address\,(0x0004)
+```
+
+> 1. Interrupt functions 
+> #### Interrupt vectors and the interrupt vector table
+> For the AVR microcontroller, the interrupt vector table always starts at the address 0x0 and is placed in the INTVEC segment. The interrupt vector is the offset into the interrupt vector table. The interrupt vector table contains pointers to interrupt routines, including the reset routine. The AT90S80515 device has 13 interrupt vectors and one reset vector. For this reason, you should specify 14 interrupt vectors, each of two bytes.
+>
+> If a vector is specified in the definition of an interrupt function, the processor interrupt vector table is populated. It is also possible to define an interrupt function without a vector. This is useful if an application is capable of populating or changing the interrupt vector table at runtime.
+>
+> ####  Defining an interrupt function—an example
+> To define an interrupt function, the _ _interrupt keyword and the `#pragma` vector directive can be used. For example:
+
+```c
+#pragma vector = 0x14
+__interrupt void MyInterruptRoutine(void)
+{  
+    /* Do something */
+}
+```
+
+> The `__interrupt` keyword specifies interrupt functions. To specify one or several interrupt vectors, use the `#pragma` vector directive. The range of the interrupt vectors depends on the device used. It is possible to define an interrupt function without a vector, but then the compiler will not generate an entry in the interrupt vector table.
+>
+> The header file `iodevice.h`, where device corresponds to the selected device, contains predefined names for the existing interrupt vectors.
+>
+> To make sure that the interrupt handler executes as fast as possible, you should compile it with -Ohs, or use #pragma optimize=speed if the module is compiled with another optimization goal.
+
+> Note:  
+> An interrupt function must have the return type void, and it cannot specify any parameters.
+
+```c
+void handler(void)
+{
+    // handler implementation
+}
+```
+
+> #### Interrupt and C++ member functions
+> Only static member functions can be interrupt functions.
+
 ## References & Resources
 * AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATmega324PB)
+* IAR Embedded Workbench IDE online help
