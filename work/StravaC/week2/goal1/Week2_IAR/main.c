@@ -1,9 +1,7 @@
 #include "iom324pb.h"
-#include "intrinsics.h"
 
 #include "gpio.h"
 #include "led.h"
-#include "sos.h"
 
 /*
 Autor: Strava Cosmin-Paul
@@ -11,148 +9,101 @@ Data: 2026
 
 Acest fisier contine punctul principal al aplicatiei.
 
-SW0 este conectat la PC6, care are functia alternativa PCINT22.
-LED0 este conectat la PC7 si este active-low.
+OLED1 Xplained Pro este conectat la header-ul EXT1.
 
-Pentru detectarea apasarii butonului este folosita o intrerupere
-Pin Change Interrupt.
+Comportamentul aplicatiei:
+- BUTTON1 apasat  -> LED1 aprins
+- BUTTON1 eliberat -> LED1 stins
+- BUTTON2 apasat  -> LED2 aprins
+- BUTTON2 eliberat -> LED2 stins
+- BUTTON3 apasat  -> LED3 aprins
+- BUTTON3 eliberat -> LED3 stins
 
-Rutina de intrerupere nu executa direct secventa SOS.
-Ea doar seteaza un flag, iar programul principal decide
-ce comportament trebuie executat.
-
-Conventie de numire:
-Toate functiile si variabilele acestui modul folosesc prefixul app_.
+Butoanele si LED-urile de pe extensie sunt active-low.
 */
 
-/* Board connections */
+/* BUTTON1: EXT1 pin 9 -> PC1 */
 
-#define APP_SW0_PIN_NUMBER                    (6U)
-#define APP_LED0_PIN_NUMBER                   (7U)
+#define APP_BUTTON1_PIN_REGISTER       (&PINC)
+#define APP_BUTTON1_PORT_REGISTER      (&PORTC)
+#define APP_BUTTON1_DDR_REGISTER       (&DDRC)
+#define APP_BUTTON1_PIN_NUMBER         (1U)
+
+/* BUTTON2: EXT1 pin 3 -> PA0 */
+
+#define APP_BUTTON2_PIN_REGISTER       (&PINA)
+#define APP_BUTTON2_PORT_REGISTER      (&PORTA)
+#define APP_BUTTON2_DDR_REGISTER       (&DDRA)
+#define APP_BUTTON2_PIN_NUMBER         (0U)
+
+/* BUTTON3: EXT1 pin 4 -> PA1 */
+
+#define APP_BUTTON3_PIN_REGISTER       (&PINA)
+#define APP_BUTTON3_PORT_REGISTER      (&PORTA)
+#define APP_BUTTON3_DDR_REGISTER       (&DDRA)
+#define APP_BUTTON3_PIN_NUMBER         (1U)
+
+/* LED1: EXT1 pin 7 -> PD5 */
+
+#define APP_LED1_PORT_REGISTER         (&PORTD)
+#define APP_LED1_DDR_REGISTER          (&DDRD)
+#define APP_LED1_PIN_NUMBER            (5U)
+
+/* LED2: EXT1 pin 8 -> PD4 */
+
+#define APP_LED2_PORT_REGISTER         (&PORTD)
+#define APP_LED2_DDR_REGISTER          (&DDRD)
+#define APP_LED2_PIN_NUMBER            (4U)
+
+/* LED3: EXT1 pin 6 -> PA3 */
+
+#define APP_LED3_PORT_REGISTER         (&PORTA)
+#define APP_LED3_DDR_REGISTER          (&DDRA)
+#define APP_LED3_PIN_NUMBER            (3U)
 
 /* Button logic */
 
-#define APP_SW0_PRESSED_LEVEL                 (GPIO_LOW)
-
-/* Pin Change Interrupt configuration */
-
-#define APP_SW0_PCINT_ENABLE_VALUE            (GPIO_ONE)
-#define APP_SW0_INTERRUPT_GROUP_ENABLE_VALUE  (GPIO_ONE)
-#define APP_SW0_INTERRUPT_FLAG_CLEAR_VALUE    (GPIO_ONE)
-
-/* Application states */
-
-#define APP_SOS_STATE_DISABLED                (GPIO_FALSE)
-#define APP_SOS_STATE_ENABLED                 (GPIO_TRUE)
-
-/* Delay configuration */
-
-#define APP_SOS_MESSAGE_PAUSE_DELAY_COUNT     (250000UL)
-#define APP_DELAY_COUNTER_INITIAL_VALUE       (0UL)
-
-/*
-Flagul este declarat volatile deoarece este modificat
-de rutina de intrerupere si citit de programul principal.
-*/
-static volatile gpio_uint8_t app_sw0_interrupt_request;
+#define APP_BUTTON_PRESSED_LEVEL       (GPIO_LOW)
 
 /* Static private functions declaration */
 
 static void app_initialize_hardware(void);
 
-static void app_initialize_sw0_interrupt(void);
-
-static gpio_uint8_t app_get_and_clear_sw0_request(void);
-
-static void app_clear_sw0_request(void);
-
-static void app_delay_between_sos_messages(void);
-
-/* Interrupt Service Routine */
-
-/*
-Rutina asociata grupei PCINT[23:16].
-
-PC6 corespunde pinului PCINT22, iar PCINT22 face parte
-din grupa Pin Change Interrupt Request 2.
-
-Pin Change Interrupt se declanseaza la orice schimbare a pinului:
-HIGH -> LOW la apasare;
-LOW  -> HIGH la eliberare.
-
-Pentru a reactiona doar la apasare, starea pinului este verificata
-in interiorul rutinei.
-*/
-#pragma vector=PCINT2_vect
-__interrupt void app_sw0_interrupt_service_routine(void)
-{
-    if (
-        gpio_read_pin(
-            &PINC,
-            APP_SW0_PIN_NUMBER
-        ) == APP_SW0_PRESSED_LEVEL
-    )
-    {
-        app_sw0_interrupt_request = GPIO_TRUE;
-    }
-}
+static void app_update_led_from_button(
+    volatile gpio_uint8_t *app_button_pin_register,
+    gpio_uint8_t app_button_pin_number,
+    volatile gpio_uint8_t *app_led_port_register,
+    gpio_uint8_t app_led_pin_number
+);
 
 /* Main function */
 
 void main(void)
 {
-    gpio_uint8_t app_sos_state;
-
-    app_sos_state = APP_SOS_STATE_DISABLED;
-    app_sw0_interrupt_request = GPIO_FALSE;
-
     app_initialize_hardware();
-    app_initialize_sw0_interrupt();
 
     while (GPIO_TRUE)
     {
-        /*
-        Cand SOS-ul este oprit, o cerere produsa de SW0
-        porneste secventa.
-        */
-        if (app_sos_state == APP_SOS_STATE_DISABLED)
-        {
-            if (app_get_and_clear_sw0_request() == GPIO_TRUE)
-            {
-                app_sos_state = APP_SOS_STATE_ENABLED;
-            }
-        }
+        app_update_led_from_button(
+            APP_BUTTON1_PIN_REGISTER,
+            APP_BUTTON1_PIN_NUMBER,
+            APP_LED1_PORT_REGISTER,
+            APP_LED1_PIN_NUMBER
+        );
 
-        /*
-        Cand SOS-ul este pornit, secventa este executata
-        pana cand este apasat din nou SW0.
-        */
-        if (app_sos_state == APP_SOS_STATE_ENABLED)
-        {
-            app_sos_state = sos_play_interruptible(
-                &PORTC,
-                APP_LED0_PIN_NUMBER,
-                &app_sw0_interrupt_request
-            );
+        app_update_led_from_button(
+            APP_BUTTON2_PIN_REGISTER,
+            APP_BUTTON2_PIN_NUMBER,
+            APP_LED2_PORT_REGISTER,
+            APP_LED2_PIN_NUMBER
+        );
 
-            if (app_sos_state == APP_SOS_STATE_DISABLED)
-            {
-                /*
-                Cererea care a oprit secventa este consumata aici,
-                pentru a nu porni imediat o noua secventa SOS.
-                */
-                app_clear_sw0_request();
-
-                led_power_off(
-                    &PORTC,
-                    APP_LED0_PIN_NUMBER
-                );
-            }
-            else
-            {
-                app_delay_between_sos_messages();
-            }
-        }
+        app_update_led_from_button(
+            APP_BUTTON3_PIN_REGISTER,
+            APP_BUTTON3_PIN_NUMBER,
+            APP_LED3_PORT_REGISTER,
+            APP_LED3_PIN_NUMBER
+        );
     }
 }
 
@@ -161,125 +112,116 @@ void main(void)
 static void app_initialize_hardware(void)
 {
     /*
-    SW0 este conectat la PC6.
-    PC6 este configurat ca intrare.
+    Configureaza cele trei butoane ca intrari.
     */
+
     gpio_set_direction(
-        &DDRC,
-        APP_SW0_PIN_NUMBER,
+        APP_BUTTON1_DDR_REGISTER,
+        APP_BUTTON1_PIN_NUMBER,
+        GPIO_INPUT
+    );
+
+    gpio_set_direction(
+        APP_BUTTON2_DDR_REGISTER,
+        APP_BUTTON2_PIN_NUMBER,
+        GPIO_INPUT
+    );
+
+    gpio_set_direction(
+        APP_BUTTON3_DDR_REGISTER,
+        APP_BUTTON3_PIN_NUMBER,
         GPIO_INPUT
     );
 
     /*
-    Placa nu contine o rezistenta pull-up externa pentru SW0.
-    Din acest motiv este activata rezistenta pull-up interna.
-
-    Buton eliberat: PC6 = HIGH
-    Buton apasat:   PC6 = LOW
+    Extensia OLED1 nu contine rezistente pull-up externe.
+    Sunt activate rezistentele pull-up interne.
     */
+
     gpio_activate_pullup(
-        &PORTC,
-        APP_SW0_PIN_NUMBER
+        APP_BUTTON1_PORT_REGISTER,
+        APP_BUTTON1_PIN_NUMBER
+    );
+
+    gpio_activate_pullup(
+        APP_BUTTON2_PORT_REGISTER,
+        APP_BUTTON2_PIN_NUMBER
+    );
+
+    gpio_activate_pullup(
+        APP_BUTTON3_PORT_REGISTER,
+        APP_BUTTON3_PIN_NUMBER
     );
 
     /*
-    LED0 este conectat la PC7.
-    PC7 este configurat ca iesire.
+    Configureaza cele trei LED-uri ca iesiri.
     */
+
     gpio_set_direction(
-        &DDRC,
-        APP_LED0_PIN_NUMBER,
+        APP_LED1_DDR_REGISTER,
+        APP_LED1_PIN_NUMBER,
+        GPIO_OUTPUT
+    );
+
+    gpio_set_direction(
+        APP_LED2_DDR_REGISTER,
+        APP_LED2_PIN_NUMBER,
+        GPIO_OUTPUT
+    );
+
+    gpio_set_direction(
+        APP_LED3_DDR_REGISTER,
+        APP_LED3_PIN_NUMBER,
         GPIO_OUTPUT
     );
 
     /*
-    LED0 este active-low.
-    Scrierea valorii HIGH mentine LED-ul stins.
+    LED-urile sunt active-low.
+    Initial sunt stinse.
     */
+
     led_power_off(
-        &PORTC,
-        APP_LED0_PIN_NUMBER
+        APP_LED1_PORT_REGISTER,
+        APP_LED1_PIN_NUMBER
+    );
+
+    led_power_off(
+        APP_LED2_PORT_REGISTER,
+        APP_LED2_PIN_NUMBER
+    );
+
+    led_power_off(
+        APP_LED3_PORT_REGISTER,
+        APP_LED3_PIN_NUMBER
     );
 }
 
-static void app_initialize_sw0_interrupt(void)
+static void app_update_led_from_button(
+    volatile gpio_uint8_t *app_button_pin_register,
+    gpio_uint8_t app_button_pin_number,
+    volatile gpio_uint8_t *app_led_port_register,
+    gpio_uint8_t app_led_pin_number
+)
 {
-    /*
-    PC6 corespunde pinului PCINT22.
+    gpio_uint8_t app_button_state;
 
-    PCINT22 face parte din grupa PCINT[23:16],
-    controlata prin PCMSK2 si PCIE2.
-    */
+    app_button_state = gpio_read_pin(
+        app_button_pin_register,
+        app_button_pin_number
+    );
 
-    /* Permite pinului PCINT22 sa genereze intreruperi. */
-    PCMSK2_PCINT22 = APP_SW0_PCINT_ENABLE_VALUE;
-
-    /*
-    Sterge un eventual flag hardware ramas setat.
-
-    Flagurile hardware se sterg prin scrierea valorii 1.
-    */
-    PCIFR_PCIF2 = APP_SW0_INTERRUPT_FLAG_CLEAR_VALUE;
-
-    /* Activeaza grupa Pin Change Interrupt Request 2. */
-    PCICR_PCIE2 = APP_SW0_INTERRUPT_GROUP_ENABLE_VALUE;
-
-    /* Activeaza global sistemul de intreruperi. */
-    __enable_interrupt();
-}
-
-static gpio_uint8_t app_get_and_clear_sw0_request(void)
-{
-    gpio_uint8_t app_request;
-
-    /*
-    Intreruperile sunt dezactivate pentru o perioada foarte scurta,
-    astfel incat citirea si resetarea flagului sa reprezinte
-    o singura operatie logica.
-    */
-    __disable_interrupt();
-
-    app_request = app_sw0_interrupt_request;
-    app_sw0_interrupt_request = GPIO_FALSE;
-
-    __enable_interrupt();
-
-    return app_request;
-}
-
-static void app_clear_sw0_request(void)
-{
-    /*
-    Flagul este resetat intr-o sectiune critica scurta,
-    pentru a evita modificarea sa simultana de catre ISR.
-    */
-    __disable_interrupt();
-
-    app_sw0_interrupt_request = GPIO_FALSE;
-
-    __enable_interrupt();
-}
-
-static void app_delay_between_sos_messages(void)
-{
-    volatile unsigned long app_delay_counter;
-
-    for (
-        app_delay_counter = APP_DELAY_COUNTER_INITIAL_VALUE;
-        app_delay_counter < APP_SOS_MESSAGE_PAUSE_DELAY_COUNT;
-        app_delay_counter++
-    )
+    if (app_button_state == APP_BUTTON_PRESSED_LEVEL)
     {
-        /*
-        Daca SW0 este apasat in timpul pauzei dintre doua mesaje,
-        bucla de asteptare este oprita.
-
-        Cererea va fi procesata la urmatoarea iteratie
-        a programului principal.
-        */
-        if (app_sw0_interrupt_request == GPIO_TRUE)
-        {
-            break;
-        }
+        led_power_on(
+            app_led_port_register,
+            app_led_pin_number
+        );
+    }
+    else
+    {
+        led_power_off(
+            app_led_port_register,
+            app_led_pin_number
+        );
     }
 }
