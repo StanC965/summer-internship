@@ -11,6 +11,7 @@
 | :---      | :---   | :---                    
 | **[311]** | `CORE` | [x] Completed 
 | **[312]** | `CORE` | [x] Completed 
+| **[313]** | `CORE` | [x] Completed 
 
 --- 
 
@@ -131,7 +132,6 @@
 word\,address\,(0x0002) * 2 = byte\,address\,(0x0004)
 ```
 
-> 1. Interrupt functions 
 > #### Interrupt vectors and the interrupt vector table
 > For the AVR microcontroller, the interrupt vector table always starts at the address 0x0 and is placed in the INTVEC segment. The interrupt vector is the offset into the interrupt vector table. The interrupt vector table contains pointers to interrupt routines, including the reset routine. The AT90S80515 device has 13 interrupt vectors and one reset vector. For this reason, you should specify 14 interrupt vectors, each of two bytes.
 >
@@ -153,7 +153,7 @@ __interrupt void MyInterruptRoutine(void)
 > The header file `iodevice.h`, where device corresponds to the selected device, contains predefined names for the existing interrupt vectors.
 >
 > To make sure that the interrupt handler executes as fast as possible, you should compile it with -Ohs, or use #pragma optimize=speed if the module is compiled with another optimization goal.
-
+>
 > Note:  
 > An interrupt function must have the return type void, and it cannot specify any parameters.
 
@@ -166,6 +166,34 @@ void handler(void)
 
 > #### Interrupt and C++ member functions
 > Only static member functions can be interrupt functions.
+
+---
+
+#### Task 313
+> **Question/Prompt:** As your understanding over interrupts grows it is time to introduce the routine executed by the CPU when it will be interrupted by the external request. So remember the sequence:
+
+> button pressed > pin voltage level changed > interrupt request to CPU > jump to vector > executes routine written by you
+
+> Our IAR compiler (like any other compiler) uses a special construct to mark the function written by you in C language as being the routine executed by the CPU in case of interrupt request. Remember that saying it is a FUNCTION is improper/wrong, the correct saying is INTERRUPT SERVICE ROUTINE, on short ISR. It is a routine and not a function for some simple reasons: it does not have input parameters, does not return anything and it is not called (!!!) like a normal function is called within the program. The amount of code you write inside ISR should be kept small. Below is an example of what you should write (between #pragma and the ISR name you MUST NOT introduce any other line of code!!! as the compiler after the #pragma is strictly expecting to encounter the routine name!):
+
+```c
+#pragma vector=INT2_vect
+__interrupt void my_routine(void)
+/* the amazing routine for serving the interrupt caused by my button press */
+{
+    /* some code here… e.g. you can turn ON the LED0 here  */
+}
+```
+
+> **Answer/Explanation:**
+> For the previous sequence, the steps will be:
+> 1. button pressed => the pin goes from HIGH TO LOW
+> 2. pin voltage change => the EXTI detects it (based on EICRA configuration)
+> 3. interrupt request to CPU => CPU saves program state and jumps to hardware defined memory address for that interrupt
+> 4. jump to vector => at the vector tablea address, the compiler placed a jump instruction to routine
+> 5. executes routine written by you => 
+
+---
 
 ## References & Resources
 * AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATmega324PB)
