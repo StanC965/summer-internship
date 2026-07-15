@@ -30,7 +30,17 @@ static unsigned char button3_prev = 0;
 #pragma vector = PCINT2_vect
 __interrupt void pcint2_isr(void)
 {
+    if (PINC_PINC6 == 0)  
+    {
+        led_off(&PORTD, LED1_PIN);
+        led_off(&PORTD, LED2_PIN);
+        led_off(&PORTA, LED3_PIN);
+        led_on(&PORTC, LED0_PIN);
 
+        led1_state = 0;
+        led2_state = 0;
+        led3_state = 0;
+    }
 }
 
 void main(void)
