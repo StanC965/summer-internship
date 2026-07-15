@@ -17,6 +17,16 @@
 #define LED3_PIN     3   /* PA3 */
 #define LED0_PIN     7   /* PC7 */
 
+
+static unsigned char led1_state = 0;
+static unsigned char led2_state = 0;
+static unsigned char led3_state = 0;
+
+static unsigned char button1_prev = 0;
+static unsigned char button2_prev = 0;
+static unsigned char button3_prev = 0;
+
+
 #pragma vector = PCINT2_vect
 __interrupt void pcint2_isr(void)
 {
@@ -55,19 +65,28 @@ void main(void)
 
     while (1)
     {
-        if (gpio_debounce(&PINC, BUTTON1_PIN))
-            led_on(&PORTD, LED1_PIN);
-        else
-            led_off(&PORTD, LED1_PIN);
+    unsigned char b1_now = gpio_debounce(&PINC, BUTTON1_PIN);
+    unsigned char b2_now = gpio_debounce(&PINA, BUTTON2_PIN);
+    unsigned char b3_now = gpio_debounce(&PINA, BUTTON3_PIN);
 
-        if (gpio_debounce(&PINA, BUTTON2_PIN))
-            led_on(&PORTD, LED2_PIN);
-        else
-            led_off(&PORTD, LED2_PIN);
+    if (b1_now && !button1_prev)
+    {
+        led1_state = !led1_state;
+        if (led1_state) led_on(&PORTD, LED1_PIN); else led_off(&PORTD, LED1_PIN);
+    }
+    if (b2_now && !button2_prev)
+    {
+        led2_state = !led2_state;
+        if (led2_state) led_on(&PORTD, LED2_PIN); else led_off(&PORTD, LED2_PIN);
+    }
+    if (b3_now && !button3_prev)
+    {
+        led3_state = !led3_state;
+        if (led3_state) led_on(&PORTA, LED3_PIN); else led_off(&PORTA, LED3_PIN);
+    }
 
-        if (gpio_debounce(&PINA, BUTTON3_PIN))
-            led_on(&PORTA, LED3_PIN);
-        else
-            led_off(&PORTA, LED3_PIN);
+    button1_prev = b1_now;
+    button2_prev = b2_now;
+    button3_prev = b3_now;
     }
 }
