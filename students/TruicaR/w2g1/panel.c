@@ -9,17 +9,20 @@
 #define PULLUP_ON    1
 #define INTERRUPT_ENABLED  1
 
-#define SW0_PIN      6   
-#define BUTTON1_PIN  1   
-#define BUTTON2_PIN  0   
-#define BUTTON3_PIN  1   
-#define LED1_PIN     5   
-#define LED2_PIN     4   
-#define LED3_PIN     3   
-#define LED0_PIN     7   
+#define SW0_PIN      6   /* PC6 */
+#define BUTTON1_PIN  1   /* PC1 */
+#define BUTTON2_PIN  0   /* PA0 */
+#define BUTTON3_PIN  1   /* PA1 */
+#define LED1_PIN     5   /* PD5 */
+#define LED2_PIN     4   /* PD4 */
+#define LED3_PIN     3   /* PA3 */
+#define LED0_PIN     7   /* PC7 */
 
 #define LIGHT_SENSOR_ADC_CHANNEL  4
-#define PANEL_BLOCK_BLINK_DELAY   15000
+#define LIGHT_MIDPOINT       127
+#define LIGHT_LEVEL1         64
+#define LIGHT_LEVEL2         128
+#define LIGHT_LEVEL3         192
 
 static unsigned char led1_state = 0;
 static unsigned char led2_state = 0;
@@ -28,6 +31,43 @@ static unsigned char button1_prev = 0;
 static unsigned char button2_prev = 0;
 static unsigned char button3_prev = 0;
 static volatile unsigned char panel_blocked = 0;
+
+static void panel_light_update(void)
+{
+    unsigned char light = adc_get_result();
+
+    if (light > LIGHT_MIDPOINT)
+        led_on(&PORTC, LED0_PIN);
+    else
+        led_off(&PORTC, LED0_PIN);
+
+    if (light < LIGHT_LEVEL1)
+    {
+        led_off(&PORTD, LED1_PIN);
+        led_off(&PORTD, LED2_PIN);
+        led_off(&PORTA, LED3_PIN);
+    }
+    else if (light < LIGHT_LEVEL2)
+    {
+        led_on(&PORTD, LED1_PIN);
+        led_off(&PORTD, LED2_PIN);
+        led_off(&PORTA, LED3_PIN);
+    }
+    else if (light < LIGHT_LEVEL3)
+    {
+        led_on(&PORTD, LED1_PIN);
+        led_on(&PORTD, LED2_PIN);
+        led_off(&PORTA, LED3_PIN);
+    }
+    else
+    {
+        led_on(&PORTD, LED1_PIN);
+        led_on(&PORTD, LED2_PIN);
+        led_on(&PORTA, LED3_PIN);
+    }
+
+    adc_start_conversion();
+}
 
 void panel_init(void)
 {
@@ -53,8 +93,8 @@ void panel_init(void)
     led_off(&PORTA, LED3_PIN);
     led_off(&PORTC, LED0_PIN);
 
-
     adc_init(LIGHT_SENSOR_ADC_CHANNEL);
+    adc_start_conversion();
 }
 
 void panel_update(void)
@@ -63,18 +103,9 @@ void panel_update(void)
     unsigned char b2_now = gpio_debounce(&PINA, BUTTON2_PIN);
     unsigned char b3_now = gpio_debounce(&PINA, BUTTON3_PIN);
 
-    unsigned char any_press = (b1_now && !button1_prev) ||
-                               (b2_now && !button2_prev) ||
-                               (b3_now && !button3_prev);
-
     if (panel_blocked)
     {
-        if (any_press)
-        {
-            led_off(&PORTC, LED0_PIN);
-            for (volatile int i = 0; i < PANEL_BLOCK_BLINK_DELAY; i++);
-            led_on(&PORTC, LED0_PIN);
-        }
+        panel_light_update();
     }
     else
     {
@@ -107,19 +138,15 @@ __interrupt void pcint2_isr(void)
     {
         panel_blocked = !panel_blocked;
 
-        if (panel_blocked)
+        if (!panel_blocked)
         {
             led_off(&PORTD, LED1_PIN);
             led_off(&PORTD, LED2_PIN);
             led_off(&PORTA, LED3_PIN);
+            led_off(&PORTC, LED0_PIN);
             led1_state = 0;
             led2_state = 0;
             led3_state = 0;
-            led_on(&PORTC, LED0_PIN);
-        }
-        else
-        {
-            led_off(&PORTC, LED0_PIN);
         }
     }
 }

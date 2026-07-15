@@ -1,15 +1,12 @@
 #include "iom324pb.h"
 #include "adc.h"
 
-#include "iom324pb.h"
-#include "adc.h"
-
-#define ADC_REF_AVCC          (1 << 6)
+#define ADC_REF_AVCC           (1 << 6)
 #define ADC_LEFT_ALIGN         (1 << 5)
 #define ADC_ENABLE             (1 << 7)
 #define ADC_INTERRUPT_ENABLE   (1 << 3)
 #define ADC_START              (1 << 6)
-#define ADC_CHANNEL_MASK       0x1F 
+#define ADC_CHANNEL_MASK       0x1F
 
 static volatile unsigned char adc_result = 0;
 
