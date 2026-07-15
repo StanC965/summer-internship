@@ -3,20 +3,21 @@
 #include "led.h"
 #include "sos.h"
 #include <intrinsics.h>
+#include "adc.h"
 
 #define GPIO_INPUT   0
 #define GPIO_OUTPUT  1
 #define PULLUP_ON    1
 #define INTERRUPT_ENABLED  1
 
-#define BUTTON1_PIN  1   /* PC1 */
-#define BUTTON2_PIN  0   /* PA0 */
-#define BUTTON3_PIN  1   /* PA1 */
-#define LED1_PIN     5   /* PD5 */
-#define LED2_PIN     4   /* PD4 */
-#define LED3_PIN     3   /* PA3 */
-#define LED0_PIN     7   /* PC7 */
-
+#define BUTTON1_PIN  1   
+#define BUTTON2_PIN  0  
+#define BUTTON3_PIN  1  
+#define LED1_PIN     5   
+#define LED2_PIN     4   
+#define LED3_PIN     3  
+#define LED0_PIN     7  
+#define LIGHT_SENSOR_ADC_CHANNEL  4
 
 static unsigned char led1_state = 0;
 static unsigned char led2_state = 0;
@@ -80,7 +81,7 @@ void main(void)
     led_off(&PORTC, LED0_PIN);
 
     __enable_interrupt();
-
+    adc_init(LIGHT_SENSOR_ADC_CHANNEL);
     while (1)
     {
     unsigned char b1_now = gpio_debounce(&PINC, BUTTON1_PIN);
@@ -95,7 +96,7 @@ void main(void)
     {
         if (any_press)
         {
-            /* blink rapid LED0, semnal ca panoul e blocat */
+            
             led_off(&PORTC, LED0_PIN);
             for (volatile int i = 0; i < 15000; i++);
             led_on(&PORTC, LED0_PIN);
@@ -123,5 +124,8 @@ void main(void)
     button1_prev = b1_now;
     button2_prev = b2_now;
     button3_prev = b3_now;
+    
+    adc_start_conversion();
+    for (volatile long i = 0; i < 50000; i++); 
     }
 }
