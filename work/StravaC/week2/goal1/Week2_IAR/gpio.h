@@ -1,8 +1,6 @@
 #ifndef GPIO_H
 #define GPIO_H
 
-// Exported types and values
-
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
@@ -11,6 +9,10 @@ Acest fisier reprezinta interfata modulului gpio.
 
 Aici sunt declarate tipurile, constantele si functiile publice
 care pot fi folosite de alte module.
+
+Conventie de numire:
+Toate functiile, tipurile si constantele acestui modul
+folosesc prefixul gpio_ sau GPIO_.
 */
 
 /* General pointer value */
@@ -29,7 +31,7 @@ care pot fi folosite de alte module.
 
 /* Function result values */
 
-#define GPIO_NOTOK             (GPIO_FALSE)
+#define GPIO_NOT_OK            (GPIO_FALSE)
 #define GPIO_OK                (GPIO_TRUE)
 
 /* Pin direction values */
@@ -50,39 +52,39 @@ typedef unsigned int  gpio_uint16_t;
 /* Public functions */
 
 extern void gpio_set_pin(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 );
 
 extern void gpio_reset_pin(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 );
 
 extern void gpio_toggle_pin(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 );
 
 extern void gpio_set_direction(
-    volatile gpio_uint8_t *ddr,
-    gpio_uint8_t pin,
-    gpio_uint8_t direction
+    volatile gpio_uint8_t *gpio_ddr,
+    gpio_uint8_t gpio_pin,
+    gpio_uint8_t gpio_direction
 );
 
 extern void gpio_activate_pullup(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 );
 
 extern gpio_uint8_t gpio_read_pin(
-    volatile gpio_uint8_t *pin_register,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_pin_register,
+    gpio_uint8_t gpio_pin
 );
 
 extern gpio_uint8_t gpio_read_pin_debounced(
-    volatile gpio_uint8_t *pin_register,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_pin_register,
+    gpio_uint8_t gpio_pin
 );
 
 #endif

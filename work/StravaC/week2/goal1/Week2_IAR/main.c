@@ -20,50 +20,53 @@ Pin Change Interrupt.
 Rutina de intrerupere nu executa direct secventa SOS.
 Ea doar seteaza un flag, iar programul principal decide
 ce comportament trebuie executat.
+
+Conventie de numire:
+Toate functiile si variabilele acestui modul folosesc prefixul app_.
 */
 
 /* Board connections */
 
-#define SW0_PIN_NUMBER                     (6U)
-#define LED0_PIN_NUMBER                    (7U)
+#define APP_SW0_PIN_NUMBER                    (6U)
+#define APP_LED0_PIN_NUMBER                   (7U)
 
 /* Button logic */
 
-#define SW0_PRESSED_LEVEL                  (GPIO_LOW)
+#define APP_SW0_PRESSED_LEVEL                 (GPIO_LOW)
 
 /* Pin Change Interrupt configuration */
 
-#define SW0_PCINT_ENABLE_VALUE             (GPIO_ONE)
-#define SW0_INTERRUPT_GROUP_ENABLE_VALUE   (GPIO_ONE)
-#define SW0_INTERRUPT_FLAG_CLEAR_VALUE     (GPIO_ONE)
+#define APP_SW0_PCINT_ENABLE_VALUE            (GPIO_ONE)
+#define APP_SW0_INTERRUPT_GROUP_ENABLE_VALUE  (GPIO_ONE)
+#define APP_SW0_INTERRUPT_FLAG_CLEAR_VALUE    (GPIO_ONE)
 
 /* Application states */
 
-#define SOS_STATE_DISABLED                 (GPIO_FALSE)
-#define SOS_STATE_ENABLED                  (GPIO_TRUE)
+#define APP_SOS_STATE_DISABLED                (GPIO_FALSE)
+#define APP_SOS_STATE_ENABLED                 (GPIO_TRUE)
 
 /* Delay configuration */
 
-#define SOS_MESSAGE_PAUSE_DELAY_COUNT      (250000UL)
-#define DELAY_COUNTER_INITIAL_VALUE        (0UL)
+#define APP_SOS_MESSAGE_PAUSE_DELAY_COUNT     (250000UL)
+#define APP_DELAY_COUNTER_INITIAL_VALUE       (0UL)
 
 /*
 Flagul este declarat volatile deoarece este modificat
 de rutina de intrerupere si citit de programul principal.
 */
-static volatile gpio_uint8_t sw0_interrupt_request;
+static volatile gpio_uint8_t app_sw0_interrupt_request;
 
 /* Static private functions declaration */
 
-static void application_initialize_hardware(void);
+static void app_initialize_hardware(void);
 
-static void application_initialize_sw0_interrupt(void);
+static void app_initialize_sw0_interrupt(void);
 
-static gpio_uint8_t application_get_and_clear_sw0_request(void);
+static gpio_uint8_t app_get_and_clear_sw0_request(void);
 
-static void application_clear_sw0_request(void);
+static void app_clear_sw0_request(void);
 
-static void application_delay_between_sos_messages(void);
+static void app_delay_between_sos_messages(void);
 
 /* Interrupt Service Routine */
 
@@ -81,11 +84,16 @@ Pentru a reactiona doar la apasare, starea pinului este verificata
 in interiorul rutinei.
 */
 #pragma vector=PCINT2_vect
-__interrupt void sw0_interrupt_service_routine(void)
+__interrupt void app_sw0_interrupt_service_routine(void)
 {
-    if (gpio_read_pin(&PINC, SW0_PIN_NUMBER) == SW0_PRESSED_LEVEL)
+    if (
+        gpio_read_pin(
+            &PINC,
+            APP_SW0_PIN_NUMBER
+        ) == APP_SW0_PRESSED_LEVEL
+    )
     {
-        sw0_interrupt_request = GPIO_TRUE;
+        app_sw0_interrupt_request = GPIO_TRUE;
     }
 }
 
@@ -93,13 +101,13 @@ __interrupt void sw0_interrupt_service_routine(void)
 
 void main(void)
 {
-    gpio_uint8_t sos_state;
+    gpio_uint8_t app_sos_state;
 
-    sos_state = SOS_STATE_DISABLED;
-    sw0_interrupt_request = GPIO_FALSE;
+    app_sos_state = APP_SOS_STATE_DISABLED;
+    app_sw0_interrupt_request = GPIO_FALSE;
 
-    application_initialize_hardware();
-    application_initialize_sw0_interrupt();
+    app_initialize_hardware();
+    app_initialize_sw0_interrupt();
 
     while (GPIO_TRUE)
     {
@@ -107,11 +115,11 @@ void main(void)
         Cand SOS-ul este oprit, o cerere produsa de SW0
         porneste secventa.
         */
-        if (sos_state == SOS_STATE_DISABLED)
+        if (app_sos_state == APP_SOS_STATE_DISABLED)
         {
-            if (application_get_and_clear_sw0_request() == GPIO_TRUE)
+            if (app_get_and_clear_sw0_request() == GPIO_TRUE)
             {
-                sos_state = SOS_STATE_ENABLED;
+                app_sos_state = APP_SOS_STATE_ENABLED;
             }
         }
 
@@ -119,27 +127,30 @@ void main(void)
         Cand SOS-ul este pornit, secventa este executata
         pana cand este apasat din nou SW0.
         */
-        if (sos_state == SOS_STATE_ENABLED)
+        if (app_sos_state == APP_SOS_STATE_ENABLED)
         {
-            sos_state = sos_play_interruptible(
+            app_sos_state = sos_play_interruptible(
                 &PORTC,
-                LED0_PIN_NUMBER,
-                &sw0_interrupt_request
+                APP_LED0_PIN_NUMBER,
+                &app_sw0_interrupt_request
             );
 
-            if (sos_state == SOS_STATE_DISABLED)
+            if (app_sos_state == APP_SOS_STATE_DISABLED)
             {
                 /*
                 Cererea care a oprit secventa este consumata aici,
                 pentru a nu porni imediat o noua secventa SOS.
                 */
-                application_clear_sw0_request();
+                app_clear_sw0_request();
 
-                led_power_off(&PORTC, LED0_PIN_NUMBER);
+                led_power_off(
+                    &PORTC,
+                    APP_LED0_PIN_NUMBER
+                );
             }
             else
             {
-                application_delay_between_sos_messages();
+                app_delay_between_sos_messages();
             }
         }
     }
@@ -147,7 +158,7 @@ void main(void)
 
 /* Static private functions implementation */
 
-static void application_initialize_hardware(void)
+static void app_initialize_hardware(void)
 {
     /*
     SW0 este conectat la PC6.
@@ -155,7 +166,7 @@ static void application_initialize_hardware(void)
     */
     gpio_set_direction(
         &DDRC,
-        SW0_PIN_NUMBER,
+        APP_SW0_PIN_NUMBER,
         GPIO_INPUT
     );
 
@@ -168,7 +179,7 @@ static void application_initialize_hardware(void)
     */
     gpio_activate_pullup(
         &PORTC,
-        SW0_PIN_NUMBER
+        APP_SW0_PIN_NUMBER
     );
 
     /*
@@ -177,7 +188,7 @@ static void application_initialize_hardware(void)
     */
     gpio_set_direction(
         &DDRC,
-        LED0_PIN_NUMBER,
+        APP_LED0_PIN_NUMBER,
         GPIO_OUTPUT
     );
 
@@ -187,11 +198,11 @@ static void application_initialize_hardware(void)
     */
     led_power_off(
         &PORTC,
-        LED0_PIN_NUMBER
+        APP_LED0_PIN_NUMBER
     );
 }
 
-static void application_initialize_sw0_interrupt(void)
+static void app_initialize_sw0_interrupt(void)
 {
     /*
     PC6 corespunde pinului PCINT22.
@@ -201,25 +212,25 @@ static void application_initialize_sw0_interrupt(void)
     */
 
     /* Permite pinului PCINT22 sa genereze intreruperi. */
-    PCMSK2_PCINT22 = SW0_PCINT_ENABLE_VALUE;
+    PCMSK2_PCINT22 = APP_SW0_PCINT_ENABLE_VALUE;
 
     /*
-    Sterge un eventual flag ramas setat.
+    Sterge un eventual flag hardware ramas setat.
 
     Flagurile hardware se sterg prin scrierea valorii 1.
     */
-    PCIFR_PCIF2 = SW0_INTERRUPT_FLAG_CLEAR_VALUE;
+    PCIFR_PCIF2 = APP_SW0_INTERRUPT_FLAG_CLEAR_VALUE;
 
     /* Activeaza grupa Pin Change Interrupt Request 2. */
-    PCICR_PCIE2 = SW0_INTERRUPT_GROUP_ENABLE_VALUE;
+    PCICR_PCIE2 = APP_SW0_INTERRUPT_GROUP_ENABLE_VALUE;
 
     /* Activeaza global sistemul de intreruperi. */
     __enable_interrupt();
 }
 
-static gpio_uint8_t application_get_and_clear_sw0_request(void)
+static gpio_uint8_t app_get_and_clear_sw0_request(void)
 {
-    gpio_uint8_t request;
+    gpio_uint8_t app_request;
 
     /*
     Intreruperile sunt dezactivate pentru o perioada foarte scurta,
@@ -228,15 +239,15 @@ static gpio_uint8_t application_get_and_clear_sw0_request(void)
     */
     __disable_interrupt();
 
-    request = sw0_interrupt_request;
-    sw0_interrupt_request = GPIO_FALSE;
+    app_request = app_sw0_interrupt_request;
+    app_sw0_interrupt_request = GPIO_FALSE;
 
     __enable_interrupt();
 
-    return request;
+    return app_request;
 }
 
-static void application_clear_sw0_request(void)
+static void app_clear_sw0_request(void)
 {
     /*
     Flagul este resetat intr-o sectiune critica scurta,
@@ -244,19 +255,19 @@ static void application_clear_sw0_request(void)
     */
     __disable_interrupt();
 
-    sw0_interrupt_request = GPIO_FALSE;
+    app_sw0_interrupt_request = GPIO_FALSE;
 
     __enable_interrupt();
 }
 
-static void application_delay_between_sos_messages(void)
+static void app_delay_between_sos_messages(void)
 {
-    volatile unsigned long delay_counter;
+    volatile unsigned long app_delay_counter;
 
     for (
-        delay_counter = DELAY_COUNTER_INITIAL_VALUE;
-        delay_counter < SOS_MESSAGE_PAUSE_DELAY_COUNT;
-        delay_counter++
+        app_delay_counter = APP_DELAY_COUNTER_INITIAL_VALUE;
+        app_delay_counter < APP_SOS_MESSAGE_PAUSE_DELAY_COUNT;
+        app_delay_counter++
     )
     {
         /*
@@ -266,7 +277,7 @@ static void application_delay_between_sos_messages(void)
         Cererea va fi procesata la urmatoarea iteratie
         a programului principal.
         */
-        if (sw0_interrupt_request == GPIO_TRUE)
+        if (app_sw0_interrupt_request == GPIO_TRUE)
         {
             break;
         }

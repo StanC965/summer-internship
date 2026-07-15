@@ -1,8 +1,6 @@
 #ifndef SOS_H
 #define SOS_H
 
-// Exported types and values
-
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
@@ -17,6 +15,9 @@ modulul nu mai citeste direct butonul SW0.
 
 Apasarea butonului este detectata de ISR,
 iar modulul SOS verifica flagul setat de aceasta.
+
+Conventie de numire:
+Toate functiile si variabilele acestui modul folosesc prefixul sos_.
 */
 
 #include "gpio.h"
@@ -24,14 +25,14 @@ iar modulul SOS verifica flagul setat de aceasta.
 /* Public functions */
 
 extern void sos_play(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin
 );
 
 extern gpio_uint8_t sos_play_interruptible(
-    volatile gpio_uint8_t *led_port,
-    gpio_uint8_t led_pin,
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin,
+    volatile gpio_uint8_t *sos_interrupt_request
 );
 
 #endif

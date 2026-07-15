@@ -1,8 +1,6 @@
 #ifndef LED_C
 #define LED_C
 
-// Includes
-
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
@@ -17,6 +15,9 @@ stingerea se face prin setarea pinului.
 
 Modulul led contine doar comportamente specifice LED-urilor:
 power on, power off, blink fast si blink slow.
+
+Conventie de numire:
+Toate functiile si variabilele acestui modul folosesc prefixul led_.
 */
 
 /* LED delay configuration */
@@ -36,62 +37,62 @@ static void led_delay_slow(void);
 /* Public functions */
 
 void led_power_on(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *led_port,
+    gpio_uint8_t led_pin
 )
 {
     gpio_reset_pin(
-        port,
-        pin
+        led_port,
+        led_pin
     );
 }
 
 void led_power_off(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *led_port,
+    gpio_uint8_t led_pin
 )
 {
     gpio_set_pin(
-        port,
-        pin
+        led_port,
+        led_pin
     );
 }
 
 void led_blink_fast(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *led_port,
+    gpio_uint8_t led_pin
 )
 {
     led_power_on(
-        port,
-        pin
+        led_port,
+        led_pin
     );
 
     led_delay_fast();
 
     led_power_off(
-        port,
-        pin
+        led_port,
+        led_pin
     );
 
     led_delay_fast();
 }
 
 void led_blink_slow(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *led_port,
+    gpio_uint8_t led_pin
 )
 {
     led_power_on(
-        port,
-        pin
+        led_port,
+        led_pin
     );
 
     led_delay_slow();
 
     led_power_off(
-        port,
-        pin
+        led_port,
+        led_pin
     );
 
     led_delay_slow();
@@ -101,12 +102,12 @@ void led_blink_slow(
 
 static void led_delay_fast(void)
 {
-    volatile unsigned long delay_counter;
+    volatile unsigned long led_delay_counter;
 
     for (
-        delay_counter = LED_DELAY_COUNTER_INITIAL_VALUE;
-        delay_counter < LED_FAST_DELAY_COUNT;
-        delay_counter++
+        led_delay_counter = LED_DELAY_COUNTER_INITIAL_VALUE;
+        led_delay_counter < LED_FAST_DELAY_COUNT;
+        led_delay_counter++
     )
     {
         /*
@@ -118,12 +119,12 @@ static void led_delay_fast(void)
 
 static void led_delay_slow(void)
 {
-    volatile unsigned long delay_counter;
+    volatile unsigned long led_delay_counter;
 
     for (
-        delay_counter = LED_DELAY_COUNTER_INITIAL_VALUE;
-        delay_counter < LED_SLOW_DELAY_COUNT;
-        delay_counter++
+        led_delay_counter = LED_DELAY_COUNTER_INITIAL_VALUE;
+        led_delay_counter < LED_SLOW_DELAY_COUNT;
+        led_delay_counter++
     )
     {
         /*

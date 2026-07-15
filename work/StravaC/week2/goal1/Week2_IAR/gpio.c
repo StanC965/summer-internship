@@ -1,8 +1,6 @@
 #ifndef GPIO_C
 #define GPIO_C
 
-// Includes
-
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
@@ -15,6 +13,9 @@ activarea rezistentei pull-up si citirea unui pin.
 
 Pentru situatiile in care este necesara verificarea unui buton
 prin polling, modulul pastreaza si functia de citire cu debounce.
+
+Conventie de numire:
+Toate functiile si variabilele acestui modul folosesc prefixul gpio_.
 */
 
 /* Debounce configuration */
@@ -31,90 +32,93 @@ static void gpio_debounce_delay(void);
 /* Public functions implementation */
 
 void gpio_set_pin(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 )
 {
-    *port |= (GPIO_ONE << pin);
+    *gpio_port |= (GPIO_ONE << gpio_pin);
 }
 
 void gpio_reset_pin(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 )
 {
-    *port &= ~(GPIO_ONE << pin);
+    *gpio_port &= ~(GPIO_ONE << gpio_pin);
 }
 
 void gpio_toggle_pin(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 )
 {
-    *port ^= (GPIO_ONE << pin);
+    *gpio_port ^= (GPIO_ONE << gpio_pin);
 }
 
 void gpio_set_direction(
-    volatile gpio_uint8_t *ddr,
-    gpio_uint8_t pin,
-    gpio_uint8_t direction
+    volatile gpio_uint8_t *gpio_ddr,
+    gpio_uint8_t gpio_pin,
+    gpio_uint8_t gpio_direction
 )
 {
-    if (direction == GPIO_OUTPUT)
+    if (gpio_direction == GPIO_OUTPUT)
     {
-        *ddr |= (GPIO_ONE << pin);
+        *gpio_ddr |= (GPIO_ONE << gpio_pin);
     }
     else
     {
-        *ddr &= ~(GPIO_ONE << pin);
+        *gpio_ddr &= ~(GPIO_ONE << gpio_pin);
     }
 }
 
 void gpio_activate_pullup(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_port,
+    gpio_uint8_t gpio_pin
 )
 {
-    gpio_set_pin(port, pin);
+    gpio_set_pin(
+        gpio_port,
+        gpio_pin
+    );
 }
 
 gpio_uint8_t gpio_read_pin(
-    volatile gpio_uint8_t *pin_register,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_pin_register,
+    gpio_uint8_t gpio_pin
 )
 {
-    gpio_uint8_t pin_state;
+    gpio_uint8_t gpio_pin_state;
 
-    pin_state = (
-        (*pin_register & (GPIO_ONE << pin)) != GPIO_ZERO
+    gpio_pin_state = (
+        (*gpio_pin_register & (GPIO_ONE << gpio_pin)) != GPIO_ZERO
     );
 
-    return pin_state;
+    return gpio_pin_state;
 }
 
 gpio_uint8_t gpio_read_pin_debounced(
-    volatile gpio_uint8_t *pin_register,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *gpio_pin_register,
+    gpio_uint8_t gpio_pin
 )
 {
-    gpio_uint8_t first_read;
-    gpio_uint8_t second_read;
+    gpio_uint8_t gpio_first_read;
+    gpio_uint8_t gpio_second_read;
 
-    first_read = gpio_read_pin(
-        pin_register,
-        pin
+    gpio_first_read = gpio_read_pin(
+        gpio_pin_register,
+        gpio_pin
     );
 
     gpio_debounce_delay();
 
-    second_read = gpio_read_pin(
-        pin_register,
-        pin
+    gpio_second_read = gpio_read_pin(
+        gpio_pin_register,
+        gpio_pin
     );
 
-    if (first_read == second_read)
+    if (gpio_first_read == gpio_second_read)
     {
-        return second_read;
+        return gpio_second_read;
     }
 
     /*
@@ -128,12 +132,12 @@ gpio_uint8_t gpio_read_pin_debounced(
 
 static void gpio_debounce_delay(void)
 {
-    volatile unsigned long delay_counter;
+    volatile unsigned long gpio_delay_counter;
 
     for (
-        delay_counter = GPIO_DELAY_COUNTER_INITIAL_VALUE;
-        delay_counter < GPIO_DEBOUNCE_DELAY_COUNT;
-        delay_counter++
+        gpio_delay_counter = GPIO_DELAY_COUNTER_INITIAL_VALUE;
+        gpio_delay_counter < GPIO_DEBOUNCE_DELAY_COUNT;
+        gpio_delay_counter++
     )
     {
         /*

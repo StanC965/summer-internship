@@ -1,8 +1,6 @@
 #ifndef SOS_C
 #define SOS_C
 
-// Includes
-
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
@@ -22,6 +20,9 @@ secventa SOS poate fi oprita printr-un flag setat de ISR.
 
 Modulul SOS nu trebuie sa cunoasca pinul butonului,
 registrele intreruperii sau numele vectorului.
+
+Conventie de numire:
+Toate functiile si variabilele acestui modul folosesc prefixul sos_.
 */
 
 /* SOS structure */
@@ -42,34 +43,34 @@ registrele intreruperii sau numele vectorului.
 /* Static private functions declaration */
 
 static void sos_point(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin
 );
 
 static void sos_line(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin
 );
 
 static gpio_uint8_t sos_point_interruptible(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin,
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin,
+    volatile gpio_uint8_t *sos_interrupt_request
 );
 
 static gpio_uint8_t sos_line_interruptible(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin,
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin,
+    volatile gpio_uint8_t *sos_interrupt_request
 );
 
 static gpio_uint8_t sos_interrupt_is_requested(
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_interrupt_request
 );
 
 static gpio_uint8_t sos_delay_interruptible(
-    unsigned long delay_count,
-    volatile gpio_uint8_t *interrupt_request
+    unsigned long sos_delay_count,
+    volatile gpio_uint8_t *sos_interrupt_request
 );
 
 static void sos_delay_point(void);
@@ -79,31 +80,31 @@ static void sos_delay_line(void);
 static void sos_delay_pause(void);
 
 static void sos_delay(
-    unsigned long delay_count
+    unsigned long sos_delay_count
 );
 
 /* Public functions */
 
 void sos_play(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin
 )
 {
-    gpio_uint8_t symbol_index;
+    gpio_uint8_t sos_symbol_index;
 
     /*
     Prima litera S:
     trei puncte.
     */
     for (
-        symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
-        symbol_index < SOS_SYMBOLS_PER_LETTER;
-        symbol_index++
+        sos_symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
+        sos_symbol_index < SOS_SYMBOLS_PER_LETTER;
+        sos_symbol_index++
     )
     {
         sos_point(
-            port,
-            pin
+            sos_led_port,
+            sos_led_pin
         );
     }
 
@@ -112,14 +113,14 @@ void sos_play(
     trei linii.
     */
     for (
-        symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
-        symbol_index < SOS_SYMBOLS_PER_LETTER;
-        symbol_index++
+        sos_symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
+        sos_symbol_index < SOS_SYMBOLS_PER_LETTER;
+        sos_symbol_index++
     )
     {
         sos_line(
-            port,
-            pin
+            sos_led_port,
+            sos_led_pin
         );
     }
 
@@ -128,35 +129,39 @@ void sos_play(
     trei puncte.
     */
     for (
-        symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
-        symbol_index < SOS_SYMBOLS_PER_LETTER;
-        symbol_index++
+        sos_symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
+        sos_symbol_index < SOS_SYMBOLS_PER_LETTER;
+        sos_symbol_index++
     )
     {
         sos_point(
-            port,
-            pin
+            sos_led_port,
+            sos_led_pin
         );
     }
 }
 
 gpio_uint8_t sos_play_interruptible(
-    volatile gpio_uint8_t *led_port,
-    gpio_uint8_t led_pin,
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin,
+    volatile gpio_uint8_t *sos_interrupt_request
 )
 {
-    gpio_uint8_t symbol_index;
+    gpio_uint8_t sos_symbol_index;
 
     /*
     Verifica daca exista deja o cerere de oprire
     inainte de pornirea mesajului.
     */
-    if (sos_interrupt_is_requested(interrupt_request) == GPIO_TRUE)
+    if (
+        sos_interrupt_is_requested(
+            sos_interrupt_request
+        ) == GPIO_TRUE
+    )
     {
         led_power_off(
-            led_port,
-            led_pin
+            sos_led_port,
+            sos_led_pin
         );
 
         return GPIO_FALSE;
@@ -167,22 +172,22 @@ gpio_uint8_t sos_play_interruptible(
     trei puncte.
     */
     for (
-        symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
-        symbol_index < SOS_SYMBOLS_PER_LETTER;
-        symbol_index++
+        sos_symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
+        sos_symbol_index < SOS_SYMBOLS_PER_LETTER;
+        sos_symbol_index++
     )
     {
         if (
             sos_point_interruptible(
-                led_port,
-                led_pin,
-                interrupt_request
+                sos_led_port,
+                sos_led_pin,
+                sos_interrupt_request
             ) == GPIO_FALSE
         )
         {
             led_power_off(
-                led_port,
-                led_pin
+                sos_led_port,
+                sos_led_pin
             );
 
             return GPIO_FALSE;
@@ -194,22 +199,22 @@ gpio_uint8_t sos_play_interruptible(
     trei linii.
     */
     for (
-        symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
-        symbol_index < SOS_SYMBOLS_PER_LETTER;
-        symbol_index++
+        sos_symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
+        sos_symbol_index < SOS_SYMBOLS_PER_LETTER;
+        sos_symbol_index++
     )
     {
         if (
             sos_line_interruptible(
-                led_port,
-                led_pin,
-                interrupt_request
+                sos_led_port,
+                sos_led_pin,
+                sos_interrupt_request
             ) == GPIO_FALSE
         )
         {
             led_power_off(
-                led_port,
-                led_pin
+                sos_led_port,
+                sos_led_pin
             );
 
             return GPIO_FALSE;
@@ -221,22 +226,22 @@ gpio_uint8_t sos_play_interruptible(
     trei puncte.
     */
     for (
-        symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
-        symbol_index < SOS_SYMBOLS_PER_LETTER;
-        symbol_index++
+        sos_symbol_index = SOS_SYMBOL_INDEX_INITIAL_VALUE;
+        sos_symbol_index < SOS_SYMBOLS_PER_LETTER;
+        sos_symbol_index++
     )
     {
         if (
             sos_point_interruptible(
-                led_port,
-                led_pin,
-                interrupt_request
+                sos_led_port,
+                sos_led_pin,
+                sos_interrupt_request
             ) == GPIO_FALSE
         )
         {
             led_power_off(
-                led_port,
-                led_pin
+                sos_led_port,
+                sos_led_pin
             );
 
             return GPIO_FALSE;
@@ -249,80 +254,80 @@ gpio_uint8_t sos_play_interruptible(
 /* Static private functions */
 
 static void sos_point(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin
 )
 {
     led_power_on(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     sos_delay_point();
 
     led_power_off(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     sos_delay_pause();
 }
 
 static void sos_line(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin
 )
 {
     led_power_on(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     sos_delay_line();
 
     led_power_off(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     sos_delay_pause();
 }
 
 static gpio_uint8_t sos_point_interruptible(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin,
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin,
+    volatile gpio_uint8_t *sos_interrupt_request
 )
 {
     led_power_on(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     if (
         sos_delay_interruptible(
             SOS_POINT_DELAY_COUNT,
-            interrupt_request
+            sos_interrupt_request
         ) == GPIO_FALSE
     )
     {
         led_power_off(
-            port,
-            pin
+            sos_led_port,
+            sos_led_pin
         );
 
         return GPIO_FALSE;
     }
 
     led_power_off(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     if (
         sos_delay_interruptible(
             SOS_SYMBOL_PAUSE_DELAY_COUNT,
-            interrupt_request
+            sos_interrupt_request
         ) == GPIO_FALSE
     )
     {
@@ -333,40 +338,40 @@ static gpio_uint8_t sos_point_interruptible(
 }
 
 static gpio_uint8_t sos_line_interruptible(
-    volatile gpio_uint8_t *port,
-    gpio_uint8_t pin,
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_led_port,
+    gpio_uint8_t sos_led_pin,
+    volatile gpio_uint8_t *sos_interrupt_request
 )
 {
     led_power_on(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     if (
         sos_delay_interruptible(
             SOS_LINE_DELAY_COUNT,
-            interrupt_request
+            sos_interrupt_request
         ) == GPIO_FALSE
     )
     {
         led_power_off(
-            port,
-            pin
+            sos_led_port,
+            sos_led_pin
         );
 
         return GPIO_FALSE;
     }
 
     led_power_off(
-        port,
-        pin
+        sos_led_port,
+        sos_led_pin
     );
 
     if (
         sos_delay_interruptible(
             SOS_SYMBOL_PAUSE_DELAY_COUNT,
-            interrupt_request
+            sos_interrupt_request
         ) == GPIO_FALSE
     )
     {
@@ -377,15 +382,15 @@ static gpio_uint8_t sos_line_interruptible(
 }
 
 static gpio_uint8_t sos_interrupt_is_requested(
-    volatile gpio_uint8_t *interrupt_request
+    volatile gpio_uint8_t *sos_interrupt_request
 )
 {
-    if (interrupt_request == GPIO_NULL)
+    if (sos_interrupt_request == GPIO_NULL)
     {
         return GPIO_FALSE;
     }
 
-    if (*interrupt_request == GPIO_TRUE)
+    if (*sos_interrupt_request == GPIO_TRUE)
     {
         return GPIO_TRUE;
     }
@@ -394,21 +399,21 @@ static gpio_uint8_t sos_interrupt_is_requested(
 }
 
 static gpio_uint8_t sos_delay_interruptible(
-    unsigned long delay_count,
-    volatile gpio_uint8_t *interrupt_request
+    unsigned long sos_delay_count,
+    volatile gpio_uint8_t *sos_interrupt_request
 )
 {
-    volatile unsigned long delay_counter;
+    volatile unsigned long sos_delay_counter;
 
     for (
-        delay_counter = SOS_DELAY_COUNTER_INITIAL_VALUE;
-        delay_counter < delay_count;
-        delay_counter++
+        sos_delay_counter = SOS_DELAY_COUNTER_INITIAL_VALUE;
+        sos_delay_counter < sos_delay_count;
+        sos_delay_counter++
     )
     {
         if (
             sos_interrupt_is_requested(
-                interrupt_request
+                sos_interrupt_request
             ) == GPIO_TRUE
         )
         {
@@ -441,15 +446,15 @@ static void sos_delay_pause(void)
 }
 
 static void sos_delay(
-    unsigned long delay_count
+    unsigned long sos_delay_count
 )
 {
-    volatile unsigned long delay_counter;
+    volatile unsigned long sos_delay_counter;
 
     for (
-        delay_counter = SOS_DELAY_COUNTER_INITIAL_VALUE;
-        delay_counter < delay_count;
-        delay_counter++
+        sos_delay_counter = SOS_DELAY_COUNTER_INITIAL_VALUE;
+        sos_delay_counter < sos_delay_count;
+        sos_delay_counter++
     )
     {
         /*
