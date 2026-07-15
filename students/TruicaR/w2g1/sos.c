@@ -1,3 +1,4 @@
+#include "iom324pb.h"
 #include "gpio.h"
 #include "led.h"
 #include "sos.h"
@@ -13,17 +14,17 @@ static void sos_delay(long units)
 
 static void sos_dot(void)
 {
-    led_on(LED0_PIN);
+    led_on(&PORTC, LED0_PIN);
     sos_delay(SOS_DOT_DELAY);
-    led_off(LED0_PIN);
+    led_off(&PORTC, LED0_PIN);
     sos_delay(SOS_DOT_DELAY);
 }
 
 static void sos_dash(void)
 {
-    led_on(LED0_PIN);
+    led_on(&PORTC, LED0_PIN);
     sos_delay(SOS_DASH_DELAY);
-    led_off(LED0_PIN);
+    led_off(&PORTC, LED0_PIN);
     sos_delay(SOS_DOT_DELAY);
 }
 
