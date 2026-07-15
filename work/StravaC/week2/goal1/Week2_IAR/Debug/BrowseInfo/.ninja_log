@@ -1,0 +1,25 @@
+# ninja log v5
+1	157	8058408030000000	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/main.xcl	5d08357e816ae98c
+158	223	8058408033083630	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/main.pbi	504344f38aac954c
+228	250	8058408033419252	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbd	8bab446d388bee72
+254	825	8058408038661137	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbw	4b7d4d5176649fec
+1	154	8058408890000000	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/led.xcl	d64046fba8347d36
+15	164	8058408890000000	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/main.xcl	a8d870fa74798713
+23	180	8058408890000000	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/sos.xcl	8a01a3b4b02f91fe
+9	188	8058408890000000	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/gpio.xcl	318c0fe05dc29de1
+155	230	8058408896331572	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/led.pbi	c610f7a30be48615
+190	244	8058408896482306	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/gpio.pbi	81abb4e027c0ede3
+181	253	8058408896575599	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/sos.pbi	67a713b87152f84d
+174	279	8058408896832723	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/main.pbi	504344f38aac954c
+281	316	8058408897184033	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbd	49751372bc4058cd
+319	1364	8058408907168752	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbw	4b7d4d5176649fec
+3	115	8058409162346783	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/main.pbi	504344f38aac954c
+117	152	8058409162732120	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbd	49751372bc4058cd
+155	1027	8058409171160917	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbw	4b7d4d5176649fec
+3	58	8058409374903454	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/sos.pbi	67a713b87152f84d
+15	97	8058409375354557	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/main.pbi	504344f38aac954c
+99	134	8058409375652000	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbd	49751372bc4058cd
+136	985	8058409383741738	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbw	4b7d4d5176649fec
+2	188	8058409538096101	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/sos.pbi	67a713b87152f84d
+193	236	8058409538620973	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbd	49751372bc4058cd
+238	1081	8058409546623132	D:/Marquradt/summer-internship/work/StravaC/week2/Week2_IAR/Debug/BrowseInfo/Week2_IAR.pbw	4b7d4d5176649fec
