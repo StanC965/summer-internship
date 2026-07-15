@@ -7,13 +7,14 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type   | Status 
-| :---      | :---   | :---                    
-| **[311]** | `CORE` | [x] Completed 
-| **[312]** | `CORE` | [x] Completed 
-| **[313]** | `CORE` | [x] Completed 
-| **[314]** | `CORE` | [x] Completed 
-| **[315]** | `CORE` | [x] Completed 
+| Task ID   | Type      | Status 
+| :---      | :---      | :---                    
+| **[311]** | `CORE`    | [x] Completed 
+| **[312]** | `CORE`    | [x] Completed 
+| **[313]** | `CORE`    | [x] Completed 
+| **[314]** | `CORE`    | [x] Completed 
+| **[315]** | `CORE`    | [x] Completed 
+| **[316]** | `STRETCH` | [x] Completed 
 
 --- 
 
@@ -264,6 +265,7 @@ void button_onboard_init_interrupt(void)
 
 > I made sure to enable gloabl interrupts right before I would enter the loop, to catch the button press:
 
+**`main.c`**
 ```c
 #include <intrinsics.h>
 
@@ -282,6 +284,84 @@ void main(void)
   }
 }
 ```
+
+---
+
+#### Task 316
+> **Question/Prompt:** Revisit the exercise with SOS message behavior and refactor it now with the help of external interrupts.
+
+> **Answer/Explanation:**
+> 
+
+**`interrupts.c`**
+```c
+volatile uint8_t button_event_detected = 0;
+
+#pragma vector = PCINT2_vect
+__interrupt void button_press_routine(void)
+{
+    button_event_detected = 1;
+}
+
+```
+
+**`main.c`**
+```c
+extern volatile uint8_t button_event_detected;
+volatile uint8_t sos_active = 0;
+
+void main(void)
+{
+  led_init();
+  button_init();
+  button_enable_pullup(BUTTON_ONBOARD);
+  button_onboard_init_interrupt();
+  __enable_interrupt(); 
+
+  while (1)
+  {
+    // check if the interrupt detected a physical pin change
+    if (button_event_detected)
+    {
+      // clear the flag immediately so we don't loop endlessly
+      button_event_detected = 0;
+
+      // wait 10ms for the hardware bouncing to settle down
+      delay(10 * MILISECOND);
+
+      // read the button pin after settling
+      if (!button_read(BUTTON_ONBOARD))
+      {
+        // button pressed
+        // toggle the state => if sos was playing, it stops. if stopped, it starts.
+        sos_active = !sos_active;
+
+        if (!sos_active)
+        {
+          // if sos turned off, turn off the LED instantly
+          led_power_off(LED_ONBOARD);
+        }
+
+        // wait until the user physically lets go of the button so we don't toggle back and forth
+        while (!button_read(BUTTON_ONBOARD))
+        {
+          delay(10 * MILISECOND);
+        }
+      }
+    }
+
+    // if sos is active, run it
+    if (sos_active)
+    {
+      sos_update(LED_ONBOARD);
+    }
+
+    // maintain the 1ms timing resolution for state machine timer
+    delay(1 * MILISECOND);
+  }
+}
+```
+
 
 ---
 
