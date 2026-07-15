@@ -798,7 +798,7 @@ extern unsigned char button_read_state(button_uint8_t button);
 
 
  
-extern void SOS_play(led_uint8_t led);
+extern void SOS_play(led_uint8_t led, unsigned char *state);
 
 
 
@@ -829,9 +829,12 @@ static void line(led_uint8_t led){
 
  
 
-void SOS_play(led_uint8_t led){
-  LED_Init();
+void SOS_play(led_uint8_t led, unsigned char *state){
+  led_init(led);
   
+  if(*state==1){
+    return;
+  }
   point(led);
   delay((100000L));
   point(led);
@@ -839,9 +842,15 @@ void SOS_play(led_uint8_t led){
   point(led);
   delay((100000L));
   
+  if(*state==1){
+    return;
+  }
   line(led);
   delay((100000L));
   
+  if(*state==1){
+    return;
+  }
   point(led);
   delay((100000L));
   point(led);

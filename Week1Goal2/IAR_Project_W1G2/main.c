@@ -1,13 +1,15 @@
-// 311-315 - CORE
+// 316 - CORE
 #include "main.h"
 #include <intrinsics.h>
+
+static unsigned char previous_state =1;
 
 #pragma vector = PCINT2_vect
 __interrupt void SW0_Interrupt_Handler(void) {
 
   if (button_read_state(SW0) == 0) {
   
-    PowerOn_LED(LED0);
+    previous_state = !previous_state;
       
   }
 }
@@ -23,11 +25,11 @@ void interrupt_init(){
 void main( void )
 {
   BUTTON_Init();
-  led_init(LED0);
   interrupt_init();
   
   while(1){
-    
+
+    SOS_play(LED0, &previous_state);
     
   }
 }

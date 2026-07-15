@@ -798,7 +798,7 @@ extern unsigned char button_read_state(button_uint8_t button);
 
 
  
-extern void SOS_play(led_uint8_t led);
+extern void SOS_play(led_uint8_t led, unsigned char *state);
 
 
 
@@ -945,12 +945,14 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 
 
 
+static unsigned char previous_state =1;
+
 #pragma vector = (0x18)
 __interrupt void SW0_Interrupt_Handler(void) {
 
   if (button_read_state((0U)) == 0) {
   
-    PowerOn_LED((0U));
+    previous_state = !previous_state;
       
   }
 }
@@ -966,11 +968,12 @@ void interrupt_init(){
 void main( void )
 {
   BUTTON_Init();
-  led_init((0U));
   interrupt_init();
   
   while(1){
     
-    
+
+      SOS_play((0U), &previous_state);
+
   }
 }
