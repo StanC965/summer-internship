@@ -1,9 +1,9 @@
-D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\Debug\BrowseInfo\main.pbi: \
-  D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\main.c \
-  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iom324pb.h \
-  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \
-  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324pb.inc \
+D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\Debug\BrowseInfo\main.pbi: \
+  D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\sos.h \
+  D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\led.h \
+  D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\gpio.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\intrinsics.h \
-  D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\gpio.h \
-  D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\led.h \
-  D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\sos.h
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324pb.inc \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iom324pb.h \
+  D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\main.c

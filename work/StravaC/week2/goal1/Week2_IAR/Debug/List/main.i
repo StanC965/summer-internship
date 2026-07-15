@@ -1,4 +1,4 @@
-#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\main.c"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -564,7 +564,7 @@
 
 
 
-#line 2 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\main.c"
+#line 2 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\intrinsics.h"
 
 
@@ -756,9 +756,10 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 
 
 
-#line 3 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\main.c"
+#line 3 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
 
-#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\gpio.h"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\gpio.h"
+
 
 
 
@@ -773,44 +774,80 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 
  
 
+ 
+
+
+
+ 
 
 
 
 
+ 
 
 
 
 
+ 
 
 
 
 
+ 
 
 
 
 
+ 
+
+
+
+
+ 
 
 typedef unsigned char gpio_uint8_t;
 typedef unsigned int  gpio_uint16_t;
 
+ 
 
+extern void gpio_set_pin(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
 
-extern void gpio_set_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+extern void gpio_reset_pin(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
 
-extern void gpio_reset_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+extern void gpio_toggle_pin(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
 
-extern void gpio_toggle_pin(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+extern void gpio_set_direction(
+    volatile gpio_uint8_t *ddr,
+    gpio_uint8_t pin,
+    gpio_uint8_t direction
+);
 
-extern void gpio_set_direction(volatile gpio_uint8_t *ddr, gpio_uint8_t pin, gpio_uint8_t direction);
+extern void gpio_activate_pullup(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
 
-extern void gpio_activate_pullup(volatile gpio_uint8_t *port, gpio_uint8_t pin);
+extern gpio_uint8_t gpio_read_pin(
+    volatile gpio_uint8_t *pin_register,
+    gpio_uint8_t pin
+);
 
-extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_register, gpio_uint8_t pin);
+extern gpio_uint8_t gpio_read_pin_debounced(
+    volatile gpio_uint8_t *pin_register,
+    gpio_uint8_t pin
+);
 
-extern gpio_uint8_t gpio_read_pin_debounced(volatile gpio_uint8_t *pin_register, gpio_uint8_t pin);
-
-#line 5 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\main.c"
-#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\led.h"
+#line 5 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\led.h"
 
 
 
@@ -831,62 +868,7 @@ extern gpio_uint8_t gpio_read_pin_debounced(volatile gpio_uint8_t *pin_register,
 
 
 
-
-
-
-
-
-
-
-
-
-
  
-extern void led_power_on(volatile gpio_uint8_t *port, gpio_uint8_t pin);
-
-
-
-
-
-
-
-
-
- 
-extern void led_power_off(volatile gpio_uint8_t *port, gpio_uint8_t pin);
-
-
-
-
-
-
-
-
-
- 
-extern void led_blink_fast(volatile gpio_uint8_t *port, gpio_uint8_t pin);
-
-
-
-
-
-
-
-
-
- 
-extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
-
-#line 6 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\main.c"
-#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\sos.h"
-
-
-
-
-
-
-
-
 
 
 
@@ -899,20 +881,94 @@ extern void led_blink_slow(volatile gpio_uint8_t *port, gpio_uint8_t pin);
 
 
  
+extern void led_power_on(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
 
 
 
 
 
-extern void sos_play(volatile gpio_uint8_t *port,
-                     gpio_uint8_t pin);
+
+
+
+
+
+
+ 
+extern void led_power_off(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_blink_fast(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_blink_slow(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
+
+#line 6 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\sos.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+extern void sos_play(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
 
 extern gpio_uint8_t sos_play_interruptible(
     volatile gpio_uint8_t *led_port,
     gpio_uint8_t led_pin,
-    volatile gpio_uint8_t *interrupt_request);
+    volatile gpio_uint8_t *interrupt_request
+);
 
-#line 7 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\Week2_IAR\\main.c"
+#line 7 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
 
 
 
@@ -931,18 +987,56 @@ extern gpio_uint8_t sos_play_interruptible(
 
  
 
+ 
 
 
 
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
 static volatile gpio_uint8_t sw0_interrupt_request;
 
  
 
-static void application_delay_between_sos(void);
-static void application_external_interrupt_init(void);
-static gpio_uint8_t application_get_sw0_request(void);
+static void application_initialize_hardware(void);
+
+static void application_initialize_sw0_interrupt(void);
+
+static gpio_uint8_t application_get_and_clear_sw0_request(void);
+
+static void application_clear_sw0_request(void);
+
+static void application_delay_between_sos_messages(void);
 
  
+
+
+
+
+
+
 
 
 
@@ -952,9 +1046,9 @@ static gpio_uint8_t application_get_sw0_request(void);
 
  
 #pragma vector=(0x18)
-__interrupt void sw0_interrupt_routine(void)
+__interrupt void sw0_interrupt_service_routine(void)
 {
-    if (gpio_read_pin(&PINC, (6U)) == ((0x00U)))
+    if (gpio_read_pin(&PINC, (6U)) == (((0x00U))))
     {
         sw0_interrupt_request = ((0x01U));
     }
@@ -964,54 +1058,53 @@ __interrupt void sw0_interrupt_routine(void)
 
 void main(void)
 {
-    gpio_uint8_t sos_enabled;
+    gpio_uint8_t sos_state;
 
-    sos_enabled = ((0x00U));
+    sos_state = (((0x00U)));
     sw0_interrupt_request = ((0x00U));
 
-     
-    gpio_set_direction(&DDRC, (6U), ((0x00U)));
+    application_initialize_hardware();
+    application_initialize_sw0_interrupt();
 
-     
-    gpio_set_direction(&DDRC, (7U), ((0x01U)));
-
-    
-
-
-
- 
-    gpio_activate_pullup(&PORTC, (6U));
-
-     
-    led_power_off(&PORTC, (7U));
-
-    application_external_interrupt_init();
-
-    while (1)
+    while (((0x01U)))
     {
-        if (application_get_sw0_request() == ((0x01U)))
-        {
-            
+        
 
 
  
-            sos_enabled = !sos_enabled;
-
-            if (sos_enabled == ((0x00U)))
+        if (sos_state == (((0x00U))))
+        {
+            if (application_get_and_clear_sw0_request() == ((0x01U)))
             {
-                led_power_off(&PORTC, (7U));
+                sos_state = (((0x01U)));
             }
         }
 
-        if (sos_enabled == ((0x01U)))
-        {
-            sos_enabled = sos_play_interruptible(&PORTC,
-                                                 (7U),
-                                                 &sw0_interrupt_request);
+        
 
-            if (sos_enabled == ((0x01U)))
+
+ 
+        if (sos_state == (((0x01U))))
+        {
+            sos_state = sos_play_interruptible(
+                &PORTC,
+                (7U),
+                &sw0_interrupt_request
+            );
+
+            if (sos_state == (((0x00U))))
             {
-                application_delay_between_sos();
+                
+
+
+ 
+                application_clear_sw0_request();
+
+                led_power_off(&PORTC, (7U));
+            }
+            else
+            {
+                application_delay_between_sos_messages();
             }
         }
     }
@@ -1019,35 +1112,79 @@ void main(void)
 
  
 
-static void application_external_interrupt_init(void)
+static void application_initialize_hardware(void)
+{
+    
+
+
+ 
+    gpio_set_direction(
+        &DDRC,
+        (6U),
+        ((0x00U))
+    );
+
+    
+
+
+
+
+
+ 
+    gpio_activate_pullup(
+        &PORTC,
+        (6U)
+    );
+
+    
+
+
+ 
+    gpio_set_direction(
+        &DDRC,
+        (7U),
+        ((0x01U))
+    );
+
+    
+
+
+ 
+    led_power_off(
+        &PORTC,
+        (7U)
+    );
+}
+
+static void application_initialize_sw0_interrupt(void)
 {
     
 
 
 
+
  
 
      
-    PCMSK2_PCINT22 = (0x01U);
+    PCMSK2_PCINT22 = ((0x01U));
 
     
 
 
+
  
-    PCIFR_PCIF2 = (0x01U);
+    PCIFR_PCIF2 = ((0x01U));
 
      
-    PCICR_PCIE2 = (0x01U);
+    PCICR_PCIE2 = ((0x01U));
 
      
     __enable_interrupt();
 }
 
-static gpio_uint8_t application_get_sw0_request(void)
+static gpio_uint8_t application_get_and_clear_sw0_request(void)
 {
     gpio_uint8_t request;
-
-    request = ((0x00U));
 
     
 
@@ -1056,24 +1193,41 @@ static gpio_uint8_t application_get_sw0_request(void)
  
     __disable_interrupt();
 
-    if (sw0_interrupt_request == ((0x01U)))
-    {
-        sw0_interrupt_request = ((0x00U));
-        request = ((0x01U));
-    }
+    request = sw0_interrupt_request;
+    sw0_interrupt_request = ((0x00U));
 
     __enable_interrupt();
 
     return request;
 }
 
-static void application_delay_between_sos(void)
+static void application_clear_sw0_request(void)
 {
-    volatile unsigned long i;
+    
 
-    for (i = 0; i < 250000UL; i++)
+
+ 
+    __disable_interrupt();
+
+    sw0_interrupt_request = ((0x00U));
+
+    __enable_interrupt();
+}
+
+static void application_delay_between_sos_messages(void)
+{
+    volatile unsigned long delay_counter;
+
+    for (
+        delay_counter = (0UL);
+        delay_counter < (250000UL);
+        delay_counter++
+    )
     {
         
+
+
+
 
 
  

@@ -1,15 +1,15 @@
-"D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\gpio.c"
+"D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\gpio.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\Debug\BrowseInfo\gpio.pbi.dep
+D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\Debug\BrowseInfo\gpio.pbi.dep
 -o
-D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\Debug\BrowseInfo\gpio.pbi
+D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\Debug\BrowseInfo\gpio.pbi
 -I
-D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR
+D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc
 -I

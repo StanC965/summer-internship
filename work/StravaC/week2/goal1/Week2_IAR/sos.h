@@ -10,25 +10,28 @@ Data: 2026
 Acest fisier reprezinta interfata modulului sos.
 
 Modulul sos contine comportamentul SOS in cod Morse.
-SOS este format din 3 puncte, 3 linii si 3 puncte.
+SOS este format din trei puncte, trei linii si trei puncte.
 
-Pentru task-ul 316, oprirea secventei nu mai este realizata
-prin citirea periodica a pinului SW0.
+Pentru versiunea bazata pe intreruperi,
+modulul nu mai citeste direct butonul SW0.
 
-Apasarea butonului este detectata de o rutina de intrerupere,
-iar modulul sos verifica doar flagul setat de ISR.
+Apasarea butonului este detectata de ISR,
+iar modulul SOS verifica flagul setat de aceasta.
 */
 
 #include "gpio.h"
 
-// Public functions
+/* Public functions */
 
-extern void sos_play(volatile gpio_uint8_t *port,
-                     gpio_uint8_t pin);
+extern void sos_play(
+    volatile gpio_uint8_t *port,
+    gpio_uint8_t pin
+);
 
 extern gpio_uint8_t sos_play_interruptible(
     volatile gpio_uint8_t *led_port,
     gpio_uint8_t led_pin,
-    volatile gpio_uint8_t *interrupt_request);
+    volatile gpio_uint8_t *interrupt_request
+);
 
 #endif

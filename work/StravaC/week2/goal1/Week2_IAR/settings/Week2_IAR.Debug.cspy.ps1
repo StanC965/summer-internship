@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\settings\Week2_IAR.Debug.general.xcl" --backend -f "D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\settings\Week2_IAR.Debug.driver.xcl" 
+& "C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\settings\Week2_IAR.Debug.general.xcl" --backend -f "D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\settings\Week2_IAR.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\settings\Week2_IAR.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\Marquradt\summer-internship\work\StravaC\week2\Week2_IAR\settings\Week2_IAR.Debug.driver.xcl" 
+& "C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\settings\Week2_IAR.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\Marquradt\summer-internship\work\StravaC\week2\goal1\Week2_IAR\settings\Week2_IAR.Debug.driver.xcl" 
 }

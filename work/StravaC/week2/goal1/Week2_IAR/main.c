@@ -11,41 +11,79 @@ Data: 2026
 
 Acest fisier contine punctul principal al aplicatiei.
 
-Pentru task-ul 316, butonul SW0 nu mai este verificat continuu
-prin polling. Apasarea butonului este detectata cu ajutorul
-intreruperii PCINT22.
-
-SW0 este conectat la PC6 / PCINT22.
+SW0 este conectat la PC6, care are functia alternativa PCINT22.
 LED0 este conectat la PC7 si este active-low.
 
+Pentru detectarea apasarii butonului este folosita o intrerupere
+Pin Change Interrupt.
+
 Rutina de intrerupere nu executa direct secventa SOS.
-Ea doar semnalizeaza aparitia apasarii printr-un flag.
+Ea doar seteaza un flag, iar programul principal decide
+ce comportament trebuie executat.
 */
 
-#define SW0_PIN                 (6U)
-#define LED0_PIN                (7U)
+/* Board connections */
 
+#define SW0_PIN_NUMBER                     (6U)
+#define LED0_PIN_NUMBER                    (7U)
+
+/* Button logic */
+
+#define SW0_PRESSED_LEVEL                  (GPIO_LOW)
+
+/* Pin Change Interrupt configuration */
+
+#define SW0_PCINT_ENABLE_VALUE             (GPIO_ONE)
+#define SW0_INTERRUPT_GROUP_ENABLE_VALUE   (GPIO_ONE)
+#define SW0_INTERRUPT_FLAG_CLEAR_VALUE     (GPIO_ONE)
+
+/* Application states */
+
+#define SOS_STATE_DISABLED                 (GPIO_FALSE)
+#define SOS_STATE_ENABLED                  (GPIO_TRUE)
+
+/* Delay configuration */
+
+#define SOS_MESSAGE_PAUSE_DELAY_COUNT      (250000UL)
+#define DELAY_COUNTER_INITIAL_VALUE        (0UL)
+
+/*
+Flagul este declarat volatile deoarece este modificat
+de rutina de intrerupere si citit de programul principal.
+*/
 static volatile gpio_uint8_t sw0_interrupt_request;
 
 /* Static private functions declaration */
 
-static void application_delay_between_sos(void);
-static void application_external_interrupt_init(void);
-static gpio_uint8_t application_get_sw0_request(void);
+static void application_initialize_hardware(void);
+
+static void application_initialize_sw0_interrupt(void);
+
+static gpio_uint8_t application_get_and_clear_sw0_request(void);
+
+static void application_clear_sw0_request(void);
+
+static void application_delay_between_sos_messages(void);
 
 /* Interrupt Service Routine */
 
 /*
-Rutina pentru grupa PCINT[23:16].
+Rutina asociata grupei PCINT[23:16].
 
-SW0 este conectat la PC6, care are functia alternativa PCINT22.
-Intreruperea Pin Change apare atat la apasare, cat si la eliberare,
-de aceea starea pinului este verificata in interiorul ISR-ului.
+PC6 corespunde pinului PCINT22, iar PCINT22 face parte
+din grupa Pin Change Interrupt Request 2.
+
+Pin Change Interrupt se declanseaza la orice schimbare a pinului:
+HIGH -> LOW la apasare;
+LOW  -> HIGH la eliberare.
+
+Pentru a reactiona doar la apasare, starea pinului este verificata
+in interiorul rutinei.
 */
 #pragma vector=PCINT2_vect
-__interrupt void sw0_interrupt_routine(void)
+__interrupt void sw0_interrupt_service_routine(void)
 {
-    if (gpio_read_pin(&PINC, SW0_PIN) == GPIO_LOW)
+    if (gpio_read_pin(&PINC, SW0_PIN_NUMBER) == SW0_PRESSED_LEVEL)
     {
         sw0_interrupt_request = GPIO_TRUE;
     }
@@ -55,54 +93,53 @@ __interrupt void sw0_interrupt_routine(void)
 
 void main(void)
 {
-    gpio_uint8_t sos_enabled;
+    gpio_uint8_t sos_state;
 
-    sos_enabled = GPIO_FALSE;
+    sos_state = SOS_STATE_DISABLED;
     sw0_interrupt_request = GPIO_FALSE;
 
-    /* SW0 - PC6 input */
-    gpio_set_direction(&DDRC, SW0_PIN, GPIO_INPUT);
+    application_initialize_hardware();
+    application_initialize_sw0_interrupt();
 
-    /* LED0 - PC7 output */
-    gpio_set_direction(&DDRC, LED0_PIN, GPIO_OUTPUT);
-
-    /*
-    Placa nu are rezistenta pull-up externa pentru SW0.
-    Pull-up-ul intern mentine PC6 pe HIGH atunci cand butonul
-    nu este apasat.
-    */
-    gpio_activate_pullup(&PORTC, SW0_PIN);
-
-    /* LED0 este active-low, deci este stins initial. */
-    led_power_off(&PORTC, LED0_PIN);
-
-    application_external_interrupt_init();
-
-    while (1)
+    while (GPIO_TRUE)
     {
-        if (application_get_sw0_request() == GPIO_TRUE)
+        /*
+        Cand SOS-ul este oprit, o cerere produsa de SW0
+        porneste secventa.
+        */
+        if (sos_state == SOS_STATE_DISABLED)
         {
-            /*
-            Prima apasare porneste SOS.
-            Urmatoarea apasare il opreste.
-            */
-            sos_enabled = !sos_enabled;
-
-            if (sos_enabled == GPIO_FALSE)
+            if (application_get_and_clear_sw0_request() == GPIO_TRUE)
             {
-                led_power_off(&PORTC, LED0_PIN);
+                sos_state = SOS_STATE_ENABLED;
             }
         }
 
-        if (sos_enabled == GPIO_TRUE)
+        /*
+        Cand SOS-ul este pornit, secventa este executata
+        pana cand este apasat din nou SW0.
+        */
+        if (sos_state == SOS_STATE_ENABLED)
         {
-            sos_enabled = sos_play_interruptible(&PORTC,
-                                                 LED0_PIN,
-                                                 &sw0_interrupt_request);
+            sos_state = sos_play_interruptible(
+                &PORTC,
+                LED0_PIN_NUMBER,
+                &sw0_interrupt_request
+            );
 
-            if (sos_enabled == GPIO_TRUE)
+            if (sos_state == SOS_STATE_DISABLED)
             {
-                application_delay_between_sos();
+                /*
+                Cererea care a oprit secventa este consumata aici,
+                pentru a nu porni imediat o noua secventa SOS.
+                */
+                application_clear_sw0_request();
+
+                led_power_off(&PORTC, LED0_PIN_NUMBER);
+            }
+            else
+            {
+                application_delay_between_sos_messages();
             }
         }
     }
@@ -110,63 +147,124 @@ void main(void)
 
 /* Static private functions implementation */
 
-static void application_external_interrupt_init(void)
+static void application_initialize_hardware(void)
+{
+    /*
+    SW0 este conectat la PC6.
+    PC6 este configurat ca intrare.
+    */
+    gpio_set_direction(
+        &DDRC,
+        SW0_PIN_NUMBER,
+        GPIO_INPUT
+    );
+
+    /*
+    Placa nu contine o rezistenta pull-up externa pentru SW0.
+    Din acest motiv este activata rezistenta pull-up interna.
+
+    Buton eliberat: PC6 = HIGH
+    Buton apasat:   PC6 = LOW
+    */
+    gpio_activate_pullup(
+        &PORTC,
+        SW0_PIN_NUMBER
+    );
+
+    /*
+    LED0 este conectat la PC7.
+    PC7 este configurat ca iesire.
+    */
+    gpio_set_direction(
+        &DDRC,
+        LED0_PIN_NUMBER,
+        GPIO_OUTPUT
+    );
+
+    /*
+    LED0 este active-low.
+    Scrierea valorii HIGH mentine LED-ul stins.
+    */
+    led_power_off(
+        &PORTC,
+        LED0_PIN_NUMBER
+    );
+}
+
+static void application_initialize_sw0_interrupt(void)
 {
     /*
     PC6 corespunde pinului PCINT22.
-    PCINT22 face parte din grupa PCINT[23:16], controlata
-    de registrul PCMSK2 si de bitul PCIE2.
+
+    PCINT22 face parte din grupa PCINT[23:16],
+    controlata prin PCMSK2 si PCIE2.
     */
 
-    /* Permite pinului PCINT22 sa genereze cereri. */
-    PCMSK2_PCINT22 = GPIO_ONE;
+    /* Permite pinului PCINT22 sa genereze intreruperi. */
+    PCMSK2_PCINT22 = SW0_PCINT_ENABLE_VALUE;
 
     /*
     Sterge un eventual flag ramas setat.
-    Flagurile de intrerupere se sterg prin scrierea valorii 1.
+
+    Flagurile hardware se sterg prin scrierea valorii 1.
     */
-    PCIFR_PCIF2 = GPIO_ONE;
+    PCIFR_PCIF2 = SW0_INTERRUPT_FLAG_CLEAR_VALUE;
 
-    /* Activeaza grupa Pin Change Interrupt 2. */
-    PCICR_PCIE2 = GPIO_ONE;
+    /* Activeaza grupa Pin Change Interrupt Request 2. */
+    PCICR_PCIE2 = SW0_INTERRUPT_GROUP_ENABLE_VALUE;
 
-    /* Activeaza global intreruperile. */
+    /* Activeaza global sistemul de intreruperi. */
     __enable_interrupt();
 }
 
-static gpio_uint8_t application_get_sw0_request(void)
+static gpio_uint8_t application_get_and_clear_sw0_request(void)
 {
     gpio_uint8_t request;
 
-    request = GPIO_FALSE;
-
     /*
-    Sectiune critica scurta:
-    flagul este citit si resetat fara ca ISR-ul sa poata modifica
-    valoarea intre cele doua operatii.
+    Intreruperile sunt dezactivate pentru o perioada foarte scurta,
+    astfel incat citirea si resetarea flagului sa reprezinte
+    o singura operatie logica.
     */
     __disable_interrupt();
 
-    if (sw0_interrupt_request == GPIO_TRUE)
-    {
-        sw0_interrupt_request = GPIO_FALSE;
-        request = GPIO_TRUE;
-    }
+    request = sw0_interrupt_request;
+    sw0_interrupt_request = GPIO_FALSE;
 
     __enable_interrupt();
 
     return request;
 }
 
-static void application_delay_between_sos(void)
+static void application_clear_sw0_request(void)
 {
-    volatile unsigned long i;
+    /*
+    Flagul este resetat intr-o sectiune critica scurta,
+    pentru a evita modificarea sa simultana de catre ISR.
+    */
+    __disable_interrupt();
 
-    for (i = 0; i < 250000UL; i++)
+    sw0_interrupt_request = GPIO_FALSE;
+
+    __enable_interrupt();
+}
+
+static void application_delay_between_sos_messages(void)
+{
+    volatile unsigned long delay_counter;
+
+    for (
+        delay_counter = DELAY_COUNTER_INITIAL_VALUE;
+        delay_counter < SOS_MESSAGE_PAUSE_DELAY_COUNT;
+        delay_counter++
+    )
     {
         /*
-        Daca butonul este apasat in timpul pauzei dintre doua
-        mesaje SOS, pauza este intrerupta mai devreme.
+        Daca SW0 este apasat in timpul pauzei dintre doua mesaje,
+        bucla de asteptare este oprita.
+
+        Cererea va fi procesata la urmatoarea iteratie
+        a programului principal.
         */
         if (sw0_interrupt_request == GPIO_TRUE)
         {
