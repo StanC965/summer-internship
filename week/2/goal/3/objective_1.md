@@ -207,11 +207,17 @@ __interrupt void my_routine(void)
 > - Set the PCINT22 bit (6) in the PCMSK2 register.
 
 ```c
-#pragma vector=PCINT2_vect
-__interrupt void my_routine(void)
-/* the amazing routine for serving the interrupt caused by my button press */
+#pragma vector = PCINT2_vect
+__interrupt void button_press_routine(void)
 {
-    /* some code here… e.g. you can turn ON the LED0 here  */
+    if (!button_read(BUTTON_ONBOARD))
+    {
+        led_power_on(LED_ONBOARD);
+    }
+    else
+    {
+        led_power_off(LED_ONBOARD);
+    }
 }
 ```
 
