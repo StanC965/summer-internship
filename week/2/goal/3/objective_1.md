@@ -13,6 +13,7 @@
 | **[312]** | `CORE` | [x] Completed 
 | **[313]** | `CORE` | [x] Completed 
 | **[314]** | `CORE` | [x] Completed 
+| **[315]** | `CORE` | [x] Completed 
 
 --- 
 
@@ -218,6 +219,67 @@ __interrupt void button_press_routine(void)
     {
         led_power_off(LED_ONBOARD);
     }
+}
+```
+
+---
+
+#### Task 315
+> **Question/Prompt:** One small step before running the program is to put a breakpoint somewhere in the code of your ISR. Run the program, press the SW0 button and your CPU should hit the breakpoint. Congrats!
+
+> **Answer/Explanation:**
+> In order to implement the interrupt cause by the button press, I created a new file which includes the interrupt handler:
+
+**`interrupts.c`**
+```c
+#pragma vector = PCINT2_vect
+__interrupt void button_press_routine(void)
+{
+    if (!button_read(BUTTON_ONBOARD))
+    {   
+        // button pressed, turn on the LED
+        led_power_on(LED_ONBOARD);
+    }
+    else
+    {
+        // button realesed, turn off tje LED
+        led_power_off(LED_ONBOARD);
+    }
+}
+```
+
+> Additionaly I added a new function to the button module, which results in pin change interrupt enabled on the corresponding I/O pin.
+
+**`button.c`**
+```c
+void button_onboard_init_interrupt(void)
+{
+    // set PCIE2 bit in PCICR 
+    gpio_set_pin(&PCICR, 2);
+    // set PCINT22 bit in PCMSK2
+    gpio_set_pin(&PCMSK2, 6);
+
+}
+```
+
+> I made sure to enable gloabl interrupts right before I would enter the loop, to catch the button press:
+
+```c
+#include <intrinsics.h>
+
+void main(void)
+{
+  led_init();
+  button_init();
+  button_enable_pullup(BUTTON_ONBOARD);
+
+  button_onboard_init_interrupt();
+
+  __enable_interrupt();
+
+  while (1)
+  {
+  }
 }
 ```
 
