@@ -743,34 +743,37 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
-
+volatile unsigned char on=0;
 #pragma vector=(0x40)
 __interrupt void TimerCTC(void)
 {
-    led_TOGGLE((0xAA));
+
+      if(on!=0)
+      led_TOGGLE((0xAA));
+    on++;
+  
 }
 
 void setup(void)
 {
     
-    leds_initialize(1, 1, 1, 1, 0);  
+    leds_initialize(1, 0, 0, 0, 1);  
     
     
-    led_Set((0xBB));
-    led_Set((0xCC));        
-    led_Set((0xDD));
+    led_Set((0xEE));
     led_Set((0xAA));
     
-    
+
 
     
     TCCR0A = 2; 
+    TCCR0A|=1<<6; 
     TCCR0B = 5; 
     TCNT0 = 0;  
     OCR0A = 127; 
     
     
-    TIMSK0 |= (1 << TIMSK0_OCIE0A); 
+    TIMSK0 |= (1 <<1); 
     
     
     gpio_set_pin(&SREG, 7);
@@ -782,6 +785,6 @@ void main(void)
                                                 
     while(1)    
     {
-        
+       
     }
 }
