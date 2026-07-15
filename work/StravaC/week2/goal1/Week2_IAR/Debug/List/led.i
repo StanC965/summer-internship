@@ -7,13 +7,17 @@
 
 
 
-
-
-
+ 
 
  
 
+
+
+
 #line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\led.h"
+
+
+
 
 
 
@@ -26,6 +30,7 @@
  
 
 #line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\gpio.h"
+
 
 
 
@@ -81,7 +86,12 @@ extern gpio_uint8_t gpio_read_pin(
     gpio_uint8_t gpio_pin
 );
 
-#line 13 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\led.h"
+extern gpio_uint8_t gpio_read_pin_debounced(
+    volatile gpio_uint8_t *gpio_pin_register,
+    gpio_uint8_t gpio_pin
+);
+
+#line 16 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\led.h"
 
 extern void led_power_on(
     volatile gpio_uint8_t *led_port,
@@ -93,7 +103,14 @@ extern void led_power_off(
     gpio_uint8_t led_pin
 );
 
-#line 16 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\led.c"
+extern void led_toggle(
+    volatile gpio_uint8_t *led_port,
+    gpio_uint8_t led_pin
+);
+
+extern void led_delay_fast(void);
+
+#line 17 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\led.c"
 
 void led_power_on(
     volatile gpio_uint8_t *led_port,
@@ -115,5 +132,32 @@ void led_power_off(
         led_port,
         led_pin
     );
+}
+
+void led_toggle(
+    volatile gpio_uint8_t *led_port,
+    gpio_uint8_t led_pin
+)
+{
+    gpio_toggle_pin(
+        led_port,
+        led_pin
+    );
+}
+
+void led_delay_fast(void)
+{
+    volatile unsigned long led_delay_counter;
+
+    for (
+        led_delay_counter = (0UL);
+        led_delay_counter < (15000UL);
+        led_delay_counter++
+    )
+    {
+        
+
+ 
+    }
 }
 

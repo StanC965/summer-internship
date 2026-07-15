@@ -575,6 +575,7 @@
 
 
 
+
  
 
 
@@ -622,8 +623,16 @@ extern gpio_uint8_t gpio_read_pin(
     gpio_uint8_t gpio_pin
 );
 
+extern gpio_uint8_t gpio_read_pin_debounced(
+    volatile gpio_uint8_t *gpio_pin_register,
+    gpio_uint8_t gpio_pin
+);
+
 #line 4 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
 #line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\led.h"
+
+
+
 
 
 
@@ -647,6 +656,13 @@ extern void led_power_off(
     gpio_uint8_t led_pin
 );
 
+extern void led_toggle(
+    volatile gpio_uint8_t *led_port,
+    gpio_uint8_t led_pin
+);
+
+extern void led_delay_fast(void);
+
 #line 5 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week2\\goal1\\Week2_IAR\\main.c"
 
 
@@ -666,6 +682,23 @@ extern void led_power_off(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+ 
  
 
  
@@ -690,10 +723,8 @@ extern void led_power_off(
 
 
  
-
-
-
-
+ 
+ 
 
  
 
@@ -711,55 +742,148 @@ extern void led_power_off(
 
 
 
+
+
+ 
+ 
+ 
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+ 
+
+static gpio_uint8_t app_left_vent_state;
+static gpio_uint8_t app_center_vent_state;
+static gpio_uint8_t app_right_vent_state;
+
+static gpio_uint8_t app_panel_blocked;
+
+
+
+
+
+
+
+ 
+
+static gpio_uint8_t app_button1_previous_state;
+static gpio_uint8_t app_button2_previous_state;
+static gpio_uint8_t app_button3_previous_state;
+static gpio_uint8_t app_sw0_previous_state;
+
+ 
+ 
  
 
 static void app_initialize_hardware(void);
 
-static void app_update_led_from_button(
-    volatile gpio_uint8_t *app_button_pin_register,
-    gpio_uint8_t app_button_pin_number,
-    volatile gpio_uint8_t *app_led_port_register,
-    gpio_uint8_t app_led_pin_number
+static void app_initialize_states(void);
+
+static void app_process_master_button(void);
+
+static void app_process_oled_buttons(void);
+
+static gpio_uint8_t app_button_has_new_press(
+    gpio_uint8_t app_current_state,
+    gpio_uint8_t app_previous_state
 );
 
+static void app_toggle_left_vent(void);
+
+static void app_toggle_center_vent(void);
+
+static void app_toggle_right_vent(void);
+
+static void app_update_left_vent_led(void);
+
+static void app_update_center_vent_led(void);
+
+static void app_update_right_vent_led(void);
+
+static void app_enter_blocked_state(void);
+
+static void app_exit_blocked_state(void);
+
+static void app_disable_all_vents(void);
+
+static void app_turn_off_all_oled_leds(void);
+
+static void app_signal_blocked_button_press(void);
+
+ 
+ 
  
 
 void main(void)
 {
     app_initialize_hardware();
+    app_initialize_states();
 
     while (((1U)))
     {
-        app_update_led_from_button(
-            (&PINC),
-            (1U),
-            (&PORTD),
-            (5U)
-        );
+        
 
-        app_update_led_from_button(
-            (&PINA),
-            (0U),
-            (&PORTD),
-            (4U)
-        );
 
-        app_update_led_from_button(
-            (&PINA),
-            (1U),
-            (&PORTA),
-            (3U)
-        );
+ 
+        app_process_master_button();
+
+        
+
+ 
+        app_process_oled_buttons();
     }
 }
 
  
+ 
+ 
 
 static void app_initialize_hardware(void)
 {
-    
-
- 
+     
 
     gpio_set_direction(
         (&DDRC),
@@ -767,26 +891,17 @@ static void app_initialize_hardware(void)
         ((0U))
     );
 
+    gpio_activate_pullup(
+        (&PORTC),
+        (1U)
+    );
+
+     
+
     gpio_set_direction(
         (&DDRA),
         (0U),
         ((0U))
-    );
-
-    gpio_set_direction(
-        (&DDRA),
-        (1U),
-        ((0U))
-    );
-
-    
-
-
- 
-
-    gpio_activate_pullup(
-        (&PORTC),
-        (1U)
     );
 
     gpio_activate_pullup(
@@ -794,14 +909,33 @@ static void app_initialize_hardware(void)
         (0U)
     );
 
+     
+
+    gpio_set_direction(
+        (&DDRA),
+        (1U),
+        ((0U))
+    );
+
     gpio_activate_pullup(
         (&PORTA),
         (1U)
     );
 
-    
+     
 
- 
+    gpio_set_direction(
+        (&DDRC),
+        (6U),
+        ((0U))
+    );
+
+    gpio_activate_pullup(
+        (&PORTC),
+        (6U)
+    );
+
+     
 
     gpio_set_direction(
         (&DDRD),
@@ -809,15 +943,27 @@ static void app_initialize_hardware(void)
         ((1U))
     );
 
+     
+
     gpio_set_direction(
         (&DDRD),
         (4U),
         ((1U))
     );
 
+     
+
     gpio_set_direction(
         (&DDRA),
         (3U),
+        ((1U))
+    );
+
+     
+
+    gpio_set_direction(
+        (&DDRC),
+        (7U),
         ((1U))
     );
 
@@ -826,6 +972,343 @@ static void app_initialize_hardware(void)
 
  
 
+    app_turn_off_all_oled_leds();
+
+    led_power_off(
+        (&PORTC),
+        (7U)
+    );
+}
+
+static void app_initialize_states(void)
+{
+    app_left_vent_state = (((0U)));
+    app_center_vent_state = (((0U)));
+    app_right_vent_state = (((0U)));
+
+    app_panel_blocked = (((0U)));
+
+    
+
+
+ 
+
+    app_button1_previous_state = gpio_read_pin(
+        (&PINC),
+        (1U)
+    );
+
+    app_button2_previous_state = gpio_read_pin(
+        (&PINA),
+        (0U)
+    );
+
+    app_button3_previous_state = gpio_read_pin(
+        (&PINA),
+        (1U)
+    );
+
+    app_sw0_previous_state = gpio_read_pin(
+        (&PINC),
+        (6U)
+    );
+}
+
+ 
+ 
+ 
+
+static void app_process_master_button(void)
+{
+    gpio_uint8_t app_sw0_current_state;
+
+    app_sw0_current_state = gpio_read_pin_debounced(
+        (&PINC),
+        (6U)
+    );
+
+    if (
+        app_button_has_new_press(
+            app_sw0_current_state,
+            app_sw0_previous_state
+        ) == ((1U))
+    )
+    {
+        if (app_panel_blocked == (((0U))))
+        {
+            app_enter_blocked_state();
+        }
+        else
+        {
+            app_exit_blocked_state();
+        }
+    }
+
+    app_sw0_previous_state = app_sw0_current_state;
+}
+
+static void app_enter_blocked_state(void)
+{
+    app_panel_blocked = (((1U)));
+
+    
+
+
+ 
+
+    app_disable_all_vents();
+    app_turn_off_all_oled_leds();
+
+    
+
+ 
+
+    led_power_on(
+        (&PORTC),
+        (7U)
+    );
+}
+
+static void app_exit_blocked_state(void)
+{
+    app_panel_blocked = (((0U)));
+
+    
+
+
+ 
+
+    led_power_off(
+        (&PORTC),
+        (7U)
+    );
+}
+
+ 
+ 
+ 
+
+static void app_process_oled_buttons(void)
+{
+    gpio_uint8_t app_button1_current_state;
+    gpio_uint8_t app_button2_current_state;
+    gpio_uint8_t app_button3_current_state;
+
+    gpio_uint8_t app_button1_new_press;
+    gpio_uint8_t app_button2_new_press;
+    gpio_uint8_t app_button3_new_press;
+
+    app_button1_current_state = gpio_read_pin_debounced(
+        (&PINC),
+        (1U)
+    );
+
+    app_button2_current_state = gpio_read_pin_debounced(
+        (&PINA),
+        (0U)
+    );
+
+    app_button3_current_state = gpio_read_pin_debounced(
+        (&PINA),
+        (1U)
+    );
+
+    app_button1_new_press = app_button_has_new_press(
+        app_button1_current_state,
+        app_button1_previous_state
+    );
+
+    app_button2_new_press = app_button_has_new_press(
+        app_button2_current_state,
+        app_button2_previous_state
+    );
+
+    app_button3_new_press = app_button_has_new_press(
+        app_button3_current_state,
+        app_button3_previous_state
+    );
+
+    if (app_panel_blocked == (((1U))))
+    {
+        
+
+
+ 
+
+        if (
+            (app_button1_new_press == ((1U))) ||
+            (app_button2_new_press == ((1U))) ||
+            (app_button3_new_press == ((1U)))
+        )
+        {
+            app_signal_blocked_button_press();
+        }
+    }
+    else
+    {
+        
+
+
+ 
+
+        if (app_button1_new_press == ((1U)))
+        {
+            app_toggle_left_vent();
+        }
+
+        if (app_button2_new_press == ((1U)))
+        {
+            app_toggle_center_vent();
+        }
+
+        if (app_button3_new_press == ((1U)))
+        {
+            app_toggle_right_vent();
+        }
+    }
+
+    
+
+ 
+
+    app_button1_previous_state = app_button1_current_state;
+    app_button2_previous_state = app_button2_current_state;
+    app_button3_previous_state = app_button3_current_state;
+}
+
+static gpio_uint8_t app_button_has_new_press(
+    gpio_uint8_t app_current_state,
+    gpio_uint8_t app_previous_state
+)
+{
+    if (
+        (app_previous_state == (((1U)))) &&
+        (app_current_state == (((0U))))
+    )
+    {
+        return ((1U));
+    }
+
+    return ((0U));
+}
+
+ 
+ 
+ 
+
+static void app_toggle_left_vent(void)
+{
+    if (app_left_vent_state == (((0U))))
+    {
+        app_left_vent_state = (((1U)));
+    }
+    else
+    {
+        app_left_vent_state = (((0U)));
+    }
+
+    app_update_left_vent_led();
+}
+
+static void app_toggle_center_vent(void)
+{
+    if (app_center_vent_state == (((0U))))
+    {
+        app_center_vent_state = (((1U)));
+    }
+    else
+    {
+        app_center_vent_state = (((0U)));
+    }
+
+    app_update_center_vent_led();
+}
+
+static void app_toggle_right_vent(void)
+{
+    if (app_right_vent_state == (((0U))))
+    {
+        app_right_vent_state = (((1U)));
+    }
+    else
+    {
+        app_right_vent_state = (((0U)));
+    }
+
+    app_update_right_vent_led();
+}
+
+ 
+ 
+ 
+
+static void app_update_left_vent_led(void)
+{
+    if (app_left_vent_state == (((1U))))
+    {
+        led_power_on(
+            (&PORTD),
+            (5U)
+        );
+    }
+    else
+    {
+        led_power_off(
+            (&PORTD),
+            (5U)
+        );
+    }
+}
+
+static void app_update_center_vent_led(void)
+{
+    if (app_center_vent_state == (((1U))))
+    {
+        led_power_on(
+            (&PORTD),
+            (4U)
+        );
+    }
+    else
+    {
+        led_power_off(
+            (&PORTD),
+            (4U)
+        );
+    }
+}
+
+static void app_update_right_vent_led(void)
+{
+    if (app_right_vent_state == (((1U))))
+    {
+        led_power_on(
+            (&PORTA),
+            (3U)
+        );
+    }
+    else
+    {
+        led_power_off(
+            (&PORTA),
+            (3U)
+        );
+    }
+}
+
+ 
+ 
+ 
+
+static void app_disable_all_vents(void)
+{
+    app_left_vent_state = (((0U)));
+    app_center_vent_state = (((0U)));
+    app_right_vent_state = (((0U)));
+}
+
+static void app_turn_off_all_oled_leds(void)
+{
     led_power_off(
         (&PORTD),
         (5U)
@@ -842,32 +1325,44 @@ static void app_initialize_hardware(void)
     );
 }
 
-static void app_update_led_from_button(
-    volatile gpio_uint8_t *app_button_pin_register,
-    gpio_uint8_t app_button_pin_number,
-    volatile gpio_uint8_t *app_led_port_register,
-    gpio_uint8_t app_led_pin_number
-)
+static void app_signal_blocked_button_press(void)
 {
-    gpio_uint8_t app_button_state;
+    gpio_uint8_t app_blink_counter;
 
-    app_button_state = gpio_read_pin(
-        app_button_pin_register,
-        app_button_pin_number
-    );
+    
 
-    if (app_button_state == (((0U))))
-    {
-        led_power_on(
-            app_led_port_register,
-            app_led_pin_number
-        );
-    }
-    else
+
+
+ 
+
+    for (
+        app_blink_counter = (0U);
+        app_blink_counter < (3U);
+        app_blink_counter++
+    )
     {
         led_power_off(
-            app_led_port_register,
-            app_led_pin_number
+            (&PORTC),
+            (7U)
         );
+
+        led_delay_fast();
+
+        led_power_on(
+            (&PORTC),
+            (7U)
+        );
+
+        led_delay_fast();
     }
+
+    
+
+
+ 
+
+    led_power_on(
+        (&PORTC),
+        (7U)
+    );
 }

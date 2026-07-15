@@ -88,15 +88,9 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 0</file>
+                    <file> 0 15</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 9 3 16</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
