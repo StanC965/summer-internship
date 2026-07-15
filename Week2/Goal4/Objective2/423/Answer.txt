@@ -1,0 +1,1 @@
+Instead of relying only on the hardware register to track the elapsed time, we use a global variable to track the number of times the timer has overflowed.
