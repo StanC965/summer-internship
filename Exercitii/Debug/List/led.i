@@ -114,6 +114,7 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 
 
 
+
  
  
 
@@ -177,6 +178,8 @@ extern void gpio_Timer1_stop();
 
  
 extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
+
 
 #line 9 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
@@ -803,8 +806,8 @@ void led_Reset(unsigned char Led_id)
     switch(Led_id)
     {
         case (0xAA):  gpio_reset_pin(&PORTC, 7); break;
-        case (0xBB):   gpio_reset_pin(&PORTD, 5); break;
-        case (0xCC):   gpio_reset_pin(&PORTD, 4); break;
+        case (0xBB):   gpio_reset_pin(&PORTD, 4); break;
+        case (0xCC):   gpio_reset_pin(&PORTD, 5); break;
         case (0xDD): gpio_reset_pin(&PORTA, 3); break;
         case (0xEE):  gpio_reset_pin(&PORTB, 3); break;
         default: break;

@@ -1,178 +1,4 @@
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
-
-
-
-
- 
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-typedef     unsigned char   mod_uint8_t;
-
- 
-typedef     unsigned int    mod_uint16_t;
-
- 
- 
- 
-  
-
-
-
-
-
-
-
- 
-extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
-
-
-
-
-
-
-
-
- 
-extern void led_Set(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_Reset(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TOGGLE(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Fast(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Slow(unsigned char Led_id);
-
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
-
-#line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
- 
-typedef     unsigned char   gpio_uint8_t;
-
- 
-typedef     unsigned int    gpio_uint16_t;
-
- 
- 
- 
-  
-
-
-
- 
-extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
- 
-extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
-
-
-
-
-
- 
-extern void gpio_Timer1_start(float secunde,int prescale);
-
-
-
-
-
- 
-extern void gpio_Timer1_stop();
-
-
-
- 
-extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
-
-#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -738,124 +564,369 @@ extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit)
 
 
 
+#line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+typedef     unsigned char   gpio_uint8_t;
+
+ 
+typedef     unsigned int    gpio_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+ 
+extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+ 
+extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
+
+
+
+
+
+ 
+extern void gpio_Timer1_start(float secunde,int prescale);
+
+
+
+
+
+ 
+extern void gpio_Timer1_stop();
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
+
+
+#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+typedef     unsigned char   mod_uint8_t;
+
+ 
+typedef     unsigned int    mod_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+
+
+
+
+ 
+extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
+
+
+
+
+
+
+
+
+ 
+extern void led_Set(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_Reset(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TOGGLE(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Fast(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Slow(unsigned char Led_id);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
+
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
-  volatile unsigned char overflow_counter = 0;
-  volatile _Bool start = 1;
 
-  #pragma vector = (0x18)
-  __interrupt void my_routine(void)
-  {
-    if(!(PINC&(1<<6)))
-    {
-    start=!start;
-    }
+
+
+
+
+
+
+volatile int count1 = 0;
+volatile int count2 = 0;
+volatile int count3 = 0;
+volatile _Bool sw0 = 0;
+
+volatile unsigned char overflow_counter = 0;
+
+
+#pragma vector=(0x48)
+__interrupt void timer0_isr(void)
+{
+    overflow_counter++;
+}
+
+
+#pragma vector = (0x10)
+__interrupt void PinChangePortA_ISR(void)
+{
+    
+    for(volatile int i=0; i<3000u; i++) {} 
   
-  }
+    if(!sw0) 
+    {
+      TCCR0B = 0; 
+         if ((PINA & (1 << 0)) == 0) 
+         {
+             count1++;
+             if(count1 == 1) led_Reset((0xBB));
+             else if(count1 >= 3)
+             {
+                 count1 = 0;
+                 led_Set((0xBB));
+             }
+         }   
+         
+         if ((PINA & (1 << 1)) == 0) 
+         {
+             count3++;
+             if(count3 == 1) led_Reset((0xDD));
+             else if(count3 >= 3)
+             {
+                 count3 = 0;
+                 led_Set((0xDD));
+             }
+         }
+    }
+    else{
+    TCCR0B = 3; }
+    
+}
 
 
-  #pragma vector=(0x48)
-  __interrupt void aprindeLed(void)
-  {
-      overflow_counter++;
-  }
+#pragma vector = (0x18)
+__interrupt void PinChangePortC_ISR(void)
+{
+    for(volatile int i=0; i<3000u; i++) {}
+    
+   
+    if ((PINC & (1 << 6)) == 0 )  
+    {
+         sw0 = !sw0; 
+         
+         if(sw0)
+         {
+             
+             overflow_counter = 0;
+     
+              led_Reset((0xAA));   
+               led_Set((0xBB));
+                led_Set((0xCC));        
+              led_Set((0xDD));
+              count1=0;
+              count2=0;count3=0;
+         }
+         else
+         {
+             
+             TCCR0B = 0;
+             led_Set((0xAA));
+        
+         }
+    }
+
+    else if ((PINC & (1 << 1)) == 0 )
+    {
+        if (!sw0) 
+        {
+          TCCR0B = 0; 
+            count2++;
+            if (count2 == 1) led_Reset((0xCC));
+            else if(count2 >= 3)
+            {
+                count2 = 0;
+                led_Set((0xCC));
+            }
+        }
+        else{
+        TCCR0B = 3; 
+        }
+    }
+}
 
 void setup(void)
 {
+    leds_initialize(1, 1, 1, 1, 0);  
     
-    leds_initialize(1, 1, 1, 1, 1);  
-
+    
     led_Set((0xBB));
     led_Set((0xCC));        
     led_Set((0xDD));
     led_Set((0xAA));
-    led_Set((0xEE));
-
     
- 
-    gpio_set_direction(&DDRC,6, (((0x01U)))); 
+    
+    gpio_set_direction(&DDRC, 1, (((0x01U)))); 
+    gpio_set_direction(&DDRA, 0, (((0x01U)))); 
+    gpio_set_direction(&DDRA, 1, (((0x01U)))); 
+    gpio_set_direction(&DDRC, 6, (((0x01U)))); 
+    
+    
+    gpio_set_pin(&PORTC, 1);
+    gpio_set_pin(&PORTA, 1);           
+    gpio_set_pin(&PORTA, 0);
     gpio_set_pin(&PORTC, 6);
 
-
-
-       gpio_set_pin(&PORTC, 1);
-       gpio_set_pin(&PORTA, 1);            
-       gpio_set_pin(&PORTA, 0);
-       gpio_set_pin(&PORTC, 7);
-       gpio_set_pin(&PORTB, 3);
-
-     
-
     
-     gpio_set_pin(&PCMSK2, 6); 
-
-     
-     gpio_set_pin(&SREG, 7);
-     
     TCCR0A = 0;
-    TCCR0B = 0;
-
-    TIMSK0 |= (1 << TIMSK0_TOIE0);
+    TCCR0B = 0; 
+    TIMSK0 |= (1 << TIMSK0_TOIE0); 
     TCNT0 = 0;
-
-   
     
+    
+    gpio_set_pin(&PCICR, 2); 
+    gpio_set_pin(&PCICR, 0); 
+     
+    
+    gpio_set_pin(&PCMSK0, 1); 
+    gpio_set_pin(&PCMSK0, 0); 
+    gpio_set_pin(&PCMSK2, 1); 
+    gpio_set_pin(&PCMSK2, 6); 
+     
+    
+    gpio_set_pin(&SREG, 7);
+}
 
-    PCICR |= (1 << 2);    
-    PCMSK2 |= (1 << 6); 
+void main(void)
+{
+    setup();
+    _Bool on = 0; 
+     int durata=0;                                      
+    while(1)    
+    {
+        if(sw0) 
+        {
+            
+            if(overflow_counter >= 4)
+            {
+                overflow_counter = 0; 
+                
+                if(on)
+                    led_Set((0xAA));
+                else
+                    led_Reset((0xAA));
+                    
+                on = !on;
+                durata++;
+            }
+            if(durata>=10)
+            {
+              durata=0;
+              TCCR0B =0; 
+              led_Reset((0xAA));
+            }; 
+            
+        }
+      
+    }
 }
 
 
- int seq[5]={(0xAA),(0xBB),(0xCC),(0xDD),(0xEE)};
-  _Bool on=0;
-  void main(void)
-  {
- 
-      setup();
-      int i=0;
-      while(1)
-      {
-         if(start)
-         {
-              TCCR0B=5;
-              if(overflow_counter >= 4)
-          {
-              overflow_counter = 0;
-              if(on)
-                  led_Reset(seq[i++]);
-             
-              on = !on;
-              if(i==5)
-              {
-                
-                  i=0;
-              
-                  led_Set((0xBB));
-                  led_Set((0xCC));
-                  led_Set((0xDD));
-                  led_Set((0xAA));
-                  led_Set((0xEE));
-                
-                
-               }
-              
-            }
-            
-          }
-          else
-            {
-                i=0;
 
-              
-                led_Set((0xBB));
-                led_Set((0xCC));
-                led_Set((0xDD));
-                led_Set((0xAA));
-                led_Set((0xEE));
-
-            }
-        }
-      
-  }
-  
- 

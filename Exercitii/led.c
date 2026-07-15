@@ -65,8 +65,8 @@ void led_Reset(unsigned char Led_id)
     switch(Led_id)
     {
         case LED_ZERO:  gpio_reset_pin(&PORTC, 7); break;
-        case LED_ONE:   gpio_reset_pin(&PORTD, 5); break;
-        case LED_TWO:   gpio_reset_pin(&PORTD, 4); break;
+        case LED_ONE:   gpio_reset_pin(&PORTD, 4); break;
+        case LED_TWO:   gpio_reset_pin(&PORTD, 5); break;
         case LED_THREE: gpio_reset_pin(&PORTA, 3); break;
         case LED_FOUR:  gpio_reset_pin(&PORTB, 3); break;
         default: break;

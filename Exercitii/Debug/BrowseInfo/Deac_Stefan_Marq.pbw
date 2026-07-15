@@ -49040,13 +49040,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@24@macro@GPIO_H",
+    "ID": "c:gpio.h@26@macro@GPIO_H",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_H",
     "location": {
       "column": "9",
-      "line": "2",
+      "line": "3",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_H",
@@ -49054,13 +49054,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@264@macro@GPIO_NULL",
+    "ID": "c:gpio.h@266@macro@GPIO_NULL",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_NULL",
     "location": {
       "column": "9",
-      "line": "7",
+      "line": "8",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_NULL",
@@ -49068,13 +49068,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@309@macro@GPIO_ZERO",
+    "ID": "c:gpio.h@311@macro@GPIO_ZERO",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_ZERO",
     "location": {
       "column": "9",
-      "line": "8",
+      "line": "9",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_ZERO",
@@ -49082,13 +49082,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@347@macro@GPIO_ONE",
+    "ID": "c:gpio.h@349@macro@GPIO_ONE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_ONE",
     "location": {
       "column": "9",
-      "line": "9",
+      "line": "10",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_ONE",
@@ -49096,13 +49096,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@387@macro@GPIO_TRUE",
+    "ID": "c:gpio.h@389@macro@GPIO_TRUE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_TRUE",
     "location": {
       "column": "9",
-      "line": "11",
+      "line": "12",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_TRUE",
@@ -49110,13 +49110,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@428@macro@GPIO_FALSE",
+    "ID": "c:gpio.h@430@macro@GPIO_FALSE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_FALSE",
     "location": {
       "column": "9",
-      "line": "12",
+      "line": "13",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_FALSE",
@@ -49124,13 +49124,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@472@macro@GPIO_INPUT",
+    "ID": "c:gpio.h@474@macro@GPIO_INPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_INPUT",
     "location": {
       "column": "9",
-      "line": "14",
+      "line": "15",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_INPUT",
@@ -49138,13 +49138,13 @@
     "scope": null
   },
   {
-    "ID": "c:gpio.h@514@macro@GPIO_OUTPUT",
+    "ID": "c:gpio.h@516@macro@GPIO_OUTPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GPIO_OUTPUT",
     "location": {
       "column": "9",
-      "line": "15",
+      "line": "16",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "GPIO_OUTPUT",
@@ -49158,7 +49158,7 @@
     "display": "unsigned char",
     "location": {
       "column": "29",
-      "line": "18",
+      "line": "19",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_uint8_t",
@@ -49172,7 +49172,7 @@
     "display": "unsigned int",
     "location": {
       "column": "29",
-      "line": "21",
+      "line": "22",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_uint16_t",
@@ -49186,7 +49186,7 @@
     "display": "void gpio_set_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "31",
+      "line": "32",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_set_pin",
@@ -49200,7 +49200,7 @@
     "display": "void gpio_set_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "31",
+      "line": "32",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_set_pin",
@@ -49214,7 +49214,7 @@
     "display": "void gpio_reset_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "37",
+      "line": "38",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_reset_pin",
@@ -49228,7 +49228,7 @@
     "display": "void gpio_reset_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "37",
+      "line": "38",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_reset_pin",
@@ -49242,7 +49242,7 @@
     "display": "void gpio_toggle_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "43",
+      "line": "44",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_toggle_pin",
@@ -49256,7 +49256,7 @@
     "display": "void gpio_toggle_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "43",
+      "line": "44",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_toggle_pin",
@@ -49270,7 +49270,7 @@
     "display": "void gpio_set_direction(volatile unsigned char *, gpio_uint8_t, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "48",
+      "line": "49",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_set_direction",
@@ -49284,7 +49284,7 @@
     "display": "void gpio_set_direction(volatile unsigned char *, gpio_uint8_t, gpio_uint8_t)",
     "location": {
       "column": "13",
-      "line": "48",
+      "line": "49",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_set_direction",
@@ -49298,7 +49298,7 @@
     "display": "void gpio_Timer1_start(float, int)",
     "location": {
       "column": "13",
-      "line": "55",
+      "line": "56",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_Timer1_start",
@@ -49312,7 +49312,7 @@
     "display": "void gpio_Timer1_start(float, int)",
     "location": {
       "column": "13",
-      "line": "55",
+      "line": "56",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_Timer1_start",
@@ -49326,7 +49326,7 @@
     "display": "void gpio_Timer1_stop(void)",
     "location": {
       "column": "13",
-      "line": "62",
+      "line": "63",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_Timer1_stop",
@@ -49340,7 +49340,7 @@
     "display": "void gpio_Timer1_stop(void)",
     "location": {
       "column": "13",
-      "line": "62",
+      "line": "63",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_Timer1_stop",
@@ -49354,7 +49354,7 @@
     "display": "gpio_uint8_t gpio_read_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "21",
-      "line": "67",
+      "line": "68",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_read_pin",
@@ -49368,7 +49368,7 @@
     "display": "gpio_uint8_t gpio_read_pin(volatile unsigned char *, gpio_uint8_t)",
     "location": {
       "column": "21",
-      "line": "67",
+      "line": "68",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
     },
     "name": "gpio_read_pin",
@@ -50986,13 +50986,111 @@
     "scope": null
   },
   {
+    "ID": "c:main.c@79@macro@TOGGLE_NR",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "TOGGLE_NR",
+    "location": {
+      "column": "10",
+      "line": "8",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "TOGGLE_NR",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@107@macro@DEBOUNCE",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "DEBOUNCE",
+    "location": {
+      "column": "10",
+      "line": "9",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "DEBOUNCE",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@139@macro@BLINK_NUMBER",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BLINK_NUMBER",
+    "location": {
+      "column": "10",
+      "line": "10",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "BLINK_NUMBER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@count1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "count1",
+    "location": {
+      "column": "14",
+      "line": "12",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "count1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@count2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "count2",
+    "location": {
+      "column": "14",
+      "line": "13",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "count2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@count3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "count3",
+    "location": {
+      "column": "14",
+      "line": "14",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "count3",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@sw0",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "sw0",
+    "location": {
+      "column": "16",
+      "line": "15",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "sw0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@overflow_counter",
     "What": "Variable",
     "defdec": "Def",
     "display": "overflow_counter",
     "location": {
-      "column": "26",
-      "line": "5",
+      "column": "24",
+      "line": "17",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "overflow_counter",
@@ -51000,44 +51098,72 @@
     "scope": null
   },
   {
-    "ID": "c:@start",
-    "What": "Variable",
+    "ID": "c:@F@timer0_isr",
+    "What": "Function",
     "defdec": "Def",
-    "display": "start",
+    "display": "void timer0_isr(void)",
     "location": {
       "column": "18",
-      "line": "6",
+      "line": "21",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "start",
+    "name": "timer0_isr",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@my_routine",
+    "ID": "c:@F@PinChangePortA_ISR",
     "What": "Function",
     "defdec": "Def",
-    "display": "void my_routine(void)",
+    "display": "void PinChangePortA_ISR(void)",
     "location": {
-      "column": "20",
-      "line": "9",
+      "column": "18",
+      "line": "28",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "my_routine",
+    "name": "PinChangePortA_ISR",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@aprindeLed",
-    "What": "Function",
+    "ID": "c:main.c@508@F@PinChangePortA_ISR@i",
+    "What": "Variable",
     "defdec": "Def",
-    "display": "void aprindeLed(void)",
+    "display": "i",
     "location": {
-      "column": "20",
-      "line": "20",
+      "column": "22",
+      "line": "31",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "aprindeLed",
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@PinChangePortC_ISR",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void PinChangePortC_ISR(void)",
+    "location": {
+      "column": "18",
+      "line": "65",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "PinChangePortC_ISR",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@1322@F@PinChangePortC_ISR@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "22",
+      "line": "67",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "i",
     "origin": "project_file",
     "scope": null
   },
@@ -51048,38 +51174,10 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "25",
+      "line": "114",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@seq",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "seq",
-    "location": {
-      "column": "6",
-      "line": "71",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "seq",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@on",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "on",
-    "location": {
-      "column": "9",
-      "line": "72",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "on",
     "origin": "project_file",
     "scope": null
   },
@@ -51089,8 +51187,8 @@
     "defdec": "Def",
     "display": "void main(void)",
     "location": {
-      "column": "8",
-      "line": "73",
+      "column": "6",
+      "line": "156",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
@@ -51098,16 +51196,30 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1528@F@main@i",
+    "ID": "c:main.c@3731@F@main@on",
     "What": "Variable",
     "defdec": "Def",
-    "display": "i",
+    "display": "on",
     "location": {
       "column": "11",
-      "line": "77",
+      "line": "159",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "i",
+    "name": "on",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@3752@F@main@durata",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "durata",
+    "location": {
+      "column": "10",
+      "line": "160",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "durata",
     "origin": "project_file",
     "scope": null
   }
