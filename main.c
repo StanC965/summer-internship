@@ -20,7 +20,7 @@ void main (void)
    SREG_I=1;
    PORTA=0xff;
    PORTD=0xff;
-   ADMUX=0x64;
+   ADMUX=0xa4;
    ADCSRA=0x88;
  
     while(1)
