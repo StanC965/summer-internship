@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>241450220</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\main3.c</file>
+            <file>$PROJ_DIR$\Debug\List\main2.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2.r90</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\main1.c</file>
+            <file>$PROJ_DIR$\main5.c</file>
+            <file>$PROJ_DIR$\main2.c</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main3.r90</file>
+            <file>$PROJ_DIR$\Debug\List\main3.i</file>
+            <file>$PROJ_DIR$\main4.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1.r90</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\Debug\List\main4.i</file>
+            <file>$PROJ_DIR$\Debug\List\main1.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\main3.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 11 10</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 14 17</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 9 8 7</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main1.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 16 13</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main2.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1 2</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main4.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15</file>
+                </tool>
+            </outputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>
