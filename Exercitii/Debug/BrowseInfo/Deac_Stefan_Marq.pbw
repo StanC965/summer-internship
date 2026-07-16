@@ -2994,20 +2994,6 @@
     "scope": null
   },
   {
-    "ID": "c:@F@GetCarCrashDetectionStatus",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "unsigned char GetCarCrashDetectionStatus(void)",
-    "location": {
-      "column": "22",
-      "line": "9",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\CarCrashDetection.h"
-    },
-    "name": "GetCarCrashDetectionStatus",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
     "ID": "c:ycheck.h@1402@macro@__TAABI_PORTABILITY_INTERNAL_LEVEL",
     "What": "MacroDef",
     "defdec": "Def",
@@ -54134,30 +54120,58 @@
     "scope": null
   },
   {
-    "ID": "c:@car_crashed",
+    "ID": "c:@timer_pornit",
     "What": "Variable",
     "defdec": "Def",
-    "display": "car_crashed",
+    "display": "timer_pornit",
     "location": {
-      "column": "16",
+      "column": "18",
       "line": "6",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "car_crashed",
+    "name": "timer_pornit",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@TimerCTC",
-    "What": "Function",
+    "ID": "c:@perioade",
+    "What": "Variable",
     "defdec": "Def",
-    "display": "void TimerCTC(void)",
+    "display": "perioade",
     "location": {
-      "column": "18",
-      "line": "8",
+      "column": "26",
+      "line": "7",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "TimerCTC",
+    "name": "perioade",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@BUTTON_PRESS",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void BUTTON_PRESS(void)",
+    "location": {
+      "column": "20",
+      "line": "10",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "BUTTON_PRESS",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@perioada",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void perioada(void)",
+    "location": {
+      "column": "18",
+      "line": "23",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "perioada",
     "origin": "project_file",
     "scope": null
   },
@@ -54167,8 +54181,8 @@
     "defdec": "Def",
     "display": "void setup(void)",
     "location": {
-      "column": "6",
-      "line": "20",
+      "column": "8",
+      "line": "44",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -54181,8 +54195,8 @@
     "defdec": "Def",
     "display": "void main(void)",
     "location": {
-      "column": "6",
-      "line": "53",
+      "column": "8",
+      "line": "82",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",

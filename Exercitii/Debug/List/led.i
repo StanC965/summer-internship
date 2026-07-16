@@ -793,8 +793,8 @@ void led_Set(unsigned char Led_id)
     switch(Led_id)
     {
         case (0xAA):  gpio_set_pin(&PORTC, 7); break;
-        case (0xBB):   gpio_set_pin(&PORTD, 4); break;
-        case (0xCC):   gpio_set_pin(&PORTD, 5); break;
+        case (0xBB):   gpio_set_pin(&PORTD, 5); break;
+        case (0xCC):   gpio_set_pin(&PORTD, 4); break;
         case (0xDD): gpio_set_pin(&PORTA, 3); break;
         case (0xEE):  gpio_set_pin(&PORTB, 3); break;
         default: break;
@@ -806,8 +806,8 @@ void led_Reset(unsigned char Led_id)
     switch(Led_id)
     {
         case (0xAA):  gpio_reset_pin(&PORTC, 7); break;
-        case (0xBB):   gpio_reset_pin(&PORTD, 4); break;
-        case (0xCC):   gpio_reset_pin(&PORTD, 5); break;
+        case (0xBB):   gpio_reset_pin(&PORTD, 5); break;
+        case (0xCC):   gpio_reset_pin(&PORTD, 4); break;
         case (0xDD): gpio_reset_pin(&PORTA, 3); break;
         case (0xEE):  gpio_reset_pin(&PORTB, 3); break;
         default: break;
@@ -819,8 +819,8 @@ void led_TOGGLE(unsigned char Led_id)
     switch(Led_id)
     {
         case (0xAA):  gpio_toggle_pin(&PORTC, 7); break;
-        case (0xBB):   gpio_toggle_pin(&PORTD, 4); break;
-        case (0xCC):   gpio_toggle_pin(&PORTD, 5); break;
+        case (0xBB):   gpio_toggle_pin(&PORTD, 5); break;
+        case (0xCC):   gpio_toggle_pin(&PORTD, 4); break;
         case (0xDD): gpio_toggle_pin(&PORTA, 3); break;
         case (0xEE):  gpio_toggle_pin(&PORTB, 3); break;
         default: break;
