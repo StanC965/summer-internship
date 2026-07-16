@@ -25,7 +25,7 @@ void main(void)
 
   while (1)
   {
-    for (uint8_t i = BUTTON_OLED1_1; i <= BUTTON_OLED1_3; i++)
+    for (uint8_t i = BUTTON_ONBOARD; i <= BUTTON_OLED1_3; i++)
     {
       if (button_event_detected[i])
       {
@@ -35,6 +35,17 @@ void main(void)
 
         if (!button_read(i) && !button_pressed[i])
         {
+          if (i == BUTTON_ONBOARD)
+          {
+            for (uint8_t j = BUTTON_OLED1_1; j <= BUTTON_OLED1_3; j++)
+            {
+              button_pressed[j] = 0;
+              led_power_off(button_to_led_map[j]);
+            }
+            button_pressed[i] = 1;
+            led_power_on(button_to_led_map[i]);
+            break;
+          }
           button_pressed[i] = 1;
           led_power_on(button_to_led_map[i]);
         }
