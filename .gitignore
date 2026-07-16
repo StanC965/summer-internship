@@ -76,5 +76,6 @@ __pycache__/
 *.ewp
 *.ewd
 *.dep
+*.ewt
 code/settings/
 code/Debug/
