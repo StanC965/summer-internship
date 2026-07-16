@@ -1,5 +1,6 @@
 #include "adc.h"
 
+volatile unsigned char conver = 0;
 void ADC_init(){
   ADMUX=0x40;
   Enable_ADC();
@@ -31,4 +32,13 @@ ADCSRA|=0x40;
 void InterruptADC(){
  ADCSRA_ADIE=1;
   SREG_I=1;
+}
+__interrupt void Conversie(void){
+ conver = ADCH;
+}
+void Led_on_sensor(){
+  if(conver>(SensorH-SensorL)/2){
+      led0_set_state(ON);}
+   else
+     led0_set_state(OFF);
 }
