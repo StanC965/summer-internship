@@ -13,7 +13,7 @@
     Static private objects & functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-static const step_t sos_sequence[] = {
+static const sos_step_t sos_sequence[] = {
     // S
     {LED_ON, SOS_UNIT_DPOINT},
     {LED_OFF, SOS_GAP_INTRA_LETTER},
@@ -42,13 +42,13 @@ static const step_t sos_sequence[] = {
 static void sos_point(led_id_t led_id)
 {
   uint8_t repeat = 1;
-  led_blink_custom(led_id, repeat, SOS_UNIT_DPOINT * TIME_UNIT, SOS_GAP_INTRA_LETTER * TIME_UNIT);
+  led_blink_custom(led_id, repeat, SOS_UNIT_DPOINT * SOS_TIME_UNIT, SOS_GAP_INTRA_LETTER * SOS_TIME_UNIT);
 }
 
 static void sos_line(led_id_t led_id)
 {
   uint8_t repeat = 1;
-  led_blink_custom(led_id, repeat, SOS_UNIT_DLINE * TIME_UNIT, SOS_GAP_INTRA_LETTER * TIME_UNIT);
+  led_blink_custom(led_id, repeat, SOS_UNIT_DLINE * SOS_TIME_UNIT, SOS_GAP_INTRA_LETTER * SOS_TIME_UNIT);
 }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -60,7 +60,7 @@ void sos_update(led_id_t led_id)
   static uint8_t current_step = 0;
   static uint32_t state_timer_ms = 0;
 
-  step_t step = sos_sequence[current_step];
+  sos_step_t step = sos_sequence[current_step];
 
   if (step.led_state)
   {
@@ -73,7 +73,7 @@ void sos_update(led_id_t led_id)
 
   state_timer_ms += MILISECOND;
 
-  uint32_t target_duration = step.duration_units * TIME_UNIT;
+  uint32_t target_duration = step.duration_units * SOS_TIME_UNIT;
   if (state_timer_ms >= target_duration)
   {
     state_timer_ms = 0;
@@ -92,19 +92,19 @@ void sos_play(led_id_t led_id)
   sos_point(led_id);
   sos_point(led_id);
 
-  delay(SOS_GAP_INTER_LETTER * TIME_UNIT);
+  delay(SOS_GAP_INTER_LETTER * SOS_TIME_UNIT);
 
   sos_line(led_id);
   sos_line(led_id);
   sos_line(led_id);
 
-  delay(SOS_GAP_INTER_LETTER * TIME_UNIT);
+  delay(SOS_GAP_INTER_LETTER * SOS_TIME_UNIT);
 
   sos_point(led_id);
   sos_point(led_id);
   sos_point(led_id);
 
-  delay(SOS_GAP_INTER_WORD * TIME_UNIT);
+  delay(SOS_GAP_INTER_WORD * SOS_TIME_UNIT);
 }
 
 #endif /* SOS_C */

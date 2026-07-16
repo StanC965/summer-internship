@@ -16,10 +16,10 @@ typedef struct
 {
   uint8_t led_state;
   uint8_t duration_units;
-} step_t;
+} sos_step_t;
 
 /** \brief  Module specific constant number one */
-#define TIME_UNIT                (SECOND / 2U)
+#define SOS_TIME_UNIT                (SECOND / 2U)
 
 /** \brief  Module specific constant number two */
 #define LED_OFF                   0
@@ -43,11 +43,11 @@ typedef struct
 #define SOS_GAP_INTER_WORD        7 // gap between words
 
 /** \brief  Module specific constant number nine */
-#define SOS_TOTAL_STEPS           (sizeof(sos_sequence) / sizeof(step_t))
+#define SOS_TOTAL_STEPS           (sizeof(sos_sequence) / sizeof(sos_step_t))
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 /** \fn     void sos_update(led_id_t led_id)
 
