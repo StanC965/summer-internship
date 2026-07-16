@@ -3,10 +3,18 @@
 #include "led.h"
 #include "delay.h"
 
-volatile uint8_t button_event_detected = 0;
+volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
+
+#pragma vector = PCINT0_vect
+__interrupt void button_porta_routine(void)
+{
+    button_event_detected[BUTTON_OLED1_2] = 1;
+    button_event_detected[BUTTON_OLED1_3] = 1;
+}
 
 #pragma vector = PCINT2_vect
-__interrupt void button_press_routine(void)
+__interrupt void button_portc_routine(void)
 {
-    button_event_detected = 1;
+    button_event_detected[BUTTON_ONBOARD] = 1;
+    button_event_detected[BUTTON_OLED1_1] = 1;
 }
