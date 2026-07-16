@@ -3,16 +3,17 @@
 volatile unsigned char conver = 0;
 void ADC_init(){
   ADMUX=0x40;
-  Enable_ADC();
   set_Pin_ADC(PIN4);
   Adjust_Left();
   
 }
 void set_Pin_ADC(PIN_Number pin){
+DIDR0|=(0x01<<pin);
 ADMUX|=pin;
 }
 void reset_Pin_ADC(PIN_Number pin){
 ADMUX &=~pin;
+DIDR0 &=~(0x01<<pin);
 }
 void Adjust_Left(){
 ADMUX |=0x20;
@@ -27,7 +28,9 @@ void Disable_ADC(){
 ADCSRA&=~0x80;
 }
 void Start_Conversion(){
+ Enable_ADC();
 ADCSRA|=0x40;
+
 }
 void InterruptADC(){
  ADCSRA_ADIE=1;
@@ -35,6 +38,7 @@ void InterruptADC(){
 }
 __interrupt void Conversie(void){
  conver = ADCH;
+ Disable_ADC();
 }
 void Led_on_sensor(){
   if(conver>MID){
