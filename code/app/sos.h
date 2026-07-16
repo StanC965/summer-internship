@@ -20,23 +20,30 @@ typedef struct
 
 /** \brief  Module specific constant number one */
 #define TIME_UNIT                (SECOND / 2U)
+
 /** \brief  Module specific constant number two */
 #define LED_OFF                   0
+
 /** \brief  Module specific constant number three */
 #define LED_ON                    1
+
 /** \brief  Module specific constant number four */
 #define SOS_UNIT_DPOINT           1 // duration of a point
+
 /** \brief  Module specific constant number five */
 #define SOS_UNIT_DLINE            3 // duration of a line
+
 /** \brief  Module specific constant number six */
 #define SOS_GAP_INTRA_LETTER      1 // gap between parts of the same letter
+
 /** \brief  Module specific constant number seven */
 #define SOS_GAP_INTER_LETTER      2 // gap between letters
+
 /** \brief  Module specific constant number eight */
 #define SOS_GAP_INTER_WORD        7 // gap between words
+
 /** \brief  Module specific constant number nine */
 #define SOS_TOTAL_STEPS           (sizeof(sos_sequence) / sizeof(step_t))
-
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
