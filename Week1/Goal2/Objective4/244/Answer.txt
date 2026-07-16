@@ -1,0 +1,4 @@
+In my opinion the guardians have the role of preventing the files they are in from being included multiple times during the compilation process.
+if header files are included multiple times they can cause redefinition errors,so guardians check if they aare already defined to prevent that from happening.
+When gpio.h is included once, it's contents appear once both with and without guardians.
+When it's included twice, it's contents appear only once with guardians and duplicated, one after the other without guardians.

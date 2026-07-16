@@ -1,0 +1,3 @@
+Organizing softare into modules is important for separation of concerns and reusability.
+Separation of Concerns: It breaks the program into distinct parts based on what they do. This keeps the code organized, easy to read, and simpler to fix.
+Reusability: It creates independent blocks of code that can be easily plugged into future projects, saving time.
