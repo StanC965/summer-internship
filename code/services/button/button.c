@@ -59,4 +59,22 @@ void button_onboard_init_interrupt(void)
     gpio_set_pin(&PCMSK2, BUTTON_ONBOARD_PCINT_PIN);
 }
 
+void button_oled1_1_init_interrupt(void)
+{
+    gpio_set_pin(&PCICR, BUTTON_OLED1_1_PCIE);
+    gpio_set_pin(&PCMSK2, BUTTON_OLED1_1_PCINT_PIN);
+}
+
+void button_oled1_2_init_interrupt(void)
+{
+    gpio_set_pin(&PCICR, BUTTON_OLED1_2_PCIE);
+    gpio_set_pin(&PCMSK2, BUTTON_OLED1_2_PCINT_PIN);
+}
+
+void button_oled1_3_init_interrupt(void)
+{
+    gpio_set_pin(&PCICR, BUTTON_OLED1_3_PCIE);
+    gpio_set_pin(&PCMSK2, BUTTON_OLED1_3_PCINT_PIN);
+}
+
 #endif /* BUTTON_C */
