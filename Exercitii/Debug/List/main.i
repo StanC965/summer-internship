@@ -751,9 +751,13 @@ __interrupt void TimerCTC(void)
 
 
 
+
+
+
+
  
  
-    led_Reset((0xAA));
+    led_Reset((0xAA));  
   
   
 }
@@ -772,11 +776,11 @@ void setup(void)
     gpio_set_pin(&TCCR1A,0);
     gpio_set_pin(&TCCR1A,1);  
     gpio_set_pin(&TCCR1B,3);
-    gpio_set_pin(&TCCR1B,2);
+    gpio_set_pin(&TCCR1B,1);
     gpio_set_pin(&TCCR1B,0);
     gpio_set_pin(&TCCR1B,4);
     TCNT1 = 0;  
-    OCR1A =975; 
+    OCR1A =18750; 
     
     gpio_set_pin(&TIMSK1,0); 
     gpio_set_pin(&TIMSK1,1); 
@@ -791,7 +795,11 @@ void main(void)
                                                 
     while(1)    
     {
-        if(TCNT1 >= 682)
-    led_Set((0xAA));
+          if(TCNT1 >= (2 *1562.5)&&TCNT1<= (5*1562.5) || TCNT1 >= 10* 1562.5)
+            led_Set((0xAA));
+          else 
+            {
+              led_Reset((0xAA));
+             }
     }   
 }
