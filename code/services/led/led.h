@@ -10,6 +10,21 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/** \brief  Module specific constant number zero */
+#define LED_ONBOARD_PIN             7
+
+/** \brief  Module specific constant number one */
+#define LED_OLED1_1_PIN             5
+
+/** \brief  Module specific constant number four */
+#define LED_OLED1_2_PIN             4
+
+/** \brief  Module specific constant number five */
+#define LED_OLED1_3_PIN             3
+
+/** \brief  Module specific constant number six */
+#define LED_IO1_PIN                 3
+
 /** \brief  LED configuration structure */
 typedef struct
 {

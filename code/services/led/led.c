@@ -16,15 +16,15 @@
 
 static const led_config_t led_table[LED_COUNT] = {
     // ATmega328P onboard LED
-    {&DDRC, &PORTC, 7},
+    {&DDRC, &PORTC, LED_ONBOARD_PIN},
 
     // OLED1 LEDs
-    {&DDRD, &PORTD, 5},
-    {&DDRD, &PORTD, 4},
-    {&DDRA, &PORTA, 3},
+    {&DDRD, &PORTD, LED_OLED1_1_PIN},
+    {&DDRD, &PORTD, LED_OLED1_2_PIN},
+    {&DDRA, &PORTA, LED_OLED1_3_PIN},
 
     // IO1 LED
-    {&DDRB, &PORTB, 3}};
+    {&DDRB, &PORTB, LED_IO1_PIN}};
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
