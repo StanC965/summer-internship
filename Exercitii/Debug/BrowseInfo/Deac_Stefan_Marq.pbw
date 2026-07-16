@@ -54120,58 +54120,30 @@
     "scope": null
   },
   {
-    "ID": "c:@timer_pornit",
+    "ID": "c:@numar_apasari",
     "What": "Variable",
     "defdec": "Def",
-    "display": "timer_pornit",
+    "display": "numar_apasari",
     "location": {
-      "column": "18",
-      "line": "6",
+      "column": "24",
+      "line": "5",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "timer_pornit",
+    "name": "numar_apasari",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@perioade",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "perioade",
-    "location": {
-      "column": "26",
-      "line": "7",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "perioade",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@BUTTON_PRESS",
+    "ID": "c:@F@input_capture_isr",
     "What": "Function",
     "defdec": "Def",
-    "display": "void BUTTON_PRESS(void)",
-    "location": {
-      "column": "20",
-      "line": "10",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-    },
-    "name": "BUTTON_PRESS",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@perioada",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void perioada(void)",
+    "display": "void input_capture_isr(void)",
     "location": {
       "column": "18",
-      "line": "23",
+      "line": "9",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
-    "name": "perioada",
+    "name": "input_capture_isr",
     "origin": "project_file",
     "scope": null
   },
@@ -54181,8 +54153,8 @@
     "defdec": "Def",
     "display": "void setup(void)",
     "location": {
-      "column": "8",
-      "line": "44",
+      "column": "6",
+      "line": "34",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -54195,8 +54167,8 @@
     "defdec": "Def",
     "display": "void main(void)",
     "location": {
-      "column": "8",
-      "line": "82",
+      "column": "6",
+      "line": "72",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
