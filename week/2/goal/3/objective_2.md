@@ -12,6 +12,7 @@
 | **[321]** | `CORE`    | [x] Completed 
 | **[322]** | `STRETCH` | [x] Completed 
 | **[323]** | `CORE`    | [x] Completed 
+| **[324]** | `STRETCH` | [x] Completed 
 
 --- 
 
