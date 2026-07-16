@@ -1,0 +1,41 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\Stefan\summer-internship\Exercitii\main.c -xcl_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl -macro_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = C$:\Users\Stefan\summer-internship\Exercitii\main.c -v3 --enhanced_core -ms -o C$:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\ -y --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.tmp
+  rspfile_name = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi : INDEXER C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl |  $
+C$:\Users\Stefan\summer-internship\Exercitii\main.c
+  flags = -out=C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi -f C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl
+
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbw : MAKEBROWSE C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd
+  flags = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd -output C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbw
+
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi
+  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi
+
