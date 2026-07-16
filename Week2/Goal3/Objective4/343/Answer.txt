@@ -1,0 +1,5 @@
+Table 16-3. Port A Pins Alternate Functions
+
+Port Pin        Alternate Functions
+PA4             ADC4 (ADC input channel 4)
+                PCINT4 (Pin Change Interrupt 4)

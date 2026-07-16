@@ -1,0 +1,2 @@
+With a faster clock the results become noisy and unstable.
+With the clock prescaled down to 125 kHZ (16 MHZ / 128), the results are stable and there is no flickering.

@@ -1,0 +1,1 @@
+To measure the current consumption of a circuit, we must place an ammeter in series with the power supply path.
