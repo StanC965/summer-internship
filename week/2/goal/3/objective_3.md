@@ -11,6 +11,7 @@
 | :---      | :---      | :---                    
 | **[331]** | `CORE`    | [x] Completed 
 | **[332]** | `CORE`    | [x] Completed 
+| **[333]** | `CORE`    | [x] Completed 
 
 --- 
 
@@ -107,6 +108,33 @@ void main(void)
 **`main.c`**
 ```c
  else if (!button_read(i) && button_pressed[i])
+```
+
+---
+
+#### Task 333
+> **Question/Prompt:** Add to the previous program the following behavior: when button SW0 is pressed then all LED X are off (no matter their current state on/off) and LED0 is on.
+
+> **Answer/Explanation:**
+> For this task I introduced the followin lines, which check if a button press came from SW0, and if yes, LEDs 1-3 are turned off, and LED0 is turned on:
+
+**`main.c`**
+```c
+        if (!button_read(i) && !button_pressed[i])
+        {
+          if (i == BUTTON_ONBOARD)
+          {
+            for (uint8_t j = BUTTON_OLED1_1; j <= BUTTON_OLED1_3; j++)
+            {
+              button_pressed[j] = 0;
+              led_power_off(button_to_led_map[j]);
+            }
+            button_pressed[i] = 1;
+            led_power_on(button_to_led_map[i]);
+            break;
+          }
+          button_pressed[i] = 1;
+          led_power_on(button_to_led_map[i]);
 ```
 
 ---
