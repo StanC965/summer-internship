@@ -9,15 +9,15 @@ __interrupt void TimerCTC(void)
    count++;
    
    
-   if(count >=0&& count <=14)   // 70% din 20 este high unde o divizie este 50 milisecunde deci 50*20 =1 sec
+   if((count >=0&& count <=4 )|| ( count>10&& count <=20)) 
    {
       led_Reset(LED_ZERO);   
        
    }
-   else if(count>14&&count<=20)   
+   else if((count>4&&count<=10 )||(count>20&&count<=24))   
      led_Set(LED_ZERO);
    
-   if(count>20)
+   if(count>24)
      count=0;
    
 }

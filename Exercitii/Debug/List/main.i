@@ -750,15 +750,15 @@ __interrupt void TimerCTC(void)
    count++;
    
    
-   if(count >=0&& count <=14)
+   if((count >=0&& count <=4 )|| ( count>10&& count <=20)) 
    {
       led_Reset((0xAA));   
        
    }
-   else if(count>14&&count<=20)   
+   else if((count>4&&count<=10 )||(count>20&&count<=24))   
      led_Set((0xAA));
    
-   if(count>20)
+   if(count>24)
      count=0;
    
 }
