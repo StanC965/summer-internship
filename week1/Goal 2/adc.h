@@ -7,6 +7,7 @@ __interrupt void Conversie(void);
 #define SensorL 7
 #define SensorH 252
 
+#define MID (SensorH-SensorL)/2
 
 extern volatile unsigned char conver;
 void ADC_init();
@@ -19,3 +20,4 @@ void Disable_ADC();
 void Start_Conversion();
 void InterruptADC();
 void Led_on_sensor();
+void light_read();

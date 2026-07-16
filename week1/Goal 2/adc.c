@@ -37,8 +37,30 @@ __interrupt void Conversie(void){
  conver = ADCH;
 }
 void Led_on_sensor(){
-  if(conver>(SensorH-SensorL)/2){
+  if(conver>MID){
       led0_set_state(ON);}
    else
      led0_set_state(OFF);
+}
+void light_read(){
+    //semi-light
+  if(conver<MID){
+    LedOff(&PORTA,PIN3);
+    //full-light
+    if(conver<MID/2)
+    LedOn(&PORTA,PIN3);
+    
+    LedOn(&PORTD,PIN5);
+    LedOn(&PORTD,PIN4);
+ }
+ //full-dark
+  else{
+    LedOff(&PORTD,PIN5);
+    //semi-dark
+    if(conver<MID+MID/2)
+    LedOn(&PORTD,PIN5);
+    
+    LedOff(&PORTA,PIN3);
+    LedOff(&PORTD,PIN4);
+  }
 }
