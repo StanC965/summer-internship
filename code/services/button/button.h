@@ -10,6 +10,26 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/** \brief  Module specific constant number zero */
+#define BUTTON_ONBOARD_PIN             6
+
+/** \brief  Module specific constant number one */
+#define BUTTON_ONBOARD_PCIE            2
+
+/** \brief  Module specific constant number two */
+#define BUTTON_ONBOARD_PCINT_PIN       6
+
+/** \brief  Module specific constant number three */
+#define BUTTON_OLED1_1_PIN             1
+
+/** \brief  Module specific constant number four */
+#define BUTTON_OLED1_2_PIN             0
+
+/** \brief  Module specific constant number five */
+#define BUTTON_OLED1_3_PIN             1
+
+
 /** \brief  Button configuration structure */
 typedef struct
 {

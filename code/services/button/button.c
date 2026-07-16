@@ -15,12 +15,12 @@
 
 static const button_config_t button_table[BUTTON_COUNT] = {
     // ATmega328P onboard button
-    {&DDRC, &PORTC, &PINC, 6},
+    {&DDRC, &PORTC, &PINC, BUTTON_ONBOARD_PIN},
 
     // OLED1 buttons
-    {&DDRC, &PORTC, &PINC, 1},
-    {&DDRA, &PORTA, &PINA, 0},
-    {&DDRA, &PORTA, &PINA, 1},
+    {&DDRC, &PORTC, &PINC, BUTTON_OLED1_1_PIN},
+    {&DDRA, &PORTA, &PINA, BUTTON_OLED1_2_PIN},
+    {&DDRA, &PORTA, &PINA, BUTTON_OLED1_3_PIN},
 };
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -55,8 +55,8 @@ uint8_t button_read(button_id_t button_id)
 
 void button_onboard_init_interrupt(void)
 {
-    gpio_set_pin(&PCICR, 2);
-    gpio_set_pin(&PCMSK2, 6);
+    gpio_set_pin(&PCICR, BUTTON_ONBOARD_PCIE);
+    gpio_set_pin(&PCMSK2, BUTTON_ONBOARD_PCINT_PIN);
 }
 
 #endif /* BUTTON_C */
