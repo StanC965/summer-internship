@@ -5,42 +5,45 @@
 #include "delay.h"
 #include <intrinsics.h>
 
-extern volatile uint8_t button_event_detected;
-volatile uint8_t sos_active = 0;
+extern volatile uint8_t button_event_detected[BUTTON_COUNT];
+static uint8_t button_pressed[BUTTON_COUNT] = {0};
+// volatile uint8_t sos_active = 0;
+
+static const led_id_t button_to_led_map[BUTTON_COUNT] = {
+    [BUTTON_ONBOARD] = LED_ONBOARD,
+    [BUTTON_OLED1_1] = LED_OLED1_1,
+    [BUTTON_OLED1_2] = LED_OLED1_2,
+    [BUTTON_OLED1_3] = LED_OLED1_3};
 
 void main(void)
 {
   led_init();
   button_init();
-  button_enable_pullup(BUTTON_ONBOARD);
-  button_onboard_init_interrupt();
-  __enable_interrupt(); 
+  button_init_interrupt();
+
+  __enable_interrupt();
 
   while (1)
   {
-    if (button_event_detected)
+    for (uint8_t i = BUTTON_OLED1_1; i <= BUTTON_OLED1_3; i++)
     {
-      button_event_detected = 0;
-
-      delay(10 * MILISECOND);
-
-      if (!button_read(BUTTON_ONBOARD))
+      if (button_event_detected[i])
       {
-        sos_active = !sos_active;
+        button_event_detected[i] = 0;
 
-        if (!sos_active)
+        delay(10 * MILISECOND);
+
+        if (!button_read(i) && !button_pressed[i])
         {
-          led_power_off(LED_ONBOARD);
+          button_pressed[i] = 1;
+          led_power_on(button_to_led_map[i]);
         }
-        while (!button_read(BUTTON_ONBOARD))
+        else
         {
-          delay(10 * MILISECOND);
+          button_pressed[i] = 0;
+          led_power_off(button_to_led_map[i]);
         }
       }
-    }
-    if (sos_active)
-    {
-      sos_update(LED_ONBOARD);
     }
     delay(1 * MILISECOND);
   }
