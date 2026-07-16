@@ -59,6 +59,16 @@ typedef struct
     uint8_t pin;
 } button_config_t;
 
+/** \brief  Button interrupt configuration structure */
+typedef struct
+{
+    volatile uint8_t *pcint_register;
+    uint8_t pcint_enable_bit;
+    volatile uint8_t *pcmsk_register;
+    uint8_t pcint_pin;
+} button_int_config_t;
+
+
 /** \brief  Button identifier type */
 typedef enum
 {
@@ -88,18 +98,6 @@ typedef enum
 */
 extern void button_init(void);
 
-/** \fn     void button_enable_pullup(button_id_t button_id)
-
-    \brief      [ Enables the pull-up resistor for the specified button. ]
-    \param[in]  button_id [ the button identifier ]
-    \param[out] [ None ]
-    \return     [ None ]
-    \details    [ This function enables the pull-up resistor for the 
-                 specified button by setting the corresponding bit in 
-                 the port register. ]
-*/
-extern void button_enable_pullup(button_id_t button_id);
-
 /** \fn     uint8_t button_read(button_id_t button_id)
 
     \brief      [ Reads the state of the specified button. ]
@@ -111,48 +109,16 @@ extern void button_enable_pullup(button_id_t button_id);
 */
 extern uint8_t button_read(button_id_t button_id);
 
-/** \fn     void button_onboard_init_interrupt(void)
+/** \fn     void button_init_interrupt(void)
 
-    \brief      [ Initializes the interrupt for the onboard button. ]
+    \brief      [ Initializes interrupts for the button module. ]
     \param[in]  [ None ]
     \param[out] [ None ]
     \return     [ None ]
-    \details    [ This function initializes the interrupt for the onboard button
+    \details    [ This function initializes the interrupts for all buttons
                   by setting the appropriate bits in the interrupt control registers. ]
 */
-extern void button_onboard_init_interrupt(void);
+extern void button_init_interrupt(void);
 
-/** \fn     void button_oled1_1_init_interrupt(void)
-
-    \brief      [ Initializes the interrupt for the OLED1 button 1. ]
-    \param[in]  [ None ]
-    \param[out] [ None ]
-    \return     [ None ]
-    \details    [ This function initializes the interrupt for the OLED1 button 1
-                  by setting the appropriate bits in the interrupt control registers. ]
-*/
-extern void button_oled1_1_init_interrupt(void);
-
-/** \fn     void button_oled1_2_init_interrupt(void)
-
-    \brief      [ Initializes the interrupt for the OLED button 2. ]
-    \param[in]  [ None ]
-    \param[out] [ None ]
-    \return     [ None ]
-    \details    [ This function initializes the interrupt for the OLED1 button 2
-                  by setting the appropriate bits in the interrupt control registers. ]
-*/
-extern void button_oled1_2_init_interrupt(void);
-
-/** \fn     void button_oled1_3_init_interrupt(void)
-
-    \brief      [ Initializes the interrupt for the OLED1 button 3. ]
-    \param[in]  [ None ]
-    \param[out] [ None ]
-    \return     [ None ]
-    \details    [ This function initializes the interrupt for the OLED1 button 3
-                  by setting the appropriate bits in the interrupt control registers. ]
-*/
-extern void button_oled1_3_init_interrupt(void);
 
 #endif /* BUTTON_H */
