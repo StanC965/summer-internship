@@ -25,6 +25,27 @@
 /** \brief  Module specific constant number six */
 #define LED_IO1_PIN                 3
 
+/** \brief  Module specific constant number seven */
+#define LED_BLINKS_FAST             12
+
+/** \brief  Module specific constant number eight */
+#define LED_BLINKS_SLOW             2
+
+/** \brief  Module specific constant number nine */
+#define LED_BLINK_SLOW_ON_TIME      4
+
+/** \brief  Module specific constant number ten */
+#define LED_BLINK_SLOW_OFF_TIME     4
+
+/** \brief  Module specific constant number eleven */
+#define LED_BLINKS_FAST             5
+
+/** \brief  Module specific constant number twelve */
+#define LED_BLINK_FAST_ON_TIME      12
+
+/** \brief  Module specific constant number thirteen */
+#define LED_BLINK_FAST_OFF_TIME     12
+
 /** \brief  LED configuration structure */
 typedef struct
 {

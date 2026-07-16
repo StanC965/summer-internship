@@ -67,13 +67,13 @@ void led_blink_fast(led_id_t led_id)
 {
     if (led_id < LED_COUNT)
     {
-        for (uint8_t i = 0; i < 5; i++)
+        for (uint8_t i = 0; i < LED_BLINKS_FAST; i++)
         {
             led_power_on(led_id);
-            delay(SECOND / 12);
+            delay(SECOND / LED_BLINKS_FAST_ON_TIME);
 
             led_power_off(led_id);
-            delay(SECOND / 12);
+            delay(SECOND / LED_BLINKS_FAST_OFF_TIME);
         }
     }
 }
@@ -82,13 +82,13 @@ void led_blink_slow(led_id_t led_id)
 {
     if (led_id < LED_COUNT)
     {
-        for (uint8_t i = 0; i < 2; i++)
+        for (uint8_t i = 0; i < LED_BLINK_SLOW; i++)
         {
             led_power_on(led_id);
-            delay(SECOND / 4);
+            delay(SECOND / LED_BLINK_SLOW_ON_TIME);
 
             led_power_off(led_id);
-            delay(SECOND / 4);
+            delay(SECOND / LED_BLINK_SLOW_OFF_TIME);
         }
     }
 }
