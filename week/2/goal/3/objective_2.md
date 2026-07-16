@@ -10,6 +10,7 @@
 | Task ID   | Type      | Status 
 | :---      | :---      | :---                    
 | **[321]** | `CORE`    | [x] Completed 
+| **[322]** | `STRETCH` | [x] Completed 
 
 --- 
 
@@ -28,3 +29,5 @@ set_direction(PORT_B, PIN_NUMBER_7, OUTPUT);
 
 > **Answer/Explanation:**
 > 
+
+---
