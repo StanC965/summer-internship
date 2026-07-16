@@ -51006,7 +51006,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "25",
+      "line": "20",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -51020,7 +51020,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "51",
+      "line": "47",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",

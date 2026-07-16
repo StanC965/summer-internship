@@ -3,23 +3,18 @@
 #include "led.h" 
 
 //volatile unsigned char count=20;
-#pragma vector=TIMER0_COMPA_vect
-__interrupt void TimerCTC(void)   // la 436 se cere  400 ms cu 50/50 duty cycle   pai atunci o sa modific top-ul prin prescale sa fie de 200 ms si dau toggle din 200 in 200
-{                                       //astfel perioada e de 200 +200 adica 400 si duty cycle de 50%
-   //count++;
-    
-   
-   //if((count >=0&& count <=4 )|| ( count>10&& count <=20)) 
-   //{
-      led_TOGGLE(LED_ZERO);   
-       
-  // }
-  // else if((count>4&&count<=10 )||(count>20&&count<=24))   
-    // led_Set(LED_ZERO);
-   
-  // if(count>24)
-//count=0;
-   //
+#pragma vector=TIMER1_COMPA_vect
+__interrupt void TimerCTC(void)   
+{ 
+  /*
+  regula de trei simpla : 975 .... 1 secunda
+                           X ...... 0.7 secunde => x=975*0.7/1=682.5 => daca 975.56 .... 1 secunda 
+                                                                              682 .........x secunde  x=682/975.56=0.699085653368322 neglijabil
+  */
+ 
+    led_Reset(LED_ZERO);
+  
+  
 }
 
 void setup(void)
@@ -33,16 +28,17 @@ void setup(void)
     
 
 
-    gpio_set_pin(&TCCR0A,3);
-    gpio_set_pin(&TCCR0A,6);  //toggle OC0A on Compare Match.
-    gpio_set_pin(&TCCR0B,0);// Prescaler 1024 
-    gpio_set_pin(&TCCR0B,2);//1024
-    gpio_set_pin(&TCCR0B,3);//fast pwm
-    TCNT0 = 0;  
-    OCR0A =194; //  194.3125 pentru 50 ms   deci 194 va fi 49.91 care e neglijabil.
+    gpio_set_pin(&TCCR1A,0);//fast pwm
+    gpio_set_pin(&TCCR1A,1);  //fast pwm
+    gpio_set_pin(&TCCR1B,3);// FASTPWM
+    gpio_set_pin(&TCCR1B,2);//1024
+    gpio_set_pin(&TCCR1B,0);//1024
+    gpio_set_pin(&TCCR1B,4);//fast pwm
+    TCNT1 = 0;  
+    OCR1A =975; // 975.56 pentru o secunda fix  => pentru 975 o sa fie 0.999425970724507 secunde o diferenta neglijabila
     
-    
-    TIMSK0 |= (1 <<1); 
+    gpio_set_pin(&TIMSK1,0); //TOIE1
+    gpio_set_pin(&TIMSK1,1); //OCIE1A
     
     ////// INTRERUPERI GLOBALE ///////
     gpio_set_pin(&SREG, 7);
@@ -54,6 +50,7 @@ void main(void)
                                                 
     while(1)    
     {
-       
-    }
+        if(TCNT1 >= 682)
+    led_Set(LED_ZERO);
+    }   
 }

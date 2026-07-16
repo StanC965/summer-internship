@@ -744,23 +744,18 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
 
-#pragma vector=(0x40)
-__interrupt void TimerCTC(void)
-{
-   
-    
-   
-   
-   
-      led_TOGGLE((0xAA));   
-       
-  
-  
-    
-   
+#pragma vector=(0x34)
+__interrupt void TimerCTC(void)   
+{ 
   
 
-   
+
+
+ 
+ 
+    led_Reset((0xAA));
+  
+  
 }
 
 void setup(void)
@@ -774,16 +769,17 @@ void setup(void)
     
 
 
-    gpio_set_pin(&TCCR0A,3);
-    gpio_set_pin(&TCCR0A,6);  
-    gpio_set_pin(&TCCR0B,0);
-    gpio_set_pin(&TCCR0B,2);
-    gpio_set_pin(&TCCR0B,3);
-    TCNT0 = 0;  
-    OCR0A =194; 
+    gpio_set_pin(&TCCR1A,0);
+    gpio_set_pin(&TCCR1A,1);  
+    gpio_set_pin(&TCCR1B,3);
+    gpio_set_pin(&TCCR1B,2);
+    gpio_set_pin(&TCCR1B,0);
+    gpio_set_pin(&TCCR1B,4);
+    TCNT1 = 0;  
+    OCR1A =975; 
     
-    
-    TIMSK0 |= (1 <<1); 
+    gpio_set_pin(&TIMSK1,0); 
+    gpio_set_pin(&TIMSK1,1); 
     
     
     gpio_set_pin(&SREG, 7);
@@ -795,6 +791,7 @@ void main(void)
                                                 
     while(1)    
     {
-       
-    }
+        if(TCNT1 >= 682)
+    led_Set((0xAA));
+    }   
 }
