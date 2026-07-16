@@ -12,6 +12,7 @@
 | **[331]** | `CORE`    | [x] Completed 
 | **[332]** | `CORE`    | [x] Completed 
 | **[333]** | `CORE`    | [x] Completed 
+| **[334]** | `CORE`    | [x] Completed 
 
 --- 
 
@@ -135,6 +136,82 @@ void main(void)
           }
           button_pressed[i] = 1;
           led_power_on(button_to_led_map[i]);
+```
+
+---
+
+#### Task 334
+> **Question/Prompt:** Your customer, BMW, has requested to implement a prototype for a central control panel in the car.
+> REQUIREMENTS:
+> 
+> The HVAC vents are positioned to blow the AC in 3 directions: left, central and right. Each vent has its corresponding control button and LED for visual confirmation to the driver about the enabled function of that particular vent. They are the buttons and LEDs on OLED1 board. Each button push will toggle the function of the corresponding vent and will toggle accordingly also the corresponding LED. No crosstalks are allowed.
+> 
+> For comfort security BMW has requested that an additional button, SW0, called master control, when it is pushed to block the function of the entire control panel. The BLOCKED state of the control panel will be implemented as follows:
+> 
+> - LED0 on ATmega324PB main board is activated
+> - pushing on OLED1 buttons will have no effect on vent and LED indicators from OLED1 (they stay OFF)
+> - pushing on any OLED1 button will fast blink the LED0 indicating that the panel is blocked
+> To unblock the panel it is needed to push the SW0 master control again (and the normal functionality is re-established).
+
+> **Answer/Explanation:**
+> For this task I implemented a new module called hvac control. The main control loop features the requested functionalities:
+
+**`hvac_control.c`**
+```c
+void hvac_control_process(void)
+{
+    if (button_event_detected[BUTTON_ONBOARD])
+    {
+        button_event_detected[BUTTON_ONBOARD] = 0;
+        delay(10 * MILISECOND);
+
+        if (!button_read(BUTTON_ONBOARD) && !button_pressed[BUTTON_ONBOARD])
+        {
+            button_pressed[BUTTON_ONBOARD] = 1;
+            hvac_state = STATE_BLOCKED;
+            led_power_on(button_to_led_map[BUTTON_ONBOARD]);
+            turn_off_all_vents();
+        }
+        else if (!button_read(BUTTON_ONBOARD) && button_pressed[BUTTON_ONBOARD])
+        {
+            button_pressed[BUTTON_ONBOARD] = 0;
+            hvac_state = STATE_NORMAL;
+            led_power_off(button_to_led_map[BUTTON_ONBOARD]);
+        }
+    }
+    for (uint8_t i = BUTTON_OLED1_1; i <= BUTTON_OLED1_3; i++)
+    {
+        if (button_event_detected[i])
+        {
+            button_event_detected[i] = 0;
+
+            delay(10 * MILISECOND);
+
+            if (!button_read(i))
+            {
+                if (hvac_state == STATE_BLOCKED)
+                {
+                    led_blink_fast(button_to_led_map[BUTTON_ONBOARD]);
+                    
+                    led_power_on(button_to_led_map[BUTTON_ONBOARD]);
+                }
+                else if (hvac_state == STATE_NORMAL)
+                {
+                    if (!button_pressed[i])
+                    {
+                        button_pressed[i] = 1;
+                        led_power_on(button_to_led_map[i]);
+                    }
+                    else if (button_pressed[i])
+                    {
+                        button_pressed[i] = 0;
+                        led_power_off(button_to_led_map[i]);
+                    }
+                }
+            }
+        }
+    }
+}
 ```
 
 ---
