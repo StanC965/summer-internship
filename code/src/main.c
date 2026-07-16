@@ -38,7 +38,7 @@ void main(void)
           button_pressed[i] = 1;
           led_power_on(button_to_led_map[i]);
         }
-        else
+        else if (button_read(i) && button_pressed[i])
         {
           button_pressed[i] = 0;
           led_power_off(button_to_led_map[i]);
