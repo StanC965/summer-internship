@@ -2,15 +2,23 @@
 #include "gpio.h" 
 #include "led.h" 
 
-
+volatile unsigned char count=20;
 #pragma vector=TIMER0_COMPA_vect
 __interrupt void TimerCTC(void)
 {
+   count++;
    
    
-      led_TOGGLE(LED_ZERO);   
-      
-
+   if(count >=0&& count <=14)   // 70% din 20 este high unde o divizie este 50 milisecunde deci 50*20 =1 sec
+   {
+      led_Reset(LED_ZERO);   
+       
+   }
+   else if(count>14&&count<=20)   
+     led_Set(LED_ZERO);
+   
+   if(count>20)
+     count=0;
    
 }
 

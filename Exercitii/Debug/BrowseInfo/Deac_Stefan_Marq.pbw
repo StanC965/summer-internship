@@ -50986,6 +50986,20 @@
     "scope": null
   },
   {
+    "ID": "c:@count",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "count",
+    "location": {
+      "column": "24",
+      "line": "5",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+    },
+    "name": "count",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@TimerCTC",
     "What": "Function",
     "defdec": "Def",
@@ -51006,7 +51020,7 @@
     "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "17",
+      "line": "25",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "setup",
@@ -51020,7 +51034,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "42",
+      "line": "50",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
     },
     "name": "main",
