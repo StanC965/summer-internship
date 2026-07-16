@@ -10,6 +10,7 @@
 | Task ID   | Type      | Status 
 | :---      | :---      | :---                    
 | **[331]** | `CORE`    | [x] Completed 
+| **[332]** | `CORE`    | [x] Completed 
 
 --- 
 
@@ -46,7 +47,7 @@ __interrupt void button_portc_routine(void)
 
 > 
 
-**`interrupts.c`**
+**`main.c`**
 ```c
 extern volatile uint8_t button_event_detected[BUTTON_COUNT];
 static uint8_t button_pressed[BUTTON_COUNT] = {0};
@@ -93,6 +94,19 @@ void main(void)
   }
 }
 
+```
+
+---
+
+#### Task 332
+> **Question/Prompt:** Modify your program so that when pressing button X on OLED1 a second time (X=1,2,3), only then LED X is off.
+
+> **Answer/Explanation:**
+> For this task I only changed the following line, which checks for second button press:
+
+**`main.c`**
+```c
+ else if (!button_read(i) && button_pressed[i])
 ```
 
 ---
