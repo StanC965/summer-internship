@@ -1,0 +1,38 @@
+423 — CORE — Do the math calculations for minimum and maximum of real time you can natively measure with NORMAL MODE until overflow, all prescalers considered. It is a combination of:
+
+HOW FAST timer can count: system clock frequency (1MHz) with prescaler (1, 8, ..., 1024) results in the counting frequency
+HOW MUCH timer can count: TC0 maximum value for overflow (0xFF)
+MIN => _ MAX => _
+
+How can you extend the maximum real time measured in NORMAL MODE? (<<< your answer here)
+
+
+ANSWER:exista mai multe prescale-uri:
+0(no clock source),1,8,64,256,1024
+
+formula pentru a calcula timpul maxim avem Tmax=Tclock* N * 2^8  
+unde Tclock este perioada ceasului microcontroller-ului,
+N este prescale,
+2^8 reprezinta valoarea maxima pe care o poate avea registrul de numarare.256
+
+Pentru Tclock momentan avem 1Mhz ,initial a fost 8Mhz;
+
+pentru prescale cea mai mare valoare este 1024:
+deci avem Tmax=1/1000000 *1*2^8*1024=1*2^8*1024/10^7 =0.262144
+=> timpul maxim este 262 milisecunde 
+
+timpul minim il putem determina prin prescale=1 :
+
+Tmin=1*2^8*1/10^7= 0.000256=>256 microsecunde
+
+MIN => 256 microsecunde MAX => 262 milisecunde 
+
+Pentru a extinde timpul maxim am putea folosi mai multe metode:
+
+1. un al doilea timer care la un anumit interval 
+de timp sa apeleze rutina de tratare a intreruperii in  care incrementeaza contorul 
+de la timer-ul 1,astfel putem mari cu mult timpul maxim
+
+2.un timer e 16 biti in loc de 8 biti
+
+3.un prescaler mai mare daca este disponibil
