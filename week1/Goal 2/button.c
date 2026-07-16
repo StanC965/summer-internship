@@ -22,6 +22,12 @@ __interrupt void Button3(void)
   
 }
 
+void btn_init(){
+   PCMSK0=0x03;
+   PCMSK2=0x42;
+   PCICR =0x05;
+   SREG_I=1;
+}
 
 void PressToSos(){
   if(btn0==1){

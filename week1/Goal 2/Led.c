@@ -1,5 +1,13 @@
 #include "Led.h"
 
+void led_init(){
+   DDRD=Led1+Led2;
+   DDRA=0x08;
+   DDRC=0x80;
+   PORTC=0x80;
+   PORTA=0xff;
+   PORTD=0xff;
+}
 
 void LedOn(volatile unsigned char *reg,PIN_Number pin){
   reset_pin(reg,pin);

@@ -13,3 +13,4 @@ __interrupt void Button3(void);
 void PressToSos();
 void SosStop();
 void ButtonPlay();
+void btn_init();

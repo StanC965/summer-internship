@@ -1,3 +1,4 @@
+#pragma once
 typedef enum{
 PIN0=0,
 PIN1=1,
