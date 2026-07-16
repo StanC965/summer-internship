@@ -2,15 +2,16 @@
 #include "gpio.h" 
 #include "led.h" 
 
-volatile unsigned char on=0;
+
 #pragma vector=TIMER0_COMPA_vect
 __interrupt void TimerCTC(void)
 {
+   
+   
+      led_TOGGLE(LED_ZERO);   
+      
 
-      if(on!=0)
-      led_TOGGLE(LED_ZERO);   //
-    on++;
-  
+   
 }
 
 void setup(void)
@@ -18,18 +19,18 @@ void setup(void)
     
     leds_initialize(1, 0, 0, 0, 1);  
     
-    // Stingem ledurile (active low)
+    
     led_Set(LED_FOUR);
     led_Set(LED_ZERO);
     
 
 
-    
-    TCCR0A = 2; // Modul CTC
-    TCCR0A|=1<<6; //toggle OC0A on Compare Match.
-    TCCR0B = 5; // Prescaler 1024
+    gpio_set_pin(&TCCR0A,3);
+    gpio_set_pin(&TCCR0A,6);  //toggle OC0A on Compare Match.
+    gpio_set_pin(&TCCR0B,2);// Prescaler 256 
+    gpio_set_pin(&TCCR0B,3);//fast pwm
     TCNT0 = 0;  
-    OCR0A = 127; // Pentru 1 MHz / 1024 => 130 ms
+    OCR0A =194; //  194.3125 pentru 50 ms   deci 194 va fi 49.91 care e neglijabil.
     
     
     TIMSK0 |= (1 <<1); 
