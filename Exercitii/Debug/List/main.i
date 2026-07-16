@@ -743,23 +743,23 @@ extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipi
 
 #line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
 
-volatile unsigned char count=20;
+
 #pragma vector=(0x40)
 __interrupt void TimerCTC(void)
 {
-   count++;
+   
+    
    
    
-   if((count >=0&& count <=4 )|| ( count>10&& count <=20)) 
-   {
-      led_Reset((0xAA));   
+   
+      led_TOGGLE((0xAA));   
        
-   }
-   else if((count>4&&count<=10 )||(count>20&&count<=24))   
-     led_Set((0xAA));
+  
+  
+    
    
-   if(count>24)
-     count=0;
+  
+
    
 }
 
@@ -776,6 +776,7 @@ void setup(void)
 
     gpio_set_pin(&TCCR0A,3);
     gpio_set_pin(&TCCR0A,6);  
+    gpio_set_pin(&TCCR0B,0);
     gpio_set_pin(&TCCR0B,2);
     gpio_set_pin(&TCCR0B,3);
     TCNT0 = 0;  
