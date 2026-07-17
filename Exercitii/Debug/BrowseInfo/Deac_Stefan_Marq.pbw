@@ -51210,13 +51210,69 @@
     "scope": null
   },
   {
+    "ID": "c:timer.h@1566@macro@PERIOD_OF_50MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_50MS",
+    "location": {
+      "column": "9",
+      "line": "46",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
+    },
+    "name": "PERIOD_OF_50MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:timer.h@1647@macro@PERIOD_OF_100MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_100MS",
+    "location": {
+      "column": "9",
+      "line": "49",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
+    },
+    "name": "PERIOD_OF_100MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:timer.h@1730@macro@PERIOD_OF_500MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_500MS",
+    "location": {
+      "column": "9",
+      "line": "52",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
+    },
+    "name": "PERIOD_OF_500MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:timer.h@1814@macro@PERIOD_OF_1000MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_1000MS",
+    "location": {
+      "column": "9",
+      "line": "55",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
+    },
+    "name": "PERIOD_OF_1000MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:@F@TIMER1_INIT_10ms",
     "What": "Function",
     "defdec": "Dec",
     "display": "void TIMER1_INIT_10ms(void)",
     "location": {
       "column": "13",
-      "line": "60",
+      "line": "69",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "TIMER1_INIT_10ms",
@@ -51230,7 +51286,7 @@
     "display": "void TIMER1_INIT_10ms(void)",
     "location": {
       "column": "13",
-      "line": "60",
+      "line": "69",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "TIMER1_INIT_10ms",
@@ -51244,7 +51300,7 @@
     "display": "void timer_Prescale_0_TC1(void)",
     "location": {
       "column": "13",
-      "line": "70",
+      "line": "79",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_0_TC1",
@@ -51258,7 +51314,7 @@
     "display": "void timer_Prescale_0_TC1(void)",
     "location": {
       "column": "13",
-      "line": "70",
+      "line": "79",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_0_TC1",
@@ -51272,7 +51328,7 @@
     "display": "void timer_Prescale_1_TC1(void)",
     "location": {
       "column": "13",
-      "line": "80",
+      "line": "89",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_1_TC1",
@@ -51286,7 +51342,7 @@
     "display": "void timer_Prescale_1_TC1(void)",
     "location": {
       "column": "13",
-      "line": "80",
+      "line": "89",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_1_TC1",
@@ -51300,7 +51356,7 @@
     "display": "void timer_Prescale_8_TC1(void)",
     "location": {
       "column": "13",
-      "line": "90",
+      "line": "99",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_8_TC1",
@@ -51314,7 +51370,7 @@
     "display": "void timer_Prescale_8_TC1(void)",
     "location": {
       "column": "13",
-      "line": "90",
+      "line": "99",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_8_TC1",
@@ -51328,7 +51384,7 @@
     "display": "void timer_Prescale_64_TC1(void)",
     "location": {
       "column": "13",
-      "line": "100",
+      "line": "109",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_64_TC1",
@@ -51342,7 +51398,7 @@
     "display": "void timer_Prescale_64_TC1(void)",
     "location": {
       "column": "13",
-      "line": "100",
+      "line": "109",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_64_TC1",
@@ -51356,7 +51412,7 @@
     "display": "void timer_Prescale_256_TC1(void)",
     "location": {
       "column": "13",
-      "line": "110",
+      "line": "119",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_256_TC1",
@@ -51370,7 +51426,7 @@
     "display": "void timer_Prescale_256_TC1(void)",
     "location": {
       "column": "13",
-      "line": "110",
+      "line": "119",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_256_TC1",
@@ -51384,7 +51440,7 @@
     "display": "void timer_Prescale_1024_TC1(void)",
     "location": {
       "column": "13",
-      "line": "121",
+      "line": "130",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_1024_TC1",
@@ -51398,7 +51454,7 @@
     "display": "void timer_Prescale_1024_TC1(void)",
     "location": {
       "column": "13",
-      "line": "121",
+      "line": "130",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "timer_Prescale_1024_TC1",
@@ -51412,7 +51468,7 @@
     "display": "_Bool Timer1_ales_exact_8Mhz(float)",
     "location": {
       "column": "14",
-      "line": "132",
+      "line": "141",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "Timer1_ales_exact_8Mhz",
@@ -51426,7 +51482,7 @@
     "display": "_Bool Timer1_ales_exact_8Mhz(float)",
     "location": {
       "column": "14",
-      "line": "132",
+      "line": "141",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "Timer1_ales_exact_8Mhz",
@@ -51440,7 +51496,7 @@
     "display": "void Timer1_ales_aprox_8Mhz(float)",
     "location": {
       "column": "13",
-      "line": "143",
+      "line": "152",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "Timer1_ales_aprox_8Mhz",
@@ -51454,7 +51510,7 @@
     "display": "void Timer1_ales_aprox_8Mhz(float)",
     "location": {
       "column": "13",
-      "line": "143",
+      "line": "152",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
     },
     "name": "Timer1_ales_aprox_8Mhz",
@@ -51510,7 +51566,7 @@
     "display": "void Time_interval(void)",
     "location": {
       "column": "18",
-      "line": "23",
+      "line": "15",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "Time_interval",
@@ -51524,7 +51580,7 @@
     "display": "void Timer1_ales_aprox_8Mhz(float)",
     "location": {
       "column": "6",
-      "line": "28",
+      "line": "20",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "Timer1_ales_aprox_8Mhz",
@@ -51532,13 +51588,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@991@F@Timer1_ales_aprox_8Mhz@sequence",
+    "ID": "c:timer.c@842@F@Timer1_ales_aprox_8Mhz@sequence",
     "What": "Variable",
     "defdec": "Def",
     "display": "sequence",
     "location": {
       "column": "9",
-      "line": "40",
+      "line": "32",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "sequence",
@@ -51546,13 +51602,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1037@F@Timer1_ales_aprox_8Mhz@sequence_of_OCR1A_values",
+    "ID": "c:timer.c@888@F@Timer1_ales_aprox_8Mhz@sequence_of_OCR1A_values",
     "What": "Variable",
     "defdec": "Def",
     "display": "sequence_of_OCR1A_values",
     "location": {
       "column": "11",
-      "line": "41",
+      "line": "33",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "sequence_of_OCR1A_values",
@@ -51560,13 +51616,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1077@F@Timer1_ales_aprox_8Mhz@difference_of_OCR1A_values",
+    "ID": "c:timer.c@928@F@Timer1_ales_aprox_8Mhz@difference_of_OCR1A_values",
     "What": "Variable",
     "defdec": "Def",
     "display": "difference_of_OCR1A_values",
     "location": {
       "column": "11",
-      "line": "42",
+      "line": "34",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "difference_of_OCR1A_values",
@@ -51574,13 +51630,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1135@F@Timer1_ales_aprox_8Mhz@i",
+    "ID": "c:timer.c@986@F@Timer1_ales_aprox_8Mhz@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "45",
+      "line": "37",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "i",
@@ -51588,13 +51644,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1183@F@Timer1_ales_aprox_8Mhz@OCR1A_value",
+    "ID": "c:timer.c@1034@F@Timer1_ales_aprox_8Mhz@OCR1A_value",
     "What": "Variable",
     "defdec": "Def",
     "display": "OCR1A_value",
     "location": {
       "column": "15",
-      "line": "48",
+      "line": "40",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "OCR1A_value",
@@ -51602,13 +51658,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1435@F@Timer1_ales_aprox_8Mhz@fraction",
+    "ID": "c:timer.c@1286@F@Timer1_ales_aprox_8Mhz@fraction",
     "What": "Variable",
     "defdec": "Def",
     "display": "fraction",
     "location": {
       "column": "19",
-      "line": "56",
+      "line": "48",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "fraction",
@@ -51616,13 +51672,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1795@F@Timer1_ales_aprox_8Mhz@min_diff",
+    "ID": "c:timer.c@1646@F@Timer1_ales_aprox_8Mhz@min_diff",
     "What": "Variable",
     "defdec": "Def",
     "display": "min_diff",
     "location": {
       "column": "11",
-      "line": "72",
+      "line": "64",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "min_diff",
@@ -51630,13 +51686,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1827@F@Timer1_ales_aprox_8Mhz@index_min",
+    "ID": "c:timer.c@1678@F@Timer1_ales_aprox_8Mhz@index_min",
     "What": "Variable",
     "defdec": "Def",
     "display": "index_min",
     "location": {
       "column": "9",
-      "line": "73",
+      "line": "65",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "index_min",
@@ -51644,13 +51700,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@1862@F@Timer1_ales_aprox_8Mhz@i",
+    "ID": "c:timer.c@1713@F@Timer1_ales_aprox_8Mhz@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "75",
+      "line": "67",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "i",
@@ -51664,7 +51720,7 @@
     "display": "_Bool Timer1_ales_exact_8Mhz(float)",
     "location": {
       "column": "7",
-      "line": "97",
+      "line": "89",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "Timer1_ales_exact_8Mhz",
@@ -51672,13 +51728,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@2680@F@Timer1_ales_exact_8Mhz@sequence",
+    "ID": "c:timer.c@2531@F@Timer1_ales_exact_8Mhz@sequence",
     "What": "Variable",
     "defdec": "Def",
     "display": "sequence",
     "location": {
       "column": "9",
-      "line": "110",
+      "line": "102",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "sequence",
@@ -51686,13 +51742,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@2735@F@Timer1_ales_exact_8Mhz@i",
+    "ID": "c:timer.c@2586@F@Timer1_ales_exact_8Mhz@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "112",
+      "line": "104",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "i",
@@ -51700,13 +51756,13 @@
     "scope": null
   },
   {
-    "ID": "c:timer.c@2783@F@Timer1_ales_exact_8Mhz@OCR1A_value",
+    "ID": "c:timer.c@2634@F@Timer1_ales_exact_8Mhz@OCR1A_value",
     "What": "Variable",
     "defdec": "Def",
     "display": "OCR1A_value",
     "location": {
       "column": "15",
-      "line": "115",
+      "line": "107",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "OCR1A_value",
@@ -51720,7 +51776,7 @@
     "display": "void timer_Prescale_1024_TC1(void)",
     "location": {
       "column": "6",
-      "line": "140",
+      "line": "132",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "timer_Prescale_1024_TC1",
@@ -51734,7 +51790,7 @@
     "display": "void timer_Prescale_256_TC1(void)",
     "location": {
       "column": "6",
-      "line": "148",
+      "line": "140",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "timer_Prescale_256_TC1",
@@ -51748,7 +51804,7 @@
     "display": "void timer_Prescale_64_TC1(void)",
     "location": {
       "column": "6",
-      "line": "156",
+      "line": "148",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "timer_Prescale_64_TC1",
@@ -51762,7 +51818,7 @@
     "display": "void timer_Prescale_8_TC1(void)",
     "location": {
       "column": "6",
-      "line": "164",
+      "line": "156",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "timer_Prescale_8_TC1",
@@ -51776,7 +51832,7 @@
     "display": "void timer_Prescale_1_TC1(void)",
     "location": {
       "column": "6",
-      "line": "172",
+      "line": "164",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "timer_Prescale_1_TC1",
@@ -51790,7 +51846,7 @@
     "display": "void timer_Prescale_0_TC1(void)",
     "location": {
       "column": "6",
-      "line": "180",
+      "line": "172",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "timer_Prescale_0_TC1",
@@ -51804,11 +51860,165 @@
     "display": "void TIMER1_INIT_10ms(void)",
     "location": {
       "column": "6",
-      "line": "187",
+      "line": "179",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.c"
     },
     "name": "TIMER1_INIT_10ms",
     "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.h@29@macro@SCHEDULER_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SCHEDULER_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "SCHEDULER_H",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.h@266@macro@PERIOD_OF_50MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_50MS",
+    "location": {
+      "column": "9",
+      "line": "7",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "PERIOD_OF_50MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.h@348@macro@PERIOD_OF_100MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_100MS",
+    "location": {
+      "column": "9",
+      "line": "10",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "PERIOD_OF_100MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.h@432@macro@PERIOD_OF_500MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_500MS",
+    "location": {
+      "column": "9",
+      "line": "13",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "PERIOD_OF_500MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.h@517@macro@PERIOD_OF_1000MS",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PERIOD_OF_1000MS",
+    "location": {
+      "column": "9",
+      "line": "16",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "PERIOD_OF_1000MS",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag_10ms",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "flag_10ms",
+    "location": {
+      "column": "22",
+      "line": "21",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "flag_10ms",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag_50ms",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "flag_50ms",
+    "location": {
+      "column": "22",
+      "line": "22",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "flag_50ms",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag_100ms",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "flag_100ms",
+    "location": {
+      "column": "22",
+      "line": "23",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "flag_100ms",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag_500ms",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "flag_500ms",
+    "location": {
+      "column": "22",
+      "line": "24",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "flag_500ms",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@flag_1000ms",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "flag_1000ms",
+    "location": {
+      "column": "22",
+      "line": "25",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "flag_1000ms",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@scheduler_flags_management",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void scheduler_flags_management(void)",
+    "location": {
+      "column": "13",
+      "line": "34",
+      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+    },
+    "name": "scheduler_flags_management",
+    "origin": "user_include",
     "scope": null
   }
 ]

@@ -42,8 +42,17 @@
 /** \brief bitmask pentru a seta  TCCR1B pe prescale 1024 */
 #define TCCR1B_PRESCALE_1024          0x05
 
+/** \brief  time period of 50 ms */
+#define PERIOD_OF_50MS                5
 
+/** \brief  time period of 100 ms */
+#define PERIOD_OF_100MS                10
 
+/** \brief  time period of 500 ms */
+#define PERIOD_OF_500MS                50
+
+/** \brief  time period of 1000 ms */
+#define PERIOD_OF_1000MS                100
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  public functions            */

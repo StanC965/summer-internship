@@ -26,8 +26,10 @@
             <file>$PROJ_DIR$\gpio.h</file>
             <file>$PROJ_DIR$\timer.c</file>
             <file>$PROJ_DIR$\timer.h</file>
+            <file>$PROJ_DIR$\scheduler.h</file>
             <file>$PROJ_DIR$\Debug\List\timer.i</file>
             <file>$PROJ_DIR$\Debug\Obj\timer.r90</file>
+            <file>$PROJ_DIR$\scheduler.c</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
@@ -79,7 +81,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 16 1 17 0 8 13</file>
+                    <file> 16 1 17 0 8 23 13</file>
                 </tool>
             </inputs>
         </file>
@@ -103,7 +105,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 21</file>
+                    <file> 22 23</file>
                 </tool>
             </outputs>
             <inputs>
