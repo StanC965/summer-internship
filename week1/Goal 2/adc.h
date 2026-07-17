@@ -4,12 +4,17 @@
 
 #pragma vector=ADC_vect
 __interrupt void Conversie(void);
-#define SensorL 7
-#define SensorH 252
+#define SensorL 0
+static unsigned int SensorH;
 
-#define MID (SensorH-SensorL)/2
+#define MID (SensorH+SensorL)/2
+#pragma once
+typedef enum{
+Rez10bit=1,
+Rez8bit =0
+}Rezolution;
 
-extern volatile unsigned char conver;
+extern volatile unsigned int conver;
 void ADC_init();
 void set_Pin_ADC(PIN_Number pin);
 void reset_Pin_ADC(PIN_Number pin);
@@ -21,3 +26,4 @@ void Start_Conversion();
 void InterruptADC();
 void Led_on_sensor();
 void light_read();
+void resolution(Rezolution i);

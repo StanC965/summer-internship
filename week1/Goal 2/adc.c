@@ -1,10 +1,10 @@
 #include "adc.h"
 
-volatile unsigned char conver = 0;
+volatile unsigned int conver = 0;
 void ADC_init(){
   ADMUX=0x40;
   set_Pin_ADC(PIN4);
-  Adjust_Left();
+  Adjust_right();
   
 }
 void set_Pin_ADC(PIN_Number pin){
@@ -22,7 +22,7 @@ void Adjust_right(){
 ADMUX &=~0x20;
 }
 void Enable_ADC(){
-ADCSRA|=0x88;
+ADCSRA|=0x80;
 }
 void Disable_ADC(){
 ADCSRA&=~0x80;
@@ -37,7 +37,9 @@ void InterruptADC(){
   SREG_I=1;
 }
 __interrupt void Conversie(void){
- conver = ADCH;
+  if((ADCSRA&0x07)==0x07) conver = ADC ;
+  else{ 
+    conver = ADCH;}
  Disable_ADC();
 }
 void Led_on_sensor(){
@@ -66,5 +68,17 @@ void light_read(){
     
     LedOff(&PORTA,PIN3);
     LedOff(&PORTD,PIN4);
+  }
+}
+void resolution(Rezolution i){
+  if(i){
+  Adjust_right();
+  ADCSRA|=0x07;
+  SensorH=1023;
+  }
+  else{
+  Adjust_Left();
+  ADCSRA&=~0x07;
+  SensorH=255;
   }
 }
