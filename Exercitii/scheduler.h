@@ -1,7 +1,7 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    Exported types and values
+    Exported values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /** \brief  time period of 50 ms */
 #define PERIOD_OF_50MS                5U
@@ -14,15 +14,38 @@
 
 /** \brief  time period of 1000 ms */
 #define PERIOD_OF_1000MS                100U
+/*
+/** \brief pozitia de 10ms in "registrul scheduler" 
+#define SH_FLAG_10MS                   (1 << 0)
+*/
+/*
+/** \brief pozitia de 50ms in "registrul scheduler" 
+#define SH_FLAG_50MS                   (1 << 1) 
+*/
+/* \brief pozitia de 100ms in "registrul scheduler" 
+#define SH_FLAG_100MS                  (1 << 2)
+*/
+/* \brief pozitia de 500ms in "registrul scheduler"         =>>>>> daca foloseam bitmask
+#define SH_FLAG_500MS                  (1 << 3) 
+*/
+/* \brief pozitia de 1000ms in "registrul scheduler"
+#define SH_FLAG_1000MS                 (1 << 4) 
+*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Exported types 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-/*  Global variables (flags)
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-extern volatile _Bool flag_10ms   ;
-extern volatile _Bool flag_50ms   ;
-extern volatile _Bool flag_100ms  ;
-extern volatile _Bool flag_500ms  ;
-extern volatile _Bool flag_1000ms ;
+typedef struct{
+  unsigned char flag_10ms : 1;
+  unsigned char flag_50ms : 1;
+  unsigned char flag_100ms : 1;
+  unsigned char flag_500ms : 1;
+  unsigned char flag_1000ms : 1;
+}scheduler_t;
+
+extern volatile scheduler_t scheduler;
+
+// extern volatile unsigned char scheduler;                    =>>>>>> daca foloseam bitmask
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  public functions            */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/

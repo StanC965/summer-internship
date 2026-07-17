@@ -51700,7 +51700,7 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.h@266@macro@PERIOD_OF_50MS",
+    "ID": "c:scheduler.h@256@macro@PERIOD_OF_50MS",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PERIOD_OF_50MS",
@@ -51714,7 +51714,7 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.h@348@macro@PERIOD_OF_100MS",
+    "ID": "c:scheduler.h@338@macro@PERIOD_OF_100MS",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PERIOD_OF_100MS",
@@ -51728,7 +51728,7 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.h@432@macro@PERIOD_OF_500MS",
+    "ID": "c:scheduler.h@422@macro@PERIOD_OF_500MS",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PERIOD_OF_500MS",
@@ -51742,7 +51742,7 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.h@517@macro@PERIOD_OF_1000MS",
+    "ID": "c:scheduler.h@507@macro@PERIOD_OF_1000MS",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PERIOD_OF_1000MS",
@@ -51756,142 +51756,130 @@
     "scope": null
   },
   {
-    "ID": "c:@flag_10ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_10ms",
+    "ID": "c:@SA@scheduler_t",
+    "What": "Struct",
+    "defdec": "Def",
+    "display": "",
     "location": {
-      "column": "23",
-      "line": "21",
+      "column": "9",
+      "line": "38",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
     },
-    "name": "flag_10ms",
+    "members": [
+      {
+        "ID": "c:@SA@scheduler_t@FI@flag_10ms",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "flag_10ms",
+        "location": {
+          "column": "17",
+          "line": "39",
+          "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+        },
+        "name": "flag_10ms",
+        "origin": "user_include",
+        "scope": "_anonymous_scheduler_h_38_9"
+      },
+      {
+        "ID": "c:@SA@scheduler_t@FI@flag_50ms",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "flag_50ms",
+        "location": {
+          "column": "17",
+          "line": "40",
+          "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+        },
+        "name": "flag_50ms",
+        "origin": "user_include",
+        "scope": "_anonymous_scheduler_h_38_9"
+      },
+      {
+        "ID": "c:@SA@scheduler_t@FI@flag_100ms",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "flag_100ms",
+        "location": {
+          "column": "17",
+          "line": "41",
+          "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+        },
+        "name": "flag_100ms",
+        "origin": "user_include",
+        "scope": "_anonymous_scheduler_h_38_9"
+      },
+      {
+        "ID": "c:@SA@scheduler_t@FI@flag_500ms",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "flag_500ms",
+        "location": {
+          "column": "17",
+          "line": "42",
+          "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+        },
+        "name": "flag_500ms",
+        "origin": "user_include",
+        "scope": "_anonymous_scheduler_h_38_9"
+      },
+      {
+        "ID": "c:@SA@scheduler_t@FI@flag_1000ms",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "flag_1000ms",
+        "location": {
+          "column": "17",
+          "line": "43",
+          "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+        },
+        "name": "flag_1000ms",
+        "origin": "user_include",
+        "scope": "_anonymous_scheduler_h_38_9"
+      },
+      {
+        "ID": "c:@T@scheduler_t",
+        "What": "TypedefDecl",
+        "defdec": "Def",
+        "display": "struct scheduler_t",
+        "location": {
+          "column": "2",
+          "line": "44",
+          "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
+        },
+        "name": "scheduler_t",
+        "origin": "user_include",
+        "scope": "_anonymous_scheduler_h_38_9"
+      }
+    ],
+    "name": "",
     "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@flag_10ms",
+    "ID": "c:@scheduler",
     "What": "Variable",
     "defdec": "Dec",
-    "display": "flag_10ms",
+    "display": "scheduler",
     "location": {
-      "column": "23",
-      "line": "21",
+      "column": "29",
+      "line": "46",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
     },
-    "name": "flag_10ms",
+    "name": "scheduler",
     "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@flag_50ms",
+    "ID": "c:@scheduler",
     "What": "Variable",
     "defdec": "Dec",
-    "display": "flag_50ms",
+    "display": "scheduler",
     "location": {
-      "column": "23",
-      "line": "22",
+      "column": "29",
+      "line": "46",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
     },
-    "name": "flag_50ms",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_50ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_50ms",
-    "location": {
-      "column": "23",
-      "line": "22",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-    },
-    "name": "flag_50ms",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_100ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_100ms",
-    "location": {
-      "column": "23",
-      "line": "23",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-    },
-    "name": "flag_100ms",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_100ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_100ms",
-    "location": {
-      "column": "23",
-      "line": "23",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-    },
-    "name": "flag_100ms",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_500ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_500ms",
-    "location": {
-      "column": "23",
-      "line": "24",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-    },
-    "name": "flag_500ms",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_500ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_500ms",
-    "location": {
-      "column": "23",
-      "line": "24",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-    },
-    "name": "flag_500ms",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_1000ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_1000ms",
-    "location": {
-      "column": "23",
-      "line": "25",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-    },
-    "name": "flag_1000ms",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_1000ms",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "flag_1000ms",
-    "location": {
-      "column": "23",
-      "line": "25",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-    },
-    "name": "flag_1000ms",
+    "name": "scheduler",
     "origin": "user_include",
     "scope": null
   },
@@ -51902,7 +51890,7 @@
     "display": "void scheduler_flags_management(void)",
     "location": {
       "column": "13",
-      "line": "34",
+      "line": "57",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
     },
     "name": "scheduler_flags_management",
@@ -51916,7 +51904,7 @@
     "display": "void scheduler_flags_management(void)",
     "location": {
       "column": "13",
-      "line": "34",
+      "line": "57",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
     },
     "name": "scheduler_flags_management",
@@ -51930,7 +51918,7 @@
     "display": "void schedule_tasks_dispatcher(void)",
     "location": {
       "column": "13",
-      "line": "40",
+      "line": "63",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
     },
     "name": "schedule_tasks_dispatcher",
@@ -51944,7 +51932,7 @@
     "display": "void schedule_tasks_dispatcher(void)",
     "location": {
       "column": "13",
-      "line": "40",
+      "line": "63",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
     },
     "name": "schedule_tasks_dispatcher",
@@ -51966,72 +51954,16 @@
     "scope": null
   },
   {
-    "ID": "c:@flag_10ms",
+    "ID": "c:@scheduler",
     "What": "Variable",
     "defdec": "Def",
-    "display": "flag_10ms",
+    "display": "scheduler",
     "location": {
-      "column": "16",
+      "column": "22",
       "line": "13",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
     },
-    "name": "flag_10ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_50ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_50ms",
-    "location": {
-      "column": "16",
-      "line": "14",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
-    },
-    "name": "flag_50ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_100ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_100ms",
-    "location": {
-      "column": "16",
-      "line": "15",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
-    },
-    "name": "flag_100ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_500ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_500ms",
-    "location": {
-      "column": "16",
-      "line": "16",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
-    },
-    "name": "flag_500ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@flag_1000ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_1000ms",
-    "location": {
-      "column": "16",
-      "line": "17",
-      "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
-    },
-    "name": "flag_1000ms",
+    "name": "scheduler",
     "origin": "project_file",
     "scope": null
   },
@@ -52042,7 +51974,7 @@
     "display": "void scheduler_flags_management(void)",
     "location": {
       "column": "6",
-      "line": "22",
+      "line": "18",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
     },
     "name": "scheduler_flags_management",
@@ -52050,13 +51982,13 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.c@869@F@scheduler_flags_management@count_50ms",
+    "ID": "c:scheduler.c@753@F@scheduler_flags_management@count_50ms",
     "What": "Variable",
     "defdec": "Def",
     "display": "count_50ms",
     "location": {
       "column": "22",
-      "line": "26",
+      "line": "22",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
     },
     "name": "count_50ms",
@@ -52064,13 +51996,13 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.c@905@F@scheduler_flags_management@count_100ms",
+    "ID": "c:scheduler.c@789@F@scheduler_flags_management@count_100ms",
     "What": "Variable",
     "defdec": "Def",
     "display": "count_100ms",
     "location": {
       "column": "22",
-      "line": "27",
+      "line": "23",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
     },
     "name": "count_100ms",
@@ -52078,13 +52010,13 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.c@942@F@scheduler_flags_management@count_500ms",
+    "ID": "c:scheduler.c@826@F@scheduler_flags_management@count_500ms",
     "What": "Variable",
     "defdec": "Def",
     "display": "count_500ms",
     "location": {
       "column": "22",
-      "line": "28",
+      "line": "24",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
     },
     "name": "count_500ms",
@@ -52092,13 +52024,13 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler.c@979@F@scheduler_flags_management@count_1000ms",
+    "ID": "c:scheduler.c@863@F@scheduler_flags_management@count_1000ms",
     "What": "Variable",
     "defdec": "Def",
     "display": "count_1000ms",
     "location": {
       "column": "22",
-      "line": "29",
+      "line": "25",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
     },
     "name": "count_1000ms",
@@ -52112,7 +52044,7 @@
     "display": "void schedule_tasks_dispatcher(void)",
     "location": {
       "column": "6",
-      "line": "62",
+      "line": "58",
       "path": "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.c"
     },
     "name": "schedule_tasks_dispatcher",

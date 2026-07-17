@@ -816,14 +816,37 @@ extern void Timer1_ales_aprox_8Mhz(float milisecunde);
  
 
 
- 
+
 
  
-extern volatile _Bool flag_10ms   ;
-extern volatile _Bool flag_50ms   ;
-extern volatile _Bool flag_100ms  ;
-extern volatile _Bool flag_500ms  ;
-extern volatile _Bool flag_1000ms ;
+
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+typedef struct{
+  unsigned char flag_10ms : 1;
+  unsigned char flag_50ms : 1;
+  unsigned char flag_100ms : 1;
+  unsigned char flag_500ms : 1;
+  unsigned char flag_1000ms : 1;
+}scheduler_t;
+
+extern volatile scheduler_t scheduler;
+
+
  
  
  
