@@ -1,4 +1,82 @@
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
+
+
+
+
+ 
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+typedef     unsigned char   gpio_uint8_t;
+
+ 
+typedef     unsigned int    gpio_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+ 
+extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+ 
+extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
+
+
+
+
+
+ 
+extern void gpio_Timer1_start(float secunde,int prescale);
+
+
+
+
+
+ 
+extern void gpio_Timer1_stop();
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
+
+
+#line 7 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -564,184 +642,7 @@
 
 
 
-#line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
- 
-typedef     unsigned char   gpio_uint8_t;
-
- 
-typedef     unsigned int    gpio_uint16_t;
-
- 
- 
- 
-  
-
-
-
- 
-extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
- 
-extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
-
-
-
-
-
- 
-extern void gpio_Timer1_start(float secunde,int prescale);
-
-
-
-
-
- 
-extern void gpio_Timer1_stop();
-
-
-
- 
-extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
-
-
-
-#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
-
-
-
-
- 
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-typedef     unsigned char   mod_uint8_t;
-
- 
-typedef     unsigned int    mod_uint16_t;
-
- 
- 
- 
-  
-
-
-
-
-
-
-
- 
-extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
-
-
-
-
-
-
-
-
- 
-extern void led_Set(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_Reset(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TOGGLE(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Fast(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Slow(unsigned char Led_id);
-
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
-
-#line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 8 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
 
 
@@ -896,7 +797,7 @@ extern _Bool Timer1_ales_exact_8Mhz(float milisecunde);
  
 extern void Timer1_ales_aprox_8Mhz(float milisecunde);
 
-#line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 9 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
 
 
@@ -964,11 +865,111 @@ extern void schedule_tasks_dispatcher (void);
 
 
 
-#line 6 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.h"
-#line 40 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.h"
+#line 10 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
 
-#line 7 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+typedef     unsigned char   mod_uint8_t;
+
+ 
+typedef     unsigned int    mod_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+
+
+
+
+ 
+extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
+
+
+
+
+
+
+
+
+ 
+extern void led_Set(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_Reset(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TOGGLE(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Fast(unsigned char Led_id);
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Slow(unsigned char Led_id);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
+
+#line 11 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.h"
 
 
@@ -1032,37 +1033,79 @@ extern  unsigned short adc_get_data(void);
 
 
 
-#line 8 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 12 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
+
+#line 22 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.c"
+ 
+ 
+ 
 
 
 
 
-
-
-void setup()
+void task_10ms(void)
 {
   
-    leds_initialize(1,1,1,1,0);
-    led_Set((0xAA));
+
+
+  
+}
+
+void task_50ms(void)
+{
     
-    if (Timer1_ales_exact_8Mhz(10) == 1) {
-   
-  
-      
-      
-    } else {
-        Timer1_ales_aprox_8Mhz(10);
-    }
-  adc_init_LIGHT();
-  adc_start_conversie();
-
 }
 
-int main( void )
+void task_100ms(void)
 {
-setup();
+    
+    adc_read_and_update();
+    
+ 
+    unsigned short current_light = adc_get_data();
+    
 
-  schedule_tasks_dispatcher();
-    return 0;
+    if (current_light < 255) 
+    {
+        led_Set((0xBB));
+        led_Set((0xCC));
+        led_Set((0xDD));
+    }
+    else if (current_light < 511) 
+    {
+        led_Reset((0xBB));
+        led_Set((0xCC));
+        led_Set((0xDD));
+    }
+    else if (current_light < 767) 
+    {
+        led_Reset((0xBB));
+        led_Reset((0xCC));
+        led_Set((0xDD));
+    }
+    else 
+    {
+        led_Reset((0xBB));
+        led_Reset((0xCC));
+        led_Reset((0xDD));
+    }
+    
+  
+    adc_start_conversie();
 }
+
+void task_500ms(void)
+{
+   
+}
+
+void task_1000ms(void)
+{
+   
+}
+            
+       
+
+
+
 

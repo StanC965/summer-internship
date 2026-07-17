@@ -1,121 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>1022494005</fileChecksum>
+    <fileChecksum>3226097894</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-            <file>$PROJ_DIR$\Debug\List\led.i</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
             <file>$PROJ_DIR$\led.h</file>
-            <file>$PROJ_DIR$\Debug\List\main.i</file>
-            <file>$PROJ_DIR$\gpio.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$PROJ_DIR$\Debug\Exe\Deac_Stefan_Marq.d90</file>
-            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
-            <file>$PROJ_DIR$\Debug\List\Deac_Stefan_Marq.map</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
             <file>$PROJ_DIR$\led.c</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\scheduler_cfg.c</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer.r90</file>
+            <file>$PROJ_DIR$\timer.h</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$PROJ_DIR$\scheduler.h</file>
+            <file>$PROJ_DIR$\scheduler.c</file>
+            <file>$PROJ_DIR$\Debug\List\timer.i</file>
+            <file>$PROJ_DIR$\Debug\Exe\Deac_Stefan_Marq.d90</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\scheduler_cfg.h</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\timer.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\Debug\List\Deac_Stefan_Marq.map</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
-            <file>$PROJ_DIR$\gpio.h</file>
-            <file>$PROJ_DIR$\timer.c</file>
-            <file>$PROJ_DIR$\timer.h</file>
-            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
-            <file>$PROJ_DIR$\scheduler_cfg.h</file>
-            <file>$PROJ_DIR$\scheduler.h</file>
-            <file>$PROJ_DIR$\Debug\List\timer.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer.r90</file>
-            <file>$PROJ_DIR$\scheduler.c</file>
-            <file>$PROJ_DIR$\scheduler_cfg.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduler_cfg.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
+            <file>$PROJ_DIR$\adc.h</file>
+            <file>$PROJ_DIR$\adc.c</file>
+            <file>$PROJ_DIR$\Debug\List\adc.i</file>
+            <file>$PROJ_DIR$\Debug\List\sos.i</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler_cfg.i</file>
+            <file>$PROJ_DIR$\sos.c</file>
+            <file>$PROJ_DIR$\sos.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 9 12</file>
+                    <file> 13 24</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 6 8</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 11 14 10 18 5 20 24</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\gpio.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 4 17</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 18 11 14 10</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\Deac_Stefan_Marq.d90</name>
-            <outputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 12</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 16 1 17 0 8 22 26 13</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\led.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 2 0</file>
+                    <file> 9 21</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 5 18 11 14 10</file>
+                    <file> 1 25 14 2 17</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\timer.c</name>
+            <name>$PROJ_DIR$\scheduler_cfg.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 25 26</file>
+                    <file> 36 29</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 11 14 10 20 24</file>
+                    <file> 25 14 2 17 8 10 1 32</file>
                 </tool>
             </inputs>
         </file>
@@ -124,13 +89,103 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 21 22</file>
+                    <file> 6 0</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 14 10 24 20</file>
+                    <file> 14 2 17 10 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Deac_Stefan_Marq.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 24</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 27 26 30 28 21 23 0 29 31 7 4</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 23</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 14 2 17 25 1 8 10 18 32</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 28</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25 14 2 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\timer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 12 7</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25 14 2 17 8 10</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\adc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 34 30</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25 14 2 17 32</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\sos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 31</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1 25 14 2 17</file>
                 </tool>
             </inputs>
         </file>

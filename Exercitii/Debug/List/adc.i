@@ -1,4 +1,84 @@
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
+
+
+
+
+ 
+
+
+#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+typedef     unsigned char   gpio_uint8_t;
+
+ 
+typedef     unsigned int    gpio_uint16_t;
+
+ 
+ 
+ 
+  
+
+
+
+ 
+extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+
+ 
+extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
+
+
+
+ 
+extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
+
+
+
+
+
+ 
+extern void gpio_Timer1_start(float secunde,int prescale);
+
+
+
+
+
+ 
+extern void gpio_Timer1_stop();
+
+
+
+ 
+extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
+
+
+
+#line 9 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 #line 1 "C:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\avr\\inc\\iom324pb.h"
 
 
@@ -564,411 +644,7 @@
 
 
 
-#line 2 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\gpio.h"
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
- 
-typedef     unsigned char   gpio_uint8_t;
-
- 
-typedef     unsigned int    gpio_uint16_t;
-
- 
- 
- 
-  
-
-
-
- 
-extern void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
-
- 
-extern void gpio_toggle_pin(volatile unsigned char *port, gpio_uint8_t bit);
-
-
-
- 
-extern void gpio_set_direction(volatile unsigned char *ddr, gpio_uint8_t bit, gpio_uint8_t intrare);
-
-
-
-
-
- 
-extern void gpio_Timer1_start(float secunde,int prescale);
-
-
-
-
-
- 
-extern void gpio_Timer1_stop();
-
-
-
- 
-extern gpio_uint8_t gpio_read_pin(volatile unsigned char *PIN, gpio_uint8_t bit);
-
-
-
-#line 3 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\led.h"
-
-
-
-
- 
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-typedef     unsigned char   mod_uint8_t;
-
- 
-typedef     unsigned int    mod_uint16_t;
-
- 
- 
- 
-  
-
-
-
-
-
-
-
- 
-extern void leds_initialize(_Bool led0, _Bool led1, _Bool led2, _Bool led3, _Bool led4);
-
-
-
-
-
-
-
-
- 
-extern void led_Set(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_Reset(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TOGGLE(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Fast(unsigned char Led_id);
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Slow(unsigned char Led_id);
-
-
-
-
-
-
-
-
-
- 
-extern void led_TEST_Blink(unsigned char Led_id, float secunde, int limite_clipiri);
-
-#line 4 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\timer.h"
-
-
-
-
- 
-
-
- 
-
-
- 
-
-
-
- 
-
-
-
- 
-
-
-
- 
-
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
- 
- 
-  
-
-
-
-
-
-
-
- 
-extern void TIMER1_INIT_10ms();
-
-
-
-
-
-
-
-
- 
-extern void timer_Prescale_0_TC1();
-
-
-
-
-
-
-
-
- 
-extern void timer_Prescale_1_TC1();
-
-
-
-
-
-
-
-
- 
-extern void timer_Prescale_8_TC1();
-
-
-
-
-
-
-
-
- 
-extern void timer_Prescale_64_TC1();
-
-
-
-
-
-
-
-
- 
-extern void timer_Prescale_256_TC1();
-
-
-
-
-
-
-
-
-
- 
-extern void timer_Prescale_1024_TC1();
-
-
-
-
-
-
-
-
-
- 
-extern _Bool Timer1_ales_exact_8Mhz(float milisecunde);
-
-
-
-
-
-
-
-
-
- 
-extern void Timer1_ales_aprox_8Mhz(float milisecunde);
-
-#line 5 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler.h"
-
-
-
-
- 
- 
-
-
- 
-
-
- 
-
-
- 
-
-
-
-
- 
-
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-typedef struct{
-  unsigned char flag_10ms : 1;
-  unsigned char flag_50ms : 1;
-  unsigned char flag_100ms : 1;
-  unsigned char flag_500ms : 1;
-  unsigned char flag_1000ms : 1;
-}scheduler_t;
-
-extern volatile scheduler_t scheduler;
-
-
- 
- 
- 
-  
-
-
-
- 
-extern void scheduler_flags_management (void);
-
-
-
-
- 
-extern void schedule_tasks_dispatcher (void);
-
-
-
-#line 6 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
-#line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.h"
-#line 40 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\scheduler_cfg.h"
-
-#line 7 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 10 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
 #line 1 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.h"
 
 
@@ -1032,37 +708,79 @@ extern  unsigned short adc_get_data(void);
 
 
 
-#line 8 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\main.c"
+#line 11 "C:\\Users\\Stefan\\summer-internship\\Exercitii\\adc.c"
+
+
+static volatile ADC_result ADC_value ; 
+ 
+ 
+ 
 
 
 
+ void adc_init_LIGHT()
+      {
+        
 
 
 
-void setup()
-{
-  
-    leds_initialize(1,1,1,1,0);
-    led_Set((0xAA));
+        gpio_reset_pin(&ADMUX, 5);
+
+
+        
+         gpio_set_pin(&ADMUX,2);
+         gpio_set_pin(&ADMUX,6);
+        
+         
+          
+          gpio_reset_pin(&PRR0,PRR0_PRADC);
+          
+          
+          gpio_set_pin(&ADCSRA,7);
+          gpio_set_pin(&ADCSRA,3);
+          gpio_set_pin(&ADCSRA,1); 
+          gpio_set_pin(&ADCSRA,0); 
+        
+       }
+
     
-    if (Timer1_ales_exact_8Mhz(10) == 1) {
-   
-  
-      
-      
-    } else {
-        Timer1_ales_aprox_8Mhz(10);
-    }
-  adc_init_LIGHT();
-  adc_start_conversie();
 
-}
-
-int main( void )
+void adc_start_conversie()
 {
-setup();
-
-  schedule_tasks_dispatcher();
-    return 0;
+      gpio_set_pin(&ADCSRA,6); 
 }
+
+
+unsigned short adc_get_data(void)
+{
+    return (unsigned short)ADC_value;
+}
+
+
+
+void disable_input_buffer_for_lightSensor()
+{
+  
+   gpio_set_pin(&DIDR0,4);
+}
+void enable_input_buffer_for_lightSensor()
+{
+  
+  gpio_reset_pin(&DIDR0,4);
+  
+}
+
+
+void adc_read_and_update(void)
+{
+
+
+
+        unsigned char low_byte = ADCL;
+        unsigned char high_byte = ADCH;
+        ADC_result rezultat = low_byte | (high_byte << 8);
+        ADC_value = 1023 - rezultat; 
+
+}
+
 

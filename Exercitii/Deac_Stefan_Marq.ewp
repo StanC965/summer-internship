@@ -2104,6 +2104,12 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\adc.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\adc.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\gpio.c</name>
     </file>
     <file>
@@ -2129,6 +2135,12 @@
     </file>
     <file>
         <name>$PROJ_DIR$\scheduler_cfg.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\sos.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\sos.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\timer.c</name>

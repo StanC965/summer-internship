@@ -3,12 +3,12 @@
 #include "led.h"
 #include "timer.h"
 #include "scheduler.h"
+#include "scheduler_cfg.h"
+#include "adc.h"
 
-void task_10ms(void);
-void task_50ms(void);
-void task_100ms(void);
-void task_500ms(void);
-void task_1000ms(void);
+#define ADC_USE_8_BIT_RESOLUTION
+
+
 
 
 void setup()
@@ -25,7 +25,8 @@ void setup()
     } else {
         Timer1_ales_aprox_8Mhz(10);
     }
-
+  adc_init_LIGHT();
+  adc_start_conversie();
 
 }
 
@@ -37,31 +38,3 @@ setup();
     return 0;
 }
 
-
-void task_10ms(void)
-{
-  
-
-
-  
-}
-
-void task_50ms(void)
-{
-    
-}
-
-void task_100ms(void)
-{
-    
-}
-
-void task_500ms(void)
-{
-   
-}
-
-void task_1000ms(void)
-{
-    
-}

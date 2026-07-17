@@ -6,4 +6,6 @@ C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi: \
   C:\Users\Stefan\summer-internship\Exercitii\gpio.h \
   C:\Users\Stefan\summer-internship\Exercitii\led.h \
   C:\Users\Stefan\summer-internship\Exercitii\timer.h \
-  C:\Users\Stefan\summer-internship\Exercitii\scheduler.h
+  C:\Users\Stefan\summer-internship\Exercitii\scheduler.h \
+  C:\Users\Stefan\summer-internship\Exercitii\scheduler_cfg.h \
+  C:\Users\Stefan\summer-internship\Exercitii\adc.h
