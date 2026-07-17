@@ -3,9 +3,10 @@
 
 #pragma once
 static volatile int i=0;
- 
 
 #pragma vector= TIMER0_OVF_vect 
 __interrupt void led();
 void timer_init();
 void change_prescale();
+void prescale_init();
+void change_led();
