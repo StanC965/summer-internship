@@ -1,31 +1,18 @@
 #include "timer.h"
 
+
 volatile unsigned int prescale=0;
 static volatile int sec=0;
 volatile unsigned int btn0=0;
 
 
 __interrupt void led(){
-  i++;
-  if(i<=12){
-    if(i<=10){
-      if(i<=5){
-        if(i<3)
-          reset_pin(&PORTC,PIN7);
-        else
-          set_pin(&PORTC,PIN7);
-      }else
-        reset_pin(&PORTC,PIN7);
-    }  
-    if(i>10)
-      set_pin(&PORTC,PIN7);
-  }
-  else
-    i=0;
+  led0_set_state(ON);
+  
 }
 void timer_init(){
   TCCR0A=0x42;
-  OCR0A=0x62;
+  OCR0A=0x5a;
   TIMSK0=0x02;
   SREG_I=1;
 }
@@ -34,7 +21,7 @@ void change_prescale(){
   TCCR0B=prescale+1;
 }
 void prescale_init(){
-  TCCR0B=0x05;
+  TCCR0B=0x02;
 }
 void change_led(){
  
@@ -72,5 +59,13 @@ void change_led(){
   }
  }
  
+ 
 
+ }
+
+
+void airbag_dus(unsigned char airbag_status){
+  if(airbag_status){
+  prescale_init();
+  }
 }

@@ -10,3 +10,4 @@ void timer_init();
 void change_prescale();
 void prescale_init();
 void change_led();
+void airbag_dus(unsigned char airbag_status);

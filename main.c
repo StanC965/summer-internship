@@ -1,32 +1,20 @@
-#include <iom324pb.h>
-#include "week1\Goal 2\button.h"
 
-#pragma vector=ADC_vect
-__interrupt void Conversie(void){
- unsigned int var = ADCH;
-}
+#include "week1\Goal 2\adc.h"
+#include "week1\Goal 2\timer.h"
+#include "CarCrashDetection.h"
+
 
 void main (void)
 {
-  // DDRD|=Led1/2;
-   DDRD=Led1+Led2;
-  //Led3
-   DDRA=0x08;
-   DDRC=0x80;
-   PORTC=0x80;
-   PCMSK0=0x03;
-   PCMSK2=0x42;
-   PCICR =0x05;
-   SREG_I=1;
-   PORTA=0xff;
-   PORTD=0xff;
-   ADMUX=0xa4;
-   ADCSRA=0x88;
- 
+    led_init();
+   btn_init();
+   ADC_init();
+   resolution(Rez8bit);
+   InterruptADC();
+   timer_init();
     while(1)
-    {
-      ADCSRA_ADSC=1;
-    }
-    
-  
+    {  
+     unsigned char status =GetCarCrashDetectionStatus();
+      airbag_dus(status);  
   }
+}
