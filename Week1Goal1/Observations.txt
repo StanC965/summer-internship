@@ -1,0 +1,15 @@
+152 — CORE: Code comments are ignored 
+
+153 - CORE: Value of VAR is 5
+
+154 - CORE: Value of x will be 55 the new vlue of MAX by redefinition
+
+155 - CORE: This code will generate an error MAX is replaced with the value 100 
+This can be seen in the generated .i file, where the code becomes int 100 = 10; the MAX macro has been replaced with its value. 
+As a result, the compiler encounters 100 where it expects a variable name, causing a compilation error.
+
+166 - CORE: The representation is mostly the same in all three cases.
+
+167 - CORE: I found the same three registers for the ATmega328PB as well, which means we can write code that is compatible with both the ATmega324PB and the ATmega328PB.
+
+168 - CORE: The same registers can be found also for ATmega328P

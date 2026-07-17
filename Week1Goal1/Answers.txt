@@ -1,0 +1,68 @@
+111 — CORE — Search and identify ATMega324PB microcontroller on the board.
+Answer: In the middle of the board big square chip
+
+112 — CORE — Search and identify LED0, a LED that you will program to lit later.
+Answer: It is located at the top of the board under the 2 buttons
+
+113 — CORE — Search and identify SW0, a switch that you will program later to be interpreted as pressed/not pressed.
+Answer: Top of the board
+
+114 — CORE — Search and identify other components like external oscillator and debugger chip/microcontroller.
+Answer: The external oscillator is on the left of the microcontroller, debugger chip on the back side of the board
+
+115 — CORE — How many extension headers there are on the board?
+Answer: 3
+
+116 — CORE — How are the extension headers labeled? ( <<< one example of label found )
+Answer: EXT1, EXT3, EXT4
+
+117 — CORE — Search and identify GND and VCC pins on the headers and on the power connector.
+Answer: On the power connector, GND is the upper pin and VCC is the lower pin. For the headers, just refer to the labels on the back side of the board.
+
+118 — CORE — Connect the USB cable to the main board and you should see the green LED lit.
+Answer: Working
+
+119 — OPTIONAL — Even though you don't have an external power supply connected to VCC and GND the board is still powered up (green LED lit) when pluging in the USB cable. How can you explain that?
+Answer: The board is powered with 5 V via the USB cable connected to a PC or laptop.
+
+121 — CORE — Search and identify OLED display.
+Answer: Big black rectangle upper mid of board
+
+122 — CORE — Search and identify LED1, LED2 and LED3 that you will program to lit.
+Answer: In the middle of the board 
+
+123 — CORE — Search and identify BUTTON 1, BUTTON 2 and BUTTON 3.
+Answer: Bottom of the board
+
+124 — CORE — Search and identify the extension header.
+Answer: Top of the board big black female connector
+
+125 — CORE — Search and identify GND and VCC pin on the header.
+Answer: Pin 20 VCC Pin 2 GND
+
+126 — CORE — Now, follow this 3-steps procedure: (1) unplug the USB cable from PC/laptop!!! (2) connect OLED1 board to EXT1 header from the main board and (3) finally reconnect the USB cable to the PC/laptop. You must ALWAYS follow this procedure when you want to connect something to the main board!
+Answer: Done
+
+131 — CORE — Search and identify the light sensor.
+Answer: Top of the board in the left part near extension header
+
+132 — CORE — Search and identify the temperature sensor.
+Answer: Middel of the board framed into a rectangle with label temperature sensor
+
+133 — CORE — Search and identify the lowpass filter.
+Answer: Above the temperature sensor
+
+134 — CORE — Search and identify the microSD card slot.
+Answer: In the rigt of the board
+
+135 — CORE — Search and identify the LED on the board.
+Answer: Under the light sensor
+
+136 — CORE — Search and identify the extension header.
+Answer: Left of the board
+
+137 — CORE — Search and identify GND and VCC pin on the header.
+Answer: GND pin 19 and VCC pin 20
+
+138 — CORE — Now, follow this 3-steps procedure: (1) unplug the USB cable from PC/laptop!!! (2) connect IO1 board to EXT4 header from the main board and (3) finally reconnect the USB cable to the PC/laptop. You must ALWAYS follow this procedure when you want to connect something to the main board!
+Answer: Done
