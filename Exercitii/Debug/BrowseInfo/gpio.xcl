@@ -1,13 +1,13 @@
-"C:\Users\Stefan\summer-internship\Exercitii\main.c"
+"C:\Users\Stefan\summer-internship\Exercitii\gpio.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi.dep
+C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi.dep
 -o
-C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi
+C:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi
 -I
 C:\Users\Stefan\summer-internship\Exercitii
 -I

@@ -1,0 +1,11 @@
+# ninja log v5
+0	402	8059832603336869	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/led.r90	3ab1d9340c43c67d
+20	405	8059832603336869	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/gpio.r90	1d5674a372170d88
+2	103	8059833053839207	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/main.r90	94321d970bac7b33
+107	706	8059833059777560	C:/Users/Stefan/summer-internship/Exercitii/Debug/Exe/Deac_Stefan_Marq.d90	967e516ab60c82f3
+3	129	8059833504632080	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/main.r90	94321d970bac7b33
+5	104	8059834254535382	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/main.r90	94321d970bac7b33
+5	105	8059839610681636	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/main.r90	94321d970bac7b33
+3	116	8059871358922941	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/main.r90	94321d970bac7b33
+4	142	8059871434050746	C:/Users/Stefan/summer-internship/Exercitii/Debug/Obj/timer.r90	4defc73d1ce24156
+145	293	8059871435457368	C:/Users/Stefan/summer-internship/Exercitii/Debug/Exe/Deac_Stefan_Marq.d90	b55bef95e899d808
