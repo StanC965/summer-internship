@@ -4,24 +4,28 @@
 #include "led.h"
 #include <intrinsics.h>
 
-#define LED0_PIN     7   
-#define OC0A_PIN     3   
+#define LED0_PIN               7   
+#define TICKS_FOR_100MS_PERIOD 50   
+
+static volatile unsigned int tick_count = 0;
 
 #pragma vector = TIMER0_COMPA_vect
 __interrupt void tc0_compa_isr(void)
 {
-    gpio_read_pin(&PINC, LED0_PIN) ? led_off(&PORTC, LED0_PIN) : led_on(&PORTC, LED0_PIN);
+    tick_count++;
+    if (tick_count >= TICKS_FOR_100MS_PERIOD)
+    {
+        tick_count = 0;
+        gpio_read_pin(&PINC, LED0_PIN) ? led_off(&PORTC, LED0_PIN) : led_on(&PORTC, LED0_PIN);
+    }
 }
 
 void main(void)
 {
     gpio_set_direction(&DDRC, LED0_PIN, 1);
-    gpio_set_direction(&DDRB, OC0A_PIN, 1);
-
     led_off(&PORTC, LED0_PIN);
-    led_off(&PORTB, OC0A_PIN);
 
-    tc0_ctc_init(127);   
+    tc0_ctc_init_interrupt_only(124);
 
     __enable_interrupt();
 
