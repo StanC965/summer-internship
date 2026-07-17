@@ -106,3 +106,11 @@ Week2Goal3/w2g3.eww
 Week2Goal3/w2g3.ewd
 Week2Goal3/w2g3.ewt
 Week2Goal3/w2g3.dep
+Week2Goal3/gpio.c
+Week2Goal3/gpio.h
+Week2Goal3/led.c
+Week2Goal3/led.h
+Week2Goal3/button.c
+Week2Goal3/button.h
+Week2Goal3/sos.c
+Week2Goal3/sos.h
