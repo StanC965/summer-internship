@@ -7,11 +7,14 @@ volatile unsigned int btn0=0;
 
 __interrupt void led(){
   i++;
-  if(i==8){
+  if(i<=10){
     sec++;
-    toggle_pin(&PORTC,PIN7);
-    i=0;
+    reset_pin(&PORTC,PIN7);
+   if(i>7)
+     set_pin(&PORTC,PIN7);
   }
+  else
+    i=0;
 }
 void timer_init(){
   TCCR0A=0x42;
