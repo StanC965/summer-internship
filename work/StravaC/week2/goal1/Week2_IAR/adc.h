@@ -7,21 +7,41 @@ Data: 2026
 
 Interfata modulului ADC.
 
-IO1 Xplained Pro este conectat la EXT4.
-Semnalul senzorului de lumina ajunge la PA4 / ADC4.
+Configuratia implicita a modulului:
+- referinta AVCC;
+- canal ADC4;
+- intrare single-ended;
+- rezultat left-adjusted;
+- rezultat citit pe 8 biti;
+- Single Conversion Mode;
+- fara auto-trigger;
+- intrerupere la finalul conversiei.
 
-Rezultatul este aliniat la stanga si este citit pe 8 biti.
+Actiunile atomice sunt:
+- pornirea unei conversii;
+- verificarea disponibilitatii rezultatului;
+- citirea rezultatului.
 */
 
-#define ADC_FALSE                    (0U)
-#define ADC_TRUE                     (1U)
+/* General values */
 
-#define ADC_RESULT_NOT_READY         (ADC_FALSE)
-#define ADC_RESULT_READY             (ADC_TRUE)
+#define ADC_FALSE                   (0U)
+#define ADC_TRUE                    (1U)
+
+/* Result states */
+
+#define ADC_RESULT_NOT_READY        (ADC_FALSE)
+#define ADC_RESULT_READY            (ADC_TRUE)
+
+/* Exported type */
 
 typedef unsigned char adc_uint8_t;
 
-extern void adc_initialize(void);
+/* Module initialization */
+
+extern void adc_init(void);
+
+/* Atomic ADC actions */
 
 extern void adc_start_conversion(void);
 

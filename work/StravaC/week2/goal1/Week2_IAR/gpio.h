@@ -6,57 +6,68 @@ Autor: Strava Cosmin-Paul
 Data: 2026
 
 Interfata modulului GPIO.
-Toate functiile, tipurile si constantele folosesc prefixul gpio/GPIO.
+
+Modulul GPIO este un driver software pentru porturile digitale.
+Actiunile atomice sunt:
+- configurarea directiei;
+- setarea unui pin;
+- resetarea unui pin;
+- comutarea unui pin;
+- citirea unui pin.
 */
 
-#define GPIO_ZERO          (0U)
-#define GPIO_ONE           (1U)
+/* General values */
 
-#define GPIO_FALSE         (GPIO_ZERO)
-#define GPIO_TRUE          (GPIO_ONE)
+#define GPIO_ZERO                  (0U)
+#define GPIO_ONE                   (1U)
 
-#define GPIO_INPUT         (GPIO_ZERO)
-#define GPIO_OUTPUT        (GPIO_ONE)
+#define GPIO_FALSE                 (GPIO_ZERO)
+#define GPIO_TRUE                  (GPIO_ONE)
 
-#define GPIO_LOW           (GPIO_ZERO)
-#define GPIO_HIGH          (GPIO_ONE)
+/* Pin directions */
+
+#define GPIO_INPUT                 (GPIO_ZERO)
+#define GPIO_OUTPUT                (GPIO_ONE)
+
+/* Logic levels */
+
+#define GPIO_LOW                   (GPIO_ZERO)
+#define GPIO_HIGH                  (GPIO_ONE)
+
+/* Exported types */
 
 typedef unsigned char gpio_uint8_t;
 
-extern void gpio_set_pin(
-    volatile gpio_uint8_t *gpio_port,
-    gpio_uint8_t gpio_pin
-);
+/* Module initialization */
 
-extern void gpio_reset_pin(
-    volatile gpio_uint8_t *gpio_port,
-    gpio_uint8_t gpio_pin
-);
+extern void gpio_init(void);
 
-extern void gpio_toggle_pin(
-    volatile gpio_uint8_t *gpio_port,
-    gpio_uint8_t gpio_pin
-);
+/* Atomic GPIO actions */
 
 extern void gpio_set_direction(
-    volatile gpio_uint8_t *gpio_ddr,
-    gpio_uint8_t gpio_pin,
+    volatile gpio_uint8_t *gpio_ddr_register,
+    gpio_uint8_t gpio_pin_number,
     gpio_uint8_t gpio_direction
 );
 
-extern void gpio_activate_pullup(
-    volatile gpio_uint8_t *gpio_port,
-    gpio_uint8_t gpio_pin
+extern void gpio_set_pin(
+    volatile gpio_uint8_t *gpio_port_register,
+    gpio_uint8_t gpio_pin_number
+);
+
+extern void gpio_reset_pin(
+    volatile gpio_uint8_t *gpio_port_register,
+    gpio_uint8_t gpio_pin_number
+);
+
+extern void gpio_toggle_pin(
+    volatile gpio_uint8_t *gpio_port_register,
+    gpio_uint8_t gpio_pin_number
 );
 
 extern gpio_uint8_t gpio_read_pin(
     volatile gpio_uint8_t *gpio_pin_register,
-    gpio_uint8_t gpio_pin
-);
-
-extern gpio_uint8_t gpio_read_pin_debounced(
-    volatile gpio_uint8_t *gpio_pin_register,
-    gpio_uint8_t gpio_pin
+    gpio_uint8_t gpio_pin_number
 );
 
 #endif

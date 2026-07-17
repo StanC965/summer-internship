@@ -1,83 +1,115 @@
 #ifndef ADC_C
 #define ADC_C
 
-#include "iom324pb.h"
-#include "intrinsics.h"
-
-#include "adc.h"
-
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
 
 Implementarea modulului ADC.
 
-Configuratie:
-- referinta AVCC = 3.3V;
-- rezultat left-adjusted;
-- intrare single-ended ADC4;
-- Single Conversion Mode;
-- fara auto-trigger;
-- intrerupere la finalul conversiei;
-- rezultat de 8 biti.
+IO1 Xplained Pro este conectat la EXT4.
+
+Traseul semnalului:
+LIGHTSENSOR -> EXT4 pin 3 -> PA4 -> ADC4
+
+Rezultatul este aliniat la stanga.
+Doar cei mai semnificativi 8 biti sunt utilizati.
 */
 
-/* ADC reference selection: AVCC */
+#include "iom324pb.h"
+#include "intrinsics.h"
 
-#define ADC_REFERENCE_AVCC_REFS1             (0U)
-#define ADC_REFERENCE_AVCC_REFS0             (1U)
+#include "adc.h"
 
-/* ADC result alignment */
+/* ========================================================= */
+/* ADC REFERENCE CONFIGURATION                               */
+/* ========================================================= */
 
-#define ADC_RESULT_LEFT_ADJUSTED              (1U)
+/* REFS[1:0] = 01 -> AVCC */
 
-/* ADC4 channel: MUX[4:0] = 00100 */
+#define ADC_REFERENCE_REFS1_VALUE           (0U)
+#define ADC_REFERENCE_REFS0_VALUE           (1U)
 
-#define ADC_CHANNEL_ADC4_MUX4                 (0U)
-#define ADC_CHANNEL_ADC4_MUX3                 (0U)
-#define ADC_CHANNEL_ADC4_MUX2                 (1U)
-#define ADC_CHANNEL_ADC4_MUX1                 (0U)
-#define ADC_CHANNEL_ADC4_MUX0                 (0U)
+/* ========================================================= */
+/* ADC RESULT CONFIGURATION                                  */
+/* ========================================================= */
 
-/* ADC operating mode */
+#define ADC_LEFT_ADJUST_ENABLE              (1U)
+#define ADC_HIGH_BYTE_SHIFT                 (8U)
+#define ADC_RESULT_INITIAL_VALUE            (0U)
 
-#define ADC_ENABLE_VALUE                      (1U)
-#define ADC_DISABLE_AUTO_TRIGGER              (0U)
-#define ADC_ENABLE_INTERRUPT                  (1U)
-#define ADC_START_CONVERSION_VALUE            (1U)
+/* ========================================================= */
+/* ADC CHANNEL CONFIGURATION                                 */
+/* ========================================================= */
 
-/* ADC prescaler: ADPS[2:0] = 000 */
+/*
+ADC4:
+MUX[4:0] = 00100
+*/
 
-#define ADC_PRESCALER_BIT_2                   (0U)
-#define ADC_PRESCALER_BIT_1                   (0U)
-#define ADC_PRESCALER_BIT_0                   (0U)
+#define ADC_CHANNEL_MUX4_VALUE              (0U)
+#define ADC_CHANNEL_MUX3_VALUE              (0U)
+#define ADC_CHANNEL_MUX2_VALUE              (1U)
+#define ADC_CHANNEL_MUX1_VALUE              (0U)
+#define ADC_CHANNEL_MUX0_VALUE              (0U)
 
-/* ADC trigger source: none */
+/* ========================================================= */
+/* ADC OPERATING CONFIGURATION                               */
+/* ========================================================= */
 
-#define ADC_TRIGGER_SOURCE_BIT_2              (0U)
-#define ADC_TRIGGER_SOURCE_BIT_1              (0U)
-#define ADC_TRIGGER_SOURCE_BIT_0              (0U)
+#define ADC_ENABLE                          (1U)
+#define ADC_AUTO_TRIGGER_DISABLE            (0U)
+#define ADC_INTERRUPT_ENABLE                (1U)
+#define ADC_START_CONVERSION                (1U)
 
-/* Private module variables */
+/* ========================================================= */
+/* ADC PRESCALER CONFIGURATION                               */
+/* ========================================================= */
+
+/*
+ADPS[2:0] = 000
+
+Aceasta este configuratia simpla ceruta de exercitiu.
+*/
+
+#define ADC_PRESCALER_ADPS2_VALUE           (0U)
+#define ADC_PRESCALER_ADPS1_VALUE           (0U)
+#define ADC_PRESCALER_ADPS0_VALUE           (0U)
+
+/* ========================================================= */
+/* ADC TRIGGER CONFIGURATION                                 */
+/* ========================================================= */
+
+/*
+Nu se foloseste auto-trigger.
+ADTS[2:0] ramane 000.
+*/
+
+#define ADC_TRIGGER_ADTS2_VALUE             (0U)
+#define ADC_TRIGGER_ADTS1_VALUE             (0U)
+#define ADC_TRIGGER_ADTS0_VALUE             (0U)
+
+/* ========================================================= */
+/* PRIVATE MODULE VARIABLES                                  */
+/* ========================================================= */
 
 static volatile adc_uint8_t adc_conversion_result;
 static volatile adc_uint8_t adc_result_state;
 
-/*
-IAR header-ul proiectului expune registrul ADC ca registru de 16 biti.
-
-Pentru ADLAR = 1, cei mai semnificativi 8 biti reprezinta
-continutul registrului ADCH. Expresia ADC >> 8 este echivalenta
-cu citirea valorii din ADCH.
-*/
-
-#define ADC_HIGH_BYTE_SHIFT                   (8U)
-
-/* ADC interrupt service routine */
+/* ========================================================= */
+/* ADC INTERRUPT SERVICE ROUTINE                             */
+/* ========================================================= */
 
 #pragma vector=ADC_vect
 __interrupt void adc_conversion_complete_isr(void)
 {
+    /*
+    Header-ul IAR expune ADC ca registru de 16 biti.
+
+    Pentru ADLAR = 1, deplasarea cu 8 pozitii extrage
+    octetul superior, echivalent cu citirea ADCH.
+    */
+
     adc_conversion_result = (adc_uint8_t)(
         ADC >> ADC_HIGH_BYTE_SHIFT
     );
@@ -85,85 +117,92 @@ __interrupt void adc_conversion_complete_isr(void)
     adc_result_state = ADC_RESULT_READY;
 }
 
-/* Public functions */
+/* ========================================================= */
+/* MODULE INITIALIZATION                                     */
+/* ========================================================= */
 
-void adc_initialize(void)
+void adc_init(void)
 {
-    adc_conversion_result = 0U;
+    adc_conversion_result = ADC_RESULT_INITIAL_VALUE;
     adc_result_state = ADC_RESULT_NOT_READY;
 
     /*
     Selecteaza AVCC ca referinta:
-    REFS1:0 = 01.
+    REFS[1:0] = 01.
     */
 
-    ADMUX_REFS1 = ADC_REFERENCE_AVCC_REFS1;
-    ADMUX_REFS0 = ADC_REFERENCE_AVCC_REFS0;
+    ADMUX_REFS1 = ADC_REFERENCE_REFS1_VALUE;
+    ADMUX_REFS0 = ADC_REFERENCE_REFS0_VALUE;
 
     /*
     Rezultatul este aliniat la stanga.
-    Astfel este suficienta citirea octetului high.
     */
 
-    ADMUX_ADLAR = ADC_RESULT_LEFT_ADJUSTED;
+    ADMUX_ADLAR = ADC_LEFT_ADJUST_ENABLE;
 
     /*
-    Selecteaza intrarea single-ended ADC4:
-    MUX[4:0] = 00100.
+    Selecteaza canalul single-ended ADC4.
     */
 
-    ADMUX_MUX4 = ADC_CHANNEL_ADC4_MUX4;
-    ADMUX_MUX3 = ADC_CHANNEL_ADC4_MUX3;
-    ADMUX_MUX2 = ADC_CHANNEL_ADC4_MUX2;
-    ADMUX_MUX1 = ADC_CHANNEL_ADC4_MUX1;
-    ADMUX_MUX0 = ADC_CHANNEL_ADC4_MUX0;
+    ADMUX_MUX4 = ADC_CHANNEL_MUX4_VALUE;
+    ADMUX_MUX3 = ADC_CHANNEL_MUX3_VALUE;
+    ADMUX_MUX2 = ADC_CHANNEL_MUX2_VALUE;
+    ADMUX_MUX1 = ADC_CHANNEL_MUX1_VALUE;
+    ADMUX_MUX0 = ADC_CHANNEL_MUX0_VALUE;
 
     /*
-    Nu se foloseste auto-trigger.
-    ADC-ul functioneaza in Single Conversion Mode.
+    Dezactiveaza auto-trigger.
+    Conversiile vor fi pornite doar prin software.
     */
 
-    ADCSRA_ADATE = ADC_DISABLE_AUTO_TRIGGER;
-
-    ADCSRB_ADTS2 = ADC_TRIGGER_SOURCE_BIT_2;
-    ADCSRB_ADTS1 = ADC_TRIGGER_SOURCE_BIT_1;
-    ADCSRB_ADTS0 = ADC_TRIGGER_SOURCE_BIT_0;
+    ADCSRA_ADATE = ADC_AUTO_TRIGGER_DISABLE;
 
     /*
-    Prescaler-ul ramane pe configuratia simpla ceruta:
-    ADPS[2:0] = 000.
+    Selectia triggerului ramane pe valoarea implicita.
     */
 
-    ADCSRA_ADPS2 = ADC_PRESCALER_BIT_2;
-    ADCSRA_ADPS1 = ADC_PRESCALER_BIT_1;
-    ADCSRA_ADPS0 = ADC_PRESCALER_BIT_0;
+    ADCSRB_ADTS2 = ADC_TRIGGER_ADTS2_VALUE;
+    ADCSRB_ADTS1 = ADC_TRIGGER_ADTS1_VALUE;
+    ADCSRB_ADTS0 = ADC_TRIGGER_ADTS0_VALUE;
 
-    /* Activeaza intreruperea ADC. */
+    /*
+    Configureaza prescaler-ul.
+    */
 
-    ADCSRA_ADIE = ADC_ENABLE_INTERRUPT;
+    ADCSRA_ADPS2 = ADC_PRESCALER_ADPS2_VALUE;
+    ADCSRA_ADPS1 = ADC_PRESCALER_ADPS1_VALUE;
+    ADCSRA_ADPS0 = ADC_PRESCALER_ADPS0_VALUE;
+
+    /*
+    Activeaza intreruperea ADC Conversion Complete.
+    */
+
+    ADCSRA_ADIE = ADC_INTERRUPT_ENABLE;
 
     /*
     Activeaza perifericul ADC.
-    Pornirea conversiei se face separat, dupa configurare.
+
+    Pornirea conversiei nu se face aici.
+    Aceasta este o actiune atomica separata.
     */
 
-    ADCSRA_ADEN = ADC_ENABLE_VALUE;
-
-    /* Activeaza global intreruperile. */
-
-    __enable_interrupt();
+    ADCSRA_ADEN = ADC_ENABLE;
 }
+
+/* ========================================================= */
+/* ATOMIC ADC ACTIONS                                        */
+/* ========================================================= */
 
 void adc_start_conversion(void)
 {
     adc_result_state = ADC_RESULT_NOT_READY;
 
     /*
-    Scrierea valorii 1 in ADSC porneste o conversie.
-    Bitul este resetat automat la terminarea conversiei.
+    Scrierea valorii 1 in ADSC porneste conversia.
+    ADSC este resetat automat de hardware la final.
     */
 
-    ADCSRA_ADSC = ADC_START_CONVERSION_VALUE;
+    ADCSRA_ADSC = ADC_START_CONVERSION;
 }
 
 adc_uint8_t adc_is_result_ready(void)
@@ -174,6 +213,11 @@ adc_uint8_t adc_is_result_ready(void)
 adc_uint8_t adc_get_result(void)
 {
     adc_uint8_t adc_result_copy;
+
+    /*
+    Variabila este modificata de ISR.
+    Se foloseste o sectiune critica scurta.
+    */
 
     __disable_interrupt();
 

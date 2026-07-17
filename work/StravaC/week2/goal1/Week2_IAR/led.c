@@ -6,62 +6,72 @@ Autor: Strava Cosmin-Paul
 Data: 2026
 
 Implementarea modulului LED.
+
+Initializarea configureaza pinul LED-ului ca iesire
+si stabileste starea initiala OFF.
 */
-
-/* Fast blink timing */
-
-#define LED_FAST_DELAY_COUNT               (15000UL)
-#define LED_DELAY_COUNTER_INITIAL_VALUE    (0UL)
 
 #include "led.h"
 
-void led_power_on(
-    volatile gpio_uint8_t *led_port,
-    gpio_uint8_t led_pin
+void led_init(
+    volatile gpio_uint8_t *led_ddr_register,
+    volatile gpio_uint8_t *led_port_register,
+    gpio_uint8_t led_pin_number
 )
 {
+    gpio_set_direction(
+        led_ddr_register,
+        led_pin_number,
+        GPIO_OUTPUT
+    );
+
+    led_power_off(
+        led_port_register,
+        led_pin_number
+    );
+}
+
+void led_power_on(
+    volatile gpio_uint8_t *led_port_register,
+    gpio_uint8_t led_pin_number
+)
+{
+    /*
+    LED active-low:
+    resetarea pinului aprinde LED-ul.
+    */
+
     gpio_reset_pin(
-        led_port,
-        led_pin
+        led_port_register,
+        led_pin_number
     );
 }
 
 void led_power_off(
-    volatile gpio_uint8_t *led_port,
-    gpio_uint8_t led_pin
+    volatile gpio_uint8_t *led_port_register,
+    gpio_uint8_t led_pin_number
 )
 {
+    /*
+    LED active-low:
+    setarea pinului stinge LED-ul.
+    */
+
     gpio_set_pin(
-        led_port,
-        led_pin
+        led_port_register,
+        led_pin_number
     );
 }
 
 void led_toggle(
-    volatile gpio_uint8_t *led_port,
-    gpio_uint8_t led_pin
+    volatile gpio_uint8_t *led_port_register,
+    gpio_uint8_t led_pin_number
 )
 {
     gpio_toggle_pin(
-        led_port,
-        led_pin
+        led_port_register,
+        led_pin_number
     );
-}
-
-void led_delay_fast(void)
-{
-    volatile unsigned long led_delay_counter;
-
-    for (
-        led_delay_counter = LED_DELAY_COUNTER_INITIAL_VALUE;
-        led_delay_counter < LED_FAST_DELAY_COUNT;
-        led_delay_counter++
-    )
-    {
-        /*
-        Intarziere software pentru blink rapid.
-        */
-    }
 }
 
 #endif
