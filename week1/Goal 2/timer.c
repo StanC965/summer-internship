@@ -15,7 +15,7 @@ __interrupt void led(){
 }
 void timer_init(){
   TCCR0A=0x42;
-  OCR0A=0x7f;
+  OCR0A=0x62;
   TIMSK0=0x02;
   SREG_I=1;
 }
