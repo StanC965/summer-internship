@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>512518955</fileChecksum>
+    <fileChecksum>1022494005</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -28,10 +28,12 @@
             <file>$PROJ_DIR$\timer.h</file>
             <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
             <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
+            <file>$PROJ_DIR$\scheduler_cfg.h</file>
             <file>$PROJ_DIR$\scheduler.h</file>
             <file>$PROJ_DIR$\Debug\List\timer.i</file>
             <file>$PROJ_DIR$\Debug\Obj\timer.r90</file>
             <file>$PROJ_DIR$\scheduler.c</file>
+            <file>$PROJ_DIR$\scheduler_cfg.c</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
@@ -53,7 +55,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 14 10 18 5 20 23</file>
+                    <file> 11 14 10 18 5 20 24</file>
                 </tool>
             </inputs>
         </file>
@@ -83,7 +85,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 16 1 17 0 8 22 25 13</file>
+                    <file> 16 1 17 0 8 22 26 13</file>
                 </tool>
             </inputs>
         </file>
@@ -107,13 +109,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 24 25</file>
+                    <file> 25 26</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 11 14 10 20 23</file>
+                    <file> 18 11 14 10 20 24</file>
                 </tool>
             </inputs>
         </file>
@@ -128,7 +130,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 11 14 10 23 20</file>
+                    <file> 11 14 10 24 20</file>
                 </tool>
             </inputs>
         </file>

@@ -2657,6 +2657,12 @@
         <name>$PROJ_DIR$\scheduler.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\scheduler_cfg.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler_cfg.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\timer.c</name>
     </file>
     <file>
