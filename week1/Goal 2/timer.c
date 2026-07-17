@@ -7,11 +7,18 @@ volatile unsigned int btn0=0;
 
 __interrupt void led(){
   i++;
-  if(i<=10){
-    sec++;
-    reset_pin(&PORTC,PIN7);
-   if(i>7)
-     set_pin(&PORTC,PIN7);
+  if(i<=12){
+    if(i<=10){
+      if(i<=5){
+        if(i<3)
+          reset_pin(&PORTC,PIN7);
+        else
+          set_pin(&PORTC,PIN7);
+      }else
+        reset_pin(&PORTC,PIN7);
+    }  
+    if(i>10)
+      set_pin(&PORTC,PIN7);
   }
   else
     i=0;
