@@ -51420,13 +51420,97 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@144@macro@LED0_PIN",
+    "ID": "c:main.c@156@macro@PCIE2",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PCIE2",
+    "location": {
+      "column": "9",
+      "line": "10",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
+    },
+    "name": "PCIE2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@175@macro@PCIE0",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "PCIE0",
+    "location": {
+      "column": "9",
+      "line": "11",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
+    },
+    "name": "PCIE0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@194@macro@BTNSW0_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTNSW0_PIN",
+    "location": {
+      "column": "9",
+      "line": "12",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
+    },
+    "name": "BTNSW0_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@225@macro@BTN1_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTN1_PIN",
+    "location": {
+      "column": "9",
+      "line": "13",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
+    },
+    "name": "BTN1_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@256@macro@BTN2_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTN2_PIN",
+    "location": {
+      "column": "9",
+      "line": "14",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
+    },
+    "name": "BTN2_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@287@macro@BTN3_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTN3_PIN",
+    "location": {
+      "column": "9",
+      "line": "15",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
+    },
+    "name": "BTN3_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@318@macro@LED0_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED0_PIN",
     "location": {
       "column": "9",
-      "line": "9",
+      "line": "16",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "LED0_PIN",
@@ -51434,13 +51518,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@164@macro@LED1_PIN",
+    "ID": "c:main.c@349@macro@LED1_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED1_PIN",
     "location": {
       "column": "9",
-      "line": "10",
+      "line": "17",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "LED1_PIN",
@@ -51448,13 +51532,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@195@macro@LED2_PIN",
+    "ID": "c:main.c@380@macro@LED2_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED2_PIN",
     "location": {
       "column": "9",
-      "line": "11",
+      "line": "18",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "LED2_PIN",
@@ -51462,13 +51546,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@226@macro@LED3_PIN",
+    "ID": "c:main.c@411@macro@LED3_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED3_PIN",
     "location": {
       "column": "9",
-      "line": "12",
+      "line": "19",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "LED3_PIN",
@@ -51476,13 +51560,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@257@macro@OUTPUT",
+    "ID": "c:main.c@442@macro@OUTPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OUTPUT",
     "location": {
       "column": "9",
-      "line": "13",
+      "line": "20",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "OUTPUT",
@@ -51490,13 +51574,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@275@macro@INPUT",
+    "ID": "c:main.c@460@macro@INPUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "INPUT",
     "location": {
       "column": "9",
-      "line": "14",
+      "line": "21",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "INPUT",
@@ -51504,16 +51588,16 @@
     "scope": null
   },
   {
-    "ID": "c:@F@leds_init",
+    "ID": "c:@F@setup",
     "What": "Function",
     "defdec": "Def",
-    "display": "void leds_init(void)",
+    "display": "void setup(void)",
     "location": {
       "column": "6",
-      "line": "16",
+      "line": "23",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
-    "name": "leds_init",
+    "name": "setup",
     "origin": "project_file",
     "scope": null
   },
@@ -51524,7 +51608,7 @@
     "display": "void timer1_init(void)",
     "location": {
       "column": "6",
-      "line": "26",
+      "line": "42",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "timer1_init",
@@ -51532,16 +51616,16 @@
     "scope": null
   },
   {
-    "ID": "c:@F@timer1_interrupt",
+    "ID": "c:@F@Timer1_Tick_ISR",
     "What": "Function",
     "defdec": "Def",
-    "display": "void timer1_interrupt(void)",
+    "display": "void Timer1_Tick_ISR(void)",
     "location": {
       "column": "18",
-      "line": "35",
+      "line": "51",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
-    "name": "timer1_interrupt",
+    "name": "Timer1_Tick_ISR",
     "origin": "project_file",
     "scope": null
   },
@@ -51552,7 +51636,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "39",
+      "line": "55",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\main.c"
     },
     "name": "main",
@@ -51627,118 +51711,6 @@
     },
     "name": "scheduler_flags_management",
     "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler.c@flag_10ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_10ms",
-    "location": {
-      "column": "31",
-      "line": "5",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "flag_10ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler.c@flag_50ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_50ms",
-    "location": {
-      "column": "31",
-      "line": "6",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "flag_50ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler.c@flag_100ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_100ms",
-    "location": {
-      "column": "31",
-      "line": "7",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "flag_100ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler.c@flag_500ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_500ms",
-    "location": {
-      "column": "31",
-      "line": "8",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "flag_500ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler.c@flag_1000ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "flag_1000ms",
-    "location": {
-      "column": "31",
-      "line": "9",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "flag_1000ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@schedule_tasks_dispatcher",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void schedule_tasks_dispatcher(void)",
-    "location": {
-      "column": "6",
-      "line": "11",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "schedule_tasks_dispatcher",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@scheduler_flags_management",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void scheduler_flags_management(void)",
-    "location": {
-      "column": "6",
-      "line": "25",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "scheduler_flags_management",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler.c@557@F@scheduler_flags_management@contor_100ms",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "contor_100ms",
-    "location": {
-      "column": "24",
-      "line": "26",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
-    },
-    "name": "contor_100ms",
-    "origin": "project_file",
     "scope": null
   },
   {
@@ -51896,13 +51868,195 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler_cfg.c@116@macro@LED1_PIN",
+    "ID": "c:scheduler.c@flag_10ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag_10ms",
+    "location": {
+      "column": "31",
+      "line": "5",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "flag_10ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.c@flag_50ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag_50ms",
+    "location": {
+      "column": "31",
+      "line": "6",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "flag_50ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.c@flag_100ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag_100ms",
+    "location": {
+      "column": "31",
+      "line": "7",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "flag_100ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.c@flag_500ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag_500ms",
+    "location": {
+      "column": "31",
+      "line": "8",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "flag_500ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.c@flag_1000ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "flag_1000ms",
+    "location": {
+      "column": "31",
+      "line": "9",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "flag_1000ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@schedule_tasks_dispatcher",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void schedule_tasks_dispatcher(void)",
+    "location": {
+      "column": "6",
+      "line": "11",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "schedule_tasks_dispatcher",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@scheduler_flags_management",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void scheduler_flags_management(void)",
+    "location": {
+      "column": "6",
+      "line": "25",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "scheduler_flags_management",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler.c@554@F@scheduler_flags_management@contor_50ms",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "contor_50ms",
+    "location": {
+      "column": "24",
+      "line": "26",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler.c"
+    },
+    "name": "contor_50ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@116@macro@BTNSW0_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTNSW0_PIN",
+    "location": {
+      "column": "9",
+      "line": "7",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "BTNSW0_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@147@macro@BTN1_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTN1_PIN",
+    "location": {
+      "column": "9",
+      "line": "8",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "BTN1_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@178@macro@BTN2_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTN2_PIN",
+    "location": {
+      "column": "9",
+      "line": "9",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "BTN2_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@209@macro@BTN3_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BTN3_PIN",
+    "location": {
+      "column": "9",
+      "line": "10",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "BTN3_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@240@macro@LED0_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LED0_PIN",
+    "location": {
+      "column": "9",
+      "line": "11",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "LED0_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@271@macro@LED1_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED1_PIN",
     "location": {
       "column": "9",
-      "line": "7",
+      "line": "12",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "LED1_PIN",
@@ -51910,13 +52064,13 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler_cfg.c@142@macro@LED2_PIN",
+    "ID": "c:scheduler_cfg.c@302@macro@LED2_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED2_PIN",
     "location": {
       "column": "9",
-      "line": "8",
+      "line": "13",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "LED2_PIN",
@@ -51924,13 +52078,13 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler_cfg.c@168@macro@LED3_PIN",
+    "ID": "c:scheduler_cfg.c@333@macro@LED3_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED3_PIN",
     "location": {
       "column": "9",
-      "line": "9",
+      "line": "14",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "LED3_PIN",
@@ -51938,72 +52092,86 @@
     "scope": null
   },
   {
-    "ID": "c:scheduler_cfg.c@188@macro@FULL_DARK",
+    "ID": "c:scheduler_cfg.c@364@macro@OUTPUT",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "FULL_DARK",
+    "display": "OUTPUT",
     "location": {
       "column": "9",
-      "line": "10",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
-    },
-    "name": "FULL_DARK",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler_cfg.c@211@macro@SEMI_DARK",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SEMI_DARK",
-    "location": {
-      "column": "9",
-      "line": "11",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
-    },
-    "name": "SEMI_DARK",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler_cfg.c@234@macro@SEMI_LIGHT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SEMI_LIGHT",
-    "location": {
-      "column": "9",
-      "line": "12",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
-    },
-    "name": "SEMI_LIGHT",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler_cfg.c@257@macro@FULL_LIGHT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "FULL_LIGHT",
-    "location": {
-      "column": "9",
-      "line": "13",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
-    },
-    "name": "FULL_LIGHT",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@turn_on_leds",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void turn_on_leds(unsigned char)",
-    "location": {
-      "column": "6",
       "line": "15",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
-    "name": "turn_on_leds",
+    "name": "OUTPUT",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@382@macro@INPUT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "INPUT",
+    "location": {
+      "column": "9",
+      "line": "16",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "INPUT",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@btn0",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "btn0",
+    "location": {
+      "column": "24",
+      "line": "18",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "btn0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@btn1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "btn1",
+    "location": {
+      "column": "24",
+      "line": "19",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "btn1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@btn2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "btn2",
+    "location": {
+      "column": "24",
+      "line": "20",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "btn2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@btn3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "btn3",
+    "location": {
+      "column": "24",
+      "line": "21",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "btn3",
     "origin": "project_file",
     "scope": null
   },
@@ -52014,10 +52182,178 @@
     "display": "void task_10ms(void)",
     "location": {
       "column": "6",
-      "line": "38",
+      "line": "23",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "task_10ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@549@F@task_10ms@buffer0",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "buffer0",
+    "location": {
+      "column": "24",
+      "line": "24",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "buffer0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@587@F@task_10ms@buffer1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "buffer1",
+    "location": {
+      "column": "24",
+      "line": "25",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "buffer1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@625@F@task_10ms@buffer2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "buffer2",
+    "location": {
+      "column": "24",
+      "line": "26",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "buffer2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@663@F@task_10ms@buffer3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "buffer3",
+    "location": {
+      "column": "24",
+      "line": "27",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "buffer3",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@705@F@task_10ms@stare_btn0",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn0",
+    "location": {
+      "column": "17",
+      "line": "29",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@761@F@task_10ms@stare_btn1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn1",
+    "location": {
+      "column": "17",
+      "line": "30",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@815@F@task_10ms@stare_btn2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn2",
+    "location": {
+      "column": "17",
+      "line": "31",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@869@F@task_10ms@stare_btn3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn3",
+    "location": {
+      "column": "17",
+      "line": "32",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn3",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1075@F@task_10ms@window0",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "window0",
+    "location": {
+      "column": "17",
+      "line": "39",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "window0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1125@F@task_10ms@window1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "window1",
+    "location": {
+      "column": "17",
+      "line": "40",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "window1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1164@F@task_10ms@window2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "window2",
+    "location": {
+      "column": "17",
+      "line": "41",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "window2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1203@F@task_10ms@window3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "window3",
+    "location": {
+      "column": "17",
+      "line": "42",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "window3",
     "origin": "project_file",
     "scope": null
   },
@@ -52028,10 +52364,122 @@
     "display": "void task_50ms(void)",
     "location": {
       "column": "6",
-      "line": "41",
+      "line": "64",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "task_50ms",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1619@F@task_50ms@panel_blocat",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "panel_blocat",
+    "location": {
+      "column": "14",
+      "line": "65",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "panel_blocat",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1649@F@task_50ms@stare_led1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_led1",
+    "location": {
+      "column": "14",
+      "line": "66",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_led1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1679@F@task_50ms@stare_led2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_led2",
+    "location": {
+      "column": "14",
+      "line": "67",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_led2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1709@F@task_50ms@stare_led3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_led3",
+    "location": {
+      "column": "14",
+      "line": "68",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_led3",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1739@F@task_50ms@stare_btn0",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn0",
+    "location": {
+      "column": "14",
+      "line": "69",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn0",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1767@F@task_50ms@stare_btn1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn1",
+    "location": {
+      "column": "14",
+      "line": "70",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1795@F@task_50ms@stare_btn2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn2",
+    "location": {
+      "column": "14",
+      "line": "71",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:scheduler_cfg.c@1823@F@task_50ms@stare_btn3",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "stare_btn3",
+    "location": {
+      "column": "14",
+      "line": "72",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
+    },
+    "name": "stare_btn3",
     "origin": "project_file",
     "scope": null
   },
@@ -52042,24 +52490,10 @@
     "display": "void task_100ms(void)",
     "location": {
       "column": "6",
-      "line": "44",
+      "line": "153",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "task_100ms",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:scheduler_cfg.c@1001@F@task_100ms@lumina",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "lumina",
-    "location": {
-      "column": "17",
-      "line": "45",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
-    },
-    "name": "lumina",
     "origin": "project_file",
     "scope": null
   },
@@ -52070,7 +52504,7 @@
     "display": "void task_500ms(void)",
     "location": {
       "column": "6",
-      "line": "50",
+      "line": "157",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "task_500ms",
@@ -52084,7 +52518,7 @@
     "display": "void task_1000ms(void)",
     "location": {
       "column": "6",
-      "line": "53",
+      "line": "160",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 5\\scheduler_cfg.c"
     },
     "name": "task_1000ms",

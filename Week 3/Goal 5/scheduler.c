@@ -15,22 +15,22 @@ void schedule_tasks_dispatcher(void) {
       task_10ms();
     }
     
-    if(flag_100ms==1){
-      flag_100ms=0;
-      task_100ms();
+    if(flag_50ms==1){
+      flag_50ms=0;
+      task_50ms();
     }
   }
 }
 
 void scheduler_flags_management(void){
-  static unsigned char contor_100ms=0;
+  static unsigned char contor_50ms=0;
 
   flag_10ms=1;
 
-  contor_100ms++;
-  if(contor_100ms>=10){
-    flag_100ms=1;
-    contor_100ms=0;
+  contor_50ms++;
+  if(contor_50ms>=5){
+    flag_50ms=1;
+    contor_50ms=0;
   }
   
 }

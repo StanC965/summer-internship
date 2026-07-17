@@ -147,7 +147,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 14 10 8 11 9 7 6 5</file>
+                    <file> 14 10 8 6 7 9 11 1</file>
                 </tool>
             </inputs>
         </file>
