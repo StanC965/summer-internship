@@ -5,6 +5,7 @@ __interrupt void buton_apasat(void)
 {
   if(PINC_PINC6==0){
     btn0 ^=1;
+    prescale++;
   }
   if(PINC_PINC1==0){
     btn0 ? (state=1) : (btn1^=1);
@@ -27,6 +28,7 @@ void btn_init(){
    PCMSK2=0x42;
    PCICR =0x05;
    SREG_I=1;
+   prescale=0;
 }
 
 void PressToSos(){
