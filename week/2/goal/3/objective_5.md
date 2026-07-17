@@ -10,6 +10,7 @@
 | Task ID   | Type      | Status 
 | :---      | :---      | :---                    
 | **[351]** | `CORE`    | [x] Completed 
+| **[352]** | `CORE`    | [x] Completed 
 
 --- 
 
@@ -64,6 +65,14 @@
 > - leave the ADLAR bit in ADMUX at 0 for standard right adjusted reading
 > - clock prescaler (see more about this)
 > - write 1 in DIDR. This shuts down the digital input buffer on the PA4 pin, preventing floating analog voltages from consuming unnecessary leakage current
+
+--- 
+
+#### Task 352
+> **Question/Prompt:** After reading the ADC datasheet information (registers & functionalities) you should have these questions.
+
+> **Answer/Explanation:**
+> 
 
 ---
 
