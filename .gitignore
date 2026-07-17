@@ -96,3 +96,13 @@ Week1Goal2/button.c
 Week1Goal2/button.h
 Week1Goal2/sos.c
 Week1Goal2/sos.h
+
+# IAR working project files for Week2 Goal3
+Week2Goal3/Debug/
+Week2Goal3/settings/
+Week2Goal3/main.c
+Week2Goal3/w2g3.ewp
+Week2Goal3/w2g3.eww
+Week2Goal3/w2g3.ewd
+Week2Goal3/w2g3.ewt
+Week2Goal3/w2g3.dep

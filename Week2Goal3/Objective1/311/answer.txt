@@ -1,0 +1,13 @@
+311 - Interrupts in the datasheet
+
+button pressed > pin voltage changed > interrupt request to CPU
+
+What I understood from the chapters:
+- The I bit in SREG (8.3.1) is a master switch. Even if I enable one interrupt, nothing
+  happens until I set the I bit too
+- The Stack Pointer (8.5) is needed because the CPU pushes the return address on the
+  stack before jumping to the ISR, so it knows where to come back.
+- Every interrupt source has its own fixed address in Flash (14.1): INT0 -> 0x0002,
+  INT2 -> 0x0006, PCINT0 -> 0x0008, PCINT2 -> 0x000C ...
+- External interrupts (15) come either from the INT pins or from the PCINT pins.
+
