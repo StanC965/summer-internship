@@ -5,15 +5,16 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/     
 #include "iom324pb.h" 
 #include "scheduler.h"
+#include "timer.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  variables
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-volatile bool flag_10ms   = false;
-volatile bool flag_50ms   = false;
-volatile bool flag_100ms  = false;
-volatile bool flag_500ms  = false;
-volatile bool flag_1000ms = false;
+volatile _Bool flag_10ms   = 0;
+volatile _Bool flag_50ms   = 0;
+volatile _Bool flag_100ms  = 0;
+volatile _Bool flag_500ms  = 0;
+volatile _Bool flag_1000ms = 0;
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  Implementation      */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -35,7 +36,7 @@ if(count_50ms>=PERIOD_OF_50MS)
 }
 
 count_100ms++;
-if(count_100ms>=PERIOD_OF_50MS)
+if(count_100ms>=PERIOD_OF_100MS)
 {
   flag_100ms=1;
   count_100ms=0;
@@ -56,7 +57,37 @@ if(count_1000ms>=PERIOD_OF_1000MS)
 }
 
 
+}
 
+void schedule_tasks_dispatcher(void)
+{
+    while(1)
+    {
+        if (flag_10ms) {
+            flag_10ms = 0;
+            task_10ms();
+        }
+
+        if (flag_50ms) {
+            flag_50ms = 0;
+            task_50ms();
+        }
+
+        if (flag_100ms) {
+            flag_100ms = 0;
+            task_100ms();
+        }
+
+        if (flag_500ms) {
+            flag_500ms = 0;
+            task_500ms();
+        }
+
+        if (flag_1000ms) {
+            flag_1000ms = 0;
+            task_1000ms();
+        }
+    }
 }
         
 

@@ -14,8 +14,11 @@
 #pragma vector=TIMER1_COMPA_vect
 __interrupt void Time_interval(void)
 {
+  
    scheduler_flags_management();
+      
 }
+
 
 void Timer1_ales_aprox_8Mhz(float milisecunde)
 {

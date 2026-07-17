@@ -39,6 +39,11 @@ build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl : C
   flags = C$:\Users\Stefan\summer-internship\Exercitii\main.c --cpu=m324pb -ms -o C$:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\ --preprocess C$:\Users\Stefan\summer-internship\Exercitii\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\\" --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.tmp
   rspfile_name = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl.rsp
 
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\Stefan\summer-internship\Exercitii\scheduler.c -xcl_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.xcl -macro_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = C$:\Users\Stefan\summer-internship\Exercitii\scheduler.c --cpu=m324pb -ms -o C$:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\ --preprocess C$:\Users\Stefan\summer-internship\Exercitii\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\\" --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.tmp
+  rspfile_name = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.xcl.rsp
+
 build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.xcl : COMPILER_XCL 
   xclcommand = -source_file C$:\Users\Stefan\summer-internship\Exercitii\timer.c -xcl_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.xcl -macro_file C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = C$:\Users\Stefan\summer-internship\Exercitii\timer.c --cpu=m324pb -ms -o C$:\Users\Stefan\summer-internship\Exercitii\Debug\Obj\ --preprocess C$:\Users\Stefan\summer-internship\Exercitii\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\\" --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.tmp
@@ -56,6 +61,10 @@ build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi : I
 C$:\Users\Stefan\summer-internship\Exercitii\main.c
   flags = -out=C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi -f C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.xcl
 
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.pbi : INDEXER C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.xcl |  $
+C$:\Users\Stefan\summer-internship\Exercitii\scheduler.c
+  flags = -out=C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.pbi -f C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.xcl
+
 build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.pbi : INDEXER C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.xcl |  $
 C$:\Users\Stefan\summer-internship\Exercitii\timer.c
   flags = -out=C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.pbi -f C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.xcl
@@ -63,9 +72,19 @@ C$:\Users\Stefan\summer-internship\Exercitii\timer.c
 build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbw : MAKEBROWSE C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd
   flags = C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd -output C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbw
 
-build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi |  $
-C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\led.pbi $
-C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi $
-C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.pbi
-  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\led.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.pbi
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part0.pbi : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi |  $
+C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\led.pbi
+  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part0.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\gpio.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\led.pbi
+
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part1.pbi : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi |  $
+C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.pbi
+  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part1.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\main.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\scheduler.pbi
+
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part2.pbi : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.pbi
+  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part2.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\timer.pbi
+
+build C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd : PDBLINK C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part0.pbi |  $
+C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part1.pbi $
+C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part2.pbi
+  flags = -M C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq.pbd C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part0.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part1.pbi C$:\Users\Stefan\summer-internship\Exercitii\Debug\BrowseInfo\Deac_Stefan_Marq_part2.pbi
 
