@@ -13,6 +13,7 @@
 | **[352]** | `CORE`    | [x] Completed 
 | **[353]** | `CORE`    | [x] Completed 
 | **[354]** | `STRETCH` | [] Completed 
+| **[355]** | `CORE`    | [x] Completed 
 
 --- 
 
@@ -90,9 +91,21 @@
 > **Question/Prompt:**  You can play with darker ambient (cover the sensor with a book, NOT with your finger!!!) or brighter ambient (you can use your phone flashlight) to observe different ADC results. Change the VREF settings to 1.1V and check if ADC is saturated (meaning that results will be topped with 0xFF for the same light intensity*).
 
 > **Answer/Explanation:**
-> I used a volatile uint8_t to store ADCH.
+> 
+
+--- 
+
+#### Task 355
+> **Question/Prompt:**  More design rules! Re-design your code (all modules so far!) along the additional rules:
+
+> - each module must have an initialization function (e.g. led_init( ), adc_init( ), gpio_init( ), etc.) which will define the initial state for that particular module (it can be peripheral dependent, e.g. module ADC is initialized with all the default decisions you took or it can be peripheral independent, e.g. module LED is initialized with all LEDs by default turned off)
+> - determine the atomic actions a software driver can do to "drive" the hardware and build dedicated functions for them (e.g. at GPIO module, which is a driver, you determined set, reset, get being the atomic actions and you build functions accordingly; at ADC module which is a driver you can determine the start of conversion and get the result as the atomic actions, building dedicated functions)
+
+> **Answer/Explanation:**
+> 
 
 ---
 
 ## References & Resources
 * I/O1 Xplained Pro user guide
+
