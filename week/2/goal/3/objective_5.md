@@ -11,6 +11,7 @@
 | :---      | :---      | :---                    
 | **[351]** | `CORE`    | [x] Completed 
 | **[352]** | `CORE`    | [x] Completed 
+| **[353]** | `CORE`    | [x] Completed 
 
 --- 
 
@@ -73,6 +74,14 @@
 
 > **Answer/Explanation:**
 > 
+
+--- 
+
+#### Task 353
+> **Question/Prompt:** Introduce the interrupt service routine for ADC. Inside you need to read the ADCH to get the result of conversion. What kind of data type you will use for this? (<<< your decision). Put a breakpoint to ISR and your program should hit it! Wonderful!
+
+> **Answer/Explanation:**
+> I used a volatile uint8_t to store ADCH.
 
 ---
 
