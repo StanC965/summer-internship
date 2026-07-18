@@ -12,6 +12,7 @@
 | **[351]** | `CORE`    | [x] Completed 
 | **[352]** | `CORE`    | [x] Completed 
 | **[353]** | `CORE`    | [x] Completed 
+| **[354]** | `STRETCH` | [] Completed 
 
 --- 
 
@@ -79,6 +80,14 @@
 
 #### Task 353
 > **Question/Prompt:** Introduce the interrupt service routine for ADC. Inside you need to read the ADCH to get the result of conversion. What kind of data type you will use for this? (<<< your decision). Put a breakpoint to ISR and your program should hit it! Wonderful!
+
+> **Answer/Explanation:**
+> I used a volatile uint8_t to store ADCH.
+
+--- 
+
+#### Task 354
+> **Question/Prompt:**  You can play with darker ambient (cover the sensor with a book, NOT with your finger!!!) or brighter ambient (you can use your phone flashlight) to observe different ADC results. Change the VREF settings to 1.1V and check if ADC is saturated (meaning that results will be topped with 0xFF for the same light intensity*).
 
 > **Answer/Explanation:**
 > I used a volatile uint8_t to store ADCH.
