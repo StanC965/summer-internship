@@ -579,10 +579,21 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
  
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
+  
+} led_config_t;
 
 
 
@@ -743,8 +754,22 @@ typedef unsigned char button_uint8_t;
                 
  
 
+
  
 
+ 
+
+ 
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *pin_register;
+  volatile gpio_uint8_t *ddr;
+  
+} button_config_t;
 
 
 
@@ -760,6 +785,29 @@ typedef unsigned char button_uint8_t;
 
  
 extern void BUTTON_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void button_init(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void button_interrupt_init(button_uint8_t button);
 
 
 

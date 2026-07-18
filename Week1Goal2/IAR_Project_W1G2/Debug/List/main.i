@@ -563,10 +563,21 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
  
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
+  
+} led_config_t;
 
 
 
@@ -727,8 +738,22 @@ typedef unsigned char button_uint8_t;
                 
  
 
+
  
 
+ 
+
+ 
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *pin_register;
+  volatile gpio_uint8_t *ddr;
+  
+} button_config_t;
 
 
 
@@ -744,6 +769,29 @@ typedef unsigned char button_uint8_t;
 
  
 extern void BUTTON_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void button_init(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void button_interrupt_init(button_uint8_t button);
 
 
 
@@ -820,162 +868,19 @@ extern void SOS_play(led_uint8_t led, unsigned char *state);
 
 
 
-
-
-
-
-
- 
-
-#pragma system_include
-
-
-
-__intrinsic void __no_operation(void);
-__intrinsic void __enable_interrupt(void);
-__intrinsic void __disable_interrupt(void);
-__intrinsic void __sleep(void);
-__intrinsic void __watchdog_reset(void);
-
-#pragma language=save
-#pragma language=extended
-
-__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
-
-#pragma language=restore
-
-__intrinsic void __insert_opcode(unsigned short op);
-
-
-
-__intrinsic void __require(void *);
-
-__intrinsic void __delay_cycles(unsigned long);
-
-__intrinsic unsigned char __save_interrupt(void);
-
-__intrinsic void          __restore_interrupt(unsigned char);
-typedef unsigned char __istate_t;
-
-__intrinsic unsigned char __swap_nibbles(unsigned char);
-
-__intrinsic void          __indirect_jump_to(unsigned long);
-
-
-__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
-__intrinsic signed int    __multiply_signed(signed char, signed char);
-__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
-
-__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
-__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
-__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
-
-#pragma language=save
-#pragma language=extended
-
-
-
- 
-
-
-
-
-
-
- 
-__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
-                                           unsigned char byte);
-
-
-
-
-
-
- 
-__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
-                                          unsigned char byte);
-
-
-
-
-
-
-
- 
-__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
-                                                    unsigned short word, 
-                                                    unsigned char byte);
-
-
-
-
-
-
-
-
-
-
-
- 
-__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
-                                                   unsigned char byte);
-
-
-
-
-
-
-
-
-#pragma language=restore
-
-
-
- 
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-static unsigned char previous_state =1;
-
-#pragma vector = (0x18)
-__interrupt void SW0_Interrupt_Handler(void) {
-
-  if (button_read_state((0U)) == (0U)) {
-  
-    previous_state = !previous_state;
-      
-  }
-}
-
-void interrupt_init(){
-  
-  PCMSK2 |= (1 << 6);
-  PCICR |= (1 << 2);
-  
-  __enable_interrupt();
-}
-
 void main( void )
 {
   BUTTON_Init();
-  interrupt_init();
+  button_interrupt_init((0U));
+  button_interrupt_init((1U));
+  button_interrupt_init((2U));
+  button_interrupt_init((3U));
+  LED_Init();
   
   while(1){
 
-    SOS_play((0U), &previous_state);
+    
+    
     
   }
 }

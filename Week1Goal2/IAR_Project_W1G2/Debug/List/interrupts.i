@@ -671,17 +671,10 @@ extern void BlinkSlow_LED(led_uint8_t led);
 
  
 
-static const led_config_t led_table[] =
-{
-    { &PORTC, (7U), &DDRC },
-    { &PORTD, (5U), &DDRD },
-    { &PORTD, (4U), &DDRD },
-    { &PORTA, (3U), &DDRA }
-};
 
 
 
- 
+
 
  
 
@@ -689,60 +682,186 @@ static const led_config_t led_table[] =
 
  
 
-void LED_Init(void){
-  gpio_set_direction(&DDRC, (7U), (1U));
-  gpio_set_direction(&DDRD, (5U), (1U));
-  gpio_set_direction(&DDRD, (4U), (1U));
-  gpio_set_direction(&DDRA, (3U), (1U));
 
-   
-  PowerOff_LED((0U));
-  PowerOff_LED((1U));
-  PowerOff_LED((2U));
-  PowerOff_LED((3U));
-}
 
-void led_init(led_uint8_t led){
-  if(led < (4U)){
-    gpio_set_direction(led_table[led].ddr, led_table[led].pin, (1U));
-    PowerOff_LED(led);
-  }
-}
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+ 
+typedef unsigned char button_uint8_t;
+
+ 
+
+ 
+
+ 
+
+ 
+                
+ 
+
+
+ 
+
+ 
+
+ 
+
+ 
+typedef struct {
   
-void PowerOn_LED(led_uint8_t led){
-  if(led < (4U)){
-    gpio_reset_pin(led_table[led].port, led_table[led].pin);
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *pin_register;
+  volatile gpio_uint8_t *ddr;
+  
+} button_config_t;
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+extern void BUTTON_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void button_init(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void button_interrupt_init(button_uint8_t button);
+
+
+
+
+
+
+
+
+ 
+extern void button_enable_pullup(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+ 
+extern unsigned char button_read_state(button_uint8_t button);
+
+
+
+
+
+ 
+
+
+
+ 
+
+ 
+
+
+
+ 
+
+#pragma vector = (0x10)
+__interrupt void PortA_Interrupt_Handler(void) {
+    
+  if (button_read_state((2U)) == (0U)) {
+    PowerOn_LED((2U));
+  }
+  else{
+    PowerOff_LED((2U));
+  }
+
+  if (button_read_state((3U)) == (0U)) {
+    PowerOn_LED((3U));
+  }else{
+    PowerOff_LED((3U));
   }
 }
 
-void PowerOff_LED(led_uint8_t led){
-  if(led < (4U)){
-    gpio_set_pin(led_table[led].port, led_table[led].pin);
+
+#pragma vector = (0x18)
+__interrupt void PortC_Interrupt_Handler(void) {
+    
+  if (button_read_state((0U)) == (0U)) {
+    PowerOn_LED((0U));
+  }
+  else{
+    PowerOff_LED((0U));
+  }
+
+  if (button_read_state((1U)) == (0U)) {
+    PowerOn_LED((1U));
+  }else{
+    PowerOff_LED((1U));
   }
 }
 
-void Toggle_LED(gpio_uint8_t led){
-  if(led < (4U)){
-    gpio_toggle_pin(led_table[led].port, led_table[led].pin);
-  }
-}
-
-void BlinkFast_LED(led_uint8_t led){
-  if(led < (4U)){
-    PowerOn_LED(led);
-    delay(((100000L) / 12));
-
-    PowerOff_LED(led);
-    delay(((100000L) / 12));
-  }
-}
-
-void BlinkSlow_LED(led_uint8_t led){
-  if(led < (4U)){
-    PowerOn_LED(led);
-    delay(((100000L) / 4));
-
-    PowerOff_LED(led);
-    delay(((100000L) / 4));
-  }
-}

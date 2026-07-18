@@ -704,7 +704,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>208</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -2114,6 +2114,9 @@
     </file>
     <file>
         <name>$PROJ_DIR$\Modules\gpio.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\ISR\interrupts.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\Modules\led.c</name>

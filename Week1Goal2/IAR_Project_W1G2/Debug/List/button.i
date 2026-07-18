@@ -566,8 +566,22 @@ typedef unsigned char button_uint8_t;
                 
  
 
+
  
 
+ 
+
+ 
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *pin_register;
+  volatile gpio_uint8_t *ddr;
+  
+} button_config_t;
 
 
 
@@ -583,6 +597,29 @@ typedef unsigned char button_uint8_t;
 
  
 extern void BUTTON_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void button_init(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void button_interrupt_init(button_uint8_t button);
 
 
 
@@ -608,19 +645,147 @@ extern unsigned char button_read_state(button_uint8_t button);
 
 
 
+
+
+
+
+
+
+
+
  
 
-typedef struct {
-  
-  volatile gpio_uint8_t *port;
-  gpio_uint8_t pin;
-  volatile gpio_uint8_t *pin_register;
-  
-} button_config_t;
+#pragma system_include
+
+
+
+__intrinsic void __no_operation(void);
+__intrinsic void __enable_interrupt(void);
+__intrinsic void __disable_interrupt(void);
+__intrinsic void __sleep(void);
+__intrinsic void __watchdog_reset(void);
+
+#pragma language=save
+#pragma language=extended
+
+__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
+
+#pragma language=restore
+
+__intrinsic void __insert_opcode(unsigned short op);
+
+
+
+__intrinsic void __require(void *);
+
+__intrinsic void __delay_cycles(unsigned long);
+
+__intrinsic unsigned char __save_interrupt(void);
+
+__intrinsic void          __restore_interrupt(unsigned char);
+typedef unsigned char __istate_t;
+
+__intrinsic unsigned char __swap_nibbles(unsigned char);
+
+__intrinsic void          __indirect_jump_to(unsigned long);
+
+
+__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __multiply_signed(signed char, signed char);
+__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
+
+__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
+__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
+
+#pragma language=save
+#pragma language=extended
+
+
+
+ 
+
+
+
+
+
+
+ 
+__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
+                                           unsigned char byte);
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
+                                          unsigned char byte);
+
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
+                                                    unsigned short word, 
+                                                    unsigned char byte);
+
+
+
+
+
+
+
+
+
+
+
+ 
+__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
+                                                   unsigned char byte);
+
+
+
+
+
+
+
+
+#pragma language=restore
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
 
 static const button_config_t button_table[] =
 {
-    { &PORTC, 6, &PINC},
+    { &PORTC, (6U), &PINC, &DDRC},
+    { &PORTC, (1U), &PINC, &DDRC},
+    { &PORTA, (0U), &PINA, &DDRA},
+    { &PORTA, (1U), &PINA, &DDRA}
 };
 
 
@@ -634,19 +799,61 @@ static const button_config_t button_table[] =
  
 
 void BUTTON_Init(void){
-  gpio_set_direction(&DDRC, 6, (0U));
+  gpio_set_direction(&DDRC, (6U), (0U));
+  gpio_set_direction(&DDRC, (1U), (0U));
+  gpio_set_direction(&DDRA, (0U), (0U));
+  gpio_set_direction(&DDRA, (1U), (0U));
   
   button_enable_pullup((0U));
+  button_enable_pullup((1U));
+  button_enable_pullup((2U));
+  button_enable_pullup((3U));
+}
+
+void button_init(button_uint8_t button){
+  if(button < (4U)){
+    gpio_set_direction(button_table[button].ddr, button_table[button].pin, (0U)); 
+    button_enable_pullup(button);
+  }
+}
+
+void button_interrupt_init(button_uint8_t button) {
+    
+  if (button >= (4U)) {
+    return;
+  }
+  
+  volatile gpio_uint8_t *port_curent = button_table[button].port;
+  gpio_uint8_t pin_curent = button_table[button].pin;
+  
+  if (port_curent == &PORTA) {
+    gpio_set_pin(&PCMSK0, pin_curent);
+    gpio_set_pin(&PCICR, 0);
+  } 
+  else if (port_curent == &PORTB) {
+    gpio_set_pin(&PCMSK1, pin_curent);
+    gpio_set_pin(&PCICR, 1);
+  } 
+  else if (port_curent == &PORTC) {
+    gpio_set_pin(&PCMSK2, pin_curent);
+    gpio_set_pin(&PCICR, 2);
+  } 
+  else if (port_curent == &PORTD) {
+    gpio_set_pin(&PCMSK3, pin_curent);
+    gpio_set_pin(&PCICR, 3);
+  }
+  
+  __enable_interrupt();
 }
 
 void button_enable_pullup(button_uint8_t button){
-  if(button<(1U)){
+  if(button<(4U)){
     gpio_set_pin(button_table[button].port,button_table[button].pin);
   }
 }
 
 unsigned char button_read_state(button_uint8_t button){
-  if(button < (1U)){
+  if(button < (4U)){
     return gpio_read_pin(button_table[button].pin_register,button_table[button].pin);
   }
   return -1;
