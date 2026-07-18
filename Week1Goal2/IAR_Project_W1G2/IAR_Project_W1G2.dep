@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>3523061617</fileChecksum>
+    <fileChecksum>286766808</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -40,6 +40,10 @@
             <file>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</file>
             <file>$PROJ_DIR$\Debug\Obj\interrupts.r90</file>
             <file>$PROJ_DIR$\Debug\List\interrupts.i</file>
+            <file>$PROJ_DIR$\Debug\List\HVAC.i</file>
+            <file>$PROJ_DIR$\HVAC.c</file>
+            <file>$PROJ_DIR$\HVAC.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\HVAC.r90</file>
             <file>$PROJ_DIR$\ISR\interrupts.h</file>
             <file>$PROJ_DIR$\ISR\interrupts.c</file>
         </outputs>
@@ -117,7 +121,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 30 16 11 12 4 17 31 13 29 35</file>
+                    <file> 30 16 11 12 4 17 31 13 29 39 37</file>
                 </tool>
             </inputs>
         </file>
@@ -147,7 +151,22 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 10 8 15 18 33 6 5 22 24 2</file>
+                    <file> 10 8 15 18 38 33 6 5 22 24 2</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HVAC.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 38</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 37 31 16 11 12 4 17 13 39</file>
                 </tool>
             </inputs>
         </file>
@@ -162,7 +181,7 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 35 13 11 12 4 17 31</file>
+                    <file> 39 13 11 12 4 17 31</file>
                 </tool>
             </inputs>
         </file>

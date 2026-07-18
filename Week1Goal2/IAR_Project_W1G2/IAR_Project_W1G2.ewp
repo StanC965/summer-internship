@@ -2116,6 +2116,12 @@
         <name>$PROJ_DIR$\Modules\gpio.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\HVAC.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\HVAC.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\ISR\interrupts.c</name>
     </file>
     <file>

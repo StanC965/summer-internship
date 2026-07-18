@@ -1,6 +1,35 @@
 
 
 
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
 
  
 
@@ -13,6 +42,27 @@
 
 
  
+
+
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+extern void delay(unsigned long count);
+
 
 
 
@@ -518,41 +568,6 @@ extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *pin_reg, gpio_uint8_t p
 
  
 
-
-
-
-
-
- 
-
-
- 
-
-
-
- 
-
- 
-
-
-
- 
-
-
-
-
-
-
-
-
- 
-extern void delay(unsigned long count);
-
-
-
-
- 
-
  
 typedef unsigned char led_uint8_t;
 
@@ -835,43 +850,6 @@ extern unsigned char button_read_state(button_uint8_t button);
 
  
 
-
-
-
- 
-
-
-
-
-
-
-
-
-
- 
-extern void SOS_play(led_uint8_t led, unsigned char *state);
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
- 
-
-
-
-
- 
-
  
 typedef struct {
     unsigned char sw0_pressed;
@@ -888,21 +866,6 @@ extern volatile button_events_t button_events;
 
 
 
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
- 
 
 
 
@@ -941,33 +904,56 @@ extern void Handle_VentControl_Event(button_uint8_t button_id, unsigned char led
 
  
 
- 
+static unsigned char is_panel_blocked = 0;
 
 
 
  
 
-
-void System_Init(void){
-  BUTTON_Init();
-  LED_Init();
-  button_interrupt_init((0U));
-  button_interrupt_init((1U));
-  button_interrupt_init((2U));
-  button_interrupt_init((3U));
-}
-
-void main( void )
-{
-  System_Init();
-  
-  while(1){
-
-    Handle_MasterControl_Event();
-        
-    Handle_VentControl_Event((1U), (1U), &button_events.btn1_pressed);
-    Handle_VentControl_Event((2U), (2U), &button_events.btn2_pressed);
-    Handle_VentControl_Event((3U), (3U), &button_events.btn3_pressed);
-  
+static void blink_blocked_warning(void) {
+  for(unsigned char i = 0; i < 3; i++) {
+    PowerOff_LED((0U));
+    delay((100000L)/2); 
+    PowerOn_LED((0U));
+    delay((100000L)/2);
   }
 }
+
+void Handle_MasterControl_Event(void) {
+  if (button_events.sw0_pressed == 1) {
+    delay((100000L)/20);
+    
+    if (button_read_state((0U)) == (0U)) {
+        
+      is_panel_blocked = !is_panel_blocked; 
+      
+      if (is_panel_blocked == 1) {
+          PowerOff_LED((1U));
+          PowerOff_LED((2U));
+          PowerOff_LED((3U));
+          PowerOn_LED((0U));
+      } else {
+          PowerOff_LED((0U));
+      }
+    }
+    button_events.sw0_pressed = 0;
+  }
+}
+
+void Handle_VentControl_Event(button_uint8_t button_id, unsigned char led_id, volatile unsigned char *event_flag) {
+  if (*event_flag == 1) {
+    delay((100000L)/20);
+    
+    if (button_read_state(button_id) == (0U)) {
+      if (is_panel_blocked == 1) {
+          blink_blocked_warning();
+      } else {
+          Toggle_LED(led_id);
+      }
+    }
+    
+    *event_flag = 0; 
+  }
+}
+
+

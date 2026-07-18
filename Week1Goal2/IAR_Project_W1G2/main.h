@@ -20,6 +20,7 @@
 #include "Modules/button.h"
 #include "sos.h"
 #include "ISR/interrupts.h"
+#include "HVAC.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
