@@ -33,7 +33,7 @@
 #define ADSP0                         0
 #define ADSP1                         1
 #define ADSP2                         2
-#define ADIE                          1
+#define ADIE                          3
 #define ADSC                          6
 #define ADEN                          7
 
