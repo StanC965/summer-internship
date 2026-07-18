@@ -4,6 +4,7 @@
 #include "delay.h"
 
 volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
+volatile uint8_t light_sensor_value = 0;
 
 #pragma vector = PCINT0_vect
 __interrupt void button_porta_routine(void)
@@ -17,4 +18,10 @@ __interrupt void button_portc_routine(void)
 {
     button_event_detected[BUTTON_ONBOARD] = 1;
     button_event_detected[BUTTON_OLED1_1] = 1;
+}
+
+#pragma vector = ADC_vect
+__interrupt void adc_routine(void)
+{
+    light_sensor_value = ADCH;
 }
