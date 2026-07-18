@@ -9,7 +9,7 @@
 #define ADC_USE_8_BIT_RESOLUTION
 
 
-
+unsigned char debounce_buffer=0;
 
 void setup()
 {

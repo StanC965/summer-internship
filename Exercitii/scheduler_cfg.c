@@ -29,7 +29,17 @@
 void task_10ms(void)
 {
   
+void task_10ms(void)
+{
+   
+    unsigned char sw0_status = button_read_sw0_safe();
+    
+ 
+    if(sw0_status == 1)
+    {
 
+    }
+}
 
   
 }

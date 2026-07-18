@@ -23,7 +23,7 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <DebugChecksum>
-        <Checksum>2223111496</Checksum>
+        <Checksum>2884127073</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -31,10 +31,6 @@
     <CallStack>
         <ShowArgs>0</ShowArgs>
     </CallStack>
-    <TermIOLog>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-    </TermIOLog>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
@@ -44,6 +40,10 @@
         <Bp0>_ 1 "STD_CODE2" "{$PROJ_DIR$\adc.c}.78.23" 0 0 1 "" 0 ""</Bp0>
         <Count>1</Count>
     </Breakpoints2>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>
