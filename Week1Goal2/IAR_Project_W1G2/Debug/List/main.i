@@ -727,6 +727,8 @@ typedef unsigned char button_uint8_t;
                 
  
 
+ 
+
 
 
 
@@ -789,6 +791,7 @@ extern unsigned char button_read_state(button_uint8_t button);
 
 
  
+
 
 
 
@@ -950,7 +953,7 @@ static unsigned char previous_state =1;
 #pragma vector = (0x18)
 __interrupt void SW0_Interrupt_Handler(void) {
 
-  if (button_read_state((0U)) == 0) {
+  if (button_read_state((0U)) == (0U)) {
   
     previous_state = !previous_state;
       
@@ -971,9 +974,8 @@ void main( void )
   interrupt_init();
   
   while(1){
+
+    SOS_play((0U), &previous_state);
     
-
-      SOS_play((0U), &previous_state);
-
   }
 }

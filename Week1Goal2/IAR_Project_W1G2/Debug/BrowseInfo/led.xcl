@@ -1,4 +1,4 @@
-"C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\led.c"
+"C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Modules\led.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
@@ -9,11 +9,15 @@ C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\Brow
 -o
 C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.pbi
 -I
+C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Modules
+-I
 C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc\dlib\c
+-I
+C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

@@ -1,13 +1,13 @@
-"C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\main.c"
+"C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\sos.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.pbi.dep
+C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\sos.pbi.dep
 -o
-C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\main.pbi
+C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\sos.pbi
 -I
 C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2
 -I

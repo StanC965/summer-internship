@@ -41,6 +41,10 @@ typedef unsigned char button_uint8_t;
 /** \brief Total number of leds */
 #define NUMBER_OF_BUTTONS  (1U)
 
+/** \brief Button states */
+#define BUTTON_PRESSED          (0U)
+#define BUTTON_NOT_PRESSED      (1U)
+
 #define PRESSED_CONFIDENCE_LEVEL_TARGET        (500)
 #define RELEASED_CONFIDENCE_LEVEL_TARGET       (500)
 
