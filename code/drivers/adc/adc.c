@@ -18,7 +18,7 @@
 
 void adc_init(void)
 {
-    adc_select_internal_voltage();
+    adc_select_avcc_voltage();
     adc_select_input_channel(CHANNEL_4);
     adc_configure_control_settings();
     // adc_disable_digital_input(CHANNEL_4);
@@ -47,7 +47,7 @@ void adc_select_input_channel(uint8_t channel)
 
 void adc_configure_control_settings(void)
 {
-    // adc_set_prescaler_64();
+    adc_set_prescaler_64();
     adc_enable_interrupt();
     adc_enable();
 }
