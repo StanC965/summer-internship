@@ -11,6 +11,7 @@
 | :---      | :---      | :---                    
 | **[361]** | `CORE`    | [x] Completed 
 | **[362]** | `CORE`    | [x] Completed 
+| **[363]** | `STRETCH` | [x] Completed 
 
 --- 
 
@@ -106,5 +107,17 @@ void main(void)
   }
 }
 ```
+
+--- 
+
+#### Task 363
+> **Question/Prompt:**   Now it's time to be interested of another key performance indicator in embedded systems: power consumption. On the main board, near the SW0 button, there is a current measurement header. How you can measure the current in a circuit? (<<< your answer here). Since we do not have in our Internship online setup the possibility to measure the current consumption we will rely on datasheet information:
+
+> - disable the digital input buffer (if it is powered then it consumes current) for the analog pin (the pin with connected sensor to it)
+> - enable the ADC peripheral only when you are wishing to make a conversion, otherwise shut it down (disable)
+
+> **Answer/Explanation:**
+> To measure the current in a circuit we use an ammeter connected in series with the load. 
+> Alternatively, we can measure the voltage drop across a known shunt resistor places accross the header pins and use Ohm's law to calculate the current consumption. 
 
 ---
