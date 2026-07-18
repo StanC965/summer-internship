@@ -54,7 +54,7 @@
 */
 extern void adc_init(void);
 
-/** \fn     void adc_select_reference_voltage(void)
+/** \fn     void adc_select_avcc_voltage(void)
 
     \brief      [  ]
     \param[in]  None
@@ -62,7 +62,17 @@ extern void adc_init(void);
     \return     [ None ]
     \details    [  ]
 */
-extern void adc_select_reference_voltage(void);
+extern void adc_select_avcc_voltage(void);
+
+/** \fn     void adc_select_internal_voltage(void)
+
+    \brief      [  ]
+    \param[in]  None
+    \param[out] [ None ]
+    \return     [ None ]
+    \details    [  ]
+*/
+extern void adc_select_internal_voltage(void);
 
 /** \fn     void adc_select_input_channel(uint8_t channel)
 

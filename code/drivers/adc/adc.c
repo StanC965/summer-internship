@@ -18,16 +18,24 @@
 
 void adc_init(void)
 {
-    adc_select_reference_voltage();
+    adc_select_internal_voltage();
     adc_select_input_channel(CHANNEL_4);
     adc_configure_control_settings();
     // adc_disable_digital_input(CHANNEL_4);
 }
 
-void adc_select_reference_voltage(void)
+void adc_select_avcc_voltage(void)
 {
     ADMUX &= ~(ADC_REFERENCE_MASK);
     ADMUX |= BIT_MASK(REFS0);
+    ADMUX |= BIT_MASK(ADLAR);
+}
+
+void adc_select_internal_voltage(void)
+{
+    ADMUX &= ~(ADC_REFERENCE_MASK);
+    ADMUX |= BIT_MASK(REFS0);
+    ADMUX |= BIT_MASK(REFS1);
     ADMUX |= BIT_MASK(ADLAR);
 }
 
