@@ -15,38 +15,27 @@
     Includes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-#include "Modules/led.h"
-#include "Modules/button.h"
-
+#include "interrupts.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    Static private objects
+    Pubplic objects
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+volatile button_events_t button_events = {0, 0, 0, 0};
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private function declarations
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-/* None */
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    Public function implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 #pragma vector = PCINT0_vect
 __interrupt void PortA_Interrupt_Handler(void) {
     
   if (button_read_state(BUTTON2) == BUTTON_PRESSED) {
-    PowerOn_LED(LED2);
-  }
-  else{
-    PowerOff_LED(LED2);
+    button_events.btn2_pressed = 1;
   }
 
   if (button_read_state(BUTTON3) == BUTTON_PRESSED) {
-    PowerOn_LED(LED3);
-  }else{
-    PowerOff_LED(LED3);
+    button_events.btn3_pressed = 1;
   }
 }
 
@@ -55,16 +44,11 @@ __interrupt void PortA_Interrupt_Handler(void) {
 __interrupt void PortC_Interrupt_Handler(void) {
     
   if (button_read_state(SW0) == BUTTON_PRESSED) {
-    PowerOn_LED(LED0);
-  }
-  else{
-    PowerOff_LED(LED0);
+    button_events.sw0_pressed = 1;
   }
 
   if (button_read_state(BUTTON1) == BUTTON_PRESSED) {
-    PowerOn_LED(LED1);
-  }else{
-    PowerOff_LED(LED1);
+    button_events.btn1_pressed = 1;
   }
 }
 

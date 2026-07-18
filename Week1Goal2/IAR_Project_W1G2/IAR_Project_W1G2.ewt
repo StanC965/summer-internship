@@ -2651,6 +2651,9 @@
         <name>$PROJ_DIR$\ISR\interrupts.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\ISR\interrupts.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\Modules\led.c</name>
     </file>
     <file>

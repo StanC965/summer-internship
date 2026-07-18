@@ -856,6 +856,11 @@ extern void SOS_play(led_uint8_t led, unsigned char *state);
 
  
 
+
+
+
+
+
  
 
 
@@ -865,22 +870,73 @@ extern void SOS_play(led_uint8_t led, unsigned char *state);
 
 
 
+ 
+
+ 
+typedef struct {
+    unsigned char sw0_pressed;
+    unsigned char btn1_pressed;
+    unsigned char btn2_pressed;
+    unsigned char btn3_pressed;
+} button_events_t;
+
+ 
+extern volatile button_events_t button_events;
+
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+ 
 
 
 
 void main( void )
 {
   BUTTON_Init();
+  LED_Init();
   button_interrupt_init((0U));
   button_interrupt_init((1U));
   button_interrupt_init((2U));
   button_interrupt_init((3U));
-  LED_Init();
+
+  
   
   while(1){
 
+    if (button_events.sw0_pressed == 1) {
+      PowerOff_LED((1U));
+      PowerOff_LED((2U));
+      PowerOff_LED((3U));
+      PowerOn_LED((0U));
+      button_events.sw0_pressed = 0; 
+    }
     
+    if (button_events.btn1_pressed == 1) {
+      Toggle_LED((1U)); 
+      button_events.btn1_pressed = 0;
+    }
     
+    if (button_events.btn2_pressed == 1) {
+      Toggle_LED((2U)); 
+      button_events.btn2_pressed = 0;
+    }
+    
+    if (button_events.btn3_pressed == 1) {
+      Toggle_LED((3U)); 
+      button_events.btn3_pressed = 0;
+    }
+  
     
   }
 }

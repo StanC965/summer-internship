@@ -1,4 +1,8 @@
 C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\BrowseInfo\led.pbi: \
-  C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Modules\gpio.h \
+  C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Modules\led.c \
   C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Modules\led.h \
-  C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Modules\led.c
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iom324pb.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\iomacro.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\bitdefinitions\iom324pb.inc \
+  C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Modules\gpio.h \
+  C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Utils\utils.h

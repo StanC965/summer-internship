@@ -32,6 +32,22 @@
 
 
 
+ 
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
 
 
 
@@ -554,178 +570,6 @@ extern void delay(unsigned long count);
  
 
  
-typedef unsigned char led_uint8_t;
-
- 
-
- 
-
- 
-
- 
-
- 
-                
- 
-
- 
-
- 
-typedef struct {
-  
-  volatile gpio_uint8_t *port;
-  gpio_uint8_t pin;
-  volatile gpio_uint8_t *ddr;
-  
-} led_config_t;
-
-
-
- 
-
-
-
-
-
-
-
-
-
- 
-extern void LED_Init(void);
-
-
-
-
-
-
-
-
-
- 
-extern void led_init(led_uint8_t led);
-
-
-
-
-
-
-
-
-
-
- 
-extern void PowerOn_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
-
- 
-extern void PowerOff_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
- 
-extern void Toggle_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
-
-
- 
-extern void BlinkFast_LED(led_uint8_t led);
-
-
-
-
-
-
-
-
-
-
-
- 
-extern void BlinkSlow_LED(led_uint8_t led);
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-#pragma system_include
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-#pragma system_include
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
- 
 typedef unsigned char button_uint8_t;
 
  
@@ -817,14 +661,30 @@ extern unsigned char button_read_state(button_uint8_t button);
 
 
 
+ 
+
+ 
+typedef struct {
+    unsigned char sw0_pressed;
+    unsigned char btn1_pressed;
+    unsigned char btn2_pressed;
+    unsigned char btn3_pressed;
+} button_events_t;
+
+ 
+extern volatile button_events_t button_events;
+
 
  
 
 
 
- 
+
+
 
  
+
+volatile button_events_t button_events = {0, 0, 0, 0};
 
 
 
@@ -834,16 +694,11 @@ extern unsigned char button_read_state(button_uint8_t button);
 __interrupt void PortA_Interrupt_Handler(void) {
     
   if (button_read_state((2U)) == (0U)) {
-    PowerOn_LED((2U));
-  }
-  else{
-    PowerOff_LED((2U));
+    button_events.btn2_pressed = 1;
   }
 
   if (button_read_state((3U)) == (0U)) {
-    PowerOn_LED((3U));
-  }else{
-    PowerOff_LED((3U));
+    button_events.btn3_pressed = 1;
   }
 }
 
@@ -852,16 +707,11 @@ __interrupt void PortA_Interrupt_Handler(void) {
 __interrupt void PortC_Interrupt_Handler(void) {
     
   if (button_read_state((0U)) == (0U)) {
-    PowerOn_LED((0U));
-  }
-  else{
-    PowerOff_LED((0U));
+    button_events.sw0_pressed = 1;
   }
 
   if (button_read_state((1U)) == (0U)) {
-    PowerOn_LED((1U));
-  }else{
-    PowerOff_LED((1U));
+    button_events.btn1_pressed = 1;
   }
 }
 

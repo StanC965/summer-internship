@@ -1,34 +1,41 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef INTERRUPTS_H
+#define INTERRUPTS_H
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Module Information
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 /**
- *  \file       main.h
- *  \brief      main module interface.
+ *  \file       interrupts.h
+ *  \brief      interrupts interface.
  *  \author     Chirila Viorel
- *  \date       12.07.2026
+ *  \date       18.07.2026
  */
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Includes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-#include "Modules/led.h"
-#include "Utils/utils.h"
-#include "Modules/gpio.h"
+
 #include "Modules/button.h"
-#include "sos.h"
-#include "ISR/interrupts.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-/* None */
+/** \brief  Interrupts flags structure */
+typedef struct {
+    unsigned char sw0_pressed;
+    unsigned char btn1_pressed;
+    unsigned char btn2_pressed;
+    unsigned char btn3_pressed;
+} button_events_t;
 
+/** \brief  Interrupts flags variable */
+extern volatile button_events_t button_events;
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
 
 #endif
