@@ -16,9 +16,22 @@
 /** \brief  Module specific constant number one */
 #define GPIO_OUTPUT              (0x01U)
 
+#define BIT_MASK(bit_position)        (1U << (bit_position))
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/** \fn     void gpio_init(void)
+
+    \brief      [ Initializes the GPIO module. ]
+    \param[in]  [ None ]
+    \param[in]  [ None ]
+    \param[out] [ None ]
+    \return     [ None ]
+    \details    [ Initializes the GPIO module by clearing the PORT registers and DDR registers. ]
+*/
+extern void gpio_set_pin(volatile uint8_t *port_register, uint8_t pin);
 
 /** \fn     void gpio_set_pin(volatile uint8_t *port_register, uint8_t pin)
 
@@ -28,7 +41,7 @@
     \param[out] [ None ]
     \return     [ None ]
     \details    [ Uses a bitwise OR assignment operator to set the target
-                 bit position to 1, without afffecting the state of the 
+                 bit position to 1, without afffecting the state of the
                  remaining pins in the port. ]
 */
 extern void gpio_set_pin(volatile uint8_t *port_register, uint8_t pin);
@@ -40,8 +53,8 @@ extern void gpio_set_pin(volatile uint8_t *port_register, uint8_t pin);
     \param[in]  pin [ the pin number, valid range: [ 0 .. 7 ] ]
     \param[out] [ None ]
     \return     [ None ]
-    \details    [ Uses a bitwise AND assignment operator with a negated 
-                 mask to clear the target bit position to 0, without 
+    \details    [ Uses a bitwise AND assignment operator with a negated
+                 mask to clear the target bit position to 0, without
                  affecting the state of the remaining pins in the port. ]
 */
 extern void gpio_reset_pin(volatile uint8_t *port_register, uint8_t pin);
@@ -55,7 +68,7 @@ extern void gpio_reset_pin(volatile uint8_t *port_register, uint8_t pin);
     \param[out] [ None ]
     \return     [ None ]
     \details    [ Sets the corresponding bit in the data direction register
-                 to configure the pin as an input (clears the bit) or output 
+                 to configure the pin as an input (clears the bit) or output
                  (sets the bit). ]
 */
 extern void gpio_set_direction(volatile uint8_t *ddr_register, uint8_t direction, uint8_t pin);
@@ -68,8 +81,8 @@ extern void gpio_set_direction(volatile uint8_t *ddr_register, uint8_t direction
     \param[in]  pin [ the pin number, valid range: [ 0 .. 7 ] ]
     \param[out] [ None ]
     \return     [ None ]
-    \details    [ Uses a bitwise XOR assignment operator to toggle the 
-                  target bit position (flip its state), without affecting 
+    \details    [ Uses a bitwise XOR assignment operator to toggle the
+                  target bit position (flip its state), without affecting
                   the state of the remaining pins in the port. ]
 */
 extern void gpio_toggle_pin(volatile uint8_t *port_register, uint8_t pin);
@@ -81,7 +94,7 @@ extern void gpio_toggle_pin(volatile uint8_t *port_register, uint8_t pin);
     \param[in]  pin [ the pin number, valid range: [ 0 .. 7 ] ]
     \param[out] [ None ]
     \return     [ The normalized state of the pin (0 or 1). ]
-    \details    [ Reads the corresponding bit in the pin register by 
+    \details    [ Reads the corresponding bit in the pin register by
                   applying a mask and checking if the result is non-zero. ]
 */
 extern uint8_t gpio_read_pin(volatile uint8_t *pin_register, uint8_t pin);
