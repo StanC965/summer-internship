@@ -73,9 +73,14 @@ void adc_disable_digital_input(uint8_t channel)
     DIDR0 |= (1 << channel);
 }
 
-void adc_trigger_conversion(void)
+void adc_start_conversion(void)
 {
     ADCSRA |= BIT_MASK(ADSC);
 }
-    
+
+uint8_t adc_get_conversion_result(void)
+{
+    return ADCH;
+}
+
 #endif /* ADC_C */
