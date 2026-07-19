@@ -12,6 +12,7 @@
 | **[431]** | `CORE`     | [x] Completed
 | **[432]** | `CORE`     | [x] Completed
 | **[433]** | `CORE`     | [x] Completed
+| **[434]** | `CORE`     | [x] Completed
 
 ---
 
@@ -52,6 +53,36 @@
 > The flicker is observable with the human eye.
 
 ---
+
+#### Task 434
+> **Question/Prompt:** Do the math calculations for minimum and maximum of real time you can natively measure with CTC MODE, all prescalers considered. It is a combination of:
+>
+> - HOW FAST timer can count: system clock frequency (1MHz) with prescaler (1, 8, ..., 1024) results in the counting frequency
+> - HOW MUCH timer can count: TC0 minimum (0x00) and maximum value for overflow (0xFF)
+> - MIN => _ MAX => _
+> 
+> How can you extend the maximum real time measured in CTC MODE? 
+
+> **Answer/Explanation:**
+> - t = (OCR0A + 1) × prescaler / F_CPU
+>   - F_CPU = 1 MHz
+>   - prescalers available: 1, 8, 64, 256, 1024
+>   - OCR0A range: 0x00 (0) to 0xFF (255)
+>
+> smallest prescaler (1) × smallest count (OCR0A = 0 → 1 tick):
+> - t_min = 1 × 1 / 1,000,000 = 1 µs
+> - MIN => 1 µs (0.001 ms)
+>
+> largest prescaler (1024) × largest count (OCR0A = 255 → 256 ticks):
+> - t_max = 256 × 1024 / 1,000,000 = 262,144 µs
+> - MAX => 262.144 ms
+> 
+> since Timer0 is only 8 bit (max 256 ticks) and 1024 is the largest prescaler, the hardware alone tops out at 262.144 ms. To measure longer intervals:
+>   - We can count multiple compare matches in software (increment a counter in the ISR, act after N matches).
+>   - Use a 16-bit timer instead. Same formula but OCR range goes up to 0xFFFF (65536 ticks), giving 65536 × 1024 / 1,000,000 ≈ 67.1 s natively, no software counting needed.
+
+---
+
 
 
 
