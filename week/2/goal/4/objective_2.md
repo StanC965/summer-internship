@@ -10,6 +10,7 @@
 | Task ID   | Type   | Status
 | :---      | :---   | :--- 
 | **[421]** | `CORE` | [x] Completed
+| **[422]** | `CORE` | [x] Completed
 
 ---
 
@@ -18,4 +19,24 @@
 
 > **Answer/Explanation:**
 > 
+
+---
+
+#### Task 422
+> **Question/Prompt:** Introduce the corresponding interrupt service routine, breakpoint and hit!!!
+
+> **Answer/Explanation:**
+
+**`interrupts.c`**
+```c
+volatile uint32_t timer0_overflow_count = 0;
+
+#pragma vector = TIMER0_OVF_vect
+__interrupt void timer0_overflow_routine(void)
+{
+    timer0_overflow_count++;
+}
+```
+
+---
 
