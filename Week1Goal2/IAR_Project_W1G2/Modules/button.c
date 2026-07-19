@@ -16,7 +16,6 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 #include "button.h"
-#include <intrinsics.h>
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects
@@ -84,8 +83,6 @@ void button_interrupt_init(button_uint8_t button) {
     gpio_set_pin(&PCMSK3, pin_curent);
     gpio_set_pin(&PCICR, PCIE3);
   }
-  
-  __enable_interrupt();
 }
 
 void button_enable_pullup(button_uint8_t button){

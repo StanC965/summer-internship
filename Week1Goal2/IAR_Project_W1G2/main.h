@@ -21,6 +21,7 @@
 #include "sos.h"
 #include "ISR/interrupts.h"
 #include "HVAC.h"
+#include <intrinsics.h>
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values

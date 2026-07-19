@@ -663,6 +663,102 @@ extern unsigned char button_read_state(button_uint8_t button);
 
  
 
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+ 
+
+   
+
+
+ 
+
+  
+
+    
+extern volatile unsigned char adc_last_result;
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+extern void adc_init(void);
+
+
+
+
+
+
+
+ 
+extern void adc_start_conversion(void);
+
+
+
+
+
+
+
+ 
+extern unsigned char adc_get_result(void);
+
+
+
+
+ 
+
  
 typedef struct {
     unsigned char sw0_pressed;
@@ -713,5 +809,10 @@ __interrupt void PortC_Interrupt_Handler(void) {
   if (button_read_state((1U)) == (0U)) {
     button_events.btn1_pressed = 1;
   }
+}
+
+#pragma vector = (0x60)
+__interrupt void ADC_Interrupt_Handler(void) {
+    adc_last_result = ADCH; 
 }
 
