@@ -13,6 +13,7 @@
 | **[362]** | `CORE`     | [x] Completed 
 | **[363]** | `STRETCH`  | [x] Completed 
 | **[364]** | `OPTIONAL` | [x] Completed 
+| **[365]** | `OPTIONAL` | [x] Completed 
 
 --- 
 
@@ -183,6 +184,24 @@ adc_result_t adc_get_conversion_result(void)
     ADMUX &= ~BIT_MASK(ADLAR);
 #else
     ADMUX |= BIT_MASK(ADLAR);
+#endif
+}
+```
+
+--- 
+
+#### Task 365
+> **Question/Prompt:** Imagine that your software driver module will be used by your colleagues into their projects. At the time you write the code you do not know what resolution they will need, 8bit or 10bit. It will depend on their particular application. Therefore your job is to implement a solution offering them the possibility to choose between 8bit or 10bit resolution. Make use of conditional compilation.
+
+> **Answer/Explanation:**
+> In order to switch between the 8 or 10 bit resolution, they need to define the resolution in the `adc.h` file. Right now I use the 10 bit resolution, but that can be changed to 8 bit if needed, because all of the configurations required to use only ADCH were implemented in task 364.
+
+**`adc.h`**
+```c
+#ifdef ADC_RESOLUTIN_10_BIT
+    typedef uint16_t adc_result_t;
+#else    
+    typedef uint8_t adc_result_t;
 #endif
 }
 ```
