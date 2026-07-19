@@ -46,9 +46,9 @@
 /** \brief  Module specific constant number one */
 #define CHANNEL_4                     4
 
-#define ADC_RESOLUTIN_10_BIT
+#define ADC_RESOLUTION_10_BIT
 
-#ifdef ADC_RESOLUTIN_10_BIT
+#ifdef ADC_RESOLUTION_10_BIT
     typedef uint16_t adc_result_t;
 #else    
     typedef uint8_t adc_result_t;
