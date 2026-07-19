@@ -27,7 +27,6 @@ void scheduler_task_50ms(void)
     
     unsigned char current_sw0 = button_get_sw0_state();
     
-    /* 2. Catch rising-edge switch triggers to clear/restart illumination sequences */
     if (current_sw0 == 1 && previous_sw0_state == 0)
     {
         adc_start_conversion();
@@ -35,11 +34,10 @@ void scheduler_task_50ms(void)
     }
     previous_sw0_state = current_sw0;
     
-    /* 3. If running, trigger periodic ADC samples to track shifting conditions */
     if (current_state == ILLUM_STATE_RUNNING)
     {
         static unsigned char adc_sample_divider = 0;
-        if (++adc_sample_divider >= 4) // sample ambient light every 200ms
+        if (++adc_sample_divider >= 4) 
         {
             adc_sample_divider = 0;
             adc_start_conversion();
@@ -56,13 +54,10 @@ void scheduler_task_100ms(void)
     switch (current_state)
     {
         case ILLUM_STATE_TRIGGERED:
-            /* Fetch calibrated, inverted 10-bit raw intensity data */
             raw_adc_reading = adc_get_data();
             
-            /* Translate 10-bit field safely into a clean 0 - 100 percentage scale */
             perceived_light_level = (unsigned char)((raw_adc_reading * 100UL) / 1023UL);
             
-            /* Evaluate structural entry constraints using Table 741.1 */
             if (perceived_light_level <= 20)
             {
                 absolute_target_pwm = 15;
@@ -89,31 +84,27 @@ void scheduler_task_100ms(void)
                 is_day_mode = 1;
             }
             
-            /* Apply discrete structural visual feedback to OLED1 board */
             if (is_day_mode)
             {
-                led_power_on(LED_OLED_1_2_PORT, LED_OLED_1_PIN);  // LED1 Day Mode indicator
+                led_power_on(LED_OLED_1_2_PORT, LED_OLED_1_PIN);  
                 led_power_off(LED_OLED_1_2_PORT, LED_OLED_2_PIN);
             }
             else
             {
                 led_power_off(LED_OLED_1_2_PORT, LED_OLED_1_PIN);
-                led_power_on(LED_OLED_1_2_PORT, LED_OLED_2_PIN);  // LED2 Night Mode indicator
+                led_power_on(LED_OLED_1_2_PORT, LED_OLED_2_PIN);  
             }
             
-            /* Clear phase control index registers */
             profile_tick_counter = 0;
             step_index = 0;
             current_state = ILLUM_STATE_RUNNING;
             
-            /* Execute first entry step instantly */
             pwm_dc(100);
             break;
             
         case ILLUM_STATE_RUNNING:
             if (step_index < 11)
             {
-                /* Execute timing updates at 200ms structural steps (every two 100ms ticks) */
                 if (profile_tick_counter == 0)
                 {
                     if (is_day_mode)
@@ -125,40 +116,29 @@ void scheduler_task_100ms(void)
                         computed_instant_pwm = (unsigned char)(((unsigned int)absolute_target_pwm * night_steps[step_index]) / 100U);
                     }
                     
-                    /* Write update directly to OCR0A */
                     pwm_dc(100 - computed_instant_pwm);
                     
                     profile_tick_counter = 1;
                 }
                 else
                 {
-                    /* 200ms step complete, advance step pointer index */
                     profile_tick_counter = 0;
                     step_index++;
                 }
             }
             else
             {
-                /* --- ENTRY PHASE COMPLETE ---
-                 * Continuous Closed-Loop Strategy:
-                 * Dynamically adjust brightness to real-time light changes.
-                 */
+                 // Dynamically adjust brightness to real-time light changes.
                 raw_adc_reading = adc_get_data();
                 perceived_light_level = (unsigned char)((raw_adc_reading * 100UL) / 1023UL);
                 
-                /* Closed-loop dynamic scaling logic:
-                 * Day Mode: Brighter ambient light requires higher background PWM.
-                 * Night Mode: Darker ambient light requires dimmer background PWM to prevent eye strain.
-                 */
                 if (is_day_mode)
                 {
-                    /* Dynamic proportional scaling between 40% and 100% duty cycle */
                     if (perceived_light_level < 40) perceived_light_level = 40;
                     pwm_dc(100 - perceived_light_level);
                 }
                 else
                 {
-                    /* Inverse comfort curve mapping for low-intensity nighttime conditions */
                     unsigned char baseline_night_pwm = 25 - (perceived_light_level / 2);
                     if (baseline_night_pwm < 5)  baseline_night_pwm = 5;
                     if (baseline_night_pwm > 25) baseline_night_pwm = 25;
