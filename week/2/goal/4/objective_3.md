@@ -11,6 +11,7 @@
 | :---      | :---       | :--- 
 | **[431]** | `CORE`     | [x] Completed
 | **[432]** | `CORE`     | [x] Completed
+| **[433]** | `CORE`     | [x] Completed
 
 ---
 
@@ -36,6 +37,21 @@
 >   - Prescaler 64: 16.384 ms
 >   - Prescaler 256: 65.536 ms
 >   - Prescaler 1024: 262.144 ms
+
+---
+
+#### Task 433
+> **Question/Prompt:** Build code to output a waveform (you are free to choose on which pin) with a period of 100ms. Is this observable with the human eye? 
+
+> **Answer/Explanation:**
+> I picked OC1A, which is connected to PD5 (LED_1) on the OLED1 board.
+>
+> For a full period of 100ms, each half period (one toggle) needs to be 50ms.
+> With prescaler = 8, we get 6249 ticks needed.
+>
+> The flicker is observable with the human eye.
+
+---
 
 
 
