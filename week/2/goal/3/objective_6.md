@@ -14,6 +14,7 @@
 | **[363]** | `STRETCH`  | [x] Completed 
 | **[364]** | `OPTIONAL` | [x] Completed 
 | **[365]** | `OPTIONAL` | [x] Completed 
+| **[366]** | `OPTIONAL` | [x] Completed 
 
 --- 
 
@@ -205,6 +206,28 @@ adc_result_t adc_get_conversion_result(void)
 #endif
 }
 ```
+
+--- 
+
+#### Task 366
+> **Question/Prompt:** Measure the code size for the newly added ADC driver module so that your colleagues are informed. Include a table with the functions available and the two options on resolution (8bit, 10bit).
+
+> **Answer/Explanation:**
+> The ADC drive is composed of 2 files, `adc.c` and `adc.h`, which in total are 8.09 KB (8,293 bytes).
+
+| Function Interface                 | Architectural / Register Impact Changes 
+| :---                               | :--- 
+| `adc_init()`                       | Static inline execution layout remains identical. 
+| `adc_select_avcc_voltage()`        | Toggles `ADLAR` high (8-bit) vs. clearing `ADLAR` (10-bit). 
+| `adc_select_internal_voltage()`    | Toggles `ADLAR` high (8-bit) vs. clearing `ADLAR` (10-bit). 
+| `adc_select_input_channel()`       | Identical masking operation on `ADMUX` channel bits. 
+| `adc_configure_control_settings()` | Aggregates control registers; invariant under resolution. 
+| `adc_set_prescaler_64()`           | Invariant under resolution; runs safely at a factor of 64. 
+| `adc_enable_interrupt()`           | Flips the `ADIE` bit inside `ADCSRA` register blocks. 
+| `adc_enable()`                     | Activates the core physical ADC blocks via `ADEN`. |
+| `adc_disable_digital_input()`      | Cuts off the digital input buffer inside `DIDR0`. |
+| `adc_start_conversion()`           | Triggers single hardware conversions via `ADSC`. |
+| `adc_get_conversion_result()`      | **8-bit:** Returns single `ADCH` byte register.<br>**10-bit:** Synthesizes `ADCL` + `ADCH` via a 16-bit word read. |
 
 ---
 
