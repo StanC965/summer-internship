@@ -4,7 +4,7 @@
 #include "delay.h"
 
 volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
-volatile uint8_t light_sensor_value;
+volatile uint8_t light_sensor_value = 0;
 
 #pragma vector = PCINT0_vect
 __interrupt void button_porta_routine(void)

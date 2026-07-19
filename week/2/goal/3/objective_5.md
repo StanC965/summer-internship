@@ -19,7 +19,7 @@
 
 #### Task 351
 > **Question/Prompt:** Now you have a minimum experience with microcontroller's datasheet reading. Next big task is to understand how ADC is working and how to make the correct register settings. Every time you need to work with a peripheral module remember:
-
+>
 > a. you will encounter a lot of information noise, so prepare your mind to filter
 > 
 > b. you will not understand all the information at once, therefore be patient reading 2x, 3x times
@@ -38,7 +38,7 @@
 
 > **Answer/Explanation:**
 > ### block diagram:
-> - the analog signal enters the chip viar port A (pins PA[7:0]) which serve as the 8 ADC input channels
+> - the analog signal enters the chip via port A (pins PA[7:0]) which serve as the 8 ADC input channels
 > -  the ADC has a dedicated clock domain, which allows the CPU and digital I/O clocks to be halted to minimize digital switching noise and maximize precision
 > - the ADC possesses a dedicated interrupt request line 
 > ### peripheral overview:
@@ -80,10 +80,21 @@
 --- 
 
 #### Task 353
-> **Question/Prompt:** Introduce the interrupt service routine for ADC. Inside you need to read the ADCH to get the result of conversion. What kind of data type you will use for this? (<<< your decision). Put a breakpoint to ISR and your program should hit it! Wonderful!
+> **Question/Prompt:** Introduce the interrupt service routine for ADC. Inside you need to read the ADCH to get the result of conversion. What kind of data type you will use for this? Put a breakpoint to ISR and your program should hit it! Wonderful!
 
 > **Answer/Explanation:**
 > I used a volatile uint8_t to store ADCH.
+
+**`interrupts.c`**
+```c
+volatile uint8_t light_sensor_value = 0;
+
+#pragma vector = ADC_vect
+__interrupt void adc_routine(void)
+{
+    light_sensor_value = ADCH;
+}
+```
 
 --- 
 
@@ -91,13 +102,21 @@
 > **Question/Prompt:**  You can play with darker ambient (cover the sensor with a book, NOT with your finger!!!) or brighter ambient (you can use your phone flashlight) to observe different ADC results. Change the VREF settings to 1.1V and check if ADC is saturated (meaning that results will be topped with 0xFF for the same light intensity*).
 
 > **Answer/Explanation:**
-> 
+
+| Ambient light condition   | AVCC           | Internal           | Observations
+| :---                      | :---           | :---               | :---          
+| light (flashlight)        | 0x07 (7)       | 0x09 (9)           | Not saturated 
+| dark (covered)            | 0xFF (255)     | 0xFF (255)         | Saturated on both 
+| normal room light         | 0xC6 (198)     | 0xF8 (248)         | The internal reference goes towards the limit 
+
+> - Full light - 0   (0x00)
+> - Full dark  - 255 (0xFF) 
 
 --- 
 
 #### Task 355
 > **Question/Prompt:**  More design rules! Re-design your code (all modules so far!) along the additional rules:
-
+> 
 > - each module must have an initialization function (e.g. led_init( ), adc_init( ), gpio_init( ), etc.) which will define the initial state for that particular module (it can be peripheral dependent, e.g. module ADC is initialized with all the default decisions you took or it can be peripheral independent, e.g. module LED is initialized with all LEDs by default turned off)
 > - determine the atomic actions a software driver can do to "drive" the hardware and build dedicated functions for them (e.g. at GPIO module, which is a driver, you determined set, reset, get being the atomic actions and you build functions accordingly; at ADC module which is a driver you can determine the start of conversion and get the result as the atomic actions, building dedicated functions)
 
