@@ -2,6 +2,7 @@
 #include "button.h"
 #include "led.h"
 #include "delay.h"
+#include "timer.h"
 
 volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
 volatile uint8_t light_sensor_value;
@@ -31,5 +32,14 @@ __interrupt void adc_routine(void)
 #pragma vector = TIMER0_OVF_vect
 __interrupt void timer0_overflow_routine(void)
 {
-    timer0_overflow_count++;
+    TCNT0 = TIMER0_PRELOAD_VALUE;
+
+    static uint8_t overflow_count = 0;
+    overflow_count++;
+
+    if (overflow_count >= OVERFLOWS_PER_SECOND)
+    {
+        overflow_count = 0;
+        led_toggle(LED_ONBOARD);
+    }
 }

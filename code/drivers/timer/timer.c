@@ -35,7 +35,8 @@ void timer_select_normal_mode(void)
 
 void timer_configure_control_settings(void)
 {
-    TCCR0B &= ~(TCCR0B_CS_MASK);
+    //TCCR0B &= ~(TCCR0B_CS_MASK);
+    TCNT0 = TIMER0_PRELOAD_VALUE;
     timer_enable_overflow_interrupt();
 }
 
@@ -48,6 +49,12 @@ void timer_start_no_prescaling(void)
 {
     TCCR0B &= ~TCCR0B_CS_MASK;
     TCCR0B |= (TIMER_PRESCALER_NO_DIVISION & TCCR0B_CS_MASK);
+}
+
+void timer_start_prescaler_64(void)
+{
+    TCCR0B &= ~TCCR0B_CS_MASK;
+    TCCR0B |= (TIMER_PRESCALER_64 & TCCR0B_CS_MASK);
 }
 
 #endif /* TIMER_C */

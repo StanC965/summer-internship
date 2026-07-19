@@ -15,6 +15,9 @@
 
 #define TCCR0B_CS_MASK                (0x07U)
 #define TIMER_PRESCALER_NO_DIVISION   (0X01U)
+#define TIMER_PRESCALER_64            (0X03U)
+#define TIMER0_PRELOAD_VALUE          (131U)
+#define OVERFLOWS_PER_SECOND          (125U)
 #define PRTIM0                        5
 #define TOIE0                         0
 
@@ -68,6 +71,8 @@ extern void timer_configure_control_settings(void);
 extern void timer_enable_overflow_interrupt(void);
 
 extern void timer_start_no_prescaling(void);
+
+extern void timer_start_prescaler_64(void);
 
 #endif /* TIMER_H */
 
