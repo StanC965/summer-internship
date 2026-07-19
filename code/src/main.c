@@ -14,7 +14,7 @@ void main(void)
 
   __enable_interrupt();
 
-  timer_start_prescaler_64();
+  timer_start_no_prescaling();
 
   while (1)
   {

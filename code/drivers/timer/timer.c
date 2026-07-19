@@ -43,7 +43,7 @@ void timer_select_normal_mode(void)
 
 void timer_select_ctc_mode(void)
 {
-    TCCR0A = (1 << WGM01);
+    TCCR0A = (1 << WGM01) | (1 << COM0A0);
 }
 
 void timer_configure_control_settings(void)

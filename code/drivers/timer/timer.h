@@ -23,6 +23,7 @@
 #define TOIE0                         0
 #define WGM01                         1
 #define OCIE0A                        1
+#define COM0A0                        6
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions

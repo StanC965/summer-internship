@@ -48,5 +48,5 @@ __interrupt void timer0_overflow_routine(void)
 #pragma vector = TIMER0_COMPA_vect
 __interrupt void timer0_compare_a__routine(void)
 {
-    ctc_match_count++;
+    led_toggle(LED_ONBOARD);
 }
