@@ -89,6 +89,11 @@ void timer_enable_compare_a_interrupt(void)
     TIMSK0 |= (1 << OCIE0A);
 }
 
+void timer1_enable_compare_a_interrupt(void)
+{
+    TIMSK1 |= (1 << OCIE1A);
+}
+
 void timer_start_no_prescaling(void)
 {
     TCCR0B &= ~TCCR0B_CS_MASK;

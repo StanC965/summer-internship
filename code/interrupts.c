@@ -50,3 +50,17 @@ __interrupt void timer0_compare_a__routine(void)
 {
     led_toggle(LED_ONBOARD);
 }
+
+#pragma vector = TIMER1_COMPA_vect
+__interrupt void timer1_compare_a__routine(void)
+{
+    static uint8_t match_count = 0;
+
+    match_count++;
+
+    if (match_count >= 4)
+    {
+        match_count = 0;
+        led_toggle(LED_ONBOARD);
+    }
+}

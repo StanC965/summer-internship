@@ -12,6 +12,7 @@ void main(void)
   led_init();
 
   timer1_init_ctc_100ms();
+  timer1_enable_compare_a_interrupt();
 
   __enable_interrupt();
 
