@@ -20,20 +20,20 @@
 
 #### Task 311
 > **Question/Prompt:** With this objective we introduce the interrupts, THE big idea in embedded systems :) A microcontroller can implement many sources/triggers of interrupts for its processor (CPU). One simple interrupt can be the one triggered by the push of an external button. So you push the button and a signal is sent through the registers way up until it reaches the CPU. That signal is the interrupt request. Keep in mind this short idea:
-
+>
 > button pressed > pin voltage level changed > interrupt request to CPU
-
+>
 > when studying from the microcontroller's datasheet the interrupts for your personal understanding. Be aware you will encounter a lot of information noise, but you have to filter it out... so keep focus on what you have to find to program the interrupts triggered by your button press.
 
 > Study:
-
-- [x] chapter 8.1 on how interrupts are implemented
-- [x] chapter 8.3.1 on the Global Interrupt Enable bit effect
-- [x] chapter 8.5 on the link between Stack Pointer and interrupts
-- [x] chapter 8.8 and down the page chapter 8.8.1 on the behavior of interrupts
-- [x] chapter 14.1 on the Interrupt Vector Table (just the table!!!)
-- [x] chapter 15 on the external interrupts mechanism and registers description
-- [x] chapter 6 table for pin identification
+>
+> - [x] chapter 8.1 on how interrupts are implemented
+> - [x] chapter 8.3.1 on the Global Interrupt Enable bit effect
+> - [x] chapter 8.5 on the link between Stack Pointer and interrupts
+> - [x] chapter 8.8 and down the page chapter 8.8.1 on the behavior of interrupts
+> - [x] chapter 14.1 on the Interrupt Vector Table (just the table!!!)
+> - [x] chapter 15 on the external interrupts mechanism and registers description
+> - [x] chapter 6 table for pin identification
 
 > **Answer/Explanation:**
 > 1. How are interrupts implemented?
@@ -53,17 +53,17 @@
 > - At the end of the ISR, the RETI instruction is executed:
 >   - the return address is popped from the stack back into PC
 >   - it sets the global interrupt enable bit back to 1 so the CPU can receive interrupts again
-
+> 
 > 2. The Global Interrupt Enable bit
 > #### status register
 > - The status register (SREG) is an 8 bit register that serves two primary purposes:
 >   - reporting: it holds flags that tell the result of the most recent arithmetic or logical operation
 >   - control: it contains a cruciat bit that controls whether the microcontroller is allowed to process interrupts
-
+> 
 > #### global interrupt enable
 > - The global interrupt enable bit must be set for interrupts to be enabled. 
 > - This bit is cleared by the hardware after an interrupt has occured, and is set by the RETI to enable subsequent interrupts.
-
+> 
 > 3. Stack pointer and interrupts
 > #### stack 
 > - The stack is mainly used for storing temporary data (such as local variables and return addreses). It grows from highest to lowest memory locations:
@@ -118,11 +118,11 @@
 
 #### Task 312
 > **Question/Prompt:** Identify and double check within iom324pb.h that the interrupt vector table is implemented correctly. Go to Compiler Guide (from IAR Embedded Workbench HELP) and read for:
-
-- [x] INTERRUPT FUNCTIONS (pag.64)
-- [x] RESTRICTIONS FOR SPECIAL FUNCTION TYPES => Interrupt functions (pag.163)
-- [x] __interrupt keyword (pag. 307)
-
+>
+> - [x] INTERRUPT FUNCTIONS (pag.64)
+> - [x] RESTRICTIONS FOR SPECIAL FUNCTION TYPES => Interrupt functions (pag.163)
+> - [x] __interrupt keyword (pag. 307)
+>
 > **Answer/Explanation:**
 > The interrupt vector table from the header follows the structure of the table featured in the datasheet, with a few naming differences between some vectors.
 >
@@ -141,7 +141,7 @@ word\,address\,(0x0002) * 2 = byte\,address\,(0x0004)
 > If a vector is specified in the definition of an interrupt function, the processor interrupt vector table is populated. It is also possible to define an interrupt function without a vector. This is useful if an application is capable of populating or changing the interrupt vector table at runtime.
 >
 > ####  Defining an interrupt function—an example
-> To define an interrupt function, the _ _interrupt keyword and the `#pragma` vector directive can be used. For example:
+> To define an interrupt function, the `__interrupt` keyword and the `#pragma` vector directive can be used. For example:
 
 ```c
 #pragma vector = 0x14
@@ -155,7 +155,7 @@ __interrupt void MyInterruptRoutine(void)
 >
 > The header file `iodevice.h`, where device corresponds to the selected device, contains predefined names for the existing interrupt vectors.
 >
-> To make sure that the interrupt handler executes as fast as possible, you should compile it with -Ohs, or use #pragma optimize=speed if the module is compiled with another optimization goal.
+> To make sure that the interrupt handler executes as fast as possible, you should compile it with `-Ohs`, or use `#pragma optimize=speed` if the module is compiled with another optimization goal.
 >
 > Note:  
 > An interrupt function must have the return type void, and it cannot specify any parameters.
@@ -174,9 +174,9 @@ void handler(void)
 
 #### Task 313
 > **Question/Prompt:** As your understanding over interrupts grows it is time to introduce the routine executed by the CPU when it will be interrupted by the external request. So remember the sequence:
-
+>
 > button pressed > pin voltage level changed > interrupt request to CPU > jump to vector > executes routine written by you
-
+>
 > Our IAR compiler (like any other compiler) uses a special construct to mark the function written by you in C language as being the routine executed by the CPU in case of interrupt request. Remember that saying it is a FUNCTION is improper/wrong, the correct saying is INTERRUPT SERVICE ROUTINE, on short ISR. It is a routine and not a function for some simple reasons: it does not have input parameters, does not return anything and it is not called (!!!) like a normal function is called within the program. The amount of code you write inside ISR should be kept small. Below is an example of what you should write (between #pragma and the ISR name you MUST NOT introduce any other line of code!!! as the compiler after the #pragma is strictly expecting to encounter the routine name!):
 
 ```c
@@ -202,11 +202,12 @@ __interrupt void my_routine(void)
 > **Question/Prompt:** Establish what kind of settings you should do for the registers supporting external interrupts, knowing the connection between SW0 and microcontroller's pin. Adapt also the interrupt vector name (above it was just an example).
 
 > **Answer/Explanation:**
-> The button is connected to PC6, which has an alternate function PCINT22. So the pin will be configured using pin change interrupt, not an INT.
+> The button is connected to PC6, which has an alternate function PCINT22. So the pin will be configured using pin change interrupt, not an INT. We need to: 
 >
 > - Configure PC6 as an input with pull-up.
 > - Set the PCIE2 pin in the PCICR register.
 > - Set the PCINT22 bit (6) in the PCMSK2 register.
+> - PCINT22 falls into the PCINT2 interrupt vector group.
 
 ```c
 #pragma vector = PCINT2_vect
@@ -249,7 +250,7 @@ __interrupt void button_press_routine(void)
 }
 ```
 
-> Additionaly I added a new function to the button module, which results in pin change interrupt enabled on the corresponding I/O pin.
+> Additionaly I added a new function to the button module, which enables the pin change on the corresponding I/O pin.
 
 **`button.c`**
 ```c
@@ -271,9 +272,7 @@ void button_onboard_init_interrupt(void)
 
 void main(void)
 {
-  led_init();
-  button_init();
-  button_enable_pullup(BUTTON_ONBOARD);
+  // led and button init
 
   button_onboard_init_interrupt();
 
@@ -312,9 +311,8 @@ volatile uint8_t sos_active = 0;
 
 void main(void)
 {
-  led_init();
-  button_init();
-  button_enable_pullup(BUTTON_ONBOARD);
+  // led and button init
+  
   button_onboard_init_interrupt();
   __enable_interrupt(); 
 
@@ -361,7 +359,6 @@ void main(void)
   }
 }
 ```
-
 
 ---
 
