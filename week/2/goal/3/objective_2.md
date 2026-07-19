@@ -34,10 +34,26 @@ set_direction(PORT_B, PIN_NUMBER_7, OUTPUT);
 
 --- 
 
+#### Task 322
+> **Question/Prompt:** Watch this clip on magic numbers
+
+> **Answer/Explanation:**
+> 
+
+--- 
+
 #### Task 323
 > **Question/Prompt:** Re-design your code wrote so far using the following naming convention: name your functions and variables with a prefix which represents the name of the module it belongs to. e.g. if led is my module's name, then:
 > - led_set_state( ON ) will be the name of the function setting the state ON for that LED
 > - unsigned char led_state; will be your variable declaration
+
+> **Answer/Explanation:**
+> 
+
+--- 
+
+#### Task 324
+> **Question/Prompt:** Watch this clip on naming
 
 > **Answer/Explanation:**
 > 
