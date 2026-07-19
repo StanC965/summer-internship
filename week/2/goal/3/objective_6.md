@@ -7,11 +7,12 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type      | Status 
-| :---      | :---      | :---                    
-| **[361]** | `CORE`    | [x] Completed 
-| **[362]** | `CORE`    | [x] Completed 
-| **[363]** | `STRETCH` | [x] Completed 
+| Task ID   | Type       | Status 
+| :---      | :---       | :---                    
+| **[361]** | `CORE`     | [x] Completed 
+| **[362]** | `CORE`     | [x] Completed 
+| **[363]** | `STRETCH`  | [x] Completed 
+| **[364]** | `OPTIONAL` | [x] Completed 
 
 --- 
 
@@ -53,7 +54,7 @@ void main(void)
 --- 
 
 #### Task 362
-> **Question/Prompt:**  Take 4 readings intervals (1 corresponding to complete dark, 2 semi-dark, 3 semi-light, 4 full light) and turn on LED1,2,3 as follows:
+> **Question/Prompt:** Take 4 readings intervals (1 corresponding to complete dark, 2 semi-dark, 3 semi-light, 4 full light) and turn on LED1,2,3 as follows:
 
 | ADC readings interval  | Light intensity correspondence     | LEDs state
 | :---                   | :---                               | :---                    
@@ -115,7 +116,7 @@ void main(void)
 --- 
 
 #### Task 363
-> **Question/Prompt:**   Now it's time to be interested of another key performance indicator in embedded systems: power consumption. On the main board, near the SW0 button, there is a current measurement header. How you can measure the current in a circuit? Since we do not have in our Internship online setup the possibility to measure the current consumption we will rely on datasheet information:
+> **Question/Prompt:** Now it's time to be interested of another key performance indicator in embedded systems: power consumption. On the main board, near the SW0 button, there is a current measurement header. How you can measure the current in a circuit? Since we do not have in our Internship online setup the possibility to measure the current consumption we will rely on datasheet information:
 >
 > - disable the digital input buffer (if it is powered then it consumes current) for the analog pin (the pin with connected sensor to it)
 > - enable the ADC peripheral only when you are wishing to make a conversion, otherwise shut it down (disable)
@@ -124,4 +125,69 @@ void main(void)
 > To measure the current in a circuit we use an ammeter connected in series with the load. 
 > Alternatively, we can measure the voltage drop across a known shunt resistor places accross the header pins and use Ohm's law to calculate the current consumption. 
 
+--- 
+
+#### Task 364
+> **Question/Prompt:** Implement the 10bit convertion resolution and check if you observe any sensitivity to ADC. Some of the questions you might have: What changes should I do to register settings to implement 10bit resolution? How can I get the result now? Does data type change? Would be easier to have the result right aligned or left aligned? Should I change the prescaler as chapter 27.4 is telling me?
+
+> **Answer/Explanation:**
+> Answering the questions:
+> -  I need to change the alignment bit inside ADMUX. This currently sets the ADC left adjust bit. In order to read the full 10 bit value cleanly, I need to clear the ADLAR bit.
+>
+> - Right alignment is much easier, because the 10 bit value is structured as a normal integer in memory: the 8 lower bits fill ADCL and the remaining upper 2 bits are assigned to ADCH.
+> - Left alignment requires manual shifting because the 10 bit span across both registers with trailing zeros at the bottom of ADCL. 
+> 
+> - The data type changes from uint8_t to uint16_t, because 10 bits yield greater values than 8 bits.
+>
+> - To get the results, I must read ADCL first, then ADCH second, because the CPU locks the ADC hardware completely when it reads ADCL, to prevent new conversions from overwriting the data when reading the register.
+>
+> - I set the prescaler to 64 since the datasheet states that for ADC to hit its maximum 10 bit resolution accuracy, the internal ADC clock frequency must be kept between 50kHz and 200 kHz.
+
+| Ambient light condition   | AVCC (8 bit)          | AVCC (10 bit)              
+| :---                      | :---                  | :---                              
+| light (flashlight)        | 0x07 (7)              | 0x0540 ( 1344)            
+| dark (covered)            | 0xFF (255)            | 0xED40 (60736)            
+| normal room light         | 0xC6 (198)            | 0x0BC0 ( 3008)           
+
+> The 10 bit resolution offers a more precise reading and captures a larger range of the hardware without having to clip the values like it previously did for the 8 bit AVCC and internal references. 
+
+> For the implementation, I used conditional compilation using the C preprocessor directives to be able to distinguish between 10 bit resolution (this clears the ADLAR bit) and 8 bit resolution (this sets the ADLAR bit for left alignment):
+
+**`adc.h`**
+```c
+#ifdef ADC_RESOLUTIN_10_BIT
+    typedef uint16_t adc_result_t;
+#else    
+    typedef uint8_t adc_result_t;
+#endif
+}
+```
+
+**`adc.c`**
+```c
+adc_result_t adc_get_conversion_result(void)
+{
+#ifdef ADC_RESOLUTION_10_BIT
+    return ADC;
+#else
+    return ADCH;
+#endif
+}
+```
+
+> And additionally, I used conditional compilation to clear or set the bits of ADLAR in the functions for the reference voltages:
+
+**`adc.c`**
+```c
+#ifdef ADC_RESOLUTION_10_BIT
+    ADMUX &= ~BIT_MASK(ADLAR);
+#else
+    ADMUX |= BIT_MASK(ADLAR);
+#endif
+}
+```
+
 ---
+
+## References & Resources
+* AVR Microcontroller with Core Independent Peripherals and PicoPower technology (ATmega324PB)
