@@ -13,6 +13,7 @@
 | **[422]** | `CORE`     | [x] Completed
 | **[423]** | `CORE`     | [x] Completed
 | **[424]** | `OPTIONAL` | [x] Completed
+| **[425]** | `CORE`     | [x] Completed
 
 ---
 
@@ -97,6 +98,56 @@ $$\text{Time} = \frac{1}{\text{Counting Frequency}} \times N_{steps} = \frac{\te
 > This variation occurs because the CPU must complete its current instruction before jumping to the ISR. 
 > Additionally, if other background interrupts are currently executing, or if global interrupts are temporarily locked out by critical atomic operations, the execution of the timer module's counter logic is stalled. 
 > This delay introduces a minor timing deviation, or jitter, equal to the length of those blocking instructions.
+
+---
+
+#### Task 425
+> **Question/Prompt:** Time your LED0 on and off at 1 second interval (exercise 216 revisited! but this time without software delays!) managed by TC0 Timer working in NORMAL MODE of operation with the help of interrupt service routine.
+
+> **Answer/Explanation:**
+> Since the system clock is 1MHz
+
+**`timer.h`**
+```c
+#define TIMER_PRESCALER_64            (0X03U)
+#define TIMER0_PRELOAD_VALUE          (131U)
+#define OVERFLOWS_PER_SECOND          (125U)
+```
+
+**`timer.c`**
+```c
+void timer_configure_control_settings(void)
+{
+    //TCCR0B &= ~(TCCR0B_CS_MASK);
+    TCNT0 = TIMER0_PRELOAD_VALUE;
+    timer_enable_overflow_interrupt();
+}
+
+void timer_start_prescaler_64(void)
+{
+    TCCR0B &= ~TCCR0B_CS_MASK;
+    TCCR0B |= (TIMER_PRESCALER_64 & TCCR0B_CS_MASK);
+}
+
+```
+
+**`interrupts.c`**
+```c
+#pragma vector = TIMER0_OVF_vect
+__interrupt void timer0_overflow_routine(void)
+{
+    TCNT0 = TIMER0_PRELOAD_VALUE;
+
+    static uint8_t overflow_count = 0;
+    overflow_count++;
+
+    if (overflow_count >= OVERFLOWS_PER_SECOND)
+    {
+        overflow_count = 0;
+        led_toggle(LED_ONBOARD);
+    }
+}
+```
 
 ---
 
