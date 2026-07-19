@@ -7,11 +7,12 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type   | Status
-| :---      | :---   | :--- 
-| **[421]** | `CORE` | [x] Completed
-| **[422]** | `CORE` | [x] Completed
-| **[423]** | `CORE` | [x] Completed
+| Task ID   | Type       | Status
+| :---      | :---       | :--- 
+| **[421]** | `CORE`     | [x] Completed
+| **[422]** | `CORE`     | [x] Completed
+| **[423]** | `CORE`     | [x] Completed
+| **[424]** | `OPTIONAL` | [x] Completed
 
 ---
 
@@ -85,6 +86,17 @@ $$\text{Time} = \frac{1}{\text{Counting Frequency}} \times N_{steps} = \frac{\te
 > **MAX =>** $262.144\text{ ms}$ (With a prescaler of 1024)
 > 
 > The maximum real time duration can be extended by using a software counter variable (e.g., a global volatile uint32_t overflow_count) inside the TIMER0_OVF ISR. Every time the hardware tracking flag reaches overflow and enters the routine, this variable is incremented. By multiplying the total tracked overflow count by the native maximum real time period ($262.144\text{ ms}$), the software can seamlessly extend the measurement capacity to hours, days, or years.
+
+---
+
+#### Task 424
+> **Question/Prompt:** What can you say about the jitter (deviation in time) introduced when extending the maximum real time measured in NORMAL MODE?
+
+> **Answer/Explanation:**
+> When extending the real time measurement in Normal Mode using a software variable, the hardware counter itself remains perfectly stable, but the software variable introduces timing jitter due to interrupt execution delays. 
+> This variation occurs because the CPU must complete its current instruction before jumping to the ISR. 
+> Additionally, if other background interrupts are currently executing, or if global interrupts are temporarily locked out by critical atomic operations, the execution of the timer module's counter logic is stalled. 
+> This delay introduces a minor timing deviation, or jitter, equal to the length of those blocking instructions.
 
 ---
 
