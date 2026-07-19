@@ -14,6 +14,10 @@
 | **[423]** | `CORE`     | [x] Completed
 | **[424]** | `OPTIONAL` | [x] Completed
 | **[425]** | `CORE`     | [x] Completed
+| **[426]** | `STRETCH`  | [] Completed
+| **[427]** | `STRETCH`  | [] Completed
+| **[428]** | `STRETCH`  | [] Completed
+| **[429]** | `STRETCH`  | [] Completed
 
 ---
 
@@ -150,5 +154,40 @@ __interrupt void timer0_overflow_routine(void)
 ```
 
 ---
+
+#### Task 426
+> **Question/Prompt:** What min, max frequency would have the signal on LED0 toggled from within ISR in case of min, max prescalers? FREQ MIN => _ FREQ MAX => _
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 427
+> **Question/Prompt:** Use button SW0 to cycle through the possible frequencies (5 prescalers = 5 different frequencies). Use LED0 for your demonstration.
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 428
+> **Question/Prompt:** Build a 5 seconds countdown timer using the 5 LEDs you have on all the boards: the countdown shall start when SW0 is pressed. The initial system state is that all LEDs are on, then for each substracted second one LED goes off.
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 429
+> **Question/Prompt:** Re-design your BMW Control Panel Application with the introduction of timer feature. You can e.g. introduce a timer managed delay or a reading of the button from ISR.
+
+> **Answer/Explanation:**
+> 
+
+---
+
+
+
 
 
