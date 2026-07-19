@@ -1,0 +1,18 @@
+1. States
+STATE_LED_X_OFF
+STATE_LED_X_ON
+
+2. Events
+EVENT_BUTTON_X_PRESSED
+
+3. Guard Conditions
+if (current_state_X == STATE_LED_X_OFF)
+if (current_state_X == STATE_LED_X_ON)
+
+4. Transitions
+STATE_LED_X_OFF to STATE_LED_X_ON
+STATE_LED_X_ON to STATE_LED_X_OFF
+
+5. Actions
+ACTION_TURN_ON_LED_X
+ACTION_TURN_OFF_LED_X
