@@ -6,7 +6,12 @@
 #include <intrinsics.h>
 #include "adc.h"
 
+#ifdef ADC_RESOLUTION_10_BIT
+extern volatile uint16_t light_sensor_value;
+#else
 extern volatile uint8_t light_sensor_value;
+#endif
+
 
 #define LIGHT_SENSOR_FULL_DARK    (255U)
 #define LIGHT_SENSOR_SEMI_DARK    (170U)
@@ -34,7 +39,7 @@ void main(void)
       led_power_on(LED_OLED1_1);
       led_power_on(LED_OLED1_2);
     }
-     else if (light_sensor_value >= LIGHT_SENSOR_SEMI_DARK && light_sensor_value < LIGHT_SENSOR_FULL_DARK)
+    else if (light_sensor_value >= LIGHT_SENSOR_SEMI_DARK && light_sensor_value < LIGHT_SENSOR_FULL_DARK)
     {
       led_power_on(LED_OLED1_1);
     }
