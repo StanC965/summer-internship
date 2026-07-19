@@ -1,0 +1,5 @@
+functions proposed for measuring        implementation with switch — CODE       implementation with switch — DATA*      implementation with binary operators — CODE     implementation with binary operators — DATA*
+
+set_pin (…)                             108 B                                   0 B                                     20 B                                            0 B
+
+reset_pin(…)                            108 B                                   0 B                                     22 B                                            0 B
