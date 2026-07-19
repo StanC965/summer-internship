@@ -58,7 +58,7 @@
 > - Timer/Counter0 contains exactly 8 distinct configuration and data registers described in the module documentation:
 >   - TCCR0A (TC0 Control Register A)
 >   - TCCR0B (TC0 Control Register B)
->   - TIMSK0 (TC0 Interrupt Mask Register)[cite: 1]
+>   - TIMSK0 (TC0 Interrupt Mask Register)
 >   - GTCCR  (General Timer/Counter Control Register - shared prescaler sync)
 >   - TCNT0  (TC0 Counter Value Register)
 >   - OCR0A  (TC0 Output Compare Register A)
