@@ -36,15 +36,16 @@ void main(void)
   while (1)
   {
     adc_start_conversion();
+    // if the sensor value is lower than the constant
+    // then the sensor intercepted light
     if (light_sensor_value < LIGHT_SENSOR_MIDPOINT)
     {
       led_power_on(LED_ONBOARD);
-    }
+    } // its dark, turn off the light
     else
-    {
+    { 
       led_power_off(LED_ONBOARD);
     }
-    // delay(1 * MILISECOND);
   }
 }
 ```
@@ -82,28 +83,31 @@ void main(void)
   while (1)
   {
     adc_start_conversion();
+    // FULL LIGHT
     if (light_sensor_value < LIGHT_SENSOR_SEMI_LIGHT)
     {
       led_power_on(LED_OLED1_1);
       led_power_on(LED_OLED1_2);
       led_power_on(LED_OLED1_3);
     }
+    //SEMI LIGHT
     else if (light_sensor_value >= LIGHT_SENSOR_SEMI_LIGHT && light_sensor_value < LIGHT_SENSOR_SEMI_DARK)
     {
       led_power_on(LED_OLED1_1);
       led_power_on(LED_OLED1_2);
     }
+    // SEMI DARK
     else if (light_sensor_value >= LIGHT_SENSOR_SEMI_DARK && light_sensor_value < LIGHT_SENSOR_FULL_DARK)
     {
       led_power_on(LED_OLED1_1);
     }
+    // FULL DARK
     else
     {
       led_power_off(LED_OLED1_1);
       led_power_off(LED_OLED1_2);
       led_power_off(LED_OLED1_3);
     }
-    // delay(1 * MILISECOND);
   }
 }
 ```
@@ -111,8 +115,8 @@ void main(void)
 --- 
 
 #### Task 363
-> **Question/Prompt:**   Now it's time to be interested of another key performance indicator in embedded systems: power consumption. On the main board, near the SW0 button, there is a current measurement header. How you can measure the current in a circuit? (<<< your answer here). Since we do not have in our Internship online setup the possibility to measure the current consumption we will rely on datasheet information:
-
+> **Question/Prompt:**   Now it's time to be interested of another key performance indicator in embedded systems: power consumption. On the main board, near the SW0 button, there is a current measurement header. How you can measure the current in a circuit? Since we do not have in our Internship online setup the possibility to measure the current consumption we will rely on datasheet information:
+>
 > - disable the digital input buffer (if it is powered then it consumes current) for the analog pin (the pin with connected sensor to it)
 > - enable the ADC peripheral only when you are wishing to make a conversion, otherwise shut it down (disable)
 
