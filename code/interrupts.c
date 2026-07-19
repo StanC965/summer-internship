@@ -5,6 +5,7 @@
 
 volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
 volatile uint8_t light_sensor_value;
+volatile uint32_t timer0_overflow_count = 0;
 
 #pragma vector = PCINT0_vect
 __interrupt void button_porta_routine(void)
@@ -25,4 +26,10 @@ __interrupt void adc_routine(void)
 {
     (void)ADCL;
     light_sensor_value = ADCH;
+}
+
+#pragma vector = TIMER0_OVF_vect
+__interrupt void timer0_overflow_routine(void)
+{
+    timer0_overflow_count++;
 }
