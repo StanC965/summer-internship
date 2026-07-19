@@ -7,14 +7,17 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type       | Status
-| :---      | :---       | :--- 
-| **[431]** | `CORE`     | [x] Completed
-| **[432]** | `CORE`     | [x] Completed
-| **[433]** | `CORE`     | [x] Completed
-| **[434]** | `CORE`     | [x] Completed
-| **[435]** | `STRETCH`  | [] Completed
-| **[436]** | `CORE`     | [x] Completed
+| Task ID   | Type        | Status
+| :---      | :---        | :--- 
+| **[431]** | `CORE`      | [x] Completed
+| **[432]** | `CORE`      | [x] Completed
+| **[433]** | `CORE`      | [x] Completed
+| **[434]** | `CORE`      | [x] Completed
+| **[435]** | `STRETCH`   | [] Completed
+| **[436]** | `CORE`      | [x] Completed
+| **[437]** | `STRETCH`   | [] Completed
+| **[438]** | `STRETCH`   | [] Completed
+| **[439]** | `OPTIONAL`  | [] Completed
 
 ---
 
@@ -102,6 +105,34 @@
 > Toggling on a fixed count keeps HIGH and LOW time equal, which results in 400ms period at 50% duty.
 
 ---
+
+#### Task 437
+> **Question/Prompt:** Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 1000ms periodic signal, with 70% of the period on HIGH (1 logic) and 30% of the period on LOW (0 logic). Apply it to an LED
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 438
+> **Question/Prompt:** Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 1200ms periodic signal, with the first 200ms on HIGH (1 logic), then 300ms on LOW (0 logic), then 500ms on HIGH again, and finally 200ms on LOW again. Apply it to an LED.
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 439
+> **Question/Prompt:** For each signal above (exercise 436, 437, 438) change the code implementation by updating the value TOP from the ISR code. Which type of implementation is better?
+
+> **Answer/Explanation:**
+> 
+
+---
+
+
+
+
 
 
 
