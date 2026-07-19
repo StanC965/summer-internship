@@ -52224,6 +52224,62 @@
     "scope": null
   },
   {
+    "ID": "c:main.h@920@macro@FULL_LIGHT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "FULL_LIGHT",
+    "location": {
+      "column": "9",
+      "line": "31",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "FULL_LIGHT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@948@macro@SEMI_LIGHT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SEMI_LIGHT",
+    "location": {
+      "column": "9",
+      "line": "32",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "SEMI_LIGHT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@977@macro@SEMI_DARK",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SEMI_DARK",
+    "location": {
+      "column": "9",
+      "line": "33",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "SEMI_DARK",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@1006@macro@FULL_DARK",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "FULL_DARK",
+    "location": {
+      "column": "9",
+      "line": "34",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "FULL_DARK",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:intrinsics.h@484@macro@__INTRINSICS_H",
     "What": "MacroDef",
     "defdec": "Def",

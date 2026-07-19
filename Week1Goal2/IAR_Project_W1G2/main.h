@@ -28,6 +28,9 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 #define MID_LIGHT       127
+#define FULL_LIGHT_LIMIT      63
+#define SEMI_LIGHT_LIMIT      127
+#define SEMI_DARK_LIMIT      191
 
 /* None */
 

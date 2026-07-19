@@ -32,10 +32,26 @@ void main( void )
     //Handle_VentControl_Event(BUTTON2, LED2, &button_events.btn2_pressed);
     //Handle_VentControl_Event(BUTTON3, LED3, &button_events.btn3_pressed);
     
-    if (light_intensity > MID_LIGHT) {
-        PowerOn_LED(LED0);  
-    } else {
-        PowerOff_LED(LED0); 
+    if (light_intensity > SEMI_DARK_LIMIT) {
+      //full dark interval
+        PowerOff_LED(LED1);
+        PowerOff_LED(LED2);
+        PowerOff_LED(LED3);
+    } else if(light_intensity > SEMI_LIGHT_LIMIT &&  light_intensity <= SEMI_DARK_LIMIT){
+      //semi-dark interval
+        PowerOn_LED(LED1);
+        PowerOff_LED(LED2);
+        PowerOff_LED(LED3);
+    }else if(light_intensity > FULL_LIGHT_LIMIT &&  light_intensity <= SEMI_LIGHT_LIMIT){
+      //semi-light interval
+        PowerOn_LED(LED1);
+        PowerOn_LED(LED2);
+        PowerOff_LED(LED3);
+    }else if(light_intensity <= FULL_LIGHT_LIMIT){
+      //full light interval
+      PowerOn_LED(LED1);
+      PowerOn_LED(LED2);
+      PowerOn_LED(LED3);
     }
     
     light_intensity = adc_get_result();

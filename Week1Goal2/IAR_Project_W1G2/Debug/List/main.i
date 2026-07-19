@@ -1209,10 +1209,26 @@ void main( void )
     
     
     
-    if (light_intensity > 127) {
-        PowerOn_LED((0U));  
-    } else {
-        PowerOff_LED((0U)); 
+    if (light_intensity > 191) {
+      
+        PowerOff_LED((1U));
+        PowerOff_LED((2U));
+        PowerOff_LED((3U));
+    } else if(light_intensity > 127 &&  light_intensity <= 191){
+      
+        PowerOn_LED((1U));
+        PowerOff_LED((2U));
+        PowerOff_LED((3U));
+    }else if(light_intensity > 63 &&  light_intensity <= 127){
+      
+        PowerOn_LED((1U));
+        PowerOn_LED((2U));
+        PowerOff_LED((3U));
+    }else if(light_intensity <= 63){
+      
+      PowerOn_LED((1U));
+      PowerOn_LED((2U));
+      PowerOn_LED((3U));
     }
     
     light_intensity = adc_get_result();
