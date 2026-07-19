@@ -13,6 +13,8 @@
 | **[432]** | `CORE`     | [x] Completed
 | **[433]** | `CORE`     | [x] Completed
 | **[434]** | `CORE`     | [x] Completed
+| **[435]** | `STRETCH`  | [] Completed
+| **[436]** | `CORE`     | [x] Completed
 
 ---
 
@@ -80,6 +82,24 @@
 > since Timer0 is only 8 bit (max 256 ticks) and 1024 is the largest prescaler, the hardware alone tops out at 262.144 ms. To measure longer intervals:
 >   - We can count multiple compare matches in software (increment a counter in the ISR, act after N matches).
 >   - Use a 16-bit timer instead. Same formula but OCR range goes up to 0xFFFF (65536 ticks), giving 65536 × 1024 / 1,000,000 ≈ 67.1 s natively, no software counting needed.
+
+---
+
+#### Task 435
+> **Question/Prompt:** Considering that at min, max above (exercise 434) you toggle an LED, what min, max frequency will that signal have? FREQ MIN => _ FREQ MAX => _
+
+> **Answer/Explanation:**
+>
+
+---
+
+#### Task 436
+> **Question/Prompt:** Take the basetime of 100ms you developed on the previous exercise. Without changing the prescaler and OCR0A settings, develop a 400ms periodic signal, with 50% of the period on HIGH (1 logic) and 50% of the period on LOW (0 logic). Apply it to an LED.
+
+> **Answer/Explanation:**
+> Timer 1 already ticks every 50ms (that's what makes the OC1A blink at 100 ms).
+> Because we cannot change that timing, we count the tick in the ISR, every 4th tick (200 ms), the pin is toggled. 
+> Toggling on a fixed count keeps HIGH and LOW time equal, which results in 400ms period at 50% duty.
 
 ---
 
