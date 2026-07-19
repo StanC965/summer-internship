@@ -15,6 +15,7 @@
 | **[364]** | `OPTIONAL` | [x] Completed 
 | **[365]** | `OPTIONAL` | [x] Completed 
 | **[366]** | `OPTIONAL` | [x] Completed 
+| **[367]** | `OPTIONAL` | [] Completed 
 
 --- 
 
@@ -228,6 +229,14 @@ adc_result_t adc_get_conversion_result(void)
 | `adc_disable_digital_input()`      | Cuts off the digital input buffer inside `DIDR0`. |
 | `adc_start_conversion()`           | Triggers single hardware conversions via `ADSC`. |
 | `adc_get_conversion_result()`      | **8-bit:** Returns single `ADCH` byte register.<br>**10-bit:** Synthesizes `ADCL` + `ADCH` via a 16-bit word read. |
+
+--- 
+
+#### Task 367
+> **Question/Prompt:** Prescale the ADC clock down to [ 50KHz - 200KHz ]. Slower the clock better the accuracy of conversion. Do you observe any difference to ADC results?
+
+> **Answer/Explanation:**
+> 
 
 ---
 
