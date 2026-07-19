@@ -25,8 +25,8 @@
 >  - 4 : PA1 - PCINT1  (BUTTON3)
 >  - 9 : PC1 - PCINT17 (BUTTON1)
 >
-> I created interrupt handlers for the buttons, and it is worth mentioning that the both the onboard button and the oled1_1 button and also the oled1_2 and oled_3 button share an interrupt vector.
-> THe main loop's read logic will check what button is actually pressed.
+> I created interrupt handlers for the buttons, and it is worth mentioning that both the onboard button and the oled1_1 button share an interrupt vector group, and also the oled1_2 and oled_3 button share an interrupt vector group.
+> The main loop's read logic will check what button is actually pressed.
 
 **`interrupts.c`**
 ```c
@@ -47,7 +47,7 @@ __interrupt void button_portc_routine(void)
 }
 ```
 
-> 
+> Both the first and second group of the interrupt vectors handle multiple pins on PORTA, respectively PORTC. Since this vector is shared, any events detected on one of the pins trigger the routine. In this case, we set flags for both pins of each group, and we distinguish between them in the main loop.
 
 **`main.c`**
 ```c
@@ -62,7 +62,7 @@ static const led_id_t button_to_led_map[BUTTON_COUNT] = {
 
 void main(void)
 {
-  // inits and enable interrupts
+  // led and button init and enable interrupts
 
   while (1)
   {
@@ -78,9 +78,11 @@ void main(void)
         delay(10 * MILISECOND);
 
         // check if button was pressed, check if flag is cleared
+        // we check here if the button which had an event detection
+        // is actually active-low
         if (!button_read(i) && !button_pressed[i])
         {
-          // set the flag 
+          // set the flag to track that the button is held down
           button_pressed[i] = 1;
           led_power_on(button_to_led_map[i]);
         } // check if button was released, check if flag is set
@@ -117,23 +119,26 @@ void main(void)
 > **Question/Prompt:** Add to the previous program the following behavior: when button SW0 is pressed then all LED X are off (no matter their current state on/off) and LED0 is on.
 
 > **Answer/Explanation:**
-> For this task I introduced the followin lines, which check if a button press came from SW0, and if yes, LEDs 1-3 are turned off, and LED0 is turned on:
+> For this task I introduced the following lines, which check if a button press came from SW0, and if yes, LEDs 1-3 are turned off, and LED0 is turned on:
 
 **`main.c`**
 ```c
         if (!button_read(i) && !button_pressed[i])
-        {
+        { // check if SW0 was pressed
           if (i == BUTTON_ONBOARD)
           {
             for (uint8_t j = BUTTON_OLED1_1; j <= BUTTON_OLED1_3; j++)
-            {
+            { 
               button_pressed[j] = 0;
+              // SW0 pressed - turn LED1-3 OFF
               led_power_off(button_to_led_map[j]);
             }
             button_pressed[i] = 1;
+            // SW0 pressed - turn LED0 ON
             led_power_on(button_to_led_map[i]);
             break;
           }
+          // turn the other LEDs ON if they were pressed
           button_pressed[i] = 1;
           led_power_on(button_to_led_map[i]);
 ```
@@ -154,7 +159,7 @@ void main(void)
 > To unblock the panel it is needed to push the SW0 master control again (and the normal functionality is re-established).
 
 > **Answer/Explanation:**
-> For this task I implemented a new module called hvac control. The main control loop features the requested functionalities:
+> For this task I implemented a new module called `HVAC control`. The main control loop features the requested functionalities:
 
 **`hvac_control.c`**
 ```c
@@ -167,15 +172,20 @@ void hvac_control_process(void)
 
         if (!button_read(BUTTON_ONBOARD) && !button_pressed[BUTTON_ONBOARD])
         {
+            // SW0 was pushed - it blocks the state of the control panel
             button_pressed[BUTTON_ONBOARD] = 1;
             hvac_state = STATE_BLOCKED;
+            // SW0 was pushed - light up LED0
             led_power_on(button_to_led_map[BUTTON_ONBOARD]);
+            // SW0 was pushed - turn off all other active LEDs
             turn_off_all_vents();
         }
         else if (!button_read(BUTTON_ONBOARD) && button_pressed[BUTTON_ONBOARD])
         {
+            // SW0 was pushed again - it unlocks the state of the control panel
             button_pressed[BUTTON_ONBOARD] = 0;
             hvac_state = STATE_NORMAL;
+            // SW0 was pushed again - turn off LED0
             led_power_off(button_to_led_map[BUTTON_ONBOARD]);
         }
     }
@@ -189,16 +199,23 @@ void hvac_control_process(void)
 
             if (!button_read(i))
             {
+                
                 if (hvac_state == STATE_BLOCKED)
                 {
+                    // SW0 was pushed 
+                    // if other buttons are pushed then alert by 
+                    // blinking LED0
                     led_blink_fast(button_to_led_map[BUTTON_ONBOARD]);
                     
+                    // keep LED0 on
                     led_power_on(button_to_led_map[BUTTON_ONBOARD]);
                 }
                 else if (hvac_state == STATE_NORMAL)
                 {
                     if (!button_pressed[i])
                     {
+                        // SW0 was pushed again
+                        // light up LEDs
                         button_pressed[i] = 1;
                         led_power_on(button_to_led_map[i]);
                     }
