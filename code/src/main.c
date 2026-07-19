@@ -10,7 +10,7 @@
 void main(void)
 {
   led_init();
-  timer_init();
+  timer_init_ctc();
 
   __enable_interrupt();
 
@@ -18,6 +18,6 @@ void main(void)
 
   while (1)
   {
-    
+
   }
 }

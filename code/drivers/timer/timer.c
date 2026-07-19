@@ -23,8 +23,16 @@ void timer_init(void)
     timer_configure_control_settings();
 }
 
+void timer_init_ctc(void)
+{
+    timer_enable_peripheral_clock();
+    timer_select_ctc_mode();
+    timer_configure_ctc_settings();
+}
+
 void timer_enable_peripheral_clock(void)
 {
+
     PRR0 &= ~BIT_MASK(PRTIM0);
 }
 
@@ -33,16 +41,33 @@ void timer_select_normal_mode(void)
     TCCR0A = 0x00;
 }
 
+void timer_select_ctc_mode(void)
+{
+    TCCR0A = (1 << WGM01);
+}
+
 void timer_configure_control_settings(void)
 {
-    //TCCR0B &= ~(TCCR0B_CS_MASK);
+    // TCCR0B &= ~TCCR0B_CS_MASK;
     TCNT0 = TIMER0_PRELOAD_VALUE;
     timer_enable_overflow_interrupt();
 }
 
-void timer_enable_overflow_interrupt()
+void timer_configure_ctc_settings(void)
+{
+    OCR0A = TIMER0_CTC_TARGET;
+    TCNT0 = 0x00;
+    timer_enable_compare_a_interrupt();
+}
+
+void timer_enable_overflow_interrupt(void)
 {
     TIMSK0 |= (1 << TOIE0);
+}
+
+void timer_enable_compare_a_interrupt(void)
+{
+    TIMSK0 |= (1 << OCIE0A);
 }
 
 void timer_start_no_prescaling(void)
