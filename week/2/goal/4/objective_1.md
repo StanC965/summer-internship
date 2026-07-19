@@ -9,8 +9,8 @@
 
 | Task ID   | Type   | Status
 | :---      | :---   | :--- |
-| **[411]** | `CORE` | [ ] Completed
-| **[412]** | `CORE` | [ ] Completed
+| **[411]** | `CORE` | [x] Completed
+| **[412]** | `CORE` | [x] Completed
 
 ---
 
