@@ -26,11 +26,17 @@ void main( void )
   
   while(1){
 
-    Handle_MasterControl_Event();
+    //Handle_MasterControl_Event();
         
-    Handle_VentControl_Event(BUTTON1, LED1, &button_events.btn1_pressed);
-    Handle_VentControl_Event(BUTTON2, LED2, &button_events.btn2_pressed);
-    Handle_VentControl_Event(BUTTON3, LED3, &button_events.btn3_pressed);
+    //Handle_VentControl_Event(BUTTON1, LED1, &button_events.btn1_pressed);
+    //Handle_VentControl_Event(BUTTON2, LED2, &button_events.btn2_pressed);
+    //Handle_VentControl_Event(BUTTON3, LED3, &button_events.btn3_pressed);
+    
+    if (light_intensity > MID_LIGHT) {
+        PowerOn_LED(LED0);  
+    } else {
+        PowerOff_LED(LED0); 
+    }
     
     light_intensity = adc_get_result();
     

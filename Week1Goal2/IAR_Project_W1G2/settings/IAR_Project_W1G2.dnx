@@ -23,7 +23,7 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <DebugChecksum>
-        <Checksum>1869787859</Checksum>
+        <Checksum>3135245058</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -37,7 +37,7 @@
         <Category2>_ 2</Category2>
     </LogFile>
     <Breakpoints2>
-        <Bp0>_ 1 "STD_CODE2" "{$PROJ_DIR$\main.c}.35.23" 0 0 1 "" 0 ""</Bp0>
+        <Bp0>_ 1 "STD_CODE2" "{$PROJ_DIR$\main.c}.41.23" 0 0 1 "" 0 ""</Bp0>
         <Count>1</Count>
     </Breakpoints2>
     <TermIOLog>

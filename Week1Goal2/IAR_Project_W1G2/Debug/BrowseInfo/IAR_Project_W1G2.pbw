@@ -52210,6 +52210,20 @@
     "scope": null
   },
   {
+    "ID": "c:main.h@891@macro@MID_LIGHT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "MID_LIGHT",
+    "location": {
+      "column": "9",
+      "line": "30",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "MID_LIGHT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:intrinsics.h@484@macro@__INTRINSICS_H",
     "What": "MacroDef",
     "defdec": "Def",

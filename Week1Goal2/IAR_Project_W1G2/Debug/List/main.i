@@ -1170,6 +1170,7 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
 
  
 
+
  
 
 
@@ -1202,11 +1203,17 @@ void main( void )
   
   while(1){
 
-    Handle_MasterControl_Event();
+    
         
-    Handle_VentControl_Event((1U), (1U), &button_events.btn1_pressed);
-    Handle_VentControl_Event((2U), (2U), &button_events.btn2_pressed);
-    Handle_VentControl_Event((3U), (3U), &button_events.btn3_pressed);
+    
+    
+    
+    
+    if (light_intensity > 127) {
+        PowerOn_LED((0U));  
+    } else {
+        PowerOff_LED((0U)); 
+    }
     
     light_intensity = adc_get_result();
     
