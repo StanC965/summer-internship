@@ -20,10 +20,14 @@
 #define TIMER0_PRELOAD_VALUE          (131U)
 #define OVERFLOWS_PER_SECOND          (125U)
 #define PRTIM0                        5
+#define PRTIM1                        3
 #define TOIE0                         0
 #define WGM01                         1
+#define WGM12                         3
 #define OCIE0A                        1
 #define COM0A0                        6
+#define COM1A0                        6
+#define CS11                          1
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
@@ -87,6 +91,10 @@ extern void timer_configure_ctc_settings(void);
 extern void timer_enable_overflow_interrupt(void);
 
 extern void timer_enable_compare_a_interrupt(void);
+
+extern void timer1_init_ctc_100ms(void);
+
+extern void timer1_enable_peripheral_clock(void);
 
 #endif /* TIMER_H */
 

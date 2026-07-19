@@ -30,10 +30,29 @@ void timer_init_ctc(void)
     timer_configure_ctc_settings();
 }
 
+void timer1_init_ctc_100ms(void)
+{
+    timer1_enable_peripheral_clock();
+
+    TCCR1A = (1 << COM1A0);      // toggle OC1A on compare match, WGM11:10 = 00
+    TCCR1B = (1 << WGM12);       // CTC mode, OCR1A as TOP (WGM13:12 = 01)
+
+    OCR1A = 6249;                // (OCR1A+1) * 8us = 50ms half-period -> 100ms full period
+
+    TCCR1B |= (1 << CS11);       // prescaler = 8 (CS12:10 = 010)
+}
+
+
 void timer_enable_peripheral_clock(void)
 {
 
     PRR0 &= ~BIT_MASK(PRTIM0);
+}
+
+void timer1_enable_peripheral_clock(void)
+{
+
+    PRR0 &= ~BIT_MASK(PRTIM1);
 }
 
 void timer_select_normal_mode(void)

@@ -10,14 +10,12 @@
 void main(void)
 {
   led_init();
-  timer_init_ctc();
+
+  timer1_init_ctc_100ms();
 
   __enable_interrupt();
 
-  timer_start_no_prescaling();
-
   while (1)
   {
-
   }
 }
