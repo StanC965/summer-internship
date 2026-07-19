@@ -46,6 +46,14 @@
 /** \brief  Module specific constant number one */
 #define CHANNEL_4                     4
 
+#define ADC_RESOLUTIN_10_BIT
+
+#ifdef ADC_RESOLUTIN_10_BIT
+    typedef uint16_t adc_result_t;
+#else    
+    typedef uint8_t adc_result_t;
+#endif
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -144,6 +152,6 @@ extern void adc_start_conversion(void);
     \details [ Isolates peripheral storage registers directly to 
                retrieve processing logs safely without code interference. ]
 */
-extern uint8_t adc_get_conversion_result(void);
+extern adc_result_t adc_get_conversion_result(void);
 
 #endif /* ADC_H */

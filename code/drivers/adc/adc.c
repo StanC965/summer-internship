@@ -18,17 +18,22 @@
 
 void adc_init(void)
 {
-    adc_select_internal_voltage();
+    adc_select_avcc_voltage();
     adc_select_input_channel(CHANNEL_4);
     adc_configure_control_settings();
-    // adc_disable_digital_input(CHANNEL_4);
+    adc_disable_digital_input(CHANNEL_4);
 }
 
 void adc_select_avcc_voltage(void)
 {
     ADMUX &= ~(ADC_REFERENCE_MASK);
     ADMUX |= BIT_MASK(REFS0);
+
+#ifdef ADC_RESOLUTION_10_BIT
+    ADMUX &= ~BIT_MASK(ADLAR);
+#else
     ADMUX |= BIT_MASK(ADLAR);
+#endif
 }
 
 void adc_select_internal_voltage(void)
@@ -36,7 +41,11 @@ void adc_select_internal_voltage(void)
     ADMUX &= ~(ADC_REFERENCE_MASK);
     ADMUX |= BIT_MASK(REFS0);
     ADMUX |= BIT_MASK(REFS1);
+#ifdef ADC_RESOLUTION_10_BIT
+    ADMUX &= ~BIT_MASK(ADLAR);
+#else
     ADMUX |= BIT_MASK(ADLAR);
+#endif
 }
 
 void adc_select_input_channel(uint8_t channel)
@@ -78,9 +87,13 @@ void adc_start_conversion(void)
     ADCSRA |= BIT_MASK(ADSC);
 }
 
-uint8_t adc_get_conversion_result(void)
+adc_result_t adc_get_conversion_result(void)
 {
+#ifdef ADC_RESOLUTION_10_BIT
+    return ADC;
+#else
     return ADCH;
+#endif
 }
 
 #endif /* ADC_C */
