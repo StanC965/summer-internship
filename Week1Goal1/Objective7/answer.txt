@@ -1,0 +1,19 @@
+Objective 7 - Basic electronics
+
+181 - How to connect a LED in a circuit
+A LED is a diode: it emits light only under direct polarization (+ on the anode, - on the cathode)
+The long leg is the anode (+), the short leg is the cathode (-)
+A resistor must be placed in series with the LED to limit the current, otherwise the LED
+would draw maximum current and burn out
+Ohm's law: I = U / R
+
+182 - STRETCH
+Favorite video: "How does a Diode work?"
+
+Quiz question:
+Why is a resistor placed in series with a LED?
+  a) To increase the brightness of the LED
+  b) To limit the current through the LED and prevent it from burning out
+  c) To reverse the polarity of the LED
+  d) To convert AC voltage into DC voltage
+Correct answer: b)

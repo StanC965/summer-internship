@@ -1,0 +1,10 @@
+168 - Compatible with ATmega328P (Arduino)?
+
+YES
+
+iom328p.h has identical definitions to iom328pb.h:
+SFR_B_N(0x08, PORTC, Dummy7, PORTC6, PORTC5, PORTC4, PORTC3, PORTC2, PORTC1, PORTC0)
+SFR_B_N(0x07, DDRC, Dummy7, DDRC6, DDRC5, DDRC4, DDRC3, DDRC2, DDRC1, DDRC0)
+SFR_B_N(0x06, PINC, Dummy7, PINC6, PINC5, PINC4, PINC3, PINC2, PINC1, PINC0)
+
+Conclusion: code written for port C pins PC0..PC6 is portable to the ATmega328P used by Arduino.

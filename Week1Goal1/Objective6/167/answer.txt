@@ -1,0 +1,12 @@
+167 - Same 3 registers in ATmega328PB?
+
+YES
+ 
+PORTC (0x08), DDRC (0x07) and PINC (0x06) exist with the same names, addresses
+and size (1 byte).
+
+Difference: bit 7 does not exist on ATmega328PB (port C has only 7 pins, PC0..PC6).
+In iom328pb.h bit 7 is named "Dummy7", while the datasheet and Registers View leave it empty.
+
+Conclusion: code is portable between ATmega324PB and ATmega328PB as long as it uses only
+pins PC0..PC6. Code using PC7 works only on ATmega324PB.

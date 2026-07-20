@@ -1,0 +1,8 @@
+121 - Identify the OLED display. -> done
+122 - Identify LED1, LED2 and LED3. -> done
+123 - Identify BUTTON 1, BUTTON 2 and BUTTON 3. -> done
+124 - Identify the extension header. -> done
+125 - Identify GND and VCC pin on the header. -> done
+126 - Connect OLED1 to EXT1 using the 3-step procedure:
+      (1) unplug USB from PC, (2) connect OLED1 to EXT1 header,
+      (3) reconnect USB to PC. -> done

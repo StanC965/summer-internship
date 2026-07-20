@@ -1,0 +1,18 @@
+111 - Identify ATmega324PB microcontroller on the board. -> done
+112 - Identify LED0. -> done
+113 - Identify SW0. -> done
+114 - Identify external oscillator and debugger chip. -> done
+
+115 - How many extension headers there are on the board?
+Answer: 3
+
+116 - How are the extension headers labeled?
+Answer: EXT1
+
+117 - Identify GND and VCC pins on headers and power connector. -> done
+118 - Connect USB cable, green LED lit. -> done
+
+119 - OPTIONAL - Even though there is no external power supply connected to VCC and GND,
+the board is still powered up (green LED lit) when plugging in the USB cable. Why?
+Answer: The USB cable itself provides power to the board. The onboard voltage regulator takes this USB voltage and supplies the board,
+so no separate external power source is needed.

@@ -1,0 +1,16 @@
+Objective 6 - Refresh your microcontrollers know-how
+
+161 - Block diagram, pinout and CPU core of ATmega324PB.
+Answer:
+	Block diagram: the MCU contains the AVR CPU core, Flash program memory,
+ 		 SRAM, EEPROM, I/O ports (A, B, C, D, E), and peripherals: timers/counters,
+ 		 ADC, USART, SPI, TWI, analog comparator.
+	Pinout: 44 pins, color-coded by function. Many pins have multiple functions 
+	CPU core: Harvard architecture, 32 general purpose registers R0-R31, ALU, Program Counter, Stack Pointer,
+		  Status register. Registers R26-R31 form the 16-bit X, Y, Z pointers.
+
+163 - SFR_B macro (TCCR2 example) vs real TCCR2B register from datasheet.
+Answer:
+The SFR_B_N macro holds the same info as the datasheet, but as code:
+1st arg = address, 2nd arg = register name, next 8 = bit names (bit 7 to bit 0).
+iom324pb.h is the datasheet translated into C.
