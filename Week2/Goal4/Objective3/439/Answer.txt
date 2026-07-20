@@ -1,0 +1,7 @@
+The Static TOP + Software Counter approach is superior because it ensures timing reliability
+while bypassing the physical limitations of the hardware. Dynamically writing to OCR0A
+in CTC mode is prone to timing glitches because if the counter registerhas already bypassed 
+the newly written compare value before the update registers, the timer will miss the match
+and count 255 before wrapping back around. By contrast, keeping OCR0A static and using
+a software variable to track matches eliminates this risk, while bypassing the strict 8-bit
+hardware ceiling, enabling the system to measure multi-second intervals.

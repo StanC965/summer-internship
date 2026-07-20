@@ -1,0 +1,6 @@
+The primary advantage of using function pointers within a state machine is eliminating 
+conditional checks. In a switch-case layout, the compiler generates comparison code or
+jump tables that the CPU must evaluate to find the active state. Function pointers replace 
+this overhead entirely by storing the exact memory address of the next function, allowing 
+the CPU to execute a direct jump to that specific state logic without searching through 
+alternative code branches. 
