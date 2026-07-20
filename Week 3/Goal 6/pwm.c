@@ -20,3 +20,13 @@ void pwm_set_duty_cycle(unsigned char value){
   OCR0A=(value*TOP_VALUE)/100;
   
 }
+
+void pwm_dc(int param){
+  if(param>100){
+    param=100;
+  }
+  if(param<0){
+    param=0;
+  }
+  OCR0A=(param*TOP_VALUE)/100;
+}

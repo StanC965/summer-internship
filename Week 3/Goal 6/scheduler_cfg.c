@@ -13,7 +13,7 @@ void task_10ms(void) {
   static unsigned char levels[]={0,25,50,75,100};
   static unsigned char step=0;
   
-  pwm_set_duty_cycle(levels[step]);
+  pwm_dc(levels[step]);
   step++;
   if(step>=5){
     step=0;
