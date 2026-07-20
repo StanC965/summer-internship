@@ -13,27 +13,13 @@
 void main(void)
 {
   led_init();
-
   pwm_init();
+  timer1_init_10ms();
+  
+  __enable_interrupt();
+  
   pwm_start();
 
-  __enable_interrupt();
-
-  while (1)
-  {
-    pwm_set_duty_cycle(100);
-    delay(3 * SECOND);
-
-    pwm_set_duty_cycle(75);
-    delay(3 * SECOND);
-
-    pwm_set_duty_cycle(50);
-    delay(3 * SECOND);
-
-    pwm_set_duty_cycle(25);
-    delay(3 * SECOND);
-
-    pwm_set_duty_cycle(0);
-    delay(3 * SECOND);
-  }
+  scheduler_tasks_dispatcher();
+  
 }

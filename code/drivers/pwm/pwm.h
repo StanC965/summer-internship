@@ -12,9 +12,8 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /** \brief  Fast PWM 8-bit resolution: TOP is always 0xFF */
 #define PWM_RESOLUTION       (255U)
-#define PWM_DDR              DDRB
-#define PWM_PORT             PORTB
-#define PWM_PIN              3
+#define PWM_STEP_COUNT       5
+
 typedef enum
 {
     PWM_DUTY_0   = 0,
@@ -59,5 +58,7 @@ extern void pwm_start(void);
     \details    [  ]
 */
 extern void pwm_set_duty_cycle(uint8_t duty_percent);
+
+extern void pwm_incremental_update(void);
 
 #endif /* PWM_H */

@@ -16,6 +16,8 @@
     Static private objects
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+static const uint8_t pwm_duty_steps[PWM_STEP_COUNT] = {0, 25, 50, 75, 100};
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -57,4 +59,13 @@ void pwm_set_duty_cycle(uint8_t duty_percent)
     __enable_interrupt();
 }
 
+void pwm_incremental_update(void)
+{
+    static uint8_t run_counter = 0;
+
+    uint8_t step_index = run_counter % PWM_STEP_COUNT;
+    pwm_set_duty_cycle(pwm_duty_steps[step_index]);
+
+    run_counter++;
+}
 #endif /* PWM_C */
