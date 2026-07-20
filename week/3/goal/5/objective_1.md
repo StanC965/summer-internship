@@ -12,6 +12,7 @@
 | **[511]** | `CORE` | [x] Completed
 | **[512]** | `CORE` | [x] Completed
 | **[513]** | `CORE` | [x] Completed
+| **[514]** | `CORE` | [x] Completed
 
 ---
 
@@ -82,7 +83,7 @@
 ---
 
 #### Task 513
-> **Question/Prompt:**  Starting with 10ms period build other longer periods of time: 50ms, 100ms, 500ms, 1000ms. Dedicate flag variables for each period. Optionally you can add more periods. You can gather all these into a single function, e.g. void scheduler_flags_management (void). Call it from within the ISR. As file organization is concerned, this flags management function should be placed in scheduler module.
+> **Question/Prompt:** Starting with 10ms period build other longer periods of time: 50ms, 100ms, 500ms, 1000ms. Dedicate flag variables for each period. Optionally you can add more periods. You can gather all these into a single function, e.g. void scheduler_flags_management (void). Call it from within the ISR. As file organization is concerned, this flags management function should be placed in scheduler module.
 
 > **Answer/Explanation:**
 
@@ -130,6 +131,44 @@ __interrupt void timer1_compare_a__routine(void)
 {
   scheduler_flags_management();
 }
+```
+
+---
+
+#### Task 514
+> **Question/Prompt:** Inside the while(1) loop you will check for the flags associated to the defined time slots and if they are set, then the associated function will be called. After the call, that particular flag must be reset in order to avoid the second call of the same function per current time slice when while(1) is re-entered. The final result of these constructs will be that each function call is time-spaced apart by a time slice of 10ms. Precisely! What a schedule!!! It is a cooperative schedule because functions are not prioritized, they do not interrupt each other.
+
+> **Answer/Explanation:**
+
+**`scheduler.c`**
+```c
+  while (1)
+  {
+    if (scheduler_flag_10ms)
+    {
+      scheduler_flag_10ms = 0;
+    }
+
+    if (scheduler_flag_50ms)
+    {
+      scheduler_flag_50ms = 0;
+    }
+
+    if (scheduler_flag_100ms)
+    {
+      scheduler_flag_100ms = 0;
+    }
+
+    if (scheduler_flag_500ms)
+    {
+      scheduler_flag_500ms = 0;
+    }
+
+    if (scheduler_flag_1000ms)
+    {
+      scheduler_flag_1000ms = 0;
+    }
+  }
 ```
 
 ---
