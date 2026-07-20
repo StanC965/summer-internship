@@ -3,6 +3,7 @@
 
 void adc_init(void);
 void adc_start_conversion(void);
-unsigned char adc_get_data(void);
+unsigned int adc_get_data(void);
+unsigned char adc_scale(void);
 
 #endif

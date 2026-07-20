@@ -14,9 +14,21 @@ void schedule_tasks_dispatcher(void) {
       flag_10ms=0;
       task_10ms();
     }   
+    
+    if(flag_50ms==1){
+      flag_50ms=0;
+      task_50ms();
+    }  
   }
 }
 
 void scheduler_flags_management(void){
+  static unsigned char counter_50ms= 0;
   flag_10ms=1; 
+  
+  counter_50ms++;
+  if(counter_50ms>= 5) {        //5 * 10ms = 50ms
+      flag_50ms= 1;
+      counter_50ms= 0;
+  }
 }
