@@ -71,3 +71,11 @@ __pycache__/
 # Microsoft Office temporary lock files
 ~$*
 
+# IAR Embedded Workbench files
+.ewt
+*.ewp
+*.ewd
+*.dep
+*.ewt
+code/settings/
+code/Debug/
