@@ -26,7 +26,7 @@
 
 #### Task 412
 > **Question/Prompt:** TC0 is on chapter 17 in datasheet. REMEMBER — every time you need to work with a peripheral module:
-
+> 
 > a. you will encounter a lot of information noise, so prepare your mind to filter
 > 
 > b. you will not understand all the information at once, therefore be patient reading 2x, 3x times
@@ -40,14 +40,14 @@
 > f. hover the registers description once scanning with your eyes about how can you implement the objective you have in mind (e.g. for ADC you will want to obtain a digital converted value and use it further, for TIMERS you will want to obtain periodic interrupts, etc.)
 >
 > g. read the registers description second time looking for how to enable the peripheral, how are you making use of its functionality and its final result*, how you will work with interrupt requests (if you decide to work with interrupts)
-
+>
 > h. read the registers description third time looking to take THE EASIEST decisions over the settings of each bit** (!!!) even if that means not to modify their default (after reset) value at all (this is a valid decision also, right? :); this is the point where you should go also to chapters describing the functionalities (e.g. normal mode, etc.) to get more clarifications.
 
 > **Answer/Explanation:**
 > ### block diagram
 > - Timer/Count0 (TC0) is an 8 bit peripheral designed around a programmable bi directional counter unit (TCNT0) that continously compares its value against two independent output compare registers (OCR0A and OCR0B)
 >   - inputs: external clock signals can pass from the outside environmnet into the peripheral via the dedicated T0 pin in the internal edge detector and clock select logic block
->   - outputs: internal waveform generation modules can drive signals out to physical microcontroller pins via the output compare lines OC0A and OC0B
+>   - outputs: internal waveform generation modules can drive signals out to physical microcontroller pins via the output compare lines OCR0A and OCR0B
 > - The peripheral can be driven by either the internal system clock via a configurable prescaler divider block, or by an external clock source applied to the T0 pin. The resulting active timing line is designated as clk_T0.
 > - There are three independent interrupt request lines linked directly to the CPU:
 >   - TOV0 (Timer/Counter0 Overflow Interrupt)
@@ -71,12 +71,9 @@
 >   - CTC Mode: The counter increments up to a custom value defined in OCR0A (TOP), automatically clears itself back to zero, and flags a periodic Compare Match interrupt (OCF0A). This provides exact control over the interrupt period.
 >
 > ### enabling, functionality, and interrupt configurations
-> - To route a clock to TC0 and activate it, you must first clear the Power Reduction Timer0 bit (PRTIM0) by writing a logic 0 into the Power Reduction Register 0 (PRR0).
-> - The real-time running value can be extracted directly at any time by reading the 8-bit TCNT0 register.
+> - To route a clock to TC0 and activate it, first clear the Power Reduction Timer0 bit (PRTIM0) by writing a logic 0 into the Power Reduction Register 0 (PRR0).
+> - The real-time running value can be extracted directly at any time by reading the 8 bit TCNT0 register.
 > - Individual local flags are enabled by writing a logic 1 to their respective enable bits (TOIE0, OCIE0A, or OCIE0B) inside the TIMSK0 register. This must be combined with the execution of the global interrupt enable function (__enable_interrupt()) which toggles the I-bit in the status register (SREG).
->
-> ### 
-> - Following the guide's rule to make the simplest architectural choices—leaving as many bits at their default 0x00 power-on reset values as possible—here is the ultimate baseline configuration for generic periodic interrupts using Normal Mode.
 
 ---
 
