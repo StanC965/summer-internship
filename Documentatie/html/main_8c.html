@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Deac_Stefan_MARQ: Exercitii/main.c File Reference</title>
+<title>SUMMER_INTERNSHIP: main.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Deac_Stefan_MARQ
+   <div id="projectname">SUMMER_INTERNSHIP<span id="projectnumber">&#160;1.0.0</span>
    </div>
   </td>
  </tr>
@@ -120,18 +120,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('main_8c.html',
 <div class="contents">
 <div class="textblock"><code>#include &quot;iom324pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="adc_8h_source.html">adc.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pwm_8h_source.html">pwm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="scheduler__cfg_8h_source.html">scheduler_cfg.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5bacce0648e19faa58f69e326458f55b" id="r_a5bacce0648e19faa58f69e326458f55b"><td class="memItemLeft">__interrupt void&#160;</td><td class="memItemRight"><a class="el" href="#a5bacce0648e19faa58f69e326458f55b">Scheduler_Tick</a> ()</td></tr>
 <tr class="memitem:a7dfd9b79bc5a37d7df40207afbc5431f" id="r_a7dfd9b79bc5a37d7df40207afbc5431f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7dfd9b79bc5a37d7df40207afbc5431f">setup</a> (void)</td></tr>
 <tr class="memitem:a6288eba0f8e8ad3ab1544ad731eb7667" id="r_a6288eba0f8e8ad3ab1544ad731eb7667"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6288eba0f8e8ad3ab1544ad731eb7667">main</a> (void)</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a617a47c70795bcff659815ad0efd2266" id="r_a617a47c70795bcff659815ad0efd2266"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a617a47c70795bcff659815ad0efd2266">counter</a> = 0</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a6288eba0f8e8ad3ab1544ad731eb7667" name="a6288eba0f8e8ad3ab1544ad731eb7667"></a>
@@ -144,6 +141,23 @@ Variables</h2></td></tr>
           <td class="memname">void main </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bacce0648e19faa58f69e326458f55b" name="a5bacce0648e19faa58f69e326458f55b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bacce0648e19faa58f69e326458f55b">&#9670;&#160;</a></span>Scheduler_Tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__interrupt void Scheduler_Tick </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -168,21 +182,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a617a47c70795bcff659815ad0efd2266" name="a617a47c70795bcff659815ad0efd2266"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a617a47c70795bcff659815ad0efd2266">&#9670;&#160;</a></span>counter</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int counter = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -196,7 +195,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_25fbb562e0771214ebc3903c0a2af253.html">Exercitii</a></li><li class="navelem"><a href="main_8c.html">main.c</a></li>
+    <li class="navelem"><a href="main_8c.html">main.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
   </ul>
 </div>

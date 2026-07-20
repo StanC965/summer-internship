@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['counter_0',['counter',['../main_8c.html#a617a47c70795bcff659815ad0efd2266',1,'main.c']]]
+  ['adc_5fvalue_0',['ADC_value',['../adc_8c.html#a79afdcb58c09511a5bd0afa3e957de3b',1,'adc.c']]]
 ];

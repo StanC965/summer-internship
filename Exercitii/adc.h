@@ -35,20 +35,13 @@ extern void adc_init_LIGHT();
 */
 extern void adc_start_conversie();
 
-/** \fn     ADC_result adc_adapter()
 
-    \brief      [ Aceasta functie  preia valoarea obtinuta de 8 bits sau 16 bits  din conversie si o inverseaza ]  
+
+/** \fn     void adc_read_and_update()
+
+    \brief      [ Functie interna modulului pentru a actualiza valoarea statica]  
 */
-extern ADC_result adc_adapter8(ADC_result value);
-
-
-
-/** \fn     void adc_get_result()
-
-    \brief      [ Aceasta functie  preia valoarea obtinuta din ADCH de 8 biti sau 16 biti]  
-*/
-extern ADC_result adc_get_result();
-
+extern void adc_read_and_update(void);
 
 extern void disable_input_buffer_for_lightSensor();
 
@@ -57,5 +50,14 @@ extern void disable_input_buffer_for_lightSensor();
     \brief      [ Aceasta functie activeaza input buffer-ul din DIDR0 pentru ADC -ul responsabil de senzorul de lumina ]  
 */
 extern void enable_input_buffer_for_lightSensor();
+
+
+/** \fn   unsigned  short adc_get_data(void)
+
+    \brief      [ Aceasta functie preia valoarea de la senzorul de lumina]  
+*/
+extern  unsigned short adc_get_data(void);
+
+
 
 #endif

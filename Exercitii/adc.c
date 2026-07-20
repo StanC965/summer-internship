@@ -10,9 +10,12 @@
 #include "adc.h"
 
 
+static volatile ADC_result ADC_value ; 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  Implementation      */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
 
  void adc_init_LIGHT()
       {
@@ -46,31 +49,12 @@ void adc_start_conversie()
       gpio_set_pin(&ADCSRA,6); // 6 este ADSC
 }
 
-#ifdef ADC_USE_8_BIT_RESOLUTION
-ADC_result adc_adapter(ADC_result value)
+
+unsigned short adc_get_data(void)
 {
-    return (255 - value);
+    return (unsigned short)ADC_value;
 }
 
-ADC_result adc_get_result(void)
-{
-    return ADCH; 
-}
-#else
-ADC_result adc_adapter(ADC_result value)
-{
-    return (1023 - value);
-}
-
-ADC_result adc_get_result(void)
-{
-    ADC_result rezultat;
-    unsigned char low_byte = ADCL;
-    unsigned char high_byte = ADCH;
-    rezultat = low_byte | (high_byte << 8);
-    return rezultat;
-}
-#endif
 
 
 void disable_input_buffer_for_lightSensor()
@@ -85,6 +69,18 @@ void enable_input_buffer_for_lightSensor()
   
 }
 
+
+void adc_read_and_update(void)
+{
+    #ifdef ADC_USE_8_BIT_RESOLUTION
+        ADC_value = 255 - ADCH; 
+    #else
+        unsigned char low_byte = ADCL;
+        unsigned char high_byte = ADCH;
+        ADC_result rezultat = low_byte | (high_byte << 8);
+        ADC_value = 1023 - rezultat; 
+    #endif
+}
 
 
 #endif

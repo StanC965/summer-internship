@@ -1,30 +1,33 @@
 var indexSectionsWithContent =
 {
-  0: "acdegilmopsv",
-  1: "aglmps",
-  2: "adeglmops",
-  3: "cisv",
-  4: "agm",
-  5: "aglps"
+  0: "acdefgilmnopstv",
+  1: "s",
+  2: "aglmpst",
+  3: "adeglmopst",
+  4: "afisv",
+  5: "agm",
+  6: "acfglnpst"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "variables",
-  4: "typedefs",
-  5: "defines"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "variables",
+  5: "typedefs",
+  6: "defines"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Files",
-  2: "Functions",
-  3: "Variables",
-  4: "Typedefs",
-  5: "Macros"
+  1: "Data Structures",
+  2: "Files",
+  3: "Functions",
+  4: "Variables",
+  5: "Typedefs",
+  6: "Macros"
 };
 

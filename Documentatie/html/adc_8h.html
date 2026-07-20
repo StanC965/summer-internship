@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Deac_Stefan_MARQ: Exercitii/adc.h File Reference</title>
+<title>SUMMER_INTERNSHIP: adc.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Deac_Stefan_MARQ
+   <div id="projectname">SUMMER_INTERNSHIP<span id="projectnumber">&#160;1.0.0</span>
    </div>
   </td>
  </tr>
@@ -132,12 +132,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae5703ea7cc2d6a3285b481544339e3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">[ Aceasta functie configureaza un ADC simplu,fara prescale ,are scop doar de exercitiu ]  <br /></td></tr>
 <tr class="memitem:a05e5b16da79cb6166cc753ef5da8f114" id="r_a05e5b16da79cb6166cc753ef5da8f114"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a05e5b16da79cb6166cc753ef5da8f114">adc_start_conversie</a> ()</td></tr>
 <tr class="memdesc:a05e5b16da79cb6166cc753ef5da8f114"><td class="mdescLeft">&#160;</td><td class="mdescRight">[ Aceasta functie seteaza ADCSRA astfel incat sa inceapa sa faca conversia,dupa masurarea hardware-ul pune bit-ul inapoi pe 0]  <br /></td></tr>
-<tr class="memitem:a6a8ad5b954e31f40cdfe4b7cf372b446" id="r_a6a8ad5b954e31f40cdfe4b7cf372b446"><td class="memItemLeft"><a class="el" href="#a0ac90f0dd8dd47dba63c636ea40e5c33">ADC_result</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6a8ad5b954e31f40cdfe4b7cf372b446">adc_adapter8</a> (<a class="el" href="#a0ac90f0dd8dd47dba63c636ea40e5c33">ADC_result</a> value)</td></tr>
-<tr class="memitem:a3bf5c8f37235b577c91496f60ce3d75c" id="r_a3bf5c8f37235b577c91496f60ce3d75c"><td class="memItemLeft"><a class="el" href="#a0ac90f0dd8dd47dba63c636ea40e5c33">ADC_result</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3bf5c8f37235b577c91496f60ce3d75c">adc_get_result</a> ()</td></tr>
-<tr class="memdesc:a3bf5c8f37235b577c91496f60ce3d75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">[ Aceasta functie preia valoarea obtinuta din ADCH de 8 biti sau 16 biti]  <br /></td></tr>
+<tr class="memitem:a6270048e801d5e2331fb599b3da430f9" id="r_a6270048e801d5e2331fb599b3da430f9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6270048e801d5e2331fb599b3da430f9">adc_read_and_update</a> (void)</td></tr>
+<tr class="memdesc:a6270048e801d5e2331fb599b3da430f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">[ Functie interna modulului pentru a actualiza valoarea statica]  <br /></td></tr>
 <tr class="memitem:a1bb309c7afe892f7c3b0ffe0b48a7697" id="r_a1bb309c7afe892f7c3b0ffe0b48a7697"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1bb309c7afe892f7c3b0ffe0b48a7697">disable_input_buffer_for_lightSensor</a> ()</td></tr>
 <tr class="memitem:a4706f10e2b9c2b19173ed1c179b83d8c" id="r_a4706f10e2b9c2b19173ed1c179b83d8c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4706f10e2b9c2b19173ed1c179b83d8c">enable_input_buffer_for_lightSensor</a> ()</td></tr>
 <tr class="memdesc:a4706f10e2b9c2b19173ed1c179b83d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">[ Aceasta functie activeaza input buffer-ul din DIDR0 pentru ADC -ul responsabil de senzorul de lumina ]  <br /></td></tr>
+<tr class="memitem:acae2982d35af2f3dbf25e1f33b51352f" id="r_acae2982d35af2f3dbf25e1f33b51352f"><td class="memItemLeft">unsigned short&#160;</td><td class="memItemRight"><a class="el" href="#acae2982d35af2f3dbf25e1f33b51352f">adc_get_data</a> (void)</td></tr>
+<tr class="memdesc:acae2982d35af2f3dbf25e1f33b51352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">[ Aceasta functie preia valoarea de la senzorul de lumina]  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="a0ac90f0dd8dd47dba63c636ea40e5c33" name="a0ac90f0dd8dd47dba63c636ea40e5c33"></a>
@@ -157,8 +158,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a6a8ad5b954e31f40cdfe4b7cf372b446" name="a6a8ad5b954e31f40cdfe4b7cf372b446"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a8ad5b954e31f40cdfe4b7cf372b446">&#9670;&#160;</a></span>adc_adapter8()</h2>
+<a id="acae2982d35af2f3dbf25e1f33b51352f" name="acae2982d35af2f3dbf25e1f33b51352f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acae2982d35af2f3dbf25e1f33b51352f">&#9670;&#160;</a></span>adc_get_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,9 +168,9 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a0ac90f0dd8dd47dba63c636ea40e5c33">ADC_result</a> adc_adapter8 </td>
+          <td class="memname">unsigned short adc_get_data </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a0ac90f0dd8dd47dba63c636ea40e5c33">ADC_result</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -180,32 +181,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a3bf5c8f37235b577c91496f60ce3d75c" name="a3bf5c8f37235b577c91496f60ce3d75c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bf5c8f37235b577c91496f60ce3d75c">&#9670;&#160;</a></span>adc_get_result()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a0ac90f0dd8dd47dba63c636ea40e5c33">ADC_result</a> adc_get_result </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>[ Aceasta functie preia valoarea obtinuta din ADCH de 8 biti sau 16 biti] </p>
+<p>[ Aceasta functie preia valoarea de la senzorul de lumina] </p>
 
 </div>
 </div>
@@ -233,6 +209,33 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>[ Aceasta functie configureaza un ADC simplu,fara prescale ,are scop doar de exercitiu ] </p>
+
+</div>
+</div>
+<a id="a6270048e801d5e2331fb599b3da430f9" name="a6270048e801d5e2331fb599b3da430f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6270048e801d5e2331fb599b3da430f9">&#9670;&#160;</a></span>adc_read_and_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adc_read_and_update </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>[ Functie interna modulului pentru a actualiza valoarea statica] </p>
 
 </div>
 </div>
@@ -328,7 +331,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_25fbb562e0771214ebc3903c0a2af253.html">Exercitii</a></li><li class="navelem"><a href="adc_8h.html">adc.h</a></li>
+    <li class="navelem"><a href="adc_8h.html">adc.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
   </ul>
 </div>

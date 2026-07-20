@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['sequence_0',['sequence',['../pwm_8c.html#a594ccdaa6606fa0caa2835351796c3fa',1,'pwm.c']]],
-  ['sos_5fstop_1',['sos_stop',['../sos_8c.html#a824df2ca9a25d0899dc068c555c40cab',1,'sos.c']]]
+  ['index_0',['index',['../pwm_8c.html#a33a33a3f3b2d0d97117cd4ceeba5b6ef',1,'index:&#160;pwm.c'],['../scheduler__cfg_8c.html#a33a33a3f3b2d0d97117cd4ceeba5b6ef',1,'index:&#160;scheduler_cfg.c']]]
 ];

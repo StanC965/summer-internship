@@ -704,7 +704,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>112</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -2129,5 +2129,23 @@
     </file>
     <file>
         <name>$PROJ_DIR$\pwm.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler_cfg.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\scheduler_cfg.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\timer.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\timer.h</name>
     </file>
 </project>

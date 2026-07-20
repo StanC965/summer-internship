@@ -8,9 +8,8 @@
 #include "iom324pb.h" 
 #include "pwm.h"
 
-
-volatile short sequence[5] = {0, 64, 128, 192, 255};
-volatile unsigned char index = 0;
+static volatile short sequence[5] = {0, 64, 128, 192, 255};
+static volatile unsigned char index = 0;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  Implementation                                                           */
@@ -50,7 +49,7 @@ void pwm_test_led()
     
     gpio_Timer1_start(1.0f, 64);
     
-    gpio_set_pin(&TIMSK1, 1); 
+ //   gpio_set_pin(&TIMSK1, 1); 
     gpio_set_pin(&SREG, 7);   
     
     OCR0A = sequence[0];       

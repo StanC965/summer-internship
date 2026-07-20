@@ -1,23 +1,35 @@
 #include "iom324pb.h"
 #include "gpio.h" 
-#include "adc.h"
 #include "led.h"
 #include "pwm.h"
+#include "scheduler_cfg.h"
+#include "scheduler.h"
+
+
+#pragma vector=TIMER1_COMPA_vect
+__interrupt void Scheduler_Tick()
+{
+    
+    scheduler_flags_management();
+}
 
 void setup(void)
 {
+
+    pwm_init_LED(); 
     
-    pwm_test_led();
+ 
+    gpio_Timer1_start(0.01f, 64);
+    
+
+    gpio_set_pin(&TIMSK1, 1); 
+    gpio_set_pin(&SREG, 7); 
 }
     
-int counter = 0;
-
 void main(void)
 {
     setup();
     
-    while(1)    
-    {
-        
-    }
+
+    schedule_tasks_dispatcher(); 
 }
