@@ -52,8 +52,13 @@
 #define OCIE1A                        1  
 
 /* TCCR0A - Timer/Counter0 Control Register A */
+#define WGM00                         0   
 #define WGM01                         1   
 #define COM0A0                        6   
+#define COM0A1                        7  
+
+/* TCCR1B - Timer/Counter1 Control Register B */
+#define CS00                          0   
 
 /* TCCR1A - Timer/Counter1 Control Register A */
 #define COM1A0                        6   
