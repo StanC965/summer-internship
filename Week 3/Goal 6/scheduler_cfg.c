@@ -8,15 +8,29 @@
 #define PWM_PIN 3 //pb3
 #define OUTPUT 1
 #define INPUT 0
+#define WORKING 1
+#define STOPPED 0
 
 void task_10ms(void) {
-  static unsigned char levels[]={0,25,50,75,100};
-  static unsigned char step=0;
+  static unsigned char state=WORKING;
+  static unsigned char level=0;
+  static int counter=0;
   
-  pwm_dc(levels[step]);
-  step++;
-  if(step>=5){
-    step=0;
+  if(state==WORKING){
+    pwm_dc(level);
+    level++;
+    if(level>100){
+      level=0;
+      pwm_dc(0);
+      counter=0;
+      state=STOPPED;
+    }
+  }
+  else if(state==STOPPED){
+    counter++;
+    if(counter>=300){ //300*10ms=3000ms=3s
+      state=WORKING;
+    }
   }
   
 }

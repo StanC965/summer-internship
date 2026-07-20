@@ -28,5 +28,5 @@ void pwm_dc(int param){
   if(param<0){
     param=0;
   }
-  OCR0A=(param*TOP_VALUE)/100;
+  OCR0A=TOP_VALUE-((param*TOP_VALUE)/100);
 }
