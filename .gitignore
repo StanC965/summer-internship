@@ -76,6 +76,6 @@ Debug/
 Release/
 *.dep
 *.ewp
-*ewt
+*.ewt
 *.ewd
 settings/
