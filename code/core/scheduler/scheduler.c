@@ -6,6 +6,7 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 #include "scheduler.h"
+#include "scheduler_cfg.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects & functions
@@ -47,26 +48,6 @@ void scheduler_flags_management(void)
     {
         scheduler_flag_1000ms = 1;
     }
-}
-
-void task_10ms(void)
-{
-}
-
-void task_50ms(void)
-{
-}
-
-void task_100ms(void)
-{
-}
-
-void task_500ms(void)
-{
-}
-
-void task_1000ms(void)
-{
 }
 
 void scheduler_tasks_dispatcher(void)
