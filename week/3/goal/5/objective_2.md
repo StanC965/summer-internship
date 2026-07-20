@@ -10,6 +10,7 @@
 | Task ID   | Type       | Status
 | :---      | :---       | :--- 
 | **[521]** | `CORE`     | [x] Completed
+| **[522]** | `CORE`     | [x] Completed
 
 ---
 
@@ -25,4 +26,17 @@
 
 > **Answer/Explanation:**
 > 
+
+---
+
+#### Task 522
+> **Question/Prompt:**  Go to Ambient Light Application and refactor the code as follows:
+
+> - encapsulate/hide the data result to adc module (use static keyword)
+> - provide a "get" interface / function to use the data result in other modules, e.g. adc_get_data( );
+> - make use of task scheduler to schedule the start of conversion, getting and using the data result for ambient light indicator (the 3 LEDs)
+
+> **Answer/Explanation:**
+> 
+
 
