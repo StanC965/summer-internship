@@ -11,6 +11,8 @@ volatile uint32_t timer0_overflow_count = 0;
 volatile uint32_t ctc_match_count = 0;
 volatile uint32_t system_ticks = 0;
 
+volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
+
 #pragma vector = PCINT0_vect
 __interrupt void button_porta_routine(void)
 {
@@ -28,8 +30,7 @@ __interrupt void button_portc_routine(void)
 #pragma vector = ADC_vect
 __interrupt void adc_routine(void)
 {
-    (void)ADCL;
-    light_sensor_value = ADCH;
+    adc_set_conversion_result();
 }
 
 #pragma vector = TIMER0_OVF_vect
