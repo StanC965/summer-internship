@@ -1,0 +1,13 @@
+# ninja log v5
+1780	2966	8062438791971435	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/led.r90	27830596ecefb867
+2	3103	8062438793332109	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/gpio.r90	71e263fcf3367b1f
+1747	3127	8062438793514783	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/adc.r90	507541ef2115b75a
+1762	3202	8062438794018225	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/main.r90	d289e4e9de9bb0ab
+2969	3344	8062438796094365	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/scheduler.r90	8f174ee325eef862
+3112	3469	8062438797416404	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/scheduler_cfg.r90	17a69a897c57a765
+4	213	8062440904026424	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/pwm.r90	72c9bac824412d39
+217	1486	8062440916743168	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Exe/Goal6.d90	185e776c761c06d4
+35	536	8062442881275419	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/main.r90	d289e4e9de9bb0ab
+539	748	8062442883887489	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Exe/Goal6.d90	185e776c761c06d4
+6	189	8062443251621556	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Obj/main.r90	d289e4e9de9bb0ab
+192	497	8062443254561964	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 6/Debug/Exe/Goal6.d90	185e776c761c06d4
