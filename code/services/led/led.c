@@ -1,0 +1,111 @@
+#ifndef LED_C
+#define LED_C
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Includes
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+#include "led.h"
+#include <iom324pb.h>
+#include "gpio.h"
+#include "delay.h"
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Static private objects
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+static const led_config_t led_table[LED_COUNT] = {
+    // ATmega328P onboard LED
+    {&DDRC, &PORTC, LED_ONBOARD_PIN},
+
+    // OLED1 LEDs
+    {&DDRD, &PORTD, LED_OLED1_1_PIN},
+    {&DDRD, &PORTD, LED_OLED1_2_PIN},
+    {&DDRA, &PORTA, LED_OLED1_3_PIN},
+
+    // IO1 LED
+    {&DDRB, &PORTB, LED_IO1_PIN}};
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Implementation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+void led_init(void)
+{
+    for (uint8_t i = 0; i < LED_COUNT; i++)
+    {
+        gpio_set_pin(led_table[i].port_register, led_table[i].pin);
+        gpio_set_direction(led_table[i].ddr_register, GPIO_OUTPUT, led_table[i].pin);
+    }
+}
+
+void led_power_on(led_id_t led_id)
+{
+    if (led_id < LED_COUNT)
+    {
+        gpio_reset_pin(led_table[led_id].port_register, led_table[led_id].pin);
+    }
+}
+
+void led_power_off(led_id_t led_id)
+{
+    if (led_id < LED_COUNT)
+    {
+        gpio_set_pin(led_table[led_id].port_register, led_table[led_id].pin);
+    }
+}
+
+void led_toggle(led_id_t led_id)
+{
+    if (led_id < LED_COUNT)
+    {
+        gpio_toggle_pin(led_table[led_id].port_register, led_table[led_id].pin);
+    }
+}
+
+void led_blink_fast(led_id_t led_id)
+{
+    if (led_id < LED_COUNT)
+    {
+        for (uint8_t i = 0; i < LED_BLINKS_FAST; i++)
+        {
+            led_power_on(led_id);
+            delay(SECOND / LED_BLINK_FAST_ON_TIME);
+
+            led_power_off(led_id);
+            delay(SECOND / LED_BLINK_FAST_OFF_TIME);
+        }
+    }
+}
+
+void led_blink_slow(led_id_t led_id)
+{
+    if (led_id < LED_COUNT)
+    {
+        for (uint8_t i = 0; i < LED_BLINKS_SLOW; i++)
+        {
+            led_power_on(led_id);
+            delay(SECOND / LED_BLINK_SLOW_ON_TIME);
+
+            led_power_off(led_id);
+            delay(SECOND / LED_BLINK_SLOW_OFF_TIME);
+        }
+    }
+}
+
+void led_blink_custom(led_id_t led_id, uint8_t times, uint32_t on_time, uint32_t off_time)
+{
+    if (led_id < LED_COUNT)
+    {
+        for (uint8_t i = 0; i < times; i++)
+        {
+            led_power_on(led_id);
+            delay(on_time);
+
+            led_power_off(led_id);
+            delay(off_time);
+        }
+    }
+}
+
+#endif /* LED_C */
