@@ -49,4 +49,60 @@ void scheduler_flags_management(void)
     }
 }
 
+void task_10ms(void)
+{
+}
+
+void task_50ms(void)
+{
+}
+
+void task_100ms(void)
+{
+}
+
+void task_500ms(void)
+{
+}
+
+void task_1000ms(void)
+{
+}
+
+void scheduler_tasks_dispatcher(void)
+{
+    while (1)
+    {
+        if (scheduler_flag_10ms)
+        {
+            scheduler_flag_10ms = 0;
+            task_10ms();
+        }
+
+        if (scheduler_flag_50ms)
+        {
+            scheduler_flag_50ms = 0;
+            task_50ms();
+        }
+
+        if (scheduler_flag_100ms)
+        {
+            scheduler_flag_100ms = 0;
+            task_100ms();
+        }
+
+        if (scheduler_flag_500ms)
+        {
+            scheduler_flag_500ms = 0;
+            task_500ms();
+        }
+
+        if (scheduler_flag_1000ms)
+        {
+            scheduler_flag_1000ms = 0;
+            task_1000ms();
+        }
+    }
+}
+
 #endif /* SCHEDULER_C */

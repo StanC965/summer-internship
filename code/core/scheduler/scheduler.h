@@ -26,12 +26,20 @@ extern volatile uint8_t scheduler_flag_1000ms = 0;
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-/** \fn      scheduler_flags_management(void)
+/** \fn      void scheduler_flags_management(void)
     \brief   [  ]
     \param   [ None ] 
     \return  [ None ]
     \details [  ]
 */
 extern void scheduler_flags_management(void);
+
+/** \fn      void scheduler_tasks_dispatcher(void)
+    \brief   [  ]
+    \param   [ None ] 
+    \return  [ None ]
+    \details [  ]
+*/
+extern void scheduler_tasks_dispatcher(void);
 
 #endif /* SCHEDULER_H */

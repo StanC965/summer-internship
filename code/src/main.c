@@ -16,31 +16,5 @@ void main(void)
 
   __enable_interrupt();
 
-  while (1)
-  {
-    if (scheduler_flag_10ms)
-    {
-      scheduler_flag_10ms = 0;
-    }
-
-    if (scheduler_flag_50ms)
-    {
-      scheduler_flag_50ms = 0;
-    }
-
-    if (scheduler_flag_100ms)
-    {
-      scheduler_flag_100ms = 0;
-    }
-
-    if (scheduler_flag_500ms)
-    {
-      scheduler_flag_500ms = 0;
-    }
-
-    if (scheduler_flag_1000ms)
-    {
-      scheduler_flag_1000ms = 0;
-    }
-  }
+  schedule_task_dispatcher();
 }
