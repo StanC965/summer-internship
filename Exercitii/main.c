@@ -4,18 +4,29 @@
 #include "timer.h"
 #include "scheduler.h"
 #include "scheduler_cfg.h"
-#include "adc.h"
-
-#define ADC_USE_8_BIT_RESOLUTION
+#include "button.h"
 
 
-unsigned char debounce_buffer=0;
+
+#define  DEBOUNCE        3000u
+#define  BLINK_NUMBER    10
+
+
 
 void setup()
 {
   
-    leds_initialize(1,1,1,1,0);
+       leds_initialize(1, 1, 1, 1, 0);  
+    
+    
+    led_Set(LED_ONE);
+    led_Set(LED_TWO);        
+    led_Set(LED_THREE);
+    led_Set(LED_ZERO);leds_initialize(1,1,1,1,0);
     led_Set(LED_ZERO);
+    
+      buttons_initialize(1,1,1,1);
+    
     
     if (Timer1_ales_exact_8Mhz(10) == 1) {
    
@@ -25,8 +36,7 @@ void setup()
     } else {
         Timer1_ales_aprox_8Mhz(10);
     }
-  adc_init_LIGHT();
-  adc_start_conversie();
+
 
 }
 
@@ -37,4 +47,8 @@ setup();
   schedule_tasks_dispatcher();
     return 0;
 }
+
+
+
+
 
