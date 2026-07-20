@@ -28,6 +28,8 @@
 #define OCIE1A                        1
 #define COM0A0                        6
 #define COM1A0                        6
+#define COM1A1                        7
+#define CS10                          1
 #define CS11                          1
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -98,6 +100,10 @@ extern void timer1_enable_compare_a_interrupt(void);
 extern void timer1_init_ctc_100ms(void);
 
 extern void timer1_enable_peripheral_clock(void);
+
+extern void airbag_timer_configure(void);
+
+extern void airbag_timer_start(void);
 
 #endif /* TIMER_H */
 

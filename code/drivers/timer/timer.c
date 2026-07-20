@@ -5,8 +5,9 @@
     Includes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-#include "timer.h"
 #include <iom324pb.h>
+#include "timer.h"
+
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects & functions
@@ -104,6 +105,22 @@ void timer_start_prescaler_64(void)
 {
     TCCR0B &= ~TCCR0B_CS_MASK;
     TCCR0B |= (TIMER_PRESCALER_64 & TCCR0B_CS_MASK);
+}
+
+void airbag_timer_configure(void)
+{
+    timer1_enable_peripheral_clock();
+
+    TCCR1A = (1 << COM1A1);                  
+    TCCR1B = (1 << WGM12);                   
+
+    OCR1A = 724;                            
+}
+
+void airbag_timer_start(void)
+{
+    TCNT1 = 0x0000;
+    TCCR1B |= (1 << CS10);                  
 }
 
 #endif /* TIMER_C */

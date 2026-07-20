@@ -6,15 +6,25 @@
 #include <intrinsics.h>
 #include "adc.h"
 #include "timer.h"
+#include "CarCrashDetection.h"
 
 void main(void)
 {
   led_init();
 
-  timer1_init_ctc_100ms();
-  timer1_enable_compare_a_interrupt();
+  airbag_timer_configure();
 
   __enable_interrupt();
+
+  while (1)
+  {
+    unsigned char status = 1;
+    if ( status == CRASH)
+    {
+      airbag_timer_start();
+      break;
+    }
+  }
 
   while (1)
   {
