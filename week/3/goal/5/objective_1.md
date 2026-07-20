@@ -7,13 +7,14 @@
 
 ### Task Checklist & Results
 
-| Task ID   | Type   | Status
-| :---      | :---   | :--- 
-| **[511]** | `CORE` | [x] Completed
-| **[512]** | `CORE` | [x] Completed
-| **[513]** | `CORE` | [x] Completed
-| **[514]** | `CORE` | [x] Completed
-| **[515]** | `CORE` | [x] Completed
+| Task ID   | Type       | Status
+| :---      | :---       | :--- 
+| **[511]** | `CORE`     | [x] Completed
+| **[512]** | `CORE`     | [x] Completed
+| **[513]** | `CORE`     | [x] Completed
+| **[514]** | `CORE`     | [x] Completed
+| **[515]** | `CORE`     | [x] Completed
+| **[516]** | `OPTIONAL` | [] Completed
 
 ---
 
@@ -141,7 +142,7 @@ __interrupt void timer1_compare_a__routine(void)
 
 > **Answer/Explanation:**
 
-**`scheduler.c`**
+**`main.c`**
 ```c
   while (1)
   {
@@ -227,5 +228,13 @@ void scheduler_tasks_dispatcher(void)
     }
 }
 ```
+
+---
+
+#### Task 516
+> **Question/Prompt:**  Can you improve the flags storage so that they would occupy less memory? Experiment with your code.
+
+> **Answer/Explanation:**
+>
 
 ---
