@@ -85,6 +85,51 @@
 > **Question/Prompt:**  Starting with 10ms period build other longer periods of time: 50ms, 100ms, 500ms, 1000ms. Dedicate flag variables for each period. Optionally you can add more periods. You can gather all these into a single function, e.g. void scheduler_flags_management (void). Call it from within the ISR. As file organization is concerned, this flags management function should be placed in scheduler module.
 
 > **Answer/Explanation:**
-> 
+
+**`scheduler.c`**
+```c
+static volatile uint32_t scheduler_tick_counter = 0;
+
+volatile uint8_t scheduler_flag_10ms = 0;
+volatile uint8_t scheduler_flag_50ms = 0;
+volatile uint8_t scheduler_flag_100ms = 0;
+volatile uint8_t scheduler_flag_500ms = 0;
+volatile uint8_t scheduler_flag_1000ms = 0;
+
+void scheduler_flags_management(void)
+{
+    scheduler_flags_10ms = 1;
+    scheduler_tick_counter++;
+
+    if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_50MS) == 0)
+    {
+        scheduler_flag_50ms = 1;
+    }
+
+    if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_100MS) == 0)
+    {
+        scheduler_flag_100ms = 1;
+    }
+
+    if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_500MS) == 0)
+    {
+        scheduler_flag_500ms = 1;
+    }
+
+    if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_1000MS) == 0)
+    {
+        scheduler_flag_1000ms = 1;
+    }
+}
+```
+
+**`interrupts.c`**
+```c
+#pragma vector = TIMER1_COMPA_vect
+__interrupt void timer1_compare_a__routine(void)
+{
+  scheduler_flags_management();
+}
+```
 
 ---
