@@ -25,7 +25,49 @@
 > **Question/Prompt:** On short: CTC MODE is an enhancement of NORMAL MODE which gives you the possibility to have an interrupt request before overflow happens. The interrupt request is generated when TCNT0 register value matches OCR0A register value. Additionally, the pin labeled OC0A can be used to toggle its level when matching occurs. Re-make the process described at NORMAL MODE for setting the registers for TC0 to work on CTC MODE obtaining an interrupt at OCR0A = 127.
 
 > **Answer/Explanation:**
-> 
+
+**`timer.h`**
+```c
+#define TIMER0_CTC_TARGET             (127U)
+```
+
+**`timer.c`**
+```c
+void timer_init_ctc(void)
+{
+    timer_enable_peripheral_clock();
+    timer_select_ctc_mode();
+    timer_configure_ctc_settings();
+}
+
+void timer_select_ctc_mode(void)
+{
+    TCCR0A = (1 << WGM01) | (1 << COM0A0);
+}
+
+void timer_configure_ctc_settings(void)
+{
+    OCR0A = TIMER0_CTC_TARGET;
+    TCNT0 = 0x00;
+    timer_enable_compare_a_interrupt();
+}
+
+void timer_enable_compare_a_interrupt(void)
+{
+    TIMSK0 |= (1 << OCIE0A);
+}
+```
+
+**`interrupts.c`**
+```c
+volatile uint32_t ctc_match_count = 0;
+
+#pragma vector = TIMER0_COMPA_vect
+__interrupt void timer0_compare_a__routine(void)
+{
+    ctc_match_count++;
+}
+```
 
 ---
 
@@ -36,9 +78,28 @@
 > - OC0A is pin PB3, and LED IO1 is connected to it. 
 >
 > - Both LEDs toggle at the same frequency, but they run out of sync. OC0A is toggled instantly by the timer hardware at the moment the match occurs, while the onboard LED is toggled by software inside the ISR, which only executes after interupt latency.
->
+> - To fix this, I used:
+
+**`timer.c`**
+```c
+void timer_select_ctc_mode(void)
+{
+    TCCR0A = (1 << WGM01) | (1 << COM0A0);
+}
+```
+> - This makes LED IO1 toggle automatically in hardware on every compare match.
+
+**`interrupts.c`**
+```c
+#pragma vector = TIMER0_COMPA_vect
+__interrupt void timer0_compare_a__routine(void)
+{
+    led_toggle(LED_ONBOARD);
+}
+```
+
 > - With F_CPU = 1MHz and no prescaler -> 0.256 ms full period.
-> - By switching the hardware prescalers, you can measure:
+> - By switching the hardware prescalers, we can measure:
 >   - Prescaler 8: 2.048 ms
 >   - Prescaler 64: 16.384 ms
 >   - Prescaler 256: 65.536 ms
@@ -56,6 +117,21 @@
 > With prescaler = 8, we get 6249 ticks needed.
 >
 > The flicker is observable with the human eye.
+
+**`timer.c`**
+```c
+void timer1_init_ctc_100ms(void)
+{
+    timer1_enable_peripheral_clock();
+
+    TCCR1A = (1 << COM1A0);      // toggle OC1A on compare match, WGM11:10 = 00
+    TCCR1B = (1 << WGM12);       // CTC mode, OCR1A as TOP (WGM13:12 = 01)
+
+    OCR1A = 6249;                // (OCR1A+1) * 8us = 50ms half-period -> 100ms full period
+
+    TCCR1B |= (1 << CS11);       // prescaler = 8 (CS12:10 = 010)
+}
+``` 
 
 ---
 
@@ -82,9 +158,9 @@
 > - t_max = 256 × 1024 / 1,000,000 = 262,144 µs
 > - MAX => 262.144 ms
 > 
-> since Timer0 is only 8 bit (max 256 ticks) and 1024 is the largest prescaler, the hardware alone tops out at 262.144 ms. To measure longer intervals:
+> Since Timer0 is only 8 bit (max 256 ticks) and 1024 is the largest prescaler, the hardware alone tops out at 262.144 ms. To measure longer intervals:
 >   - We can count multiple compare matches in software (increment a counter in the ISR, act after N matches).
->   - Use a 16-bit timer instead. Same formula but OCR range goes up to 0xFFFF (65536 ticks), giving 65536 × 1024 / 1,000,000 ≈ 67.1 s natively, no software counting needed.
+>   - Use a 16 bit timer instead. Same formula but OCR range goes up to 0xFFFF (65536 ticks), giving 65536 × 1024 / 1,000,000 ≈ 67.1 s natively, no software counting needed.
 
 ---
 
@@ -103,6 +179,23 @@
 > Timer 1 already ticks every 50ms (that's what makes the OC1A blink at 100 ms).
 > Because we cannot change that timing, we count the tick in the ISR, every 4th tick (200 ms), the pin is toggled. 
 > Toggling on a fixed count keeps HIGH and LOW time equal, which results in 400ms period at 50% duty.
+
+**`interrupts.c`**
+```c
+#pragma vector = TIMER1_COMPA_vect
+__interrupt void timer1_compare_a__routine(void)
+{
+    static uint8_t match_count = 0;
+
+    match_count++;
+
+    if (match_count >= 4)
+    {
+        match_count = 0;
+        led_toggle(LED_ONBOARD);
+    }
+}
+```
 
 ---
 
