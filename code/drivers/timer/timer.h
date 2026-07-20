@@ -34,7 +34,10 @@
 /** \brief  Module specific constant number two */
 #define TIMER1_100MS_OCR1A_VALUE      (6249U)
 
-/** \brief  Module specific constant number two */
+/** \brief  Module specific constant number three */
+#define TIMER1_10MS_OCR1A_VALUE       (19999U)
+
+/** \brief  Module specific constant number four */
 #define TIMER1_AIRBAG_OCR1A_VALUE     (724U)
 
 /* PRR0 - Power Reduction Register 0 */

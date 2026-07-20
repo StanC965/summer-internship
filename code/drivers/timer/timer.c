@@ -81,6 +81,22 @@ void timer0_start_prescaler_64(void)
     TCCR0B |= (TIMER0_PRESCALER_64 & TCCR0B_CS_MASK);
 }
 
+void timer1_init_10ms(void)
+{
+    timer1_enable_peripheral_clock();
+
+    TCCR1A = 0x00; 
+    TCCR1B = BIT_MASK(WGM12);  
+
+    OCR1A = TIMER1_10MS_OCR1A_VALUE; 
+
+    TCNT1 = 0x0000;
+    
+    TIMSK1 = timer1_enable_compare_a_interrupt();
+    
+    TCCR1B |= BIT_MASK(CS11); 
+}
+
 void timer1_init_ctc_100ms(void)
 {
     timer1_enable_peripheral_clock();
@@ -88,7 +104,7 @@ void timer1_init_ctc_100ms(void)
     TCCR1A = BIT_MASK(COM1A0); 
     TCCR1B = BIT_MASK(WGM12);  
 
-    OCR1A = TIMER1_100MS_OCR1A_VALUE ; 
+    OCR1A = TIMER1_100MS_OCR1A_VALUE; 
 
     TCCR1B |= BIT_MASK(CS11); 
 }

@@ -8,6 +8,7 @@ volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
 volatile uint8_t light_sensor_value;
 volatile uint32_t timer0_overflow_count = 0;
 volatile uint32_t ctc_match_count = 0;
+volatile uint32_t system_ticks = 0;
 
 #pragma vector = PCINT0_vect
 __interrupt void button_porta_routine(void)
@@ -54,13 +55,5 @@ __interrupt void timer0_compare_a__routine(void)
 #pragma vector = TIMER1_COMPA_vect
 __interrupt void timer1_compare_a__routine(void)
 {
-    static uint8_t match_count = 0;
-
-    match_count++;
-
-    if (match_count >= 4)
-    {
-        match_count = 0;
-        led_toggle(LED_ONBOARD);
-    }
+  system_ticks++;
 }
