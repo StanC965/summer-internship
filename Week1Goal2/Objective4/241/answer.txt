@@ -1,0 +1,9 @@
+241 - Why is it needed to organize the software program in a modular way?
+
+Modular programming means splitting the code into separate modules, each responsible for one clear job. It is needed because:
+
+- Separation of concerns: each module does one thing, so the code is easier to understand
+- Reusability
+- Maintainability: changes are local (if I fix or extend one module, the others are not affected)
+- Readability and testing
+- The .h file acts as the interface, hiding the internal implementation details in the .c file

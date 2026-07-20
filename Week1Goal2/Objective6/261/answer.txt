@@ -1,0 +1,15 @@
+261 - SOS signal
+
+SOS in Morse: . . . - - - . . . (3 points, 3 lines, 3 points)
+
+Software architecture of the system:
+
+Abstraction Level        | Elements
+-------------------------|--------------------------------------------
+Application software     | sos.c, sos.h
+Intermediate software    | led.c, led.h, button.c, button.h
+Basic software  	 | gpio.c, gpio.h, iom324pb.h
+Hardware                 | microcontroller registers (PORTC, DDRC, PINC)
+Physical                 | voltage levels (GND, VCC)
+
+Each level only talks to the level below it.

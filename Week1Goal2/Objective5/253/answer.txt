@@ -1,0 +1,11 @@
+253 - What variables and/or functions should be changed or added for the button?
+
+gpio module:
+- gpio_enable_pullup(pin) : enables the internal pull-up resistor (writing 1 in PORTC
+  while the pin is configured as input). It already existed as gpio_set_pin, but a
+  dedicated name makes it clear.
+- gpio_read_pin(pin) : reads the actual pin level from the PINC register and returns
+  GPIO_HIGH or GPIO_LOW ( before the module could only write, not read)
+- GPIO_LOW / GPIO_HIGH constants for the returned level.
+
+Nothing was changed in the led module.

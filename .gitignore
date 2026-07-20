@@ -72,7 +72,7 @@ __pycache__/
 ~$*
 
 
-# IAR working project files (kept local, not needed on git - only source code matters)
+# IAR working project files (kept local, not needed on git)
 Week1Goal1/Debug/
 Week1Goal1/settings/
 Week1Goal1/main.c
@@ -80,3 +80,19 @@ Week1Goal1/w1g1.ewp
 Week1Goal1/w1g1.eww
 Week1Goal1/w1g1.ewd
 Week1Goal1/w1g1.dep
+Week1Goal2/Debug/
+Week1Goal2/settings/
+Week1Goal2/main.c
+Week1Goal2/w1g2.ewp
+Week1Goal2/w1g2.eww
+Week1Goal2/w1g2.ewd
+Week1Goal2/w1g2.dep
+Week1Goal2/gpio.c
+Week1Goal2/gpio.h
+Week1Goal2/w1g2.ewt
+Week1Goal2/led.c
+Week1Goal2/led.h
+Week1Goal2/button.c
+Week1Goal2/button.h
+Week1Goal2/sos.c
+Week1Goal2/sos.h

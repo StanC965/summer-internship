@@ -1,0 +1,5 @@
+221 - Is there any resistor connected with the integrated LED0 to protect it? What value has that resistor?
+
+Yes.
+LED0 is D200 (yellow LED, EL17-21UYC/A3)
+The current resistor in series with it is R214 = 330 ohm
