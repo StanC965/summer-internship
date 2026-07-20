@@ -17,19 +17,25 @@
 #define TCCR0B_CS_MASK                (0x07U)
 
 /** \brief  CS0[2:0] configuration for Timer0 running with no prescaling (clk/1) */
-#define TIMER0_PRESCALER_NO_DIVISION   (0X01U)
+#define TIMER0_PRESCALER_NO_DIVISION  (0X01U)
 
 /** \brief  OCR0A target value used for the CTC mode compare-match exercises */
 #define TIMER0_CTC_TARGET             (127U)
 
 /** \brief  CS0[2:0] configuration for Timer0 running with a /64 prescaler */
-#define TIMER0_PRESCALER_64            (0X03U)
+#define TIMER0_PRESCALER_64           (0X03U)
 
 /** \brief  Module specific constant number zero */
 #define TIMER0_PRELOAD_VALUE          (131U)
 
 /** \brief  Module specific constant number one */
 #define OVERFLOWS_PER_SECOND          (125U)
+
+/** \brief  Module specific constant number two */
+#define TIMER1_100MS_OCR1A_VALUE      (6249U)
+
+/** \brief  Module specific constant number two */
+#define TIMER1_AIRBAG_OCR1A_VALUE     (724U)
 
 /* PRR0 - Power Reduction Register 0 */
 #define PRTIM0                        5   
