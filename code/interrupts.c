@@ -3,6 +3,7 @@
 #include "led.h"
 #include "delay.h"
 #include "timer.h"
+#include "scheduler.h"
 
 volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
 volatile uint8_t light_sensor_value;
@@ -55,5 +56,5 @@ __interrupt void timer0_compare_a__routine(void)
 #pragma vector = TIMER1_COMPA_vect
 __interrupt void timer1_compare_a__routine(void)
 {
-  system_ticks++;
+  scheduler_flags_management();
 }
