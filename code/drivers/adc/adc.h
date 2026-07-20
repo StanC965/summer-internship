@@ -46,6 +46,19 @@
 /** \brief  Module specific constant number one */
 #define CHANNEL_4                     4
 
+#define LIGHT_SENSOR_FULL_DARK        (255U)
+#define LIGHT_SENSOR_SEMI_DARK        (170U)
+#define LIGHT_SENSOR_SEMI_LIGHT       (85U)
+#define LIGHT_SENSOR_FULL_LIGHT       (0U)
+
+#define ADC_RESOLUTION_10_BIT
+
+#ifdef ADC_RESOLUTION_10_BIT
+    typedef uint16_t adc_result_t;
+#else    
+    typedef uint8_t adc_result_t;
+#endif
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -137,13 +150,20 @@ extern void adc_disable_digital_input(uint8_t channel);
 */
 extern void adc_start_conversion(void);
 
-/** \fn      uint8_t adc_get_conversion_result(void)
-    \brief   [ Safely extracts the final data frame. ]
+/** \fn      adc_result+t adc_get_data(void)
+    \brief   [  ]
     \param   [ None ]
-    \return  uint8_t [ The left-adjusted 8-bit high-side output value (ADCH). ]
-    \details [ Isolates peripheral storage registers directly to 
-               retrieve processing logs safely without code interference. ]
+    \return  uint8_t [  ]
+    \details [  ]
 */
-extern uint8_t adc_get_conversion_result(void);
+extern adc_result_t adc_get_data(void);
+
+/** \fn      void adc_set_conversion_result(void)
+    \brief   [  ]
+    \param   [  ]
+    \return  [  ]
+    \details [  ]
+*/
+extern void adc_set_conversion_result(void);
 
 #endif /* ADC_H */
