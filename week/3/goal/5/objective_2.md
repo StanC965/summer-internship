@@ -11,7 +11,7 @@
 | :---      | :---       | :--- 
 | **[521]** | `CORE`     | [x] Completed
 | **[522]** | `CORE`     | [x] Completed
-| **[523]** | `STRETCH`  | [x] Completed
+| **[523]** | `STRETCH`  | [] Completed
 
 ---
 
