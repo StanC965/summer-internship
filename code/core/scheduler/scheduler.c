@@ -14,19 +14,19 @@
 
 static volatile uint32_t scheduler_tick_counter = 0;
 
+static volatile uint8_t scheduler_flag_10ms = 0;
+static volatile uint8_t scheduler_flag_50ms = 0;
+static volatile uint8_t scheduler_flag_100ms = 0;
+static volatile uint8_t scheduler_flag_500ms = 0;
+static volatile uint8_t scheduler_flag_1000ms = 0;
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-volatile uint8_t scheduler_flag_10ms = 0;
-volatile uint8_t scheduler_flag_50ms = 0;
-volatile uint8_t scheduler_flag_100ms = 0;
-volatile uint8_t scheduler_flag_500ms = 0;
-volatile uint8_t scheduler_flag_1000ms = 0;
-
 void scheduler_flags_management(void)
 {
-    scheduler_flags_10ms = 1;
+    scheduler_flag_10ms = 1;
     scheduler_tick_counter++;
 
     if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_50MS) == 0)
