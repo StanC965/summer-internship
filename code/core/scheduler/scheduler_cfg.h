@@ -1,5 +1,5 @@
-#ifndef SCHEDULER_H
-#define SCHEDULER_H
+#ifndef SCHEDULER_CFG_H
+#define SCHEDULER_CFG_H
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Includes
@@ -55,4 +55,4 @@ extern void task_500ms(void);
 */
 extern void task_1000ms(void);
 
-#endif /* SCHEDULER_H */
+#endif /* SCHEDULER_CFG_H */
