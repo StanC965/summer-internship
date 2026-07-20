@@ -1,0 +1,12 @@
+334 - BMW central control panel
+
+Design:
+- panel.c/h is a new module on the application level. It keeps the panel state
+  (UNBLOCKED / BLOCKED) and the logic of the 3 vents.
+
+Behavior:
+- UNBLOCKED: each button toggles only its own vent LED.
+  		Button X only touches LED X.
+- BLOCKED: LED0 is on, the vent LEDs stay off, and any button press fast blinks LED0
+  to tell the driver that the panel is blocked.
+- SW0 pressed again -> back to UNBLOCKED.
