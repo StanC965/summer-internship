@@ -13,6 +13,8 @@
 | **[622]** | `CORE`     | [x] Completed
 | **[623]** | `CORE`     | [x] Completed
 | **[624]** | `CORE`     | [x] Completed
+| **[625]** | `STRETCH`  | [] Completed
+| **[626]** | `STRETCH`  | [] Completed
 
 ---
 
@@ -162,6 +164,23 @@ void pwm_incremental_update(void)
 ```
 
 ---
+
+#### Task 625
+> **Question/Prompt:** What is the duty cycle resolution of the PWM signals (= the smallest duty cycle % step you can increment with) that can be build on TC0? Number of steps: (<<< answer here). Step size (resolution in %): (<<< answer here)
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 626
+> **Question/Prompt:** Add a new feature to your PWM driver: the possibility to change the duty-cycle with 1% step size. You would build a new provided interface e.g. void pwm_dc(int param);
+
+> **Answer/Explanation:**
+> 
+
+---
+
 
 
 
