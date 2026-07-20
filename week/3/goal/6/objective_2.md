@@ -12,6 +12,7 @@
 | **[621]** | `CORE`     | [x] Completed
 | **[622]** | `CORE`     | [x] Completed
 | **[623]** | `CORE`     | [x] Completed
+| **[624]** | `CORE`     | [x] Completed
 
 ---
 
@@ -128,9 +129,39 @@ void pwm_set_duty_cycle(uint8_t duty_percent)
     __enable_interrupt();
 }
 ```
+
 ---
 
+#### Task 624
+> **Question/Prompt:** Having the Task Scheduler as your best friend (!) design an application where you incrementally apply these use cases to the LED identified as supporting PWM. e.g. you can apply the signal in an incremental way: on the first run of 10ms task you apply 0% duty cycle, on the second you apply 25% duty cycle, on the third 50%, and so on and so forth, then start all over again
 
+> **Answer/Explanation:**
+> 
+
+---
+
+**`scheduler_cfg.c`**
+```c
+void task_10ms(void)
+{
+    pwm_incremental_update();
+}
+```
+
+**`pwm.c`**
+```c
+void pwm_incremental_update(void)
+{
+    static uint8_t run_counter = 0;
+
+    uint8_t step_index = run_counter % PWM_STEP_COUNT;
+    pwm_set_duty_cycle(pwm_duty_steps[step_index]);
+
+    run_counter++;
+}
+```
+
+---
 
 
 
