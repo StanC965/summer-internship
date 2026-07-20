@@ -12,21 +12,35 @@ void main(void)
 {
   led_init();
 
-  airbag_timer_configure();
+  timer1_();
 
   __enable_interrupt();
 
   while (1)
   {
-    unsigned char status = 1;
-    if ( status == CRASH)
+    if (scheduler_flag_10ms)
     {
-      airbag_timer_start();
-      break;
+      scheduler_flag_10ms = 0;
     }
-  }
 
-  while (1)
-  {
+    if (scheduler_flag_50ms)
+    {
+      scheduler_flag_50ms = 0;
+    }
+
+    if (scheduler_flag_100ms)
+    {
+      scheduler_flag_100ms = 0;
+    }
+
+    if (scheduler_flag_500ms)
+    {
+      scheduler_flag_500ms = 0;
+    }
+
+    if (scheduler_flag_1000ms)
+    {
+      scheduler_flag_1000ms = 0;
+    }
   }
 }
