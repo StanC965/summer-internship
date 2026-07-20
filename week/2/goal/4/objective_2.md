@@ -45,6 +45,56 @@ __interrupt void timer0_overflow_routine(void)
 }
 ```
 
+**`main.c`**
+```c
+void main(void)
+{
+  timer_init();
+
+  __enable_interrupt();
+  
+  timer_start_no_prescaling();
+
+  while (1)
+  {
+  }
+
+}
+```
+
+> For implementing the timer module, I followed the checklist:
+
+**`timer.c`**
+```c
+void timer_init(void)
+{
+    timer_enable_peripheral_clock();
+    timer_select_normal_mode();
+    timer_configure_control_settings();
+}
+
+void timer_enable_peripheral_clock(void)
+{
+
+    PRR0 &= ~BIT_MASK(PRTIM0);
+}
+
+void timer_select_normal_mode(void)
+{
+    TCCR0A = 0x00;
+}
+
+void timer_configure_control_settings(void)
+{
+    timer_enable_overflow_interrupt();
+}
+
+void timer_enable_overflow_interrupt(void)
+{
+    TIMSK0 |= (1 << TOIE0);
+}
+```
+
 ---
 
 #### Task 423
@@ -90,7 +140,7 @@ $$\text{Time} = \frac{1}{\text{Counting Frequency}} \times N_{steps} = \frac{\te
 > 
 > **MAX =>** $262.144\text{ ms}$ (With a prescaler of 1024)
 > 
-> The maximum real time duration can be extended by using a software counter variable (e.g., a global volatile uint32_t overflow_count) inside the TIMER0_OVF ISR. Every time the hardware tracking flag reaches overflow and enters the routine, this variable is incremented. By multiplying the total tracked overflow count by the native maximum real time period ($262.144\text{ ms}$), the software can seamlessly extend the measurement capacity to hours, days, or years.
+> The maximum real time duration can be extended by using a software counter variable (e.g., a volatile uint32_t overflow_count) inside the TIMER0_OVF ISR. Every time the hardware tracking flag reaches overflow and enters the routine, this variable is incremented. Multiplying that count by whichever fixed overflow period corresponds to the chosen prescaler (e.g., 26.144 ms if using prescaler 1024) extends the measurable range.
 
 ---
 
@@ -109,7 +159,12 @@ $$\text{Time} = \frac{1}{\text{Counting Frequency}} \times N_{steps} = \frac{\te
 > **Question/Prompt:** Time your LED0 on and off at 1 second interval (exercise 216 revisited! but this time without software delays!) managed by TC0 Timer working in NORMAL MODE of operation with the help of interrupt service routine.
 
 > **Answer/Explanation:**
-> Since the system clock is 1MHz
+> Since Normal Mode overflows at a fixed 256 steps, numbers like 1 second cannot be hit directly. Instead of letting TCNT0 start at 0x00, it should be preloaded with a starting value. That way the timer has to count up from the preloaded value to 0xFF.
+>
+> - The prescalerwas selected to be 64.
+> - For the overflow period, since 1 second is equal to 1000 ms, a period this value evenly is a good candidate. 8 ms divides it into 125.
+> - The ticks needed are equal to (8 * 1000 ms) / 64, which is 125. This results into a preload value of 131 (256 - ticks needed).
+> Each overflow with a preload now takes exaclty 8ms, so we get 125 overflows.
 
 **`timer.h`**
 ```c
@@ -122,7 +177,6 @@ $$\text{Time} = \frac{1}{\text{Counting Frequency}} \times N_{steps} = \frac{\te
 ```c
 void timer_configure_control_settings(void)
 {
-    //TCCR0B &= ~(TCCR0B_CS_MASK);
     TCNT0 = TIMER0_PRELOAD_VALUE;
     timer_enable_overflow_interrupt();
 }
