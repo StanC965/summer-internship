@@ -11,6 +11,7 @@
 | :---      | :---       | :--- 
 | **[621]** | `CORE`     | [x] Completed
 | **[622]** | `CORE`     | [x] Completed
+| **[623]** | `CORE`     | [x] Completed
 
 ---
 
@@ -29,6 +30,106 @@
 > The pins that support PWM signals are: LED1 and LED2 from OLED1 and LED from IO1.
 
 ---
+
+#### Task 623
+> **Question/Prompt:** Construct a new module for PWM feature containing the appropriate functions (remember: initialization, atomic actions, etc.). Do the math for implementing into one single function the following 5 use cases with PWM:
+
+> - output a PWM signal with 100% duty cycle
+> - output a PWM signal with 75% duty cycle
+> - output a PWM signal with 50% duty cycle
+> - output a PWM signal with 25% duty cycle
+> - output a PWM signal with 0% duty cycle
+> 
+> Individually apply each case to the LED identified as supporting PWM.
+
+> **Answer/Explanation:**
+> - mode: fast pwm, 8 bit, non inverting -> set as BOTTOM, clear on compare match
+> - OCR0A = (duty% x 255) / 100
+
+| Duty      | OCR0A     
+| :---      | :---       
+| 100%	    | 255 (0xFF)  
+| 75%	    | 191 (0xBF) 
+| 50%	    | 128 (0x80) 
+| 25%	    | 64  (0x40) 
+| 0%	    | 0 (0x00)
+
+> - 0xFF 
+> - 0x00
+
+**`main.c`**
+```c
+void main(void)
+{
+  led_init();
+
+  pwm_init();
+  pwm_start();
+
+  __enable_interrupt();
+
+  while (1)
+  {
+    pwm_set_duty_cycle(100);
+    delay(3 * SECOND);
+
+    pwm_set_duty_cycle(75);
+    delay(3 * SECOND);
+
+    pwm_set_duty_cycle(50);
+    delay(3 * SECOND);
+
+    pwm_set_duty_cycle(25);
+    delay(3 * SECOND);
+
+    pwm_set_duty_cycle(0);
+    delay(3 * SECOND);
+  }
+}
+```
+
+**`pwm.c`**
+```c
+void pwm_init(void)
+{
+    PRR0 &= ~(1 << PRTIM0);
+
+    TCCR0A = (1 << WGM01) | (1 << WGM00);
+    TCCR0B = 0x00;
+}
+
+void pwm_start(void)
+{
+    TCCR0B |= (1 << CS00);
+}
+
+void pwm_set_duty_cycle(uint8_t duty_percent)
+{
+    __disable_interrupt();
+
+    if (duty_percent == 0)
+    {
+        TCCR0A &= ~((1 << COM0A1) | (1 << COM0A0));
+        led_power_off(LED_IO1);
+    }
+    else if (duty_percent >= 100)
+    {
+        TCCR0A |= (1 << COM0A1);
+        TCCR0A &= ~(1 << COM0A0);
+        OCR0A = 0xFF;
+    }
+    else
+    {
+        TCCR0A |= (1 << COM0A1);
+        TCCR0A &= ~(1 << COM0A0);
+        OCR0A = (uint8_t)(((uint16_t)duty_percent * PWM_RESOLUTION) / 100U);
+    }
+
+    __enable_interrupt();
+}
+```
+---
+
 
 
 
