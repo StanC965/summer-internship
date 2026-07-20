@@ -11,8 +11,6 @@ volatile uint32_t timer0_overflow_count = 0;
 volatile uint32_t ctc_match_count = 0;
 volatile uint32_t system_ticks = 0;
 
-volatile uint8_t button_event_detected[BUTTON_COUNT] = {0};
-
 #pragma vector = PCINT0_vect
 __interrupt void button_porta_routine(void)
 {

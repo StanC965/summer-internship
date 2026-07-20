@@ -6,6 +6,7 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 #include <stdint.h>
+#include "button.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
@@ -50,6 +51,18 @@
 /** \brief  Module specific constant number eleven */
 #define BUTTON_OLED1_3_PCINT_PIN       1
 
+/** \brief  Module specific constant number twelve */
+#define BUTTON_DEBOUNCE_SAMPLE_COUNT   (5U)
+
+/** \brief  Bitmask covering the debounce sample window (5 bits used) */
+#define BUTTON_DEBOUNCE_MASK           ((1U << BUTTON_DEBOUNCE_SAMPLE_COUNT) - 1U) 
+
+/** \brief  Sample buffer pattern representing a stable "pressed" reading */
+#define BUTTON_DEBOUNCE_PRESSED        (BUTTON_DEBOUNCE_MASK)                       
+
+/** \brief  Sample buffer pattern representing a stable "not pressed" reading */
+#define BUTTON_DEBOUNCE_RELEASED       (0x00U)
+
 /** \brief  Button configuration structure */
 typedef struct
 {
@@ -68,7 +81,6 @@ typedef struct
     uint8_t pcint_pin;
 } button_int_config_t;
 
-
 /** \brief  Button identifier type */
 typedef enum
 {
@@ -82,6 +94,9 @@ typedef enum
 
     BUTTON_COUNT // Total number of buttons
 } button_id_t;
+
+extern void button_debounce_update(void);
+extern uint8_t button_was_pressed(button_id_t button_id);
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
@@ -120,5 +135,24 @@ extern uint8_t button_read(button_id_t button_id);
 */
 extern void button_init_interrupt(void);
 
+/** \fn     void button_debounce_update(void)
+
+    \brief      [  ]
+    \param[in]  [ None ]
+    \param[out] [ None ]
+    \return     [ None ]
+    \details    [  ]
+*/
+extern void button_debounce_update(void);
+
+/** \fn     void button_debounce_update(void)
+
+    \brief      [  ]
+    \param[in]  button_id [  ]
+    \param[out] [ None ]
+    \return     [ None ]
+    \details    [  ]
+*/
+extern uint8_t button_was_pressed(button_id_t button_id);
 
 #endif /* BUTTON_H */

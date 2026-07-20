@@ -7,14 +7,16 @@
 #include "adc.h"
 #include "timer.h"
 #include "CarCrashDetection.h"
+#include "scheduler.h"
 
 void main(void)
 {
   led_init();
+  button_init();
 
-  timer1_();
+  timer1_init_10ms();
 
   __enable_interrupt();
 
-  schedule_task_dispatcher();
+  scheduler_tasks_dispatcher();
 }

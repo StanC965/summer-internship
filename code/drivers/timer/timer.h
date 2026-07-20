@@ -233,4 +233,6 @@ extern void timer1_airbag_configure(void);
 */
 extern void timer1_airbag_start(void);
 
+extern void timer1_init_10ms(void);
+
 #endif /* TIMER_H */

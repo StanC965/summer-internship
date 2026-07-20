@@ -13,9 +13,8 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects & functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-extern volatile uint8_t button_event_detected[BUTTON_COUNT];
-static uint8_t button_pressed[BUTTON_COUNT] = {0};
 static hvac_state_t hvac_state = STATE_NORMAL;
+static uint8_t button_pressed_toggle[BUTTON_COUNT] = {0};
 
 static const led_id_t button_to_led_map[BUTTON_COUNT] = {
     [BUTTON_ONBOARD] = LED_ONBOARD,
@@ -46,53 +45,43 @@ void hvac_control_init(void)
 
 void hvac_control_process(void)
 {
-    if (button_event_detected[BUTTON_ONBOARD])
+    if (button_was_pressed(BUTTON_ONBOARD))
     {
-        button_event_detected[BUTTON_ONBOARD] = 0;
-        delay(10 * MILISECOND);
+        button_pressed_toggle[BUTTON_ONBOARD] ^= 1;
 
-        if (!button_read(BUTTON_ONBOARD) && !button_pressed[BUTTON_ONBOARD])
+        if (button_pressed_toggle[BUTTON_ONBOARD])
         {
-            button_pressed[BUTTON_ONBOARD] = 1;
             hvac_state = STATE_BLOCKED;
             led_power_on(button_to_led_map[BUTTON_ONBOARD]);
             turn_off_all_vents();
         }
-        else if (!button_read(BUTTON_ONBOARD) && button_pressed[BUTTON_ONBOARD])
+        else
         {
-            button_pressed[BUTTON_ONBOARD] = 0;
             hvac_state = STATE_NORMAL;
             led_power_off(button_to_led_map[BUTTON_ONBOARD]);
         }
     }
+
     for (uint8_t i = BUTTON_OLED1_1; i <= BUTTON_OLED1_3; i++)
     {
-        if (button_event_detected[i])
+        if (button_was_pressed((button_id_t)i))
         {
-            button_event_detected[i] = 0;
-
-            delay(10 * MILISECOND);
-
-            if (!button_read(i))
+            if (hvac_state == STATE_BLOCKED)
             {
-                if (hvac_state == STATE_BLOCKED)
+                led_blink_fast(button_to_led_map[BUTTON_ONBOARD]);
+                led_power_on(button_to_led_map[BUTTON_ONBOARD]);
+            }
+            else if (hvac_state == STATE_NORMAL)
+            {
+                button_pressed_toggle[i] ^= 1;
+
+                if (button_pressed_toggle[i])
                 {
-                    led_blink_fast(button_to_led_map[BUTTON_ONBOARD]);
-                    
-                    led_power_on(button_to_led_map[BUTTON_ONBOARD]);
+                    led_power_on(button_to_led_map[i]);
                 }
-                else if (hvac_state == STATE_NORMAL)
+                else
                 {
-                    if (!button_pressed[i])
-                    {
-                        button_pressed[i] = 1;
-                        led_power_on(button_to_led_map[i]);
-                    }
-                    else if (button_pressed[i])
-                    {
-                        button_pressed[i] = 0;
-                        led_power_off(button_to_led_map[i]);
-                    }
+                    led_power_off(button_to_led_map[i]);
                 }
             }
         }
