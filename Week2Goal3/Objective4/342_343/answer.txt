@@ -1,0 +1,16 @@
+342 - Light sensor connection
+
+The IO1 board is connected to EXT4.
+The sensor is a TEMT6000 phototransistor (Q100 in the schematic) with a 100K resistor
+(R102) in the collector.
+GND and VCC_TARGET are also connected, otherwise the sensor would have no supply and no reference.
+
+Signal path:
+LIGHTSENSOR = pin 3 of the EXT header 
+On EXT4, pin 3 = PA4.
+So the light sensor is connected to microcontroller pin PA4.
+
+343 - Second functionality of the pin
+
+From the EXT4 table and datasheet table PA4 also has the function ADC4 - channel 4 of the Analog to Digital Converter.
+So PA4 has an alternate function: it can be a normal GPIO, or an analog input ADC4.
