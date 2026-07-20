@@ -11,6 +11,7 @@
 | :---      | :---       | :--- 
 | **[521]** | `CORE`     | [x] Completed
 | **[522]** | `CORE`     | [x] Completed
+| **[523]** | `STRETCH`  | [x] Completed
 
 ---
 
@@ -38,5 +39,15 @@
 
 > **Answer/Explanation:**
 > 
+
+---
+
+#### Task 523
+> **Question/Prompt:**  Use an online tool for UML diagrams to make a diagram for connections you decided between scheduler module and other modules of your program. Use a UML component diagram type and the lollipop notation as above. Highlight the provided/required functions/tasks. e.g. online tools: draw.io, smartdraw.com, visual-paradigm.com.
+
+> **Answer/Explanation:**
+> 
+
+---
 
 
