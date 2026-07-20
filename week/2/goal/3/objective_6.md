@@ -137,28 +137,22 @@ void main(void)
 > Answering the questions:
 > -  I need to change the alignment bit inside ADMUX. This currently sets the ADC left adjust bit. In order to read the full 10 bit value cleanly, I need to clear the ADLAR bit.
 >
-> - Right alignment is much easier, because the 10 bit value is structured as a normal integer in memory: the 8 lower bits fill ADCL and the remaining upper 2 bits are assigned to ADCH.
-> - Left alignment requires manual shifting because the 10 bit span across both registers with trailing zeros at the bottom of ADCL. 
+> - Right alignment places the 8 lowest bits into ADCL and the upper 2 bits into ADCH (bits 8–9). This structures the combined ADC register as a standard 10 bit C integer spanning from 0 to 1023 (0x0000 to 0x03FF).
+> - Left alignment (ADLAR = 1) places the 10 bits into the highest positions, leaving 6 trailing zeros in ADCL. If read as a 16 bit integer, it inflates the values up to 65472, requiring a manual bit shift (>> 6) in C code to recover the actual 10 bit number.
 > 
-> - The data type changes from uint8_t to uint16_t, because 10 bits yield greater values than 8 bits.
+> - The data type changes from uint8_t to uint16_t, because 10 bits (0-1023) yield more values than 8 bits (0-255).
 >
 > - To get the results, I must read ADCL first, then ADCH second, because the CPU locks the ADC hardware completely when it reads ADCL, to prevent new conversions from overwriting the data when reading the register.
 >
 > - I set the prescaler to 64 since the datasheet states that for ADC to hit its maximum 10 bit resolution accuracy, the internal ADC clock frequency must be kept between 50kHz and 200 kHz.
-
-| Ambient light condition   | AVCC (8 bit)          | AVCC (10 bit)              
-| :---                      | :---                  | :---                              
-| light (flashlight)        | 0x07 (7)              | 0x0540 ( 1344)            
-| dark (covered)            | 0xFF (255)            | 0xED40 (60736)            
-| normal room light         | 0xC6 (198)            | 0x0BC0 ( 3008)           
-
-> The 10 bit resolution offers a more precise reading and captures a larger range of the hardware without having to clip the values like it previously did for the 8 bit AVCC and internal references. 
+> 
+> - The 10 bit resolution offers a more precise reading and captures a larger range of the hardware without having to clip the values like it previously did for the 8 bit AVCC and internal references. 
 
 > For the implementation, I used conditional compilation using the C preprocessor directives to be able to distinguish between 10 bit resolution (this clears the ADLAR bit) and 8 bit resolution (this sets the ADLAR bit for left alignment):
 
 **`adc.h`**
 ```c
-#ifdef ADC_RESOLUTIN_10_BIT
+#ifdef ADC_RESOLUTION_10_BIT
     typedef uint16_t adc_result_t;
 #else    
     typedef uint8_t adc_result_t;
@@ -196,11 +190,13 @@ adc_result_t adc_get_conversion_result(void)
 > **Question/Prompt:** Imagine that your software driver module will be used by your colleagues into their projects. At the time you write the code you do not know what resolution they will need, 8bit or 10bit. It will depend on their particular application. Therefore your job is to implement a solution offering them the possibility to choose between 8bit or 10bit resolution. Make use of conditional compilation.
 
 > **Answer/Explanation:**
-> In order to switch between the 8 or 10 bit resolution, they need to define the resolution in the `adc.h` file. Right now I use the 10 bit resolution, but that can be changed to 8 bit if needed, because all of the configurations required to use only ADCH were implemented in task 364.
+> In order to switch between the 8 or 10 bit resolution, they need to specify which resolution they need to use, in the `adc.h` file. Right now I use the 10 bit resolution, but that can be changed to 8 bit if needed, because all of the configurations required to use only ADCH were implemented in task 364.
 
 **`adc.h`**
 ```c
-#ifdef ADC_RESOLUTIN_10_BIT
+#define ADC_RESOLUTION_10_BIT
+
+#ifdef ADC_RESOLUTION_10_BIT
     typedef uint16_t adc_result_t;
 #else    
     typedef uint8_t adc_result_t;
@@ -214,7 +210,7 @@ adc_result_t adc_get_conversion_result(void)
 > **Question/Prompt:** Measure the code size for the newly added ADC driver module so that your colleagues are informed. Include a table with the functions available and the two options on resolution (8bit, 10bit).
 
 > **Answer/Explanation:**
-> The ADC drive is composed of 2 files, `adc.c` and `adc.h`, which in total are 8.09 KB (8,293 bytes).
+> The ADC drive is composed of 2 files, `adc.c` and `adc.h`, which in total are 8.09 KB (8,293 bytes) (this might slightly defer between resolutions, since they use different variable types, one uses uint8_t and the other one uint16_t).
 
 | Function Interface                 | Architectural / Register Impact Changes 
 | :---                               | :--- 
