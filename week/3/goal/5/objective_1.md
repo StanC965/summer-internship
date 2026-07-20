@@ -11,6 +11,7 @@
 | :---      | :---   | :--- 
 | **[511]** | `CORE` | [x] Completed
 | **[512]** | `CORE` | [x] Completed
+| **[513]** | `CORE` | [x] Completed
 
 ---
 
@@ -41,7 +42,7 @@
 
 > **Answer/Explanation:**
 > - OCR = ((time x F_CPU) / prescaler) - 1
->   - this formula only gives an exact interval if the (time x F_CPU) / prescaler) comes out as a whole number
+>   - this formula only gives an exact interval if the (time x F_CPU) / prescaler comes out as a whole number
 >   - if not, it is more complicated
 >  
 > - time = 10 ms = 0.01 s
@@ -77,3 +78,13 @@
 > - typically more accurate and stable than the internal RC oscillator
 > - the board features an external 16 MHz crystal oscillator
 > - in this case, an 16 bit timer with prescaler 8 is equal to 20000
+
+---
+
+#### Task 513
+> **Question/Prompt:**  Starting with 10ms period build other longer periods of time: 50ms, 100ms, 500ms, 1000ms. Dedicate flag variables for each period. Optionally you can add more periods. You can gather all these into a single function, e.g. void scheduler_flags_management (void). Call it from within the ISR. As file organization is concerned, this flags management function should be placed in scheduler module.
+
+> **Answer/Explanation:**
+> 
+
+---
