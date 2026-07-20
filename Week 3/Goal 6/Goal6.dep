@@ -5,6 +5,7 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\..\Goal 5\scheduler_cfg.c</file>
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
             <file>$PROJ_DIR$\Debug\List\Goal6.map</file>
@@ -41,13 +42,13 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 2</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 3 0 9 10 8 7 12 11 19 1</file>
+                    <file> 4 1 10 11 9 8 13 12 20 2</file>
                 </tool>
             </inputs>
         </file>
@@ -56,42 +57,12 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 4 2</file>
+                    <file> 5 3</file>
                 </tool>
             </outputs>
         </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 7</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 18 13 15 16 29 20 17 14 22</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\gpio.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 10</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 17 18 13 15</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\led.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
@@ -101,42 +72,12 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 22 17</file>
+                    <file> 19 14 16 17 30 21 18 15 23</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\scheduler_cfg.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 19</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 18 13 15 21 14 22 17 29</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\adc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 9</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 14 18 13 15 16</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\scheduler.c</name>
+            <name>$PROJ_DIR$\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
@@ -146,12 +87,57 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 13 15 20 21</file>
+                    <file> 18 19 14 16</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\pwm.c</name>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 9</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 23 18</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduler_cfg.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 20</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 19 14 16 22 15 23 18 30</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\adc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 10</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 19 14 16 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduler.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
@@ -161,10 +147,29 @@
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 18 13 15 29 17</file>
+                    <file> 19 14 16 21 22</file>
                 </tool>
             </inputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\pwm.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 13</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 19 14 16 30 18</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
         <forcedrebuild>
             <name>[REBUILD_ALL]</name>
         </forcedrebuild>
