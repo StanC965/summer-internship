@@ -1,0 +1,9 @@
+C:\MQ_Summer_Internship\Week1\Goal2\Debug\BrowseInfo\gpio.pbi: \
+  C:\MQ_Summer_Internship\Week1\Goal2\mod.c\gpio.c \
+  C:\MQ_Summer_Internship\Week1\Goal2\mod.h\gpio.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\dlib\c\stdint.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\dlib\c\ycheck.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\dlib\c\yvals.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\dlib\c\DLib_Defaults.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\dlib\c\DLib_Config_Normal.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\avr\inc\dlib\c\DLib_Product.h

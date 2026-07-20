@@ -1,0 +1,1 @@
+﻿C:\MQ_Summer_Internship\Week1\Goal2\mod.c\led.c --cpu=m324pb -ms -o C:\MQ_Summer_Internship\Week1\Goal2\Debug\Obj\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e -I C:\MQ_Summer_Internship\Week1\Goal2\ -I C:\MQ_Summer_Internship\Week1\Goal2\mod.c\ --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On
