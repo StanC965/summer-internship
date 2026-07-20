@@ -13,6 +13,7 @@
 | **[512]** | `CORE` | [x] Completed
 | **[513]** | `CORE` | [x] Completed
 | **[514]** | `CORE` | [x] Completed
+| **[515]** | `CORE` | [x] Completed
 
 ---
 
@@ -169,6 +170,62 @@ __interrupt void timer1_compare_a__routine(void)
       scheduler_flag_1000ms = 0;
     }
   }
+```
+
+---
+
+#### Task 515
+> **Question/Prompt:** A final makeup for file organization to be complete:
+>
+> - replace the particular function calls with generic function calls (these are tasks), e.g. task_500ms( ); Within the body of the generic functions you now relocate the call to particular functions.
+
+```c
+void task_500ms (void) {
+    led_on( );
+}
+```
+
+> This relocation and generic functions creation is a nice way to prepare our task scheduler to be used in any other context just by replacing the led_on() call. 2. relocate the while(1) loop inside void schedule_tasks_dispatcher (void) function, which will be the core of the task scheduler. Relocate this function in the scheduler module and call it from within the main module (in similar way as Arduino Framework does with loop ( ) function).
+
+> **Answer/Explanation:**
+
+**`scheduler.c`**
+```c
+void scheduler_tasks_dispatcher(void)
+{
+    while (1)
+    {
+        if (scheduler_flag_10ms)
+        {
+            scheduler_flag_10ms = 0;
+            task_10ms();
+        }
+
+        if (scheduler_flag_50ms)
+        {
+            scheduler_flag_50ms = 0;
+            task_50ms();
+        }
+
+        if (scheduler_flag_100ms)
+        {
+            scheduler_flag_100ms = 0;
+            task_100ms();
+        }
+
+        if (scheduler_flag_500ms)
+        {
+            scheduler_flag_500ms = 0;
+            task_500ms();
+        }
+
+        if (scheduler_flag_1000ms)
+        {
+            scheduler_flag_1000ms = 0;
+            task_1000ms();
+        }
+    }
+}
 ```
 
 ---
