@@ -1,0 +1,20 @@
+# ninja log v5
+16	950	8059104918359894	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/main.r90	1dfeb1dbba698f83
+1	985	8059104918753653	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/adc.r90	fbb84da84596af2b
+37	186	8059106092524190	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/scheduler_cfg.r90	a0fd2455cfd5110f
+21	252	8059106093114908	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/scheduler.r90	cbdd28eca900b0ac
+3	258	8059106093114908	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/main.r90	1dfeb1dbba698f83
+66	830	8059108355521908	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/scheduler_cfg.r90	a0fd2455cfd5110f
+55	846	8059108355582199	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/scheduler.r90	cbdd28eca900b0ac
+41	1033	8059108357987577	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/gpio.r90	b85eda116f3717df
+81	1045	8059108358168253	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/led.r90	6659b62af2308637
+1049	1328	8059108361359855	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Exe/Goal5.d90	5925ff108ffcf4e3
+26	787	8059111467004085	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/main.r90	1dfeb1dbba698f83
+9	186	8059112264965112	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/scheduler_cfg.r90	a0fd2455cfd5110f
+190	446	8059112267503539	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Exe/Goal5.d90	5925ff108ffcf4e3
+8	189	8059112874912686	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/main.r90	1dfeb1dbba698f83
+193	440	8059112877417649	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Exe/Goal5.d90	5925ff108ffcf4e3
+33	2109	8059855823880508	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/scheduler.r90	cbdd28eca900b0ac
+1339	2125	8059855823880508	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/main.r90	1dfeb1dbba698f83
+1328	2170	8059855824609885	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Obj/scheduler_cfg.r90	a0fd2455cfd5110f
+2173	2953	8059855832422912	C:/MQ_Summer_Internship/summer-internship/Week 3/Goal 5/Debug/Exe/Goal5.d90	5925ff108ffcf4e3

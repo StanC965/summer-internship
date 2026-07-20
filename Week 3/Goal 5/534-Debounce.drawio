@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="m7n2X6Z62GMwq7DMqBGJ">
+    <mxGraphModel dx="1373" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-8" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zpZ2NgpjM18_UlMI0aGg-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="START" vertex="1">
+          <mxGeometry height="60" width="100" x="375" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-9" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="zpZ2NgpjM18_UlMI0aGg-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Read button state" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-10" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zpZ2NgpjM18_UlMI0aGg-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Shift buffer left by 1" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-11" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zpZ2NgpjM18_UlMI0aGg-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Insert button state into buffer" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-12" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zpZ2NgpjM18_UlMI0aGg-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Keep only last 5 bits" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-13" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="615" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-16" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zpZ2NgpjM18_UlMI0aGg-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-6" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Is buffer 00000?" vertex="1">
+          <mxGeometry height="110" width="125" x="363" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-19" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-21" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="zpZ2NgpjM18_UlMI0aGg-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-7" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Is buffer 11111?" vertex="1">
+          <mxGeometry height="120" width="145" x="520" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NO" vertex="1">
+          <mxGeometry height="30" width="60" x="530" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="YES" vertex="1">
+          <mxGeometry height="30" width="60" x="280" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-22" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="STOP" vertex="1">
+          <mxGeometry height="80" width="120" x="365.5" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-28" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="zpZ2NgpjM18_UlMI0aGg-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Button state = RELEASED" vertex="1">
+          <mxGeometry height="60" width="120" x="260" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-29" edge="1" parent="1" source="zpZ2NgpjM18_UlMI0aGg-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="zpZ2NgpjM18_UlMI0aGg-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Button state = PRESSED" vertex="1">
+          <mxGeometry height="60" width="120" x="130" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="YES" vertex="1">
+          <mxGeometry height="30" width="60" x="425" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="zpZ2NgpjM18_UlMI0aGg-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NO" vertex="1">
+          <mxGeometry height="30" width="60" x="690" y="750" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
