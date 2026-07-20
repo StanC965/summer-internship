@@ -92,7 +92,7 @@ void timer1_init_10ms(void)
 
     TCNT1 = 0x0000;
     
-    TIMSK1 = timer1_enable_compare_a_interrupt();
+    timer1_enable_compare_a_interrupt();
     
     TCCR1B |= BIT_MASK(CS11); 
 }
