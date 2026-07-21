@@ -1,0 +1,70 @@
+\doxysection{Project/\+scheduler.h File Reference}
+\hypertarget{scheduler_8h}{}\label{scheduler_8h}\index{Project/scheduler.h@{Project/scheduler.h}}
+
+
+Header file for the cooperative task scheduler module\+[cite:\+ 9]\+.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{scheduler_8h_ab258cc2856e5f6bb125907cc23358fbd}\label{scheduler_8h_ab258cc2856e5f6bb125907cc23358fbd} 
+void {\bfseries scheduler\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Resets scheduler internal variables and flag registers\+[cite:\+ 9]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{scheduler_8h_a45f1f0e86a49384eaedb54d1b133c2ec}{scheduler\+\_\+flags\+\_\+management}} (void)
+\begin{DoxyCompactList}\small\item\em Evaluates time counters on every system tick to update task flags\+[cite:\+ 9]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{scheduler_8h_a9bb8d6ae69cd10d14c4b6bb246919a6b}{scheduler\+\_\+tasks\+\_\+dispatcher}} (void)
+\begin{DoxyCompactList}\small\item\em Main execution loop that dispatches pending scheduled tasks\+[cite:\+ 9]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile unsigned char \doxymbox{\hyperlink{scheduler_8h_a087e0fbfa6592a594da58c5b9adc95af}{scheduler\+\_\+flags}}
+\begin{DoxyCompactList}\small\item\em Global volatile status flags tracking pending scheduler tasks\+[cite:\+ 9]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the cooperative task scheduler module\+[cite:\+ 9]\+. 
+
+Declares flag definitions and public dispatching interfaces\+[cite:\+ 9]\+. 
+
+\label{scheduler_8h_doc-func-members}
+\Hypertarget{scheduler_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{scheduler_8h_a45f1f0e86a49384eaedb54d1b133c2ec}\index{scheduler.h@{scheduler.h}!scheduler\_flags\_management@{scheduler\_flags\_management}}
+\index{scheduler\_flags\_management@{scheduler\_flags\_management}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{scheduler\_flags\_management()}{scheduler\_flags\_management()}}
+{\footnotesize\ttfamily \label{scheduler_8h_a45f1f0e86a49384eaedb54d1b133c2ec} 
+void scheduler\+\_\+flags\+\_\+management (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Evaluates time counters on every system tick to update task flags\+[cite:\+ 9]\+. 
+
+Call this function inside the primary system timer interrupt tick routine\+[cite:\+ 9, 10]\+. Preserved tick counter keeping track of timing intervals\Hypertarget{scheduler_8h_a9bb8d6ae69cd10d14c4b6bb246919a6b}\index{scheduler.h@{scheduler.h}!scheduler\_tasks\_dispatcher@{scheduler\_tasks\_dispatcher}}
+\index{scheduler\_tasks\_dispatcher@{scheduler\_tasks\_dispatcher}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{scheduler\_tasks\_dispatcher()}{scheduler\_tasks\_dispatcher()}}
+{\footnotesize\ttfamily \label{scheduler_8h_a9bb8d6ae69cd10d14c4b6bb246919a6b} 
+void scheduler\+\_\+tasks\+\_\+dispatcher (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main execution loop that dispatches pending scheduled tasks\+[cite:\+ 9]\+. 
+
+Executes in an infinite loop, evaluating and clearing flag bits as tasks run\+[cite:\+ 9, 13]\+. 
+
+\label{scheduler_8h_doc-var-members}
+\Hypertarget{scheduler_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{scheduler_8h_a087e0fbfa6592a594da58c5b9adc95af}\index{scheduler.h@{scheduler.h}!scheduler\_flags@{scheduler\_flags}}
+\index{scheduler\_flags@{scheduler\_flags}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{scheduler\_flags}{scheduler\_flags}}
+{\footnotesize\ttfamily \label{scheduler_8h_a087e0fbfa6592a594da58c5b9adc95af} 
+volatile unsigned char scheduler\+\_\+flags\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Global volatile status flags tracking pending scheduler tasks\+[cite:\+ 9]\+. 
+
+Active status bitmask for pending tasks\+[cite:\+ 9, 13]\+.
+
+Global volatile status flags tracking pending scheduler tasks\+[cite:\+ 9]\+. 

@@ -1,0 +1,129 @@
+\doxysection{Project/\+uart.h File Reference}
+\hypertarget{uart_8h}{}\label{uart_8h}\index{Project/uart.h@{Project/uart.h}}
+
+
+Header file for USART2 communication interface\+[cite:\+ 18]\+.  
+
+
+{\ttfamily \+\#include $<$iom324pb.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{Indent}\textbf{ Default Serial Parameters}\par
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{uart_8h_a67405a6e6e4427b2fb7ca73182212bf1}{UART\+\_\+\+DEFAULT\+\_\+\+BAUD}}~9600\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{uart_8h_a732375b0bed97cd13cadb92a33cbfedd}{UART\+\_\+\+SYSTEM\+\_\+\+CLOCK\+\_\+\+FREQ}}~1000000\+UL
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{uart_8h_a0c0ca72359ddf28dcd15900dfba19343}\label{uart_8h_a0c0ca72359ddf28dcd15900dfba19343} 
+void {\bfseries uart\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the USART2 module on EXT4 (PE0 RX, PE1 TX) for 9600 8N1 asynchronous operation\+[cite:\+ 18]\+. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{uart_8h_aa664d7b6b089ffb12b30ad4eb4b18127}{uart\+\_\+is\+\_\+tx\+\_\+ready}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the USART2 Data Register (UDR2) is empty and ready for transmit\+[cite:\+ 18]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uart_8h_a83a8f49ee20b1ac5aa1be8b1cefce320}{uart\+\_\+send\+\_\+byte}} (unsigned char data)
+\begin{DoxyCompactList}\small\item\em Writes a single byte to the transmit register UDR2\+[cite:\+ 18]\+. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{uart_8h_ad7ccf48b41da5d7f85bdfb70bce2d74d}{uart\+\_\+is\+\_\+rx\+\_\+available}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if an unread character is waiting in UDR2\+[cite:\+ 18]\+. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{uart_8h_afc7fbb0eaaf4ca8ce7b753fb4c5ebc3d}{uart\+\_\+read\+\_\+byte}} (void)
+\begin{DoxyCompactList}\small\item\em Reads incoming byte from UDR2 register\+[cite:\+ 18]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uart_8h_adc5ab09aa19841e18a039de4b3250da4}{uart\+\_\+send\+\_\+string}} (const char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Transmits a null-\/terminated string over USART2\+[cite:\+ 18]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for USART2 communication interface\+[cite:\+ 18]\+. 
+
+Contains baud rate macros and public function prototypes for asynchronous serial communications\+[cite:\+ 18]\+. 
+
+\label{uart_8h_doc-define-members}
+\Hypertarget{uart_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{uart_8h_a67405a6e6e4427b2fb7ca73182212bf1}\index{uart.h@{uart.h}!UART\_DEFAULT\_BAUD@{UART\_DEFAULT\_BAUD}}
+\index{UART\_DEFAULT\_BAUD@{UART\_DEFAULT\_BAUD}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_DEFAULT\_BAUD}{UART\_DEFAULT\_BAUD}}
+{\footnotesize\ttfamily \label{uart_8h_a67405a6e6e4427b2fb7ca73182212bf1} 
+\+\#define UART\+\_\+\+DEFAULT\+\_\+\+BAUD~9600\+UL}
+
+Default target baud rate\+[cite:\+ 18]\+ \Hypertarget{uart_8h_a732375b0bed97cd13cadb92a33cbfedd}\index{uart.h@{uart.h}!UART\_SYSTEM\_CLOCK\_FREQ@{UART\_SYSTEM\_CLOCK\_FREQ}}
+\index{UART\_SYSTEM\_CLOCK\_FREQ@{UART\_SYSTEM\_CLOCK\_FREQ}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_SYSTEM\_CLOCK\_FREQ}{UART\_SYSTEM\_CLOCK\_FREQ}}
+{\footnotesize\ttfamily \label{uart_8h_a732375b0bed97cd13cadb92a33cbfedd} 
+\+\#define UART\+\_\+\+SYSTEM\+\_\+\+CLOCK\+\_\+\+FREQ~1000000\+UL}
+
+System clock frequency for UBRR calculation\+[cite:\+ 18]\+ 
+
+\label{uart_8h_doc-func-members}
+\Hypertarget{uart_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{uart_8h_ad7ccf48b41da5d7f85bdfb70bce2d74d}\index{uart.h@{uart.h}!uart\_is\_rx\_available@{uart\_is\_rx\_available}}
+\index{uart\_is\_rx\_available@{uart\_is\_rx\_available}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart\_is\_rx\_available()}{uart\_is\_rx\_available()}}
+{\footnotesize\ttfamily \label{uart_8h_ad7ccf48b41da5d7f85bdfb70bce2d74d} 
+unsigned char uart\+\_\+is\+\_\+rx\+\_\+available (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if an unread character is waiting in UDR2\+[cite:\+ 18]\+. 
+
+\begin{DoxyReturn}{Returns}
+1 if character is ready, 0 otherwise\+[cite:\+ 18]\+. 
+\end{DoxyReturn}
+\Hypertarget{uart_8h_aa664d7b6b089ffb12b30ad4eb4b18127}\index{uart.h@{uart.h}!uart\_is\_tx\_ready@{uart\_is\_tx\_ready}}
+\index{uart\_is\_tx\_ready@{uart\_is\_tx\_ready}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart\_is\_tx\_ready()}{uart\_is\_tx\_ready()}}
+{\footnotesize\ttfamily \label{uart_8h_aa664d7b6b089ffb12b30ad4eb4b18127} 
+unsigned char uart\+\_\+is\+\_\+tx\+\_\+ready (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the USART2 Data Register (UDR2) is empty and ready for transmit\+[cite:\+ 18]\+. 
+
+\begin{DoxyReturn}{Returns}
+1 if buffer is ready, 0 if busy\+[cite:\+ 18]\+. 
+\end{DoxyReturn}
+\Hypertarget{uart_8h_afc7fbb0eaaf4ca8ce7b753fb4c5ebc3d}\index{uart.h@{uart.h}!uart\_read\_byte@{uart\_read\_byte}}
+\index{uart\_read\_byte@{uart\_read\_byte}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart\_read\_byte()}{uart\_read\_byte()}}
+{\footnotesize\ttfamily \label{uart_8h_afc7fbb0eaaf4ca8ce7b753fb4c5ebc3d} 
+unsigned char uart\+\_\+read\+\_\+byte (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reads incoming byte from UDR2 register\+[cite:\+ 18]\+. 
+
+\begin{DoxyReturn}{Returns}
+Received character byte\+[cite:\+ 18]\+. 
+\end{DoxyReturn}
+\Hypertarget{uart_8h_a83a8f49ee20b1ac5aa1be8b1cefce320}\index{uart.h@{uart.h}!uart\_send\_byte@{uart\_send\_byte}}
+\index{uart\_send\_byte@{uart\_send\_byte}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart\_send\_byte()}{uart\_send\_byte()}}
+{\footnotesize\ttfamily \label{uart_8h_a83a8f49ee20b1ac5aa1be8b1cefce320} 
+void uart\+\_\+send\+\_\+byte (\begin{DoxyParamCaption}\item[{unsigned char}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Writes a single byte to the transmit register UDR2\+[cite:\+ 18]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Character byte to send\+[cite:\+ 18]\+. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{uart_8h_adc5ab09aa19841e18a039de4b3250da4}\index{uart.h@{uart.h}!uart\_send\_string@{uart\_send\_string}}
+\index{uart\_send\_string@{uart\_send\_string}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart\_send\_string()}{uart\_send\_string()}}
+{\footnotesize\ttfamily \label{uart_8h_adc5ab09aa19841e18a039de4b3250da4} 
+void uart\+\_\+send\+\_\+string (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Transmits a null-\/terminated string over USART2\+[cite:\+ 18]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Pointer to source null-\/terminated string\+[cite:\+ 18]\+. \\
+\hline
+\end{DoxyParams}

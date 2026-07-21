@@ -1,0 +1,210 @@
+\doxysection{Project/\+button.h File Reference}
+\hypertarget{button_8h}{}\label{button_8h}\index{Project/button.h@{Project/button.h}}
+
+
+Header file for button interface and pin mapping.  
+
+
+{\ttfamily \+\#include "{}gpio.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{button_8h_afb91b237a5a0deca2d9d9a4a8e61f8a7}\label{button_8h_afb91b237a5a0deca2d9d9a4a8e61f8a7} 
+\+\#define {\bfseries BUTTON\+\_\+\+DEBOUNCE\+\_\+\+THRESHOLD}~500
+\begin{DoxyCompactList}\small\item\em Threshold value used for debouncing calculation timing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Button Hardware Pin Definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{button_8h_aacb7fefde0cac4c642d13ea12fd36bc7}\label{button_8h_aacb7fefde0cac4c642d13ea12fd36bc7} 
+\+\#define {\bfseries BUTTON\+\_\+\+SW0\+\_\+\+DDR}~(\&DDRC)
+\item 
+\Hypertarget{button_8h_aa34d2e5bce2ac7d29adfb831eb6b2dba}\label{button_8h_aa34d2e5bce2ac7d29adfb831eb6b2dba} 
+\+\#define {\bfseries BUTTON\+\_\+\+SW0\+\_\+\+PORT}~(\&PORTC)
+\item 
+\Hypertarget{button_8h_a289bac40d6f8a380dbc1f5e14f1eea28}\label{button_8h_a289bac40d6f8a380dbc1f5e14f1eea28} 
+\+\#define {\bfseries BUTTON\+\_\+\+SW0\+\_\+\+PINR}~(\&PINC)
+\item 
+\Hypertarget{button_8h_a8134b891a310c330721ade3b3f086f8c}\label{button_8h_a8134b891a310c330721ade3b3f086f8c} 
+\+\#define {\bfseries BUTTON\+\_\+\+SW0\+\_\+\+PIN}~6
+\item 
+\Hypertarget{button_8h_a58f9babddcd28c5e6dcf8665005a811a}\label{button_8h_a58f9babddcd28c5e6dcf8665005a811a} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+1\+\_\+\+DDR}~(\&DDRC)
+\item 
+\Hypertarget{button_8h_a355276ff44f56fb874ecf42d5d288f43}\label{button_8h_a355276ff44f56fb874ecf42d5d288f43} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+1\+\_\+\+PORT}~(\&PORTC)
+\item 
+\Hypertarget{button_8h_a5e24e7c4351c8580118c1c9cb3e26a2c}\label{button_8h_a5e24e7c4351c8580118c1c9cb3e26a2c} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+1\+\_\+\+PINR}~(\&PINC)
+\item 
+\Hypertarget{button_8h_a3e09a2c84ebdc71b848997cb54fd7dd3}\label{button_8h_a3e09a2c84ebdc71b848997cb54fd7dd3} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+1\+\_\+\+PIN}~1
+\item 
+\Hypertarget{button_8h_a1ae04b0508f9d603d5dc7542e392ec36}\label{button_8h_a1ae04b0508f9d603d5dc7542e392ec36} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+2\+\_\+3\+\_\+\+DDR}~(\&DDRA)
+\item 
+\Hypertarget{button_8h_a5c4c852506de59fcbdf5a8a7cc31fafe}\label{button_8h_a5c4c852506de59fcbdf5a8a7cc31fafe} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+2\+\_\+3\+\_\+\+PORT}~(\&PORTA)
+\item 
+\Hypertarget{button_8h_ada07b61eaf35ae7b46b4d4ac1d6ad963}\label{button_8h_ada07b61eaf35ae7b46b4d4ac1d6ad963} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+2\+\_\+3\+\_\+\+PINR}~(\&PINA)
+\item 
+\Hypertarget{button_8h_a99c6bcf1cdb89eae6ffeb261893104b0}\label{button_8h_a99c6bcf1cdb89eae6ffeb261893104b0} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+2\+\_\+\+PIN}~0
+\item 
+\Hypertarget{button_8h_acee21f7b7211d4c4046df5f1fd46e2f5}\label{button_8h_acee21f7b7211d4c4046df5f1fd46e2f5} 
+\+\#define {\bfseries BUTTON\+\_\+\+OLED\+\_\+3\+\_\+\+PIN}~1
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Pin Change Interrupt Mapping}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{button_8h_aafd28f483e0ddf613a607b65aba8f50a}\label{button_8h_aafd28f483e0ddf613a607b65aba8f50a} 
+\+\#define {\bfseries PCINT22\+\_\+\+SW0}~6
+\item 
+\Hypertarget{button_8h_a5dcc38ec8bdaa7b3ab8c6f58a5f942d9}\label{button_8h_a5dcc38ec8bdaa7b3ab8c6f58a5f942d9} 
+\+\#define {\bfseries PCINT17\+\_\+\+SW1}~1
+\item 
+\Hypertarget{button_8h_a67725ba95484072708dbdac92752e4a8}\label{button_8h_a67725ba95484072708dbdac92752e4a8} 
+\+\#define {\bfseries PCINT0\+\_\+\+SW2}~0
+\item 
+\Hypertarget{button_8h_aaae1f5e6c60b8071bb4bc1b1ce3879aa}\label{button_8h_aaae1f5e6c60b8071bb4bc1b1ce3879aa} 
+\+\#define {\bfseries PCINT1\+\_\+\+SW3}~1
+\item 
+\Hypertarget{button_8h_af6653f07e5bb697e4b3c5bf75ec6d887}\label{button_8h_af6653f07e5bb697e4b3c5bf75ec6d887} 
+\+\#define {\bfseries PCIE0\+\_\+\+PORT\+\_\+A}~0
+\item 
+\Hypertarget{button_8h_a2d636d9c181fa43868ae9785284bee28}\label{button_8h_a2d636d9c181fa43868ae9785284bee28} 
+\+\#define {\bfseries PCIE2\+\_\+\+PORT\+\_\+C}~2
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{button_8h_a9ebb64bc3ea7a1e75d422784fe931347}\label{button_8h_a9ebb64bc3ea7a1e75d422784fe931347} 
+void {\bfseries button\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the button module by setting up input configurations, enabling pull-\/ups, and configuring pin change interrupts. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{button_8h_a5570b2bb36f6147769d3c68093e73dab}{button\+\_\+configure\+\_\+pin}} (volatile unsigned char \texorpdfstring{$\ast$}{*}ddr\+\_\+reg, volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Configures a single target pin as an input and enables its pull-\/up resistor. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{button_8h_afbf1029cb2ed264d0b17d140cd4ed18c}{button\+\_\+is\+\_\+pressed}} (volatile unsigned char \texorpdfstring{$\ast$}{*}pin\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Reads a targeted pin status instantly without any debounce handling. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{button_8h_adfa029f0034d6f905f6cfc70004a24b6}{button\+\_\+debounce\+\_\+update}} (void)
+\begin{DoxyCompactList}\small\item\em Calculates 5-\/sample moving bitwise history windows for all four panel buttons. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{button_8h_a5894e1947d3ecd4c4fca0a1a55707f29}{button\+\_\+get\+\_\+sw0\+\_\+state}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the debounced state of switch SW0. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{button_8h_a721568ebcafb941069222f59e8f270e4}{button\+\_\+get\+\_\+oled1\+\_\+state}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the debounced state of OLED button 1. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{button_8h_af9a6ebe526b572880fa0c52d7fd29763}{button\+\_\+get\+\_\+oled2\+\_\+state}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the debounced state of OLED button 2. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{button_8h_a5dca7ef53f0d6cbd8cd8f389246d0c8e}{button\+\_\+get\+\_\+oled3\+\_\+state}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the debounced state of OLED button 3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for button interface and pin mapping. 
+
+Provides definitions, configuration macros, and function prototypes for reading and debouncing system pushbuttons. 
+
+\label{button_8h_doc-func-members}
+\Hypertarget{button_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{button_8h_a5570b2bb36f6147769d3c68093e73dab}\index{button.h@{button.h}!button\_configure\_pin@{button\_configure\_pin}}
+\index{button\_configure\_pin@{button\_configure\_pin}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{button\_configure\_pin()}{button\_configure\_pin()}}
+{\footnotesize\ttfamily \label{button_8h_a5570b2bb36f6147769d3c68093e73dab} 
+void button\+\_\+configure\+\_\+pin (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{ddr\+\_\+reg}{, }\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Configures a single target pin as an input and enables its pull-\/up resistor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ddr\+\_\+reg} & Pointer to the Data Direction Register (e.\+g., \&DDRC). \\
+\hline
+{\em port\+\_\+reg} & Pointer to the PORT Register for pull-\/up configuration (e.\+g., \&PORTC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the port (0-\/7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{button_8h_adfa029f0034d6f905f6cfc70004a24b6}\index{button.h@{button.h}!button\_debounce\_update@{button\_debounce\_update}}
+\index{button\_debounce\_update@{button\_debounce\_update}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{button\_debounce\_update()}{button\_debounce\_update()}}
+{\footnotesize\ttfamily \label{button_8h_adfa029f0034d6f905f6cfc70004a24b6} 
+void button\+\_\+debounce\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calculates 5-\/sample moving bitwise history windows for all four panel buttons. 
+
+Must be executed periodically inside a scheduled task slot (e.\+g., 50ms). \Hypertarget{button_8h_a721568ebcafb941069222f59e8f270e4}\index{button.h@{button.h}!button\_get\_oled1\_state@{button\_get\_oled1\_state}}
+\index{button\_get\_oled1\_state@{button\_get\_oled1\_state}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{button\_get\_oled1\_state()}{button\_get\_oled1\_state()}}
+{\footnotesize\ttfamily \label{button_8h_a721568ebcafb941069222f59e8f270e4} 
+unsigned char button\+\_\+get\+\_\+oled1\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the debounced state of OLED button 1. 
+
+\begin{DoxyReturn}{Returns}
+1 if pressed, 0 if released. 
+\end{DoxyReturn}
+\Hypertarget{button_8h_af9a6ebe526b572880fa0c52d7fd29763}\index{button.h@{button.h}!button\_get\_oled2\_state@{button\_get\_oled2\_state}}
+\index{button\_get\_oled2\_state@{button\_get\_oled2\_state}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{button\_get\_oled2\_state()}{button\_get\_oled2\_state()}}
+{\footnotesize\ttfamily \label{button_8h_af9a6ebe526b572880fa0c52d7fd29763} 
+unsigned char button\+\_\+get\+\_\+oled2\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the debounced state of OLED button 2. 
+
+\begin{DoxyReturn}{Returns}
+1 if pressed, 0 if released. 
+\end{DoxyReturn}
+\Hypertarget{button_8h_a5dca7ef53f0d6cbd8cd8f389246d0c8e}\index{button.h@{button.h}!button\_get\_oled3\_state@{button\_get\_oled3\_state}}
+\index{button\_get\_oled3\_state@{button\_get\_oled3\_state}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{button\_get\_oled3\_state()}{button\_get\_oled3\_state()}}
+{\footnotesize\ttfamily \label{button_8h_a5dca7ef53f0d6cbd8cd8f389246d0c8e} 
+unsigned char button\+\_\+get\+\_\+oled3\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the debounced state of OLED button 3. 
+
+\begin{DoxyReturn}{Returns}
+1 if pressed, 0 if released. 
+\end{DoxyReturn}
+\Hypertarget{button_8h_a5894e1947d3ecd4c4fca0a1a55707f29}\index{button.h@{button.h}!button\_get\_sw0\_state@{button\_get\_sw0\_state}}
+\index{button\_get\_sw0\_state@{button\_get\_sw0\_state}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{button\_get\_sw0\_state()}{button\_get\_sw0\_state()}}
+{\footnotesize\ttfamily \label{button_8h_a5894e1947d3ecd4c4fca0a1a55707f29} 
+unsigned char button\+\_\+get\+\_\+sw0\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the debounced state of switch SW0. 
+
+\begin{DoxyReturn}{Returns}
+1 if pressed, 0 if released. 
+\end{DoxyReturn}
+\Hypertarget{button_8h_afbf1029cb2ed264d0b17d140cd4ed18c}\index{button.h@{button.h}!button\_is\_pressed@{button\_is\_pressed}}
+\index{button\_is\_pressed@{button\_is\_pressed}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{button\_is\_pressed()}{button\_is\_pressed()}}
+{\footnotesize\ttfamily \label{button_8h_afbf1029cb2ed264d0b17d140cd4ed18c} 
+unsigned char button\+\_\+is\+\_\+pressed (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{pin\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Reads a targeted pin status instantly without any debounce handling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+\_\+reg} & Pointer to the PIN Register (e.\+g., \&PINC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the port (0-\/7). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the button is currently pressed (active LOW), 0 if released (HIGH). 
+\end{DoxyReturn}

@@ -1,0 +1,120 @@
+\doxysection{Project/\+adc.h File Reference}
+\hypertarget{adc_8h}{}\label{adc_8h}\index{Project/adc.h@{Project/adc.h}}
+
+
+Header file for Analog-\/to-\/\+Digital Converter (ADC) peripheral driver.  
+
+
+{\ttfamily \+\#include $<$iom324pb.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{adc_8h_af11a0b4838bcb318992636c6e98f9c35}\label{adc_8h_af11a0b4838bcb318992636c6e98f9c35} 
+\+\#define {\bfseries ADC\+\_\+\+RESOLUTION\+\_\+10\+\_\+\+BIT}
+\begin{DoxyCompactList}\small\item\em Default to 10-\/bit resolution if resolution mode is unspecified. \end{DoxyCompactList}\item 
+\Hypertarget{adc_8h_a3a63fb6f00694ff9f4318b4142c5c868}\label{adc_8h_a3a63fb6f00694ff9f4318b4142c5c868} 
+\+\#define {\bfseries ADC\+\_\+\+MAX\+\_\+\+VAL}~1023
+\begin{DoxyCompactList}\small\item\em Maximum step value for 10-\/bit resolution calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ ADC Hardware Configuration Bit Definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{adc_8h_aa43f3883f675ef848737dc8f31d48d88}\label{adc_8h_aa43f3883f675ef848737dc8f31d48d88} 
+\+\#define {\bfseries ADC\+\_\+\+LIGHT\+\_\+\+SENSOR\+\_\+\+CHANNEL}~4
+\item 
+\Hypertarget{adc_8h_a7be3ac10899376f3236b84aa8ada39c8}\label{adc_8h_a7be3ac10899376f3236b84aa8ada39c8} 
+\+\#define {\bfseries ADC\+\_\+\+LEFT\+\_\+\+ADJUST}~5
+\item 
+\Hypertarget{adc_8h_a841ac48c59070789a083410ad5130ce1}\label{adc_8h_a841ac48c59070789a083410ad5130ce1} 
+\+\#define {\bfseries ADC\+\_\+\+REFS\+\_\+\+AVCC}~6
+\item 
+\Hypertarget{adc_8h_a8e511d5a74860241f0ecf76af229b9c0}\label{adc_8h_a8e511d5a74860241f0ecf76af229b9c0} 
+\+\#define {\bfseries ADC\+\_\+\+REFS\+\_\+1V}~7
+\item 
+\Hypertarget{adc_8h_a8205b6cf842a274f2393371db7558688}\label{adc_8h_a8205b6cf842a274f2393371db7558688} 
+\+\#define {\bfseries ADC\+\_\+\+PRESCALE\+\_\+\+DIV\+\_\+128}~7
+\item 
+\Hypertarget{adc_8h_a1a2d21532e0cd1a788a34744fcf35ba1}\label{adc_8h_a1a2d21532e0cd1a788a34744fcf35ba1} 
+\+\#define {\bfseries ADC\+\_\+\+INT\+\_\+\+ENABLE}~3
+\item 
+\Hypertarget{adc_8h_acc93f5a70b7081637be3d30cc04cb4dd}\label{adc_8h_acc93f5a70b7081637be3d30cc04cb4dd} 
+\+\#define {\bfseries ADC\+\_\+\+START}~6
+\item 
+\Hypertarget{adc_8h_af0f7ac4025d1623cda58f7656fcffade}\label{adc_8h_af0f7ac4025d1623cda58f7656fcffade} 
+\+\#define {\bfseries ADC\+\_\+\+ENABLE}~7
+\item 
+\Hypertarget{adc_8h_a953ac94aed9875a9abc4c48b51bc530d}\label{adc_8h_a953ac94aed9875a9abc4c48b51bc530d} 
+\+\#define {\bfseries ADC\+\_\+\+DIGITAL\+\_\+\+INPUT\+\_\+\+DISABLE}~4
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}\label{adc_8h_a6cdc7dc25fb94b846e4212edca458e01} 
+typedef unsigned int {\bfseries adc\+\_\+result\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Data type for 10-\/bit ADC readings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{adc_8h_af0b88baf7f6ed7d42f20f11ca41c886d}{adc\+\_\+init}} (unsigned char adc\+\_\+channel\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Initializes the ADC peripheral. \end{DoxyCompactList}\item 
+\Hypertarget{adc_8h_acec96a02bae816e24b67875114d526f5}\label{adc_8h_acec96a02bae816e24b67875114d526f5} 
+void {\bfseries adc\+\_\+start\+\_\+conversion} (void)
+\begin{DoxyCompactList}\small\item\em Triggers a single-\/ended ADC conversion on the active multiplexer channel. \end{DoxyCompactList}\item 
+\Hypertarget{adc_8h_a8cbe7a245777efe448fbed58f861c779}\label{adc_8h_a8cbe7a245777efe448fbed58f861c779} 
+void {\bfseries adc\+\_\+power\+\_\+down} (void)
+\begin{DoxyCompactList}\small\item\em Disables the ADC peripheral core to reduce power consumption. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} \doxymbox{\hyperlink{adc_8h_a8dd6f723c5d833f5c0bb1ff6783f3540}{adc\+\_\+get\+\_\+result}} (void)
+\begin{DoxyCompactList}\small\item\em Directly reads the current ADC conversion result registers (ADCH/\+\+ADC). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} \doxymbox{\hyperlink{adc_8h_a4849c7215ce93bb022ac3c808d76f50f}{adc\+\_\+get\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Public interface to retrieve the cached, inverted light level result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for Analog-\/to-\/\+Digital Converter (ADC) peripheral driver. 
+
+Defines hardware register bit mappings, resolution types, and public interfaces. 
+
+\label{adc_8h_doc-func-members}
+\Hypertarget{adc_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{adc_8h_a4849c7215ce93bb022ac3c808d76f50f}\index{adc.h@{adc.h}!adc\_get\_data@{adc\_get\_data}}
+\index{adc\_get\_data@{adc\_get\_data}!adc.h@{adc.h}}
+\doxysubsubsection{\texorpdfstring{adc\_get\_data()}{adc\_get\_data()}}
+{\footnotesize\ttfamily \label{adc_8h_a4849c7215ce93bb022ac3c808d76f50f} 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} adc\+\_\+get\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Public interface to retrieve the cached, inverted light level result. 
+
+\begin{DoxyReturn}{Returns}
+Latest processed ADC value written by the interrupt service routine. 
+\end{DoxyReturn}
+\Hypertarget{adc_8h_a8dd6f723c5d833f5c0bb1ff6783f3540}\index{adc.h@{adc.h}!adc\_get\_result@{adc\_get\_result}}
+\index{adc\_get\_result@{adc\_get\_result}!adc.h@{adc.h}}
+\doxysubsubsection{\texorpdfstring{adc\_get\_result()}{adc\_get\_result()}}
+{\footnotesize\ttfamily \label{adc_8h_a8dd6f723c5d833f5c0bb1ff6783f3540} 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} adc\+\_\+get\+\_\+result (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Directly reads the current ADC conversion result registers (ADCH/\+\+ADC). 
+
+\begin{DoxyReturn}{Returns}
+Raw conversion value as \doxylink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t} (8-\/bit or 10-\/bit dependent on build flags). 
+\end{DoxyReturn}
+\Hypertarget{adc_8h_af0b88baf7f6ed7d42f20f11ca41c886d}\index{adc.h@{adc.h}!adc\_init@{adc\_init}}
+\index{adc\_init@{adc\_init}!adc.h@{adc.h}}
+\doxysubsubsection{\texorpdfstring{adc\_init()}{adc\_init()}}
+{\footnotesize\ttfamily \label{adc_8h_af0b88baf7f6ed7d42f20f11ca41c886d} 
+void adc\+\_\+init (\begin{DoxyParamCaption}\item[{unsigned char}]{adc\+\_\+channel\+\_\+pin}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the ADC peripheral. 
+
+Configures standard 128x prescaling, voltage reference source, resolution alignment, and enables ADC conversion complete interrupts. 
+\begin{DoxyParams}{Parameters}
+{\em adc\+\_\+channel\+\_\+pin} & The analog multiplexer channel pin (0-\/31) to configure. \\
+\hline
+\end{DoxyParams}

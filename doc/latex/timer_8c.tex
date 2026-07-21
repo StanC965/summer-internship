@@ -1,0 +1,100 @@
+\doxysection{Project/\+timer.c File Reference}
+\hypertarget{timer_8c}{}\label{timer_8c}\index{Project/timer.c@{Project/timer.c}}
+
+
+Implementation of hardware Timers (Timer0, Timer1, Timer3) and system tick interrupt routines\+[cite:\+ 19, 20]\+.  
+
+
+{\ttfamily \+\#include "{}timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}scheduler.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{timer_8c_a7b8ab79df77b57475a5494f5f81c3bd9}\label{timer_8c_a7b8ab79df77b57475a5494f5f81c3bd9} 
+void {\bfseries timer\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the Timer module by configuring Timer0 in Normal Mode and setting default interrupts\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{timer_8c_a2b2511bd1094205a492b2facfd7fdc67}{timer\+\_\+init\+\_\+ctc\+\_\+t0}} (unsigned char compare\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Initializes Timer0 in Clear Timer on Compare Match (CTC) mode\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{timer_8c_a5aadbe24f6c3688806dee292a015497b}{timer\+\_\+start\+\_\+t0}} (unsigned int division\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Starts Timer0 with a specified prescaler division factor\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+\Hypertarget{timer_8c_ae976e8222f01a9c03fb8cc59f7683a36}\label{timer_8c_ae976e8222f01a9c03fb8cc59f7683a36} 
+void {\bfseries timer\+\_\+stop\+\_\+t0} (void)
+\begin{DoxyCompactList}\small\item\em Stops Timer0 by disconnecting its clock source\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{timer_8c_ac69c87e731f65949108a10592a007552}{timer\+\_\+start\+\_\+t1}} (unsigned int division\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Starts Timer1 with a specified prescaler division factor\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+\Hypertarget{timer_8c_a75edadac0995a7c5c310a9a0505bcaf5}\label{timer_8c_a75edadac0995a7c5c310a9a0505bcaf5} 
+void {\bfseries timer\+\_\+stop\+\_\+t1} (void)
+\begin{DoxyCompactList}\small\item\em Stops Timer1 by disconnecting its clock source\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+\Hypertarget{timer_8c_a7f82c7d4eb69b494c71411dfa120c96c}\label{timer_8c_a7f82c7d4eb69b494c71411dfa120c96c} 
+void {\bfseries timer\+\_\+t1\+\_\+init\+\_\+icu} (void)
+\begin{DoxyCompactList}\small\item\em Initializes Timer1 for Input Capture Unit (ICU) operation on falling edges\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+\Hypertarget{timer_8c_a32773452f34b189c40d8074308d3a535}\label{timer_8c_a32773452f34b189c40d8074308d3a535} 
+void {\bfseries timer\+\_\+t3\+\_\+init\+\_\+system\+\_\+tick} (void)
+\begin{DoxyCompactList}\small\item\em Initializes Timer3 in CTC Mode with a prescaler of 8 to generate precise 10ms System Ticks\+[cite:\+ 20]\+. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+interrupt void \doxymbox{\hyperlink{timer_8c_a1b4c4c643c16245b8c845c4a8c3115bb}{timer3\+\_\+compare\+\_\+a\+\_\+isr}} (void)
+\begin{DoxyCompactList}\small\item\em Timer3 Output Compare Match A Interrupt Service Routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of hardware Timers (Timer0, Timer1, Timer3) and system tick interrupt routines\+[cite:\+ 19, 20]\+. 
+
+
+
+\label{timer_8c_doc-func-members}
+\Hypertarget{timer_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{timer_8c_a1b4c4c643c16245b8c845c4a8c3115bb}\index{timer.c@{timer.c}!timer3\_compare\_a\_isr@{timer3\_compare\_a\_isr}}
+\index{timer3\_compare\_a\_isr@{timer3\_compare\_a\_isr}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer3\_compare\_a\_isr()}{timer3\_compare\_a\_isr()}}
+{\footnotesize\ttfamily \label{timer_8c_a1b4c4c643c16245b8c845c4a8c3115bb} 
+\+\_\+\+\_\+interrupt void timer3\+\_\+compare\+\_\+a\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Timer3 Output Compare Match A Interrupt Service Routine. 
+
+Fires every 10ms to advance the system scheduler ticks. \Hypertarget{timer_8c_a2b2511bd1094205a492b2facfd7fdc67}\index{timer.c@{timer.c}!timer\_init\_ctc\_t0@{timer\_init\_ctc\_t0}}
+\index{timer\_init\_ctc\_t0@{timer\_init\_ctc\_t0}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_init\_ctc\_t0()}{timer\_init\_ctc\_t0()}}
+{\footnotesize\ttfamily \label{timer_8c_a2b2511bd1094205a492b2facfd7fdc67} 
+void timer\+\_\+init\+\_\+ctc\+\_\+t0 (\begin{DoxyParamCaption}\item[{unsigned char}]{compare\+\_\+value}{}\end{DoxyParamCaption})}
+
+
+
+Initializes Timer0 in Clear Timer on Compare Match (CTC) mode\+[cite:\+ 20]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em compare\+\_\+value} & Ceiling target value (OCR0A) to trigger compare match interrupts\+[cite:\+ 20]\+. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{timer_8c_a5aadbe24f6c3688806dee292a015497b}\index{timer.c@{timer.c}!timer\_start\_t0@{timer\_start\_t0}}
+\index{timer\_start\_t0@{timer\_start\_t0}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_start\_t0()}{timer\_start\_t0()}}
+{\footnotesize\ttfamily \label{timer_8c_a5aadbe24f6c3688806dee292a015497b} 
+void timer\+\_\+start\+\_\+t0 (\begin{DoxyParamCaption}\item[{unsigned int}]{division\+\_\+value}{}\end{DoxyParamCaption})}
+
+
+
+Starts Timer0 with a specified prescaler division factor\+[cite:\+ 20]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em division\+\_\+value} & Physical clock divider ratio (1, 8, 64, 256, or 1024)\+[cite:\+ 20]\+. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{timer_8c_ac69c87e731f65949108a10592a007552}\index{timer.c@{timer.c}!timer\_start\_t1@{timer\_start\_t1}}
+\index{timer\_start\_t1@{timer\_start\_t1}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_start\_t1()}{timer\_start\_t1()}}
+{\footnotesize\ttfamily \label{timer_8c_ac69c87e731f65949108a10592a007552} 
+void timer\+\_\+start\+\_\+t1 (\begin{DoxyParamCaption}\item[{unsigned int}]{division\+\_\+value}{}\end{DoxyParamCaption})}
+
+
+
+Starts Timer1 with a specified prescaler division factor\+[cite:\+ 20]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em division\+\_\+value} & Physical clock divider ratio (1, 8, 64, 256, or 1024)\+[cite:\+ 20]\+. \\
+\hline
+\end{DoxyParams}

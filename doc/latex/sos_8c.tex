@@ -1,0 +1,34 @@
+\doxysection{Project/\+sos.c File Reference}
+\hypertarget{sos_8c}{}\label{sos_8c}\index{Project/sos.c@{Project/sos.c}}
+
+
+Implementation of Morse code visual signal execution routines\+[cite:\+ 14, 17]\+.  
+
+
+{\ttfamily \+\#include "{}sos.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sos_8c_a2c0c9a85e911a606582d41470e8d0ed5}\label{sos_8c_a2c0c9a85e911a606582d41470e8d0ed5} 
+void {\bfseries sos\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the SOS module by configuring the status LED output\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8c_a03f550dbe0e6cd57adac5241d6ebfe89}\label{sos_8c_a03f550dbe0e6cd57adac5241d6ebfe89} 
+void {\bfseries sos\+\_\+play\+\_\+point} (void)
+\begin{DoxyCompactList}\small\item\em Plays a Morse code \textquotesingle{}dot\textquotesingle{} (.) signal using the status LED\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8c_afee755a4407a8813a446ff7149510e1c}\label{sos_8c_afee755a4407a8813a446ff7149510e1c} 
+void {\bfseries sos\+\_\+play\+\_\+line} (void)
+\begin{DoxyCompactList}\small\item\em Plays a Morse code \textquotesingle{}dash\textquotesingle{} (-\/) signal using the status LED\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8c_ab6fc908a01c49091e7069cac7413b401}\label{sos_8c_ab6fc908a01c49091e7069cac7413b401} 
+void {\bfseries sos\+\_\+play\+\_\+letter\+\_\+s} (void)
+\begin{DoxyCompactList}\small\item\em Plays the letter \textquotesingle{}S\textquotesingle{} (three dots) with internal element gaps\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8c_accbb390001a912fce8d489351dbeda3b}\label{sos_8c_accbb390001a912fce8d489351dbeda3b} 
+void {\bfseries sos\+\_\+play\+\_\+letter\+\_\+o} (void)
+\begin{DoxyCompactList}\small\item\em Plays the letter \textquotesingle{}O\textquotesingle{} (three dashes) with internal element gaps\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8c_ad3acc8defee990fda910f46a919ef0e6}\label{sos_8c_ad3acc8defee990fda910f46a919ef0e6} 
+void {\bfseries sos\+\_\+play\+\_\+sos} (void)
+\begin{DoxyCompactList}\small\item\em Executes a full SOS Morse sequence ("{}\+S-\/\+O-\/\+S"{}) with appropriate inter-\/character delays\+[cite:\+ 14]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of Morse code visual signal execution routines\+[cite:\+ 14, 17]\+. 
+

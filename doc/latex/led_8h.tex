@@ -1,0 +1,200 @@
+\doxysection{Project/\+led.h File Reference}
+\hypertarget{led_8h}{}\label{led_8h}\index{Project/led.h@{Project/led.h}}
+
+
+Header file for LED hardware control and status indicators.  
+
+
+{\ttfamily \+\#include "{}gpio.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{Indent}\textbf{ Onboard LED Pin Mapping}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_a20ef7189aec7ee44eb5e0fbe7b0a7be8}\label{led_8h_a20ef7189aec7ee44eb5e0fbe7b0a7be8} 
+\+\#define {\bfseries LED\+\_\+\+LED0\+\_\+\+PORT}~(\&PORTC)
+\item 
+\Hypertarget{led_8h_a913549eed286af89aa56eb755fd95617}\label{led_8h_a913549eed286af89aa56eb755fd95617} 
+\+\#define {\bfseries LED\+\_\+\+LED0\+\_\+\+DDR}~(\&DDRC)
+\item 
+\Hypertarget{led_8h_a25a35ebd4f1e0459a98ba595984c9af2}\label{led_8h_a25a35ebd4f1e0459a98ba595984c9af2} 
+\+\#define {\bfseries LED\+\_\+\+LED0\+\_\+\+PIN}~7
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Software Delay Constants}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_ae8cb859dd98dacaa6507a46c2ea08c4b}\label{led_8h_ae8cb859dd98dacaa6507a46c2ea08c4b} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+BLINK\+\_\+\+FAST}~60000\+UL
+\item 
+\Hypertarget{led_8h_a47053d4d436f6cee7058b073f4f7b246}\label{led_8h_a47053d4d436f6cee7058b073f4f7b246} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+BLINK\+\_\+\+SLOW}~175000\+UL
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ OLED Display LED Pin Mapping}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_a4602f546f35b5ae8ba3db725b7a26041}\label{led_8h_a4602f546f35b5ae8ba3db725b7a26041} 
+\+\#define {\bfseries LED\+\_\+\+OLED\+\_\+1\+\_\+2\+\_\+\+DDR}~(\&DDRD)
+\item 
+\Hypertarget{led_8h_a68aad72404c0b7841ebc9e0b295c72a3}\label{led_8h_a68aad72404c0b7841ebc9e0b295c72a3} 
+\+\#define {\bfseries LED\+\_\+\+OLED\+\_\+1\+\_\+2\+\_\+\+PORT}~(\&PORTD)
+\item 
+\Hypertarget{led_8h_aab77b37e24099885f477726097741ec2}\label{led_8h_aab77b37e24099885f477726097741ec2} 
+\+\#define {\bfseries LED\+\_\+\+OLED\+\_\+1\+\_\+\+PIN}~5
+\item 
+\Hypertarget{led_8h_a446cc2a65792b5fee0cf373bbf65e598}\label{led_8h_a446cc2a65792b5fee0cf373bbf65e598} 
+\+\#define {\bfseries LED\+\_\+\+OLED\+\_\+2\+\_\+\+PIN}~4
+\item 
+\Hypertarget{led_8h_ac23d60e18926514d913efa4ca1b170b2}\label{led_8h_ac23d60e18926514d913efa4ca1b170b2} 
+\+\#define {\bfseries LED\+\_\+\+OLED\+\_\+3\+\_\+\+DDR}~(\&DDRA)
+\item 
+\Hypertarget{led_8h_ab5e2e8071566af562e9c32126e90405a}\label{led_8h_ab5e2e8071566af562e9c32126e90405a} 
+\+\#define {\bfseries LED\+\_\+\+OLED\+\_\+3\+\_\+\+PORT}~(\&PORTA)
+\item 
+\Hypertarget{led_8h_ae71b6a479405b849528d43d073ef4e4c}\label{led_8h_ae71b6a479405b849528d43d073ef4e4c} 
+\+\#define {\bfseries LED\+\_\+\+OLED\+\_\+3\+\_\+\+PIN}~3
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Expansion I/\+O LED Pin Mapping}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_af382b5acbf2716ac5a0378da499a7d12}\label{led_8h_af382b5acbf2716ac5a0378da499a7d12} 
+\+\#define {\bfseries LED\+\_\+\+IO\+\_\+\+LED\+\_\+\+DDR}~(\&DDRB)
+\item 
+\Hypertarget{led_8h_af037fdaf0c87794518bd5bcf2cd61163}\label{led_8h_af037fdaf0c87794518bd5bcf2cd61163} 
+\+\#define {\bfseries LED\+\_\+\+IO\+\_\+\+LED\+\_\+\+PORT}~(\&PORTB)
+\item 
+\Hypertarget{led_8h_ac06d1d4cae6e2828750b48d6a62dfeab}\label{led_8h_ac06d1d4cae6e2828750b48d6a62dfeab} 
+\+\#define {\bfseries LED\+\_\+\+IO\+\_\+\+LED\+\_\+\+PIN}~3
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_a7eb4d382bdd4b42c57dbb7154d03ac66}\label{led_8h_a7eb4d382bdd4b42c57dbb7154d03ac66} 
+void {\bfseries led\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes all system LEDs as output pins and turns them OFF by default. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_a0dbee9d575e70150715ac4b25045c39a}{led\+\_\+configure\+\_\+pin}} (volatile unsigned char \texorpdfstring{$\ast$}{*}ddr\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Configures a single target MCU pin as an output for an LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_abc3d31bc751473e59e71314117fa617f}{led\+\_\+power\+\_\+on}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Turns an active-\/low LED ON by driving its pin LOW (0). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_add84b729186cf8d90557a017bab82b7b}{led\+\_\+power\+\_\+off}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Turns an active-\/low LED OFF by driving its pin HIGH (1). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_adca6d3892b130d4436655107281a324d}{led\+\_\+toggle}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Inverts the logical output state of a targeted LED pin. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_a196df83f1781b1abecf01a6473efae3a}{led\+\_\+blink\+\_\+fast}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Toggles an LED and executes a fast blocking delay loop. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_abf53e584b500ae9d528502764943b091}{led\+\_\+blink\+\_\+slow}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Toggles an LED and executes a slow blocking delay loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for LED hardware control and status indicators. 
+
+Contains pin declarations, timing constants, and function prototypes for active-\/low LED driving operations. 
+
+\label{led_8h_doc-func-members}
+\Hypertarget{led_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{led_8h_a196df83f1781b1abecf01a6473efae3a}\index{led.h@{led.h}!led\_blink\_fast@{led\_blink\_fast}}
+\index{led\_blink\_fast@{led\_blink\_fast}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_blink\_fast()}{led\_blink\_fast()}}
+{\footnotesize\ttfamily \label{led_8h_a196df83f1781b1abecf01a6473efae3a} 
+void led\+\_\+blink\+\_\+fast (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Toggles an LED and executes a fast blocking delay loop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target PORT register (e.\+g., \&PORTC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the register (0–7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_abf53e584b500ae9d528502764943b091}\index{led.h@{led.h}!led\_blink\_slow@{led\_blink\_slow}}
+\index{led\_blink\_slow@{led\_blink\_slow}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_blink\_slow()}{led\_blink\_slow()}}
+{\footnotesize\ttfamily \label{led_8h_abf53e584b500ae9d528502764943b091} 
+void led\+\_\+blink\+\_\+slow (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Toggles an LED and executes a slow blocking delay loop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target PORT register (e.\+g., \&PORTC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the register (0–7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_a0dbee9d575e70150715ac4b25045c39a}\index{led.h@{led.h}!led\_configure\_pin@{led\_configure\_pin}}
+\index{led\_configure\_pin@{led\_configure\_pin}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_configure\_pin()}{led\_configure\_pin()}}
+{\footnotesize\ttfamily \label{led_8h_a0dbee9d575e70150715ac4b25045c39a} 
+void led\+\_\+configure\+\_\+pin (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{ddr\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Configures a single target MCU pin as an output for an LED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ddr\+\_\+reg} & Pointer to the Data Direction Register (e.\+g., \&DDRC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the register (0–7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_add84b729186cf8d90557a017bab82b7b}\index{led.h@{led.h}!led\_power\_off@{led\_power\_off}}
+\index{led\_power\_off@{led\_power\_off}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_power\_off()}{led\_power\_off()}}
+{\footnotesize\ttfamily \label{led_8h_add84b729186cf8d90557a017bab82b7b} 
+void led\+\_\+power\+\_\+off (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Turns an active-\/low LED OFF by driving its pin HIGH (1). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target PORT register (e.\+g., \&PORTC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the register (0–7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_abc3d31bc751473e59e71314117fa617f}\index{led.h@{led.h}!led\_power\_on@{led\_power\_on}}
+\index{led\_power\_on@{led\_power\_on}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_power\_on()}{led\_power\_on()}}
+{\footnotesize\ttfamily \label{led_8h_abc3d31bc751473e59e71314117fa617f} 
+void led\+\_\+power\+\_\+on (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Turns an active-\/low LED ON by driving its pin LOW (0). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target PORT register (e.\+g., \&PORTC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the register (0–7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_adca6d3892b130d4436655107281a324d}\index{led.h@{led.h}!led\_toggle@{led\_toggle}}
+\index{led\_toggle@{led\_toggle}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_toggle()}{led\_toggle()}}
+{\footnotesize\ttfamily \label{led_8h_adca6d3892b130d4436655107281a324d} 
+void led\+\_\+toggle (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Inverts the logical output state of a targeted LED pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target PORT register (e.\+g., \&PORTC). \\
+\hline
+{\em pin\+\_\+number} & Target pin index on the register (0–7). \\
+\hline
+\end{DoxyParams}

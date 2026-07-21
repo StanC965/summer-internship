@@ -1,0 +1,39 @@
+\doxysection{uart.\+h}
+\hypertarget{uart_8h_source}{}\label{uart_8h_source}\index{Project/uart.h@{Project/uart.h}}
+\doxymbox{\hyperlink{uart_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ UART\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ UART\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ Includes}}
+\DoxyCodeLine{00012\ \textcolor{comment}{+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iom324pb.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ Exported\ Macros\ and\ Definitions}}
+\DoxyCodeLine{00017\ \textcolor{comment}{+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ UART\_DEFAULT\_BAUD\ \ \ \ \ \ \ 9600UL\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ UART\_SYSTEM\_CLOCK\_FREQ\ \ 1000000UL\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00025\ \textcolor{comment}{/*\ Public\ Functions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00026\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uart_8h_a0c0ca72359ddf28dcd15900dfba19343}{uart\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{uart_8h_aa664d7b6b089ffb12b30ad4eb4b18127}{uart\_is\_tx\_ready}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uart_8h_a83a8f49ee20b1ac5aa1be8b1cefce320}{uart\_send\_byte}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ data);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{uart_8h_ad7ccf48b41da5d7f85bdfb70bce2d74d}{uart\_is\_rx\_available}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{uart_8h_afc7fbb0eaaf4ca8ce7b753fb4c5ebc3d}{uart\_read\_byte}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uart_8h_adc5ab09aa19841e18a039de4b3250da4}{uart\_send\_string}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

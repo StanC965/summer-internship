@@ -1,0 +1,52 @@
+\doxysection{Project/\+sos.h File Reference}
+\hypertarget{sos_8h}{}\label{sos_8h}\index{Project/sos.h@{Project/sos.h}}
+
+
+Header file for Morse code SOS optical signaling module\+[cite:\+ 14]\+.  
+
+
+{\ttfamily \+\#include "{}led.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{Indent}\textbf{ Morse Code Timing Constants}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sos_8h_a4d85ef7b8f762e0220ce27cda6056d73}\label{sos_8h_a4d85ef7b8f762e0220ce27cda6056d73} 
+\+\#define {\bfseries SOS\+\_\+\+TIME\+\_\+\+POINT\+\_\+\+DURATION}~150000\+UL
+\item 
+\Hypertarget{sos_8h_a06ff2e4864dbae6500343acdae480289}\label{sos_8h_a06ff2e4864dbae6500343acdae480289} 
+\+\#define {\bfseries SOS\+\_\+\+TIME\+\_\+\+LINE\+\_\+\+DURATION}~450000\+UL
+\item 
+\Hypertarget{sos_8h_a7f16902abf21a503c334da9920f0ddce}\label{sos_8h_a7f16902abf21a503c334da9920f0ddce} 
+\+\#define {\bfseries SOS\+\_\+\+TIME\+\_\+\+ELEMENT\+\_\+\+GAP}~150000\+UL
+\item 
+\Hypertarget{sos_8h_adaa299610cd0e7b7fa6612fb695ba734}\label{sos_8h_adaa299610cd0e7b7fa6612fb695ba734} 
+\+\#define {\bfseries SOS\+\_\+\+TIME\+\_\+\+CHARACTER\+\_\+\+GAP}~700000\+UL
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sos_8h_a2c0c9a85e911a606582d41470e8d0ed5}\label{sos_8h_a2c0c9a85e911a606582d41470e8d0ed5} 
+void {\bfseries sos\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the SOS module by configuring the status LED output\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8h_a03f550dbe0e6cd57adac5241d6ebfe89}\label{sos_8h_a03f550dbe0e6cd57adac5241d6ebfe89} 
+void {\bfseries sos\+\_\+play\+\_\+point} (void)
+\begin{DoxyCompactList}\small\item\em Plays a Morse code \textquotesingle{}dot\textquotesingle{} (.) signal using the status LED\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8h_afee755a4407a8813a446ff7149510e1c}\label{sos_8h_afee755a4407a8813a446ff7149510e1c} 
+void {\bfseries sos\+\_\+play\+\_\+line} (void)
+\begin{DoxyCompactList}\small\item\em Plays a Morse code \textquotesingle{}dash\textquotesingle{} (-\/) signal using the status LED\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8h_ad3acc8defee990fda910f46a919ef0e6}\label{sos_8h_ad3acc8defee990fda910f46a919ef0e6} 
+void {\bfseries sos\+\_\+play\+\_\+sos} (void)
+\begin{DoxyCompactList}\small\item\em Executes a full SOS Morse sequence ("{}\+S-\/\+O-\/\+S"{}) with appropriate inter-\/character delays\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8h_ab6fc908a01c49091e7069cac7413b401}\label{sos_8h_ab6fc908a01c49091e7069cac7413b401} 
+void {\bfseries sos\+\_\+play\+\_\+letter\+\_\+s} (void)
+\begin{DoxyCompactList}\small\item\em Plays the letter \textquotesingle{}S\textquotesingle{} (three dots) with internal element gaps\+[cite:\+ 14]\+. \end{DoxyCompactList}\item 
+\Hypertarget{sos_8h_accbb390001a912fce8d489351dbeda3b}\label{sos_8h_accbb390001a912fce8d489351dbeda3b} 
+void {\bfseries sos\+\_\+play\+\_\+letter\+\_\+o} (void)
+\begin{DoxyCompactList}\small\item\em Plays the letter \textquotesingle{}O\textquotesingle{} (three dashes) with internal element gaps\+[cite:\+ 14]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for Morse code SOS optical signaling module\+[cite:\+ 14]\+. 
+
+Contains delay duration macros and function prototypes for playing dot/\+dash sequences\+[cite:\+ 14]\+. 

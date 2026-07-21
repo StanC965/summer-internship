@@ -1,0 +1,124 @@
+\doxysection{Project/\+gpio.c File Reference}
+\hypertarget{gpio_8c}{}\label{gpio_8c}\index{Project/gpio.c@{Project/gpio.c}}
+
+
+Implementation of generic low-\/level GPIO bitwise manipulations.  
+
+
+{\ttfamily \+\#include "{}gpio.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{gpio_8c_afdbe206b3c49f019757ab09b3cf52b9c}\label{gpio_8c_afdbe206b3c49f019757ab09b3cf52b9c} 
+void {\bfseries gpio\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the low-\/level GPIO peripheral module. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{gpio_8c_a7dfa4b6288d168487eb030b59bc75c47}{gpio\+\_\+set\+\_\+pin}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Drives a specific register pin HIGH (1). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{gpio_8c_a14c97852b43490ca5125f01cc9bb5d83}{gpio\+\_\+reset\+\_\+pin}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Drives a specific register pin LOW (0). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{gpio_8c_a8cde9dad030035add0f2654b235f6dce}{gpio\+\_\+set\+\_\+direction}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number, unsigned char direction)
+\begin{DoxyCompactList}\small\item\em Sets a pin\textquotesingle{}s hardware state to either input or output. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{gpio_8c_a82d07973e511a416fea07ce8daa3b55d}{gpio\+\_\+toggle\+\_\+pin}} (volatile unsigned char \texorpdfstring{$\ast$}{*}port\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Inverts the bit state of a specific port register pin. \end{DoxyCompactList}\item 
+unsigned char \doxymbox{\hyperlink{gpio_8c_a7665e3018216ce122c3751ec46dae7e0}{gpio\+\_\+read\+\_\+pin}} (volatile unsigned char \texorpdfstring{$\ast$}{*}pin\+\_\+reg, unsigned char pin\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Reads the voltage input status from an input register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of generic low-\/level GPIO bitwise manipulations. 
+
+
+
+\label{gpio_8c_doc-func-members}
+\Hypertarget{gpio_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{gpio_8c_a7665e3018216ce122c3751ec46dae7e0}\index{gpio.c@{gpio.c}!gpio\_read\_pin@{gpio\_read\_pin}}
+\index{gpio\_read\_pin@{gpio\_read\_pin}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_read\_pin()}{gpio\_read\_pin()}}
+{\footnotesize\ttfamily \label{gpio_8c_a7665e3018216ce122c3751ec46dae7e0} 
+unsigned char gpio\+\_\+read\+\_\+pin (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{pin\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Reads the voltage input status from an input register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+\_\+reg} & Pointer to the target PIN register (e.\+g., \&PINA). \\
+\hline
+{\em pin\+\_\+number} & Index of the pin to read (0–7). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the input voltage state is HIGH, 0 if LOW. 
+\end{DoxyReturn}
+\Hypertarget{gpio_8c_a14c97852b43490ca5125f01cc9bb5d83}\index{gpio.c@{gpio.c}!gpio\_reset\_pin@{gpio\_reset\_pin}}
+\index{gpio\_reset\_pin@{gpio\_reset\_pin}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_reset\_pin()}{gpio\_reset\_pin()}}
+{\footnotesize\ttfamily \label{gpio_8c_a14c97852b43490ca5125f01cc9bb5d83} 
+void gpio\+\_\+reset\+\_\+pin (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Drives a specific register pin LOW (0). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target output register (e.\+g., \&PORTA). \\
+\hline
+{\em pin\+\_\+number} & Index of the pin to clear (0–7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gpio_8c_a8cde9dad030035add0f2654b235f6dce}\index{gpio.c@{gpio.c}!gpio\_set\_direction@{gpio\_set\_direction}}
+\index{gpio\_set\_direction@{gpio\_set\_direction}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_direction()}{gpio\_set\_direction()}}
+{\footnotesize\ttfamily \label{gpio_8c_a8cde9dad030035add0f2654b235f6dce} 
+void gpio\+\_\+set\+\_\+direction (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{, }\item[{unsigned char}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Sets a pin\textquotesingle{}s hardware state to either input or output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target Data Direction Register (e.\+g., \&DDRA). \\
+\hline
+{\em pin\+\_\+number} & Index of the pin to configure (0–7). \\
+\hline
+{\em direction} & Mode selector (\doxylink{gpio_8h_a7be6a0cc9aa65da1d4ee5751b4085853}{GPIO\+\_\+\+INPUT} or \doxylink{gpio_8h_a0db9fe8a278e6ab7c5c6f14fe58e5eb1}{GPIO\+\_\+\+OUTPUT}). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gpio_8c_a7dfa4b6288d168487eb030b59bc75c47}\index{gpio.c@{gpio.c}!gpio\_set\_pin@{gpio\_set\_pin}}
+\index{gpio\_set\_pin@{gpio\_set\_pin}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_pin()}{gpio\_set\_pin()}}
+{\footnotesize\ttfamily \label{gpio_8c_a7dfa4b6288d168487eb030b59bc75c47} 
+void gpio\+\_\+set\+\_\+pin (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Drives a specific register pin HIGH (1). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target output register (e.\+g., \&PORTA). \\
+\hline
+{\em pin\+\_\+number} & Index of the pin to set (0–7). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gpio_8c_a82d07973e511a416fea07ce8daa3b55d}\index{gpio.c@{gpio.c}!gpio\_toggle\_pin@{gpio\_toggle\_pin}}
+\index{gpio\_toggle\_pin@{gpio\_toggle\_pin}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_toggle\_pin()}{gpio\_toggle\_pin()}}
+{\footnotesize\ttfamily \label{gpio_8c_a82d07973e511a416fea07ce8daa3b55d} 
+void gpio\+\_\+toggle\+\_\+pin (\begin{DoxyParamCaption}\item[{volatile unsigned char \texorpdfstring{$\ast$}{*}}]{port\+\_\+reg}{, }\item[{unsigned char}]{pin\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Inverts the bit state of a specific port register pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+reg} & Pointer to the target output register (e.\+g., \&PORTA). \\
+\hline
+{\em pin\+\_\+number} & Index of the pin to invert (0–7). \\
+\hline
+\end{DoxyParams}

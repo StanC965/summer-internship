@@ -1,0 +1,69 @@
+\doxysection{button.\+h}
+\hypertarget{button_8h_source}{}\label{button_8h_source}\index{Project/button.h@{Project/button.h}}
+\doxymbox{\hyperlink{button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BUTTON\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BUTTON\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ Includes}}
+\DoxyCodeLine{00013\ \textcolor{comment}{+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{gpio_8h}{gpio.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ Exported\ types\ and\ values}}
+\DoxyCodeLine{00018\ \textcolor{comment}{+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ BUTTON\_SW0\_DDR\ \ \ \ \ \ \ \ \ \ \ \ \ (\&DDRC)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ BUTTON\_SW0\_PORT\ \ \ \ \ \ \ \ \ \ \ \ (\&PORTC)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ BUTTON\_SW0\_PINR\ \ \ \ \ \ \ \ \ \ \ \ (\&PINC)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ BUTTON\_SW0\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_1\_DDR\ \ \ \ \ \ \ \ \ \ (\&DDRC)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_1\_PORT\ \ \ \ \ \ \ \ \ (\&PORTC)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_1\_PINR\ \ \ \ \ \ \ \ \ (\&PINC)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_1\_PIN\ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_2\_3\_DDR\ \ \ \ \ \ \ \ (\&DDRA)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_2\_3\_PORT\ \ \ \ \ \ \ (\&PORTA)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_2\_3\_PINR\ \ \ \ \ \ \ (\&PINA)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_2\_PIN\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ BUTTON\_OLED\_3\_PIN\ \ \ \ \ \ \ \ \ \ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ PCINT22\_SW0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ PCINT17\_SW1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ PCINT0\_SW2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ PCINT1\_SW3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ PCIE0\_PORT\_A\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ PCIE2\_PORT\_C\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ BUTTON\_DEBOUNCE\_THRESHOLD\ 500}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00054\ \textcolor{comment}{/*\ Public\ Functions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00055\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{button_8h_a9ebb64bc3ea7a1e75d422784fe931347}{button\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{button_8h_a5570b2bb36f6147769d3c68093e73dab}{button\_configure\_pin}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *ddr\_reg,\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *port\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{button_8h_afbf1029cb2ed264d0b17d140cd4ed18c}{button\_is\_pressed}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *pin\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{button_8h_adfa029f0034d6f905f6cfc70004a24b6}{button\_debounce\_update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{/*\ Public\ Getter\ Interfaces\ */}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{button_8h_a5894e1947d3ecd4c4fca0a1a55707f29}{button\_get\_sw0\_state}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{button_8h_a721568ebcafb941069222f59e8f270e4}{button\_get\_oled1\_state}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{button_8h_af9a6ebe526b572880fa0c52d7fd29763}{button\_get\_oled2\_state}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{button_8h_a5dca7ef53f0d6cbd8cd8f389246d0c8e}{button\_get\_oled3\_state}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
