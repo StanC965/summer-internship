@@ -1,0 +1,2 @@
+Number of steps: 256
+Step size: 100 / 255 = 0.39%

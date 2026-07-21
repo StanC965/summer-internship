@@ -1,0 +1,2 @@
+ FREQ MIN = 1 / Tmax = 3.82 Hz
+ FREQ MAX = 1 / Tmin = 1 MHz

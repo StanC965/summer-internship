@@ -1,0 +1,68 @@
+#ifndef TIMER_H
+#define TIMER_H
+
+#include <iom324pb.h>
+
+#define TIMER_T0_STOPPED             0x00  
+#define TIMER_T0_NO_PRESCALE         0x01  
+
+#define TIMER_T0_A_COMP_INT          1
+#define TIMER_T0_OVERFLOW_INT        0    
+
+#define TIMER_T0_CTC_MODE            1
+#define TIMER_T0_TOGGLE_OC0A         6
+
+#define TIMER_T1_CAPT_INT            5
+
+#define TIMER_ICNC1                  7   
+#define TIMER_ICES1                  6   
+#define TIMER_ICIE1                  5   
+#define TIMER_ICF1                   3
+
+
+/** \fn     void timer_init(void)
+    \brief  Initializes the Timer module. Configures Timer0 in Normal Mode
+            and prepares interrupts, leaving the clock in a stopped state.
+*/
+void timer_init(void);
+
+/** \fn     void timer_init_ctc_t0(unsigned char compare_value)
+    \brief  Initializes Timer0 in CTC (Clear Timer on Compare Match) Mode,
+            sets the top ceiling value, and enables Compare Match A interrupts.
+            Leaves the clock in a stopped state.
+    \param  compare_value The ceiling value (OCR0A) to trigger compare match interrupts.
+*/
+void timer_init_ctc_t0(unsigned char compare_value);
+
+/** \fn     void timer_start_t0(unsigned int division_value)
+    \brief  Starts Timer0 with the specified clock division factor.
+            If the value is invalid, it falls back to no prescaling (1).
+    \param  division_value The physical clock divider (1, 8, 64, 256, or 1024).
+*/
+void timer_start_t0(unsigned int division_value);
+
+/** \fn     void timer_stop_t0(void)
+    \brief  Stops Timer0 by disconnecting its clock source.
+*/
+void timer_stop_t0(void);
+
+/** \fn     void timer_start_t1(unsigned int division_value)
+    \brief  Starts Timer1 with the specified clock division factor.
+            If the value is invalid, it falls back to no prescaling (1).
+    \param  division_value The physical clock divider (1, 8, 64, 256, or 1024).
+*/
+void timer_start_t1(unsigned int division_value);
+
+/** \fn     void timer_stop_t1(void)
+    \brief  Stops Timer1 by disconnecting its clock source.
+*/
+void timer_stop_t1(void);
+
+/** \fn     void timer1_init_icu(void)
+    \brief  Initializes Timer1 for Input Capture on a falling edge (button press).
+            Leaves the timer running with a prescaler of 64 or 256 to prevent rapid overflow,
+            though we only rely on the capture interrupt event here.
+*/
+void timer_t1_init_icu(void);
+
+#endif
