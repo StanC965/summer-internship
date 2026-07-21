@@ -38,7 +38,57 @@
 > - make use of task scheduler to schedule the start of conversion, getting and using the data result for ambient light indicator (the 3 LEDs)
 
 > **Answer/Explanation:**
-> 
+
+**`adc.c`**
+```c
+static volatile adc_result_t adc_data_result = 0;
+
+adc_result_t adc_get_data(void)
+{
+    return adc_data_result;
+}
+
+void adc_set_conversion_result(void)
+{
+#ifdef ADC_RESOLUTION_10_BIT
+    adc_data_result = ADC;
+#else
+    adc_data_result = ADCH;
+#endif
+}
+```
+
+**`scheduler_cfg.c`**
+```c
+void task_100ms(void)
+{
+    adc_result_t light_sensor_value = adc_get_data();
+
+    if (light_sensor_value < LIGHT_SENSOR_SEMI_LIGHT)
+    {
+        led_power_on(LED_OLED1_1);
+        led_power_on(LED_OLED1_2);
+        led_power_on(LED_OLED1_3);
+    }
+    else if (light_sensor_value >= LIGHT_SENSOR_SEMI_LIGHT && light_sensor_value < LIGHT_SENSOR_SEMI_DARK)
+    {
+        led_power_on(LED_OLED1_1);
+        led_power_on(LED_OLED1_2);
+    }
+    else if (light_sensor_value >= LIGHT_SENSOR_SEMI_DARK && light_sensor_value < LIGHT_SENSOR_FULL_DARK)
+    {
+        led_power_on(LED_OLED1_1);
+    }
+    else
+    {
+        led_power_off(LED_OLED1_1);
+        led_power_off(LED_OLED1_2);
+        led_power_off(LED_OLED1_3);
+    }
+
+    adc_start_conversion();
+}
+```
 
 ---
 
