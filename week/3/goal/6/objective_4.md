@@ -9,7 +9,7 @@
 
 | Task ID   | Type       | Status
 | :---      | :---       | :--- 
-| **[641]** | `CORE`     | [] Completed
+| **[641]** | `CORE`     | [/] Completed
 
 ---
 
@@ -51,6 +51,6 @@
 | 2	            | 8	                                    | 40
 
 > **Answer/Explanation:**
-> 
+> The task is semi-done. I need to find a bug in the code.
 
 ---
