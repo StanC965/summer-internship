@@ -36,7 +36,22 @@ static led_state_t current_state = STATE_OFF1S;
 volatile unsigned char period=0;
 
 
+void led_on();
+void led_off();
+void (*statefunc)()=led_on;
 
+void led_on()
+{
+led_Reset(LED_ZERO);
+statefunc=led_off;
+}
+
+
+void led_off()
+{
+led_Set(LED_ZERO);
+statefunc=led_on;
+}
 
 void task_10ms(void)
 {
@@ -60,37 +75,9 @@ void task_500ms(void)
 
 void task_1000ms(void)
 {
-  period++;
-  switch(current_state)
-  {
-  case STATE_OFF1S: led_Reset(LED_ZERO);
-      current_state=STATE_ON1S;
-      period=0;
-      break;
-  case STATE_ON1S: if(period ==3)
-  {
-    current_state=STATE_OFF3S;
-    period=0;
-    led_Set(LED_ZERO);
-  }
-  break;
-  case STATE_OFF3S:if(period==2)
-  {
-    current_state=STATE_ON2S;
-    period=0;
-    led_Reset(LED_ZERO);
-  }
-  break;
-  case STATE_ON2S: 
-    period=0;
-    current_state=STATE_OFF1S;
-  led_Set(LED_ZERO);
-  break;
   
-   
-    
-    
-  }
+  (*statefunc)();
+  
 }
             
        
