@@ -2,11 +2,46 @@
 #include "scheduler_cfg.h"
 #include "gpio.h"
 #include "led.h"
+#include "adc.h"
 
-void task_50ms(void)   { }
-void task_100ms(void)  { }
-void task_500ms(void)  { }
-void task_1000ms(void)
+#define LED0_PIN  7
+#define LED1_PIN  5
+#define LED2_PIN  4
+#define LED3_PIN  3
+
+#define LIGHT_MIDPOINT  127
+#define LIGHT_LEVEL1    64
+#define LIGHT_LEVEL2    128
+#define LIGHT_LEVEL3    192
+
+void task_50ms(void)
 {
-    gpio_read_pin(&PINC, 7) ? led_off(&PORTC, 7) : led_on(&PORTC, 7);
+    adc_start_conversion();  
 }
+
+void task_100ms(void)
+{
+    unsigned char light = adc_get_data();  
+
+    if (light > LIGHT_MIDPOINT) led_on(&PORTC, LED0_PIN); else led_off(&PORTC, LED0_PIN);
+
+    if (light < LIGHT_LEVEL1)
+    {
+        led_off(&PORTD, LED1_PIN); led_off(&PORTD, LED2_PIN); led_off(&PORTA, LED3_PIN);
+    }
+    else if (light < LIGHT_LEVEL2)
+    {
+        led_on(&PORTD, LED1_PIN); led_off(&PORTD, LED2_PIN); led_off(&PORTA, LED3_PIN);
+    }
+    else if (light < LIGHT_LEVEL3)
+    {
+        led_on(&PORTD, LED1_PIN); led_on(&PORTD, LED2_PIN); led_off(&PORTA, LED3_PIN);
+    }
+    else
+    {
+        led_on(&PORTD, LED1_PIN); led_on(&PORTD, LED2_PIN); led_on(&PORTA, LED3_PIN);
+    }
+}
+
+void task_500ms(void)  { }
+void task_1000ms(void) { }

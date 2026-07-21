@@ -3,6 +3,6 @@
 
 void adc_init(unsigned char channel);
 void adc_start_conversion(void);
-unsigned char adc_get_result(void);
+unsigned char adc_get_data(void);   
 
 #endif

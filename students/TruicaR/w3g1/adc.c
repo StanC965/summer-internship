@@ -21,7 +21,7 @@ void adc_start_conversion(void)
     ADCSRA |= ADC_START;
 }
 
-unsigned char adc_get_result(void)
+unsigned char adc_get_data(void)
 {
     return adc_result;
 }
