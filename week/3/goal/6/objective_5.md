@@ -52,8 +52,8 @@
 |set_pin (…)				        | 0x18 (24B)                        | 0                                     | 0x14 (20B)                                    | 0
 |reset_pin(…)	                    | 0x1A (26B)                        | 0                                     | 0x16 (22B)                                    | 0
 
-> - The binary operator version is consistently smaller thant the switch version, which was expected, because the operation if far more simpler than having to go through multiple cases in a switch branch (in this case I only used 1 case and default).
-> - The DATA zone excludes memory ampper hardware registers, since that address space is reserverd by the SFR itself, not allocated because of this function.
+> - The binary operator version is consistently smaller thant the switch version, which was expected, because the bit wise operation is far more simpler than multiple cases in a switch branch (in this case I only used 1 case and default).
+> - The DATA zone excludes memory mapped hardware registers, since that address space is reserverd by the SFR itself, not allocated because of this function.
 
 ---
 
