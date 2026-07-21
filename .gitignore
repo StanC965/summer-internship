@@ -71,3 +71,24 @@ __pycache__/
 # Microsoft Office temporary lock files
 ~$*
 
+# ==========================================
+# IAR Embedded Workbench / Build Files
+# ==========================================
+
+# IAR build artifacts and object files
+*.dep
+*.r90
+*.d90
+*.i
+
+# IAR user-specific debug settings and layouts 
+*.dnx
+*.dbdgt
+
+# IDE browsing/IntelliSense generated data
+BrowseInfo/
+settings/
+
+# Ninja build tool generated logs and dependencies
+.ninja_log
+.ninja_deps
