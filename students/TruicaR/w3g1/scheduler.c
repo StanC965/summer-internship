@@ -1,8 +1,5 @@
 #include "scheduler.h"
-#include "iom324pb.h"
-#include "gpio.h"
-#include "led.h"
-#include "scheduler.h"
+#include "scheduler_cfg.h"
 
 #define TICKS_50MS    5
 #define TICKS_100MS   10
@@ -20,18 +17,13 @@ static unsigned int tick_count = 0;
 void scheduler_flags_management(void)
 {
     tick_count++;
-
     flag_10ms = 1;
-
     if (tick_count % TICKS_50MS == 0)   flag_50ms = 1;
     if (tick_count % TICKS_100MS == 0)  flag_100ms = 1;
     if (tick_count % TICKS_500MS == 0)  flag_500ms = 1;
-    if (tick_count % TICKS_1000MS == 0)
-    {
-        flag_1000ms = 1;
-        tick_count = 0;  
-    }
+    if (tick_count % TICKS_1000MS == 0) { flag_1000ms = 1; tick_count = 0; }
 }
+
 void schedule_tasks_dispatcher(void)
 {
     while (1)
@@ -41,13 +33,4 @@ void schedule_tasks_dispatcher(void)
         if (flag_500ms)  { flag_500ms = 0;  task_500ms(); }
         if (flag_1000ms) { flag_1000ms = 0; task_1000ms(); }
     }
-}
-
-void task_50ms(void)   { }
-void task_100ms(void)  { }
-void task_500ms(void)  { }
-void task_1000ms(void)
-{
-    
-    gpio_read_pin(&PINC, 7) ? led_off(&PORTC, 7) : led_on(&PORTC, 7);
 }
