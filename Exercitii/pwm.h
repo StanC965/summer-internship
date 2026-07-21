@@ -25,5 +25,11 @@ extern void pwm_init_LED();
 */
 extern void pwm_test_led();
 
+/** \fn     void pwm_dc(int param)
+
+    \brief      [let's you select what percentage of duty cycle you want]   
+*/
+extern void pwm_dc(int param);
+
 
 #endif

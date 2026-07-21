@@ -30,6 +30,15 @@ void task_1000ms(void) {
     if(index > 4)
         index = 0;
     
-    OCR0A = sequence[index]; }
+   switch(index)
+   {
+   case 0:  pwm_dc(0);break;
+   case 1:  pwm_dc(25);break;
+   case 2:  pwm_dc(50);break;
+   case 3:  pwm_dc(75);break;
+   case 4:  pwm_dc(100);break;
+   }
+
+}
 
 #endif

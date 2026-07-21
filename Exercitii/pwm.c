@@ -55,4 +55,15 @@ void pwm_test_led()
     OCR0A = sequence[0];       
 }
 
+void pwm_dc(int param)
+{
+  
+if(param < 0) param = 0;
+    if(param > 100) param = 100;
+    
+    
+    OCR0A = (unsigned char)((param * 255) / 100);
+
+}
+
 #endif
