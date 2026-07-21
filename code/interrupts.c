@@ -52,8 +52,14 @@ __interrupt void timer0_compare_a__routine(void)
     led_toggle(LED_ONBOARD);
 }
 
+#pragma vector = TIMER1_OVF_vect
+__interrupt void timer1_overflow_routine(void)
+{
+    scheduler_flags_management();
+}
+
 #pragma vector = TIMER1_COMPA_vect
 __interrupt void timer1_compare_a__routine(void)
 {
-  scheduler_flags_management();
+    // scheduler_flags_management();
 }
