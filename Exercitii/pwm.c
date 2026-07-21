@@ -63,7 +63,7 @@ if(param < 0) param = 0;
     
     
     OCR0A = (unsigned char)((param * 255) / 100);
-
 }
+
 
 #endif

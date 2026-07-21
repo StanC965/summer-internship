@@ -1,17 +1,15 @@
 var searchData=
 [
-  ['schedule_5ftasks_5fdispatcher_0',['schedule_tasks_dispatcher',['../scheduler_8c.html#a5901eb1ef4eb0a45c77eb954fc923e24',1,'schedule_tasks_dispatcher(void):&#160;scheduler.c'],['../scheduler_8h.html#a5901eb1ef4eb0a45c77eb954fc923e24',1,'schedule_tasks_dispatcher(void):&#160;scheduler.c']]],
-  ['scheduler_1',['scheduler',['../scheduler_8c.html#a0979499632be3d05a308cb9abf9acccb',1,'scheduler:&#160;scheduler.c'],['../scheduler_8h.html#a0979499632be3d05a308cb9abf9acccb',1,'scheduler:&#160;scheduler.c']]],
-  ['scheduler_2ec_2',['scheduler.c',['../scheduler_8c.html',1,'']]],
-  ['scheduler_2eh_3',['scheduler.h',['../scheduler_8h.html',1,'']]],
-  ['scheduler_5fc_4',['SCHEDULER_C',['../scheduler_8c.html#a9db7ba1d84050237af4430a6cf202e86',1,'scheduler.c']]],
-  ['scheduler_5fcfg_2ec_5',['scheduler_cfg.c',['../scheduler__cfg_8c.html',1,'']]],
-  ['scheduler_5fcfg_2eh_6',['scheduler_cfg.h',['../scheduler__cfg_8h.html',1,'']]],
-  ['scheduler_5fconfig_5fc_7',['SCHEDULER_CONFIG_C',['../scheduler__cfg_8c.html#aa1a20afcdbce5014fa3089507822f62f',1,'scheduler_cfg.c']]],
-  ['scheduler_5fflags_5fmanagement_8',['scheduler_flags_management',['../scheduler_8c.html#a45f1f0e86a49384eaedb54d1b133c2ec',1,'scheduler_flags_management(void):&#160;scheduler.c'],['../scheduler_8h.html#a45f1f0e86a49384eaedb54d1b133c2ec',1,'scheduler_flags_management(void):&#160;scheduler.c']]],
-  ['scheduler_5ft_9',['scheduler_t',['../structscheduler__t.html',1,'']]],
-  ['scheduler_5ftick_10',['Scheduler_Tick',['../main_8c.html#a5bacce0648e19faa58f69e326458f55b',1,'main.c']]],
-  ['sd_11',['sd',['../pwm_8h.html#aa6a69f686cea87b52058a57a904a33e7',1,'pwm.h']]],
-  ['sequence_12',['sequence',['../pwm_8c.html#a594ccdaa6606fa0caa2835351796c3fa',1,'sequence:&#160;pwm.c'],['../scheduler__cfg_8c.html#a594ccdaa6606fa0caa2835351796c3fa',1,'sequence:&#160;scheduler_cfg.c']]],
-  ['setup_13',['setup',['../main_8c.html#a7dfd9b79bc5a37d7df40207afbc5431f',1,'main.c']]]
+  ['period_5fof_5f1000ms_0',['PERIOD_OF_1000MS',['../scheduler_8h.html#a13b72b0c7c6048c2ded30af0c52de87d',1,'PERIOD_OF_1000MS:&#160;scheduler.h'],['../timer_8h.html#a13b72b0c7c6048c2ded30af0c52de87d',1,'PERIOD_OF_1000MS:&#160;timer.h']]],
+  ['period_5fof_5f100ms_1',['PERIOD_OF_100MS',['../scheduler_8h.html#a0e326e581700f65bb50b2986afd8be19',1,'PERIOD_OF_100MS:&#160;scheduler.h'],['../timer_8h.html#a0e326e581700f65bb50b2986afd8be19',1,'PERIOD_OF_100MS:&#160;timer.h']]],
+  ['period_5fof_5f500ms_2',['PERIOD_OF_500MS',['../scheduler_8h.html#a00266f634ed944d56a34b4911423114f',1,'PERIOD_OF_500MS:&#160;scheduler.h'],['../timer_8h.html#a00266f634ed944d56a34b4911423114f',1,'PERIOD_OF_500MS:&#160;timer.h']]],
+  ['period_5fof_5f50ms_3',['PERIOD_OF_50MS',['../scheduler_8h.html#aee48d43e01309aa8345e7d8560e27290',1,'PERIOD_OF_50MS:&#160;scheduler.h'],['../timer_8h.html#aee48d43e01309aa8345e7d8560e27290',1,'PERIOD_OF_50MS:&#160;timer.h']]],
+  ['pwm_2ec_4',['pwm.c',['../pwm_8c.html',1,'']]],
+  ['pwm_2eh_5',['pwm.h',['../pwm_8h.html',1,'']]],
+  ['pwm_5fc_6',['PWM_C',['../pwm_8c.html#ac019d8df391da312de981960d70b90c1',1,'pwm.c']]],
+  ['pwm_5fdc_7',['pwm_dc',['../pwm_8c.html#aeecb714ebb1737911895d5b10fd89522',1,'pwm_dc(int param):&#160;pwm.c'],['../pwm_8h.html#aeecb714ebb1737911895d5b10fd89522',1,'pwm_dc(int param):&#160;pwm.c']]],
+  ['pwm_5finit_5fled_8',['pwm_init_LED',['../pwm_8c.html#ab47866d332b37a2715a9f01827ece553',1,'pwm_init_LED():&#160;pwm.c'],['../pwm_8h.html#ab47866d332b37a2715a9f01827ece553',1,'pwm_init_LED():&#160;pwm.c']]],
+  ['pwm_5fphase_5fcorrect_5ffor_5fa_9',['PWM_PHASE_CORRECT_FOR_A',['../timer_8h.html#aa79297ceb6a77769f9ccb9a79fda7e7e',1,'timer.h']]],
+  ['pwm_5fphase_5fcorrect_5ffor_5fb_10',['PWM_PHASE_CORRECT_FOR_B',['../timer_8h.html#ab0650dfa970781abaf103d16821de7b4',1,'timer.h']]],
+  ['pwm_5ftest_5fled_11',['pwm_test_led',['../pwm_8c.html#a5780bd2d608c940a6e79b25078506cfe',1,'pwm_test_led():&#160;pwm.c'],['../pwm_8h.html#a5780bd2d608c940a6e79b25078506cfe',1,'pwm_test_led():&#160;pwm.c']]]
 ];
