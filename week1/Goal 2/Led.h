@@ -9,6 +9,8 @@
 #define Led2 0x10
 //DDRA PORTA3
 #define Led3 0x08
+//DDRB 
+#define Led4 0x08
 
 void LedOn(volatile unsigned char *reg,PIN_Number pin);
 void LedOff(volatile unsigned char *reg,PIN_Number pin);
