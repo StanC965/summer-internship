@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['scheduler_5fc_0',['SCHEDULER_C',['../scheduler_8c.html#a9db7ba1d84050237af4430a6cf202e86',1,'scheduler.c']]],
-  ['scheduler_5fconfig_5fc_1',['SCHEDULER_CONFIG_C',['../scheduler__cfg_8c.html#aa1a20afcdbce5014fa3089507822f62f',1,'scheduler_cfg.c']]],
-  ['sd_2',['sd',['../pwm_8h.html#aa6a69f686cea87b52058a57a904a33e7',1,'pwm.h']]]
+  ['normal_5fmode_5ffor_5fa_0',['NORMAL_MODE_FOR_A',['../timer_8h.html#a33c46285645e8ba97706eda4e2e372a8',1,'timer.h']]],
+  ['normal_5fmode_5ffor_5fb_1',['NORMAL_MODE_FOR_B',['../timer_8h.html#a40bd7c3e1fb7fa6fb5f9c7be12092a96',1,'timer.h']]]
 ];

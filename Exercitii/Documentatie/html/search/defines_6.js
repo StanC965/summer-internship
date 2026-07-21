@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['period_5fof_5f1000ms_0',['PERIOD_OF_1000MS',['../scheduler_8h.html#a13b72b0c7c6048c2ded30af0c52de87d',1,'PERIOD_OF_1000MS:&#160;scheduler.h'],['../timer_8h.html#a13b72b0c7c6048c2ded30af0c52de87d',1,'PERIOD_OF_1000MS:&#160;timer.h']]],
-  ['period_5fof_5f100ms_1',['PERIOD_OF_100MS',['../scheduler_8h.html#a0e326e581700f65bb50b2986afd8be19',1,'PERIOD_OF_100MS:&#160;scheduler.h'],['../timer_8h.html#a0e326e581700f65bb50b2986afd8be19',1,'PERIOD_OF_100MS:&#160;timer.h']]],
-  ['period_5fof_5f500ms_2',['PERIOD_OF_500MS',['../scheduler_8h.html#a00266f634ed944d56a34b4911423114f',1,'PERIOD_OF_500MS:&#160;scheduler.h'],['../timer_8h.html#a00266f634ed944d56a34b4911423114f',1,'PERIOD_OF_500MS:&#160;timer.h']]],
-  ['period_5fof_5f50ms_3',['PERIOD_OF_50MS',['../scheduler_8h.html#aee48d43e01309aa8345e7d8560e27290',1,'PERIOD_OF_50MS:&#160;scheduler.h'],['../timer_8h.html#aee48d43e01309aa8345e7d8560e27290',1,'PERIOD_OF_50MS:&#160;timer.h']]],
-  ['pwm_5fc_4',['PWM_C',['../pwm_8c.html#ac019d8df391da312de981960d70b90c1',1,'pwm.c']]],
-  ['pwm_5fphase_5fcorrect_5ffor_5fa_5',['PWM_PHASE_CORRECT_FOR_A',['../timer_8h.html#aa79297ceb6a77769f9ccb9a79fda7e7e',1,'timer.h']]],
-  ['pwm_5fphase_5fcorrect_5ffor_5fb_6',['PWM_PHASE_CORRECT_FOR_B',['../timer_8h.html#ab0650dfa970781abaf103d16821de7b4',1,'timer.h']]]
+  ['led_5fc_0',['LED_C',['../led_8c.html#ae2e90b030538189d3b23b29da4053425',1,'led.c']]],
+  ['led_5ffour_1',['LED_FOUR',['../led_8h.html#a5e5ebeecf7ecc724fd0ecb7db7d9afec',1,'led.h']]],
+  ['led_5fone_2',['LED_ONE',['../led_8h.html#ae446ed24eab80781803b7d2612a42934',1,'led.h']]],
+  ['led_5fthree_3',['LED_THREE',['../led_8h.html#abf924a8f8ee015caae12686247a75b28',1,'led.h']]],
+  ['led_5ftwo_4',['LED_TWO',['../led_8h.html#a6d91f38697eaf3c3a1bdc257ba8075e5',1,'led.h']]],
+  ['led_5fzero_5',['LED_ZERO',['../led_8h.html#afde6a7f0441ddac09913f40b9d31be34',1,'led.h']]]
 ];

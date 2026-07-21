@@ -57,12 +57,13 @@ void pwm_test_led()
 
 void pwm_dc(int param)
 {
-  
-if(param < 0) param = 0;
+    if(param < 0) param = 0;
     if(param > 100) param = 100;
     
+   
+    int inverted_brightness = 100 - param; 
     
-    OCR0A = (unsigned char)((param * 255) / 100);
+    OCR0A = (unsigned char)((inverted_brightness * 255) / 100);
 }
 
 

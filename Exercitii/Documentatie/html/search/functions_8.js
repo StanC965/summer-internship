@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['schedule_5ftasks_5fdispatcher_0',['schedule_tasks_dispatcher',['../scheduler_8c.html#a5901eb1ef4eb0a45c77eb954fc923e24',1,'schedule_tasks_dispatcher(void):&#160;scheduler.c'],['../scheduler_8h.html#a5901eb1ef4eb0a45c77eb954fc923e24',1,'schedule_tasks_dispatcher(void):&#160;scheduler.c']]],
-  ['scheduler_5fflags_5fmanagement_1',['scheduler_flags_management',['../scheduler_8c.html#a45f1f0e86a49384eaedb54d1b133c2ec',1,'scheduler_flags_management(void):&#160;scheduler.c'],['../scheduler_8h.html#a45f1f0e86a49384eaedb54d1b133c2ec',1,'scheduler_flags_management(void):&#160;scheduler.c']]],
-  ['scheduler_5ftick_2',['Scheduler_Tick',['../main_8c.html#a5bacce0648e19faa58f69e326458f55b',1,'main.c']]],
-  ['setup_3',['setup',['../main_8c.html#a7dfd9b79bc5a37d7df40207afbc5431f',1,'main.c']]]
+  ['pwm_5fdc_0',['pwm_dc',['../pwm_8c.html#aeecb714ebb1737911895d5b10fd89522',1,'pwm_dc(int param):&#160;pwm.c'],['../pwm_8h.html#aeecb714ebb1737911895d5b10fd89522',1,'pwm_dc(int param):&#160;pwm.c']]],
+  ['pwm_5finit_5fled_1',['pwm_init_LED',['../pwm_8c.html#ab47866d332b37a2715a9f01827ece553',1,'pwm_init_LED():&#160;pwm.c'],['../pwm_8h.html#ab47866d332b37a2715a9f01827ece553',1,'pwm_init_LED():&#160;pwm.c']]],
+  ['pwm_5ftest_5fled_2',['pwm_test_led',['../pwm_8c.html#a5780bd2d608c940a6e79b25078506cfe',1,'pwm_test_led():&#160;pwm.c'],['../pwm_8h.html#a5780bd2d608c940a6e79b25078506cfe',1,'pwm_test_led():&#160;pwm.c']]]
 ];

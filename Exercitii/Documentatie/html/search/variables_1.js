@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['break_5findex_0',['break_index',['../scheduler__cfg_8c.html#ac07231254d6c8e92a7690a776a5a64fd',1,'scheduler_cfg.c']]]
+  ['current_5fanim_5fmode_0',['current_anim_mode',['../scheduler__cfg_8c.html#a2587bc646ad229a62bd70ea6cde8cc1a',1,'scheduler_cfg.c']]]
 ];

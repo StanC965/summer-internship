@@ -123,10 +123,17 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('scheduler__cfg
 <code>#include &quot;<a class="el" href="timer_8h_source.html">timer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="scheduler_8h_source.html">scheduler.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="adc_8h_source.html">adc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="button_8h_source.html">button.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pwm_8h_source.html">pwm.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:aa1a20afcdbce5014fa3089507822f62f" id="r_aa1a20afcdbce5014fa3089507822f62f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa1a20afcdbce5014fa3089507822f62f">SCHEDULER_CONFIG_C</a></td></tr>
+<tr class="memitem:aa826ce84c8c2b0059d002bf48bd8ed14" id="r_aa826ce84c8c2b0059d002bf48bd8ed14"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa826ce84c8c2b0059d002bf48bd8ed14">THRESHOLD_1</a>&#160;&#160;&#160;255</td></tr>
+<tr class="memitem:a4cd213e52297133e4492f5e1ec41dff4" id="r_a4cd213e52297133e4492f5e1ec41dff4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4cd213e52297133e4492f5e1ec41dff4">THRESHOLD_2</a>&#160;&#160;&#160;511</td></tr>
+<tr class="memitem:a546ad7dc7d5c96587479bb078855953a" id="r_a546ad7dc7d5c96587479bb078855953a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a546ad7dc7d5c96587479bb078855953a">THRESHOLD_3</a>&#160;&#160;&#160;767</td></tr>
+<tr class="memitem:aa504561cc78776dfd52c9203ab3a1ec9" id="r_aa504561cc78776dfd52c9203ab3a1ec9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa504561cc78776dfd52c9203ab3a1ec9">DAY_LIGHT</a>&#160;&#160;&#160;410</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -143,13 +150,30 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a594ccdaa6606fa0caa2835351796c3fa" id="r_a594ccdaa6606fa0caa2835351796c3fa"><td class="memItemLeft">volatile short&#160;</td><td class="memItemRight"><a class="el" href="#a594ccdaa6606fa0caa2835351796c3fa">sequence</a> [5] = {0, 64, 128, 192, 255}</td></tr>
-<tr class="memitem:a33a33a3f3b2d0d97117cd4ceeba5b6ef" id="r_a33a33a3f3b2d0d97117cd4ceeba5b6ef"><td class="memItemLeft">volatile unsigned char&#160;</td><td class="memItemRight"><a class="el" href="#a33a33a3f3b2d0d97117cd4ceeba5b6ef">index</a> = 0</td></tr>
-<tr class="memitem:ae7f85faba1479db5dde41e1ec46f6bb2" id="r_ae7f85faba1479db5dde41e1ec46f6bb2"><td class="memItemLeft">volatile int&#160;</td><td class="memItemRight"><a class="el" href="#ae7f85faba1479db5dde41e1ec46f6bb2">completion_index</a> = 0</td></tr>
-<tr class="memitem:ac07231254d6c8e92a7690a776a5a64fd" id="r_ac07231254d6c8e92a7690a776a5a64fd"><td class="memItemLeft">volatile int&#160;</td><td class="memItemRight"><a class="el" href="#ac07231254d6c8e92a7690a776a5a64fd">break_index</a> =0</td></tr>
-<tr class="memitem:a04734d83db76b4c42596304993e4ac5c" id="r_a04734d83db76b4c42596304993e4ac5c"><td class="memItemLeft">volatile _Bool&#160;</td><td class="memItemRight"><a class="el" href="#a04734d83db76b4c42596304993e4ac5c">increasing</a> =1</td></tr>
+<tr class="memitem:adbdf483f94528e88976c3b3702ac5fd6" id="r_adbdf483f94528e88976c3b3702ac5fd6"><td class="memItemLeft">volatile _Bool&#160;</td><td class="memItemRight"><a class="el" href="#adbdf483f94528e88976c3b3702ac5fd6">day</a> =1</td></tr>
+<tr class="memitem:aa164b55d8afb367222da5cd5c39df634" id="r_aa164b55d8afb367222da5cd5c39df634"><td class="memItemLeft">volatile _Bool&#160;</td><td class="memItemRight"><a class="el" href="#aa164b55d8afb367222da5cd5c39df634">headlights</a> =0</td></tr>
+<tr class="memitem:ac99096c4e571fc859e04109a7509a44e" id="r_ac99096c4e571fc859e04109a7509a44e"><td class="memItemLeft">static const unsigned char&#160;</td><td class="memItemRight"><a class="el" href="#ac99096c4e571fc859e04109a7509a44e">anim_night</a> [11] = {0, 1, 1, 3, 7, 16, 16, 14, 12, 10, 8}</td></tr>
+<tr class="memitem:a93dc94511c43fae4cbe15939873574af" id="r_a93dc94511c43fae4cbe15939873574af"><td class="memItemLeft">static const unsigned char&#160;</td><td class="memItemRight"><a class="el" href="#a93dc94511c43fae4cbe15939873574af">anim_day</a> [11] = {0, 4, 7, 16, 44, 59, 59, 55, 50, 45, 40}</td></tr>
+<tr class="memitem:a4412684114df0e570bf9402ab8f88adb" id="r_a4412684114df0e570bf9402ab8f88adb"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a4412684114df0e570bf9402ab8f88adb">system_state</a> = 0</td></tr>
+<tr class="memitem:ad63f4d45c7242776b86bc125e88bb1e9" id="r_ad63f4d45c7242776b86bc125e88bb1e9"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#ad63f4d45c7242776b86bc125e88bb1e9">anim_step</a> = 0</td></tr>
+<tr class="memitem:a9a48abfa3b3a72f4510a241cc5d51881" id="r_a9a48abfa3b3a72f4510a241cc5d51881"><td class="memItemLeft">static _Bool&#160;</td><td class="memItemRight"><a class="el" href="#a9a48abfa3b3a72f4510a241cc5d51881">animation_request</a> = 0</td></tr>
+<tr class="memitem:a2587bc646ad229a62bd70ea6cde8cc1a" id="r_a2587bc646ad229a62bd70ea6cde8cc1a"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a2587bc646ad229a62bd70ea6cde8cc1a">current_anim_mode</a> = 0</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="aa504561cc78776dfd52c9203ab3a1ec9" name="aa504561cc78776dfd52c9203ab3a1ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa504561cc78776dfd52c9203ab3a1ec9">&#9670;&#160;</a></span>DAY_LIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DAY_LIGHT&#160;&#160;&#160;410</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa1a20afcdbce5014fa3089507822f62f" name="aa1a20afcdbce5014fa3089507822f62f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1a20afcdbce5014fa3089507822f62f">&#9670;&#160;</a></span>SCHEDULER_CONFIG_C</h2>
 
@@ -158,6 +182,48 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define SCHEDULER_CONFIG_C</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa826ce84c8c2b0059d002bf48bd8ed14" name="aa826ce84c8c2b0059d002bf48bd8ed14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa826ce84c8c2b0059d002bf48bd8ed14">&#9670;&#160;</a></span>THRESHOLD_1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESHOLD_1&#160;&#160;&#160;255</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cd213e52297133e4492f5e1ec41dff4" name="a4cd213e52297133e4492f5e1ec41dff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cd213e52297133e4492f5e1ec41dff4">&#9670;&#160;</a></span>THRESHOLD_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESHOLD_2&#160;&#160;&#160;511</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a546ad7dc7d5c96587479bb078855953a" name="a546ad7dc7d5c96587479bb078855953a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a546ad7dc7d5c96587479bb078855953a">&#9670;&#160;</a></span>THRESHOLD_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESHOLD_3&#160;&#160;&#160;767</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -258,77 +324,166 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">\brief      [  This function completes a task every 50ms]  
-</pre> <p>graficul nu a fost dat in problema ,asa ca am presupus ca s-a cerut un semnal trapezoidal</p>
-
+</pre> 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="ac07231254d6c8e92a7690a776a5a64fd" name="ac07231254d6c8e92a7690a776a5a64fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac07231254d6c8e92a7690a776a5a64fd">&#9670;&#160;</a></span>break_index</h2>
+<a id="a93dc94511c43fae4cbe15939873574af" name="a93dc94511c43fae4cbe15939873574af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93dc94511c43fae4cbe15939873574af">&#9670;&#160;</a></span>anim_day</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned char anim_day[11] = {0, 4, 7, 16, 44, 59, 59, 55, 50, 45, 40}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac99096c4e571fc859e04109a7509a44e" name="ac99096c4e571fc859e04109a7509a44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac99096c4e571fc859e04109a7509a44e">&#9670;&#160;</a></span>anim_night</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned char anim_night[11] = {0, 1, 1, 3, 7, 16, 16, 14, 12, 10, 8}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad63f4d45c7242776b86bc125e88bb1e9" name="ad63f4d45c7242776b86bc125e88bb1e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad63f4d45c7242776b86bc125e88bb1e9">&#9670;&#160;</a></span>anim_step</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int anim_step = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a48abfa3b3a72f4510a241cc5d51881" name="a9a48abfa3b3a72f4510a241cc5d51881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a48abfa3b3a72f4510a241cc5d51881">&#9670;&#160;</a></span>animation_request</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">_Bool animation_request = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2587bc646ad229a62bd70ea6cde8cc1a" name="a2587bc646ad229a62bd70ea6cde8cc1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2587bc646ad229a62bd70ea6cde8cc1a">&#9670;&#160;</a></span>current_anim_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int current_anim_mode = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adbdf483f94528e88976c3b3702ac5fd6" name="adbdf483f94528e88976c3b3702ac5fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbdf483f94528e88976c3b3702ac5fd6">&#9670;&#160;</a></span>day</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile int break_index =0</td>
+          <td class="memname">volatile _Bool day =1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae7f85faba1479db5dde41e1ec46f6bb2" name="ae7f85faba1479db5dde41e1ec46f6bb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7f85faba1479db5dde41e1ec46f6bb2">&#9670;&#160;</a></span>completion_index</h2>
+<a id="aa164b55d8afb367222da5cd5c39df634" name="aa164b55d8afb367222da5cd5c39df634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa164b55d8afb367222da5cd5c39df634">&#9670;&#160;</a></span>headlights</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile int completion_index = 0</td>
+          <td class="memname">volatile _Bool headlights =0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a04734d83db76b4c42596304993e4ac5c" name="a04734d83db76b4c42596304993e4ac5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04734d83db76b4c42596304993e4ac5c">&#9670;&#160;</a></span>increasing</h2>
+<a id="a4412684114df0e570bf9402ab8f88adb" name="a4412684114df0e570bf9402ab8f88adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4412684114df0e570bf9402ab8f88adb">&#9670;&#160;</a></span>system_state</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">volatile _Bool increasing =1</td>
+          <td class="memname">int system_state = 0</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a33a33a3f3b2d0d97117cd4ceeba5b6ef" name="a33a33a3f3b2d0d97117cd4ceeba5b6ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33a33a3f3b2d0d97117cd4ceeba5b6ef">&#9670;&#160;</a></span>index</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile unsigned char index = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a594ccdaa6606fa0caa2835351796c3fa" name="a594ccdaa6606fa0caa2835351796c3fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a594ccdaa6606fa0caa2835351796c3fa">&#9670;&#160;</a></span>sequence</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile short sequence[5] = {0, 64, 128, 192, 255}</td>
-        </tr>
-      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

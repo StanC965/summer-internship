@@ -2,6 +2,8 @@ var files_dup =
 [
     [ "adc.c", "adc_8c.html", "adc_8c" ],
     [ "adc.h", "adc_8h.html", "adc_8h" ],
+    [ "button.c", "button_8c.html", "button_8c" ],
+    [ "button.h", "button_8h.html", "button_8h" ],
     [ "gpio.c", "gpio_8c.html", "gpio_8c" ],
     [ "gpio.h", "gpio_8h.html", "gpio_8h" ],
     [ "led.c", "led_8c.html", "led_8c" ],
