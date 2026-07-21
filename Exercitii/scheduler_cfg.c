@@ -31,9 +31,11 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  Implementation      */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+typedef enum { STATE_ON2S,STATE_OFF1S, STATE_ON1S,STATE_OFF3S } led_state_t;
+static led_state_t current_state = STATE_OFF1S;
+volatile unsigned char period=0;
 
 
-volatile _Bool led_state=0;
 
 
 void task_10ms(void)
@@ -58,17 +60,37 @@ void task_500ms(void)
 
 void task_1000ms(void)
 {
-   if(led_state)
-   {
-     led_Reset(LED_ZERO);
-     
-   }
-   else
-   {
-     led_Set(LED_ZERO);
-   }
-   led_state=!led_state;
+  period++;
+  switch(current_state)
+  {
+  case STATE_OFF1S: led_Reset(LED_ZERO);
+      current_state=STATE_ON1S;
+      period=0;
+      break;
+  case STATE_ON1S: if(period ==3)
+  {
+    current_state=STATE_OFF3S;
+    period=0;
+    led_Set(LED_ZERO);
+  }
+  break;
+  case STATE_OFF3S:if(period==2)
+  {
+    current_state=STATE_ON2S;
+    period=0;
+    led_Reset(LED_ZERO);
+  }
+  break;
+  case STATE_ON2S: 
+    period=0;
+    current_state=STATE_OFF1S;
+  led_Set(LED_ZERO);
+  break;
   
+   
+    
+    
+  }
 }
             
        
