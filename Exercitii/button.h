@@ -77,14 +77,7 @@ extern unsigned char button_get_press_bttn2(void) ;
 */
 extern unsigned char button_get_press_bttn3(void) ; 
 
-/** \fn  _Bool button_Sw0_State()
 
-    \brief      [da starea butonului]  
-    \param[in]  [ 4_Bool parameters]
-    \param[out] [void  ]
-    \return     [ none]
-    \details    []
-*/
-extern _Bool button_Sw0_State();
+
 
 #endif

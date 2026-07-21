@@ -1,106 +1,113 @@
 #ifndef SCHEDULER_CONFIG_C
 #define SCHEDULER_CONFIG_C
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    Includes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-#include "gpio.h"       
+
+#include "gpio.h"        
 #include "iom324pb.h"  
 #include "timer.h"
 #include "scheduler.h"
 #include "led.h"
-#include "adc.h"
 #include "button.h"
-#include "pwm.h"
 
-#ifdef ADC_USE_8_BIT_RESOLUTION
-    #define THRESHOLD_1 64
-    #define THRESHOLD_2 128
-    #define THRESHOLD_3 192
-    #define DAY_LIGHT   102
-#else
-    #define THRESHOLD_1 255    //bloc decizie rezolutiede 8 sau 10
-    #define THRESHOLD_2 511
-    #define THRESHOLD_3 767
-    #define DAY_LIGHT   410
-#endif
+#define BLINK_NUMBER 10
 
+volatile unsigned char counter=0;
+//STATES
+void led_SW_BLOCKS();
+void led_SW_OFF();
+void led_SW_BLINK();
 
+//State pointer
+void (*statefunc)()=led_SW_OFF;
 
-
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-/*  Implementation      */
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-typedef enum { STATE_ON2S,STATE_OFF1S, STATE_ON1S,STATE_OFF3S } led_state_t;
-static led_state_t current_state = STATE_OFF1S;
-volatile unsigned char period=0;
-
-
-void led_on();
-void led_off();
-void (*statefunc)()=led_on;
-
-void led_on()
+void led_SW_BLOCKS()
 {
+led_Set(LED_ONE);
+led_Set(LED_TWO);
+led_Set(LED_THREE);
 led_Reset(LED_ZERO);
-statefunc=led_off;
+
+if(button_get_press_sw0() )
+{
+statefunc=led_SW_OFF;
+led_Set(LED_ONE);
+led_Set(LED_TWO);
+led_Set(LED_THREE);
+led_Set(LED_ZERO);
+return;
+}
+
+else 
+{
+  if(button_get_press_bttn1())
+        statefunc=led_SW_BLINK;
+  if(button_get_press_bttn2())
+        statefunc=led_SW_BLINK;
+    
+  if(button_get_press_bttn3())
+        statefunc=led_SW_BLINK;
+  
+}
+  
+}
+
+void led_SW_OFF()
+{
+
+if(button_get_press_sw0() )
+{
+statefunc=led_SW_OFF;
+led_Set(LED_ONE);
+led_Set(LED_TWO);
+led_Set(LED_THREE);
+led_Reset(LED_ZERO);
+statefunc=led_SW_BLOCKS;
+return;
+}
+else 
+{
+    if(button_get_press_bttn1())
+        led_TOGGLE(LED_ONE);
+  if(button_get_press_bttn2())
+        led_TOGGLE(LED_TWO);
+    
+  if(button_get_press_bttn3())
+       led_TOGGLE(LED_THREE);
+
 }
 
 
-void led_off()
+return;
+}
+
+void led_SW_BLINK()
 {
-led_Set(LED_ZERO);
-statefunc=led_on;
+  counter++;
+  led_TOGGLE(LED_ZERO);
+  if(counter==6)
+  {
+    counter=0;
+  led_Reset(LED_ZERO);
+  statefunc=led_SW_BLOCKS;
+  }
+ return;
 }
 
 void task_10ms(void)
 {
     
+  button_update_all();
+      (*statefunc)();
+ 
+
 }
+
 void task_50ms(void)
-{
-    
-
-}
-
-
-void task_100ms(void)
-{
-    
-}
-void task_500ms(void)
 {
    
 }
 
-void task_1000ms(void)
-{
-  
-  (*statefunc)();
-  
-}
-            
-       
-
+void task_100ms(void) {}
+void task_500ms(void) {}
+void task_1000ms(void) {}
 
 #endif
-
-
-/*
-
-Time [sec]	Entry phase Night mode RELATIVE steps	Entry phase Day mode RELATIVE steps
-0	0	0
-0.2	1	4
-0.4	1	7
-0.6	3	16
-0.8	7	44
-1	16	59
-1.2	16	59
-1.4	14	55
-1.6	12	50
-1.8	10	45
-2	8	40
-Success in winning the project !!! Enjoy your 22h flight and don't forget to come
-
-
-*/

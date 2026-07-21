@@ -47,47 +47,52 @@ void button_update_all(void)
     debounce_buffer_sw0 = ((debounce_buffer_sw0 << 1) | current) & 0x1F; 
     
     if (debounce_buffer_sw0 == 0x1F) 
-      stable_state_sw0 = 1;//oprit
+      stable_state_sw0 = 1;
     else if (debounce_buffer_sw0 == 0x00) 
-      stable_state_sw0 = 0;//pornit
+      stable_state_sw0 = 0;
     
-    press_edge_sw0 = (stable_state_sw0 == 1 && prev_state_sw0 == 0);
+   
+    if (stable_state_sw0 == 1 && prev_state_sw0 == 0) {
+        press_edge_sw0 = 1; 
+    }
     prev_state_sw0 = stable_state_sw0;
 
     // BTTN1 Debounce
     current = ((PINC & 0x02) == 0) ? 1 : 0;
     debounce_buffer_bttn1 = ((debounce_buffer_bttn1 << 1) | current) & 0x1F;
+    if (debounce_buffer_bttn1 == 0x1F) stable_state_bttn1 = 1;
+    else if (debounce_buffer_bttn1 == 0x00) stable_state_bttn1 = 0;
     
-    if (debounce_buffer_bttn1 == 0x1F) 
-      stable_state_bttn1 = 1;
-    else if (debounce_buffer_bttn1 == 0x00)
-      stable_state_bttn1 = 0;
-    press_edge_bttn1 = (stable_state_bttn1 == 1 && prev_state_bttn1 == 0);
+ 
+    if (stable_state_bttn1 == 1 && prev_state_bttn1 == 0) {
+        press_edge_bttn1 = 1;
+    }
     prev_state_bttn1 = stable_state_bttn1;
 
     // BTTN2 Debounce
     current = ((PINA & 0x01) == 0) ? 1 : 0;
     debounce_buffer_bttn2 = ((debounce_buffer_bttn2 << 1) | current) & 0x1F;
+    if (debounce_buffer_bttn2 == 0x1F) stable_state_bttn2 = 1;
+    else if (debounce_buffer_bttn2 == 0x00) stable_state_bttn2 = 0;
     
-    if (debounce_buffer_bttn2 == 0x1F)
-      stable_state_bttn2 = 1;
-    else if (debounce_buffer_bttn2 == 0x00)
-      stable_state_bttn2 = 0;
-    press_edge_bttn2 = (stable_state_bttn2 == 1 && prev_state_bttn2 == 0);
+  
+    if (stable_state_bttn2 == 1 && prev_state_bttn2 == 0) {
+        press_edge_bttn2 = 1;
+    }
     prev_state_bttn2 = stable_state_bttn2;
 
     // BTTN3 Debounce
     current = ((PINA & 0x02) == 0) ? 1 : 0;
     debounce_buffer_bttn3 = ((debounce_buffer_bttn3 << 1) | current) & 0x1F;
+    if (debounce_buffer_bttn3 == 0x1F) stable_state_bttn3 = 1;
+    else if (debounce_buffer_bttn3 == 0x00) stable_state_bttn3 = 0;
     
-    if (debounce_buffer_bttn3 == 0x1F)
-      stable_state_bttn3 = 1;
-    else if (debounce_buffer_bttn3 == 0x00)
-      stable_state_bttn3 = 0;
-    press_edge_bttn3 = (stable_state_bttn3 == 1 && prev_state_bttn3 == 0);
+    
+    if (stable_state_bttn3 == 1 && prev_state_bttn3 == 0) {
+        press_edge_bttn3 = 1;
+    }
     prev_state_bttn3 = stable_state_bttn3;
 }
-
 
 unsigned char button_get_press_sw0(void)  
 { unsigned char ret = press_edge_sw0;   press_edge_sw0 = 0;   return ret; }
@@ -100,13 +105,5 @@ unsigned char button_get_press_bttn2(void)
 
 unsigned char button_get_press_bttn3(void)
 { unsigned char ret = press_edge_bttn3; press_edge_bttn3 = 0; return ret; }
-
-_Bool button_Sw0_State()
-{
-    if(stable_state_sw0)
-      return 1;
-    else 
-      return 0;
-}
 
 #endif

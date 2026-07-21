@@ -1,6 +1,5 @@
 var main_8c =
 [
-    [ "main", "main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667", null ],
-    [ "Scheduler_Tick", "main_8c.html#a5bacce0648e19faa58f69e326458f55b", null ],
-    [ "setup", "main_8c.html#a7dfd9b79bc5a37d7df40207afbc5431f", null ]
+    [ "main", "main_8c.html#a840291bc02cba5474a4cb46a9b9566fe", null ],
+    [ "setup", "main_8c.html#a4fc01d736fe50cf5b977f755b675f11d", null ]
 ];

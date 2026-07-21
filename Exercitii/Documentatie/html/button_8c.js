@@ -5,7 +5,6 @@ var button_8c =
     [ "button_get_press_bttn2", "button_8c.html#a4cab1036b8080cffa9d872a51d1c1464", null ],
     [ "button_get_press_bttn3", "button_8c.html#a34f1fb15a30613b4d5bd269318ce74d4", null ],
     [ "button_get_press_sw0", "button_8c.html#aba319ff0ce4dfc814c22eeba79cb6a31", null ],
-    [ "button_Sw0_State", "button_8c.html#aaeee2b868c4ee17f3ef987bdd5b328dd", null ],
     [ "button_update_all", "button_8c.html#a673351224c2dcf537fec9f7a37f5d144", null ],
     [ "buttons_initialize", "button_8c.html#aaf4ec7a66cf9ed215d2b044c45c561bd", null ],
     [ "debounce_buffer_bttn1", "button_8c.html#a2b6c66f7c86311077db1148fa1bce919", null ],
