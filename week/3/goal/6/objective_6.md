@@ -12,7 +12,7 @@
 | **[661]** | `STRETCH`  | [] Completed
 | **[662]** | `STRETCH`  | [] Completed
 | **[663]** | `CORE`     | [x] Completed
-
+| **[664]** | `CORE`     | [x] Completed
 
 ---
 
@@ -61,5 +61,14 @@
 > 5. ACTIONS / OUTPUTS
 > - On entering LED_X_ON: led_power_on(LED_X)
 > - On entering LED_X_OFF: led_power_off(LED_X)
+
+---
+
+#### Task 664
+> **Question/Prompt:** Use an UML STATE MACHINE DIAGRAM to describe/capture the elements identified previously. e.g. online tools: draw.io.
+
+> **Answer/Explanation:**
+
+![alt text](../../../../images/w3g6obj6t664.png)
 
 ---
