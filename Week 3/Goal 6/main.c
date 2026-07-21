@@ -1,4 +1,4 @@
-//641
+//672
 #include "iom324pb.h"
 #include <intrinsics.h>
 #include "pwm.h"
@@ -25,13 +25,8 @@ void timer1_init(void){
 }
 
 void leds_button_init(void){
-  Init_LED(&DDRD, LED1_PIN, OUTPUT);
-  Init_LED(&DDRD, LED2_PIN, OUTPUT);
-  set_pin(&PORTD, LED1_PIN); 
-  set_pin(&PORTD, LED2_PIN); 
-  set_direction(&DDRC, BTNSW0_PIN, INPUT);
-  set_pin(&PORTC, BTNSW0_PIN);
-  
+  Init_LED(&DDRC, LED0_PIN, OUTPUT);
+  set_pin(&PORTC, LED0_PIN); 
 }
 
 #pragma vector=TIMER1_COMPA_vect
@@ -40,15 +35,17 @@ __interrupt void timer1_ISR(void){
 }
 
 void setup_init(void){
-  adc_init();
+  //adc_init();
   leds_button_init();
-  pwm_init();
+  //pwm_init();
+  timer1_init();
 }
 
 
 void main( void )
 {
   setup_init();
-  timer1_init();
+  while(1){
   schedule_tasks_dispatcher();
+  }
 }
