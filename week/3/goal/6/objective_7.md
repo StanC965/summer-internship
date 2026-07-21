@@ -10,8 +10,7 @@
 | Task ID   | Type       | Status
 | :---      | :---       | :--- 
 | **[671]** | `CORE`     | [x] Completed
-
-
+| **[672]** | `CORE`     | [x] Completed
 
 ---
 
@@ -33,5 +32,50 @@
 
 > **Answer/Explanation:**
 > 
+
+---
+
+#### Task 671
+> **Question/Prompt:**  Consider LED0 with blinking behavior (ON 1sec, OFF 1 sec) implemented with IFs like in the example below. Use draw.io to draw UML State Machine diagram for it. Then re-write the code using the Task Scheduler and your own State Machine to drive the behavior described.
+
+> **Answer/Explanation:**
+
+![alt text](../../../../images/w3g6obj7t671.png)
+
+```c
+typedef enum
+{
+    LED_STATE_OFF = 0,
+    LED_STATE_ON
+} led_state_t;
+```
+
+```c
+void led_state_machine_update(void)
+{
+    static led_state_t state = LED_STATE_OFF;
+
+    switch (state)
+    {
+    case LED_STATE_OFF:
+        led_power_on(LED_ONBOARD);
+        state = LED_STATE_ON;
+        break;
+
+    case LED_STATE_ON:
+        led_power_off(LED_ONBOARD);
+        state = LED_STATE_OFF;
+        break;
+    }
+}
+```
+
+```c
+void task_1000ms(void)
+{
+    led_state_machine_update();
+}
+
+```
 
 ---
