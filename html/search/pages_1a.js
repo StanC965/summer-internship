@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['task_20scheduler_0',['Objective 1: Building from scratch a TASK SCHEDULER',['../md_docs_2work-instructions_2week3-goal1.html#autotoc_md95',1,'']]],
+  ['task_20scheduler_1',['Objective 3: Understanding DEBOUNCE with Task Scheduler',['../md_docs_2work-instructions_2week3-goal1.html#autotoc_md99',1,'']]],
+  ['tc0_2',['TC0',['../md_docs_2work-instructions_2week3-goal2.html#autotoc_md106',1,'Objective 2: Fast PWM MODE of operation for TC0'],['../md_docs_2work-instructions_2week2-goal2.html#autotoc_md86',1,'Objective 2: Start simple — NORMAL MODE of operation for TC0'],['../md_docs_2work-instructions_2week2-goal2.html#autotoc_md88',1,'Objective 3: CTC MODE of operation for TC0']]],
+  ['tc0_20timer_3',['Objective 1: Getting to know TC0 timer',['../md_docs_2work-instructions_2week2-goal2.html#autotoc_md84',1,'']]],
+  ['tc1_4',['Objective 5: Advancing TC1',['../md_docs_2work-instructions_2week2-goal2.html#autotoc_md92',1,'']]],
+  ['technique_5',['Objective 6: Architecting S.O.S. - polling technique',['../md_docs_2work-instructions_2week1-goal2.html#autotoc_md68',1,'']]],
+  ['test_20application_6',['Objective 3: Implement driver and test application',['../md_docs_2work-instructions_2week3-goal3.html#autotoc_md125',1,'']]],
+  ['the_20adc_7',['Objective 5: Mastering the ADC',['../md_docs_2work-instructions_2week2-goal1.html#autotoc_md79',1,'']]],
+  ['the_20boards_20user_20guides_20schematics_20to_20what_20pins_20you_20can_20output_20a_20pwm_20signal_20and_20if_20those_20pins_20have_20leds_20connected_20not_20all_20pins_20can_20support_20output_20pwm_20signals_8',['622 — CORE — Check on the boards (user guides, schematics) to what pins you can output a PWM signal and if those pins have LEDs connected !!! Not all pins can support/output PWM signals.',['../md__raspunsuri_2622_2_raspuns.html',1,'']]],
+  ['the_20code_20size_9',['Objective 5: Measuring the code size',['../md_docs_2work-instructions_2week3-goal2.html#autotoc_md112',1,'']]],
+  ['the_20usart_10',['Objective 2: Setting up the USART',['../md_docs_2work-instructions_2week3-goal3.html#autotoc_md123',1,'']]],
+  ['the_20user_20button_20sw0_20debounce_11',['Objective 5: Reading the user button SW0 - debounce',['../md_docs_2work-instructions_2week1-goal2.html#autotoc_md66',1,'']]],
+  ['those_20pins_20have_20leds_20connected_20not_20all_20pins_20can_20support_20output_20pwm_20signals_12',['622 — CORE — Check on the boards (user guides, schematics) to what pins you can output a PWM signal and if those pins have LEDs connected !!! Not all pins can support/output PWM signals.',['../md__raspunsuri_2622_2_raspuns.html',1,'']]],
+  ['timer_13',['Objective 1: Getting to know TC0 timer',['../md_docs_2work-instructions_2week2-goal2.html#autotoc_md84',1,'']]],
+  ['tiny_20objective_14',['4) Best granularity: week-goal, not every tiny objective',['../md_docs_2guide_2github-workflow-progress.html#autotoc_md8',1,'']]],
+  ['to_20know_20tc0_20timer_15',['Objective 1: Getting to know TC0 timer',['../md_docs_2work-instructions_2week2-goal2.html#autotoc_md84',1,'']]],
+  ['to_20what_20pins_20you_20can_20output_20a_20pwm_20signal_20and_20if_20those_20pins_20have_20leds_20connected_20not_20all_20pins_20can_20support_20output_20pwm_20signals_16',['622 — CORE — Check on the boards (user guides, schematics) to what pins you can output a PWM signal and if those pins have LEDs connected !!! Not all pins can support/output PWM signals.',['../md__raspunsuri_2622_2_raspuns.html',1,'']]],
+  ['to_20work_20with_20logic_20analyzer_20example_20for_20led0_20exercise_17',['How to work with Logic Analyzer (example for LED0 exercise)',['../md_docs_2guide_2logic-analyzer.html',1,'']]],
+  ['tracked_20goal_20instead_20of_20commit_20message_20parsing_18',['5) One PR per tracked goal (instead of commit message parsing)',['../md_docs_2guide_2github-workflow-progress.html#autotoc_md9',1,'']]],
+  ['tracking_19',['GitHub Workflow and Progress Tracking',['../md_docs_2guide_2github-workflow-progress.html',1,'']]],
+  ['turn_20on_20external_20leds_20',['Objective 2: Turn on external LEDs',['../md_docs_2work-instructions_2week1-goal2.html#autotoc_md60',1,'']]],
+  ['turn_20on_20user_20led0_21',['Objective 1: Turn on user LED0',['../md_docs_2work-instructions_2week1-goal2.html#autotoc_md58',1,'']]],
+  ['tutorial_20with_20iar_22',['New Project Tutorial with IAR',['../md_docs_2guide_2new-project-iar.html',1,'']]]
+];
