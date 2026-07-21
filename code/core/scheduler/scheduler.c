@@ -17,6 +17,7 @@ static volatile uint32_t scheduler_tick_counter = 0;
 static volatile uint8_t scheduler_flag_10ms = 0;
 static volatile uint8_t scheduler_flag_50ms = 0;
 static volatile uint8_t scheduler_flag_100ms = 0;
+static volatile uint8_t scheduler_flag_200ms = 0;
 static volatile uint8_t scheduler_flag_500ms = 0;
 static volatile uint8_t scheduler_flag_1000ms = 0;
 
@@ -37,6 +38,11 @@ void scheduler_flags_management(void)
     if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_100MS) == 0)
     {
         scheduler_flag_100ms = 1;
+    }
+
+    if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_200MS) == 0)
+    {
+        scheduler_flag_200ms = 1;
     }
 
     if ((scheduler_tick_counter % SCHEDULER_TICK_FOR_500MS) == 0)
@@ -70,6 +76,12 @@ void scheduler_tasks_dispatcher(void)
         {
             scheduler_flag_100ms = 0;
             task_100ms();
+        }
+
+        if (scheduler_flag_200ms)
+        {
+            scheduler_flag_200ms = 0;
+            task_200ms();
         }
 
         if (scheduler_flag_500ms)
