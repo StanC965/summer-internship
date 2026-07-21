@@ -5,36 +5,34 @@
 Autor: Strava Cosmin-Paul
 Data: 2026
 
-Interfata modulului Timer/Counter0.
+Driver TC0 pentru CTC Mode.
 
-Configuratie:
-- Normal Mode;
-- sistem clock = 1 MHz;
-- prescaler = 64;
-- interrupt la overflow;
-- eveniment periodic dupa 61 overflow-uri.
+TCNT0 numara de la 0 pana la OCR0A.
+La compare match:
+- TCNT0 este resetat;
+- poate fi comutat automat pinul OC0A;
+- poate fi generata intreruperea Compare Match A.
 */
 
-#define TC0_FALSE                       (0U)
-#define TC0_TRUE                        (1U)
-
-#define TC0_PERIOD_NOT_ELAPSED          (TC0_FALSE)
-#define TC0_PERIOD_ELAPSED              (TC0_TRUE)
+#define TC0_FALSE                    (0U)
+#define TC0_TRUE                     (1U)
 
 typedef unsigned char tc0_uint8_t;
 
-/* Module initialization */
+typedef void (*tc0_callback_t)(void);
 
-extern void tc0_init(void);
+extern void tc0_init(
+    tc0_uint8_t tc0_top_value,
+    tc0_uint8_t tc0_toggle_oc0a,
+    tc0_callback_t tc0_callback
+);
 
-/* Atomic actions */
-
-extern void tc0_start(void);
+extern void tc0_start_prescaler_1(void);
+extern void tc0_start_prescaler_8(void);
+extern void tc0_start_prescaler_64(void);
+extern void tc0_start_prescaler_256(void);
+extern void tc0_start_prescaler_1024(void);
 
 extern void tc0_stop(void);
-
-extern tc0_uint8_t tc0_is_period_elapsed(void);
-
-extern void tc0_clear_period_status(void);
 
 #endif
