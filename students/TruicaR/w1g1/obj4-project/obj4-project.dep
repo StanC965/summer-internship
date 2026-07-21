@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>3271079241</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Debug\Exe\obj4-project.d90</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\obj4-project.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\main.c</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\obj4-project.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 4 2 6 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 5 0</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 9 6</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 7 1 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>
