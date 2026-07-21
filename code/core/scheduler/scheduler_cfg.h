@@ -39,12 +39,21 @@ extern void task_50ms(void);
 */
 extern void task_100ms(void);
 
+/** \fn      void task_200ms(void)
+    \brief   [  ]
+    \param   [ None ] 
+    \return  [ None ]
+    \details [  ]
+*/
+extern void task_200ms(void);
+
 /** \fn      void task_500ms(void)
     \brief   [  ]
     \param   [ None ] 
     \return  [ None ]
     \details [  ]
 */
+
 extern void task_500ms(void);
 
 /** \fn      void task_1000ms(void)

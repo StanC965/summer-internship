@@ -11,6 +11,7 @@
 #include "button.h"
 #include "hvac_control.h"
 #include "pwm.h"
+#include "lighting.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects & functions
@@ -21,7 +22,12 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void task_10ms(void)
 {
-    pwm_incremental_update();
+  button_debounce_update();
+  
+  if(button_was_pressed(BUTTON_ONBOARD))
+  {
+    lighting_trigger_entry_phase();
+  }
 }
 
 void task_50ms(void)
@@ -30,6 +36,11 @@ void task_50ms(void)
 
 void task_100ms(void)
 {
+}
+
+void task_200ms(void)
+{
+    lighting_entry_phase_update();
 }
 
 void task_500ms(void)
