@@ -35,9 +35,33 @@ void gpio_set_pin(volatile uint8_t *port_register, uint8_t pin)
   *port_register |= BIT_MASK(pin);
 }
 
+void gpio_switch_set_pin(volatile uint8_t *port_register, uint8_t pin)
+{
+  switch (pin)
+  {
+  case 1:
+    *port_register |= BIT_MASK(pin);
+    break;
+  default:
+    break;
+  }
+}
+
 void gpio_reset_pin(volatile uint8_t *port_register, uint8_t pin)
 {
   *port_register &= ~BIT_MASK(pin);
+}
+
+void gpio_switch_reset_pin(volatile uint8_t *port_register, uint8_t pin)
+{
+  switch (pin)
+  {
+  case 1:
+    *port_register &= ~BIT_MASK(pin);
+    break;
+  default:
+    break;
+  }
 }
 
 void gpio_set_direction(volatile uint8_t *ddr_register, uint8_t direction, uint8_t pin)
