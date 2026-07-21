@@ -26,6 +26,11 @@ void scheduler_flags_management(void)
 
 void schedule_tasks_dispatcher(void)
 {
+  if (flag_10ms) 
+  { 
+    flag_10ms = 0; 
+    task_10ms(); 
+  }
     while (1)
     {
         if (flag_50ms)   { flag_50ms = 0;   task_50ms(); }

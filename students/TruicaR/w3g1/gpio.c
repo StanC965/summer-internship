@@ -34,3 +34,18 @@ unsigned char gpio_debounce(volatile unsigned char *pin_reg, unsigned char pin)
     }
     return 0;
 }
+
+#define DEBOUNCE_MASK       0x1F 
+#define DEBOUNCE_ALL_LOW    0x00
+#define DEBOUNCE_ALL_HIGH   0x1F
+
+unsigned char gpio_debounce_5sample(unsigned char *buffer, volatile unsigned char *pin_reg, unsigned char pin, unsigned char previous_stable)
+{
+    unsigned char sample = gpio_read_pin(pin_reg, pin);
+
+    *buffer = ((*buffer << 1) | sample) & DEBOUNCE_MASK;
+
+    if (*buffer == DEBOUNCE_ALL_LOW)  return 1;   
+    if (*buffer == DEBOUNCE_ALL_HIGH) return 0;  
+    return previous_stable;                       
+}

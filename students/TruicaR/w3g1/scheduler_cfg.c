@@ -13,6 +13,15 @@
 #define LIGHT_LEVEL1    64
 #define LIGHT_LEVEL2    128
 #define LIGHT_LEVEL3    192
+#define SW0_PIN  6
+
+static unsigned char sw0_debounce_buffer = 0;
+static unsigned char sw0_stable = 0;
+
+void task_10ms(void)
+{
+    sw0_stable = gpio_debounce_5sample(&sw0_debounce_buffer, &PINC, SW0_PIN, sw0_stable);
+}
 
 void task_50ms(void)
 {

@@ -9,5 +9,5 @@ extern volatile unsigned char flag_1000ms;
 
 void scheduler_flags_management(void);
 void schedule_tasks_dispatcher(void);
-
+void task_10ms(void);
 #endif
