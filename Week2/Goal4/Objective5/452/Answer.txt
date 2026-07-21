@@ -1,0 +1,11 @@
+Tmin = 1 microsecond (1 / 1000000 Hz), Prescaler = 1
+Tmax = 67.1 s (65536 * 1024 / 1000000), Prescaler = 1024
+
+FREQ MIN = 7.45 mHz (1 / (2 * 67.1))
+FREQ MAX = 500 kHz (1 / (2 * 1 microsecond))
+
+A 16-bit timer is advantageous because its larger counter register drastically extends
+the native measurement range from milliseconds to over a minute, allowing long intervals 
+to be tracked without software counter overhead. Additionally, it provides superior 
+precision for intermediate durations by allowing smaller hardware prescalers to be used, 
+which maintains a high timing resolution while significantly reducing CPU interrupt overhead.

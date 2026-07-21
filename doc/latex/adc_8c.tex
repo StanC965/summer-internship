@@ -1,0 +1,86 @@
+\doxysection{Project/\+adc.c File Reference}
+\hypertarget{adc_8c}{}\label{adc_8c}\index{Project/adc.c@{Project/adc.c}}
+
+
+Implementation of the Analog-\/to-\/\+Digital Converter (ADC) functions and ISR handler.  
+
+
+{\ttfamily \+\#include "{}adc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{adc_8c_af0b88baf7f6ed7d42f20f11ca41c886d}{adc\+\_\+init}} (unsigned char adc\+\_\+channel\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Initializes the ADC peripheral. \end{DoxyCompactList}\item 
+\Hypertarget{adc_8c_acec96a02bae816e24b67875114d526f5}\label{adc_8c_acec96a02bae816e24b67875114d526f5} 
+void {\bfseries adc\+\_\+start\+\_\+conversion} (void)
+\begin{DoxyCompactList}\small\item\em Triggers a single-\/ended ADC conversion on the active multiplexer channel. \end{DoxyCompactList}\item 
+\Hypertarget{adc_8c_a8cbe7a245777efe448fbed58f861c779}\label{adc_8c_a8cbe7a245777efe448fbed58f861c779} 
+void {\bfseries adc\+\_\+power\+\_\+down} (void)
+\begin{DoxyCompactList}\small\item\em Disables the ADC peripheral core to reduce power consumption. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} \doxymbox{\hyperlink{adc_8c_a8dd6f723c5d833f5c0bb1ff6783f3540}{adc\+\_\+get\+\_\+result}} (void)
+\begin{DoxyCompactList}\small\item\em Directly reads the current ADC conversion result registers (ADCH/\+\+ADC). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} \doxymbox{\hyperlink{adc_8c_a4849c7215ce93bb022ac3c808d76f50f}{adc\+\_\+get\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Public interface to retrieve the cached, inverted light level result. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+interrupt void \doxymbox{\hyperlink{adc_8c_a3a1138f499469cee5f38bf4a890eb3cf}{adc\+\_\+conversion\+\_\+complete\+\_\+isr}} (void)
+\begin{DoxyCompactList}\small\item\em ADC Conversion Complete Interrupt Service Routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the Analog-\/to-\/\+Digital Converter (ADC) functions and ISR handler. 
+
+
+
+\label{adc_8c_doc-func-members}
+\Hypertarget{adc_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{adc_8c_a3a1138f499469cee5f38bf4a890eb3cf}\index{adc.c@{adc.c}!adc\_conversion\_complete\_isr@{adc\_conversion\_complete\_isr}}
+\index{adc\_conversion\_complete\_isr@{adc\_conversion\_complete\_isr}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_conversion\_complete\_isr()}{adc\_conversion\_complete\_isr()}}
+{\footnotesize\ttfamily \label{adc_8c_a3a1138f499469cee5f38bf4a890eb3cf} 
+\+\_\+\+\_\+interrupt void adc\+\_\+conversion\+\_\+complete\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+ADC Conversion Complete Interrupt Service Routine. 
+
+Automatically calculates the inverted ambient light scale value upon conversion completion. \Hypertarget{adc_8c_a4849c7215ce93bb022ac3c808d76f50f}\index{adc.c@{adc.c}!adc\_get\_data@{adc\_get\_data}}
+\index{adc\_get\_data@{adc\_get\_data}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_get\_data()}{adc\_get\_data()}}
+{\footnotesize\ttfamily \label{adc_8c_a4849c7215ce93bb022ac3c808d76f50f} 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} adc\+\_\+get\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Public interface to retrieve the cached, inverted light level result. 
+
+\begin{DoxyReturn}{Returns}
+Latest processed ADC value written by the interrupt service routine. 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a8dd6f723c5d833f5c0bb1ff6783f3540}\index{adc.c@{adc.c}!adc\_get\_result@{adc\_get\_result}}
+\index{adc\_get\_result@{adc\_get\_result}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_get\_result()}{adc\_get\_result()}}
+{\footnotesize\ttfamily \label{adc_8c_a8dd6f723c5d833f5c0bb1ff6783f3540} 
+\doxymbox{\hyperlink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t}} adc\+\_\+get\+\_\+result (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Directly reads the current ADC conversion result registers (ADCH/\+\+ADC). 
+
+\begin{DoxyReturn}{Returns}
+Raw conversion value as \doxylink{adc_8h_a6cdc7dc25fb94b846e4212edca458e01}{adc\+\_\+result\+\_\+t} (8-\/bit or 10-\/bit dependent on build flags). 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_af0b88baf7f6ed7d42f20f11ca41c886d}\index{adc.c@{adc.c}!adc\_init@{adc\_init}}
+\index{adc\_init@{adc\_init}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_init()}{adc\_init()}}
+{\footnotesize\ttfamily \label{adc_8c_af0b88baf7f6ed7d42f20f11ca41c886d} 
+void adc\+\_\+init (\begin{DoxyParamCaption}\item[{unsigned char}]{adc\+\_\+channel\+\_\+pin}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the ADC peripheral. 
+
+Configures standard 128x prescaling, voltage reference source, resolution alignment, and enables ADC conversion complete interrupts. 
+\begin{DoxyParams}{Parameters}
+{\em adc\+\_\+channel\+\_\+pin} & The analog multiplexer channel pin (0-\/31) to configure. \\
+\hline
+\end{DoxyParams}

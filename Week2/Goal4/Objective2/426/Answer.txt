@@ -1,0 +1,2 @@
+FREQ MIN = 3.815 Hz
+FREQ MAX = 3906.25 Hz

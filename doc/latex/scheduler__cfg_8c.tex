@@ -1,0 +1,82 @@
+\doxysection{Project/\+scheduler\+\_\+cfg.c File Reference}
+\hypertarget{scheduler__cfg_8c}{}\label{scheduler__cfg_8c}\index{Project/scheduler\_cfg.c@{Project/scheduler\_cfg.c}}
+
+
+Implementation of periodic tasks and panel state machine logic\+[cite:\+ 15]\+.  
+
+
+{\ttfamily \+\#include "{}scheduler\+\_\+cfg.\+h"{}}\newline
+{\ttfamily \+\#include "{}pwm.\+h"{}}\newline
+{\ttfamily \+\#include "{}button.\+h"{}}\newline
+{\ttfamily \+\#include "{}adc.\+h"{}}\newline
+{\ttfamily \+\#include "{}led.\+h"{}}\newline
+{\ttfamily \+\#include "{}uart.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{scheduler__cfg_8c_a79dc03f7c404e67764beea4d507adc97}\label{scheduler__cfg_8c_a79dc03f7c404e67764beea4d507adc97} 
+\+\#define {\bfseries MAX\+\_\+\+BLINK\+\_\+\+TOGGLES}~8
+\begin{DoxyCompactList}\small\item\em Maximum toggle operations before returning to the blocked state\+[cite:\+ 15]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51}{panel\+\_\+state\+\_\+t}} \{ \doxymbox{\hyperlink{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51ad5fe569d631098d55a86618afb529d58}{STATE\+\_\+\+PANEL\+\_\+\+UNLOCKED}}
+, \doxymbox{\hyperlink{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51add192f3f22b7f84fa43b2bc307e76cbf}{STATE\+\_\+\+PANEL\+\_\+\+BLOCKED}}
+, \doxymbox{\hyperlink{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51a1e40c24de5c775e876b85f99c44289c9}{STATE\+\_\+\+PANEL\+\_\+\+BLINKING}}
+ \}
+\begin{DoxyCompactList}\small\item\em Panel lock state control values\+[cite:\+ 15]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{scheduler__cfg_8c_ab484b8f5aa071aa2bc43ab3ec71867de}\label{scheduler__cfg_8c_ab484b8f5aa071aa2bc43ab3ec71867de} 
+void {\bfseries scheduler\+\_\+task\+\_\+50ms} (void)
+\begin{DoxyCompactList}\small\item\em Hook executed periodically every 50 ms\+[cite:\+ 16]\+. \end{DoxyCompactList}\item 
+\Hypertarget{scheduler__cfg_8c_a802b7ae7466fb2df012d1972fcb401ad}\label{scheduler__cfg_8c_a802b7ae7466fb2df012d1972fcb401ad} 
+void {\bfseries scheduler\+\_\+task\+\_\+100ms} (void)
+\begin{DoxyCompactList}\small\item\em Hook executed periodically every 100 ms\+[cite:\+ 16]\+. \end{DoxyCompactList}\item 
+\Hypertarget{scheduler__cfg_8c_a4dcd7c3a57ee23db3dbdd344530fa560}\label{scheduler__cfg_8c_a4dcd7c3a57ee23db3dbdd344530fa560} 
+void {\bfseries scheduler\+\_\+task\+\_\+500ms} (void)
+\begin{DoxyCompactList}\small\item\em Hook executed periodically every 500 ms\+[cite:\+ 16]\+. \end{DoxyCompactList}\item 
+\Hypertarget{scheduler__cfg_8c_aa32f14538c47681f4f882af5fd1b7357}\label{scheduler__cfg_8c_aa32f14538c47681f4f882af5fd1b7357} 
+void {\bfseries scheduler\+\_\+task\+\_\+1000ms} (void)
+\begin{DoxyCompactList}\small\item\em Hook executed periodically every 1000 ms (1 second)\+[cite:\+ 16]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of periodic tasks and panel state machine logic\+[cite:\+ 15]\+. 
+
+
+
+\label{scheduler__cfg_8c_doc-enum-members}
+\Hypertarget{scheduler__cfg_8c_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51}\index{scheduler\_cfg.c@{scheduler\_cfg.c}!panel\_state\_t@{panel\_state\_t}}
+\index{panel\_state\_t@{panel\_state\_t}!scheduler\_cfg.c@{scheduler\_cfg.c}}
+\doxysubsubsection{\texorpdfstring{panel\_state\_t}{panel\_state\_t}}
+{\footnotesize\ttfamily \label{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51} 
+enum \doxymbox{\hyperlink{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51}{panel\+\_\+state\+\_\+t}}}
+
+
+
+Panel lock state control values\+[cite:\+ 15]\+. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_PANEL\_UNLOCKED@{STATE\_PANEL\_UNLOCKED}!scheduler\_cfg.c@{scheduler\_cfg.c}}
+\index{scheduler\_cfg.c@{scheduler\_cfg.c}!STATE\_PANEL\_UNLOCKED@{STATE\_PANEL\_UNLOCKED}}
+}\Hypertarget{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51ad5fe569d631098d55a86618afb529d58}\label{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51ad5fe569d631098d55a86618afb529d58} 
+STATE\+\_\+\+PANEL\+\_\+\+UNLOCKED&Control panel unlocked; accepts inputs\+[cite:\+ 15]\+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_PANEL\_BLOCKED@{STATE\_PANEL\_BLOCKED}!scheduler\_cfg.c@{scheduler\_cfg.c}}
+\index{scheduler\_cfg.c@{scheduler\_cfg.c}!STATE\_PANEL\_BLOCKED@{STATE\_PANEL\_BLOCKED}}
+}\Hypertarget{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51add192f3f22b7f84fa43b2bc307e76cbf}\label{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51add192f3f22b7f84fa43b2bc307e76cbf} 
+STATE\+\_\+\+PANEL\+\_\+\+BLOCKED&Control panel blocked\+[cite:\+ 15]\+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_PANEL\_BLINKING@{STATE\_PANEL\_BLINKING}!scheduler\_cfg.c@{scheduler\_cfg.c}}
+\index{scheduler\_cfg.c@{scheduler\_cfg.c}!STATE\_PANEL\_BLINKING@{STATE\_PANEL\_BLINKING}}
+}\Hypertarget{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51a1e40c24de5c775e876b85f99c44289c9}\label{scheduler__cfg_8c_a5d7f7fb652a4d4ef6a82eadfaee90f51a1e40c24de5c775e876b85f99c44289c9} 
+STATE\+\_\+\+PANEL\+\_\+\+BLINKING&Panel blinking indicator active\+[cite:\+ 15]\+ \\
+\hline
+
+\end{DoxyEnumFields}

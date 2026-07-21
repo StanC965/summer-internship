@@ -1,0 +1,5 @@
+MIN = 1 microsecond
+MAX = 262.144 ms
+
+How can you extend the maximum real time measured in CTC MODE?
+By using a counter variable which is incremented every time the interrupt triggers.

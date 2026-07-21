@@ -1,0 +1,19 @@
+What pin is OC0A?
+PB3
+
+Which LED is connected to it?
+I/O board LED
+
+What do you observe with respect to the two LEDs blinking behavior?
+The two LEDs are blinking out of sync. One LED turns on at the moment the other turns off.
+
+How much real time (use ms/miliseconds) can be measured with OCR0A = 127?
+With a prescale of 1024: 131.072 ms
+
+What other real timings you can measure having the same OCR0A = 127?
+
+Prescale     Time   
+1            0.128 ms
+8            1.024 ms
+64           8.192 ms
+256          32.768 ms

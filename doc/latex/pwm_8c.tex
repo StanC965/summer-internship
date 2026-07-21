@@ -1,0 +1,68 @@
+\doxysection{Project/\+pwm.c File Reference}
+\hypertarget{pwm_8c}{}\label{pwm_8c}\index{Project/pwm.c@{Project/pwm.c}}
+
+
+Implementation of Fast PWM generation using Timer0\+[cite:\+ 11, 12]\+.  
+
+
+{\ttfamily \+\#include "{}pwm.\+h"{}}\newline
+{\ttfamily \+\#include "{}gpio.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{pwm_8c_a1e8fdae3fd7118582ffa427dad05b6e1}{pwm\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes Timer0 in 8-\/bit Fast PWM Mode on OC0A (PB3)\+[cite:\+ 11, 12]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{pwm_8c_aa8822a85e86b527681eb3aabe23ff5e3}{pwm\+\_\+set\+\_\+duty\+\_\+cycle}} (unsigned char duty\+\_\+percentage)
+\begin{DoxyCompactList}\small\item\em Sets the output duty cycle percentage\+[cite:\+ 11, 12]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{pwm_8c_aef77f470321b3a9c9735d00b6c675e14}{pwm\+\_\+dc}} (unsigned char param)
+\begin{DoxyCompactList}\small\item\em Configures duty cycle resolution with 1\% step sizes\+[cite:\+ 11, 12]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of Fast PWM generation using Timer0\+[cite:\+ 11, 12]\+. 
+
+
+
+\label{pwm_8c_doc-func-members}
+\Hypertarget{pwm_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{pwm_8c_aef77f470321b3a9c9735d00b6c675e14}\index{pwm.c@{pwm.c}!pwm\_dc@{pwm\_dc}}
+\index{pwm\_dc@{pwm\_dc}!pwm.c@{pwm.c}}
+\doxysubsubsection{\texorpdfstring{pwm\_dc()}{pwm\_dc()}}
+{\footnotesize\ttfamily \label{pwm_8c_aef77f470321b3a9c9735d00b6c675e14} 
+void pwm\+\_\+dc (\begin{DoxyParamCaption}\item[{unsigned char}]{param}{}\end{DoxyParamCaption})}
+
+
+
+Configures duty cycle resolution with 1\% step sizes\+[cite:\+ 11, 12]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & Target duty cycle percentage (0 to 100\%)\+[cite:\+ 11, 12]\+. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pwm_8c_a1e8fdae3fd7118582ffa427dad05b6e1}\index{pwm.c@{pwm.c}!pwm\_init@{pwm\_init}}
+\index{pwm\_init@{pwm\_init}!pwm.c@{pwm.c}}
+\doxysubsubsection{\texorpdfstring{pwm\_init()}{pwm\_init()}}
+{\footnotesize\ttfamily \label{pwm_8c_a1e8fdae3fd7118582ffa427dad05b6e1} 
+void pwm\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes Timer0 in 8-\/bit Fast PWM Mode on OC0A (PB3)\+[cite:\+ 11, 12]\+. 
+
+Sets up hardware registers while leaving the timer clock stopped initially\+[cite:\+ 11, 12]\+. \Hypertarget{pwm_8c_aa8822a85e86b527681eb3aabe23ff5e3}\index{pwm.c@{pwm.c}!pwm\_set\_duty\_cycle@{pwm\_set\_duty\_cycle}}
+\index{pwm\_set\_duty\_cycle@{pwm\_set\_duty\_cycle}!pwm.c@{pwm.c}}
+\doxysubsubsection{\texorpdfstring{pwm\_set\_duty\_cycle()}{pwm\_set\_duty\_cycle()}}
+{\footnotesize\ttfamily \label{pwm_8c_aa8822a85e86b527681eb3aabe23ff5e3} 
+void pwm\+\_\+set\+\_\+duty\+\_\+cycle (\begin{DoxyParamCaption}\item[{unsigned char}]{duty\+\_\+percentage}{}\end{DoxyParamCaption})}
+
+
+
+Sets the output duty cycle percentage\+[cite:\+ 11, 12]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty\+\_\+percentage} & Target duty cycle value (0 to 100\%)\+[cite:\+ 11, 12]\+. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,46 @@
+\doxysection{Project/\+main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{Project/main.c@{Project/main.c}}
+
+
+Main application entry point and system hardware initialization\+[cite:\+ 10]\+.  
+
+
+{\ttfamily \+\#include "{}timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}led.\+h"{}}\newline
+{\ttfamily \+\#include "{}button.\+h"{}}\newline
+{\ttfamily \+\#include "{}scheduler.\+h"{}}\newline
+{\ttfamily \+\#include "{}adc.\+h"{}}\newline
+{\ttfamily \+\#include "{}pwm.\+h"{}}\newline
+{\ttfamily \+\#include "{}intrinsics.\+h"{}}\newline
+{\ttfamily \+\#include "{}uart.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8c_a348d23d5899ce59d18975284dfb0afc0}\label{main_8c_a348d23d5899ce59d18975284dfb0afc0} 
+void {\bfseries init\+\_\+system} (void)
+\begin{DoxyCompactList}\small\item\em Initializes core system hardware peripherals and enables global interrupts\+[cite:\+ 10]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Program main entry point\+[cite:\+ 10]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application entry point and system hardware initialization\+[cite:\+ 10]\+. 
+
+
+
+\label{main_8c_doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667} 
+void main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Program main entry point\+[cite:\+ 10]\+. 
+
+\begin{DoxyReturn}{Returns}
+Does not return; transfers control to the task dispatcher loop\+[cite:\+ 10, 13]\+. 
+\end{DoxyReturn}

@@ -1,0 +1,59 @@
+\doxysection{led.\+h}
+\hypertarget{led_8h_source}{}\label{led_8h_source}\index{Project/led.h@{Project/led.h}}
+\doxymbox{\hyperlink{led_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LED\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LED\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ Includes}}
+\DoxyCodeLine{00013\ \textcolor{comment}{+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{gpio_8h}{gpio.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ Exported\ types\ and\ values}}
+\DoxyCodeLine{00018\ \textcolor{comment}{+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LED\_LED0\_PORT\ \ \ \ \ \ \ (\&PORTC)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LED\_LED0\_DDR\ \ \ \ \ \ \ \ (\&DDRC)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LED\_LED0\_PIN\ \ \ \ \ \ \ \ 7}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LED\_TIME\_BLINK\_FAST\ \ \ \ \ \ 60000UL}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LED\_TIME\_BLINK\_SLOW\ \ \ \ \ \ 175000UL}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LED\_OLED\_1\_2\_DDR\ \ \ \ \ \ \ \ (\&DDRD)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LED\_OLED\_1\_2\_PORT\ \ \ \ \ \ \ (\&PORTD)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ LED\_OLED\_1\_PIN\ \ \ \ \ \ \ \ \ \ 5\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LED\_OLED\_2\_PIN\ \ \ \ \ \ \ \ \ \ 4\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LED\_OLED\_3\_DDR\ \ \ \ \ \ \ \ \ \ (\&DDRA)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ LED\_OLED\_3\_PORT\ \ \ \ \ \ \ \ \ (\&PORTA)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ LED\_OLED\_3\_PIN\ \ \ \ \ \ \ \ \ \ 3\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ LED\_IO\_LED\_DDR\ \ \ \ \ \ \ \ \ \ (\&DDRB)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ LED\_IO\_LED\_PORT\ \ \ \ \ \ \ \ \ (\&PORTB)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ LED\_IO\_LED\_PIN\ \ \ \ \ \ \ \ \ \ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00053\ \textcolor{comment}{/*\ Public\ Functions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00054\ \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_8h_a7eb4d382bdd4b42c57dbb7154d03ac66}{led\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_8h_a0dbee9d575e70150715ac4b25045c39a}{led\_configure\_pin}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *ddr\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_8h_abc3d31bc751473e59e71314117fa617f}{led\_power\_on}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *port\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_8h_add84b729186cf8d90557a017bab82b7b}{led\_power\_off}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *port\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_8h_adca6d3892b130d4436655107281a324d}{led\_toggle}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *port\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_8h_a196df83f1781b1abecf01a6473efae3a}{led\_blink\_fast}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *port\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_8h_abf53e584b500ae9d528502764943b091}{led\_blink\_slow}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *port\_reg,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ pin\_number);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

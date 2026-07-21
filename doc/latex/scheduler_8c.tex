@@ -1,0 +1,90 @@
+\doxysection{Project/\+scheduler.c File Reference}
+\hypertarget{scheduler_8c}{}\label{scheduler_8c}\index{Project/scheduler.c@{Project/scheduler.c}}
+
+
+Implementation of non-\/preemptive periodic task scheduler\+[cite:\+ 9, 13]\+.  
+
+
+{\ttfamily \+\#include "{}scheduler.\+h"{}}\newline
+{\ttfamily \+\#include "{}scheduler\+\_\+cfg.\+h"{}}\newline
+{\ttfamily \+\#include "{}button.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{Indent}\textbf{ Scheduler Task Flag Bit Positions}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{scheduler_8c_a78d580798e007b82f5739ed3431baac5}\label{scheduler_8c_a78d580798e007b82f5739ed3431baac5} 
+\+\#define {\bfseries SCHEDULER\+\_\+\+BIT\+\_\+50\+MS}~0
+\item 
+\Hypertarget{scheduler_8c_a0da9574c81861e779435582609eaf180}\label{scheduler_8c_a0da9574c81861e779435582609eaf180} 
+\+\#define {\bfseries SCHEDULER\+\_\+\+BIT\+\_\+100\+MS}~1
+\item 
+\Hypertarget{scheduler_8c_a4de7a7a95f2739e955a154fa1469c589}\label{scheduler_8c_a4de7a7a95f2739e955a154fa1469c589} 
+\+\#define {\bfseries SCHEDULER\+\_\+\+BIT\+\_\+500\+MS}~2
+\item 
+\Hypertarget{scheduler_8c_afe7a4fc8df9fe37590fc790bbaf76ca3}\label{scheduler_8c_afe7a4fc8df9fe37590fc790bbaf76ca3} 
+\+\#define {\bfseries SCHEDULER\+\_\+\+BIT\+\_\+1000\+MS}~3
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{scheduler_8c_ab258cc2856e5f6bb125907cc23358fbd}\label{scheduler_8c_ab258cc2856e5f6bb125907cc23358fbd} 
+void {\bfseries scheduler\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Resets scheduler internal variables and flag registers\+[cite:\+ 9]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{scheduler_8c_a45f1f0e86a49384eaedb54d1b133c2ec}{scheduler\+\_\+flags\+\_\+management}} (void)
+\begin{DoxyCompactList}\small\item\em Evaluates time counters on every system tick to update task flags\+[cite:\+ 9]\+. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{scheduler_8c_a9bb8d6ae69cd10d14c4b6bb246919a6b}{scheduler\+\_\+tasks\+\_\+dispatcher}} (void)
+\begin{DoxyCompactList}\small\item\em Main execution loop that dispatches pending scheduled tasks\+[cite:\+ 9]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile unsigned char \doxymbox{\hyperlink{scheduler_8c_a087e0fbfa6592a594da58c5b9adc95af}{scheduler\+\_\+flags}} = 0x00
+\begin{DoxyCompactList}\small\item\em Active status bitmask for pending tasks\+[cite:\+ 9, 13]\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of non-\/preemptive periodic task scheduler\+[cite:\+ 9, 13]\+. 
+
+
+
+\label{scheduler_8c_doc-func-members}
+\Hypertarget{scheduler_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{scheduler_8c_a45f1f0e86a49384eaedb54d1b133c2ec}\index{scheduler.c@{scheduler.c}!scheduler\_flags\_management@{scheduler\_flags\_management}}
+\index{scheduler\_flags\_management@{scheduler\_flags\_management}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{scheduler\_flags\_management()}{scheduler\_flags\_management()}}
+{\footnotesize\ttfamily \label{scheduler_8c_a45f1f0e86a49384eaedb54d1b133c2ec} 
+void scheduler\+\_\+flags\+\_\+management (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Evaluates time counters on every system tick to update task flags\+[cite:\+ 9]\+. 
+
+Call this function inside the primary system timer interrupt tick routine\+[cite:\+ 9, 10]\+. Preserved tick counter keeping track of timing intervals\Hypertarget{scheduler_8c_a9bb8d6ae69cd10d14c4b6bb246919a6b}\index{scheduler.c@{scheduler.c}!scheduler\_tasks\_dispatcher@{scheduler\_tasks\_dispatcher}}
+\index{scheduler\_tasks\_dispatcher@{scheduler\_tasks\_dispatcher}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{scheduler\_tasks\_dispatcher()}{scheduler\_tasks\_dispatcher()}}
+{\footnotesize\ttfamily \label{scheduler_8c_a9bb8d6ae69cd10d14c4b6bb246919a6b} 
+void scheduler\+\_\+tasks\+\_\+dispatcher (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main execution loop that dispatches pending scheduled tasks\+[cite:\+ 9]\+. 
+
+Executes in an infinite loop, evaluating and clearing flag bits as tasks run\+[cite:\+ 9, 13]\+. 
+
+\label{scheduler_8c_doc-var-members}
+\Hypertarget{scheduler_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{scheduler_8c_a087e0fbfa6592a594da58c5b9adc95af}\index{scheduler.c@{scheduler.c}!scheduler\_flags@{scheduler\_flags}}
+\index{scheduler\_flags@{scheduler\_flags}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{scheduler\_flags}{scheduler\_flags}}
+{\footnotesize\ttfamily \label{scheduler_8c_a087e0fbfa6592a594da58c5b9adc95af} 
+volatile unsigned char scheduler\+\_\+flags = 0x00}
+
+
+
+Active status bitmask for pending tasks\+[cite:\+ 9, 13]\+. 
+
+Global volatile status flags tracking pending scheduler tasks\+[cite:\+ 9]\+.
+
+Active status bitmask for pending tasks\+[cite:\+ 9, 13]\+. 

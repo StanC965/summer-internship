@@ -1,0 +1,5 @@
+While both methods compile to the same hardware instructions (SBI/CBI) when modifying 
+a single bit, bitmasks provide superior performance when modifying multiple bits simultaneously. 
+A bitmask executes bulk changes across bits in a single byte-wide logical operation, 
+whereas a bitfield structure often forces the compiler to generate repetitive, 
+sequence-heavy "Read-Modify-Write" assembly paths for each individual field updated.
