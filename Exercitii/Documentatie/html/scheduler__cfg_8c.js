@@ -12,10 +12,10 @@ var scheduler__cfg_8c =
     [ "task_50ms", "scheduler__cfg_8c.html#a7fa1d04c1cf1b81522c5316ff7803784", null ],
     [ "anim_day", "scheduler__cfg_8c.html#a93dc94511c43fae4cbe15939873574af", null ],
     [ "anim_night", "scheduler__cfg_8c.html#ac99096c4e571fc859e04109a7509a44e", null ],
-    [ "anim_step", "scheduler__cfg_8c.html#ad63f4d45c7242776b86bc125e88bb1e9", null ],
+    [ "anim_step", "scheduler__cfg_8c.html#a5dd317c56c53e4966ed9477ecbb13ce5", null ],
     [ "animation_request", "scheduler__cfg_8c.html#a9a48abfa3b3a72f4510a241cc5d51881", null ],
-    [ "current_anim_mode", "scheduler__cfg_8c.html#a2587bc646ad229a62bd70ea6cde8cc1a", null ],
+    [ "current_anim_mode", "scheduler__cfg_8c.html#a0f8379a6b6ac46cdf2be6984cd4da12f", null ],
     [ "day", "scheduler__cfg_8c.html#adbdf483f94528e88976c3b3702ac5fd6", null ],
     [ "headlights", "scheduler__cfg_8c.html#aa164b55d8afb367222da5cd5c39df634", null ],
-    [ "system_state", "scheduler__cfg_8c.html#a4412684114df0e570bf9402ab8f88adb", null ]
+    [ "system_state", "scheduler__cfg_8c.html#afd95df3f39d247bf7ffdc27aee0cfc85", null ]
 ];

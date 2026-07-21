@@ -6,7 +6,12 @@
 #include "scheduler.h"
 #include "button.h"
 
+void test_bitfield_vs_bitmask(void) {
 
+  PORTB_Bit0=1;
+
+    PORTB |= 0x07;  
+}
 #pragma vector=TIMER1_COMPA_vect
 __interrupt void Scheduler_Tick()
 {
@@ -33,6 +38,7 @@ void setup(void)
     
 void main(void)
 {
+  test_bitfield_vs_bitmask();
     setup();
     
 

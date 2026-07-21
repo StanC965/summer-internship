@@ -6,5 +6,5 @@ var pwm_8c =
     [ "pwm_init_LED", "pwm_8c.html#ab47866d332b37a2715a9f01827ece553", null ],
     [ "pwm_test_led", "pwm_8c.html#a5780bd2d608c940a6e79b25078506cfe", null ],
     [ "index", "pwm_8c.html#a33a33a3f3b2d0d97117cd4ceeba5b6ef", null ],
-    [ "sequence", "pwm_8c.html#a594ccdaa6606fa0caa2835351796c3fa", null ]
+    [ "sequence", "pwm_8c.html#a4fa35d4b6616e6226761b6f72b731aac", null ]
 ];
