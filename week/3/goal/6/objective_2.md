@@ -36,7 +36,7 @@
 
 #### Task 623
 > **Question/Prompt:** Construct a new module for PWM feature containing the appropriate functions (remember: initialization, atomic actions, etc.). Do the math for implementing into one single function the following 5 use cases with PWM:
-
+> 
 > - output a PWM signal with 100% duty cycle
 > - output a PWM signal with 75% duty cycle
 > - output a PWM signal with 50% duty cycle
@@ -46,7 +46,7 @@
 > Individually apply each case to the LED identified as supporting PWM.
 
 > **Answer/Explanation:**
-> - mode: fast pwm, 8 bit, non inverting -> set as BOTTOM, clear on compare match
+> - this module implements pwm on timer0 in mode: fast pwm, 8 bit, non invertingm top = 0xFF
 > - OCR0A = (duty% x 255) / 100
 
 | Duty      | OCR0A     
@@ -55,10 +55,8 @@
 | 75%	    | 191 (0xBF) 
 | 50%	    | 128 (0x80) 
 | 25%	    | 64  (0x40) 
-| 0%	    | 0 (0x00)
+| 0%	    | 0   (0x00)
 
-> - 0xFF 
-> - 0x00
 
 **`main.c`**
 ```c
@@ -110,11 +108,13 @@ void pwm_set_duty_cycle(uint8_t duty_percent)
 {
     __disable_interrupt();
 
+    // edge case: 0%
     if (duty_percent == 0)
     {
         TCCR0A &= ~((1 << COM0A1) | (1 << COM0A0));
         led_power_off(LED_IO1);
     }
+    // edge case: 100%
     else if (duty_percent >= 100)
     {
         TCCR0A |= (1 << COM0A1);
@@ -125,6 +125,9 @@ void pwm_set_duty_cycle(uint8_t duty_percent)
     {
         TCCR0A |= (1 << COM0A1);
         TCCR0A &= ~(1 << COM0A0);
+        // converts any requested duty-cycle percetange into the correct OCR0A value
+        // using this formula since one full PWM period spans 255 counter steps
+        // and OCR0A marks how many of those steps the pin stays in HIGH
         OCR0A = (uint8_t)(((uint16_t)duty_percent * PWM_RESOLUTION) / 100U);
     }
 
@@ -138,9 +141,7 @@ void pwm_set_duty_cycle(uint8_t duty_percent)
 > **Question/Prompt:** Having the Task Scheduler as your best friend (!) design an application where you incrementally apply these use cases to the LED identified as supporting PWM. e.g. you can apply the signal in an incremental way: on the first run of 10ms task you apply 0% duty cycle, on the second you apply 25% duty cycle, on the third 50%, and so on and so forth, then start all over again
 
 > **Answer/Explanation:**
-> 
 
----
 
 **`scheduler_cfg.c`**
 ```c
@@ -152,6 +153,8 @@ void task_10ms(void)
 
 **`pwm.c`**
 ```c
+static const uint8_t pwm_duty_steps[PWM_STEP_COUNT] = {0, 25, 50, 75, 100};
+
 void pwm_incremental_update(void)
 {
     static uint8_t run_counter = 0;
