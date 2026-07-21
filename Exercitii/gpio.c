@@ -15,35 +15,12 @@
 
 void gpio_set_pin(volatile unsigned char *PORT, gpio_uint8_t bit)
 {
-  
-    switch(bit) {
-        case 0: *PORT |= 0x01; break;
-        case 1: *PORT |= 0x02; break;
-        case 2: *PORT |= 0x04; break;
-        case 3: *PORT |= 0x08; break;
-        case 4: *PORT |= 0x10; break;
-        case 5: *PORT |= 0x20; break;
-        case 6: *PORT |= 0x40; break;
-        case 7: *PORT |= 0x80; break;
-    }
-
+    *PORT |= (1 << bit);  
 }
 
-void gpio_reset_pin(volatile unsigned char *PORT, gpio_uint8_t bit)
+void gpio_reset_pin(volatile unsigned char *port, gpio_uint8_t bit)
 {
-  
-    switch(bit) {
-        case 0: *PORT &= ~0x01; break;
-        case 1: *PORT &= ~0x02; break;
-        case 2: *PORT &= ~0x04; break;
-        case 3: *PORT &= ~0x08; break;
-        case 4: *PORT &= ~0x10; break;
-        case 5: *PORT &= ~0x20; break;
-        case 6: *PORT &= ~0x40; break;
-        case 7: *PORT &= ~0x80; break;
-    }
-
-            
+    (*port) &= ~(1 << bit);                 
 }
 
 void gpio_toggle_pin(volatile unsigned char *PORT, gpio_uint8_t bit)

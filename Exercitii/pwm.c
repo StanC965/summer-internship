@@ -8,7 +8,7 @@
 #include "iom324pb.h" 
 #include "pwm.h"
 
-static volatile short sequence[5] = {0, 64, 128, 192, 255};
+static volatile unsigned char sequence[5] = {0, 64, 128, 192, 255};
 static volatile unsigned char index = 0;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/

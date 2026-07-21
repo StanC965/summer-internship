@@ -36,10 +36,10 @@ volatile _Bool day=1;
 volatile _Bool headlights=0;
 static const unsigned char anim_night[11] = {0, 1, 1, 3, 7, 16, 16, 14, 12, 10, 8};
 static const unsigned char anim_day[11]   = {0, 4, 7, 16, 44, 59, 59, 55, 50, 45, 40};
-static int system_state = 0;       
-static int anim_step = 0;
+static unsigned char system_state = 0;       
+static unsigned char anim_step = 0;
 static _Bool animation_request = 0;
-static int current_anim_mode = 0; 
+static unsigned char current_anim_mode = 0; 
 
 
 
