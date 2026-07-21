@@ -11,90 +11,83 @@ Data: 2026
 
 Implementarea modulului Timer/Counter0.
 
-Timerul functioneaza in NORMAL MODE:
-0x00 -> 0x01 -> ... -> 0xFF -> 0x00
+Timerul functioneaza in Normal Mode:
+0x00 -> ... -> 0xFF -> 0x00
 
-La revenirea de la 0xFF la 0x00 se produce overflow,
-iar CPU-ul executa rutina de intrerupere TC0_OVF_vect.
+Clock:
+fCPU = 1 MHz
+prescaler = 64
+
+Un overflow:
+256 * 64 / 1.000.000 = 16,384 ms
+
+61 overflow-uri:
+61 * 16,384 ms = 999,424 ms
 */
 
-/* ========================================================= */
-/* NORMAL MODE CONFIGURATION                                 */
-/* ========================================================= */
+/* Normal Mode: WGM02:0 = 000 */
 
-/*
-WGM02:0 = 000
-*/
+#define TC0_NORMAL_MODE_WGM02_VALUE          (0U)
+#define TC0_NORMAL_MODE_WGM01_VALUE          (0U)
+#define TC0_NORMAL_MODE_WGM00_VALUE          (0U)
 
-#define TC0_NORMAL_MODE_WGM02_VALUE       (0U)
-#define TC0_NORMAL_MODE_WGM01_VALUE       (0U)
-#define TC0_NORMAL_MODE_WGM00_VALUE       (0U)
+/* Compare outputs disabled */
 
-/* ========================================================= */
-/* COMPARE OUTPUT CONFIGURATION                              */
-/* ========================================================= */
+#define TC0_COMPARE_OUTPUT_DISABLED          (0U)
+#define TC0_FORCE_COMPARE_DISABLED           (0U)
 
-/*
-COM0A[1:0] = 00
-COM0B[1:0] = 00
-*/
+/* Interrupt configuration */
 
-#define TC0_COMPARE_OUTPUT_DISABLED       (0U)
+#define TC0_COMPARE_INTERRUPT_DISABLE        (0U)
+#define TC0_OVERFLOW_INTERRUPT_ENABLE        (1U)
 
-/* ========================================================= */
-/* FORCE OUTPUT COMPARE                                     */
-/* ========================================================= */
+/* Timer stopped: CS02:0 = 000 */
 
-#define TC0_FORCE_COMPARE_DISABLED        (0U)
+#define TC0_CLOCK_STOPPED_CS02_VALUE         (0U)
+#define TC0_CLOCK_STOPPED_CS01_VALUE         (0U)
+#define TC0_CLOCK_STOPPED_CS00_VALUE         (0U)
 
-/* ========================================================= */
-/* INTERRUPT CONFIGURATION                                   */
-/* ========================================================= */
+/* Prescaler 64: CS02:0 = 011 */
 
-#define TC0_OVERFLOW_INTERRUPT_ENABLE     (1U)
-#define TC0_COMPARE_INTERRUPT_DISABLE     (0U)
+#define TC0_PRESCALER_64_CS02_VALUE          (0U)
+#define TC0_PRESCALER_64_CS01_VALUE          (1U)
+#define TC0_PRESCALER_64_CS00_VALUE          (1U)
 
-/* ========================================================= */
-/* CLOCK CONFIGURATION                                       */
-/* ========================================================= */
+/* Period configuration */
 
-/*
-CS02:0 = 001
-Clock source = system clock
-Prescaler = 1
-*/
+#define TC0_OVERFLOWS_PER_SECOND             (61U)
+#define TC0_OVERFLOW_COUNTER_INITIAL_VALUE   (0U)
 
-#define TC0_CLOCK_STOPPED_CS02_VALUE      (0U)
-#define TC0_CLOCK_STOPPED_CS01_VALUE      (0U)
-#define TC0_CLOCK_STOPPED_CS00_VALUE      (0U)
+/* Private module variables */
 
-#define TC0_NO_PRESCALER_CS02_VALUE       (0U)
-#define TC0_NO_PRESCALER_CS01_VALUE       (0U)
-#define TC0_NO_PRESCALER_CS00_VALUE       (1U)
+static volatile tc0_uint8_t tc0_overflow_counter;
+static volatile tc0_uint8_t tc0_period_status;
 
-/* ========================================================= */
-/* PRIVATE VARIABLES                                         */
-/* ========================================================= */
-
-static volatile tc0_uint8_t tc0_overflow_status;
-
-/* ========================================================= */
-/* INTERRUPT SERVICE ROUTINE                                 */
-/* ========================================================= */
+/* Timer0 overflow ISR */
 
 #pragma vector=TIMER0_OVF_vect
 __interrupt void tc0_overflow_isr(void)
 {
-    tc0_overflow_status = TC0_OVERFLOW_OCCURRED;
+    tc0_overflow_counter++;
+
+    if (tc0_overflow_counter >= TC0_OVERFLOWS_PER_SECOND)
+    {
+        tc0_overflow_counter =
+            TC0_OVERFLOW_COUNTER_INITIAL_VALUE;
+
+        tc0_period_status = TC0_PERIOD_ELAPSED;
+    }
 }
 
-/* ========================================================= */
-/* MODULE INITIALIZATION                                     */
-/* ========================================================= */
+/* Module initialization */
 
 void tc0_init(void)
 {
-    tc0_overflow_status = TC0_OVERFLOW_NOT_OCCURRED;
+    tc0_overflow_counter =
+        TC0_OVERFLOW_COUNTER_INITIAL_VALUE;
+
+    tc0_period_status =
+        TC0_PERIOD_NOT_ELAPSED;
 
     /*
     Opreste timerul in timpul configurarii.
@@ -105,70 +98,52 @@ void tc0_init(void)
     TCCR0B_CS00 = TC0_CLOCK_STOPPED_CS00_VALUE;
 
     /*
-    Dezactiveaza output compare pentru canalul A.
+    Dezactiveaza output compare pentru canalele A si B.
     */
 
     TCCR0A_COM0A1 = TC0_COMPARE_OUTPUT_DISABLED;
     TCCR0A_COM0A0 = TC0_COMPARE_OUTPUT_DISABLED;
 
-    /*
-    Dezactiveaza output compare pentru canalul B.
-    */
-
     TCCR0A_COM0B1 = TC0_COMPARE_OUTPUT_DISABLED;
     TCCR0A_COM0B0 = TC0_COMPARE_OUTPUT_DISABLED;
 
     /*
-    Selecteaza NORMAL MODE:
+    Selecteaza Normal Mode:
     WGM02:0 = 000.
     */
 
-    TCCR0A_WGM01 = TC0_NORMAL_MODE_WGM01_VALUE;
     TCCR0A_WGM00 = TC0_NORMAL_MODE_WGM00_VALUE;
+    TCCR0A_WGM01 = TC0_NORMAL_MODE_WGM01_VALUE;
     TCCR0B_WGM02 = TC0_NORMAL_MODE_WGM02_VALUE;
 
     /*
-    Nu se forteaza iesiri compare.
+    Nu forteaza semnale compare.
     */
 
     TCCR0B_FOC0A = TC0_FORCE_COMPARE_DISABLED;
     TCCR0B_FOC0B = TC0_FORCE_COMPARE_DISABLED;
 
     /*
-    Dezactiveaza intreruperile Compare Match A si B.
+    Activeaza numai intreruperea de overflow.
     */
 
     TIMSK0_OCIE0A = TC0_COMPARE_INTERRUPT_DISABLE;
     TIMSK0_OCIE0B = TC0_COMPARE_INTERRUPT_DISABLE;
-
-    /*
-    Activeaza doar intreruperea de overflow.
-    */
-
     TIMSK0_TOIE0 = TC0_OVERFLOW_INTERRUPT_ENABLE;
-
-    /*
-    Timerul ramane oprit dupa init.
-    Pornirea este o actiune atomica separata.
-    */
 }
 
-/* ========================================================= */
-/* ATOMIC ACTIONS                                             */
-/* ========================================================= */
+/* Atomic actions */
 
 void tc0_start(void)
 {
     /*
-    Selectarea clock-ului porneste timerul.
-
-    Clock direct din sistem:
-    fTC0 = 1 MHz.
+    Selectarea prescalerului porneste timerul.
+    Aceasta operatie este facuta ultima.
     */
 
-    TCCR0B_CS02 = TC0_NO_PRESCALER_CS02_VALUE;
-    TCCR0B_CS01 = TC0_NO_PRESCALER_CS01_VALUE;
-    TCCR0B_CS00 = TC0_NO_PRESCALER_CS00_VALUE;
+    TCCR0B_CS02 = TC0_PRESCALER_64_CS02_VALUE;
+    TCCR0B_CS01 = TC0_PRESCALER_64_CS01_VALUE;
+    TCCR0B_CS00 = TC0_PRESCALER_64_CS00_VALUE;
 }
 
 void tc0_stop(void)
@@ -178,14 +153,14 @@ void tc0_stop(void)
     TCCR0B_CS00 = TC0_CLOCK_STOPPED_CS00_VALUE;
 }
 
-tc0_uint8_t tc0_is_overflow_detected(void)
+tc0_uint8_t tc0_is_period_elapsed(void)
 {
-    return tc0_overflow_status;
+    return tc0_period_status;
 }
 
-void tc0_clear_overflow_status(void)
+void tc0_clear_period_status(void)
 {
-    tc0_overflow_status = TC0_OVERFLOW_NOT_OCCURRED;
+    tc0_period_status = TC0_PERIOD_NOT_ELAPSED;
 }
 
 #endif

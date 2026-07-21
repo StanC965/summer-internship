@@ -9,17 +9,17 @@ Interfata modulului Timer/Counter0.
 
 Configuratie:
 - Normal Mode;
-- numarare 0x00 ... 0xFF;
-- clock direct din sistem;
-- fara prescaler;
-- interrupt la overflow.
+- sistem clock = 1 MHz;
+- prescaler = 64;
+- interrupt la overflow;
+- eveniment periodic dupa 61 overflow-uri.
 */
 
-#define TC0_FALSE                 (0U)
-#define TC0_TRUE                  (1U)
+#define TC0_FALSE                       (0U)
+#define TC0_TRUE                        (1U)
 
-#define TC0_OVERFLOW_NOT_OCCURRED (TC0_FALSE)
-#define TC0_OVERFLOW_OCCURRED     (TC0_TRUE)
+#define TC0_PERIOD_NOT_ELAPSED          (TC0_FALSE)
+#define TC0_PERIOD_ELAPSED              (TC0_TRUE)
 
 typedef unsigned char tc0_uint8_t;
 
@@ -33,8 +33,8 @@ extern void tc0_start(void);
 
 extern void tc0_stop(void);
 
-extern tc0_uint8_t tc0_is_overflow_detected(void);
+extern tc0_uint8_t tc0_is_period_elapsed(void);
 
-extern void tc0_clear_overflow_status(void);
+extern void tc0_clear_period_status(void);
 
 #endif
