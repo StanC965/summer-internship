@@ -91,7 +91,7 @@ void timer_configure_control_settings(void)
 
 void timer_enable_overflow_interrupt(void)
 {
-    TIMSK0 |= (1 << TOIE0);
+    TIMSK0 |= BIT_MASK(TOIE0);
 }
 ```
 
@@ -162,7 +162,7 @@ $$\text{Time} = \frac{1}{\text{Counting Frequency}} \times N_{steps} = \frac{\te
 > Since Normal Mode overflows at a fixed 256 steps, numbers like 1 second cannot be hit directly. Instead of letting TCNT0 start at 0x00, it should be preloaded with a starting value. That way the timer has to count up from the preloaded value to 0xFF.
 >
 > - The prescalerwas selected to be 64.
-> - For the overflow period, since 1 second is equal to 1000 ms, a period this value evenly is a good candidate. 8 ms divides it into 125.
+> - For the overflow period, since 1 second is equal to 1000 ms, a period with an even value is a good candidate. 8 ms divides it into 125.
 > - The ticks needed are equal to (8 * 1000 ms) / 64, which is 125. This results into a preload value of 131 (256 - ticks needed).
 > Each overflow with a preload now takes exaclty 8ms, so we get 125 overflows.
 

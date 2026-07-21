@@ -42,7 +42,7 @@ void timer_init_ctc(void)
 
 void timer_select_ctc_mode(void)
 {
-    TCCR0A = (1 << WGM01) | (1 << COM0A0);
+    TCCR0A = BIT_MAS(WGM01) | BIT_MASK(COM0A0);
 }
 
 void timer_configure_ctc_settings(void)
@@ -54,7 +54,7 @@ void timer_configure_ctc_settings(void)
 
 void timer_enable_compare_a_interrupt(void)
 {
-    TIMSK0 |= (1 << OCIE0A);
+    TIMSK0 |= BIT_MASK(OCIE0A);
 }
 ```
 
@@ -77,14 +77,13 @@ __interrupt void timer0_compare_a__routine(void)
 > **Answer/Explanation:**
 > - OC0A is pin PB3, and LED IO1 is connected to it. 
 >
-> - Both LEDs toggle at the same frequency, but they run out of sync. OC0A is toggled instantly by the timer hardware at the moment the match occurs, while the onboard LED is toggled by software inside the ISR, which only executes after interupt latency.
-> - To fix this, I used:
+> - Both LEDs toggle at the same frequency, but they run out of sync. OC0A is toggled instantly by the timer hardware at the moment the match occurs, while the onboard LED is toggled by software inside the ISR, which only executes after interupt latency. To fix this, I used:
 
 **`timer.c`**
 ```c
 void timer_select_ctc_mode(void)
 {
-    TCCR0A = (1 << WGM01) | (1 << COM0A0);
+    TCCR0A = BIT_MASK(WGM01) | BIT_MASK(COM0A0);
 }
 ```
 > - This makes LED IO1 toggle automatically in hardware on every compare match.

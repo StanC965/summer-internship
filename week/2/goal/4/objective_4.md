@@ -26,8 +26,8 @@ void airbag_timer_configure(void)
 {
     timer1_enable_peripheral_clock();
 
-    TCCR1A = (1 << COM1A1);                  
-    TCCR1B = (1 << WGM12);                   
+    TCCR1A = BIT_MASK(COM1A1);                  
+    TCCR1B = BIT_MASK(WGM12);                   
 
     OCR1A = 724;                            
 }
@@ -35,12 +35,14 @@ void airbag_timer_configure(void)
 void airbag_timer_start(void)
 {
     TCNT1 = 0x0000;
-    TCCR1B |= (1 << CS10);                  
+    TCCR1B |= BIT_MASK(CS10);                  
 }
 ```
 
 > The function that returns the car crash status is seeded, becuase it reseeds wih the literal constant on every call.
-> rand() produces the same first output every time, so the function returns the same fixed value on every call, which doesn't really demonstrate a state transition.
+> - srand(31) produces the same first output every time, so the function returns the same fixed value on every call, which doesn't really demonstrate a state transition.
+> 
+> I changed that line to be able to get a different value each time the function is called.
 
 **`timer.c`**
 ```c
