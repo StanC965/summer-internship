@@ -50,6 +50,7 @@
 
 /* TIMSK1 - Timer/Counter1 Interrupt Mask Register */
 #define OCIE1A                        1  
+#define TOIE1                         0  
 
 /* TCCR0A - Timer/Counter0 Control Register A */
 #define WGM00                         0   
@@ -61,11 +62,14 @@
 #define CS00                          0   
 
 /* TCCR1A - Timer/Counter1 Control Register A */
+#define COM1B1                        5
 #define COM1A0                        6   
 #define COM1A1                        7  
+#define WGM11                         1
 
 /* TCCR1B - Timer/Counter1 Control Register B */
 #define WGM12                         3   
+#define WGM13                         4  
 #define CS10                          0   
 #define CS11                          1   
 
