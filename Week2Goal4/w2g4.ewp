@@ -2125,6 +2125,12 @@
         <name>$PROJ_DIR$\main.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\panel.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\panel.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\timer.c</name>
     </file>
     <file>
