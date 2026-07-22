@@ -51,6 +51,102 @@
 | 2	            | 8	                                    | 40
 
 > **Answer/Explanation:**
-> The task is semi-done. I need to find a bug in the code.
+
+**`shceduler_cfg.c`**
+```c
+void task_10ms(void)
+{
+  button_debounce_update();
+  
+  if(button_was_pressed(BUTTON_ONBOARD))
+  {
+    lighting_trigger_entry_phase();
+  }
+}
+```
+
+**`lighting.c`**
+```c
+static uint8_t adc_to_perceived_light(uint16_t adc_raw)
+{
+    return (uint8_t)(100U - (((uint32_t)adc_raw * 100U) / 1023U));
+}
+
+static const light_band_t *lighting_find_band(uint8_t perceived_level)
+{
+    for (uint8_t i = 0; i < LIGHT_BAND_COUNT; i++)
+    {
+        if (perceived_level >= light_bands[i].perceived_min &&
+            perceived_level <= light_bands[i].perceived_max)
+        {
+            return &light_bands[i];
+        }
+    }
+    return &light_bands[0]; 
+}
+
+void lighting_init(void)
+{
+
+    TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM11);
+    TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11); 
+    ICR1 = LIGHTING_PWM_TOP;
+
+    lighting_set_duty_percent(0);
+
+    TIMSK1 |= (1 << TOIE1); 
+}
+
+void lighting_trigger_entry_phase(void)
+{
+    adc_start_conversion();
+    while (ADCSRA & (1 << ADSC))
+    {
+    }
+
+    uint16_t adc_raw = adc_get_data();
+    uint8_t perceived_level = adc_to_perceived_light(adc_raw);
+
+    const light_band_t *band = lighting_find_band(perceived_level);
+    current_mode = band->mode;
+    current_duty = band->absolute_entry_percent;
+
+    lighting_set_duty_percent((uint8_t)current_duty);
+
+    entry_step_index = 0;
+    entry_state = ENTRY_PHASE_RUNNING;
+}
+
+void lighting_entry_phase_update(void)
+{
+    if (entry_state != ENTRY_PHASE_RUNNING)
+    {
+        return;
+    }
+
+    entry_step_index++;
+    if (entry_step_index >= ENTRY_PHASE_STEP_COUNT)
+    {
+        entry_state = ENTRY_PHASE_IDLE;
+        return;
+    }
+
+    int8_t step = (current_mode == LIGHT_MODE_NIGHT)
+                      ? night_entry_steps[entry_step_index]
+                      : day_entry_steps[entry_step_index];
+
+    current_duty += step;
+    if (current_duty > 100)
+    {
+        current_duty = 100;
+    }
+    if (current_duty < 0)
+    {
+        current_duty = 0;
+    }
+
+    lighting_set_duty_percent((uint8_t)current_duty);
+}
+```
 
 ---
