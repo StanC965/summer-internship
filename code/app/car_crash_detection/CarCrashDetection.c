@@ -1,11 +1,28 @@
+#ifndef CAR_CRASH_DETECTION_C
+#define CAR_CRASH_DETECTION_C
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Includes
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 #include "CarCrashDetection.h"
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Static private objects & functions
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 static unsigned char __CarCrashEventStatus;
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Implementation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 unsigned char GetCarCrashDetectionStatus(void)
 {
-  __CarCrashEventStatus=NO_CRASH;
-  srand(31);/*initializes with 31 the random generator*/
-  __CarCrashEventStatus=rand()%2;/*reports 1 or 0 as car crash is detected or not*/
+  __CarCrashEventStatus = NO_CRASH;
+  rand();
+  __CarCrashEventStatus = rand() % 2;
   return __CarCrashEventStatus;
 }
+
+#endif /* CAR_CRASH_DETECTION_C */
