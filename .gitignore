@@ -120,3 +120,9 @@ Week2Goal3/adc.c
 Week2Goal3/adc.h
 Week2Goal3/ambient.c
 Week2Goal3/ambient.h
+
+# Week2 Goal4 - new workflow: commit the whole IAR project, ignore only build output
+Week2Goal4/Debug/
+Week2Goal4/settings/
+Week2Goal4/w2g4.dep
+Week2Goal4/w2g4.ewt

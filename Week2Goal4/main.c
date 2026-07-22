@@ -4,6 +4,14 @@
 #include "led.h"
 #include "timer.h"
 
+static volatile unsigned char timer_ovf_count = 0;
+
+#pragma vector=TIMER0_OVF_vect
+__interrupt void timer0_ovf_isr(void)
+{
+    timer_ovf_count++;
+}
+
 void main( void )
 {
     gpio_init();
@@ -12,6 +20,7 @@ void main( void )
 
     timer_init();
     __enable_interrupt();
+    timer_start(TIMER_PRESCALER_1);
 
     while(1)
     {
