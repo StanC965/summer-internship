@@ -11,21 +11,9 @@ C:\MQ_Summer_Internship\Week1\Goal2\Debug\BrowseInfo\button.pbi
 -I
 C:\MQ_Summer_Internship\Week1\Goal2\mod.c
 -I
-C:\MQ_Summer_Internship\Week1\Goal2
--I
-C:\MQ_Summer_Internship\Week1\Goal2\mod.c
--I
-C:\MQ_Summer_Internship\Week1\Goal2\mod.h
--I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc\dlib\c
--I
-C:\MQ_Summer_Internship\Week1\Goal2
--I
-C:\MQ_Summer_Internship\Week1\Goal2\mod.c
--I
-C:\MQ_Summer_Internship\Week1\Goal2\mod.h
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

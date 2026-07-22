@@ -2637,6 +2637,9 @@
     </configuration>
     <file>
         <name>$PROJ_DIR$\mod.c\button.c</name>
+        <configuration>
+            <name>Debug</name>
+        </configuration>
     </file>
     <file>
         <name>$PROJ_DIR$\mod.h\button.h</name>

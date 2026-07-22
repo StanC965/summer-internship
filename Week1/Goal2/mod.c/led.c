@@ -2,7 +2,6 @@
 #include "led.h"
 #include "gpio.h"
 
-// Reusable microsecond software calibration block
 static void led_internal_delay(volatile unsigned long count) {
     for(volatile unsigned long i = 0; i < count; i++);
 }
@@ -39,18 +38,16 @@ void led_power_off(uint8_t led_id) {
     }
 }
 
-// 243 Stretch: 6 cycles of ON/OFF execution bursts per single tracking second
 void led_blink_fast(uint8_t led_id) {
     led_power_on(led_id);
-    led_internal_delay(6600);  // ~83.3ms holding period
+    led_internal_delay(6600);  
     led_power_off(led_id);
     led_internal_delay(6600);
 }
 
-// 243 Stretch: 2 cycles of ON/OFF execution bursts per single tracking second
 void led_blink_slow(uint8_t led_id) {
     led_power_on(led_id);
-    led_internal_delay(20000); // ~250ms holding period
+    led_internal_delay(20000);
     led_power_off(led_id);
     led_internal_delay(20000);
 }

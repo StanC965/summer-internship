@@ -176,15 +176,15 @@ void main(void) {
     sos_init();
 
     uint8_t sos_active = 0;     // State flag: 0 = Idle, 1 = Transmission active
-    uint8_t button_released = 1; // Edge protection tracker to avoid double-triggering
+    uint8_t button_released = 1; // tracker to avoid double-triggering
 
     while(1) {
         if (button_sw0_is_pressed()) {
             if (button_released) {
-                sos_active = !sos_active; Toggle the state (ON <-> OFF)
+                sos_active = !sos_active; // Toggle the state (ON/OFF)
                 button_released = 0;      // Lock edge flag until button is let go
                 
-                // If turning off, instantly force the LED dark
+                // If turning off, force the LED dark
                 if (!sos_active) {
                     led_power_off(LED_0);
                 }
@@ -201,8 +201,7 @@ void main(void) {
                 sos_active = 0; // Turn off immediately
                 led_power_off(LED_0);
                 
-                // Small safety window to allow the user to lift their finger 
-                // after an early abort command
+                // Small safety window to allow the user to lift their finger after an early abort command
                 for(volatile unsigned long lock = 0; lock < 40000; lock++);
             }
         }

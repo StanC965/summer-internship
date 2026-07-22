@@ -2,7 +2,7 @@
 #include "led.h"
 #include "button.h"
 
-// Base Morse timing unit (calibrated software delay)
+// Base Morse timing unit
 #define MORSE_UNIT  7000 
 
 static void sos_internal_delay(volatile unsigned long count) {
@@ -55,7 +55,6 @@ uint8_t sos_run_sequence(void) {
         sos_print_dot();
     }
 
-    // 262 CORE: 1-Second Sequence Gap Break before returning to loop
     // Re-check button periodically during the long 1-second sleep
     for(i = 0; i < 10; i++) {
         sos_internal_delay(MORSE_UNIT * 2);

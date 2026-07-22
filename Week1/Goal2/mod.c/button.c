@@ -17,7 +17,7 @@ uint8_t button_sw0_is_pressed(void) {
         // Delays execution for 10-15ms to let electrical noise settle down
         for (volatile unsigned long debounce_delay = 0; debounce_delay < 1200; debounce_delay++);
         
-        // Re-read the pin: If it's STILL low, this is a real press
+        // Re-read the pin: If low, this is a real press
         if (gpio_read_pin(&PINC, 6) == 0) {
             return 1; // Validated Pressed state
         }

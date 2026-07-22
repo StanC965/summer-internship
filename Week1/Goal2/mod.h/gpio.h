@@ -11,7 +11,7 @@ void gpio_set_pin(volatile uint8_t *port, uint8_t pin);
 void gpio_reset_pin(volatile uint8_t *port, uint8_t pin);
 void gpio_toggle_pin(volatile uint8_t *port, uint8_t pin);
 
-// NEW: Reads the current digital state of a pin from a target PINx register
+// Reads the current digital state of a pin from a target PINx register
 uint8_t gpio_read_pin(volatile uint8_t *pin_register, uint8_t pin);
 
 #endif /* GPIO_H */
