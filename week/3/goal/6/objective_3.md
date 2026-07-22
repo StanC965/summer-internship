@@ -117,7 +117,30 @@ void pwm_sequence_update(void)
 > **Question/Prompt:** Build the next behavior for the LED identified as supporting PWM. Be attentive to the indications of the scale!
 
 > **Answer/Explanation:**
-> 
+
+**`pwm.h`**
+```c
+#define PWM_GRAPH_POINTS   (19U)  tick
+
+```
+
+**`pwm.c`**
+```c
+static const uint8_t pwm_graph_duty[PWM_GRAPH_POINTS] =
+{
+//  x=0  1   2   3   4   5   6   7   8   9    10  11  12  13  14  15  16  17  18
+    0,  23, 47, 70, 58, 47, 35, 23, 12, 100, 89, 78, 67, 56, 44, 33, 22, 11, 0
+};
+
+void pwm_graph_update(void)
+{
+    static uint8_t index = 0;
+
+    pwm_set_duty_cycle(pwm_graph_duty[index]);
+
+    index = (index + 1U) % PWM_GRAPH_POINTS;
+}
+```
 
 ---
 
