@@ -16,60 +16,62 @@ void System_Init(void){
   __enable_interrupt();
 }
 
-void main( void )
-{
-  System_Init();
-  
-  tc0_config_t my_timer;
-  my_timer.mode                = TC0_MODE_NORMAL;
-  my_timer.prescaler           = TC0_PRESCALER_1; // "No prescaling"
-  my_timer.interrupt_overflow  = 1;
-  my_timer.interrupt_compare_a = 0;
-  my_timer.interrupt_compare_b = 0;
-  
-  tc0_init(&my_timer);
-  
-  adc_start_conversion();
-  
-  unsigned int light_intensity = adc_get_result();
-  
-  while(1){
-
-    //Handle_MasterControl_Event();
+void HVAC_app(){
+  Handle_MasterControl_Event();
         
-    //Handle_VentControl_Event(BUTTON1, LED1, &button_events.btn1_pressed);
-    //Handle_VentControl_Event(BUTTON2, LED2, &button_events.btn2_pressed);
-    //Handle_VentControl_Event(BUTTON3, LED3, &button_events.btn3_pressed);
-    
-    if (light_intensity > SEMI_DARK_LIMIT) {
+  Handle_VentControl_Event(BUTTON1, LED1, &button_events.btn1_pressed);
+  Handle_VentControl_Event(BUTTON2, LED2, &button_events.btn2_pressed);
+  Handle_VentControl_Event(BUTTON3, LED3, &button_events.btn3_pressed);
+}
+
+void ADC_app(unsigned int *light_intensity){
+  if (*light_intensity > SEMI_DARK_LIMIT) {
       //full dark interval
         PowerOff_LED(LED1);
         PowerOff_LED(LED2);
         PowerOff_LED(LED3);
-    } else if(light_intensity > SEMI_LIGHT_LIMIT &&  light_intensity <= SEMI_DARK_LIMIT){
+    } else if(*light_intensity > SEMI_LIGHT_LIMIT &&  *light_intensity <= SEMI_DARK_LIMIT){
       //semi-dark interval
         PowerOn_LED(LED1);
         PowerOff_LED(LED2);
         PowerOff_LED(LED3);
-    }else if(light_intensity > FULL_LIGHT_LIMIT &&  light_intensity <= SEMI_LIGHT_LIMIT){
+    }else if(*light_intensity > FULL_LIGHT_LIMIT &&  *light_intensity <= SEMI_LIGHT_LIMIT){
       //semi-light interval
         PowerOn_LED(LED1);
         PowerOn_LED(LED2);
         PowerOff_LED(LED3);
-    }else if(light_intensity <= FULL_LIGHT_LIMIT){
+    }else if(*light_intensity <= FULL_LIGHT_LIMIT){
       //full light interval
       PowerOn_LED(LED1);
       PowerOn_LED(LED2);
       PowerOn_LED(LED3);
     }
     
-    light_intensity = adc_get_result();
+    *light_intensity = adc_get_result();
     
     adc_start_conversion();
     
     delay(ONE_SECOND_DELAY/20);
+}
+
+void main( void )
+{
+  System_Init();
+  
+  tc0_config_t my_timer;
+  my_timer.mode                = TC0_MODE_NORMAL;
+  my_timer.prescaler           = TC0_PRESCALER_64; // prescaller 64
+  my_timer.interrupt_overflow  = 1;
+  my_timer.interrupt_compare_a = 0;
+  my_timer.interrupt_compare_b = 0;
+  
+  tc0_init(&my_timer);
+  
+  
+  while(1){
     
     
+
   
   }
 }

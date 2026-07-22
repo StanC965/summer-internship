@@ -759,6 +759,178 @@ extern unsigned int adc_get_result(void);
 
  
 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+ 
+typedef unsigned char led_uint8_t;
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+                
+ 
+
+ 
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
+  
+} led_config_t;
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+extern void LED_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_init(led_uint8_t led);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void PowerOn_LED(led_uint8_t led);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void PowerOff_LED(led_uint8_t led);
+
+
+
+
+
+
+
+
+
+ 
+extern void Toggle_LED(led_uint8_t led);
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void BlinkFast_LED(led_uint8_t led);
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void BlinkSlow_LED(led_uint8_t led);
+
+
+
+
+ 
+
  
 typedef struct {
     unsigned char sw0_pressed;
@@ -827,6 +999,9 @@ __interrupt void ADC_Interrupt_Handler(void) {
 __interrupt void TC0_Overflow_Interrupt_Handler(void) {
     
   tc0_overflow_count++; 
-    
+  if (tc0_overflow_count >= 61) {
+    Toggle_LED((0U));
+    tc0_overflow_count = 0;
+  }
 }
 

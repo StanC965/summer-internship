@@ -18,6 +18,7 @@
 
 #include "Modules/button.h"
 #include "Modules/adc.h"
+#include "Modules/led.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values

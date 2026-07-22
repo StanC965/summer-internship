@@ -1251,60 +1251,62 @@ void System_Init(void){
   __enable_interrupt();
 }
 
-void main( void )
-{
-  System_Init();
-  
-  tc0_config_t my_timer;
-  my_timer.mode                = TC0_MODE_NORMAL;
-  my_timer.prescaler           = TC0_PRESCALER_1; 
-  my_timer.interrupt_overflow  = 1;
-  my_timer.interrupt_compare_a = 0;
-  my_timer.interrupt_compare_b = 0;
-  
-  tc0_init(&my_timer);
-  
-  adc_start_conversion();
-  
-  unsigned int light_intensity = adc_get_result();
-  
-  while(1){
-
-    
+void HVAC_app(){
+  Handle_MasterControl_Event();
         
-    
-    
-    
-    
-    if (light_intensity > 191) {
+  Handle_VentControl_Event((1U), (1U), &button_events.btn1_pressed);
+  Handle_VentControl_Event((2U), (2U), &button_events.btn2_pressed);
+  Handle_VentControl_Event((3U), (3U), &button_events.btn3_pressed);
+}
+
+void ADC_app(unsigned int *light_intensity){
+  if (*light_intensity > 191) {
       
         PowerOff_LED((1U));
         PowerOff_LED((2U));
         PowerOff_LED((3U));
-    } else if(light_intensity > 127 &&  light_intensity <= 191){
+    } else if(*light_intensity > 127 &&  *light_intensity <= 191){
       
         PowerOn_LED((1U));
         PowerOff_LED((2U));
         PowerOff_LED((3U));
-    }else if(light_intensity > 63 &&  light_intensity <= 127){
+    }else if(*light_intensity > 63 &&  *light_intensity <= 127){
       
         PowerOn_LED((1U));
         PowerOn_LED((2U));
         PowerOff_LED((3U));
-    }else if(light_intensity <= 63){
+    }else if(*light_intensity <= 63){
       
       PowerOn_LED((1U));
       PowerOn_LED((2U));
       PowerOn_LED((3U));
     }
     
-    light_intensity = adc_get_result();
+    *light_intensity = adc_get_result();
     
     adc_start_conversion();
     
     delay((100000L)/20);
+}
+
+void main( void )
+{
+  System_Init();
+  
+  tc0_config_t my_timer;
+  my_timer.mode                = TC0_MODE_NORMAL;
+  my_timer.prescaler           = TC0_PRESCALER_64; 
+  my_timer.interrupt_overflow  = 1;
+  my_timer.interrupt_compare_a = 0;
+  my_timer.interrupt_compare_b = 0;
+  
+  tc0_init(&my_timer);
+  
+  
+  while(1){
     
     
+
   
   }
 }
