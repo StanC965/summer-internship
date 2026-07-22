@@ -1,0 +1,8 @@
+433 - CTC waveform with ~100ms period on OC0A (PB3 = LED4).
+
+period = 2 * match_interval = 2 * (OCR0A+1) * prescaler / 1MHz
+OCR0A = 195, prescaler = 256 -> match_interval = 196 * 256us = 50.176 ms
+period = 2 * 50.176 = 100.352 ms  (~100 ms, ~10 Hz)
+
+Is this observable with the human eye?
+Yes. At ~10 Hz the LED is clearly seen flickering fast
