@@ -13,6 +13,7 @@
 #define TIMER_TOIE0_BIT     (0U)
 #define TIMER_OCIE0A_BIT    (1U)
 #define TIMER_WGM01_BIT     (1U)
+#define TIMER_COM0A0_BIT    (6U)
 #define TIMER_CS_MASK       (0x07U)
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,6 +33,11 @@ void timer_init_ctc(unsigned char top)
     TCCR0B = 0x00;                             /* WGM02 = 0, timer stopped */
     OCR0A  = top;                              /* TOP value */
     TIMSK0 |= (1 << TIMER_OCIE0A_BIT);         /* compare match A interrupt enable */
+}
+
+void timer_ctc_enable_oc0a_toggle(void)
+{
+    TCCR0A |= (1 << TIMER_COM0A0_BIT);         /* COM0A = 01: toggle OC0A on match */
 }
 
 void timer_start(unsigned char prescaler)

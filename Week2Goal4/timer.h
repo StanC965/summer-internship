@@ -23,6 +23,9 @@ extern void timer_init_normal(void);
 */
 extern void timer_init_ctc(unsigned char top);
 
+/** \brief  Connect OC0A (PB3) to toggle on each compare match (waveform generator) */
+extern void timer_ctc_enable_oc0a_toggle(void);
+
 /** \brief  Start TC0 with the given prescaler */
 extern void timer_start(unsigned char prescaler);
 
