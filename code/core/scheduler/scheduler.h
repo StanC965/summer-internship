@@ -10,6 +10,7 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 #define SCHEDULER_TICK_MS             (10U)
 #define SCHEDULER_TICK_FOR_50MS       (50U / SCHEDULER_TICK_MS)
 #define SCHEDULER_TICK_FOR_100MS      (100U / SCHEDULER_TICK_MS)

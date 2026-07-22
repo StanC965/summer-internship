@@ -10,6 +10,7 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 typedef struct
 {
     uint8_t perceived_min;
@@ -17,7 +18,6 @@ typedef struct
     uint8_t absolute_entry_percent;
     light_mode_t mode;
 } light_band_t;
-
 
 typedef enum
 {
@@ -27,9 +27,7 @@ typedef enum
 
 #define ENTRY_PHASE_STEP_COUNT (11U)
 
-
 #define LIGHTING_PWM_TOP (1249U)
-
 
 typedef enum
 {

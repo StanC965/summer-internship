@@ -20,14 +20,15 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 void task_10ms(void)
 {
-  button_debounce_update();
-  
-  if(button_was_pressed(BUTTON_ONBOARD))
-  {
-    lighting_trigger_entry_phase();
-  }
+    button_debounce_update();
+
+    if (button_was_pressed(BUTTON_ONBOARD))
+    {
+        lighting_trigger_entry_phase();
+    }
 }
 
 void task_50ms(void)
