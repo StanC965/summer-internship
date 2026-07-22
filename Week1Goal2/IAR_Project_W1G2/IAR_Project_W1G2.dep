@@ -5,163 +5,73 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Modules\gpio.c</file>
-            <file>$PROJ_DIR$\HVAC.c</file>
-            <file>$PROJ_DIR$\ISR\interrupts.c</file>
-            <file>$PROJ_DIR$\HVAC.h</file>
-            <file>$PROJ_DIR$\ISR\interrupts.h</file>
             <file>$PROJ_DIR$\Modules\led.h</file>
-            <file>$PROJ_DIR$\sos.c</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\Modules\button.c</file>
-            <file>$PROJ_DIR$\main.h</file>
-            <file>$PROJ_DIR$\Modules\led.c</file>
-            <file>$PROJ_DIR$\Modules\gpio.h</file>
-            <file>$PROJ_DIR$\Modules\button.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
-            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\utils.r90</file>
-            <file>$PROJ_DIR$\Debug\Obj\interrupts.r90</file>
-            <file>$PROJ_DIR$\Utils\utils.h</file>
-            <file>$PROJ_DIR$\Debug\List\HVAC.i</file>
-            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-            <file>$PROJ_DIR$\Debug\List\interrupts.i</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-            <file>$PROJ_DIR$\Debug\List\main.i</file>
-            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
-            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-            <file>$PROJ_DIR$\Debug\List\sos.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\HVAC.r90</file>
-            <file>$PROJ_DIR$\Debug\List\utils.i</file>
-            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
-            <file>$PROJ_DIR$\Debug\List\led.i</file>
-            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
-            <file>$PROJ_DIR$\Utils\utils.c</file>
-            <file>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</file>
-            <file>$PROJ_DIR$\Debug\List\IAR_Project_W1G2.map</file>
-            <file>$PROJ_DIR$\sos.h</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\Debug\List\interrupts.i</file>
+            <file>$PROJ_DIR$\Debug\List\sos.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\interrupts.r90</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\ISR\interrupts.c</file>
+            <file>$PROJ_DIR$\Utils\utils.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\Utils\utils.c</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\utils.i</file>
             <file>$PROJ_DIR$\Debug\List\button.i</file>
             <file>$PROJ_DIR$\Debug\Obj\button.r90</file>
+            <file>$PROJ_DIR$\HVAC.h</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\HVAC.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\utils.r90</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$PROJ_DIR$\ISR\interrupts.h</file>
+            <file>$PROJ_DIR$\sos.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\Modules\led.c</file>
+            <file>$PROJ_DIR$\main.h</file>
+            <file>$PROJ_DIR$\sos.c</file>
+            <file>$PROJ_DIR$\Debug\List\HVAC.i</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
+            <file>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</file>
+            <file>$PROJ_DIR$\Debug\List\IAR_Project_W1G2.map</file>
+            <file>$PROJ_DIR$\HVAC.c</file>
+            <file>$PROJ_DIR$\Modules\adc.c</file>
+            <file>$PROJ_DIR$\Modules\adc.h</file>
+            <file>$PROJ_DIR$\Modules\button.c</file>
+            <file>$PROJ_DIR$\Modules\button.h</file>
+            <file>$PROJ_DIR$\Modules\gpio.c</file>
+            <file>$PROJ_DIR$\Modules\gpio.h</file>
             <file>$PROJ_DIR$\Debug\List\adc.i</file>
             <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
-            <file>$PROJ_DIR$\Modules\adc.h</file>
-            <file>$PROJ_DIR$\Modules\adc.c</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 33 34</file>
+                    <file> 34 35</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Modules\gpio.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 23 37</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 11</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\HVAC.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 18 27</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 3 17 5 24 14 29 11 12 4 43</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\ISR\interrupts.c</name>
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 20 16</file>
+                    <file> 3 5</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 4 12 24 14 29 11 17 43</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\sos.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 26 31</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 35 17 5 24 14 29 11 12</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 22 25</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 9 5 24 14 29 11 17 12 35 4 43 3 40</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Modules\button.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 38 39</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 12 24 14 29 11 17</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Modules\led.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 30 13</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCAVR</name>
-                    <file> 5 24 14 29 11 17</file>
+                    <file> 22 40 32 20 29 42 8 38</file>
                 </tool>
             </inputs>
         </file>
@@ -170,22 +80,82 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 28 15</file>
+                    <file> 12 18</file>
                 </tool>
             </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 30 24</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 26 0 32 20 29 42 8 40 23 22 38 15 16</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Modules\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 31 9</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 0 32 20 29 42 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\sos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 4 33</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 23 8 0 32 20 29 42 40</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\IAR_Project_W1G2.d90</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 34</file>
+                    <file> 35</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 36 19 42 39 37 27 16 13 25 31 15 21</file>
+                    <file> 1 11 44 14 2 17 5 9 24 33 18 6</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HVAC.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 17</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 8 0 32 20 29 42 40 22 38</file>
                 </tool>
             </inputs>
         </file>
@@ -194,13 +164,43 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 41 42</file>
+                    <file> 43</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 43 24 14 29</file>
+                    <file> 38 32 20 29</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Modules\button.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 13 14</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 40 32 20 29 42 8</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Modules\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 21 2</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 42</file>
                 </tool>
             </inputs>
         </file>

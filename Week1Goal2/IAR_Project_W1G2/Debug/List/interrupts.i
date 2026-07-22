@@ -720,7 +720,7 @@ extern unsigned char button_read_state(button_uint8_t button);
   
 
     
-extern volatile unsigned char adc_last_result;
+extern volatile unsigned int adc_last_result;
 
 
 
@@ -752,7 +752,7 @@ extern void adc_start_conversion(void);
 
 
  
-extern unsigned char adc_get_result(void);
+extern unsigned int adc_get_result(void);
 
 
 
@@ -813,6 +813,9 @@ __interrupt void PortC_Interrupt_Handler(void) {
 
 #pragma vector = (0x60)
 __interrupt void ADC_Interrupt_Handler(void) {
-    adc_last_result = ADCH; 
+    unsigned char low_byte = ADCL;
+    unsigned char high_byte = ADCH;
+    
+    adc_last_result = low_byte | (high_byte << 8);
 }
 

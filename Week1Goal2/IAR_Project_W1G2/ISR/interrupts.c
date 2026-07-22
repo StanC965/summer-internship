@@ -54,7 +54,10 @@ __interrupt void PortC_Interrupt_Handler(void) {
 
 #pragma vector = ADC_vect
 __interrupt void ADC_Interrupt_Handler(void) {
-    adc_last_result = ADCH; 
+    unsigned char low_byte = ADCL;
+    unsigned char high_byte = ADCH;
+    
+    adc_last_result = low_byte | (high_byte << 8);
 }
 
 #endif

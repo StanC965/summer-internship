@@ -929,7 +929,7 @@ extern void SOS_play(led_uint8_t led, unsigned char *state);
   
 
     
-extern volatile unsigned char adc_last_result;
+extern volatile unsigned int adc_last_result;
 
 
 
@@ -961,7 +961,7 @@ extern void adc_start_conversion(void);
 
 
  
-extern unsigned char adc_get_result(void);
+extern unsigned int adc_get_result(void);
 
 
 
@@ -1199,7 +1199,7 @@ void main( void )
   
   adc_start_conversion();
   
-  unsigned char light_intensity = adc_get_result();
+  unsigned int light_intensity = adc_get_result();
   
   while(1){
 

@@ -22,7 +22,7 @@ void main( void )
   
   adc_start_conversion();
   
-  unsigned char light_intensity = adc_get_result();
+  unsigned int light_intensity = adc_get_result();
   
   while(1){
 

@@ -435,7 +435,7 @@
   
 
     
-extern volatile unsigned char adc_last_result;
+extern volatile unsigned int adc_last_result;
 
 
 
@@ -467,10 +467,10 @@ extern void adc_start_conversion(void);
 
 
  
-extern unsigned char adc_get_result(void);
+extern unsigned int adc_get_result(void);
 
 
-volatile unsigned char adc_last_result = 0;
+volatile unsigned int adc_last_result = 0;
 
 
 
@@ -481,19 +481,21 @@ void adc_init(void) {
   
   
   
-  ADMUX = (1 << 6) | (1 << 5) | 4;
+  
+  ADMUX = (1 << 6) | 4;
 
   
   
   
-  ADCSRA = (1 << 7) | (1 << 3);
+  
+  ADCSRA = (1 << 7) | (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0);
 }
 
 void adc_start_conversion(void) {
     ADCSRA |= (1 << 6);
 }
 
-unsigned char adc_get_result(void) {
+unsigned int adc_get_result(void) {
     return adc_last_result;
 }
 

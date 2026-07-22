@@ -22,14 +22,17 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 /** \brief  Bit masks */ 
-#define REFS0  6
-#define ADLAR  5
-#define ADEN   7
-#define ADSC   6
-#define ADIE   3
+#define REFS0   6
+#define ADLAR   5
+#define ADEN    7
+#define ADSC    6
+#define ADIE    3
+#define ADPS0   0
+#define ADPS1   1
+#define ADPS2   2
 
 /** \brief  ADC last result */   
-extern volatile unsigned char adc_last_result;
+extern volatile unsigned int adc_last_result;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
@@ -61,6 +64,6 @@ extern void adc_start_conversion(void);
     \return     8-bit ADC value (from ADCH).
     \details    Returns the last successful conversion result.
 */
-extern unsigned char adc_get_result(void);
+extern unsigned int adc_get_result(void);
 
 #endif /* ADC_H */

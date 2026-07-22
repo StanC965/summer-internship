@@ -907,7 +907,7 @@ extern unsigned char button_read_state(button_uint8_t button);
   
 
     
-extern volatile unsigned char adc_last_result;
+extern volatile unsigned int adc_last_result;
 
 
 
@@ -939,7 +939,7 @@ extern void adc_start_conversion(void);
 
 
  
-extern unsigned char adc_get_result(void);
+extern unsigned int adc_get_result(void);
 
 
 

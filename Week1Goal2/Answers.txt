@@ -31,3 +31,22 @@ while main.c contains the application logic. This separation makes the code easi
 When gpio.h is included twice, the guards ensure that the header contents appear only once in the .i file. Without guards, the header contents are duplicated, which can lead to compilation errors due to multiple definitions or redefinitions. 
 
 253 - CORE - Answer: In the gpio module I added a function to read a pin
+
+364 - CORE - 1. Would it be easier to have the result right-aligned or left-aligned?
+             Answer: Right-aligned. If you left-align the result, the 10 bits are split awkwardly (top 8 bits in ADCH, bottom 2 bits in ADCL), requiring complex bitwise shifts to combine them. By right-aligning (which is the default behavior),
+             the 10 bits fit naturally into a 16-bit variable: the lower 8 bits in ADCL and the upper 2 bits in ADCH.
+
+             2. What changes should I make to register settings to implement 10-bit resolution?
+             Answer: ADMUX: Clear the ADLAR bit (set it to 0) to enable right-alignment.
+             ADCSRA: Enable the prescaler bits to reduce the ADC clock frequency
+
+             3. Does the data type change?
+             Answer: Yes. Because the maximum value is now 1023, it no longer fits inside an 8-bit unsigned char (max 255). You must change the data type of your adc_last_result variable and the adc_get_result function to an unsigned int
+
+             4. How can I get the result now?
+             I must read ADCL first, and ADCH second.
+
+             5. Should I change the prescaler as chapter 27.4 is telling me?
+             Yes. For 8-bit resolution, the ADC tolerates a faster clock, but for maximum 10-bit accuracy, 
+             the datasheet requires an ADC clock between 50 kHz and 200 kHz. Assuming your microcontroller runs at 16 MHz, applying a prescaler of 128 gives you:
+             16,000,000 / 128 = 125 kHz. This falls perfectly within the required range.
