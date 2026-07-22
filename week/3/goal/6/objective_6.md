@@ -44,19 +44,19 @@
 > 1. STATES:
 > For each button/LED pair X (X = 1, 2, 3), the system has exactly two states:
 > - LED_X_OFF — LED X is not illuminated
-> - LED_X_ON — LED X is illuminated
+> - LED_X_ON  — LED X is illuminated
 >
-> Since there are 3 independent button/LED pairs, this is independent state machines (one per pair) since each button only ever affects its own LED, never the others.
+> Since there are 3 independent button/LED pairs, this is an independent state machines (one per pair) since each button only ever affects its own LED, never the others.
 >
 > 2. EVENTS:
 > Button X Pressed. This is the only event that drives any transition in this scenario.
 > 
 > 3. TRANSITIONS:
-> - LED_X_OFF → LED_X_ON, triggered by Button X Pressed
-> - LED_X_ON → LED_X_OFF, triggered by Button X Pressed 
+> - LED_X_OFF -> LED_X_ON, triggered by Button X Pressed
+> - LED_X_ON  -> LED_X_OFF, triggered by Button X Pressed 
 >
 > 4. GUARD CONDITIONS:
-> None required
+> None required.
 >
 > 5. ACTIONS / OUTPUTS
 > - On entering LED_X_ON: led_power_on(LED_X)
