@@ -5,29 +5,38 @@
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-#ifdef ADC_USE_8_BIT_RESOLUTION  
-typedef unsigned char ADC_result;
-#else
-typedef unsigned short ADC_result;
-#endif
+#define CMD_LED0_ON     0x01
+#define CMD_LED0_OFF    0x02
+#define CMD_LED0_TOGGLE 0x03
+
+#define CMD_LED1_ON     0x11
+#define CMD_LED1_TOGGLE 0x13
+
+#define CMD_LED2_ON     0x21
+#define CMD_LED2_TOGGLE 0x23
+
+#define CMD_LED3_ON     0x31
+#define CMD_LED3_TOGGLE 0x33
+
+
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  public functions            */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
   
-/** \fn    void USART_Init( unsigned int ubrr)
+/** \fn   void USART0_Init(unsigned int ubrr)
 
     \brief      [ Aceasta functie configureaza usart ]  
 */
-extern void USART_Init( unsigned int ubrr);
+extern void USART0_Init(unsigned int ubrr);
       
 
   
-/** \fn    void USART_Transmit( unsigned char data )
+/** \fn    void USART0_Transmit( unsigned char data )
 
     \brief      [ Aceasta functie trimite un caracter]  
 */
-extern void USART_Transmit( unsigned char data );
+extern void USART0_Transmit( unsigned char data );
 
 
 #endif
