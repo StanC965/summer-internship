@@ -25,7 +25,7 @@
 >   - STATE_NORMAL
 >   - STATE_BLOCKED
 > - EVENT: 
-    - ONBOARD button is PRESSED
+>   - ONBOARD button is PRESSED
 > - TRANSITIONS: 
 >   - NORMAL -> BLOCKED
 >   - BLOCKED -> NORMAL
