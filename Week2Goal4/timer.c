@@ -24,6 +24,7 @@ void timer_init_normal(void)
 {
     TCCR0A = 0x00;                             /* normal mode, no OC0x output */
     TCCR0B = 0x00;                             /* WGM02 = 0, timer stopped */
+    TCNT0  = 0x00;
     TIMSK0 |= (1 << TIMER_TOIE0_BIT);          /* overflow interrupt enable */
 }
 
@@ -31,13 +32,14 @@ void timer_init_ctc(unsigned char top)
 {
     TCCR0A = (1 << TIMER_WGM01_BIT);           /* CTC mode (WGM = 010), no OC0x output */
     TCCR0B = 0x00;                             /* WGM02 = 0, timer stopped */
+    TCNT0  = 0x00;
     OCR0A  = top;                              /* TOP value */
     TIMSK0 |= (1 << TIMER_OCIE0A_BIT);         /* compare match A interrupt enable */
 }
 
 void timer_ctc_enable_oc0a_toggle(void)
 {
-    TCCR0A |= (1 << TIMER_COM0A0_BIT);         /* COM0A = 01: toggle OC0A on match */
+    TCCR0A |= (1 << TIMER_COM0A0_BIT);        
 }
 
 void timer_start(unsigned char prescaler)

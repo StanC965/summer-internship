@@ -3,64 +3,42 @@
 #include "gpio.h"
 #include "led.h"
 #include "timer.h"
+#include "CarCrashDetection.h"
 
-#define WAVE_TOP        (195U)   /
-#define WAVE_SEGMENTS   (4U)
+#define AIRBAG_DELAY_TOP    (87U)   /* (87+1)*8us = 704us, inside [650us, 800us] with prescaler 8 */
 
-typedef struct
-{
-    unsigned char level;     
-    unsigned char matches;   
-} wave_segment_t;
-
-static const wave_segment_t wave[WAVE_SEGMENTS] =
-{
-    { 1, 4  },   /* 200ms HIGH */
-    { 0, 6  },   /* 300ms LOW  */
-    { 1, 10 },   /* 500ms HIGH */
-    { 0, 4  }    /* 200ms LOW  */
-};
-
-static volatile unsigned char seg_index = 0;
-static volatile unsigned char match_count = 0;
-
-static void wave_apply_level(unsigned char level)
-{
-    if (level)
-        led_power_on(LED0_PORT, LED0_PIN);
-    else
-        led_power_off(LED0_PORT, LED0_PIN);
-}
+#define AIRBAG_PORT         LED0_PORT
+#define AIRBAG_PIN          LED0_PIN
+#define NOTIFY_PORT         LED4_PORT   
+#define NOTIFY_PIN          LED4_PIN
 
 #pragma vector=TIMER0_COMPA_vect
-__interrupt void timer0_compa_isr(void)
+__interrupt void airbag_isr(void)
 {
-    match_count++;
-    if (match_count >= wave[seg_index].matches)
-    {
-        match_count = 0;
-        seg_index++;
-        if (seg_index >= WAVE_SEGMENTS)
-            seg_index = 0;
-
-        wave_apply_level(wave[seg_index].level);
-    }
+    timer_stop();                             
+    led_power_on(AIRBAG_PORT, AIRBAG_PIN);    
 }
 
 void main( void )
 {
+    unsigned char armed = 1;
+
     gpio_init();
     led_init(LED0_DDR, LED0_PIN);
+    led_init(LED4_DDR, LED4_PIN);
+    led_power_off(AIRBAG_PORT, AIRBAG_PIN);
+    led_power_off(NOTIFY_PORT, NOTIFY_PIN);
 
-    seg_index = 0;
-    match_count = 0;
-    wave_apply_level(wave[seg_index].level);  
-
-    timer_init_ctc(WAVE_TOP);
+    timer_init_ctc(AIRBAG_DELAY_TOP);
     __enable_interrupt();
-    timer_start(TIMER_PRESCALER_256);
 
     while(1)
     {
+        if (armed && (GetCarCrashDetectionStatus() == CRASH))
+        {
+            armed = 0;
+            led_power_on(NOTIFY_PORT, NOTIFY_PIN);   
+            timer_start(TIMER_PRESCALER_8);          
+        }
     }
 }
