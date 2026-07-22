@@ -11,6 +11,9 @@
 | :---      | :---       | :--- 
 | **[671]** | `CORE`     | [x] Completed
 | **[672]** | `CORE`     | [x] Completed
+| **[673]** | `STRETCH`  | [x] Completed
+| **[674]** | `STRETCH`  | [x] Completed
+| **[675]** | `STRETCH`  | [x] Completed
 
 ---
 
@@ -77,5 +80,29 @@ void task_1000ms(void)
 }
 
 ```
+
+---
+
+#### Task 673
+> **Question/Prompt:** Consider the code below. It is a State Machine to light up LED0 with a certain behavior. It is implemented with a SWITCH statement and state variable. First, draw an UML State Machine diagram and then re-write the code using Task Scheduler and your own State Machine.
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 674
+> **Question/Prompt:** Below is an example of how a pointer to function works. And further, you have a pointer to function based implementation of a LED0 behavior. Check if the State Machine is the same as previous exercises. Re-write the code using pointers to functions, task scheduler and your own state machine (adapt to your board connections).
+
+> **Answer/Explanation:**
+> 
+
+---
+
+#### Task 674
+> **Question/Prompt:**  What would be the advantage of using pointers to functions within state machines?
+
+> **Answer/Explanation:**
+> 
 
 ---
