@@ -24,19 +24,64 @@ rule PDBLINK
 
 
 #Build steps
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\adc.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\adc.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.tmp"
+  rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.xcl.rsp
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\gpio.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\gpio.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.tmp"
+  rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.xcl.rsp
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\led.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\led.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.tmp"
+  rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.xcl.rsp
+
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
   xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\main.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\main.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.tmp"
   rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\scheduler.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\scheduler.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.tmp"
+  rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.xcl.rsp
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\scheduler_cfg.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\scheduler_cfg.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.tmp"
+  rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.xcl.rsp
 
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.xcl : COMPILER_XCL 
   xclcommand = -source_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\uart.c" -xcl_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.xcl" -macro_file "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
   flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\uart.c" --cpu=m324pb -ms -o "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\Obj\\" --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -On --predef_macros "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.tmp"
   rspfile_name = C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.xcl.rsp
 
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.xcl |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\adc.c
+  flags = "-out=C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.pbi" -f "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.xcl"
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.xcl |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\gpio.c
+  flags = "-out=C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.pbi" -f "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.xcl"
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.xcl |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\led.c
+  flags = "-out=C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.pbi" -f "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.xcl"
+
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.xcl |  $
 C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\main.c
   flags = "-out=C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.pbi" -f "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.xcl"
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.xcl |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\scheduler.c
+  flags = "-out=C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.pbi" -f "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.xcl"
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.xcl |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\scheduler_cfg.c
+  flags = "-out=C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.pbi" -f "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.xcl"
 
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.pbi : INDEXER C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.xcl |  $
 C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\uart.c
@@ -45,7 +90,21 @@ C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\uart.c
 build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbw : MAKEBROWSE C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbd
   flags = "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbd" -output "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbw"
 
-build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbd : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.pbi |  $
-C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.pbi
-  flags = -M "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbd" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.pbi"
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part0.pbi : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.pbi |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.pbi $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.pbi
+  flags = -M "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part0.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\adc.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\gpio.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\led.pbi"
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part1.pbi : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.pbi |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.pbi $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.pbi
+  flags = -M "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part1.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\main.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\scheduler_cfg.pbi"
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part2.pbi : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.pbi
+  flags = -M "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part2.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\uart.pbi"
+
+build C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbd : PDBLINK C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part0.pbi |  $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part1.pbi $
+C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part2.pbi
+  flags = -M "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7.pbd" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part0.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part1.pbi" "C$:\MQ_Summer_Internship\summer-internship\Week$ 3\Goal$ 7\Debug\BrowseInfo\Goal7_part2.pbi"
 

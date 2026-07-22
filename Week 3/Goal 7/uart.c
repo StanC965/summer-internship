@@ -1,5 +1,6 @@
 #include "iom324pb.h"
 #include "uart.h"
+#include "scheduler_cfg.h"
 
 void uart_init(unsigned int ubrr){
   UBRR2H=(unsigned char)(ubrr>>8);

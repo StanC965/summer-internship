@@ -1,0 +1,207 @@
+#include "iom324pb.h"
+#include "scheduler_cfg.h"
+#include "adc.h"
+#include "led.h"
+#include "gpio.h"
+#include "uart.h"
+
+#define BTNSW0_PIN 6    //pc6
+#define BTN1_PIN 1      //pc1
+#define BTN2_PIN 0      //pa0
+#define BTN3_PIN 1      //pa1
+#define LED0_PIN 7      //pc7
+#define LED1_PIN 5      //pd5
+#define LED2_PIN 4      //pd4
+#define LED3_PIN 3      //pa3
+#define OUTPUT 1
+#define INPUT 0
+
+volatile unsigned char btn0=1;
+volatile unsigned char btn1=1;
+volatile unsigned char btn2=1;
+volatile unsigned char btn3=1;
+
+typedef enum {
+    STATE_UNBLOCKED,
+    STATE_BLOCKED
+} panel_state;
+
+void mcu1(void){
+  static panel_state state=STATE_UNBLOCKED;
+  static int stare_led1 = 0;
+  static int stare_led2 = 0;
+  static int stare_led3 = 0;
+  static int stare_btn0=1;
+  static int stare_btn1=1;
+  static int stare_btn2=1;
+  static int stare_btn3=1;
+  
+  switch(state){
+  case STATE_UNBLOCKED:
+    if(btn0==0 && stare_btn0==1){
+    uart_transmit_char('B');
+    
+    stare_led1=0;
+    stare_led2=0;
+    stare_led3=0;   
+    state=STATE_BLOCKED;
+    }
+    if(btn1==0 && stare_btn1==1){
+      if(stare_led1==0){
+        uart_transmit_char('1');
+      
+      stare_led1=1;
+    } 
+    else{
+      uart_transmit_char('2');
+      
+      stare_led1=0;
+    }
+    }
+    
+    if(btn2==0 && stare_btn2==1){
+      if(stare_led2==0){
+        uart_transmit_char('3');
+      
+      stare_led2=1;
+    }
+  
+    else{
+      uart_transmit_char('4');
+      
+      stare_led2=0;
+    }
+    }
+    
+    if(btn3==0 && stare_btn3==1){
+       if(stare_led3==0){
+         uart_transmit_char('5');
+      
+      stare_led3=1;
+    }
+  
+    else{
+      uart_transmit_char('6');
+      
+      stare_led3=0;
+    }
+    }
+    break;
+    
+    
+  case STATE_BLOCKED:
+     if(btn0==0 && stare_btn0==1){
+       uart_transmit_char('U');
+       
+       state=STATE_UNBLOCKED;
+     }
+     if((btn1==0 && stare_btn1==1)||(btn2==0 && stare_btn2==1)||(btn3==0 && stare_btn3==1)){
+       uart_transmit_char('E');
+      
+     }
+    break;
+    
+  }
+  stare_btn0=btn0;  
+  stare_btn1=btn1;    
+  stare_btn2=btn2;
+  stare_btn3=btn3;
+}
+
+void mcu2(void){
+  while((UCSR2A&0x80)==0x80){   
+    unsigned char comanda=UDR2;
+    switch(comanda){
+    case 'B':
+      reset_pin(&PORTC,LED0_PIN);
+      set_pin(&PORTD,LED1_PIN);
+      set_pin(&PORTD,LED2_PIN);
+      set_pin(&PORTA,LED3_PIN);
+      break;
+    case '1':
+      reset_pin(&PORTD,LED1_PIN);
+      break;
+    case '2':
+      set_pin(&PORTD,LED1_PIN);
+      break;
+    case '3':
+      reset_pin(&PORTD,LED2_PIN);
+      break;
+    case '4':
+      set_pin(&PORTD,LED2_PIN);
+      break;
+    case '5':
+      reset_pin(&PORTA,LED3_PIN);
+      break;
+    case '6':
+      set_pin(&PORTA,LED3_PIN);
+      break;
+    case 'U':
+      set_pin(&PORTC,LED0_PIN);
+      break;
+    case 'E':
+       BlinkFast_LED(&PORTC, LED0_PIN);
+       reset_pin(&PORTC,LED0_PIN);
+       break;    
+    }
+  }
+}
+
+
+
+void task_10ms(void) {
+  static unsigned char buffer0=0xFF;
+  static unsigned char buffer1=0xFF;
+  static unsigned char buffer2=0xFF;
+  static unsigned char buffer3=0xFF;
+  
+  unsigned char stare_btn0=(PINC&(1<<BTNSW0_PIN))?1:0;
+  unsigned char stare_btn1=(PINC&(1<<BTN1_PIN))?1:0;
+  unsigned char stare_btn2=(PINA&(1<<BTN2_PIN))?1:0;
+  unsigned char stare_btn3=(PINA&(1<<BTN3_PIN))?1:0;
+  
+  buffer0=(buffer0<<1)|stare_btn0;
+  buffer1=(buffer1<<1)|stare_btn1;
+  buffer2=(buffer2<<1)|stare_btn2;
+  buffer3=(buffer3<<1)|stare_btn3;
+  
+  unsigned char window0=buffer0&0x1F; //00011111
+  unsigned char window1=buffer1&0x1F;
+  unsigned char window2=buffer2&0x1F;
+  unsigned char window3=buffer3&0x1F;
+  
+  if(window0 == 0x00) 
+    btn0 = 0; 
+  else if(window0 == 0x1F) 
+    btn0 = 1;
+  if(window1 == 0x00) 
+    btn1 = 0; 
+  else if(window1 == 0x1F) 
+    btn1 = 1;
+  if(window2 == 0x00) 
+    btn2 = 0; 
+  else if(window2 == 0x1F) 
+    btn2 = 1;
+  if(window3 == 0x00) 
+    btn3 = 0; 
+  else if(window3 == 0x1F) 
+    btn3 = 1;
+  
+  mcu2();
+}
+
+
+
+void task_50ms(void) {
+  mcu1();
+}
+
+void task_100ms(void) {
+
+}
+
+void task_500ms(void) {
+}
+
+void task_1000ms(void) {
+}
