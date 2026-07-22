@@ -50,3 +50,5 @@ When gpio.h is included twice, the guards ensure that the header contents appear
              Yes. For 8-bit resolution, the ADC tolerates a faster clock, but for maximum 10-bit accuracy, 
              the datasheet requires an ADC clock between 50 kHz and 200 kHz. Assuming your microcontroller runs at 16 MHz, applying a prescaler of 128 gives you:
              16,000,000 / 128 = 125 kHz. This falls perfectly within the required range.
+424 - OPTIONAL — What can you say about the jitter (deviation in time) introduced when extending the maximum real time measured in NORMAL MODE?
+Answer: When extending the time using a software counter inside the Overflow ISR, jitter (time deviation) is introduced primarily by Interrupt Latency and CPU blocking. 
