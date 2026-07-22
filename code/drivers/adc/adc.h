@@ -6,12 +6,11 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 #include <stdint.h>
+#include "bits.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-/** \brief  Macro utility to generate a bit mask for a specific bit position */
-#define BIT_MASK(bit_position)        (1 << bit_position)
 
 /* ADMUX - ADC Multiplexer Selection Register */
 #define MUX0                          0
@@ -150,10 +149,10 @@ extern void adc_disable_digital_input(uint8_t channel);
 */
 extern void adc_start_conversion(void);
 
-/** \fn      adc_result+t adc_get_data(void)
+/** \fn      adc_result_t adc_get_data(void)
     \brief   [  ]
     \param   [ None ]
-    \return  uint8_t [  ]
+    \return  [ The result of the conversion (uint8_t or uint16_t).  ]
     \details [  ]
 */
 extern adc_result_t adc_get_data(void);
