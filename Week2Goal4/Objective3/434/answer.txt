@@ -1,0 +1,16 @@
+434 - CTC min/max real time (system clock = 1MHz).
+match interval = (OCR0A + 1) * prescaler / 1MHz , OCR0A can be 0..255.
+
+MIN => OCR0A = 0,   prescaler 1    -> 1 * 1us       = 1 us
+MAX => OCR0A = 255, prescaler 1024 -> 256 * 1024us  = 262.144 ms
+
+Max real time per prescaler (OCR0A = 255):
+prescaler 1     -> 0.256 ms
+prescaler 8     -> 2.048 ms
+prescaler 64    -> 16.384 ms
+prescaler 256   -> 65.536 ms
+prescaler 1024  -> 262.144 ms
+
+How to extend the maximum real time in CTC MODE?
+Same idea as Normal Mode: count the compare-match interrupts in software and act
+only after N matches. Total measured time = N * (OCR0A+1) * prescaler / 1MHz.
