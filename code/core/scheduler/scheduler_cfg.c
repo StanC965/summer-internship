@@ -36,6 +36,7 @@ void task_50ms(void)
 
 void task_100ms(void)
 {
+    pwm_sequence_update();
 }
 
 void task_200ms(void)

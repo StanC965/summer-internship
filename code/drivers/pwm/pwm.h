@@ -23,6 +23,22 @@ typedef enum
     PWM_DUTY_100 = 100
 } pwm_duty_t;
 
+typedef enum
+{
+    SEQ_RAMP_UP = 0,
+    SEQ_HOLD_HIGH_1,
+    SEQ_DIP_LOW_1,
+    SEQ_HOLD_HIGH_2,
+    SEQ_DIP_LOW_2,
+    SEQ_HOLD_HIGH_3,
+    SEQ_RAMP_DOWN,
+    SEQ_PAUSE
+} pwm_seq_phase_t;
+
+#define SEQ_RAMP_STEP_PERCENT   (5U)    
+#define SEQ_HOLD_TICKS          (10U)   
+#define SEQ_PAUSE_TICKS         (30U)   
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -60,5 +76,7 @@ extern void pwm_start(void);
 extern void pwm_set_duty_cycle(uint8_t duty_percent);
 
 extern void pwm_incremental_update(void);
+
+extern void pwm_sequence_update(void);
 
 #endif /* PWM_H */

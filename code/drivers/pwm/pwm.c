@@ -68,4 +68,73 @@ void pwm_incremental_update(void)
 
     run_counter++;
 }
+
+void pwm_sequence_update(void)
+{
+    static pwm_seq_phase_t phase = SEQ_RAMP_UP;
+    static uint8_t duty = 0;
+    static uint8_t tick_count = 0;
+
+    switch (phase)
+    {
+    case SEQ_RAMP_UP:
+        pwm_set_duty_cycle(duty);
+        if (duty >= 100)
+        {
+            phase = SEQ_HOLD_HIGH_1;
+            tick_count = 0;
+        }
+        else
+        {
+            duty += SEQ_RAMP_STEP_PERCENT;
+        }
+        break;
+
+    case SEQ_HOLD_HIGH_1:
+    case SEQ_HOLD_HIGH_2:
+    case SEQ_HOLD_HIGH_3:
+        pwm_set_duty_cycle(100);
+        if (++tick_count >= SEQ_HOLD_TICKS)
+        {
+            tick_count = 0;
+            phase = (phase == SEQ_HOLD_HIGH_1) ? SEQ_DIP_LOW_1 : (phase == SEQ_HOLD_HIGH_2) ? SEQ_DIP_LOW_2
+                                                                                            : SEQ_RAMP_DOWN;
+        }
+        break;
+
+    case SEQ_DIP_LOW_1:
+    case SEQ_DIP_LOW_2:
+        pwm_set_duty_cycle(0);
+        if (++tick_count >= SEQ_HOLD_TICKS)
+        {
+            tick_count = 0;
+            phase = (phase == SEQ_DIP_LOW_1) ? SEQ_HOLD_HIGH_2 : SEQ_HOLD_HIGH_3;
+        }
+        break;
+
+    case SEQ_RAMP_DOWN:
+        pwm_set_duty_cycle(duty);
+        if (duty == 0)
+        {
+            phase = SEQ_PAUSE;
+            tick_count = 0;
+        }
+        else
+        {
+            duty -= SEQ_RAMP_STEP_PERCENT;
+        }
+        break;
+
+    case SEQ_PAUSE:
+        pwm_set_duty_cycle(0);
+        if (++tick_count >= SEQ_PAUSE_TICKS)
+        {
+            tick_count = 0;
+            phase = SEQ_RAMP_UP;
+            duty = 0;
+        }
+        break;
+    }
+}
+
 #endif /* PWM_C */
