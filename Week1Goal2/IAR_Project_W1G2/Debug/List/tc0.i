@@ -1,21 +1,5 @@
 
 
-
- 
-
-
-
-
-
- 
-
-
-
- 
-
-
-
-
  
 
 
@@ -427,20 +411,47 @@
 
 
 
-   
-
-
- 
-
-  
-
-    
-extern volatile unsigned int adc_last_result;
 
 
 
  
 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+ 
+
+
 
 
 
@@ -449,16 +460,8 @@ extern volatile unsigned int adc_last_result;
 
 
  
-extern void adc_init(void);
 
 
-
-
-
-
-
- 
-extern void adc_start_conversion(void);
 
 
 
@@ -467,41 +470,428 @@ extern void adc_start_conversion(void);
 
 
  
-extern unsigned int adc_get_result(void);
 
 
-volatile unsigned int adc_last_result = 0;
+
+
+
+
 
 
 
  
 
-void adc_init(void) {
+ 
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+ 
+typedef enum {
+  TC0_MODE_NORMAL = 0,
+  TC0_MODE_PWM_PHASE_CORRECT = 1,
+  TC0_MODE_CTC = 2,
+  TC0_MODE_FAST_PWM = 3
+} tc0_mode_t;
+
 
   
+typedef enum {
+  TC0_PRESCALER_OFF = 0,      
+  TC0_PRESCALER_1 = 1,        
+  TC0_PRESCALER_8 = 2,        
+  TC0_PRESCALER_64 = 3,       
+  TC0_PRESCALER_256 = 4,      
+  TC0_PRESCALER_1024 = 5      
+} tc0_prescaler_t;
+
+ 
+typedef struct {
+  tc0_mode_t      mode;                   
+  tc0_prescaler_t prescaler;              
+  unsigned char   interrupt_overflow;     
+  unsigned char   interrupt_compare_a;    
+  unsigned char   interrupt_compare_b;    
+} tc0_config_t;
+
+
+
+ 
+
+
+
+
+
+
+ 
+extern void tc0_init(const tc0_config_t *config);
+
+
+
+
+ 
+
+void tc0_init(const tc0_config_t *config) {
   
   
-  
-  
-  
-  
-  ADMUX = (1 << 6) | 4;
+  unsigned char tccr0a_temp = 0;
+  unsigned char tccr0b_temp = 0;
+  unsigned char timsk0_temp = 0;
+
+  switch(config->mode) {
+      case TC0_MODE_NORMAL:
+          
+          break;
+          
+      case TC0_MODE_CTC:
+          tccr0a_temp |= (1 << 1U); 
+          break;
+          
+      case TC0_MODE_FAST_PWM:
+          tccr0a_temp |= (1 << 1U) | (1 << 0U); 
+          break;
+          
+      default:
+          break; 
+  }
+
+  if (config->interrupt_overflow == 1) {
+      timsk0_temp |= (1 << 0U);
+  }
+  if (config->interrupt_compare_a == 1) {
+      timsk0_temp |= (1 << 1U);
+  }
+  if (config->interrupt_compare_b == 1) {
+      timsk0_temp |= (1 << 2U);
+  }
+
 
   
+  tccr0b_temp |= (unsigned char)config->prescaler; 
   
   
+  TCCR0B = 0x00; 
   
   
+  TCCR0A = tccr0a_temp;
+  TIMSK0 = timsk0_temp;
   
   
-  ADCSRA = (1 << 7) | (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0);
+  TCCR0B = tccr0b_temp; 
 }
-
-void adc_start_conversion(void) {
-    ADCSRA |= (1 << 6);
-}
-
-unsigned int adc_get_result(void) {
-    return adc_last_result;
-}
-

@@ -957,6 +957,9 @@ typedef struct {
  
 extern volatile button_events_t button_events;
 
+ 
+extern volatile unsigned long tc0_overflow_count;
+
 
  
 

@@ -2152,6 +2152,12 @@
         <name>$PROJ_DIR$\sos.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\Modules\tc0.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Modules\tc0.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\Utils\utils.c</name>
     </file>
     <file>

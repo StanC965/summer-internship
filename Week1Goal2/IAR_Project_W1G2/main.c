@@ -20,6 +20,15 @@ void main( void )
 {
   System_Init();
   
+  tc0_config_t my_timer;
+  my_timer.mode                = TC0_MODE_NORMAL;
+  my_timer.prescaler           = TC0_PRESCALER_1; // "No prescaling"
+  my_timer.interrupt_overflow  = 1;
+  my_timer.interrupt_compare_a = 0;
+  my_timer.interrupt_compare_b = 0;
+  
+  tc0_init(&my_timer);
+  
   adc_start_conversion();
   
   unsigned int light_intensity = adc_get_result();

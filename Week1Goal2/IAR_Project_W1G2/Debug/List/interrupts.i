@@ -770,6 +770,9 @@ typedef struct {
  
 extern volatile button_events_t button_events;
 
+ 
+extern volatile unsigned long tc0_overflow_count;
+
 
  
 
@@ -781,6 +784,7 @@ extern volatile button_events_t button_events;
  
 
 volatile button_events_t button_events = {0, 0, 0, 0};
+volatile unsigned long tc0_overflow_count = 0;
 
 
 
@@ -817,5 +821,12 @@ __interrupt void ADC_Interrupt_Handler(void) {
     unsigned char high_byte = ADCH;
     
     adc_last_result = low_byte | (high_byte << 8);
+}
+
+#pragma vector = (0x48)
+__interrupt void TC0_Overflow_Interrupt_Handler(void) {
+    
+  tc0_overflow_count++; 
+    
 }
 

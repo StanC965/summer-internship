@@ -979,6 +979,9 @@ typedef struct {
  
 extern volatile button_events_t button_events;
 
+ 
+extern volatile unsigned long tc0_overflow_count;
+
 
  
 
@@ -1171,6 +1174,61 @@ __intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr,
  
 
 
+
+
+
+ 
+
+
+
+ 
+
+ 
+typedef enum {
+  TC0_MODE_NORMAL = 0,
+  TC0_MODE_PWM_PHASE_CORRECT = 1,
+  TC0_MODE_CTC = 2,
+  TC0_MODE_FAST_PWM = 3
+} tc0_mode_t;
+
+
+  
+typedef enum {
+  TC0_PRESCALER_OFF = 0,      
+  TC0_PRESCALER_1 = 1,        
+  TC0_PRESCALER_8 = 2,        
+  TC0_PRESCALER_64 = 3,       
+  TC0_PRESCALER_256 = 4,      
+  TC0_PRESCALER_1024 = 5      
+} tc0_prescaler_t;
+
+ 
+typedef struct {
+  tc0_mode_t      mode;                   
+  tc0_prescaler_t prescaler;              
+  unsigned char   interrupt_overflow;     
+  unsigned char   interrupt_compare_a;    
+  unsigned char   interrupt_compare_b;    
+} tc0_config_t;
+
+
+
+ 
+
+
+
+
+
+
+ 
+extern void tc0_init(const tc0_config_t *config);
+
+
+
+
+ 
+
+
  
 
 
@@ -1196,6 +1254,15 @@ void System_Init(void){
 void main( void )
 {
   System_Init();
+  
+  tc0_config_t my_timer;
+  my_timer.mode                = TC0_MODE_NORMAL;
+  my_timer.prescaler           = TC0_PRESCALER_1; 
+  my_timer.interrupt_overflow  = 1;
+  my_timer.interrupt_compare_a = 0;
+  my_timer.interrupt_compare_b = 0;
+  
+  tc0_init(&my_timer);
   
   adc_start_conversion();
   

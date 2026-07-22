@@ -22,6 +22,7 @@
 #include "ISR/interrupts.h"
 #include "HVAC.h"
 #include <intrinsics.h>
+#include "Modules/tc0.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Exported types and values

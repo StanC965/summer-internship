@@ -33,6 +33,9 @@ typedef struct {
 
 /** \brief  Interrupts flags variable */
 extern volatile button_events_t button_events;
+
+/** \brief  Overflow count */
+extern volatile unsigned long tc0_overflow_count;
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
