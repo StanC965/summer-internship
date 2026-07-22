@@ -15,9 +15,15 @@
 /*  Public functions            */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-extern void timer_init(void);
+/** \brief  Normal mode, overflow interrupt (TOP = 0xFF) */
+extern void timer_init_normal(void);
 
-/** \brief  Start TC0 with the given prescaler (this is what actually starts counting) */
+/** \brief  CTC mode, compare match A interrupt (TOP = OCR0A)
+    \param[in]  top  value loaded in OCR0A
+*/
+extern void timer_init_ctc(unsigned char top);
+
+/** \brief  Start TC0 with the given prescaler */
 extern void timer_start(unsigned char prescaler);
 
 extern void timer_stop(void);

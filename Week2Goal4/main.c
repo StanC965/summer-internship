@@ -1,47 +1,28 @@
 #include "iom324pb.h"
 #include <intrinsics.h>
 #include "gpio.h"
-#include "button.h"
+#include "led.h"
 #include "timer.h"
-#include "panel.h"
 
-#define PCINT22_BIT     (6U)   /* SW0 = PC6 = PCINT22 */
-#define PCIE2_BIT       (2U)
+#define TIMER_CTC_TOP   (127U)
 
-static volatile unsigned char panel_tick = 0;
-
-#pragma vector=PCINT2_vect
-__interrupt void sw0_isr(void)
+#pragma vector=TIMER0_COMPA_vect
+__interrupt void timer0_compa_isr(void)
 {
-    if (gpio_read_pin(SW0_PIN_REG, SW0_PIN) == GPIO_LOW)
-        panel_toggle_blocked();
-}
-
-#pragma vector=TIMER0_OVF_vect
-__interrupt void timer0_ovf_isr(void)
-{
-    panel_tick = 1;
+    led_toggle(LED0_PORT, LED0_PIN);
 }
 
 void main( void )
 {
     gpio_init();
-    panel_init();
+    led_init(LED0_DDR, LED0_PIN);
+    led_power_off(LED0_PORT, LED0_PIN);
 
-    button_init(SW0_DDR, SW0_PORT, SW0_PIN);
-    PCMSK2 |= (1 << PCINT22_BIT);
-    PCICR  |= (1 << PCIE2_BIT);
-
-    timer_init();
-    timer_start(TIMER_PRESCALER_256);   
+    timer_init_ctc(TIMER_CTC_TOP);
     __enable_interrupt();
+    timer_start(TIMER_PRESCALER_1024);
 
     while(1)
     {
-        if (panel_tick)
-        {
-            panel_tick = 0;
-            panel_update();
-        }
     }
 }
