@@ -1,3 +1,4 @@
+//731
 #include "iom324pb.h"
 #include "uart.h"
 
@@ -7,7 +8,7 @@ void main( void )
   
   unsigned char caracter;
   while(1){
-    uart_transmit_char('R');
+    uart_transmit_string("Salut!");
     caracter=uart_receive();
   }
   

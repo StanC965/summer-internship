@@ -50054,7 +50054,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "4",
+      "line": "5",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 7\\main.c"
     },
     "name": "main",
@@ -50062,13 +50062,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@110@F@main@caracter",
+    "ID": "c:main.c@117@F@main@caracter",
     "What": "Variable",
     "defdec": "Def",
     "display": "caracter",
     "location": {
       "column": "17",
-      "line": "8",
+      "line": "9",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week 3\\Goal 7\\main.c"
     },
     "name": "caracter",
