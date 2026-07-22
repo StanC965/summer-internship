@@ -39,6 +39,8 @@ typedef enum
 #define SEQ_HOLD_TICKS          (10U)   
 #define SEQ_PAUSE_TICKS         (30U)   
 
+#define PWM_GRAPH_POINTS   (19U) 
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -78,5 +80,7 @@ extern void pwm_set_duty_cycle(uint8_t duty_percent);
 extern void pwm_incremental_update(void);
 
 extern void pwm_sequence_update(void);
+
+extern void pwm_graph_update(void);
 
 #endif /* PWM_H */

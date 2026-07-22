@@ -18,6 +18,11 @@
 
 static const uint8_t pwm_duty_steps[PWM_STEP_COUNT] = {0, 25, 50, 75, 100};
 
+static const uint8_t pwm_graph_duty[PWM_GRAPH_POINTS] =
+    {
+        //  x=0  1   2   3   4   5   6   7   8   9    10  11  12  13  14  15  16  17  18
+        0, 23, 47, 70, 58, 47, 35, 23, 12, 100, 89, 78, 67, 56, 44, 33, 22, 11, 0};
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -135,6 +140,15 @@ void pwm_sequence_update(void)
         }
         break;
     }
+}
+
+void pwm_graph_update(void)
+{
+    static uint8_t index = 0;
+
+    pwm_set_duty_cycle(pwm_graph_duty[index]);
+
+    index = (index + 1U) % PWM_GRAPH_POINTS;
 }
 
 #endif /* PWM_C */

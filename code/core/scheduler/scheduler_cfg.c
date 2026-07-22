@@ -46,6 +46,7 @@ void task_200ms(void)
 
 void task_500ms(void)
 {
+    pwm_graph_update();
 }
 
 void task_1000ms(void)
