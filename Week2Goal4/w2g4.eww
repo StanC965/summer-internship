@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspace>
+    <project>
+        <path>$WS_DIR$\..\Week2Goal3\w2g3.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\w2g4.ewp</path>
+    </project>
+    <batchBuild />
+</workspace>
