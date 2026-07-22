@@ -20,7 +20,96 @@
 > **Question/Prompt:** Build the next behavior for the LED identified as supporting PWM. The sequence described will be repetitive with pause (= PWM duty cycle 0%) of 3s. Be very attentive as the graphic below shows not the duty-cycle of a PWM signal, but the variation (!!!) of the PWM duty-cycle across time. The duty-cycle resolution you choose for ramping up PWM from 0% to 100% is up-to-you.
 
 > **Answer/Explanation:**
-> 
+
+**`pwm.h`**
+```c
+typedef enum
+{
+    SEQ_RAMP_UP = 0,
+    SEQ_HOLD_HIGH_1,
+    SEQ_DIP_LOW_1,
+    SEQ_HOLD_HIGH_2,
+    SEQ_DIP_LOW_2,
+    SEQ_HOLD_HIGH_3,
+    SEQ_RAMP_DOWN,
+    SEQ_PAUSE
+} pwm_seq_phase_t;
+
+#define SEQ_RAMP_STEP_PERCENT   (5U)    
+#define SEQ_HOLD_TICKS          (10U)   
+#define SEQ_PAUSE_TICKS         (30U) 
+```
+
+**`pwm.c`**
+```c
+void pwm_sequence_update(void)
+{
+    static pwm_seq_phase_t phase = SEQ_RAMP_UP;
+    static uint8_t duty = 0;
+    static uint8_t tick_count = 0;
+
+    switch (phase)
+    {
+    case SEQ_RAMP_UP:
+        pwm_set_duty_cycle(duty);
+        if (duty >= 100)
+        {
+            phase = SEQ_HOLD_HIGH_1;
+            tick_count = 0;
+        }
+        else
+        {
+            duty += SEQ_RAMP_STEP_PERCENT;
+        }
+        break;
+
+    case SEQ_HOLD_HIGH_1:
+    case SEQ_HOLD_HIGH_2:
+    case SEQ_HOLD_HIGH_3:
+        pwm_set_duty_cycle(100);
+        if (++tick_count >= SEQ_HOLD_TICKS)
+        {
+            tick_count = 0;
+            phase = (phase == SEQ_HOLD_HIGH_1) ? SEQ_DIP_LOW_1 : (phase == SEQ_HOLD_HIGH_2) ? SEQ_DIP_LOW_2
+                                                                                            : SEQ_RAMP_DOWN;
+        }
+        break;
+
+    case SEQ_DIP_LOW_1:
+    case SEQ_DIP_LOW_2:
+        pwm_set_duty_cycle(0);
+        if (++tick_count >= SEQ_HOLD_TICKS)
+        {
+            tick_count = 0;
+            phase = (phase == SEQ_DIP_LOW_1) ? SEQ_HOLD_HIGH_2 : SEQ_HOLD_HIGH_3;
+        }
+        break;
+
+    case SEQ_RAMP_DOWN:
+        pwm_set_duty_cycle(duty);
+        if (duty == 0)
+        {
+            phase = SEQ_PAUSE;
+            tick_count = 0;
+        }
+        else
+        {
+            duty -= SEQ_RAMP_STEP_PERCENT;
+        }
+        break;
+
+    case SEQ_PAUSE:
+        pwm_set_duty_cycle(0);
+        if (++tick_count >= SEQ_PAUSE_TICKS)
+        {
+            tick_count = 0;
+            phase = SEQ_RAMP_UP;
+            duty = 0;
+        }
+        break;
+    }
+}
+```
 
 ---
 
