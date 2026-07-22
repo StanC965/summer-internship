@@ -10,17 +10,24 @@
 #include "usart.h"
 
 
-volatile char sentence[20]={"SALUTARE_sii_ce_faci"};
-volatile unsigned char i=0;
+
+volatile const char sentence[] = "Hello World!"; 
+
+
+volatile const char *ptr = sentence; 
+
 void task_10ms(void)
 {
-   unsigned char temp= sentence[i];
 
-  USART_Transmit( temp);
-  i++;
-  if(i==21)
-  i=0;    
+    if (*ptr == '\0') {
+        ptr = sentence; 
+    }
+
+    USART_Transmit(*ptr);
+    ptr++;
 }
+
+
 
 void task_50ms(void)
 {
