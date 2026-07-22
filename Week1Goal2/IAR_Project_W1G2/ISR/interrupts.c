@@ -63,12 +63,14 @@ __interrupt void ADC_Interrupt_Handler(void) {
 
 #pragma vector = TIMER0_OVF_vect
 __interrupt void TC0_Overflow_Interrupt_Handler(void) {
-    
+ 
+  /*
   tc0_overflow_count++; 
   if (tc0_overflow_count >= 61) {
     Toggle_LED(LED0);
     tc0_overflow_count = 0;
-  }
+  }*/
+  Toggle_LED(LED0);
 }
 
 #endif

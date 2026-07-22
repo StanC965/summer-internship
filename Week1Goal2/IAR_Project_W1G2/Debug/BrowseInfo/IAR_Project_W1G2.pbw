@@ -65748,13 +65748,27 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1536@F@main@my_timer",
+    "ID": "c:main.c@1536@F@main@current_prescaler",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "current_prescaler",
+    "location": {
+      "column": "19",
+      "line": "61",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.c"
+    },
+    "name": "current_prescaler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@1595@F@main@my_timer",
     "What": "Variable",
     "defdec": "Def",
     "display": "my_timer",
     "location": {
       "column": "16",
-      "line": "61",
+      "line": "62",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.c"
     },
     "name": "my_timer",
