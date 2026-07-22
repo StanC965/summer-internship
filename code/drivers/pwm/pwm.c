@@ -11,6 +11,7 @@
 #include <intrinsics.h>
 #include "led.h"
 #include "timer.h"
+#include "bits.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects
@@ -26,17 +27,18 @@ static const uint8_t pwm_graph_duty[PWM_GRAPH_POINTS] =
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 void pwm_init(void)
 {
-    PRR0 &= ~(1 << PRTIM0);
+    PRR0 &= ~BIT_MASK(PRTIM0);
 
-    TCCR0A = (1 << WGM01) | (1 << WGM00);
+    TCCR0A = BIT_MASK(WGM01) | BIT_MASK(WGM00);
     TCCR0B = 0x00;
 }
 
 void pwm_start(void)
 {
-    TCCR0B |= (1 << CS00);
+    TCCR0B |= BIT_MASK(CS00);
 }
 
 void pwm_set_duty_cycle(uint8_t duty_percent)
@@ -45,19 +47,19 @@ void pwm_set_duty_cycle(uint8_t duty_percent)
 
     if (duty_percent == 0)
     {
-        TCCR0A &= ~((1 << COM0A1) | (1 << COM0A0));
+        TCCR0A &= ~(BIT_MASK(COM0A1) | BIT_MASK(COM0A0));
         led_power_off(LED_IO1);
     }
     else if (duty_percent >= 100)
     {
-        TCCR0A |= (1 << COM0A1);
-        TCCR0A &= ~(1 << COM0A0);
+        TCCR0A |= BIT_MASK(COM0A1);
+        TCCR0A &= ~BIT_MASK(COM0A0);
         OCR0A = 0xFF;
     }
     else
     {
-        TCCR0A |= (1 << COM0A1);
-        TCCR0A &= ~(1 << COM0A0);
+        TCCR0A |= BIT_MASK(COM0A1);
+        TCCR0A &= ~BIT_MASK(COM0A0);
         OCR0A = (uint8_t)(((uint16_t)duty_percent * PWM_RESOLUTION) / 100U);
     }
 

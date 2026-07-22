@@ -7,6 +7,7 @@
 
 #include <iom324pb.h>
 #include "timer.h"
+#include "bits.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects & functions

@@ -16,8 +16,6 @@
 /** \brief  Module specific constant number one */
 #define GPIO_OUTPUT              (0x01U)
 
-#define BIT_MASK(bit_position)        (1U << (bit_position))
-
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -100,6 +98,7 @@ extern void gpio_toggle_pin(volatile uint8_t *port_register, uint8_t pin);
 extern uint8_t gpio_read_pin(volatile uint8_t *pin_register, uint8_t pin);
 
 extern void gpio_switch_set_pin(volatile uint8_t *port_register, uint8_t pin);
+
 extern void gpio_switch_reset_pin(volatile uint8_t *port_register, uint8_t pin);
 
 #endif /* GPIO_H */

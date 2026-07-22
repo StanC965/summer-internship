@@ -145,7 +145,7 @@ extern void button_init_interrupt(void);
 */
 extern void button_debounce_update(void);
 
-/** \fn     void button_debounce_update(void)
+/** \fn     uint8_t button_was_pressed(button_id_t button_id)
 
     \brief      [  ]
     \param[in]  button_id [  ]
