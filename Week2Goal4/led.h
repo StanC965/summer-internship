@@ -29,6 +29,11 @@
 #define LED3_PORT           (&PORTA)
 #define LED3_PIN            (3U)
 
+/** \brief  LED4 on IO1 (EXT4): PB3 */
+#define LED4_DDR            (&DDRB)
+#define LED4_PORT           (&PORTB)
+#define LED4_PIN            (3U)
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*  Public functions            */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
