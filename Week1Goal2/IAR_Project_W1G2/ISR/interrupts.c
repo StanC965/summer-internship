@@ -110,6 +110,6 @@ __interrupt void TC0_Overflow_Interrupt_Handler(void) {
 __interrupt void TC0_CompareA_Interrupt_Handler(void) {
     
     tc0_compare_count++; 
-    
+    Toggle_LED(LED0);
 }
 #endif

@@ -34,6 +34,13 @@ typedef enum {
   TC0_PRESCALER_1024 = 5      // System Clock / 1024
 } tc0_prescaler_t;
 
+typedef enum {
+    TC0_OC0A_DISCONNECTED = 0, // Default behaviour of the pin
+    TC0_OC0A_TOGGLE = 1,       // Toggle pin at compare
+    TC0_OC0A_CLEAR = 2,        // Clear pin on Match
+    TC0_OC0A_SET = 3           // Set pin on Match
+} tc0_oc0a_mode_t;
+
 /** \brief Configuration structure */
 typedef struct {
   tc0_mode_t      mode;                   // Operating mode
@@ -42,6 +49,7 @@ typedef struct {
   unsigned char   interrupt_compare_a;    // 1 = Enable, 0 = Disable
   unsigned char   interrupt_compare_b;    // 1 = Enable, 0 = Disable
   unsigned char   ocr0a_value;            // OCR0A value for CTC mode
+  tc0_oc0a_mode_t oc0a_pin_action;
 } tc0_config_t;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

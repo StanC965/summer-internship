@@ -821,6 +821,13 @@ typedef enum {
   TC0_PRESCALER_1024 = 5      
 } tc0_prescaler_t;
 
+typedef enum {
+    TC0_OC0A_DISCONNECTED = 0, 
+    TC0_OC0A_TOGGLE = 1,       
+    TC0_OC0A_CLEAR = 2,        
+    TC0_OC0A_SET = 3           
+} tc0_oc0a_mode_t;
+
  
 typedef struct {
   tc0_mode_t      mode;                   
@@ -829,6 +836,7 @@ typedef struct {
   unsigned char   interrupt_compare_a;    
   unsigned char   interrupt_compare_b;    
   unsigned char   ocr0a_value;            
+  tc0_oc0a_mode_t oc0a_pin_action;
 } tc0_config_t;
 
 
@@ -870,6 +878,21 @@ void tc0_init(const tc0_config_t *config) {
           
       default:
           break; 
+  }
+  
+  switch(config->oc0a_pin_action) {
+    case TC0_OC0A_TOGGLE:
+      tccr0a_temp |= (1 << 6U); 
+      break;
+    case TC0_OC0A_CLEAR:
+      tccr0a_temp |= (1 << 7U); 
+      break;
+    case TC0_OC0A_SET:
+      tccr0a_temp |= (1 << 7U) | (1 << 6U); 
+      break;
+    case TC0_OC0A_DISCONNECTED:
+    default:
+      break;
   }
 
   if (config->interrupt_overflow == 1) {

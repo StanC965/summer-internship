@@ -52,3 +52,8 @@ When gpio.h is included twice, the guards ensure that the header contents appear
              16,000,000 / 128 = 125 kHz. This falls perfectly within the required range.
 424 - OPTIONAL — What can you say about the jitter (deviation in time) introduced when extending the maximum real time measured in NORMAL MODE?
 Answer: When extending the time using a software counter inside the Overflow ISR, jitter (time deviation) is introduced primarily by Interrupt Latency and CPU blocking. 
+
+432 - Answers:  1. The OC0A pin is physically mapped to PB3 (Port B, pin 3)
+                2. The led connected to it is led from IO board
+                3. The leds blink out-of-sync
+                

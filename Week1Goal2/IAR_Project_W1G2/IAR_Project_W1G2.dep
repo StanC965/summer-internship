@@ -93,7 +93,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 30 24</file>
+                    <file> 30</file>
                 </tool>
             </outputs>
             <inputs>

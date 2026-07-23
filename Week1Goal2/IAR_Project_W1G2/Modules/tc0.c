@@ -43,6 +43,21 @@ void tc0_init(const tc0_config_t *config) {
       default:
           break; 
   }
+  
+  switch(config->oc0a_pin_action) {
+    case TC0_OC0A_TOGGLE:
+      tccr0a_temp |= (1 << COM0A0); // COM0A1=0, COM0A0=1
+      break;
+    case TC0_OC0A_CLEAR:
+      tccr0a_temp |= (1 << COM0A1); // COM0A1=1, COM0A0=0
+      break;
+    case TC0_OC0A_SET:
+      tccr0a_temp |= (1 << COM0A1) | (1 << COM0A0); // COM0A1=1, COM0A0=1
+      break;
+    case TC0_OC0A_DISCONNECTED:
+    default:
+      break;
+  }
 
   if (config->interrupt_overflow == 1) {
       timsk0_temp |= (1 << TOIE0);

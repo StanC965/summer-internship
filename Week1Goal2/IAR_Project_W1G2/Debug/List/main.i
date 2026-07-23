@@ -1210,6 +1210,13 @@ typedef enum {
   TC0_PRESCALER_1024 = 5      
 } tc0_prescaler_t;
 
+typedef enum {
+    TC0_OC0A_DISCONNECTED = 0, 
+    TC0_OC0A_TOGGLE = 1,       
+    TC0_OC0A_CLEAR = 2,        
+    TC0_OC0A_SET = 3           
+} tc0_oc0a_mode_t;
+
  
 typedef struct {
   tc0_mode_t      mode;                   
@@ -1218,6 +1225,7 @@ typedef struct {
   unsigned char   interrupt_compare_a;    
   unsigned char   interrupt_compare_b;    
   unsigned char   ocr0a_value;            
+  tc0_oc0a_mode_t oc0a_pin_action;
 } tc0_config_t;
 
 
@@ -1304,14 +1312,16 @@ void main( void )
   
 
   tc0_config_t my_timer;
-  my_timer.mode                = TC0_MODE_CTC;
-  my_timer.prescaler           = TC0_PRESCALER_1;
-  my_timer.interrupt_overflow  = 0;
-  my_timer.interrupt_compare_a = 1;
+  my_timer.mode                = TC0_MODE_CTC;      
+  my_timer.prescaler           = TC0_PRESCALER_1024;
+  my_timer.interrupt_overflow  = 0;                 
+  my_timer.interrupt_compare_a = 1;                 
   my_timer.interrupt_compare_b = 0;
-  my_timer.ocr0a_value         = 127;
-  
+  my_timer.ocr0a_value         = 127;    
+  my_timer.oc0a_pin_action     = TC0_OC0A_TOGGLE;
+  PowerOn_LED((0U));
   tc0_init(&my_timer);
+  
   
   
   while(1){
