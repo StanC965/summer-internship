@@ -1,0 +1,2 @@
+723. Identify (using schematics and User Guides) the exact peripheral name which has the TX, RX exposed on IO1. Is it USART0, USART1 or USART2? 
+    RX-U2-RXD si TX-U2-TXD, deci USART2
