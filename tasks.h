@@ -1,15 +1,10 @@
 #include <iom324pb.h>
 
 
-
-extern volatile unsigned char flag_task_10ms;
-extern volatile unsigned char flag_task_50ms;
-extern volatile unsigned char flag_task_100ms;
-extern volatile unsigned char flag_task_500ms;
-extern volatile unsigned char flag_task_1000ms;
-
-#pragma vector= TIMER0_COMPA_vect 
-__interrupt void flags();
-
-void task_init();
-void scheduler_flags_management();
+void task_init(void);
+void schedule_tasks_dispatcher(void);
+void task_10ms(void);
+void task_50ms(void);
+void task_100ms(void);
+void task_500ms(void);
+void task_1000ms(void);
