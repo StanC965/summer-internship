@@ -1,5 +1,8 @@
 #include <iom324pb.h>
 #include "week1/Goal 2/adc.h"
+#include "week1/Goal 2/button.h"
+#include "week1/Goal 2/timer.h"
+#include "pwm.h"
 
 
 void Toggle_Status_LED();
