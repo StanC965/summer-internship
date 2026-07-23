@@ -65,6 +65,8 @@ void tc0_init(const tc0_config_t *config) {
   TCCR0A = tccr0a_temp;
   TIMSK0 = timsk0_temp;
   
+  OCR0A  = config->ocr0a_value;
+  
   // Write TCCR0B last
   TCCR0B = tccr0b_temp; 
 }

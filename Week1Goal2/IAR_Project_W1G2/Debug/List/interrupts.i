@@ -948,7 +948,10 @@ extern volatile button_events_t button_events;
 extern volatile unsigned long tc0_overflow_count;
 
 extern volatile unsigned char countdown_active; 
-extern volatile unsigned char seconds_left;  
+extern volatile unsigned char seconds_left;
+
+ 
+extern volatile unsigned long tc0_compare_count;
 
 
  
@@ -965,7 +968,9 @@ volatile button_events_t button_events = {0, 0, 0, 0};
 volatile unsigned long tc0_overflow_count = 0;
 
 volatile unsigned char countdown_active = 0; 
-volatile unsigned char seconds_left = 0;     
+volatile unsigned char seconds_left = 0;  
+
+volatile unsigned long tc0_compare_count = 0;
 
 
 
@@ -1042,3 +1047,10 @@ __interrupt void TC0_Overflow_Interrupt_Handler(void) {
   }
 }
 
+
+#pragma vector = (0x40)
+__interrupt void TC0_CompareA_Interrupt_Handler(void) {
+    
+    tc0_compare_count++; 
+    
+}

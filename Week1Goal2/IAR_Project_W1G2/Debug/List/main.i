@@ -985,7 +985,10 @@ extern volatile button_events_t button_events;
 extern volatile unsigned long tc0_overflow_count;
 
 extern volatile unsigned char countdown_active; 
-extern volatile unsigned char seconds_left;  
+extern volatile unsigned char seconds_left;
+
+ 
+extern volatile unsigned long tc0_compare_count;
 
 
  
@@ -1214,6 +1217,7 @@ typedef struct {
   unsigned char   interrupt_overflow;     
   unsigned char   interrupt_compare_a;    
   unsigned char   interrupt_compare_b;    
+  unsigned char   ocr0a_value;            
 } tc0_config_t;
 
 
@@ -1298,13 +1302,14 @@ void main( void )
 {
   System_Init();
   
-  tc0_prescaler_t current_prescaler = TC0_PRESCALER_64;
+
   tc0_config_t my_timer;
-  my_timer.mode                = TC0_MODE_NORMAL;
-  my_timer.prescaler           = current_prescaler; 
-  my_timer.interrupt_overflow  = 1;
-  my_timer.interrupt_compare_a = 0;
+  my_timer.mode                = TC0_MODE_CTC;
+  my_timer.prescaler           = TC0_PRESCALER_1;
+  my_timer.interrupt_overflow  = 0;
+  my_timer.interrupt_compare_a = 1;
   my_timer.interrupt_compare_b = 0;
+  my_timer.ocr0a_value         = 127;
   
   tc0_init(&my_timer);
   
@@ -1320,21 +1325,21 @@ void main( void )
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
-    
-    if(button_events.sw0_pressed  && countdown_active == 0){
-      PowerOn_LED((4U));
-      PowerOn_LED((3U));
-      PowerOn_LED((2U));
-      PowerOn_LED((1U));
-      PowerOn_LED((0U));
-      
-      seconds_left = 5;
-      tc0_overflow_count = 0;
-      countdown_active = 1;
-      
-    }
-    button_events.sw0_pressed=0;
-  
   }
 }

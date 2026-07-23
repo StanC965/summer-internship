@@ -1,4 +1,4 @@
-// 428 - STRETCH 
+// 431 - STRETCH 
 #include "main.h"
 
 void System_Init(void){
@@ -58,13 +58,14 @@ void main( void )
 {
   System_Init();
   
-  tc0_prescaler_t current_prescaler = TC0_PRESCALER_64;
+
   tc0_config_t my_timer;
-  my_timer.mode                = TC0_MODE_NORMAL;
-  my_timer.prescaler           = current_prescaler; 
-  my_timer.interrupt_overflow  = 1;
-  my_timer.interrupt_compare_a = 0;
+  my_timer.mode                = TC0_MODE_CTC;
+  my_timer.prescaler           = TC0_PRESCALER_1;
+  my_timer.interrupt_overflow  = 0;
+  my_timer.interrupt_compare_a = 1;
   my_timer.interrupt_compare_b = 0;
+  my_timer.ocr0a_value         = 127;
   
   tc0_init(&my_timer);
   
@@ -80,7 +81,7 @@ void main( void )
       tc0_init(&my_timer);
       button_events.sw0_pressed =0;
     }
-*/
+
     
     if(button_events.sw0_pressed  && countdown_active == 0){
       PowerOn_LED(LED4);
@@ -95,6 +96,6 @@ void main( void )
       
     }
     button_events.sw0_pressed=0;
-  
+  */
   }
 }

@@ -65524,6 +65524,34 @@
     "scope": null
   },
   {
+    "ID": "c:@tc0_compare_count",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "tc0_compare_count",
+    "location": {
+      "column": "31",
+      "line": "45",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.h"
+    },
+    "name": "tc0_compare_count",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@tc0_compare_count",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "tc0_compare_count",
+    "location": {
+      "column": "31",
+      "line": "45",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.h"
+    },
+    "name": "tc0_compare_count",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:led.c@23@macro@LED_C",
     "What": "MacroDef",
     "defdec": "Def",
@@ -65720,13 +65748,27 @@
     "scope": null
   },
   {
+    "ID": "c:@tc0_compare_count",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "tc0_compare_count",
+    "location": {
+      "column": "24",
+      "line": "31",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
+    },
+    "name": "tc0_compare_count",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@PortA_Interrupt_Handler",
     "What": "Function",
     "defdec": "Def",
     "display": "void PortA_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "36",
+      "line": "38",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "PortA_Interrupt_Handler",
@@ -65740,7 +65782,7 @@
     "display": "void PortC_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "49",
+      "line": "51",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "PortC_Interrupt_Handler",
@@ -65754,7 +65796,7 @@
     "display": "void ADC_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "61",
+      "line": "63",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "ADC_Interrupt_Handler",
@@ -65762,13 +65804,13 @@
     "scope": null
   },
   {
-    "ID": "c:interrupts.c@1772@F@ADC_Interrupt_Handler@low_byte",
+    "ID": "c:interrupts.c@1818@F@ADC_Interrupt_Handler@low_byte",
     "What": "Variable",
     "defdec": "Def",
     "display": "low_byte",
     "location": {
       "column": "19",
-      "line": "62",
+      "line": "64",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "low_byte",
@@ -65776,13 +65818,13 @@
     "scope": null
   },
   {
-    "ID": "c:interrupts.c@1808@F@ADC_Interrupt_Handler@high_byte",
+    "ID": "c:interrupts.c@1854@F@ADC_Interrupt_Handler@high_byte",
     "What": "Variable",
     "defdec": "Def",
     "display": "high_byte",
     "location": {
       "column": "19",
-      "line": "63",
+      "line": "65",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "high_byte",
@@ -65796,10 +65838,24 @@
     "display": "void TC0_Overflow_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "69",
+      "line": "71",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "TC0_Overflow_Interrupt_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TC0_CompareA_Interrupt_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void TC0_CompareA_Interrupt_Handler(void)",
+    "location": {
+      "column": "18",
+      "line": "110",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
+    },
+    "name": "TC0_CompareA_Interrupt_Handler",
     "origin": "project_file",
     "scope": null
   },
@@ -65860,21 +65916,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1540@F@main@current_prescaler",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "current_prescaler",
-    "location": {
-      "column": "19",
-      "line": "61",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.c"
-    },
-    "name": "current_prescaler",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@1597@F@main@my_timer",
+    "ID": "c:main.c@1542@F@main@my_timer",
     "What": "Variable",
     "defdec": "Def",
     "display": "my_timer",
@@ -65885,76 +65927,6 @@
     },
     "name": "my_timer",
     "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@24@macro@MAIN_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "MAIN_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "MAIN_H",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@917@macro@MID_LIGHT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "MID_LIGHT",
-    "location": {
-      "column": "9",
-      "line": "31",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "MID_LIGHT",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@946@macro@FULL_LIGHT_LIMIT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "FULL_LIGHT_LIMIT",
-    "location": {
-      "column": "9",
-      "line": "32",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "FULL_LIGHT_LIMIT",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@980@macro@SEMI_LIGHT_LIMIT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SEMI_LIGHT_LIMIT",
-    "location": {
-      "column": "9",
-      "line": "33",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "SEMI_LIGHT_LIMIT",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@1015@macro@SEMI_DARK_LIMIT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SEMI_DARK_LIMIT",
-    "location": {
-      "column": "9",
-      "line": "34",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "SEMI_DARK_LIMIT",
-    "origin": "user_include",
     "scope": null
   },
   {
@@ -66616,45 +66588,129 @@
     "scope": null
   },
   {
-    "ID": "c:sos.h@23@macro@SOS_H",
+    "ID": "c:main.h@24@macro@MAIN_H",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "SOS_H",
+    "display": "MAIN_H",
     "location": {
       "column": "9",
       "line": "2",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
     },
-    "name": "SOS_H",
+    "name": "MAIN_H",
     "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@917@macro@MID_LIGHT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "MID_LIGHT",
+    "location": {
+      "column": "9",
+      "line": "31",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "MID_LIGHT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@946@macro@FULL_LIGHT_LIMIT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "FULL_LIGHT_LIMIT",
+    "location": {
+      "column": "9",
+      "line": "32",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "FULL_LIGHT_LIMIT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@980@macro@SEMI_LIGHT_LIMIT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SEMI_LIGHT_LIMIT",
+    "location": {
+      "column": "9",
+      "line": "33",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "SEMI_LIGHT_LIMIT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@1015@macro@SEMI_DARK_LIMIT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SEMI_DARK_LIMIT",
+    "location": {
+      "column": "9",
+      "line": "34",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "SEMI_DARK_LIMIT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@23@macro@SOS_C",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SOS_C",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+    },
+    "name": "SOS_C",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@F@point",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void point(led_uint8_t)",
+    "location": {
+      "column": "13",
+      "line": "30",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+    },
+    "name": "point",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@F@line",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void line(led_uint8_t)",
+    "location": {
+      "column": "13",
+      "line": "36",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+    },
+    "name": "line",
+    "origin": "project_file",
     "scope": null
   },
   {
     "ID": "c:@F@SOS_play",
     "What": "Function",
-    "defdec": "Dec",
+    "defdec": "Def",
     "display": "void SOS_play(led_uint8_t, unsigned char *)",
     "location": {
-      "column": "13",
-      "line": "41",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
+      "column": "6",
+      "line": "48",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
     },
     "name": "SOS_play",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SOS_play",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SOS_play(led_uint8_t, unsigned char *)",
-    "location": {
-      "column": "13",
-      "line": "41",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
-    },
-    "name": "SOS_play",
-    "origin": "user_include",
+    "origin": "project_file",
     "scope": null
   },
   {
@@ -66951,6 +67007,20 @@
         "name": "interrupt_compare_b",
         "origin": "user_include",
         "scope": "_anonymous_tc0_h_38_9"
+      },
+      {
+        "ID": "c:@SA@tc0_config_t@FI@ocr0a_value",
+        "What": "FieldDecl",
+        "defdec": "Def",
+        "display": "ocr0a_value",
+        "location": {
+          "column": "19",
+          "line": "44",
+          "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\tc0.h"
+        },
+        "name": "ocr0a_value",
+        "origin": "user_include",
+        "scope": "_anonymous_tc0_h_38_9"
       }
     ],
     "name": "",
@@ -66964,7 +67034,7 @@
     "display": "struct tc0_config_t",
     "location": {
       "column": "3",
-      "line": "44",
+      "line": "45",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\tc0.h"
     },
     "name": "tc0_config_t",
@@ -66978,7 +67048,7 @@
     "display": "void tc0_init(const tc0_config_t *)",
     "location": {
       "column": "13",
-      "line": "56",
+      "line": "57",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\tc0.h"
     },
     "name": "tc0_init",
@@ -66992,10 +67062,52 @@
     "display": "void tc0_init(const tc0_config_t *)",
     "location": {
       "column": "13",
-      "line": "56",
+      "line": "57",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\tc0.h"
     },
     "name": "tc0_init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.h@23@macro@SOS_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SOS_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
+    },
+    "name": "SOS_H",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SOS_play",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SOS_play(led_uint8_t, unsigned char *)",
+    "location": {
+      "column": "13",
+      "line": "41",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
+    },
+    "name": "SOS_play",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SOS_play",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SOS_play(led_uint8_t, unsigned char *)",
+    "location": {
+      "column": "13",
+      "line": "41",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
+    },
+    "name": "SOS_play",
     "origin": "user_include",
     "scope": null
   },
@@ -67066,62 +67178,6 @@
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\tc0.c"
     },
     "name": "timsk0_temp",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@23@macro@SOS_C",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SOS_C",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
-    },
-    "name": "SOS_C",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@F@point",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void point(led_uint8_t)",
-    "location": {
-      "column": "13",
-      "line": "30",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
-    },
-    "name": "point",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@F@line",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void line(led_uint8_t)",
-    "location": {
-      "column": "13",
-      "line": "36",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
-    },
-    "name": "line",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SOS_play",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void SOS_play(led_uint8_t, unsigned char *)",
-    "location": {
-      "column": "6",
-      "line": "48",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
-    },
-    "name": "SOS_play",
     "origin": "project_file",
     "scope": null
   },

@@ -41,6 +41,7 @@ typedef struct {
   unsigned char   interrupt_overflow;     // 1 = Enable, 0 = Disable
   unsigned char   interrupt_compare_a;    // 1 = Enable, 0 = Disable
   unsigned char   interrupt_compare_b;    // 1 = Enable, 0 = Disable
+  unsigned char   ocr0a_value;            // OCR0A value for CTC mode
 } tc0_config_t;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
