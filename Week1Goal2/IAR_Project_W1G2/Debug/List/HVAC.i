@@ -580,6 +580,8 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
@@ -959,6 +961,9 @@ extern volatile button_events_t button_events;
 
  
 extern volatile unsigned long tc0_overflow_count;
+
+extern volatile unsigned char countdown_active; 
+extern volatile unsigned char seconds_left;  
 
 
  

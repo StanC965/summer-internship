@@ -26,7 +26,8 @@ static const led_config_t led_table[] =
     { &PORTC, LED0_PIN, &DDRC },
     { &PORTD, LED1_PIN, &DDRD },
     { &PORTD, LED2_PIN, &DDRD },
-    { &PORTA, LED3_PIN, &DDRA }
+    { &PORTA, LED3_PIN, &DDRA },
+    { &PORTB, LED4_PIN, &DDRB }
 };
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -44,12 +45,14 @@ void LED_Init(void){
   gpio_set_direction(&DDRD, LED1_PIN, GPIO_OUTPUT);
   gpio_set_direction(&DDRD, LED2_PIN, GPIO_OUTPUT);
   gpio_set_direction(&DDRA, LED3_PIN, GPIO_OUTPUT);
+  gpio_set_direction(&DDRB, LED4_PIN, GPIO_OUTPUT);
 
   /* Turn all LEDs OFF (active LOW) */
   PowerOff_LED(LED0);
   PowerOff_LED(LED1);
   PowerOff_LED(LED2);
   PowerOff_LED(LED3);
+  PowerOff_LED(LED4);
 }
 
 void led_init(led_uint8_t led){

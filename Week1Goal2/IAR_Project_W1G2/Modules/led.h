@@ -38,14 +38,18 @@ typedef unsigned char led_uint8_t;
 /** \brief LED3 identifier */
 #define LED3    (3U)
 
+/** \brief LED3 identifier */
+#define LED4    (4U)
+
 /** \brief led pins */
 #define LED0_PIN        (7U)
 #define LED1_PIN        (5U)
 #define LED2_PIN        (4U)
 #define LED3_PIN        (3U)
+#define LED4_PIN        (3U)
                 
 /** \brief Total number of leds */
-#define NUMBER_OF_LEDS  (4U)
+#define NUMBER_OF_LEDS  (5U)
 
 /** \brief Delays */
 #define FAST_BLINK_DELAY   (ONE_SECOND_DELAY / 12)

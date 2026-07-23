@@ -69,7 +69,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 3 5</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
             <inputs>

@@ -37,6 +37,9 @@ extern volatile button_events_t button_events;
 
 /** \brief  Overflow count */
 extern volatile unsigned long tc0_overflow_count;
+
+extern volatile unsigned char countdown_active; 
+extern volatile unsigned char seconds_left;  
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/

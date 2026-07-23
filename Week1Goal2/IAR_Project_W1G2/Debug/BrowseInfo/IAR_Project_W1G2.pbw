@@ -64764,13 +64764,27 @@
     "scope": null
   },
   {
-    "ID": "c:led.h@1090@macro@LED0_PIN",
+    "ID": "c:led.h@1097@macro@LED4",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LED4",
+    "location": {
+      "column": "9",
+      "line": "42",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
+    },
+    "name": "LED4",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:led.h@1145@macro@LED0_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED0_PIN",
     "location": {
       "column": "9",
-      "line": "42",
+      "line": "45",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "LED0_PIN",
@@ -64778,13 +64792,13 @@
     "scope": null
   },
   {
-    "ID": "c:led.h@1120@macro@LED1_PIN",
+    "ID": "c:led.h@1175@macro@LED1_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED1_PIN",
     "location": {
       "column": "9",
-      "line": "43",
+      "line": "46",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "LED1_PIN",
@@ -64792,13 +64806,13 @@
     "scope": null
   },
   {
-    "ID": "c:led.h@1150@macro@LED2_PIN",
+    "ID": "c:led.h@1205@macro@LED2_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED2_PIN",
     "location": {
       "column": "9",
-      "line": "44",
+      "line": "47",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "LED2_PIN",
@@ -64806,13 +64820,13 @@
     "scope": null
   },
   {
-    "ID": "c:led.h@1180@macro@LED3_PIN",
+    "ID": "c:led.h@1235@macro@LED3_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LED3_PIN",
     "location": {
       "column": "9",
-      "line": "45",
+      "line": "48",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "LED3_PIN",
@@ -64820,13 +64834,27 @@
     "scope": null
   },
   {
-    "ID": "c:led.h@1264@macro@NUMBER_OF_LEDS",
+    "ID": "c:led.h@1265@macro@LED4_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LED4_PIN",
+    "location": {
+      "column": "9",
+      "line": "49",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
+    },
+    "name": "LED4_PIN",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:led.h@1349@macro@NUMBER_OF_LEDS",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "NUMBER_OF_LEDS",
     "location": {
       "column": "9",
-      "line": "48",
+      "line": "52",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "NUMBER_OF_LEDS",
@@ -64834,13 +64862,13 @@
     "scope": null
   },
   {
-    "ID": "c:led.h@1318@macro@FAST_BLINK_DELAY",
+    "ID": "c:led.h@1403@macro@FAST_BLINK_DELAY",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "FAST_BLINK_DELAY",
     "location": {
       "column": "9",
-      "line": "51",
+      "line": "55",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "FAST_BLINK_DELAY",
@@ -64848,13 +64876,13 @@
     "scope": null
   },
   {
-    "ID": "c:led.h@1370@macro@SLOW_BLINK_DELAY",
+    "ID": "c:led.h@1455@macro@SLOW_BLINK_DELAY",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SLOW_BLINK_DELAY",
     "location": {
       "column": "9",
-      "line": "52",
+      "line": "56",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "SLOW_BLINK_DELAY",
@@ -64868,7 +64896,7 @@
     "display": "",
     "location": {
       "column": "9",
-      "line": "55",
+      "line": "59",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "members": [
@@ -64879,12 +64907,12 @@
         "display": "port",
         "location": {
           "column": "26",
-          "line": "57",
+          "line": "61",
           "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
         },
         "name": "port",
         "origin": "user_include",
-        "scope": "_anonymous_led_h_55_9"
+        "scope": "_anonymous_led_h_59_9"
       },
       {
         "ID": "c:@SA@led_config_t@FI@pin",
@@ -64893,12 +64921,12 @@
         "display": "pin",
         "location": {
           "column": "16",
-          "line": "58",
+          "line": "62",
           "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
         },
         "name": "pin",
         "origin": "user_include",
-        "scope": "_anonymous_led_h_55_9"
+        "scope": "_anonymous_led_h_59_9"
       },
       {
         "ID": "c:@SA@led_config_t@FI@ddr",
@@ -64907,12 +64935,12 @@
         "display": "ddr",
         "location": {
           "column": "26",
-          "line": "59",
+          "line": "63",
           "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
         },
         "name": "ddr",
         "origin": "user_include",
-        "scope": "_anonymous_led_h_55_9"
+        "scope": "_anonymous_led_h_59_9"
       }
     ],
     "name": "",
@@ -64926,7 +64954,7 @@
     "display": "struct led_config_t",
     "location": {
       "column": "3",
-      "line": "61",
+      "line": "65",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "led_config_t",
@@ -64940,7 +64968,7 @@
     "display": "void LED_Init(void)",
     "location": {
       "column": "13",
-      "line": "76",
+      "line": "80",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "LED_Init",
@@ -64954,7 +64982,7 @@
     "display": "void LED_Init(void)",
     "location": {
       "column": "13",
-      "line": "76",
+      "line": "80",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "LED_Init",
@@ -64968,7 +64996,7 @@
     "display": "void led_init(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "87",
+      "line": "91",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "led_init",
@@ -64982,7 +65010,7 @@
     "display": "void led_init(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "87",
+      "line": "91",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "led_init",
@@ -64996,7 +65024,7 @@
     "display": "void PowerOn_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "99",
+      "line": "103",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "PowerOn_LED",
@@ -65010,7 +65038,7 @@
     "display": "void PowerOn_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "99",
+      "line": "103",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "PowerOn_LED",
@@ -65024,7 +65052,7 @@
     "display": "void PowerOff_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "111",
+      "line": "115",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "PowerOff_LED",
@@ -65038,7 +65066,7 @@
     "display": "void PowerOff_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "111",
+      "line": "115",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "PowerOff_LED",
@@ -65052,7 +65080,7 @@
     "display": "void Toggle_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "122",
+      "line": "126",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "Toggle_LED",
@@ -65066,7 +65094,7 @@
     "display": "void Toggle_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "122",
+      "line": "126",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "Toggle_LED",
@@ -65080,7 +65108,7 @@
     "display": "void BlinkFast_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "135",
+      "line": "139",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "BlinkFast_LED",
@@ -65094,7 +65122,7 @@
     "display": "void BlinkFast_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "135",
+      "line": "139",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "BlinkFast_LED",
@@ -65108,7 +65136,7 @@
     "display": "void BlinkSlow_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "148",
+      "line": "152",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "BlinkSlow_LED",
@@ -65122,7 +65150,7 @@
     "display": "void BlinkSlow_LED(led_uint8_t)",
     "location": {
       "column": "13",
-      "line": "148",
+      "line": "152",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.h"
     },
     "name": "BlinkSlow_LED",
@@ -65440,6 +65468,62 @@
     "scope": null
   },
   {
+    "ID": "c:@countdown_active",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "countdown_active",
+    "location": {
+      "column": "31",
+      "line": "41",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.h"
+    },
+    "name": "countdown_active",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@countdown_active",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "countdown_active",
+    "location": {
+      "column": "31",
+      "line": "41",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.h"
+    },
+    "name": "countdown_active",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@seconds_left",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "seconds_left",
+    "location": {
+      "column": "31",
+      "line": "42",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.h"
+    },
+    "name": "seconds_left",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@seconds_left",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "seconds_left",
+    "location": {
+      "column": "31",
+      "line": "42",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.h"
+    },
+    "name": "seconds_left",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:led.c@23@macro@LED_C",
     "What": "MacroDef",
     "defdec": "Def",
@@ -65474,7 +65558,7 @@
     "display": "void LED_Init(void)",
     "location": {
       "column": "6",
-      "line": "42",
+      "line": "43",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.c"
     },
     "name": "LED_Init",
@@ -65488,7 +65572,7 @@
     "display": "void led_init(led_uint8_t)",
     "location": {
       "column": "6",
-      "line": "55",
+      "line": "58",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.c"
     },
     "name": "led_init",
@@ -65502,7 +65586,7 @@
     "display": "void PowerOn_LED(led_uint8_t)",
     "location": {
       "column": "6",
-      "line": "62",
+      "line": "65",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.c"
     },
     "name": "PowerOn_LED",
@@ -65516,7 +65600,7 @@
     "display": "void PowerOff_LED(led_uint8_t)",
     "location": {
       "column": "6",
-      "line": "68",
+      "line": "71",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.c"
     },
     "name": "PowerOff_LED",
@@ -65530,7 +65614,7 @@
     "display": "void Toggle_LED(gpio_uint8_t)",
     "location": {
       "column": "6",
-      "line": "74",
+      "line": "77",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.c"
     },
     "name": "Toggle_LED",
@@ -65544,7 +65628,7 @@
     "display": "void BlinkFast_LED(led_uint8_t)",
     "location": {
       "column": "6",
-      "line": "80",
+      "line": "83",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.c"
     },
     "name": "BlinkFast_LED",
@@ -65558,7 +65642,7 @@
     "display": "void BlinkSlow_LED(led_uint8_t)",
     "location": {
       "column": "6",
-      "line": "90",
+      "line": "93",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\led.c"
     },
     "name": "BlinkSlow_LED",
@@ -65600,10 +65684,38 @@
     "display": "tc0_overflow_count",
     "location": {
       "column": "24",
-      "line": "25",
+      "line": "26",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "tc0_overflow_count",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@countdown_active",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "countdown_active",
+    "location": {
+      "column": "24",
+      "line": "28",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
+    },
+    "name": "countdown_active",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@seconds_left",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "seconds_left",
+    "location": {
+      "column": "24",
+      "line": "29",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
+    },
+    "name": "seconds_left",
     "origin": "project_file",
     "scope": null
   },
@@ -65614,7 +65726,7 @@
     "display": "void PortA_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "32",
+      "line": "36",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "PortA_Interrupt_Handler",
@@ -65628,7 +65740,7 @@
     "display": "void PortC_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "45",
+      "line": "49",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "PortC_Interrupt_Handler",
@@ -65642,7 +65754,7 @@
     "display": "void ADC_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "57",
+      "line": "61",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "ADC_Interrupt_Handler",
@@ -65650,13 +65762,13 @@
     "scope": null
   },
   {
-    "ID": "c:interrupts.c@1674@F@ADC_Interrupt_Handler@low_byte",
+    "ID": "c:interrupts.c@1772@F@ADC_Interrupt_Handler@low_byte",
     "What": "Variable",
     "defdec": "Def",
     "display": "low_byte",
     "location": {
       "column": "19",
-      "line": "58",
+      "line": "62",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "low_byte",
@@ -65664,13 +65776,13 @@
     "scope": null
   },
   {
-    "ID": "c:interrupts.c@1710@F@ADC_Interrupt_Handler@high_byte",
+    "ID": "c:interrupts.c@1808@F@ADC_Interrupt_Handler@high_byte",
     "What": "Variable",
     "defdec": "Def",
     "display": "high_byte",
     "location": {
       "column": "19",
-      "line": "59",
+      "line": "63",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "high_byte",
@@ -65684,7 +65796,7 @@
     "display": "void TC0_Overflow_Interrupt_Handler(void)",
     "location": {
       "column": "18",
-      "line": "65",
+      "line": "69",
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\ISR\\interrupts.c"
     },
     "name": "TC0_Overflow_Interrupt_Handler",
@@ -65748,7 +65860,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1536@F@main@current_prescaler",
+    "ID": "c:main.c@1540@F@main@current_prescaler",
     "What": "Variable",
     "defdec": "Def",
     "display": "current_prescaler",
@@ -65762,7 +65874,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1595@F@main@my_timer",
+    "ID": "c:main.c@1597@F@main@my_timer",
     "What": "Variable",
     "defdec": "Def",
     "display": "my_timer",
@@ -65773,6 +65885,76 @@
     },
     "name": "my_timer",
     "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@24@macro@MAIN_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "MAIN_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "MAIN_H",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@917@macro@MID_LIGHT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "MID_LIGHT",
+    "location": {
+      "column": "9",
+      "line": "31",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "MID_LIGHT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@946@macro@FULL_LIGHT_LIMIT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "FULL_LIGHT_LIMIT",
+    "location": {
+      "column": "9",
+      "line": "32",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "FULL_LIGHT_LIMIT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@980@macro@SEMI_LIGHT_LIMIT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SEMI_LIGHT_LIMIT",
+    "location": {
+      "column": "9",
+      "line": "33",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "SEMI_LIGHT_LIMIT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:main.h@1015@macro@SEMI_DARK_LIMIT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SEMI_DARK_LIMIT",
+    "location": {
+      "column": "9",
+      "line": "34",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+    },
+    "name": "SEMI_DARK_LIMIT",
+    "origin": "user_include",
     "scope": null
   },
   {
@@ -66434,129 +66616,45 @@
     "scope": null
   },
   {
-    "ID": "c:main.h@24@macro@MAIN_H",
+    "ID": "c:sos.h@23@macro@SOS_H",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "MAIN_H",
+    "display": "SOS_H",
     "location": {
       "column": "9",
       "line": "2",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
     },
-    "name": "MAIN_H",
+    "name": "SOS_H",
     "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@917@macro@MID_LIGHT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "MID_LIGHT",
-    "location": {
-      "column": "9",
-      "line": "31",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "MID_LIGHT",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@946@macro@FULL_LIGHT_LIMIT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "FULL_LIGHT_LIMIT",
-    "location": {
-      "column": "9",
-      "line": "32",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "FULL_LIGHT_LIMIT",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@980@macro@SEMI_LIGHT_LIMIT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SEMI_LIGHT_LIMIT",
-    "location": {
-      "column": "9",
-      "line": "33",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "SEMI_LIGHT_LIMIT",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:main.h@1015@macro@SEMI_DARK_LIMIT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SEMI_DARK_LIMIT",
-    "location": {
-      "column": "9",
-      "line": "34",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\main.h"
-    },
-    "name": "SEMI_DARK_LIMIT",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@23@macro@SOS_C",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SOS_C",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
-    },
-    "name": "SOS_C",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@F@point",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void point(led_uint8_t)",
-    "location": {
-      "column": "13",
-      "line": "30",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
-    },
-    "name": "point",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:sos.c@F@line",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void line(led_uint8_t)",
-    "location": {
-      "column": "13",
-      "line": "36",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
-    },
-    "name": "line",
-    "origin": "project_file",
     "scope": null
   },
   {
     "ID": "c:@F@SOS_play",
     "What": "Function",
-    "defdec": "Def",
+    "defdec": "Dec",
     "display": "void SOS_play(led_uint8_t, unsigned char *)",
     "location": {
-      "column": "6",
-      "line": "48",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+      "column": "13",
+      "line": "41",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
     },
     "name": "SOS_play",
-    "origin": "project_file",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SOS_play",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SOS_play(led_uint8_t, unsigned char *)",
+    "location": {
+      "column": "13",
+      "line": "41",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
+    },
+    "name": "SOS_play",
+    "origin": "user_include",
     "scope": null
   },
   {
@@ -66902,48 +67000,6 @@
     "scope": null
   },
   {
-    "ID": "c:sos.h@23@macro@SOS_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SOS_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
-    },
-    "name": "SOS_H",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SOS_play",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SOS_play(led_uint8_t, unsigned char *)",
-    "location": {
-      "column": "13",
-      "line": "41",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
-    },
-    "name": "SOS_play",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SOS_play",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SOS_play(led_uint8_t, unsigned char *)",
-    "location": {
-      "column": "13",
-      "line": "41",
-      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.h"
-    },
-    "name": "SOS_play",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
     "ID": "c:tc0.c@505@macro@ENABLE_BIT_DEFINITIONS",
     "What": "MacroDef",
     "defdec": "Def",
@@ -67010,6 +67066,62 @@
       "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\Modules\\tc0.c"
     },
     "name": "timsk0_temp",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@23@macro@SOS_C",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "SOS_C",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+    },
+    "name": "SOS_C",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@F@point",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void point(led_uint8_t)",
+    "location": {
+      "column": "13",
+      "line": "30",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+    },
+    "name": "point",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:sos.c@F@line",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void line(led_uint8_t)",
+    "location": {
+      "column": "13",
+      "line": "36",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+    },
+    "name": "line",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SOS_play",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SOS_play(led_uint8_t, unsigned char *)",
+    "location": {
+      "column": "6",
+      "line": "48",
+      "path": "C:\\MQ_Summer_Internship\\summer-internship\\Week1Goal2\\IAR_Project_W1G2\\sos.c"
+    },
+    "name": "SOS_play",
     "origin": "project_file",
     "scope": null
   },

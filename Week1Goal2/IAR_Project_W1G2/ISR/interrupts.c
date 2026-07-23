@@ -22,7 +22,11 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 volatile button_events_t button_events = {0, 0, 0, 0};
+
 volatile unsigned long tc0_overflow_count = 0;
+
+volatile unsigned char countdown_active = 0; 
+volatile unsigned char seconds_left = 0;     
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private function declarations
@@ -70,7 +74,33 @@ __interrupt void TC0_Overflow_Interrupt_Handler(void) {
     Toggle_LED(LED0);
     tc0_overflow_count = 0;
   }*/
-  Toggle_LED(LED0);
+  //Toggle_LED(LED0);
+  if (countdown_active == 1) {
+    tc0_overflow_count++;
+    if (tc0_overflow_count >= 61) {
+      tc0_overflow_count = 0;
+      seconds_left--;
+      
+      switch(seconds_left) {
+        case 4: 
+            PowerOff_LED(LED4);
+            break;
+        case 3: 
+            PowerOff_LED(LED3);
+            break;
+        case 2: 
+            PowerOff_LED(LED2);
+            break;
+        case 1: 
+            PowerOff_LED(LED1);
+            break;
+        case 0: 
+            PowerOff_LED(LED0);
+            countdown_active = 0;
+            break;
+      }
+    }
+  }
 }
 
 #endif

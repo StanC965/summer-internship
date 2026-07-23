@@ -565,6 +565,8 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
@@ -676,7 +678,8 @@ static const led_config_t led_table[] =
     { &PORTC, (7U), &DDRC },
     { &PORTD, (5U), &DDRD },
     { &PORTD, (4U), &DDRD },
-    { &PORTA, (3U), &DDRA }
+    { &PORTA, (3U), &DDRA },
+    { &PORTB, (3U), &DDRB }
 };
 
 
@@ -694,41 +697,43 @@ void LED_Init(void){
   gpio_set_direction(&DDRD, (5U), (1U));
   gpio_set_direction(&DDRD, (4U), (1U));
   gpio_set_direction(&DDRA, (3U), (1U));
+  gpio_set_direction(&DDRB, (3U), (1U));
 
    
   PowerOff_LED((0U));
   PowerOff_LED((1U));
   PowerOff_LED((2U));
   PowerOff_LED((3U));
+  PowerOff_LED((4U));
 }
 
 void led_init(led_uint8_t led){
-  if(led < (4U)){
+  if(led < (5U)){
     gpio_set_direction(led_table[led].ddr, led_table[led].pin, (1U));
     PowerOff_LED(led);
   }
 }
   
 void PowerOn_LED(led_uint8_t led){
-  if(led < (4U)){
+  if(led < (5U)){
     gpio_reset_pin(led_table[led].port, led_table[led].pin);
   }
 }
 
 void PowerOff_LED(led_uint8_t led){
-  if(led < (4U)){
+  if(led < (5U)){
     gpio_set_pin(led_table[led].port, led_table[led].pin);
   }
 }
 
 void Toggle_LED(gpio_uint8_t led){
-  if(led < (4U)){
+  if(led < (5U)){
     gpio_toggle_pin(led_table[led].port, led_table[led].pin);
   }
 }
 
 void BlinkFast_LED(led_uint8_t led){
-  if(led < (4U)){
+  if(led < (5U)){
     PowerOn_LED(led);
     delay(((100000L) / 12));
 
@@ -738,7 +743,7 @@ void BlinkFast_LED(led_uint8_t led){
 }
 
 void BlinkSlow_LED(led_uint8_t led){
-  if(led < (4U)){
+  if(led < (5U)){
     PowerOn_LED(led);
     delay(((100000L) / 4));
 

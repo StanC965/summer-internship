@@ -825,6 +825,8 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
@@ -945,6 +947,9 @@ extern volatile button_events_t button_events;
  
 extern volatile unsigned long tc0_overflow_count;
 
+extern volatile unsigned char countdown_active; 
+extern volatile unsigned char seconds_left;  
+
 
  
 
@@ -956,7 +961,11 @@ extern volatile unsigned long tc0_overflow_count;
  
 
 volatile button_events_t button_events = {0, 0, 0, 0};
+
 volatile unsigned long tc0_overflow_count = 0;
+
+volatile unsigned char countdown_active = 0; 
+volatile unsigned char seconds_left = 0;     
 
 
 
@@ -1004,6 +1013,32 @@ __interrupt void TC0_Overflow_Interrupt_Handler(void) {
 
 
  
-  Toggle_LED((0U));
+  
+  if (countdown_active == 1) {
+    tc0_overflow_count++;
+    if (tc0_overflow_count >= 61) {
+      tc0_overflow_count = 0;
+      seconds_left--;
+      
+      switch(seconds_left) {
+        case 4: 
+            PowerOff_LED((4U));
+            break;
+        case 3: 
+            PowerOff_LED((3U));
+            break;
+        case 2: 
+            PowerOff_LED((2U));
+            break;
+        case 1: 
+            PowerOff_LED((1U));
+            break;
+        case 0: 
+            PowerOff_LED((0U));
+            countdown_active = 0;
+            break;
+      }
+    }
+  }
 }
 
