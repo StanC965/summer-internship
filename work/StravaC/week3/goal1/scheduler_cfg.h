@@ -2,16 +2,7 @@
 #define SCHEDULER_CFG_H
 
 /*
-Autor: Strava Cosmin-Paul
-Data: 2026
-
-Configuratia aplicatiei pentru scheduler.
-
-Required interfaces:
-taskurile apelate de scheduler.
-
-Provided application interface:
-scheduler_cfg_init().
+Configuratia taskurilor aplicatiei Ambient Light.
 */
 
 extern void scheduler_cfg_init(void);
