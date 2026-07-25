@@ -1,0 +1,16 @@
+423 
+
+time_to_overflow = 256 * prescaler / 1MHz
+
+prescaler 1     -> 256 * 1us    = 256 us      (MIN)
+prescaler 8     -> 256 * 8us    = 2.048 ms
+prescaler 64    -> 256 * 64us   = 16.384 ms
+prescaler 256   -> 256 * 256us  = 65.536 ms
+prescaler 1024  -> 256 * 1024us = 262.144 ms  (MAX)
+
+MIN => 256 us  
+MAX => 262.144 ms  
+
+How to extend the maximum real time measured in NORMAL MODE?
+->increment a variable inside the overflow ISR and do the action only after N overflows. So the total measured time becomes
+N * 262.144 ms with prescaler 1024

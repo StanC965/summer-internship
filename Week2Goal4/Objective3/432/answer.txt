@@ -1,0 +1,20 @@
+432 - CTC waveform generator on OC0A + ISR toggle.
+
+What pin is OC0A? -> PB3 (EXT4 pin 7, TC0-OCA)
+Which LED is connected to it? -> LED4, the yellow LED on the IO1 board 
+
+Make them synchronous (both on, both off):
+Align the initial states. I start LED0 ON so it matches LED4's initial ON state;
+from then on both toggle together at each match. (Alternatively force OC0A to the
+same starting level with an FOC0A)
+
+How much real time with OCR0A = 127?
+match period = (OCR0A + 1) * prescaler / 1MHz = 128 * prescaler / 1MHz
+With prescaler 1024 -> 128 * 1024 / 1MHz = 131.072 ms per match.
+
+Other real timings with the SAME OCR0A = 127 (just change the prescaler):
+prescaler 1    -> 128 us
+prescaler 8    -> 1.024 ms
+prescaler 64   -> 8.192 ms
+prescaler 256  -> 32.768 ms
+prescaler 1024 -> 131.072 ms

@@ -96,3 +96,33 @@ Week1Goal2/button.c
 Week1Goal2/button.h
 Week1Goal2/sos.c
 Week1Goal2/sos.h
+
+# IAR working project files for Week2 Goal3
+Week2Goal3/Debug/
+Week2Goal3/settings/
+Week2Goal3/main.c
+Week2Goal3/w2g3.ewp
+Week2Goal3/w2g3.eww
+Week2Goal3/w2g3.ewd
+Week2Goal3/w2g3.ewt
+Week2Goal3/w2g3.dep
+Week2Goal3/gpio.c
+Week2Goal3/gpio.h
+Week2Goal3/led.c
+Week2Goal3/led.h
+Week2Goal3/button.c
+Week2Goal3/button.h
+Week2Goal3/sos.c
+Week2Goal3/sos.h
+Week2Goal3/panel.c
+Week2Goal3/panel.h
+Week2Goal3/adc.c
+Week2Goal3/adc.h
+Week2Goal3/ambient.c
+Week2Goal3/ambient.h
+
+# Week2 Goal4 - new workflow: commit the whole IAR project, ignore only build output
+Week2Goal4/Debug/
+Week2Goal4/settings/
+Week2Goal4/w2g4.dep
+Week2Goal4/w2g4.ewt

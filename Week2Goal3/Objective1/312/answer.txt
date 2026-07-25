@@ -1,0 +1,15 @@
+312 - Vector table in iom324pb.h + Compiler Guide
+
+In iom324pb.h:
+  INT0_vect (0x04), INT1_vect (0x08), INT2_vect (0x0C), PCINT0_vect (0x10),
+  PCINT2_vect (0x18)  <- this is the one I need for SW0
+
+The datasheet says INT0 is 0x0002 but the header says 0x04, so the header values are
+double. It is not a mistake: the datasheet uses word addresses and the header uses byte addresses. So the table is correct.
+
+From the Compiler Guide:
+- __interrupt tells the compiler the function is an ISR: it saves/restores the registers
+  and ends with RETI instead of RET.
+- #pragma vector=... links the ISR to a line of the vector table.
+- An ISR has no parameters and returns nothing. It is a routine, not a function, because
+  I never call it, the hardware calls it.

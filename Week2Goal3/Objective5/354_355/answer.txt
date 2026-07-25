@@ -1,0 +1,17 @@
+354 - observations:
+On my board the value is inverted:
+- bright light (phone flashlight on the sensor): about 0x03
+- room light: about 0xE6
+- covered (dark): about 0xF5
+So the ADC reacts over the whole range. With VREF = 1.1V the ADC saturates at 0xFF for
+the higher inputs, because the sensor voltage goes above the 1.1V reference and the ADC
+cannot represent voltages larger than its reference
+
+355 - design rules:
+Rule 1 - every module has an init function:
+  gpio_init(), led_init(), button_init(), sos_init(), adc_init(), panel_init()
+  gpio and sos have no internal state, so their init is empty
+Rule 2 - atomic driver actions as dedicated functions:
+  gpio driver: gpio_set_pin, gpio_reset_pin, gpio_toggle_pin, gpio_read_pin,
+               gpio_set_direction, gpio_enable_pullup
+  adc driver : adc_start_conversion (start), adc_get_result (get the result)

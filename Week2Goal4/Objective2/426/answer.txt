@@ -1,0 +1,10 @@
+426 - LED0 toggled inside ISR at every overflow.
+Toggle at every overflow => one full ON+OFF cycle takes 2 overflows
+
+period = 2 * 256 * prescaler / 1MHz     freq = 1 / period
+
+prescaler 1     -> period = 512 us       -> freq ~= 1953 Hz   (FREQ MAX)
+prescaler 1024  -> period = 524.288 ms   -> freq ~= 1.91 Hz   (FREQ MIN)
+
+FREQ MIN => ~1.91 Hz  (prescaler 1024)
+FREQ MAX => ~1953 Hz  (prescaler 1)

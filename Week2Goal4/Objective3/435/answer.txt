@@ -1,0 +1,10 @@
+435 - LED toggled at the min/max CTC intervals from 434.
+Toggle at every match -> period = 2 * match_interval , freq = 1 / period.
+
+MIN interval = 1 us      (OCR0A=0, prescaler 1)
+  -> period = 2 us       -> FREQ MAX = 500 kHz
+MAX interval = 262.144 ms (OCR0A=255, prescaler 1024)
+  -> period = 524.288 ms  -> FREQ MIN ~= 1.91 Hz
+
+FREQ MIN => ~1.91 Hz
+FREQ MAX => 500 kHz

@@ -1,0 +1,5 @@
+315 - Breakpoint in the ISR
+
+I put a breakpoint on the line inside the ISR, ran the program and pressed SW0.
+The CPU hit the breakpoint, even though main() was just sitting in an empty while(1)
+and never asked about the button. The hardware pulled the CPU out of the loop.
