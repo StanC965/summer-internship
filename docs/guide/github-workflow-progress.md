@@ -10,29 +10,17 @@ This setup gives you:
 
 ## 1) Keep `main` untouchable by students
 
-Use branch protection on `main`:
-
-1. Open repository settings in GitHub.
-2. Go to branch protection rules (or rulesets).
-3. Add rule for branch `main`.
-4. Enable:
-
-- Require a pull request before merging.
-- Require approvals (minimum 1).
-- Dismiss stale approvals on new commits.
-- Include administrators.
-- Restrict who can push (only you, or maintainers).
-
-Result: pages/content built from `main` remains under your control.
+Pages/content built from `main` remains under instructor control.  
+Branch `main` will be blocked from writing to it.
 
 ## 2) Student branch model
 
-Each student gets one branch derived from `main`:
+Each student gets his own branch derived from `main` (instructor will derive it):
 
 - `student/alice`
 - `student/bob`
 
-Creation example:
+Work example:
 
 ```bash
 git checkout main
@@ -45,14 +33,15 @@ Students do all work on their own branch.
 
 ## 3) Branch model inside each student branch
 
+For working on a goal, student will derive a branch out of his own.
 Recommended branch layout:
 
 - Permanent student branch: `student/alice`
-- Short-lived work branch: `alice/w2g1-uart-init`
-- PR direction: `alice/w2g1-uart-init` -> `student/alice`
+- Short-lived working branch per goal: `alice/w2g1-uart-init`
+- PR direction will be: from `alice/w2g1-uart-init` -> to -> `student/alice`
 
 This means students never open normal progress PRs toward `main`.
-`main` stays only for your controlled content and final integration.
+`main` stays only for instructor controlled content and final integration.
 
 ## 4) Best granularity: week-goal, not every tiny objective
 
