@@ -31,4 +31,7 @@ extern void timer_start(unsigned char prescaler);
 
 extern void timer_stop(void);
 
+/** \brief  Dedicated 10ms system tick on TC1 (CTC), starts counting */
+extern void timer_systick_init(void);
+
 #endif
