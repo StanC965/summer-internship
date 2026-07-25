@@ -2,20 +2,37 @@
 #include "intrinsics.h"
 
 #include "scheduler.h"
+#include "tasks.h"
 #include "tc1.h"
 
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
 
-Test pentru scheduler flags management.
+Scheduler cooperativ bazat pe system tick de 10 ms.
 
-TC1 produce system tick-ul la fiecare 10 ms.
-ISR-ul administreaza flagurile pentru:
-10 ms, 50 ms, 100 ms, 500 ms si 1000 ms.
+Componente:
+- TC1 genereaza system tick-ul;
+- schedulerul administreaza flagurile;
+- dispatcherul verifica flagurile;
+- taskurile sunt executate in main.
+
+Taskurile nu se intrerup intre ele.
+Fiecare task trebuie sa se termine si sa returneze
+controlul catre dispatcher.
 */
 
+/* ========================================================= */
+/* PRIVATE FUNCTIONS                                         */
+/* ========================================================= */
+
 static void app_init(void);
+
+static void app_tasks_dispatcher(void);
+
+/* ========================================================= */
+/* MAIN                                                      */
+/* ========================================================= */
 
 void main(void)
 {
@@ -23,70 +40,28 @@ void main(void)
 
     while (SCHEDULER_TRUE)
     {
-        if (
-            scheduler_is_10ms_flag_active() ==
-            SCHEDULER_FLAG_ACTIVE
-        )
-        {
-            scheduler_clear_10ms_flag();
-
-            /*
-            Aici va fi apelat taskul de 10 ms.
-            */
-        }
-
-        if (
-            scheduler_is_50ms_flag_active() ==
-            SCHEDULER_FLAG_ACTIVE
-        )
-        {
-            scheduler_clear_50ms_flag();
-
-            /*
-            Aici va fi apelat taskul de 50 ms.
-            */
-        }
-
-        if (
-            scheduler_is_100ms_flag_active() ==
-            SCHEDULER_FLAG_ACTIVE
-        )
-        {
-            scheduler_clear_100ms_flag();
-
-            /*
-            Aici va fi apelat taskul de 100 ms.
-            */
-        }
-
-        if (
-            scheduler_is_500ms_flag_active() ==
-            SCHEDULER_FLAG_ACTIVE
-        )
-        {
-            scheduler_clear_500ms_flag();
-
-            /*
-            Aici va fi apelat taskul de 500 ms.
-            */
-        }
-
-        if (
-            scheduler_is_1000ms_flag_active() ==
-            SCHEDULER_FLAG_ACTIVE
-        )
-        {
-            scheduler_clear_1000ms_flag();
-
-            /*
-            Aici va fi apelat taskul de 1000 ms.
-            */
-        }
+        app_tasks_dispatcher();
     }
 }
 
+/* ========================================================= */
+/* APPLICATION INITIALIZATION                                */
+/* ========================================================= */
+
 static void app_init(void)
 {
+    /*
+    Ordinea initializarii:
+
+    1. taskurile si perifericele utilizate de ele;
+    2. schedulerul si flagurile;
+    3. TC1 pentru system tick;
+    4. intreruperile globale;
+    5. pornirea timerului.
+    */
+
+    tasks_init();
+
     scheduler_init();
 
     tc1_init();
@@ -94,4 +69,69 @@ static void app_init(void)
     __enable_interrupt();
 
     tc1_start();
+}
+
+/* ========================================================= */
+/* TASKS DISPATCHER                                          */
+/* ========================================================= */
+
+static void app_tasks_dispatcher(void)
+{
+    /*
+    Fiecare flag este verificat.
+
+    Flagul este resetat inainte de apelarea taskului,
+    pentru a evita executia repetata in aceeasi
+    fereastra de timp.
+    */
+
+    if (
+        scheduler_is_10ms_flag_active() ==
+        SCHEDULER_FLAG_ACTIVE
+    )
+    {
+        scheduler_clear_10ms_flag();
+
+        tasks_10ms_execute();
+    }
+
+    if (
+        scheduler_is_50ms_flag_active() ==
+        SCHEDULER_FLAG_ACTIVE
+    )
+    {
+        scheduler_clear_50ms_flag();
+
+        tasks_50ms_execute();
+    }
+
+    if (
+        scheduler_is_100ms_flag_active() ==
+        SCHEDULER_FLAG_ACTIVE
+    )
+    {
+        scheduler_clear_100ms_flag();
+
+        tasks_100ms_execute();
+    }
+
+    if (
+        scheduler_is_500ms_flag_active() ==
+        SCHEDULER_FLAG_ACTIVE
+    )
+    {
+        scheduler_clear_500ms_flag();
+
+        tasks_500ms_execute();
+    }
+
+    if (
+        scheduler_is_1000ms_flag_active() ==
+        SCHEDULER_FLAG_ACTIVE
+    )
+    {
+        scheduler_clear_1000ms_flag();
+
+        tasks_1000ms_execute();
+    }
 }
