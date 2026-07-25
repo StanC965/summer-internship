@@ -2,7 +2,7 @@
 #define SCHEDULER_C
 
 #include "scheduler.h"
-#include "tasks.h"
+#include "scheduler_cfg.h"
 
 /*
 Autor: Strava Cosmin-Paul
@@ -10,32 +10,41 @@ Data: 2026
 
 Scheduler cooperativ bazat pe un system tick de 10 ms.
 
-Functia scheduler_flags_management() este apelata
-din ISR-ul TC1.
+Acest modul nu cunoaste functionalitatea concreta
+a taskurilor.
 
-Functia scheduler_tasks_dispatcher() contine bucla
-principala si executa taskurile activate.
+El doar:
+- construieste perioadele;
+- activeaza flagurile;
+- apeleaza callback-urile configurate.
 */
 
 /* ========================================================= */
-/* PERIOD CONFIGURATION                                      */
+/* CONSTANTS                                                 */
 /* ========================================================= */
+
+#define SCHEDULER_FALSE                       (0U)
+#define SCHEDULER_TRUE                        (1U)
+
+#define SCHEDULER_FLAG_NOT_ACTIVE             (SCHEDULER_FALSE)
+#define SCHEDULER_FLAG_ACTIVE                 (SCHEDULER_TRUE)
+
+#define SCHEDULER_COUNTER_INITIAL_VALUE       (0U)
 
 /*
 System tick = 10 ms
-
-50 ms   = 5 system ticks
-100 ms  = 10 system ticks
-500 ms  = 50 system ticks
-1000 ms = 100 system ticks
 */
 
-#define SCHEDULER_50MS_PERIOD_TICKS          (5U)
-#define SCHEDULER_100MS_PERIOD_TICKS         (10U)
-#define SCHEDULER_500MS_PERIOD_TICKS         (50U)
-#define SCHEDULER_1000MS_PERIOD_TICKS        (100U)
+#define SCHEDULER_50MS_PERIOD_TICKS           (5U)
+#define SCHEDULER_100MS_PERIOD_TICKS          (10U)
+#define SCHEDULER_500MS_PERIOD_TICKS          (50U)
+#define SCHEDULER_1000MS_PERIOD_TICKS         (100U)
 
-#define SCHEDULER_COUNTER_INITIAL_VALUE      (0U)
+/* ========================================================= */
+/* TYPES                                                     */
+/* ========================================================= */
+
+typedef unsigned char scheduler_uint8_t;
 
 /* ========================================================= */
 /* PRIVATE COUNTERS                                          */
@@ -97,11 +106,10 @@ void scheduler_init(void)
 void scheduler_flags_management(void)
 {
     /*
-    Aceasta functie este apelata de TC1 ISR
-    la fiecare 10 ms.
+    Aceasta functie este apelata din ISR la fiecare 10 ms.
 
-    ISR-ul nu executa taskuri.
-    El activeaza numai flagurile.
+    ISR-ul nu executa taskurile.
+    Sunt administrate numai flagurile si contoarele.
     */
 
     scheduler_10ms_flag =
@@ -176,28 +184,17 @@ void scheduler_flags_management(void)
 /* TASKS DISPATCHER                                          */
 /* ========================================================= */
 
-void scheduler_tasks_dispatcher(void)
+void scheduler_dispatcher(void)
 {
     /*
-    Aceasta este bucla principala a aplicatiei.
+    Dispatcherul contine bucla infinita a aplicatiei.
 
-    Taskurile sunt executate cooperativ:
-    - nu au prioritati;
-    - nu se intrerup intre ele;
-    - fiecare task trebuie sa returneze controlul;
-    - nu sunt permise delay-uri blocante.
+    Schedulerul apeleaza functiile declarate in
+    scheduler_cfg.h, fara sa cunoasca implementarea lor.
     */
 
     while (SCHEDULER_TRUE)
     {
-        /*
-        Flagul este resetat inaintea apelului.
-
-        Astfel, daca in timpul executiei taskului apare
-        urmatoarea perioada, ISR-ul poate activa din nou
-        flagul pentru urmatoarea executie.
-        */
-
         if (
             scheduler_10ms_flag ==
             SCHEDULER_FLAG_ACTIVE
@@ -206,7 +203,7 @@ void scheduler_tasks_dispatcher(void)
             scheduler_10ms_flag =
                 SCHEDULER_FLAG_NOT_ACTIVE;
 
-            task_10ms();
+            scheduler_task_10ms();
         }
 
         if (
@@ -217,7 +214,7 @@ void scheduler_tasks_dispatcher(void)
             scheduler_50ms_flag =
                 SCHEDULER_FLAG_NOT_ACTIVE;
 
-            task_50ms();
+            scheduler_task_50ms();
         }
 
         if (
@@ -228,7 +225,7 @@ void scheduler_tasks_dispatcher(void)
             scheduler_100ms_flag =
                 SCHEDULER_FLAG_NOT_ACTIVE;
 
-            task_100ms();
+            scheduler_task_100ms();
         }
 
         if (
@@ -239,7 +236,7 @@ void scheduler_tasks_dispatcher(void)
             scheduler_500ms_flag =
                 SCHEDULER_FLAG_NOT_ACTIVE;
 
-            task_500ms();
+            scheduler_task_500ms();
         }
 
         if (
@@ -250,7 +247,7 @@ void scheduler_tasks_dispatcher(void)
             scheduler_1000ms_flag =
                 SCHEDULER_FLAG_NOT_ACTIVE;
 
-            task_1000ms();
+            scheduler_task_1000ms();
         }
     }
 }

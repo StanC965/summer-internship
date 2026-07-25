@@ -2,78 +2,63 @@
 #include "intrinsics.h"
 
 #include "scheduler.h"
-#include "tasks.h"
+#include "scheduler_cfg.h"
 #include "tc1.h"
 
 /*
 Autor: Strava Cosmin-Paul
 Data: 2026
 
-Aplicatie bazata pe scheduler cooperativ.
+Aplicatie task-oriented bazata pe scheduler cooperativ.
 
-main() realizeaza numai:
-- initializarea modulelor;
-- activarea intreruperilor;
-- pornirea system tick-ului;
-- apelarea dispatcherului.
+main() realizeaza:
+- initializarea configuratiei taskurilor;
+- initializarea schedulerului;
+- initializarea system tick-ului;
+- pornirea dispatcherului.
 */
 
-/* ========================================================= */
-/* PRIVATE FUNCTIONS                                         */
-/* ========================================================= */
-
 static void app_init(void);
-
-/* ========================================================= */
-/* MAIN                                                      */
-/* ========================================================= */
 
 void main(void)
 {
     app_init();
 
     /*
-    Functia contine bucla infinita a schedulerului
-    si nu trebuie sa returneze.
+    Contine bucla infinita a aplicatiei.
     */
 
-    scheduler_tasks_dispatcher();
+    scheduler_dispatcher();
 }
-
-/* ========================================================= */
-/* APPLICATION INITIALIZATION                                */
-/* ========================================================= */
 
 static void app_init(void)
 {
     /*
-    Initializarea functionalitatilor aplicatiei.
+    Initializeaza perifericele utilizate de taskuri.
     */
 
-    tasks_init();
+    scheduler_cfg_init();
 
     /*
-    Initializarea contoarelor si flagurilor.
+    Initializeaza contoarele si flagurile schedulerului.
     */
 
     scheduler_init();
 
     /*
-    Initializarea timerului dedicat system tick-ului.
-    TC1 ramane oprit dupa tc1_init().
+    Initializeaza TC1 dedicat system tick-ului.
     */
 
     tc1_init();
 
     /*
-    Activeaza intreruperile globale numai dupa ce toate
-    modulele au fost configurate.
+    Activeaza intreruperile dupa configurarea modulelor.
     */
 
     __enable_interrupt();
 
     /*
-    Porneste TC1 si generarea system tick-ului de 10 ms.
+    Porneste system tick-ul de 10 ms.
     */
 
     tc1_start();
