@@ -5,6 +5,7 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 #include "iom324pb.h"
 #include "timer.h"
+#include "scheduler.h"
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Static private objects
@@ -19,8 +20,7 @@
 #define TIMER_SYSTICK_TOP   (1249U)   /* (1249+1)*8us = 10.000ms @1MHz, prescaler 8 */
 #define TIMER_WGM12_BIT     (3U)
 #define TIMER_CS11_BIT      (1U)
-#define TIMER_OCIE1A_BIT    (1U)
-#define TIMER_DBG_PIN       (7U)      
+#define TIMER_OCIE1A_BIT    (1U) 
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Implementation
@@ -71,7 +71,7 @@ void timer_systick_init(void)
 #pragma vector=TIMER1_COMPA_vect
 __interrupt void timer_systick_isr(void)
 {
-    PINC = (1 << TIMER_DBG_PIN);               /* TEMP: toggle PC7; replaced at 513 by flags mgmt */
+    scheduler_flags_management();
 }
 
 #endif
