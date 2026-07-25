@@ -1,0 +1,13 @@
+511 - What a task scheduler is.
+
+Each function gets a "time slice" = the time between two consecutive timer
+interrupts. Slices are periodic because timer interrupts are periodic.
+
+The 3 building blocks:
+  1. System tick     - the time base, from timer interrupts.
+  2. Flags manager   - inside the ISR I set one flag per period I want.
+  3. Tasks dispatcher - in while(1) I check the flags; if set, I call the
+     function (task) and then RESET the flag (otherwise it would be called
+     twice in the same slice).
+
+Cooperative = tasks do not interrupt each other, they are not prioritized.
