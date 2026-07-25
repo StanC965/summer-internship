@@ -2,14 +2,32 @@
 #define SCHEDULER_C
 
 #include "scheduler.h"
+#include "tasks.h"
+
+/*
+Autor: Strava Cosmin-Paul
+Data: 2026
+
+Scheduler cooperativ bazat pe un system tick de 10 ms.
+
+Functia scheduler_flags_management() este apelata
+din ISR-ul TC1.
+
+Functia scheduler_tasks_dispatcher() contine bucla
+principala si executa taskurile activate.
+*/
+
+/* ========================================================= */
+/* PERIOD CONFIGURATION                                      */
+/* ========================================================= */
 
 /*
 System tick = 10 ms
 
-50 ms   / 10 ms = 5 ticks
-100 ms  / 10 ms = 10 ticks
-500 ms  / 10 ms = 50 ticks
-1000 ms / 10 ms = 100 ticks
+50 ms   = 5 system ticks
+100 ms  = 10 system ticks
+500 ms  = 50 system ticks
+1000 ms = 100 system ticks
 */
 
 #define SCHEDULER_50MS_PERIOD_TICKS          (5U)
@@ -79,16 +97,17 @@ void scheduler_init(void)
 void scheduler_flags_management(void)
 {
     /*
-    Aceasta functie este apelata la fiecare 10 ms
-    din ISR-ul Timer/Counter1.
+    Aceasta functie este apelata de TC1 ISR
+    la fiecare 10 ms.
 
-    Flagul de 10 ms este activat la fiecare system tick.
+    ISR-ul nu executa taskuri.
+    El activeaza numai flagurile.
     */
 
     scheduler_10ms_flag =
         SCHEDULER_FLAG_ACTIVE;
 
-    /* 50 ms period */
+    /* 50 ms */
 
     scheduler_50ms_counter++;
 
@@ -104,7 +123,7 @@ void scheduler_flags_management(void)
             SCHEDULER_FLAG_ACTIVE;
     }
 
-    /* 100 ms period */
+    /* 100 ms */
 
     scheduler_100ms_counter++;
 
@@ -120,7 +139,7 @@ void scheduler_flags_management(void)
             SCHEDULER_FLAG_ACTIVE;
     }
 
-    /* 500 ms period */
+    /* 500 ms */
 
     scheduler_500ms_counter++;
 
@@ -136,7 +155,7 @@ void scheduler_flags_management(void)
             SCHEDULER_FLAG_ACTIVE;
     }
 
-    /* 1000 ms period */
+    /* 1000 ms */
 
     scheduler_1000ms_counter++;
 
@@ -154,66 +173,86 @@ void scheduler_flags_management(void)
 }
 
 /* ========================================================= */
-/* FLAG STATE FUNCTIONS                                      */
+/* TASKS DISPATCHER                                          */
 /* ========================================================= */
 
-scheduler_uint8_t scheduler_is_10ms_flag_active(void)
+void scheduler_tasks_dispatcher(void)
 {
-    return scheduler_10ms_flag;
-}
+    /*
+    Aceasta este bucla principala a aplicatiei.
 
-scheduler_uint8_t scheduler_is_50ms_flag_active(void)
-{
-    return scheduler_50ms_flag;
-}
+    Taskurile sunt executate cooperativ:
+    - nu au prioritati;
+    - nu se intrerup intre ele;
+    - fiecare task trebuie sa returneze controlul;
+    - nu sunt permise delay-uri blocante.
+    */
 
-scheduler_uint8_t scheduler_is_100ms_flag_active(void)
-{
-    return scheduler_100ms_flag;
-}
+    while (SCHEDULER_TRUE)
+    {
+        /*
+        Flagul este resetat inaintea apelului.
 
-scheduler_uint8_t scheduler_is_500ms_flag_active(void)
-{
-    return scheduler_500ms_flag;
-}
+        Astfel, daca in timpul executiei taskului apare
+        urmatoarea perioada, ISR-ul poate activa din nou
+        flagul pentru urmatoarea executie.
+        */
 
-scheduler_uint8_t scheduler_is_1000ms_flag_active(void)
-{
-    return scheduler_1000ms_flag;
-}
+        if (
+            scheduler_10ms_flag ==
+            SCHEDULER_FLAG_ACTIVE
+        )
+        {
+            scheduler_10ms_flag =
+                SCHEDULER_FLAG_NOT_ACTIVE;
 
-/* ========================================================= */
-/* FLAG CLEAR FUNCTIONS                                      */
-/* ========================================================= */
+            task_10ms();
+        }
 
-void scheduler_clear_10ms_flag(void)
-{
-    scheduler_10ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
-}
+        if (
+            scheduler_50ms_flag ==
+            SCHEDULER_FLAG_ACTIVE
+        )
+        {
+            scheduler_50ms_flag =
+                SCHEDULER_FLAG_NOT_ACTIVE;
 
-void scheduler_clear_50ms_flag(void)
-{
-    scheduler_50ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
-}
+            task_50ms();
+        }
 
-void scheduler_clear_100ms_flag(void)
-{
-    scheduler_100ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
-}
+        if (
+            scheduler_100ms_flag ==
+            SCHEDULER_FLAG_ACTIVE
+        )
+        {
+            scheduler_100ms_flag =
+                SCHEDULER_FLAG_NOT_ACTIVE;
 
-void scheduler_clear_500ms_flag(void)
-{
-    scheduler_500ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
-}
+            task_100ms();
+        }
 
-void scheduler_clear_1000ms_flag(void)
-{
-    scheduler_1000ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
+        if (
+            scheduler_500ms_flag ==
+            SCHEDULER_FLAG_ACTIVE
+        )
+        {
+            scheduler_500ms_flag =
+                SCHEDULER_FLAG_NOT_ACTIVE;
+
+            task_500ms();
+        }
+
+        if (
+            scheduler_1000ms_flag ==
+            SCHEDULER_FLAG_ACTIVE
+        )
+        {
+            scheduler_1000ms_flag =
+                SCHEDULER_FLAG_NOT_ACTIVE;
+
+            task_1000ms();
+        }
+    }
 }
 
 #endif

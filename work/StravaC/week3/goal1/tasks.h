@@ -5,21 +5,25 @@
 Autor: Strava Cosmin-Paul
 Data: 2026
 
-Interfata taskurilor executate de scheduler.
+Interfata taskurilor aplicatiei.
 
-Fiecare task:
-- este apelat periodic de dispatcher;
-- trebuie sa fie scurt;
-- nu trebuie sa contina delay-uri blocante;
-- trebuie sa returneze controlul catre main.
+Schedulerul lucreaza numai cu functii generice:
+- task_10ms();
+- task_50ms();
+- task_100ms();
+- task_500ms();
+- task_1000ms();
+
+Functionalitatea concreta a aplicatiei este amplasata
+in interiorul acestor taskuri.
 */
 
 extern void tasks_init(void);
 
-extern void tasks_10ms_execute(void);
-extern void tasks_50ms_execute(void);
-extern void tasks_100ms_execute(void);
-extern void tasks_500ms_execute(void);
-extern void tasks_1000ms_execute(void);
+extern void task_10ms(void);
+extern void task_50ms(void);
+extern void task_100ms(void);
+extern void task_500ms(void);
+extern void task_1000ms(void);
 
 #endif

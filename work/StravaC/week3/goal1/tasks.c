@@ -11,10 +11,13 @@
 Autor: Strava Cosmin-Paul
 Data: 2026
 
-Implementarea taskurilor periodice.
+Implementarea taskurilor generice ale aplicatiei.
 
-Taskul de 500 ms comuta LED0 pentru verificarea
-vizuala a schedulerului cooperativ.
+Taskurile trebuie:
+- sa fie scurte;
+- sa nu contina software delays;
+- sa nu contina bucle infinite;
+- sa returneze controlul catre scheduler.
 */
 
 /* ========================================================= */
@@ -31,7 +34,7 @@ PC7, active-low.
 #define TASKS_LED0_PIN_NUMBER           (7U)
 
 /* ========================================================= */
-/* INITIALIZATION                                            */
+/* MODULE INITIALIZATION                                     */
 /* ========================================================= */
 
 void tasks_init(void)
@@ -49,11 +52,13 @@ void tasks_init(void)
 /* 10 MS TASK                                                */
 /* ========================================================= */
 
-void tasks_10ms_execute(void)
+void task_10ms(void)
 {
     /*
-    Aici poate fi introdusa ulterior o functie care
-    trebuie executata la fiecare 10 ms.
+    Functionalitati potrivite pentru acest task:
+    - procesare rapida;
+    - citire intrari;
+    - actualizare contoare software.
     */
 }
 
@@ -61,11 +66,11 @@ void tasks_10ms_execute(void)
 /* 50 MS TASK                                                */
 /* ========================================================= */
 
-void tasks_50ms_execute(void)
+void task_50ms(void)
 {
     /*
-    Exemplu ulterior:
-    citirea si debouncing-ul unui buton.
+    Functionalitate concreta posibila:
+    - citire si debounce pentru SW0.
     */
 }
 
@@ -73,11 +78,12 @@ void tasks_50ms_execute(void)
 /* 100 MS TASK                                               */
 /* ========================================================= */
 
-void tasks_100ms_execute(void)
+void task_100ms(void)
 {
     /*
-    Exemplu ulterior:
-    pornirea unei conversii ADC sau citirea unui senzor.
+    Functionalitate concreta posibila:
+    - pornirea unei conversii ADC;
+    - citirea periodica a unui senzor.
     */
 }
 
@@ -85,11 +91,14 @@ void tasks_100ms_execute(void)
 /* 500 MS TASK                                               */
 /* ========================================================= */
 
-void tasks_500ms_execute(void)
+void task_500ms(void)
 {
     /*
-    Demonstratie vizuala:
-    LED0 este comutat la fiecare 500 ms.
+    Functia concreta este relocata in interiorul
+    taskului generic.
+
+    Pentru demonstratie, LED0 este comutat
+    la fiecare 500 ms.
     */
 
     led_toggle(
@@ -102,11 +111,13 @@ void tasks_500ms_execute(void)
 /* 1000 MS TASK                                              */
 /* ========================================================= */
 
-void tasks_1000ms_execute(void)
+void task_1000ms(void)
 {
     /*
-    Aici poate fi introdusa ulterior o functie care
-    trebuie executata la fiecare secunda.
+    Functionalitate concreta posibila:
+    - actualizare stare o data pe secunda;
+    - monitorizare;
+    - transmitere periodica de informatii.
     */
 }
 

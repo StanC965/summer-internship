@@ -5,20 +5,12 @@
 Autor: Strava Cosmin-Paul
 Data: 2026
 
-Modul pentru administrarea flagurilor schedulerului.
+Interfata schedulerului cooperativ.
 
-System tick:
-- perioada de baza = 10 ms
-
-Perioade construite:
-- 10 ms;
-- 50 ms;
-- 100 ms;
-- 500 ms;
-- 1000 ms.
-
-scheduler_flags_management() este apelata din ISR-ul TC1.
-Taskurile sunt executate ulterior de dispatcher, in main.
+Componente:
+- flags management;
+- tasks dispatcher;
+- perioade construite pe baza system tick-ului de 10 ms.
 */
 
 #define SCHEDULER_FALSE                  (0U)
@@ -34,25 +26,17 @@ typedef unsigned char scheduler_uint8_t;
 extern void scheduler_init(void);
 
 /*
-Apelata numai din ISR-ul system tick.
+Apelata la fiecare 10 ms din ISR-ul TC1.
+Administreaza contoarele si flagurile.
 */
 
 extern void scheduler_flags_management(void);
 
-/* Flag state functions */
+/*
+Contine bucla infinita a aplicatiei si executa
+taskurile ale caror flaguri sunt active.
+*/
 
-extern scheduler_uint8_t scheduler_is_10ms_flag_active(void);
-extern scheduler_uint8_t scheduler_is_50ms_flag_active(void);
-extern scheduler_uint8_t scheduler_is_100ms_flag_active(void);
-extern scheduler_uint8_t scheduler_is_500ms_flag_active(void);
-extern scheduler_uint8_t scheduler_is_1000ms_flag_active(void);
-
-/* Flag clear functions */
-
-extern void scheduler_clear_10ms_flag(void);
-extern void scheduler_clear_50ms_flag(void);
-extern void scheduler_clear_100ms_flag(void);
-extern void scheduler_clear_500ms_flag(void);
-extern void scheduler_clear_1000ms_flag(void);
+extern void scheduler_tasks_dispatcher(void);
 
 #endif

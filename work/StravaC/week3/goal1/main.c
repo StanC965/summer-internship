@@ -9,17 +9,13 @@
 Autor: Strava Cosmin-Paul
 Data: 2026
 
-Scheduler cooperativ bazat pe system tick de 10 ms.
+Aplicatie bazata pe scheduler cooperativ.
 
-Componente:
-- TC1 genereaza system tick-ul;
-- schedulerul administreaza flagurile;
-- dispatcherul verifica flagurile;
-- taskurile sunt executate in main.
-
-Taskurile nu se intrerup intre ele.
-Fiecare task trebuie sa se termine si sa returneze
-controlul catre dispatcher.
+main() realizeaza numai:
+- initializarea modulelor;
+- activarea intreruperilor;
+- pornirea system tick-ului;
+- apelarea dispatcherului.
 */
 
 /* ========================================================= */
@@ -27,8 +23,6 @@ controlul catre dispatcher.
 /* ========================================================= */
 
 static void app_init(void);
-
-static void app_tasks_dispatcher(void);
 
 /* ========================================================= */
 /* MAIN                                                      */
@@ -38,10 +32,12 @@ void main(void)
 {
     app_init();
 
-    while (SCHEDULER_TRUE)
-    {
-        app_tasks_dispatcher();
-    }
+    /*
+    Functia contine bucla infinita a schedulerului
+    si nu trebuie sa returneze.
+    */
+
+    scheduler_tasks_dispatcher();
 }
 
 /* ========================================================= */
@@ -51,87 +47,34 @@ void main(void)
 static void app_init(void)
 {
     /*
-    Ordinea initializarii:
-
-    1. taskurile si perifericele utilizate de ele;
-    2. schedulerul si flagurile;
-    3. TC1 pentru system tick;
-    4. intreruperile globale;
-    5. pornirea timerului.
+    Initializarea functionalitatilor aplicatiei.
     */
 
     tasks_init();
 
+    /*
+    Initializarea contoarelor si flagurilor.
+    */
+
     scheduler_init();
+
+    /*
+    Initializarea timerului dedicat system tick-ului.
+    TC1 ramane oprit dupa tc1_init().
+    */
 
     tc1_init();
 
-    __enable_interrupt();
-
-    tc1_start();
-}
-
-/* ========================================================= */
-/* TASKS DISPATCHER                                          */
-/* ========================================================= */
-
-static void app_tasks_dispatcher(void)
-{
     /*
-    Fiecare flag este verificat.
-
-    Flagul este resetat inainte de apelarea taskului,
-    pentru a evita executia repetata in aceeasi
-    fereastra de timp.
+    Activeaza intreruperile globale numai dupa ce toate
+    modulele au fost configurate.
     */
 
-    if (
-        scheduler_is_10ms_flag_active() ==
-        SCHEDULER_FLAG_ACTIVE
-    )
-    {
-        scheduler_clear_10ms_flag();
+    __enable_interrupt();
 
-        tasks_10ms_execute();
-    }
+    /*
+    Porneste TC1 si generarea system tick-ului de 10 ms.
+    */
 
-    if (
-        scheduler_is_50ms_flag_active() ==
-        SCHEDULER_FLAG_ACTIVE
-    )
-    {
-        scheduler_clear_50ms_flag();
-
-        tasks_50ms_execute();
-    }
-
-    if (
-        scheduler_is_100ms_flag_active() ==
-        SCHEDULER_FLAG_ACTIVE
-    )
-    {
-        scheduler_clear_100ms_flag();
-
-        tasks_100ms_execute();
-    }
-
-    if (
-        scheduler_is_500ms_flag_active() ==
-        SCHEDULER_FLAG_ACTIVE
-    )
-    {
-        scheduler_clear_500ms_flag();
-
-        tasks_500ms_execute();
-    }
-
-    if (
-        scheduler_is_1000ms_flag_active() ==
-        SCHEDULER_FLAG_ACTIVE
-    )
-    {
-        scheduler_clear_1000ms_flag();
-
-        tasks_1000ms_execute();
-    }
+    tc1_start();
 }
