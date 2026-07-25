@@ -16,5 +16,9 @@ void main(void)
 
     while(1)
     {
+        if (scheduler_flag_500ms())
+        {
+            led_toggle(LED0_PORT, LED0_PIN);   
+        }
     }
 }
