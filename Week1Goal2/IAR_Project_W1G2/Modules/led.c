@@ -21,19 +21,12 @@
     Static private objects
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-typedef struct {
-  
-  volatile gpio_uint8_t *port;
-  gpio_uint8_t pin;
-  
-} led_config_t;
-
 static const led_config_t led_table[] =
 {
-    { &PORTC, 7 },
-    { &PORTD, 5 },
-    { &PORTD, 4 },
-    { &PORTA, 3 }
+    { &PORTC, LED0_PIN, &DDRC },
+    { &PORTD, LED1_PIN, &DDRD },
+    { &PORTD, LED2_PIN, &DDRD },
+    { &PORTA, LED3_PIN, &DDRA }
 };
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -47,10 +40,10 @@ static const led_config_t led_table[] =
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 void LED_Init(void){
-  gpio_set_direction(&DDRC, 7, GPIO_OUTPUT);
-  gpio_set_direction(&DDRD, 5, GPIO_OUTPUT);
-  gpio_set_direction(&DDRD, 4, GPIO_OUTPUT);
-  gpio_set_direction(&DDRA, 3, GPIO_OUTPUT);
+  gpio_set_direction(&DDRC, LED0_PIN, GPIO_OUTPUT);
+  gpio_set_direction(&DDRD, LED1_PIN, GPIO_OUTPUT);
+  gpio_set_direction(&DDRD, LED2_PIN, GPIO_OUTPUT);
+  gpio_set_direction(&DDRA, LED3_PIN, GPIO_OUTPUT);
 
   /* Turn all LEDs OFF (active LOW) */
   PowerOff_LED(LED0);
@@ -59,6 +52,13 @@ void LED_Init(void){
   PowerOff_LED(LED3);
 }
 
+void led_init(led_uint8_t led){
+  if(led < NUMBER_OF_LEDS){
+    gpio_set_direction(led_table[led].ddr, led_table[led].pin, GPIO_OUTPUT);
+    PowerOff_LED(led);
+  }
+}
+  
 void PowerOn_LED(led_uint8_t led){
   if(led < NUMBER_OF_LEDS){
     gpio_reset_pin(led_table[led].port, led_table[led].pin);

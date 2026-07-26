@@ -563,10 +563,21 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
  
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
+  
+} led_config_t;
 
 
 
@@ -582,6 +593,17 @@ typedef unsigned char led_uint8_t;
 
  
 extern void LED_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_init(led_uint8_t led);
 
 
 
@@ -717,6 +739,22 @@ typedef unsigned char button_uint8_t;
  
 
 
+ 
+
+ 
+
+ 
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *pin_register;
+  volatile gpio_uint8_t *ddr;
+  
+} button_config_t;
+
 
 
  
@@ -731,6 +769,29 @@ typedef unsigned char button_uint8_t;
 
  
 extern void BUTTON_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void button_init(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void button_interrupt_init(button_uint8_t button);
 
 
 
@@ -786,15 +847,10 @@ extern unsigned char button_read_state(button_uint8_t button);
 
 
 
- 
-extern void SOS_play(led_uint8_t led);
-
-
-
 
  
+extern void SOS_play(led_uint8_t led, unsigned char *state);
 
- 
 
 
 
@@ -802,19 +858,386 @@ extern void SOS_play(led_uint8_t led);
 
 
 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+
+
+
+
+ 
+
+   
+
+
+ 
+
+  
+
+    
+extern volatile unsigned int adc_last_result;
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+extern void adc_init(void);
+
+
+
+
+
+
+
+ 
+extern void adc_start_conversion(void);
+
+
+
+
+
+
+
+ 
+extern unsigned int adc_get_result(void);
+
+
+
+
+ 
+
+ 
+typedef struct {
+    unsigned char sw0_pressed;
+    unsigned char btn1_pressed;
+    unsigned char btn2_pressed;
+    unsigned char btn3_pressed;
+} button_events_t;
+
+ 
+extern volatile button_events_t button_events;
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void Handle_MasterControl_Event(void);
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern void Handle_VentControl_Event(button_uint8_t button_id, unsigned char led_id, volatile unsigned char *event_flag);
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+#pragma system_include
+
+
+
+__intrinsic void __no_operation(void);
+__intrinsic void __enable_interrupt(void);
+__intrinsic void __disable_interrupt(void);
+__intrinsic void __sleep(void);
+__intrinsic void __watchdog_reset(void);
+
+#pragma language=save
+#pragma language=extended
+
+__intrinsic unsigned char __load_program_memory(const unsigned char __flash *);
+
+#pragma language=restore
+
+__intrinsic void __insert_opcode(unsigned short op);
+
+
+
+__intrinsic void __require(void *);
+
+__intrinsic void __delay_cycles(unsigned long);
+
+__intrinsic unsigned char __save_interrupt(void);
+
+__intrinsic void          __restore_interrupt(unsigned char);
+typedef unsigned char __istate_t;
+
+__intrinsic unsigned char __swap_nibbles(unsigned char);
+
+__intrinsic void          __indirect_jump_to(unsigned long);
+
+
+__intrinsic unsigned int  __multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __multiply_signed(signed char, signed char);
+__intrinsic signed int    __multiply_signed_with_unsigned(signed char, unsigned char);
+
+__intrinsic unsigned int  __fractional_multiply_unsigned(unsigned char, unsigned char);
+__intrinsic signed int    __fractional_multiply_signed(signed char, signed char);
+__intrinsic signed int    __fractional_multiply_signed_with_unsigned(signed char, signed char);
+
+#pragma language=save
+#pragma language=extended
+
+
+
+ 
+
+
+
+
+
+
+ 
+__intrinsic void __DataToR0ByteToSPMCR_SPM(unsigned char data, 
+                                           unsigned char byte);
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZByteToSPMCR_SPM(void __flash* addr, 
+                                          unsigned char byte);
+
+
+
+
+
+
+
+ 
+__intrinsic void __AddrToZWordToR1R0ByteToSPMCR_SPM(void __flash* addr, 
+                                                    unsigned short word, 
+                                                    unsigned char byte);
+
+
+
+
+
+
+
+
+
+
+
+ 
+__intrinsic unsigned char __AddrToZByteToSPMCR_LPM(void __flash* addr, 
+                                                   unsigned char byte);
+
+
+
+
+
+
+
+
+#pragma language=restore
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+void System_Init(void){
+  
+  BUTTON_Init();
+  LED_Init();
+  
+  button_interrupt_init((0U));
+  button_interrupt_init((1U));
+  button_interrupt_init((2U));
+  button_interrupt_init((3U));
+  
+  adc_init();
+  
+  __enable_interrupt();
+}
 
 void main( void )
 {
-  BUTTON_Init();
-
-  unsigned char button_state;
-  unsigned char pressed = 0;
+  System_Init();
+  
+  adc_start_conversion();
+  
+  unsigned int light_intensity = adc_get_result();
   
   while(1){
+
     
-    button_state = button_read_state((0U));
-    if(button_state == 0){
-      SOS_play((0U)); 
+        
+    
+    
+    
+    
+    if (light_intensity > 191) {
+      
+        PowerOff_LED((1U));
+        PowerOff_LED((2U));
+        PowerOff_LED((3U));
+    } else if(light_intensity > 127 &&  light_intensity <= 191){
+      
+        PowerOn_LED((1U));
+        PowerOff_LED((2U));
+        PowerOff_LED((3U));
+    }else if(light_intensity > 63 &&  light_intensity <= 127){
+      
+        PowerOn_LED((1U));
+        PowerOn_LED((2U));
+        PowerOff_LED((3U));
+    }else if(light_intensity <= 63){
+      
+      PowerOn_LED((1U));
+      PowerOn_LED((2U));
+      PowerOn_LED((3U));
     }
+    
+    light_intensity = adc_get_result();
+    
+    adc_start_conversion();
+    
+    delay((100000L)/20);
+    
+    
+  
   }
 }

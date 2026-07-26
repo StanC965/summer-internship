@@ -21,17 +21,12 @@
     Static private objects
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-typedef struct {
-  
-  volatile gpio_uint8_t *port;
-  gpio_uint8_t pin;
-  volatile gpio_uint8_t *pin_register;
-  
-} button_config_t;
-
 static const button_config_t button_table[] =
 {
-    { &PORTC, 6, &PINC},
+    { &PORTC, SW0_PIN, &PINC, &DDRC},
+    { &PORTC, BUTTON1_PIN, &PINC, &DDRC},
+    { &PORTA, BUTTON2_PIN, &PINA, &DDRA},
+    { &PORTA, BUTTON3_PIN, &PINA, &DDRA}
 };
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -45,9 +40,49 @@ static const button_config_t button_table[] =
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 void BUTTON_Init(void){
-  gpio_set_direction(&DDRC, 6, GPIO_INPUT);
+  gpio_set_direction(&DDRC, SW0_PIN, GPIO_INPUT);
+  gpio_set_direction(&DDRC, BUTTON1_PIN, GPIO_INPUT);
+  gpio_set_direction(&DDRA, BUTTON2_PIN, GPIO_INPUT);
+  gpio_set_direction(&DDRA, BUTTON3_PIN, GPIO_INPUT);
   
   button_enable_pullup(SW0);
+  button_enable_pullup(BUTTON1);
+  button_enable_pullup(BUTTON2);
+  button_enable_pullup(BUTTON3);
+}
+
+void button_init(button_uint8_t button){
+  if(button < NUMBER_OF_BUTTONS){
+    gpio_set_direction(button_table[button].ddr, button_table[button].pin, GPIO_INPUT); 
+    button_enable_pullup(button);
+  }
+}
+
+void button_interrupt_init(button_uint8_t button) {
+    
+  if (button >= NUMBER_OF_BUTTONS) {
+    return;
+  }
+  
+  volatile gpio_uint8_t *port_curent = button_table[button].port;
+  gpio_uint8_t pin_curent = button_table[button].pin;
+  
+  if (port_curent == &PORTA) {
+    gpio_set_pin(&PCMSK0, pin_curent);
+    gpio_set_pin(&PCICR, PCIE0);
+  } 
+  else if (port_curent == &PORTB) {
+    gpio_set_pin(&PCMSK1, pin_curent);
+    gpio_set_pin(&PCICR, PCIE1);
+  } 
+  else if (port_curent == &PORTC) {
+    gpio_set_pin(&PCMSK2, pin_curent);
+    gpio_set_pin(&PCICR, PCIE2);
+  } 
+  else if (port_curent == &PORTD) {
+    gpio_set_pin(&PCMSK3, pin_curent);
+    gpio_set_pin(&PCICR, PCIE3);
+  }
 }
 
 void button_enable_pullup(button_uint8_t button){

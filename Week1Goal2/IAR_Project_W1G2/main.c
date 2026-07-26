@@ -1,19 +1,66 @@
-// 262 - CORE
+// 334 - CORE
 #include "main.h"
 
-
+void System_Init(void){
+  
+  BUTTON_Init();
+  LED_Init();
+  
+  button_interrupt_init(SW0);
+  button_interrupt_init(BUTTON1);
+  button_interrupt_init(BUTTON2);
+  button_interrupt_init(BUTTON3);
+  
+  adc_init();
+  
+  __enable_interrupt();
+}
 
 void main( void )
 {
-  BUTTON_Init();
-
-  unsigned char button_state;
+  System_Init();
+  
+  adc_start_conversion();
+  
+  unsigned int light_intensity = adc_get_result();
   
   while(1){
+
+    //Handle_MasterControl_Event();
+        
+    //Handle_VentControl_Event(BUTTON1, LED1, &button_events.btn1_pressed);
+    //Handle_VentControl_Event(BUTTON2, LED2, &button_events.btn2_pressed);
+    //Handle_VentControl_Event(BUTTON3, LED3, &button_events.btn3_pressed);
     
-    button_state = button_read_state(SW0);
-    if(button_state == 0){
-      SOS_play(LED0); 
+    if (light_intensity > SEMI_DARK_LIMIT) {
+      //full dark interval
+        PowerOff_LED(LED1);
+        PowerOff_LED(LED2);
+        PowerOff_LED(LED3);
+    } else if(light_intensity > SEMI_LIGHT_LIMIT &&  light_intensity <= SEMI_DARK_LIMIT){
+      //semi-dark interval
+        PowerOn_LED(LED1);
+        PowerOff_LED(LED2);
+        PowerOff_LED(LED3);
+    }else if(light_intensity > FULL_LIGHT_LIMIT &&  light_intensity <= SEMI_LIGHT_LIMIT){
+      //semi-light interval
+        PowerOn_LED(LED1);
+        PowerOn_LED(LED2);
+        PowerOff_LED(LED3);
+    }else if(light_intensity <= FULL_LIGHT_LIMIT){
+      //full light interval
+      PowerOn_LED(LED1);
+      PowerOn_LED(LED2);
+      PowerOn_LED(LED3);
     }
+    
+    light_intensity = adc_get_result();
+    
+    adc_start_conversion();
+    
+    delay(ONE_SECOND_DELAY/20);
+    
+    
+  
   }
 }

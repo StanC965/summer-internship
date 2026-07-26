@@ -11,9 +11,13 @@ C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2\Debug\Brow
 -I
 C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2
 -I
+C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2
+-I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\avr\inc\dlib\c
+-I
+C:\MQ_Summer_Internship\summer-internship\Week1Goal2\IAR_Project_W1G2
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

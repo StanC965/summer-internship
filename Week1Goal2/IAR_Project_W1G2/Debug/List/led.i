@@ -563,10 +563,21 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
  
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
+  
+} led_config_t;
 
 
 
@@ -582,6 +593,17 @@ typedef unsigned char led_uint8_t;
 
  
 extern void LED_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_init(led_uint8_t led);
 
 
 
@@ -649,19 +671,12 @@ extern void BlinkSlow_LED(led_uint8_t led);
 
  
 
-typedef struct {
-  
-  volatile gpio_uint8_t *port;
-  gpio_uint8_t pin;
-  
-} led_config_t;
-
 static const led_config_t led_table[] =
 {
-    { &PORTC, 7 },
-    { &PORTD, 5 },
-    { &PORTD, 4 },
-    { &PORTA, 3 }
+    { &PORTC, (7U), &DDRC },
+    { &PORTD, (5U), &DDRD },
+    { &PORTD, (4U), &DDRD },
+    { &PORTA, (3U), &DDRA }
 };
 
 
@@ -675,10 +690,10 @@ static const led_config_t led_table[] =
  
 
 void LED_Init(void){
-  gpio_set_direction(&DDRC, 7, (1U));
-  gpio_set_direction(&DDRD, 5, (1U));
-  gpio_set_direction(&DDRD, 4, (1U));
-  gpio_set_direction(&DDRA, 3, (1U));
+  gpio_set_direction(&DDRC, (7U), (1U));
+  gpio_set_direction(&DDRD, (5U), (1U));
+  gpio_set_direction(&DDRD, (4U), (1U));
+  gpio_set_direction(&DDRA, (3U), (1U));
 
    
   PowerOff_LED((0U));
@@ -687,6 +702,13 @@ void LED_Init(void){
   PowerOff_LED((3U));
 }
 
+void led_init(led_uint8_t led){
+  if(led < (4U)){
+    gpio_set_direction(led_table[led].ddr, led_table[led].pin, (1U));
+    PowerOff_LED(led);
+  }
+}
+  
 void PowerOn_LED(led_uint8_t led){
   if(led < (4U)){
     gpio_reset_pin(led_table[led].port, led_table[led].pin);

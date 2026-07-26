@@ -29,14 +29,15 @@
     Public functions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-/** \fn     void SOS_play(led_uint8_t led)
+/** \fn     void SOS_play(led_uint8_t led, unsigned char *state)
 
     \brief      Play SOS signal.
-    \param[in]  led LED identifier (LED0...LED3).
+    \param[in]  led LED identifier (LED0...LED3), state of te button.
     \param[out] None.
     \return     None.
-    \details    Turn on and off LED in SOS pattern
+    \details    Turn on and off LED in SOS pattern turning 
+                on and off the signal by button
 */
-extern void SOS_play(led_uint8_t led);
+extern void SOS_play(led_uint8_t led, unsigned char *state);
 
 #endif

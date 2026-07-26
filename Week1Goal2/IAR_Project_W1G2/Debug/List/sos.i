@@ -579,10 +579,21 @@ typedef unsigned char led_uint8_t;
  
 
  
+
+ 
                 
  
 
  
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
+  
+} led_config_t;
 
 
 
@@ -598,6 +609,17 @@ typedef unsigned char led_uint8_t;
 
  
 extern void LED_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void led_init(led_uint8_t led);
 
 
 
@@ -733,6 +755,22 @@ typedef unsigned char button_uint8_t;
  
 
 
+ 
+
+ 
+
+ 
+
+ 
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *pin_register;
+  volatile gpio_uint8_t *ddr;
+  
+} button_config_t;
+
 
 
  
@@ -747,6 +785,29 @@ typedef unsigned char button_uint8_t;
 
  
 extern void BUTTON_Init(void);
+
+
+
+
+
+
+
+
+
+ 
+extern void button_init(button_uint8_t button);
+
+
+
+
+
+
+
+
+
+
+ 
+extern void button_interrupt_init(button_uint8_t button);
 
 
 
@@ -786,8 +847,9 @@ extern unsigned char button_read_state(button_uint8_t button);
 
 
 
+
  
-extern void SOS_play(led_uint8_t led);
+extern void SOS_play(led_uint8_t led, unsigned char *state);
 
 
 
@@ -818,9 +880,12 @@ static void line(led_uint8_t led){
 
  
 
-void SOS_play(led_uint8_t led){
-  LED_Init();
+void SOS_play(led_uint8_t led, unsigned char *state){
+  led_init(led);
   
+  if(*state==1){
+    return;
+  }
   point(led);
   delay((100000L));
   point(led);
@@ -828,9 +893,15 @@ void SOS_play(led_uint8_t led){
   point(led);
   delay((100000L));
   
+  if(*state==1){
+    return;
+  }
   line(led);
   delay((100000L));
   
+  if(*state==1){
+    return;
+  }
   point(led);
   delay((100000L));
   point(led);

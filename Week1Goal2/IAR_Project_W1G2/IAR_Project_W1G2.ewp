@@ -704,7 +704,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>208</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -2104,6 +2104,12 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\Modules\adc.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Modules\adc.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\Modules\button.c</name>
     </file>
     <file>
@@ -2114,6 +2120,18 @@
     </file>
     <file>
         <name>$PROJ_DIR$\Modules\gpio.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\HVAC.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\HVAC.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\ISR\interrupts.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\ISR\interrupts.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\Modules\led.c</name>

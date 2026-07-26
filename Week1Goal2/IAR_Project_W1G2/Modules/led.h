@@ -37,6 +37,12 @@ typedef unsigned char led_uint8_t;
 
 /** \brief LED3 identifier */
 #define LED3    (3U)
+
+/** \brief led pins */
+#define LED0_PIN        (7U)
+#define LED1_PIN        (5U)
+#define LED2_PIN        (4U)
+#define LED3_PIN        (3U)
                 
 /** \brief Total number of leds */
 #define NUMBER_OF_LEDS  (4U)
@@ -44,6 +50,15 @@ typedef unsigned char led_uint8_t;
 /** \brief Delays */
 #define FAST_BLINK_DELAY   (ONE_SECOND_DELAY / 12)
 #define SLOW_BLINK_DELAY   (ONE_SECOND_DELAY / 4)
+
+/** \brief  Led configuration structure */
+typedef struct {
+  
+  volatile gpio_uint8_t *port;
+  gpio_uint8_t pin;
+  volatile gpio_uint8_t *ddr;
+  
+} led_config_t;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Public functions
@@ -59,6 +74,17 @@ typedef unsigned char led_uint8_t;
                 outputs and turns all LEDs OFF.
 */
 extern void LED_Init(void);
+
+/** \fn     void led_init(led_uint8_t led)
+
+    \brief      Initializes a specific LED.
+    \param[in]  led LED identifier (LED0...LED3).
+    \param[out] None.
+    \return     None.
+    \details    Configures the GPIO pins connected to the LED as
+                outputs and turns the LED OFF.
+*/
+extern void led_init(led_uint8_t led);
 
 /** \fn     void PowerOn_LED(led_uint8_t led)
 

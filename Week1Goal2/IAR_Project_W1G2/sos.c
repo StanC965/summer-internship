@@ -45,9 +45,12 @@ static void line(led_uint8_t led){
     Public function implementation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-void SOS_play(led_uint8_t led){
-  LED_Init();
+void SOS_play(led_uint8_t led, unsigned char *state){
+  led_init(led);
   
+  if(*state==1){
+    return;
+  }
   point(led);
   delay(ONE_SECOND_DELAY);
   point(led);
@@ -55,9 +58,15 @@ void SOS_play(led_uint8_t led){
   point(led);
   delay(ONE_SECOND_DELAY);
   
+  if(*state==1){
+    return;
+  }
   line(led);
   delay(ONE_SECOND_DELAY);
   
+  if(*state==1){
+    return;
+  }
   point(led);
   delay(ONE_SECOND_DELAY);
   point(led);
