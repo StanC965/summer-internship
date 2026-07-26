@@ -1,134 +1,178 @@
 #ifndef BUTTON_C
 #define BUTTON_C
 
-#include "gpio.h"
 #include "button.h"
 
 /*
-Debounce:
-- task period = 10 ms;
-- samples = 5;
-- debounce time = 50 ms;
-- button is active-low.
+Debounce configuration:
+
+task period = 10 ms
+number of samples = 5
+debounce time = 50 ms
+
+Buttons are active-low:
+released = 1
+pressed  = 0
 */
 
-#define BUTTON_SAMPLE_COUNT                 (5U)
+#define BUTTON_SAMPLE_MASK                 (0x1FU)
 
-#define BUTTON_SAMPLE_MASK                  (0x1FU)
-#define BUTTON_ALL_PRESSED_SAMPLES          (0x00U)
-#define BUTTON_ALL_RELEASED_SAMPLES         (0x1FU)
+#define BUTTON_ALL_PRESSED_SAMPLES         (0x00U)
+#define BUTTON_ALL_RELEASED_SAMPLES        (0x1FU)
 
-#define BUTTON_SAMPLE_INITIAL_VALUE         \
+#define BUTTON_INITIAL_SAMPLE_BUFFER       \
     (BUTTON_ALL_RELEASED_SAMPLES)
 
-#define BUTTON_SHIFT_ONE_POSITION           (1U)
+#define BUTTON_SHIFT_POSITIONS             (1U)
 
-#define BUTTON_INPUT_DIRECTION              (GPIO_INPUT)
-#define BUTTON_PULL_UP_ENABLE               (GPIO_HIGH)
-
-#define BUTTON_ACTIVE_LEVEL                 (GPIO_LOW)
-
-static volatile unsigned char *button_pin_register_address;
-static button_uint8_t button_pin_number_value;
-
-static button_uint8_t button_sample_buffer;
-static button_uint8_t button_stable_state;
+static void button_update_stable_state(
+    button_t *button_instance
+);
 
 void button_init(
-    volatile unsigned char *button_ddr_register,
-    volatile unsigned char *button_port_register,
-    volatile unsigned char *button_pin_register,
+    button_t *button_instance,
+    volatile gpio_uint8_t *button_ddr_register,
+    volatile gpio_uint8_t *button_port_register,
+    volatile gpio_uint8_t *button_pin_register,
     button_uint8_t button_pin_number
 )
 {
-    button_pin_register_address =
+    button_instance->button_pin_register =
         button_pin_register;
 
-    button_pin_number_value =
+    button_instance->button_pin_number =
         button_pin_number;
 
-    button_sample_buffer =
-        BUTTON_SAMPLE_INITIAL_VALUE;
+    button_instance->button_sample_buffer =
+        BUTTON_INITIAL_SAMPLE_BUFFER;
 
-    button_stable_state =
+    button_instance->button_stable_state =
         BUTTON_NOT_PRESSED;
+
+    button_instance->button_press_event =
+        BUTTON_EVENT_NOT_DETECTED;
 
     gpio_set_direction(
         button_ddr_register,
         button_pin_number,
-        BUTTON_INPUT_DIRECTION
+        GPIO_INPUT
     );
 
     /*
-    Enable the internal pull-up resistor.
+    Butoanele nu au pull-up extern.
     */
 
-    gpio_set_pin(
+    gpio_activate_pullup(
         button_port_register,
         button_pin_number
     );
 }
 
-void button_debounce_task(void)
+void button_debounce_task(
+    button_t *button_instance
+)
 {
     button_uint8_t button_raw_sample;
 
     button_raw_sample = gpio_read_pin(
-        button_pin_register_address,
-        button_pin_number_value
+        button_instance->button_pin_register,
+        button_instance->button_pin_number
     );
 
     /*
-    Moving five-sample window:
+    Fereastra mobila de cinci esantioane.
 
-    old samples are shifted left;
-    the newest sample is inserted into bit 0;
-    only the last five bits are preserved.
+    Exemplu la apasare:
+    11111
+    11110
+    11100
+    11000
+    10000
+    00000
     */
 
-    button_sample_buffer = (button_uint8_t)(
-        (
-            button_sample_buffer <<
-            BUTTON_SHIFT_ONE_POSITION
-        ) |
-        button_raw_sample
+    button_instance->button_sample_buffer =
+        (button_uint8_t)(
+            (
+                button_instance->button_sample_buffer
+                << BUTTON_SHIFT_POSITIONS
+            ) |
+            button_raw_sample
+        );
+
+    button_instance->button_sample_buffer &=
+        BUTTON_SAMPLE_MASK;
+
+    button_update_stable_state(
+        button_instance
     );
+}
 
-    button_sample_buffer &= BUTTON_SAMPLE_MASK;
+button_uint8_t button_is_pressed(
+    const button_t *button_instance
+)
+{
+    return button_instance->button_stable_state;
+}
 
-    /*
-    Majority condition requested by the exercise:
-    all five samples must have the same value.
-    */
+button_uint8_t button_was_pressed(
+    button_t *button_instance
+)
+{
+    button_uint8_t button_event_copy;
 
+    button_event_copy =
+        button_instance->button_press_event;
+
+    button_instance->button_press_event =
+        BUTTON_EVENT_NOT_DETECTED;
+
+    return button_event_copy;
+}
+
+static void button_update_stable_state(
+    button_t *button_instance
+)
+{
     if (
-        button_sample_buffer ==
+        button_instance->button_sample_buffer ==
         BUTTON_ALL_PRESSED_SAMPLES
     )
     {
-        button_stable_state =
-            BUTTON_PRESSED;
+        /*
+        Genereaza eveniment o singura data,
+        la tranzitia RELEASED -> PRESSED.
+        */
+
+        if (
+            button_instance->button_stable_state ==
+            BUTTON_NOT_PRESSED
+        )
+        {
+            button_instance->button_stable_state =
+                BUTTON_PRESSED;
+
+            button_instance->button_press_event =
+                BUTTON_EVENT_DETECTED;
+        }
     }
     else if (
-        button_sample_buffer ==
+        button_instance->button_sample_buffer ==
         BUTTON_ALL_RELEASED_SAMPLES
     )
     {
-        button_stable_state =
+        button_instance->button_stable_state =
             BUTTON_NOT_PRESSED;
     }
     else
     {
         /*
-        Mixed samples mean bouncing is still present.
-        Keep the previously validated stable state.
+        Esantioane mixte:
+        bouncing inca prezent.
+
+        Starea stabila anterioara se pastreaza.
         */
     }
-}
-
-button_uint8_t button_is_pressed(void)
-{
-    return button_stable_state;
 }
 
 #endif

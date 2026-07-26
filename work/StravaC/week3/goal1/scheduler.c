@@ -4,25 +4,6 @@
 #include "scheduler.h"
 #include "scheduler_cfg.h"
 
-/*
-Autor: Strava Cosmin-Paul
-Data: 2026
-
-Scheduler cooperativ bazat pe un system tick de 10 ms.
-
-Acest modul nu cunoaste functionalitatea concreta
-a taskurilor.
-
-El doar:
-- construieste perioadele;
-- activeaza flagurile;
-- apeleaza callback-urile configurate.
-*/
-
-/* ========================================================= */
-/* CONSTANTS                                                 */
-/* ========================================================= */
-
 #define SCHEDULER_FALSE                       (0U)
 #define SCHEDULER_TRUE                        (1U)
 
@@ -40,34 +21,18 @@ System tick = 10 ms
 #define SCHEDULER_500MS_PERIOD_TICKS          (50U)
 #define SCHEDULER_1000MS_PERIOD_TICKS         (100U)
 
-/* ========================================================= */
-/* TYPES                                                     */
-/* ========================================================= */
-
 typedef unsigned char scheduler_uint8_t;
-
-/* ========================================================= */
-/* PRIVATE COUNTERS                                          */
-/* ========================================================= */
 
 static volatile scheduler_uint8_t scheduler_50ms_counter;
 static volatile scheduler_uint8_t scheduler_100ms_counter;
 static volatile scheduler_uint8_t scheduler_500ms_counter;
 static volatile scheduler_uint8_t scheduler_1000ms_counter;
 
-/* ========================================================= */
-/* PRIVATE FLAGS                                             */
-/* ========================================================= */
-
 static volatile scheduler_uint8_t scheduler_10ms_flag;
 static volatile scheduler_uint8_t scheduler_50ms_flag;
 static volatile scheduler_uint8_t scheduler_100ms_flag;
 static volatile scheduler_uint8_t scheduler_500ms_flag;
 static volatile scheduler_uint8_t scheduler_1000ms_flag;
-
-/* ========================================================= */
-/* MODULE INITIALIZATION                                     */
-/* ========================================================= */
 
 void scheduler_init(void)
 {
@@ -99,23 +64,10 @@ void scheduler_init(void)
         SCHEDULER_FLAG_NOT_ACTIVE;
 }
 
-/* ========================================================= */
-/* FLAGS MANAGEMENT                                          */
-/* ========================================================= */
-
 void scheduler_flags_management(void)
 {
-    /*
-    Aceasta functie este apelata din ISR la fiecare 10 ms.
-
-    ISR-ul nu executa taskurile.
-    Sunt administrate numai flagurile si contoarele.
-    */
-
     scheduler_10ms_flag =
         SCHEDULER_FLAG_ACTIVE;
-
-    /* 50 ms */
 
     scheduler_50ms_counter++;
 
@@ -131,8 +83,6 @@ void scheduler_flags_management(void)
             SCHEDULER_FLAG_ACTIVE;
     }
 
-    /* 100 ms */
-
     scheduler_100ms_counter++;
 
     if (
@@ -147,8 +97,6 @@ void scheduler_flags_management(void)
             SCHEDULER_FLAG_ACTIVE;
     }
 
-    /* 500 ms */
-
     scheduler_500ms_counter++;
 
     if (
@@ -162,8 +110,6 @@ void scheduler_flags_management(void)
         scheduler_500ms_flag =
             SCHEDULER_FLAG_ACTIVE;
     }
-
-    /* 1000 ms */
 
     scheduler_1000ms_counter++;
 
@@ -180,19 +126,8 @@ void scheduler_flags_management(void)
     }
 }
 
-/* ========================================================= */
-/* TASKS DISPATCHER                                          */
-/* ========================================================= */
-
 void scheduler_dispatcher(void)
 {
-    /*
-    Dispatcherul contine bucla infinita a aplicatiei.
-
-    Schedulerul apeleaza functiile declarate in
-    scheduler_cfg.h, fara sa cunoasca implementarea lor.
-    */
-
     while (SCHEDULER_TRUE)
     {
         if (

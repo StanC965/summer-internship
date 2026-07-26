@@ -6,7 +6,8 @@
 #include "tc1.h"
 
 /*
-Ambient Light Application using cooperative task scheduler.
+BMW Central Control Panel Application
+using cooperative task scheduler.
 */
 
 static void app_init(void);

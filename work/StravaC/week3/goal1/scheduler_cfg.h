@@ -1,10 +1,6 @@
 #ifndef SCHEDULER_CFG_H
 #define SCHEDULER_CFG_H
 
-/*
-Configuratia taskurilor aplicatiei Ambient Light.
-*/
-
 extern void scheduler_cfg_init(void);
 
 extern void scheduler_task_10ms(void);
