@@ -18,18 +18,11 @@ Use this checklist to set up your environment and start contributing quickly.
 		 ```
 
 2. Install required tools
-	 - Install Git (for version control).
-	 - Install Python and pip (for documentation tooling).
-	 - Install dependencies listed in this repository:
-		 ```bash
-		 pip install -r requirements.txt
-		 ```
-	 - Install IAR Embedded Workbench and AVR toolchain support as described in the setup guide.
-	 - Continue with the detailed setup steps in [Setup IAR Embedded Workbench Tool](setup-iar.md).
+	 - Install IAR Embedded Workbench and AVR toolchain support as described in the [Setup IAR Embedded Workbench](setup-iar.md) procedure.
 
 3. Review the Git workflow
 	 - Read the workflow guide to understand branch naming, commits, and pull request expectations.
-	 - Use only `student` branches for your tasks.
+	 - Use only your own `student` branch for your tasks.
 	 - See [GitHub Workflow Progress](github-workflow-progress.md) for the expected process.
 
 4. Create a new project in IAR
