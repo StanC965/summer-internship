@@ -7,6 +7,65 @@
 #define SCHEDULER_CFG_INITIAL_STEP       \
     (PWM_DUTY_CYCLE_0_PERCENT)
 
+/*
+Exercise 631 timing:
+
+0% -> 100% ramp:
+2 s
+
+100% hold:
+1 s
+
+0% hold:
+1 s
+
+100% hold:
+1 s
+
+0% hold:
+1 s
+
+100% hold:
+1 s
+
+100% -> 0% ramp:
+2 s
+
+0% pause:
+3 s
+
+Total sequence time:
+2 + 1 + 1 + 1 + 1 + 1 + 2 + 3 = 12 s
+
+Ramp resolution:
+1% per step
+
+100 steps in 2 s:
+2000 ms / 100 = 20 ms per step
+*/
+
+/*
+Exercise 632 timing:
+
+The horizontal scale is:
+1 unit = 500 ms
+
+0% -> 70%:
+3 units * 500 ms = 1500 ms
+
+70% -> 0%:
+6 units * 500 ms = 3000 ms
+
+0% -> 100%:
+immediate transition at unit 9
+
+100% -> 0%:
+9 units * 500 ms = 4500 ms
+
+Total sequence time:
+18 units * 500 ms = 9000 ms
+*/
+      
 static pwm_duty_cycle_t
     scheduler_cfg_current_pwm_step;
 
