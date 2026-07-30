@@ -1,0 +1,15 @@
+#ifndef GPIO_H
+#define GPIO_H
+
+typedef unsigned char gpio_uint8_t;
+
+#define GPIO_INPUT     (0U)
+#define GPIO_OUTPUT    (1U)
+
+extern void gpio_init(void);
+extern void gpio_set_direction(volatile gpio_uint8_t *gpio_ddr_register, gpio_uint8_t gpio_pin_number, gpio_uint8_t gpio_direction);
+extern void gpio_set_pin(volatile gpio_uint8_t *gpio_port_register, gpio_uint8_t gpio_pin_number);
+extern void gpio_reset_pin(volatile gpio_uint8_t *gpio_port_register, gpio_uint8_t gpio_pin_number);
+extern gpio_uint8_t gpio_read_pin(volatile gpio_uint8_t *gpio_pin_register, gpio_uint8_t gpio_pin_number);
+
+#endif
