@@ -1,226 +1,761 @@
-#ifndef SCHEDULER_CFG_C
-#define SCHEDULER_CFG_C
+#include "iom324pb.h"
 
+#include "adc.h"
+#include "button.h"
+#include "gpio.h"
 #include "pwm.h"
 #include "scheduler_cfg.h"
 
 /*
-Exercise 634 - OPTIONAL
-Heart Beat illumination pattern
+Hyundai Elantra dashboard illumination prototype.
 
-Source:
-HeartBeat_illumination_pattern.xlsx
+Hardware:
+- SW0: PC6, active-low
+- TEMT6000: PA4 / ADC4
+- Day LED: OLED1 LED1, PB3 / OC0A
+- Night LED: OLED1 LED2, PB4 / OC0B
+- OLED1 mounted on EXT4
 
-One complete cycle:
-1.6 seconds
-
-Sampling period:
-0.05 seconds = 50 ms
-
-Number of intervals:
-1.6 seconds / 0.05 seconds = 32 intervals
-
-Number of discrete points:
-32 intervals + initial point = 33 points
-
-The PWM driver accepts integer percentages.
-Therefore, the values from the Excel file are rounded
-to the nearest integer percentage.
-
-The heartbeat table is processed by scheduler_task_50ms().
-One new PWM duty-cycle value is applied every 50 ms.
-
-Complete sequence duration:
-
-33 points are stored, but the first and last values are both 0%.
-The time between the first point and the last point is:
-
-32 intervals * 50 ms = 1600 ms = 1.6 seconds
-
-After reaching the last point, the table index returns to zero
-and the heartbeat sequence starts again.
+Each stable SW0 press repeats the headlights-on scenario:
+1. turn both illumination LEDs off;
+2. acquire five initial ambient-light samples;
+3. calculate the perceived light level;
+4. select Day or Night mode;
+5. apply Hyundai's 2-second entry phase;
+6. continue adapting illumination slowly after entry phase.
 */
-
-#define SCHEDULER_CFG_ZERO                    (0U)
-
-#define SCHEDULER_CFG_HEARTBEAT_POINTS        (33U)
-
-typedef unsigned char scheduler_cfg_uint8_t;
 
 /*
-Rounded Heart Beat duty-cycle values:
+TEMT6000 conversion:
 
-Time [s]    Excel [%]    Applied [%]
+High light intensity = low ADC voltage/value.
+Low light intensity  = high ADC voltage/value.
 
-0.00          0.0000         0
-0.05          0.2175         0
-0.10          0.4350         0
-0.15          0.6525         1
-0.20          0.8700         1
-0.25          1.0875         1
-0.30          1.3050         1
-0.35          1.5225         2
-0.40          1.7400         2
-0.45         21.3050        21
-0.50         40.8700        41
-0.55         60.4350        60
-0.60         80.0000        80
-0.65         56.6667        57
-0.70         33.3333        33
-0.75         10.0000        10
-0.80         32.5000        33
-0.85         55.0000        55
-0.90         77.5000        78
-0.95        100.0000       100
-1.00         92.3077        92
-1.05         84.6154        85
-1.10         76.9231        77
-1.15         69.2308        69
-1.20         61.5385        62
-1.25         53.8462        54
-1.30         46.1538        46
-1.35         38.4615        38
-1.40         30.7692        31
-1.45         23.0769        23
-1.50         15.3846        15
-1.55          7.6923         8
-1.60          0.0000         0
+The perceived-light scale is:
+
+0   = very dark
+100 = very bright
+
+light_level =
+    ((1023 - ADC_value) * 100) / 1023
 */
 
-static const scheduler_cfg_uint8_t
-    scheduler_cfg_heartbeat_duty_cycle[
-        SCHEDULER_CFG_HEARTBEAT_POINTS
+/*
+Table 741.1:
+
+Perceived light 0-20:
+Night mode, absolute PWM = 15%
+
+Perceived light 21-40:
+Night mode, absolute PWM = 20%
+
+Perceived light 41-50:
+Day mode, absolute PWM = 42%
+
+Perceived light 51-70:
+Day mode, absolute PWM = 80%
+
+Perceived light 71-100:
+Day mode, absolute PWM = 90%
+*/
+
+/*
+Table 741.2:
+
+One entry-phase point is applied every 200 ms.
+
+Time [s]:
+0.0  0.2  0.4  0.6  0.8  1.0
+1.2  1.4  1.6  1.8  2.0
+
+Night relative steps:
+0, 1, 1, 3, 7, 16, 16, 14, 12, 10, 8
+
+Day relative steps:
+0, 4, 7, 16, 44, 59, 59, 55, 50, 45, 40
+
+Entry PWM requested by Hyundai:
+
+PWM = absolute entry level + relative step
+
+The result is saturated to 100%.
+*/
+
+/*
+Engineering decisions after the entry phase:
+
+- ADC is sampled every 100 ms.
+- Illumination target is recalculated periodically.
+- PWM changes slowly by 1% every 500 ms.
+- Day/Night mode uses hysteresis:
+    switch to Day at light level >= 43
+    switch to Night at light level <= 38
+- Values between 39 and 42 keep the previous mode.
+
+This prevents visual flicker and aggressive reactions
+to short ambient-light variations.
+*/
+
+#define APP_ZERO                         (0U)
+#define APP_ONE                          (1U)
+
+#define APP_SW0_PIN                      (6U)
+
+#define APP_ADC_MAX_VALUE                (1023U)
+#define APP_LIGHT_LEVEL_MAX              (100U)
+
+#define APP_INITIAL_SAMPLE_COUNT         (5U)
+
+#define APP_ENTRY_POINT_COUNT            (11U)
+
+#define APP_ENTRY_PERIOD_TICKS           (2U)
+
+#define APP_PWM_MAXIMUM                  (100U)
+
+#define APP_DAY_THRESHOLD_HIGH           (43U)
+#define APP_NIGHT_THRESHOLD_LOW          (38U)
+
+#define APP_PWM_SMOOTH_STEP              (1U)
+
+typedef unsigned char app_uint8_t;
+typedef unsigned int app_uint16_t;
+typedef unsigned long app_uint32_t;
+
+typedef enum
+{
+    APP_MODE_NIGHT = 0,
+    APP_MODE_DAY
+} app_mode_t;
+
+typedef enum
+{
+    APP_STATE_WAITING_FOR_SW0 = 0,
+    APP_STATE_INITIAL_MEASUREMENT,
+    APP_STATE_ENTRY_PHASE,
+    APP_STATE_CONTINUOUS_CONTROL
+} app_state_t;
+
+static const app_uint8_t
+    app_night_relative_steps[
+        APP_ENTRY_POINT_COUNT
     ] =
 {
-      0U,
-      0U,
-      0U,
-      1U,
-      1U,
-      1U,
-      1U,
-      2U,
-      2U,
-     21U,
-     41U,
-     60U,
-     80U,
-     57U,
-     33U,
-     10U,
-     33U,
-     55U,
-     78U,
-    100U,
-     92U,
-     85U,
-     77U,
-     69U,
-     62U,
-     54U,
-     46U,
-     38U,
-     31U,
-     23U,
-     15U,
-      8U,
-      0U
+     0U,
+     1U,
+     1U,
+     3U,
+     7U,
+    16U,
+    16U,
+    14U,
+    12U,
+    10U,
+     8U
 };
 
-static scheduler_cfg_uint8_t
-    scheduler_cfg_heartbeat_index;
+static const app_uint8_t
+    app_day_relative_steps[
+        APP_ENTRY_POINT_COUNT
+    ] =
+{
+     0U,
+     4U,
+     7U,
+    16U,
+    44U,
+    59U,
+    59U,
+    55U,
+    50U,
+    45U,
+    40U
+};
 
-static void scheduler_cfg_apply_heartbeat_point(void);
+static button_t app_sw0_button;
+
+static app_state_t app_state;
+static app_mode_t app_mode;
+
+static app_uint8_t app_light_level;
+
+static app_uint8_t app_absolute_pwm;
+static app_uint8_t app_current_pwm;
+static app_uint8_t app_target_pwm;
+
+static app_uint8_t app_initial_sample_counter;
+static app_uint32_t app_initial_adc_sum;
+
+static app_uint8_t app_entry_index;
+static app_uint8_t app_entry_100ms_counter;
+
+static void app_start_headlights_scenario(void);
+
+static void app_process_adc_result(
+    app_uint16_t adc_value
+);
+
+static app_uint8_t app_adc_to_light_level(
+    app_uint16_t adc_value
+);
+
+static app_mode_t app_get_mode_from_light_level(
+    app_uint8_t light_level
+);
+
+static app_uint8_t app_get_absolute_pwm(
+    app_uint8_t light_level
+);
+
+static void app_start_entry_phase(void);
+
+static void app_apply_entry_point(void);
+
+static void app_apply_selected_output(
+    app_uint8_t duty_cycle
+);
+
+static void app_update_continuous_target(void);
+
+static void app_smooth_pwm(void);
 
 void scheduler_cfg_init(void)
 {
+    gpio_init();
     pwm_init();
+    adc_init();
 
-    scheduler_cfg_heartbeat_index =
-        SCHEDULER_CFG_ZERO;
+    button_init(
+        &app_sw0_button,
+        &DDRC,
+        &PORTC,
+        &PINC,
+        APP_SW0_PIN
+    );
 
-    /*
-    Initial heartbeat value is 0%.
-    The LED starts in the OFF state.
-    */
+    app_state =
+        APP_STATE_WAITING_FOR_SW0;
+
+    app_mode =
+        APP_MODE_NIGHT;
+
+    app_light_level =
+        APP_ZERO;
+
+    app_absolute_pwm =
+        APP_ZERO;
+
+    app_current_pwm =
+        APP_ZERO;
+
+    app_target_pwm =
+        APP_ZERO;
+
+    app_initial_sample_counter =
+        APP_ZERO;
+
+    app_initial_adc_sum =
+        APP_ZERO;
+
+    app_entry_index =
+        APP_ZERO;
+
+    app_entry_100ms_counter =
+        APP_ZERO;
 
     pwm_set_duty_cycle_percent(
-        scheduler_cfg_heartbeat_duty_cycle[
-            scheduler_cfg_heartbeat_index
-        ]
+        PWM_CHANNEL_DAY_LED,
+        APP_ZERO
     );
+
+    pwm_set_duty_cycle_percent(
+        PWM_CHANNEL_NIGHT_LED,
+        APP_ZERO
+    );
+
+    pwm_start();
 }
 
 void scheduler_task_10ms(void)
 {
-    /*
-    Not used for the Heart Beat pattern.
+    button_debounce_task(
+        &app_sw0_button
+    );
 
-    Important:
-    No other task must change the PWM duty cycle while
-    the heartbeat application is active.
-    */
+    if (
+        button_was_pressed(
+            &app_sw0_button
+        ) ==
+        BUTTON_EVENT_DETECTED
+    )
+    {
+        app_start_headlights_scenario();
+    }
 }
 
 void scheduler_task_50ms(void)
 {
     /*
-    The Excel file contains one duty-cycle value
-    for every 50 ms.
-
-    Therefore, one table point is applied at every
-    execution of this task.
+    Not used by this application.
     */
-
-    scheduler_cfg_apply_heartbeat_point();
 }
 
 void scheduler_task_100ms(void)
 {
+    app_uint16_t adc_value;
+
     /*
-    Not used for the Heart Beat pattern.
+    Get the previous conversion result, if available.
     */
+
+    if (
+        adc_is_data_ready() ==
+        ADC_DATA_READY
+    )
+    {
+        adc_value =
+            adc_get_data();
+
+        app_process_adc_result(
+            adc_value
+        );
+    }
+
+    /*
+    Start a new conversion continuously after
+    the first SW0 press.
+    */
+
+    if (
+        app_state !=
+        APP_STATE_WAITING_FOR_SW0
+    )
+    {
+        adc_start_conversion();
+    }
+
+    /*
+    Entry phase advances every 200 ms.
+
+    Scheduler task = 100 ms
+    2 executions * 100 ms = 200 ms
+    */
+
+    if (
+        app_state ==
+        APP_STATE_ENTRY_PHASE
+    )
+    {
+        app_entry_100ms_counter++;
+
+        if (
+            app_entry_100ms_counter >=
+            APP_ENTRY_PERIOD_TICKS
+        )
+        {
+            app_entry_100ms_counter =
+                APP_ZERO;
+
+            app_apply_entry_point();
+        }
+    }
 }
 
 void scheduler_task_500ms(void)
 {
-    /*
-    Not used for the Heart Beat pattern.
-    */
+    if (
+        app_state ==
+        APP_STATE_CONTINUOUS_CONTROL
+    )
+    {
+        app_update_continuous_target();
+        app_smooth_pwm();
+    }
 }
 
 void scheduler_task_1000ms(void)
 {
     /*
-    Not used for the Heart Beat pattern.
+    Not used by this application.
     */
 }
 
-static void scheduler_cfg_apply_heartbeat_point(void)
+static void app_start_headlights_scenario(void)
 {
+    /*
+    Each SW0 press repeats the complete scenario.
+    */
+
+    app_state =
+        APP_STATE_INITIAL_MEASUREMENT;
+
+    app_initial_sample_counter =
+        APP_ZERO;
+
+    app_initial_adc_sum =
+        APP_ZERO;
+
+    app_entry_index =
+        APP_ZERO;
+
+    app_entry_100ms_counter =
+        APP_ZERO;
+
+    app_current_pwm =
+        APP_ZERO;
+
+    app_target_pwm =
+        APP_ZERO;
+
     pwm_set_duty_cycle_percent(
-        scheduler_cfg_heartbeat_duty_cycle[
-            scheduler_cfg_heartbeat_index
-        ]
+        PWM_CHANNEL_DAY_LED,
+        APP_ZERO
     );
 
-    scheduler_cfg_heartbeat_index++;
+    pwm_set_duty_cycle_percent(
+        PWM_CHANNEL_NIGHT_LED,
+        APP_ZERO
+    );
 
+    adc_start_conversion();
+}
+
+static void app_process_adc_result(
+    app_uint16_t adc_value
+)
+{
     if (
-        scheduler_cfg_heartbeat_index >=
-        SCHEDULER_CFG_HEARTBEAT_POINTS
+        app_state ==
+        APP_STATE_INITIAL_MEASUREMENT
+    )
+    {
+        app_initial_adc_sum +=
+            adc_value;
+
+        app_initial_sample_counter++;
+
+        if (
+            app_initial_sample_counter >=
+            APP_INITIAL_SAMPLE_COUNT
+        )
+        {
+            app_uint16_t average_adc;
+
+            average_adc =
+                (app_uint16_t)(
+                    app_initial_adc_sum /
+                    APP_INITIAL_SAMPLE_COUNT
+                );
+
+            app_light_level =
+                app_adc_to_light_level(
+                    average_adc
+                );
+
+            app_mode =
+                app_get_mode_from_light_level(
+                    app_light_level
+                );
+
+            app_absolute_pwm =
+                app_get_absolute_pwm(
+                    app_light_level
+                );
+
+            app_start_entry_phase();
+        }
+    }
+    else if (
+        app_state ==
+        APP_STATE_ENTRY_PHASE ||
+        app_state ==
+        APP_STATE_CONTINUOUS_CONTROL
     )
     {
         /*
-        The complete 1.6-second Heart Beat pattern
-        has finished.
-
-        Start again from the first table value.
+        Keep the latest measured light level available.
+        Mode is locked during entry phase.
         */
 
-        scheduler_cfg_heartbeat_index =
-            SCHEDULER_CFG_ZERO;
+        app_light_level =
+            app_adc_to_light_level(
+                adc_value
+            );
     }
 }
 
-#endif
+static app_uint8_t app_adc_to_light_level(
+    app_uint16_t adc_value
+)
+{
+    app_uint32_t light_value;
+
+    if (adc_value > APP_ADC_MAX_VALUE)
+    {
+        adc_value =
+            APP_ADC_MAX_VALUE;
+    }
+
+    light_value =
+        (
+            (
+                (app_uint32_t)
+                (
+                    APP_ADC_MAX_VALUE -
+                    adc_value
+                )
+            ) *
+            APP_LIGHT_LEVEL_MAX
+        ) /
+        APP_ADC_MAX_VALUE;
+
+    return (app_uint8_t)light_value;
+}
+
+static app_mode_t app_get_mode_from_light_level(
+    app_uint8_t light_level
+)
+{
+    if (light_level <= 40U)
+    {
+        return APP_MODE_NIGHT;
+    }
+
+    return APP_MODE_DAY;
+}
+
+static app_uint8_t app_get_absolute_pwm(
+    app_uint8_t light_level
+)
+{
+    if (light_level <= 20U)
+    {
+        return 15U;
+    }
+
+    if (light_level <= 40U)
+    {
+        return 20U;
+    }
+
+    if (light_level <= 50U)
+    {
+        return 42U;
+    }
+
+    if (light_level <= 70U)
+    {
+        return 80U;
+    }
+
+    return 90U;
+}
+
+static void app_start_entry_phase(void)
+{
+    app_state =
+        APP_STATE_ENTRY_PHASE;
+
+    app_entry_index =
+        APP_ZERO;
+
+    app_entry_100ms_counter =
+        APP_ZERO;
+
+    /*
+    Apply the t = 0 entry point immediately.
+    */
+
+    app_apply_entry_point();
+}
+
+static void app_apply_entry_point(void)
+{
+    app_uint8_t relative_step;
+    app_uint16_t requested_pwm;
+
+    if (
+        app_entry_index >=
+        APP_ENTRY_POINT_COUNT
+    )
+    {
+        /*
+        Entry phase finished after the t = 2 s point.
+
+        Return to the absolute level and continue
+        with slow ambient-light adaptation.
+        */
+
+        app_state =
+            APP_STATE_CONTINUOUS_CONTROL;
+
+        app_current_pwm =
+            app_absolute_pwm;
+
+        app_target_pwm =
+            app_absolute_pwm;
+
+        app_apply_selected_output(
+            app_current_pwm
+        );
+
+        return;
+    }
+
+    if (app_mode == APP_MODE_DAY)
+    {
+        relative_step =
+            app_day_relative_steps[
+                app_entry_index
+            ];
+    }
+    else
+    {
+        relative_step =
+            app_night_relative_steps[
+                app_entry_index
+            ];
+    }
+
+    requested_pwm =
+        (app_uint16_t)(
+            app_absolute_pwm +
+            relative_step
+        );
+
+    if (requested_pwm > APP_PWM_MAXIMUM)
+    {
+        requested_pwm =
+            APP_PWM_MAXIMUM;
+    }
+
+    app_current_pwm =
+        (app_uint8_t)requested_pwm;
+
+    app_apply_selected_output(
+        app_current_pwm
+    );
+
+    app_entry_index++;
+}
+
+static void app_apply_selected_output(
+    app_uint8_t duty_cycle
+)
+{
+    if (app_mode == APP_MODE_DAY)
+    {
+        pwm_set_duty_cycle_percent(
+            PWM_CHANNEL_NIGHT_LED,
+            APP_ZERO
+        );
+
+        pwm_set_duty_cycle_percent(
+            PWM_CHANNEL_DAY_LED,
+            duty_cycle
+        );
+    }
+    else
+    {
+        pwm_set_duty_cycle_percent(
+            PWM_CHANNEL_DAY_LED,
+            APP_ZERO
+        );
+
+        pwm_set_duty_cycle_percent(
+            PWM_CHANNEL_NIGHT_LED,
+            duty_cycle
+        );
+    }
+}
+
+static void app_update_continuous_target(void)
+{
+    /*
+    Mode hysteresis around the Day/Night boundary.
+
+    Night -> Day only at 43 or higher.
+    Day -> Night only at 38 or lower.
+    */
+
+    if (
+        app_mode == APP_MODE_NIGHT &&
+        app_light_level >= APP_DAY_THRESHOLD_HIGH
+    )
+    {
+        app_mode =
+            APP_MODE_DAY;
+
+        app_current_pwm =
+            APP_ZERO;
+    }
+    else if (
+        app_mode == APP_MODE_DAY &&
+        app_light_level <= APP_NIGHT_THRESHOLD_LOW
+    )
+    {
+        app_mode =
+            APP_MODE_NIGHT;
+
+        app_current_pwm =
+            APP_ZERO;
+    }
+    else
+    {
+        /*
+        Keep the current mode inside the hysteresis area.
+        */
+    }
+
+    app_target_pwm =
+        app_get_absolute_pwm(
+            app_light_level
+        );
+}
+
+static void app_smooth_pwm(void)
+{
+    if (
+        app_current_pwm <
+        app_target_pwm
+    )
+    {
+        app_current_pwm +=
+            APP_PWM_SMOOTH_STEP;
+
+        if (
+            app_current_pwm >
+            app_target_pwm
+        )
+        {
+            app_current_pwm =
+                app_target_pwm;
+        }
+    }
+    else if (
+        app_current_pwm >
+        app_target_pwm
+    )
+    {
+        app_current_pwm -=
+            APP_PWM_SMOOTH_STEP;
+
+        if (
+            app_current_pwm <
+            app_target_pwm
+        )
+        {
+            app_current_pwm =
+                app_target_pwm;
+        }
+    }
+    else
+    {
+        /*
+        Current PWM already equals the target.
+        */
+    }
+
+    app_apply_selected_output(
+        app_current_pwm
+    );
+}
