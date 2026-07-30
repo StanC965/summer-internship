@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>3810982743</fileChecksum>
+    <fileChecksum>1997957702</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -29,6 +29,7 @@
             <file>$PROJ_DIR$\Debug\Exe\Week3_Project.d90</file>
             <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
             <file>$PROJ_DIR$\Debug\Obj\button.r90</file>
+            <file>$PROJ_DIR$\blink_state_machine.c</file>
             <file>$PROJ_DIR$\Debug\List\gpio.i</file>
             <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
             <file>$PROJ_DIR$\Debug\List\led.i</file>
@@ -46,7 +47,10 @@
             <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
             <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\state_machine.r90</file>
+            <file>$PROJ_DIR$\blink_state_machine.h</file>
             <file>$PROJ_DIR$\Debug\List\state_machine.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\blink_state_machine.r90</file>
+            <file>$PROJ_DIR$\Debug\List\blink_state_machine.i</file>
             <file>$PROJ_DIR$\state_machine.c</file>
             <file>$PROJ_DIR$\state_machine.h</file>
         </outputs>
@@ -55,13 +59,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 37 14</file>
+                    <file> 38 14</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 27 33 25 5 0 15 11 43</file>
+                    <file> 28 34 26 42 0 15 11</file>
                 </tool>
             </inputs>
         </file>
@@ -70,7 +74,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 31 23</file>
+                    <file> 32 23</file>
                 </tool>
             </outputs>
             <inputs>
@@ -85,7 +89,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 32 18</file>
+                    <file> 33 18</file>
                 </tool>
             </outputs>
         </file>
@@ -94,7 +98,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 24 19</file>
+                    <file> 25 19</file>
                 </tool>
             </outputs>
             <inputs>
@@ -109,13 +113,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 35 2</file>
+                    <file> 36 2</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 27 33 25 30 16 11 17</file>
+                    <file> 28 34 26 31 16 11 17</file>
                 </tool>
             </inputs>
         </file>
@@ -124,7 +128,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 28 22</file>
+                    <file> 29 22</file>
                 </tool>
             </outputs>
             <inputs>
@@ -139,7 +143,7 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 26 4</file>
+                    <file> 27 4</file>
                 </tool>
             </outputs>
             <inputs>
@@ -154,13 +158,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 29 6</file>
+                    <file> 30 6</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 27 33 25 16 17</file>
+                    <file> 28 34 26 16 17</file>
                 </tool>
             </inputs>
         </file>
@@ -169,7 +173,7 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 21 34</file>
+                    <file> 21 35</file>
                 </tool>
             </outputs>
         </file>
@@ -178,13 +182,28 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 34</file>
+                    <file> 35</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 39 38 18 23 19 4 2 22 14 40 6 36</file>
+                    <file> 40 39 18 44 23 19 4 2 22 14 41 6 37</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\blink_state_machine.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 45 44</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 0 42</file>
                 </tool>
             </inputs>
         </file>
@@ -193,13 +212,13 @@
             <outputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 41 40</file>
+                    <file> 43 41</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCAVR</name>
-                    <file> 15 0 43</file>
+                    <file> 15 0 47</file>
                 </tool>
             </inputs>
         </file>

@@ -23,6 +23,11 @@ void led_power_on(
     gpio_uint8_t led_pin_number
 )
 {
+    /*
+    Active-low LED:
+    LOW turns the LED ON.
+    */
+
     gpio_reset_pin(
         led_port_register,
         led_pin_number
@@ -34,6 +39,11 @@ void led_power_off(
     gpio_uint8_t led_pin_number
 )
 {
+    /*
+    Active-low LED:
+    HIGH turns the LED OFF.
+    */
+
     gpio_set_pin(
         led_port_register,
         led_pin_number

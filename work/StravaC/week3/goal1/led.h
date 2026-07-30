@@ -4,7 +4,7 @@
 #include "gpio.h"
 
 /*
-OLED1 LEDs are active-low:
+LED0 is active-low:
 
 LOW  -> LED ON
 HIGH -> LED OFF

@@ -566,10 +566,44 @@
 
 #line 2 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler_cfg.c"
 
-#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\button.h"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\blink_state_machine.h"
 
 
 
+typedef unsigned char blink_sm_uint8_t;
+
+typedef enum
+{
+    BLINK_SM_STATE_LED_ON = 0,
+    BLINK_SM_STATE_LED_OFF
+} blink_sm_state_t;
+
+typedef enum
+{
+    BLINK_SM_EVENT_NONE = 0,
+    BLINK_SM_EVENT_TIMEOUT_1S
+} blink_sm_event_t;
+
+typedef struct
+{
+    blink_sm_state_t current_state;
+
+    volatile blink_sm_uint8_t *led_port_register;
+    blink_sm_uint8_t led_pin_number;
+} blink_sm_t;
+
+extern void blink_sm_init(
+    blink_sm_t *blink_sm_instance,
+    volatile blink_sm_uint8_t *led_port_register,
+    blink_sm_uint8_t led_pin_number
+);
+
+extern void blink_sm_process(
+    blink_sm_t *blink_sm_instance,
+    blink_sm_event_t blink_sm_event
+);
+
+#line 4 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler_cfg.c"
 #line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\gpio.h"
 
 
@@ -605,43 +639,7 @@ extern gpio_uint8_t gpio_read_pin(
     gpio_uint8_t gpio_pin_number
 );
 
-#line 5 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\button.h"
-
-typedef unsigned char button_uint8_t;
-
-
-
-
-
-
-
-typedef struct
-{
-    volatile gpio_uint8_t *button_pin_register;
-    button_uint8_t button_pin_number;
-
-    button_uint8_t button_sample_buffer;
-    button_uint8_t button_stable_state;
-    button_uint8_t button_press_event;
-} button_t;
-
-extern void button_init(
-    button_t *button_instance,
-    volatile gpio_uint8_t *button_ddr_register,
-    volatile gpio_uint8_t *button_port_register,
-    volatile gpio_uint8_t *button_pin_register,
-    button_uint8_t button_pin_number
-);
-
-extern void button_debounce_task(
-    button_t *button_instance
-);
-
-extern button_uint8_t button_was_pressed(
-    button_t *button_instance
-);
-
-#line 4 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler_cfg.c"
+#line 5 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler_cfg.c"
 #line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\led.h"
 
 
@@ -685,48 +683,6 @@ extern void scheduler_task_500ms(void);
 extern void scheduler_task_1000ms(void);
 
 #line 7 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler_cfg.c"
-#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\state_machine.h"
-
-
-
-typedef unsigned char state_machine_uint8_t;
-
-typedef enum
-{
-    STATE_MACHINE_EVENT_NONE = 0,
-    STATE_MACHINE_EVENT_BUTTON_PRESSED
-} state_machine_event_t;
-
-typedef enum
-{
-    STATE_MACHINE_LED_OFF = 0,
-    STATE_MACHINE_LED_ON
-} state_machine_led_state_t;
-
-typedef struct
-{
-    state_machine_led_state_t current_state;
-
-    volatile state_machine_uint8_t *led_port_register;
-    state_machine_uint8_t led_pin_number;
-} state_machine_led_t;
-
-extern void state_machine_init(
-    state_machine_led_t *state_machine_instance,
-    volatile state_machine_uint8_t *led_port_register,
-    state_machine_uint8_t led_pin_number
-);
-
-extern void state_machine_process(
-    state_machine_led_t *state_machine_instance,
-    state_machine_event_t state_machine_event
-);
-
-#line 8 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler_cfg.c"
-
-
-
-
 
 
 
@@ -746,223 +702,68 @@ extern void state_machine_process(
 
  
 
- 
 
 
 
 
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
-static button_t app_button1;
-static button_t app_button2;
-static button_t app_button3;
-
-static state_machine_led_t
-    app_led1_state_machine;
-
-static state_machine_led_t
-    app_led2_state_machine;
-
-static state_machine_led_t
-    app_led3_state_machine;
-
-static state_machine_event_t
-    app_get_button_event(
-        button_t *button_instance
-    );
+static blink_sm_t app_led0_state_machine;
 
 void scheduler_cfg_init(void)
 {
     gpio_init();
 
     led_init(
-        (&DDRD),
-        (&PORTD),
-        (5U)
-    );
-
-    led_init(
-        (&DDRD),
-        (&PORTD),
-        (4U)
-    );
-
-    led_init(
-        (&DDRA),
-        (&PORTA),
-        (3U)
-    );
-
-    button_init(
-        &app_button1,
         (&DDRC),
         (&PORTC),
-        (&PINC),
-        (1U)
+        (7U)
     );
 
-    button_init(
-        &app_button2,
-        (&DDRA),
-        (&PORTA),
-        (&PINA),
-        (0U)
-    );
-
-    button_init(
-        &app_button3,
-        (&DDRA),
-        (&PORTA),
-        (&PINA),
-        (1U)
-    );
-
-    state_machine_init(
-        &app_led1_state_machine,
-        (&PORTD),
-        (5U)
-    );
-
-    state_machine_init(
-        &app_led2_state_machine,
-        (&PORTD),
-        (4U)
-    );
-
-    state_machine_init(
-        &app_led3_state_machine,
-        (&PORTA),
-        (3U)
+    blink_sm_init(
+        &app_led0_state_machine,
+        (&PORTC),
+        (7U)
     );
 }
 
 void scheduler_task_10ms(void)
 {
-    state_machine_event_t button1_event;
-    state_machine_event_t button2_event;
-    state_machine_event_t button3_event;
-
-    
-
-
-
-
- 
-
-    button_debounce_task(
-        &app_button1
-    );
-
-    button_debounce_task(
-        &app_button2
-    );
-
-    button_debounce_task(
-        &app_button3
-    );
-
-    
-
-
- 
-
-    button1_event =
-        app_get_button_event(
-            &app_button1
-        );
-
-    button2_event =
-        app_get_button_event(
-            &app_button2
-        );
-
-    button3_event =
-        app_get_button_event(
-            &app_button3
-        );
-
     
 
  
-
-    state_machine_process(
-        &app_led1_state_machine,
-        button1_event
-    );
-
-    state_machine_process(
-        &app_led2_state_machine,
-        button2_event
-    );
-
-    state_machine_process(
-        &app_led3_state_machine,
-        button3_event
-    );
 }
 
 void scheduler_task_50ms(void)
 {
+    
+
+ 
 }
 
 void scheduler_task_100ms(void)
 {
+    
+
+ 
 }
 
 void scheduler_task_500ms(void)
 {
+    
+
+ 
 }
 
 void scheduler_task_1000ms(void)
 {
-}
+    
 
-static state_machine_event_t
-    app_get_button_event(
-        button_t *button_instance
-    )
-{
-    if (
-        button_was_pressed(
-            button_instance
-        ) ==
-        (1U)
-    )
-    {
-        return STATE_MACHINE_EVENT_BUTTON_PRESSED;
-    }
 
-    return STATE_MACHINE_EVENT_NONE;
+
+
+ 
+
+    blink_sm_process(
+        &app_led0_state_machine,
+        BLINK_SM_EVENT_TIMEOUT_1S
+    );
 }

@@ -88,6 +88,11 @@ void led_power_on(
     gpio_uint8_t led_pin_number
 )
 {
+    
+
+
+ 
+
     gpio_reset_pin(
         led_port_register,
         led_pin_number
@@ -99,6 +104,11 @@ void led_power_off(
     gpio_uint8_t led_pin_number
 )
 {
+    
+
+
+ 
+
     gpio_set_pin(
         led_port_register,
         led_pin_number

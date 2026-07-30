@@ -2642,6 +2642,12 @@
         <name>$PROJ_DIR$\adc.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\blink_state_machine.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\blink_state_machine.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\button.c</name>
     </file>
     <file>
