@@ -1,0 +1,20 @@
+# ninja log v5
+1	946	8071364267765112	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/adc.r90	9e419057fc36c206
+673	980	8071364268032787	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/gpio.r90	2378d2140f111a79
+684	1001	8071364268249157	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/button.r90	f9d3eaf12992664f
+693	1055	8071364268823895	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/led.r90	5325f08ac68f94a
+948	1070	8071364268981079	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/scheduler.r90	255500afb536910c
+708	1120	8071364269453544	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/tc1.r90	f7a040446dc0affa
+701	1141	8071364269752825	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/main.r90	2e2c24d4e8e3e4a9
+984	1161	8071364269928597	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/scheduler_cfg.r90	d7218ce5a3f54c88
+1163	1612	8071364274365960	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Exe/Week3_Project.d90	f77edd83909cbbb8
+51	305	8071376527925676	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/button.r90	f9d3eaf12992664f
+77	335	8071376528117341	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/led.r90	5325f08ac68f94a
+88	409	8071376528947522	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/main.r90	2e2c24d4e8e3e4a9
+308	422	8071376529110234	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/state_machine.r90	3401ee399d13187c
+338	440	8071376529234330	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/scheduler.r90	255500afb536910c
+96	485	8071376529719426	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/scheduler_cfg.r90	d7218ce5a3f54c88
+65	528	8071376530021995	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/gpio.r90	2378d2140f111a79
+102	531	8071376530021995	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/tc1.r90	f7a040446dc0affa
+412	599	8071376530913679	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Obj/adc.r90	9e419057fc36c206
+601	764	8071376532620800	D:/Marquradt/summer-internship/work/StravaC/week3/goal1/Debug/Exe/Week3_Project.d90	e1086593e8750bd8

@@ -3,16 +3,13 @@
 
 #include "gpio.h"
 
-#define BUTTON_FALSE                 (0U)
-#define BUTTON_TRUE                  (1U)
-
-#define BUTTON_NOT_PRESSED           (BUTTON_FALSE)
-#define BUTTON_PRESSED               (BUTTON_TRUE)
-
-#define BUTTON_EVENT_NOT_DETECTED    (BUTTON_FALSE)
-#define BUTTON_EVENT_DETECTED        (BUTTON_TRUE)
-
 typedef unsigned char button_uint8_t;
+
+#define BUTTON_NOT_PRESSED           (0U)
+#define BUTTON_PRESSED               (1U)
+
+#define BUTTON_EVENT_NOT_DETECTED    (0U)
+#define BUTTON_EVENT_DETECTED        (1U)
 
 typedef struct
 {
@@ -34,10 +31,6 @@ extern void button_init(
 
 extern void button_debounce_task(
     button_t *button_instance
-);
-
-extern button_uint8_t button_is_pressed(
-    const button_t *button_instance
 );
 
 extern button_uint8_t button_was_pressed(

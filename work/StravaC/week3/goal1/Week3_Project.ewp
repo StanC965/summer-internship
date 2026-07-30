@@ -2143,10 +2143,10 @@
         <name>$PROJ_DIR$\scheduler_cfg.h</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\sos.c</name>
+        <name>$PROJ_DIR$\state_machine.c</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\sos.h</name>
+        <name>$PROJ_DIR$\state_machine.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\tc1.c</name>

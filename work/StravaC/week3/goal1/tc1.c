@@ -1,286 +1,101 @@
-#ifndef TC1_C
-#define TC1_C
-
 #include "iom324pb.h"
 
-#include "tc1.h"
 #include "scheduler.h"
+#include "tc1.h"
 
 /*
-Autor: Strava Cosmin-Paul
-Data: 2026
+TC1 scheduler configuration:
 
-Timer/Counter1 dedicat system tick-ului schedulerului.
+CPU frequency = 16 MHz
+Prescaler = 8
+Scheduler tick = 10 ms
 
-Configuratie:
-- fCPU = 16 MHz;
-- external crystal;
-- CKDIV8 disabled;
-- TC1 CTC Mode;
-- prescaler = 8;
-- OCR1A = 19999;
-- interrupt periodic la fiecare 10 ms.
+OCR1A =
+    (16000000 * 0.010 / 8) - 1
 
-Calcul:
-
-Ttick = (OCR1A + 1) * prescaler / fCPU
-
-Ttick = (19999 + 1) * 8 / 16000000
-      = 0.010 s
-      = 10 ms
+OCR1A =
+    19999
 */
 
-/* ========================================================= */
-/* CTC MODE                                                  */
-/* ========================================================= */
+#define TC1_ZERO                         (0U)
+#define TC1_ONE                          (1U)
 
-/*
-TC1 Mode 4:
-WGM13:0 = 0100
-TOP = OCR1A
-*/
+#define TC1_COMPARE_A_VALUE              (19999U)
 
-#define TC1_CTC_MODE_WGM13_VALUE              (0U)
-#define TC1_CTC_MODE_WGM12_VALUE              (1U)
-#define TC1_CTC_MODE_WGM11_VALUE              (0U)
-#define TC1_CTC_MODE_WGM10_VALUE              (0U)
+#define TC1_WGM12_BIT                    (3U)
 
-/* ========================================================= */
-/* OUTPUT COMPARE                                            */
-/* ========================================================= */
+#define TC1_CS12_BIT                     (2U)
+#define TC1_CS11_BIT                     (1U)
+#define TC1_CS10_BIT                     (0U)
 
-/*
-TC1 este folosit numai pentru system tick.
-Iesirile OC1A si OC1B nu sunt utilizate.
-*/
+#define TC1_OCIE1A_BIT                   (1U)
+#define TC1_OCF1A_BIT                    (1U)
 
-#define TC1_OUTPUT_COMPARE_DISABLED           (0U)
-#define TC1_FORCE_COMPARE_DISABLED            (0U)
+#define TC1_CLOCK_SELECT_MASK            \
+    ((TC1_ONE << TC1_CS12_BIT) |         \
+     (TC1_ONE << TC1_CS11_BIT) |         \
+     (TC1_ONE << TC1_CS10_BIT))
 
-/* ========================================================= */
-/* INTERRUPTS                                                */
-/* ========================================================= */
+#define TC1_PRESCALER_8_MASK             \
+    (TC1_ONE << TC1_CS11_BIT)
 
-#define TC1_COMPARE_A_INTERRUPT_ENABLE        (1U)
-#define TC1_COMPARE_B_INTERRUPT_DISABLE       (0U)
-#define TC1_OVERFLOW_INTERRUPT_DISABLE        (0U)
-#define TC1_INPUT_CAPTURE_INTERRUPT_DISABLE   (0U)
+void tc1_init(void)
+{
+    TCCR1A = TC1_ZERO;
+    TCCR1B = TC1_ZERO;
 
-/* ========================================================= */
-/* CLOCK CONFIGURATION                                       */
-/* ========================================================= */
+    TCNT1 = TC1_ZERO;
 
-/*
-Timer stopped:
-CS12:0 = 000
-*/
+    /*
+    CTC mode:
+    WGM12 = 1
+    */
 
-#define TC1_CLOCK_STOPPED_CS12_VALUE          (0U)
-#define TC1_CLOCK_STOPPED_CS11_VALUE          (0U)
-#define TC1_CLOCK_STOPPED_CS10_VALUE          (0U)
+    TCCR1B |= (unsigned char)(
+        TC1_ONE << TC1_WGM12_BIT
+    );
 
-/*
-Prescaler 8:
-CS12:0 = 010
-*/
+    OCR1A =
+        TC1_COMPARE_A_VALUE;
 
-#define TC1_PRESCALER_8_CS12_VALUE            (0U)
-#define TC1_PRESCALER_8_CS11_VALUE            (1U)
-#define TC1_PRESCALER_8_CS10_VALUE            (0U)
+    /*
+    Clear pending compare flag.
+    */
 
-/* ========================================================= */
-/* SYSTEM TICK CONFIGURATION                                 */
-/* ========================================================= */
+    TIFR1 |= (unsigned char)(
+        TC1_ONE << TC1_OCF1A_BIT
+    );
 
-#define TC1_SYSTEM_TICK_TOP_VALUE             (19999U)
-#define TC1_COUNTER_INITIAL_VALUE             (0U)
+    /*
+    Enable compare A interrupt.
+    */
 
-/*
-Flagurile TIFR1 se sterg scriind logic 1.
-*/
+    TIMSK1 |= (unsigned char)(
+        TC1_ONE << TC1_OCIE1A_BIT
+    );
+}
 
-#define TC1_CLEAR_COMPARE_A_FLAG              (1U)
+void tc1_start(void)
+{
+    TCCR1B &= (unsigned char)(
+        ~TC1_CLOCK_SELECT_MASK
+    );
 
-/* ========================================================= */
-/* INTERRUPT SERVICE ROUTINE                                 */
-/* ========================================================= */
+    TCNT1 = TC1_ZERO;
+
+    TCCR1B |=
+        TC1_PRESCALER_8_MASK;
+}
+
+void tc1_stop(void)
+{
+    TCCR1B &= (unsigned char)(
+        ~TC1_CLOCK_SELECT_MASK
+    );
+}
 
 #pragma vector=TIMER1_COMPA_vect
 __interrupt void tc1_compare_a_isr(void)
 {
-    /*
-    ISR-ul este executat la fiecare 10 ms.
-
-    Nu executa taskurile direct.
-    Administreaza numai contoarele si flagurile
-    schedulerului.
-    */
-
     scheduler_flags_management();
 }
-
-/* ========================================================= */
-/* MODULE INITIALIZATION                                     */
-/* ========================================================= */
-
-void tc1_init(void)
-{
-    /*
-    Timerul trebuie sa fie oprit inainte de configurare.
-    */
-
-    tc1_stop();
-
-    /*
-    Deconecteaza iesirea hardware OC1A.
-    */
-
-    TCCR1A_COM1A1 =
-        TC1_OUTPUT_COMPARE_DISABLED;
-
-    TCCR1A_COM1A0 =
-        TC1_OUTPUT_COMPARE_DISABLED;
-
-    /*
-    Deconecteaza iesirea hardware OC1B.
-    */
-
-    TCCR1A_COM1B1 =
-        TC1_OUTPUT_COMPARE_DISABLED;
-
-    TCCR1A_COM1B0 =
-        TC1_OUTPUT_COMPARE_DISABLED;
-
-    /*
-    Selecteaza CTC Mode 4:
-    WGM13:0 = 0100.
-    */
-
-    TCCR1A_WGM10 =
-        TC1_CTC_MODE_WGM10_VALUE;
-
-    TCCR1A_WGM11 =
-        TC1_CTC_MODE_WGM11_VALUE;
-
-    TCCR1B_WGM12 =
-        TC1_CTC_MODE_WGM12_VALUE;
-
-    TCCR1B_WGM13 =
-        TC1_CTC_MODE_WGM13_VALUE;
-
-    /*
-    Nu se forteaza Compare Match A sau B.
-    */
-
-    TCCR1C_FOC1A =
-        TC1_FORCE_COMPARE_DISABLED;
-
-    TCCR1C_FOC1B =
-        TC1_FORCE_COMPARE_DISABLED;
-
-    /*
-    OCR1A reprezinta TOP in CTC Mode.
-
-    Compare Match A apare la fiecare 10 ms.
-    */
-
-    OCR1A =
-        TC1_SYSTEM_TICK_TOP_VALUE;
-
-    /*
-    Counterul porneste de la zero.
-    */
-
-    TCNT1 =
-        TC1_COUNTER_INITIAL_VALUE;
-
-    /*
-    Dezactiveaza intreruperea Input Capture.
-    */
-
-    TIMSK1_ICIE1 =
-        TC1_INPUT_CAPTURE_INTERRUPT_DISABLE;
-
-    /*
-    Dezactiveaza Compare Match B.
-    */
-
-    TIMSK1_OCIE1B =
-        TC1_COMPARE_B_INTERRUPT_DISABLE;
-
-    /*
-    Dezactiveaza overflow interrupt.
-    In CTC Mode folosim Compare Match A.
-    */
-
-    TIMSK1_TOIE1 =
-        TC1_OVERFLOW_INTERRUPT_DISABLE;
-
-    /*
-    Activeaza Compare Match A Interrupt.
-    */
-
-    TIMSK1_OCIE1A =
-        TC1_COMPARE_A_INTERRUPT_ENABLE;
-}
-
-/* ========================================================= */
-/* TIMER START                                               */
-/* ========================================================= */
-
-void tc1_start(void)
-{
-    /*
-    Porneste fiecare masurare de la zero.
-    */
-
-    TCNT1 =
-        TC1_COUNTER_INITIAL_VALUE;
-
-    /*
-    Sterge un eventual Compare Match A flag
-    ramas dintr-o utilizare anterioara.
-    */
-
-    TIFR1_OCF1A =
-        TC1_CLEAR_COMPARE_A_FLAG;
-
-    /*
-    Selectarea sursei de clock porneste timerul.
-
-    Prescaler = 8.
-    Aceasta este ultima operatie de configurare.
-    */
-
-    TCCR1B_CS12 =
-        TC1_PRESCALER_8_CS12_VALUE;
-
-    TCCR1B_CS11 =
-        TC1_PRESCALER_8_CS11_VALUE;
-
-    TCCR1B_CS10 =
-        TC1_PRESCALER_8_CS10_VALUE;
-}
-
-/* ========================================================= */
-/* TIMER STOP                                                */
-/* ========================================================= */
-
-void tc1_stop(void)
-{
-    /*
-    CS12:0 = 000 opreste timerul.
-    Restul configuratiei registrelor ramane neschimbat.
-    */
-
-    TCCR1B_CS12 =
-        TC1_CLOCK_STOPPED_CS12_VALUE;
-
-    TCCR1B_CS11 =
-        TC1_CLOCK_STOPPED_CS11_VALUE;
-
-    TCCR1B_CS10 =
-        TC1_CLOCK_STOPPED_CS10_VALUE;
-}
-
-#endif

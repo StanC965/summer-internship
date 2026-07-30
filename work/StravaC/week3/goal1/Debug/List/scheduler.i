@@ -1,18 +1,41 @@
-#include "scheduler.h"
-#include "scheduler_cfg.h"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler.c"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler.h"
 
-#define SCHEDULER_FALSE                   (0U)
-#define SCHEDULER_TRUE                    (1U)
 
-#define SCHEDULER_FLAG_NOT_ACTIVE         (0U)
-#define SCHEDULER_FLAG_ACTIVE             (1U)
 
-#define SCHEDULER_COUNTER_ZERO            (0U)
+extern void scheduler_init(void);
 
-#define SCHEDULER_50MS_TICKS              (5U)
-#define SCHEDULER_100MS_TICKS             (10U)
-#define SCHEDULER_500MS_TICKS             (50U)
-#define SCHEDULER_1000MS_TICKS            (100U)
+extern void scheduler_flags_management(void);
+
+extern void scheduler_dispatcher(void);
+
+#line 2 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler.c"
+#line 1 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler_cfg.h"
+
+
+
+extern void scheduler_cfg_init(void);
+
+extern void scheduler_task_10ms(void);
+extern void scheduler_task_50ms(void);
+extern void scheduler_task_100ms(void);
+extern void scheduler_task_500ms(void);
+extern void scheduler_task_1000ms(void);
+
+#line 3 "D:\\Marquradt\\summer-internship\\work\\StravaC\\week3\\goal1\\scheduler.c"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 typedef unsigned char scheduler_uint8_t;
 
@@ -46,150 +69,150 @@ static volatile scheduler_uint8_t
 void scheduler_init(void)
 {
     scheduler_50ms_counter =
-        SCHEDULER_COUNTER_ZERO;
+        (0U);
 
     scheduler_100ms_counter =
-        SCHEDULER_COUNTER_ZERO;
+        (0U);
 
     scheduler_500ms_counter =
-        SCHEDULER_COUNTER_ZERO;
+        (0U);
 
     scheduler_1000ms_counter =
-        SCHEDULER_COUNTER_ZERO;
+        (0U);
 
     scheduler_10ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
+        (0U);
 
     scheduler_50ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
+        (0U);
 
     scheduler_100ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
+        (0U);
 
     scheduler_500ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
+        (0U);
 
     scheduler_1000ms_flag =
-        SCHEDULER_FLAG_NOT_ACTIVE;
+        (0U);
 }
 
 void scheduler_flags_management(void)
 {
     scheduler_10ms_flag =
-        SCHEDULER_FLAG_ACTIVE;
+        (1U);
 
     scheduler_50ms_counter++;
 
     if (
         scheduler_50ms_counter >=
-        SCHEDULER_50MS_TICKS
+        (5U)
     )
     {
         scheduler_50ms_counter =
-            SCHEDULER_COUNTER_ZERO;
+            (0U);
 
         scheduler_50ms_flag =
-            SCHEDULER_FLAG_ACTIVE;
+            (1U);
     }
 
     scheduler_100ms_counter++;
 
     if (
         scheduler_100ms_counter >=
-        SCHEDULER_100MS_TICKS
+        (10U)
     )
     {
         scheduler_100ms_counter =
-            SCHEDULER_COUNTER_ZERO;
+            (0U);
 
         scheduler_100ms_flag =
-            SCHEDULER_FLAG_ACTIVE;
+            (1U);
     }
 
     scheduler_500ms_counter++;
 
     if (
         scheduler_500ms_counter >=
-        SCHEDULER_500MS_TICKS
+        (50U)
     )
     {
         scheduler_500ms_counter =
-            SCHEDULER_COUNTER_ZERO;
+            (0U);
 
         scheduler_500ms_flag =
-            SCHEDULER_FLAG_ACTIVE;
+            (1U);
     }
 
     scheduler_1000ms_counter++;
 
     if (
         scheduler_1000ms_counter >=
-        SCHEDULER_1000MS_TICKS
+        (100U)
     )
     {
         scheduler_1000ms_counter =
-            SCHEDULER_COUNTER_ZERO;
+            (0U);
 
         scheduler_1000ms_flag =
-            SCHEDULER_FLAG_ACTIVE;
+            (1U);
     }
 }
 
 void scheduler_dispatcher(void)
 {
-    while (SCHEDULER_TRUE)
+    while ((1U))
     {
         if (
             scheduler_10ms_flag ==
-            SCHEDULER_FLAG_ACTIVE
+            (1U)
         )
         {
             scheduler_10ms_flag =
-                SCHEDULER_FLAG_NOT_ACTIVE;
+                (0U);
 
             scheduler_task_10ms();
         }
 
         if (
             scheduler_50ms_flag ==
-            SCHEDULER_FLAG_ACTIVE
+            (1U)
         )
         {
             scheduler_50ms_flag =
-                SCHEDULER_FLAG_NOT_ACTIVE;
+                (0U);
 
             scheduler_task_50ms();
         }
 
         if (
             scheduler_100ms_flag ==
-            SCHEDULER_FLAG_ACTIVE
+            (1U)
         )
         {
             scheduler_100ms_flag =
-                SCHEDULER_FLAG_NOT_ACTIVE;
+                (0U);
 
             scheduler_task_100ms();
         }
 
         if (
             scheduler_500ms_flag ==
-            SCHEDULER_FLAG_ACTIVE
+            (1U)
         )
         {
             scheduler_500ms_flag =
-                SCHEDULER_FLAG_NOT_ACTIVE;
+                (0U);
 
             scheduler_task_500ms();
         }
 
         if (
             scheduler_1000ms_flag ==
-            SCHEDULER_FLAG_ACTIVE
+            (1U)
         )
         {
             scheduler_1000ms_flag =
-                SCHEDULER_FLAG_NOT_ACTIVE;
+                (0U);
 
             scheduler_task_1000ms();
         }

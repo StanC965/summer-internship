@@ -3,5 +3,8 @@
     <project>
         <path>$WS_DIR$\Week3_Project.ewp</path>
     </project>
+    <project>
+        <path>$WS_DIR$\..\goal6\Week3_Project.ewp</path>
+    </project>
     <batchBuild />
 </workspace>

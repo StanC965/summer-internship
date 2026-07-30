@@ -4,7 +4,10 @@
 #include "gpio.h"
 
 /*
-LED-urile utilizate sunt active-low.
+OLED1 LEDs are active-low:
+
+LOW  -> LED ON
+HIGH -> LED OFF
 */
 
 extern void led_init(
@@ -19,11 +22,6 @@ extern void led_power_on(
 );
 
 extern void led_power_off(
-    volatile gpio_uint8_t *led_port_register,
-    gpio_uint8_t led_pin_number
-);
-
-extern void led_toggle(
     volatile gpio_uint8_t *led_port_register,
     gpio_uint8_t led_pin_number
 );

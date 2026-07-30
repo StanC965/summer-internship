@@ -5,11 +5,6 @@
 #include "scheduler_cfg.h"
 #include "tc1.h"
 
-/*
-BMW Central Control Panel Application
-using cooperative task scheduler.
-*/
-
 static void app_init(void);
 
 void main(void)
@@ -22,9 +17,7 @@ void main(void)
 static void app_init(void)
 {
     scheduler_cfg_init();
-
     scheduler_init();
-
     tc1_init();
 
     __enable_interrupt();
