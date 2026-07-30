@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>59602908</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Debug\List\sos.i</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\Week2_IAR.d90</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\sos.c</file>
+            <file>$PROJ_DIR$\sos.h</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\sos.r90</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\Week2_IAR.map</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Week2_IAR.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 21</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 6 20 12 13 11 15 22</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1 12</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 4 21</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 13</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 16 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\sos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 0 15</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 10 11</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 2 18 19 3 16</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>ICCAVR</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

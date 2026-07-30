@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>1997957702</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\gpio.h</file>
+            <file>$PROJ_DIR$\scheduler_cfg.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\button.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\led.r90</file>
+            <file>$PROJ_DIR$\button.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\tc1.r90</file>
+            <file>$PROJ_DIR$\adc.c</file>
+            <file>$PROJ_DIR$\gpio.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\scheduler.c</file>
+            <file>$PROJ_DIR$\scheduler_cfg.h</file>
+            <file>$PROJ_DIR$\led.c</file>
+            <file>$PROJ_DIR$\tc1.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduler_cfg.r90</file>
+            <file>$PROJ_DIR$\led.h</file>
+            <file>$PROJ_DIR$\scheduler.h</file>
+            <file>$PROJ_DIR$\tc1.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r90</file>
+            <file>$PROJ_DIR$\adc.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\Week3_Project.d90</file>
+            <file>$PROJ_DIR$\Debug\Obj\scheduler.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\button.r90</file>
+            <file>$PROJ_DIR$\blink_state_machine.c</file>
+            <file>$PROJ_DIR$\Debug\List\gpio.i</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom324pb.inc</file>
+            <file>$PROJ_DIR$\Debug\List\led.i</file>
+            <file>$TOOLKIT_DIR$\inc\iom324pb.h</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler.i</file>
+            <file>$PROJ_DIR$\Debug\List\tc1.i</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Debug\List\button.i</file>
+            <file>$PROJ_DIR$\Debug\List\adc.i</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\Debug\List\Week3_Project.map</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$PROJ_DIR$\Debug\List\scheduler_cfg.i</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm324pb.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\state_machine.r90</file>
+            <file>$PROJ_DIR$\blink_state_machine.h</file>
+            <file>$PROJ_DIR$\Debug\List\state_machine.i</file>
+            <file>$PROJ_DIR$\Debug\Obj\blink_state_machine.r90</file>
+            <file>$PROJ_DIR$\Debug\List\blink_state_machine.i</file>
+            <file>$PROJ_DIR$\state_machine.c</file>
+            <file>$PROJ_DIR$\state_machine.h</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\scheduler_cfg.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 38 14</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 34 26 42 0 15 11</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\button.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 32 23</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 5 0</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\adc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 33 18</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25 19</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 0</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 36 2</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 34 26 31 16 11 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\scheduler.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 29 22</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 16 11</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 27 4</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 0</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\tc1.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 30 6</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28 34 26 16 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 21 35</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Week3_Project.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 35</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 40 39 18 44 23 19 4 2 22 14 41 6 37</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\blink_state_machine.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 45 44</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 0 42</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\state_machine.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 43 41</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 0 47</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

@@ -1,0 +1,143 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\adc.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\adc.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\blink_state_machine.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\blink_state_machine.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\button.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\button.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\gpio.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\gpio.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\led.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\led.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\main.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\main.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\scheduler.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\scheduler.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\scheduler_cfg.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\scheduler_cfg.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\state_machine.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\state_machine.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\tc1.c -xcl_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.xcl -macro_file D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\avr\bin\iccavr.exe"
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\tc1.c --cpu=m324pb -ms -o D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\Obj\ --preprocess D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\List\ --initializers_in_flash --no_cse --no_inline --no_code_motion --no_cross_call --no_clustering --no_tbaa --debug -e --eeprom_size 1024 --dlib --dlib_config DLib_Config_Normal.h -Ol --predef_macros D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.tmp
+  rspfile_name = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.xcl.rsp
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\adc.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\blink_state_machine.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\button.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\gpio.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\led.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\main.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\scheduler.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\scheduler_cfg.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\state_machine.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.pbi : INDEXER D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.xcl |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\tc1.c
+  flags = -out=D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.pbi -f D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.xcl
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project.pbw : MAKEBROWSE D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project.pbd
+  flags = D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project.pbd -output D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project.pbw
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part0.pbi : PDBLINK D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.pbi |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.pbi $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.pbi
+  flags = -M D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part0.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\adc.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\blink_state_machine.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\button.pbi
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part1.pbi : PDBLINK D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.pbi |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.pbi $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.pbi
+  flags = -M D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part1.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\gpio.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\led.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\main.pbi
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part2.pbi : PDBLINK D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.pbi |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.pbi $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.pbi
+  flags = -M D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part2.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\scheduler_cfg.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\state_machine.pbi
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part3.pbi : PDBLINK D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.pbi
+  flags = -M D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part3.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\tc1.pbi
+
+build D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project.pbd : PDBLINK D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part0.pbi |  $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part1.pbi $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part2.pbi $
+D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part3.pbi
+  flags = -M D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project.pbd D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part0.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part1.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part2.pbi D$:\Marquradt\summer-internship\work\StravaC\week3\goal1\Debug\BrowseInfo\Week3_Project_part3.pbi
+
